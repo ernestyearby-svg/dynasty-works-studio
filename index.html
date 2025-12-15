@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Dynasty Works Studio — Automation • Systems • Brands</title>
+<meta content="Dynasty Works Studio builds premium sites, branding kits, investor decks, and faceless reels—fast. Proof-first. System-built." name="description"/>
+<meta content="#0B0B0B" name="theme-color"/>
+<meta content="Dynasty Works Studio" property="og:title"/>
+<meta content="Where ideas evolve into systems. Automation • Systems • Brands." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="assets/hero-services.png" property="og:image"/>
+<link href="assets/favicon-48.png" rel="icon"/>
+<link href="assets/apple-touch-icon.png" rel="apple-touch-icon"/>
+<style>
+    :root{
+      --bg:#070708; --text:#f5f5f5; --muted:#b9b9b9; --line:rgba(255,255,255,.11);
+      --gold:#d4af37; --gold2:#f0d98a; --shadow:0 18px 55px rgba(0,0,0,.65);
+      --r:18px; --r2:26px; --max:1120px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:
+        radial-gradient(900px 500px at 22% 8%, rgba(212,175,55,.14), transparent 58%),
+        radial-gradient(900px 500px at 80% 30%, rgba(240,217,138,.09), transparent 55%),
+        linear-gradient(180deg, #050506 0%, var(--bg) 55%, #050506 100%);
+      letter-spacing:.2px;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .nav{position:sticky; top:0; z-index:50; backdrop-filter:blur(10px); background:rgba(7,7,8,.72); border-bottom:1px solid var(--line)}
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:.8px}
+    .brand img{width:34px; height:34px; border-radius:12px; border:1px solid rgba(212,175,55,.35)}
+    .nav-links{display:flex; gap:16px; color:var(--muted); font-size:14px}
+    .nav-links a:hover{color:var(--text)}
+    .cta{display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:12px; font-weight:900;
+      border:1px solid rgba(212,175,55,.55); background:linear-gradient(135deg, rgba(212,175,55,.22), rgba(255,255,255,.04));
+      box-shadow:var(--shadow); transition:transform .12s ease; white-space:nowrap}
+    .cta:hover{transform:translateY(-1px)}
+    .cta.secondary{border:1px solid var(--line); background:rgba(255,255,255,.03); box-shadow:none; font-weight:800}
+
+    header{padding:44px 0 14px}
+    .hero{display:grid; grid-template-columns:1.15fr .85fr; gap:14px; align-items:stretch}
+    .card{border:1px solid var(--line); border-radius:var(--r2); background:rgba(255,255,255,.03); box-shadow:var(--shadow); overflow:hidden}
+    .hero-left{padding:24px}
+    .kicker{color:var(--gold2); font-weight:900; font-size:13px; letter-spacing:1.4px; text-transform:uppercase}
+    h1{margin:12px 0 10px; font-size:clamp(30px, 4vw, 54px); line-height:1.05; letter-spacing:-.7px}
+    .sub{margin:0 0 16px; color:var(--muted); font-size:16px; line-height:1.65; max-width:58ch}
+    .hero-actions{display:flex; gap:10px; flex-wrap:wrap}
+    .pill-row{margin-top:16px; display:flex; gap:10px; flex-wrap:wrap; color:var(--muted); font-size:13px}
+    .pill{padding:8px 10px; border-radius:999px; border:1px solid var(--line); background:rgba(0,0,0,.18)}
+
+    .hero-right{position:relative}
+    .hero-right .img{width:100%; height:100%; object-fit:cover; display:block}
+    .hero-right .overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.72));
+      display:flex; flex-direction:column; justify-content:flex-end; padding:18px; gap:10px}
+    .overlay-title{font-weight:1000; letter-spacing:.9px; font-size:14px; color:var(--gold2); text-transform:uppercase}
+    .overlay-sub{margin:0; color:var(--text); font-weight:900; font-size:18px; line-height:1.25}
+    .overlay-sub span{color:var(--gold2)}
+
+    section{padding:18px 0}
+    .section-title{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:12px}
+    .section-title h2{margin:0; font-size:22px; letter-spacing:-.3px}
+    .section-title p{margin:0; color:var(--muted); font-size:14px; line-height:1.55; max-width:70ch}
+
+    .services{display:grid; grid-template-columns:repeat(4, 1fr); gap:12px}
+    .svc{border:1px solid var(--line); border-radius:var(--r2); background:rgba(255,255,255,.03); overflow:hidden}
+    .svc img{width:100%; height:auto; display:block}
+    .svc .body{padding:12px 12px 14px}
+    .svc h3{margin:0 0 6px; font-size:14.5px; letter-spacing:.2px}
+    .svc p{margin:0 0 10px; color:var(--muted); font-size:13.5px; line-height:1.55}
+    .btnrow{display:flex; gap:8px; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; justify-content:center; padding:8px 10px; border-radius:12px; border:1px solid var(--line);
+      background:rgba(0,0,0,.20); font-size:13px; font-weight:800}
+    .btn.primary{border-color:rgba(212,175,55,.55); background:rgba(212,175,55,.10)}
+
+    .proof{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    .proof .box{padding:16px; border-radius:var(--r2); border:1px solid var(--line); background:rgba(255,255,255,.03)}
+    .proof h3{margin:0 0 6px}
+    .proof p{margin:0 0 10px; color:var(--muted); font-size:13.5px; line-height:1.55}
+
+    .faq{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    details{border:1px solid var(--line); border-radius:var(--r); background:rgba(255,255,255,.03); padding:14px}
+    summary{cursor:pointer; font-weight:1000}
+    details p{color:var(--muted); margin:8px 0 0; font-size:13.5px; line-height:1.55}
+
+    .contact{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    .contact .box{padding:16px; border-radius:var(--r2); border:1px solid var(--line); background:rgba(255,255,255,.03)}
+    form{display:grid; gap:10px}
+    input, textarea{width:100%; padding:12px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.25); color:var(--text); outline:none; font-size:14px}
+    textarea{min-height:120px; resize:vertical}
+    .footer{margin-top:18px; padding:22px 0 36px; border-top:1px solid var(--line); color:var(--muted); font-size:12.5px}
+
+    .sticky{position:fixed; left:14px; right:14px; bottom:14px; display:none; gap:10px; z-index:60}
+    .sticky a{flex:1; text-align:center; padding:14px 14px; border-radius:14px; border:1px solid var(--line);
+      background:rgba(16,17,20,.88); backdrop-filter:blur(10px); box-shadow:var(--shadow); font-weight:1000}
+    .sticky a.primary{border-color:rgba(212,175,55,.55); background:linear-gradient(135deg, rgba(212,175,55,.22), rgba(255,255,255,.05))}
+
+    @media (max-width:980px){.hero{grid-template-columns:1fr} .services{grid-template-columns:1fr 1fr} .proof{grid-template-columns:1fr}
+      .faq{grid-template-columns:1fr} .contact{grid-template-columns:1fr} .nav-links{display:none} .sticky{display:flex}}
+    @media (max-width:560px){.services{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="nav">
+<div class="wrap">
+<div class="nav-inner">
+<div class="brand">
+<img alt="Dynasty Works Studio" src="assets/logo-seal.png"/>
+<div>DYNASTY WORKS STUDIO</div>
+</div>
+<div class="nav-links">
+<a href="#services">Services</a>
+<a href="#proof">Proof</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+</div>
+<a class="cta" href="https://www.fiverr.com/s/99ZLeLD?utm_source=CopyLink_Mobile" rel="noreferrer" target="_blank">Order on Fiverr</a>
+</div>
+</div>
+</div>
+<header>
+<div class="wrap">
+<div class="hero">
+<div class="card hero-left">
+<div class="kicker">Automation • Systems • Brands</div>
+<h1>Where ideas evolve into systems.</h1>
+<p class="sub">We build premium, conversion-focused assets fast — websites, branding kits, investor decks, and faceless content packages. Proof-first. Clean execution. Built to scale.</p>
+<div class="hero-actions">
+<a class="cta" href="https://www.fiverr.com/s/99ZLeLD?utm_source=CopyLink_Mobile" rel="noreferrer" target="_blank">Order on Fiverr</a>
+<a class="cta secondary" href="#contact">Request a Custom Quote</a>
+<a class="cta secondary" href="#proof">See Proof</a>
+</div>
+<div class="pill-row">
+<div class="pill">Fast turnarounds</div>
+<div class="pill">Luxury brand polish</div>
+<div class="pill">Mobile-first</div>
+<div class="pill">System-built deliverables</div>
+</div>
+</div>
+<div class="card hero-right">
+<img alt="Dynasty Works services" class="img" src="assets/hero-services.png"/>
+<div class="overlay">
+<div class="overlay-title">Signature offers</div>
+<p class="overlay-sub">Logos &amp; Branding • Faceless Reels • Investor Decks • <span>Mini‑Empire Kits</span></p>
+</div>
+</div>
+</div>
+</div>
+</header>
+<section id="services">
+<div class="wrap">
+<div class="section-title">
+<h2>Services</h2>
+<p>Four high-demand outputs, delivered with premium presentation and operator-grade structure.</p>
+</div>
+<div class="services">
+<div class="svc">
+<img alt="Dynasty Logos &amp; Branding Kits" src="assets/service-branding.png"/>
+<div class="body">
+<h3>Logos &amp; Branding Kits</h3>
+<p>Logo suite + color/typography + social headers + a clean, usable brand package.</p>
+<div class="btnrow"><a class="btn primary" href="https://www.fiverr.com/s/99ZLeLD?utm_source=CopyLink_Mobile" rel="noreferrer" target="_blank">Order</a><a class="btn" href="#contact">Custom request</a></div>
+</div>
+</div>
+<div class="svc">
+<img alt="Premium Faceless Reels" src="assets/service-reels.png"/>
+<div class="body">
+<h3>Premium Faceless Reels</h3>
+<p>Scroll-stopping reels: hooks, structure, editing, captions, and brand polish.</p>
+<div class="btnrow"><a class="btn primary" href="https://www.fiverr.com/s/99ZLeLD?utm_source=CopyLink_Mobile" rel="noreferrer" target="_blank">Order</a><a class="btn" href="#contact">Custom request</a></div>
+</div>
+</div>
+<div class="svc">
+<img alt="Investor Decks &amp; Sales Sheets" src="assets/service-decks.png"/>
+<div class="body">
+<h3>Investor Decks &amp; Sales Sheets</h3>
+<p>Investor-ready decks and one-pagers with clear story, metrics, and premium layout.</p>
+<div class="btnrow"><a class="btn primary" href="https://www.fiverr.com/s/99ZLeLD?utm_source=CopyLink_Mobile" rel="noreferrer" target="_blank">Order</a><a class="btn" href="#contact">Custom request</a></div>
+</div>
+</div>
+<div class="svc">
+<img alt="Full Mini-Empire Kit" src="assets/service-empire.png"/>
+<div class="body">
+<h3>Full Mini‑Empire Kit</h3>
+<p>The full stack: brand + website + content + pitch assets — built as a system.</p>
+<div class="btnrow"><a class="btn primary" href="#contact">Request scope</a><a class="btn" href="https://www.fiverr.com/s/99ZLeLD?utm_source=CopyLink_Mobile" rel="noreferrer" target="_blank">See Fiverr</a></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="proof">
+<div class="wrap">
+<div class="section-title">
+<h2>Proof</h2>
+<p>We lead with real builds. Plug in your links as we publish more portfolio pieces.</p>
+</div>
+<div class="proof">
+<div class="box">
+<h3>Live Sites</h3>
+<p>• Autism Is A Reality (AIAR): <a class="btn" href="https://www.autisumisareality.org" rel="noreferrer" target="_blank">View</a><br/>
+             • BH Solutions: <span style="color:var(--muted)">add link here</span></p>
+<div class="btnrow"><a class="btn primary" href="#contact">Build one like this</a><a class="btn" href="https://www.fiverr.com/s/99ZLeLD?utm_source=CopyLink_Mobile" rel="noreferrer" target="_blank">Order on Fiverr</a></div>
+</div>
+<div class="box">
+<h3>Selected Client Work</h3>
+<p>Cleaning Doctors • None of a Kind • Elev8ed Barber Tools • and more.<br/><span style="color:var(--muted)">Add each live link as it’s available.</span></p>
+<div class="btnrow"><a class="btn" href="#contact">Send portfolio links</a><a class="btn primary" href="#contact">Request a build</a></div>
+</div>
+</div>
+</div>
+</section>
+<section id="faq">
+<div class="wrap">
+<div class="section-title"><h2>FAQ</h2><p>Fast answers so we can move without friction.</p></div>
+<div class="faq">
+<details><summary>How fast can we deliver?</summary><p>Single deliverables can move fast once we have inputs. Full kits ship in clear phases after scope is locked.</p></details>
+<details><summary>Do we do custom work outside the four offers?</summary><p>Yes—if it supports brands, systems, or automation. Use the quote form and we’ll respond with a clean scope.</p></details>
+<details><summary>What do you need from the client?</summary><p>Offer, target audience, examples you like, and the one action you want customers to take.</p></details>
+<details><summary>Do you offer revisions?</summary><p>Yes—structured revision rounds so quality increases without endless loops.</p></details>
+</div>
+</div>
+</section>
+<section id="contact">
+<div class="wrap">
+<div class="section-title"><h2>Contact</h2><p>Send the basics. We’ll respond with scope, timeline, and next steps.</p></div>
+<div class="contact">
+<div class="box">
+<h3>Fastest Path</h3>
+<p>For a quick start, place the order on Fiverr. For custom systems, request a quote below.</p>
+<div class="btnrow">
+<a class="cta" href="https://www.fiverr.com/s/99ZLeLD?utm_source=CopyLink_Mobile" rel="noreferrer" target="_blank">Order on Fiverr</a>
+<a class="cta secondary" href="mailto:ernestyearby@gmail.com?subject=Dynasty%20Works%20Studio%20Request&amp;body=Business%20Name%3A%0AIndustry%3A%0AGoal%3A%0AWhat%20to%20build%3A%0ADeadline%3A%0ALinks%3A">Email Request</a>
+</div>
+<p style="margin-top:12px; color:var(--muted); font-size:13.5px">Replace <b>ernestyearby@gmail.com</b> in the code once we choose the inbox.</p>
+</div>
+<div class="box">
+<div class="contact-cta"><h3>Start a Project</h3><p>Fastest path: place an order on Fiverr or email us directly.</p><div class="cta-buttons"><a class="btn primary" href="https://www.fiverr.com/s/99ZLeLD?utm_source=CopyLink_Mobile" rel="noopener" target="_blank">Order on Fiverr</a><a class="btn secondary" href="mailto:ernestyearby@gmail.com?subject=Dynasty%20Works%20Studio%20Project%20Request">Email Us</a></div></div>
+</div>
+</div>
+<div class="footer">
+<div class="wrap" style="padding:0">© <span id="y"></span> Dynasty Works Studio. Automation • Systems • Brands.</div>
+</div>
+</div>
+</section>
+<div class="sticky">
+<a class="primary" href="https://www.fiverr.com/s/99ZLeLD?utm_source=CopyLink_Mobile" rel="noreferrer" target="_blank">Order</a>
+<a href="#contact">Quote</a>
+</div>
+<script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
