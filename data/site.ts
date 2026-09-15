@@ -6,7 +6,7 @@ export const site = {
     accent: "company.",
     description: "Strategy. Brand. Technology.",
     support: "From the first idea to the next stage of growth.",
-    image: "/assets/studio/concept-aluminum-ribbon.webp",
+    image: undefined as string | undefined,
     video: undefined as string | undefined,
   },
   statement: "We don’t separate strategy from execution.",

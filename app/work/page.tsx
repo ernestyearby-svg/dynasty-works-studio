@@ -1,3 +1,4 @@
+import Link from "@/components/site-link";
 import { content } from "@/lib/content";
 import { PageIntro, FinalCTA } from "@/components/studio";
 import { WorkExplorer } from "@/components/work-explorer";
@@ -16,11 +17,8 @@ export default async function Work() {
         description="Ideas made visible. Systems made useful. A growing collection of creative and technical work."
       />
       <section className="shell work-section">
-        <p className="content-note">
-          Portfolio preview · All six entries are placeholders. Artwork,
-          categories and project information await final approval.
-        </p>
-        <WorkExplorer projects={await content.listProjects()} />
+
+        <WorkExplorer projects={await content.listProjects()} /><Link className="text-link" href="/work/archive">The creative archive ↗</Link>
       </section>
       <FinalCTA />
     </>

@@ -1,7 +1,9 @@
+import { Wordmark } from "@/components/wordmark";
 import type { Metadata } from "next";
 import Link from "@/components/site-link";
 import { Navbar } from "@/components/navbar";
 import "./globals.css";
+import "./brand-system.css";
 import { site } from "@/data/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.origin),
@@ -36,9 +38,7 @@ export default function RootLayout({
         <footer className="footer shell">
           <div className="footer-top">
             <Link href="/" className="wordmark">
-              DYNASTY
-              <br />
-              WORKS STUDIO
+              <Wordmark />
             </Link>
             <p>
               Independent thinking.

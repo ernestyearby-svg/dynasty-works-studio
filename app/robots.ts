@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       ...(process.env.INDEXING_ENABLED === "true"
-        ? { allow: "/", disallow: "/api/" }
+        ? { allow: "/", disallow: ["/api/", "/creative-review", "/founder-blueprint/intake"] }
         : { disallow: "/" }),
     },
     sitemap: site.origin + "/sitemap.xml",

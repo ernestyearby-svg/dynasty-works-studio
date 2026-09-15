@@ -15,12 +15,15 @@ export function BeforeAfter({
       <div className="comparison-images">
         <OptimizedImage
           src={before.src}
+          srcSet={before.srcSet}
           alt={before.alt}
+          loading="lazy"
           width={1536}
           height={1024}
         />
         <OptimizedImage
           src={after.src}
+          srcSet={after.srcSet}
           alt={after.alt}
           width={1536}
           height={1024}

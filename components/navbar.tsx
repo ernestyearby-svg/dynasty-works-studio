@@ -1,4 +1,5 @@
 "use client";
+import { Wordmark } from "@/components/wordmark";
 import Link from "@/components/site-link";
 import { useState } from "react";
 import { navigation } from "@/data/site";
@@ -11,14 +12,7 @@ export function Navbar() {
         className="wordmark"
         aria-label="Dynasty Works Studio home"
       >
-        <span className="brand-mark" aria-hidden="true">
-          Ⅾ/
-        </span>
-        <span>
-          DYNASTY
-          <br />
-          WORKS STUDIO
-        </span>
+        <Wordmark />
       </Link>
       <button
         className="menu-toggle"

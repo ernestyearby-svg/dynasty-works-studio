@@ -23,12 +23,8 @@ const routes = [
   "/studio",
   "/templates",
   "/contact",
-  "/work/mymosa",
-  "/work/ikla-maison",
-  "/work/smokesuite",
-  "/work/mr-cliffs",
-  "/work/ohana-to-alpine",
-  "/work/quick-fix",
+  "/work/archive",
+  "/creative-review",
 ];
 const links = new Set(),
   titles = new Set(),
@@ -79,6 +75,34 @@ for (const path of ["/robots.txt", "/sitemap.xml"]) {
   results.push(path + " 200");
 }
 assert.equal((await fetch(origin + "/work/does-not-exist")).status, 404);
+for (const slug of [
+  "mymosa",
+  "ikla-maison",
+  "smokesuite",
+  "mr-cliffs",
+  "ohana-to-alpine",
+  "quick-fix",
+])
+  assert.equal(
+    (await fetch(origin + "/work/" + slug)).status,
+    404,
+    "Unapproved case must not render",
+  );
+for (const path of [
+  "/assets/projects/concept-beverage-still-life.webp",
+  "/assets/studio/concept-aluminum-ribbon.webp",
+])
+  assert.equal(
+    (await fetch(origin + path)).status,
+    404,
+    "Unapproved asset must not be hosted",
+  );
+const review = await (await fetch(origin + "/creative-review")).text();
+assert.match(review, /noindex/);
+assert.match(review, /IDENTITY EXPLORATION/);
+const home = await (await fetch(origin + "/")).text();
+assert.ok(!home.includes("concept-beverage"));
+assert.ok(!home.includes('href="/creative-review"'));
 const valid = {
   services: ["Brand Identity"],
   description: "Synthetic validation test for a studio identity project.",

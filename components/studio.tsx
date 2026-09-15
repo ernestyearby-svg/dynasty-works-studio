@@ -2,7 +2,7 @@ import { RelatedServices } from "@/components/company-sections";
 import { OptimizedImage } from "@/components/optimized-image";
 import Link from "@/components/site-link";
 import type { Project, Media, CaseModule } from "@/data/projects";
-import { site, processSteps } from "@/data/site";
+import { processSteps } from "@/data/site";
 import { services } from "@/data/services";
 import { BeforeAfter } from "@/components/before-after";
 export function SectionHeading({
@@ -23,51 +23,57 @@ export function SectionHeading({
     </div>
   );
 }
-export function Hero() {
+export function Hero({
+  media,
+}: {
+  media?: { approvalReference: string; poster: Media; video?: string };
+} = {}) {
   return (
-    <section className="hero shell">
-      <div className="eyebrow hero-top">
-        Independent thinking. Integrated execution.
-        <span>CREATIVE × TECHNOLOGY</span>
+    <section className="dw-hero shell">
+      <div className="dw-hero-meta eyebrow">
+        <span>DYNASTY WORKS / STUDIO</span>
+        <span>STRATEGY · DESIGN · TECHNOLOGY</span>
       </div>
       <h1>
-        {site.hero.firstLine}
+        WE BUILD THE
         <br />
-        {site.hero.secondLine} <em>{site.hero.accent}</em>
+        COMPANY
+        <br />
+        <span>AROUND THE IDEA.</span>
       </h1>
-      <div className="hero-bottom">
+      <div className="dw-hero-bottom">
         <p>
-          {site.hero.description}
+          An independent studio for the entire build.
           <br />
-          {site.hero.support}
+          From first direction to a company in motion.
         </p>
-        <Link className="button light" href="/start-a-business">
-          Build something <span>↗</span>
-        </Link>
-        <Link className="hero-contact" href="/work">
-          See what we’ve built ↗
-        </Link>
-        <span className="scroll-note">SCROLL TO EXPLORE ↓</span>
+        <div className="dw-actions">
+          <Link className="button light" href="/start-a-business/builder">
+            Build your company ↗
+          </Link>
+          <Link className="text-link" href="/work">
+            View our work ↗
+          </Link>
+        </div>
       </div>
-      {site.hero.video ? (
-        <video
-          className="hero-video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={site.hero.image}
-          aria-label="Studio motion study"
-        >
-          <source src={site.hero.video} />
-        </video>
-      ) : (
-        <div
-          className="hero-art"
-          style={{ backgroundImage: `url(${site.hero.image})` }}
-          aria-hidden="true"
-        />
+      {media?.approvalReference.trim() && (
+        <div className="dw-hero-media">
+          {media.video ? (
+            <VideoFrame
+              src={media.video}
+              poster={media.poster}
+              title="Dynasty Works Studio film"
+            />
+          ) : (
+            <MediaFrame image={media.poster} priority />
+          )}
+        </div>
       )}
+      <div className="dw-hero-register eyebrow" aria-hidden="true">
+        <span>01 — CONCEPTION</span>
+        <span>02 — CONSTRUCTION</span>
+        <span>03 — CONTINUITY</span>
+      </div>
     </section>
   );
 }
@@ -82,6 +88,7 @@ export function MediaFrame({
     <figure className="media-frame">
       <OptimizedImage
         src={image.src}
+        srcSet={image.srcSet}
         alt={image.alt}
         width={image.width || 1536}
         height={image.height || 1024}
@@ -99,63 +106,18 @@ export function ProjectArtwork({
   project: Project;
   priority?: boolean;
 }) {
+  if (!project.heroImage) return null;
   return (
     <div className={`project-art art-${project.art}`}>
-      {project.heroImage ? (
-        <OptimizedImage
-          src={project.heroImage.src}
-          alt={project.heroImage.alt}
-          width={1536}
-          height={1024}
-          loading={priority ? "eager" : "lazy"}
-        />
-      ) : (
-        <div className="type-study" aria-hidden="true">
-          <span className="art-overline">
-            DYNASTY WORKS / STUDY {String(project.order).padStart(2, "0")}
-          </span>
-          <span className="art-type">
-            {project.art === "maison" ? (
-              <>
-                IKLA
-                <br />
-                <i>Maison.</i>
-              </>
-            ) : project.art === "suite" ? (
-              <>
-                Smoke
-                <br />
-                Suite<span className="type-cross">+</span>
-              </>
-            ) : project.art === "bourbon" ? (
-              <>
-                MR. CLIFF’S
-                <br />
-                <i>Premium Bourbon</i>
-              </>
-            ) : project.art === "alpine" ? (
-              <>
-                Ohana
-                <br />
-                <i>to Alpine.</i>
-              </>
-            ) : (
-              <>
-                Quick
-                <br />
-                <i>Fix.</i>
-              </>
-            )}
-          </span>
-          <span className="art-foot">EXPLORATION / CONTENT PENDING</span>
-        </div>
-      )}
-      <span className="art-badge">
-        {project.status === "placeholder"
-          ? "CONCEPT PLACEHOLDER"
-          : "VIEW PROJECT"}{" "}
-        ↗
-      </span>
+      <OptimizedImage
+        src={project.heroImage.src}
+        srcSet={project.heroImage.srcSet}
+        alt={project.heroImage.alt}
+        width={project.heroImage.width || 1536}
+        height={project.heroImage.height || 1024}
+        loading={priority ? "eager" : "lazy"}
+      />
+      <span className="art-badge">VIEW PROJECT ↗</span>
     </div>
   );
 }
@@ -176,8 +138,9 @@ export function ProjectCard({
         <div className="project-caption">
           <h3>{project.title}</h3>
           <span>
-            {project.category.slice(0, 2).join(" / ")}{" "}
-            <span aria-hidden="true">↗</span>
+            {project.industries.join(" / ")}
+            <br />
+            {project.services.join(" / ")} <span aria-hidden="true">↗</span>
           </span>
         </div>
       </Link>
@@ -330,6 +293,13 @@ export function ProjectGallery({ images }: { images: Media[] }) {
 }
 export function CaseModuleView({ module }: { module: CaseModule }) {
   switch (module.type) {
+    case "media-sequence":
+      return module.images.length ? (
+        <section className={`media-sequence sequence-${module.layout}`}>
+          <h2>{module.title}</h2>
+          <ProjectGallery images={module.images} />
+        </section>
+      ) : null;
     case "text":
       return (
         <CaseStudySection title={module.title}>

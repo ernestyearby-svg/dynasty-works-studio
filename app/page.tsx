@@ -1,143 +1,164 @@
 import Link from "@/components/site-link";
 import { content } from "@/lib/content";
-import { site } from "@/data/site";
 import {
   Hero,
   SectionHeading,
   ProjectCard,
   ProcessTimeline,
   FinalCTA,
-  ProjectArtwork,
 } from "@/components/studio";
-import { CompanyInvitation, PracticeGrid } from "@/components/company-sections";
+import { PracticeGrid } from "@/components/company-sections";
+import { BuildSequence, BlueprintCover } from "@/components/build-sequence";
+import { founderBlueprint } from "@/data/founder-blueprint";
 export default async function Home() {
   const projects = await content.listProjects();
   const featured = projects.filter((p) => p.featured);
-  const focus = projects.find((p) => p.slug === "smokesuite");
+  const focus = featured[2];
   return (
     <>
       <Hero />
-      <section className="shell section selected">
+      <section className="shell section dw-selected">
         <SectionHeading
           number="01"
           label="SELECTED WORK"
-          title="Ideas made tangible."
+          title="The work is the proof."
         />
-        <div className="section-sub">
-          <p>Across brands, screens and physical spaces.</p>
-          <Link href="/work" className="text-link">
-            View all work ↗
-          </Link>
-        </div>
-        <p className="content-note">
-          Portfolio preview · Project names supplied by the studio. Visuals and
-          category assignments are illustrative, pending approval.
-        </p>
-        <div className="selected-grid">
-          {featured.slice(0, 2).map((p) => (
-            <ProjectCard key={p.slug} project={p} />
-          ))}
-        </div>
+        {featured.length ? (
+          <div className="selected-grid">
+            {featured.slice(0, 2).map((p) => (
+              <ProjectCard project={p} key={p.slug} />
+            ))}
+          </div>
+        ) : (
+          <div className="dw-work-intro">
+            <p>
+              Ideas take shape.
+              <br />
+              <em>Across every dimension.</em>
+            </p>
+            <div>
+              <span className="eyebrow">THE PORTFOLIO</span>
+              <p>Our selected case studies are being curated for release.</p>
+              <Link className="text-link" href="/work">
+                Explore the work index ↗
+              </Link>
+            </div>
+          </div>
+        )}
       </section>
-      <CompanyInvitation />
-      <section className="shell home-journey commercial-system">
-        <span className="eyebrow">ONE STUDIO. THE ENTIRE BUILD.</span>
+      <section className="shell section dw-system">
+        <span className="eyebrow">02 / THE BUILD SYSTEM</span>
         <h2>
-          From idea. To company.
+          One idea.
           <br />
-          <em>To market. To growth.</em>
+          <em>A connected company.</em>
         </h2>
-        <p className="commercial-sequence">
-          Start <span>→</span> Brand <span>→</span> Build <span>→</span> Launch{" "}
-          <span>→</span> Distribute <span>→</span> Activate <span>→</span> Grow
+        <BuildSequence />
+        <p className="dw-offset">
+          The strategy informs the brand. The brand shapes the product. The
+          product meets the market. Every decision belongs to a larger whole.
         </p>
-        <p className="small-note">
-          Follow the stages your business needs. Publishing supports the journey
-          wherever communication matters.
-        </p>
-        <Link className="button dark" href="/start-a-business/builder">
-          Build your roadmap ↗
-        </Link>
       </section>
-      <section className="dark-section shell section">
+      {focus && (
+        <section className="shell section">
+          <SectionHeading number="03" label="IN FOCUS" title={focus.title} />
+          <ProjectCard project={focus} />
+        </section>
+      )}
+      <section className="shell section dark-section">
         <SectionHeading
-          number="02"
-          label="CAPABILITIES"
-          title="One idea. Every discipline."
+          number="04"
+          label="EIGHT CONNECTED PRACTICES"
+          title="One studio. The entire build."
         />
-        <p className="section-description">
-          Strategy, creative and technology, connected to the realities of
-          launch and growth.
-        </p>
         <PracticeGrid compact />
-        <Link href="/services" className="text-link">
+        <Link className="text-link" href="/capabilities">
           Explore our capabilities ↗
         </Link>
       </section>
-      {focus && (
-        <section className="featured shell section">
-          <div className="featured-copy">
-            <span className="eyebrow">03 / IN FOCUS</span>
-            <h2>
-              Brand thinking.
-              <br />
-              Digital expression.
-            </h2>
-            <p>{focus.title}</p>
-            <p className="muted">
-              A case-study framework ready for the product story, from the first
-              decision to the final interface.
-            </p>
-            <Link className="button" href={"/work/" + focus.slug}>
-              Explore the project ↗
-            </Link>
-          </div>
-          <Link
-            href={"/work/" + focus.slug}
-            aria-label={"Explore " + focus.title}
-          >
-            <ProjectArtwork project={focus} />
+      <section className="shell section dw-product">
+        <div>
+          <span className="eyebrow">05 / COMPANY BUILDER</span>
+          <h2>
+            Your idea.
+            <br />
+            Your next move.
+          </h2>
+          <p>
+            A guided starting point. Map what you have, what you need and the
+            order to build it.
+          </p>
+          <Link className="button dark" href="/start-a-business/builder">
+            Build your company ↗
           </Link>
-        </section>
-      )}
+        </div>
+        <div className="dw-product-diagram">
+          <span className="eyebrow">A GUIDED BUILD / 01—07</span>
+          {["Define the idea", "Connect the needs", "Sequence the build"].map(
+            (x, i) => (
+              <div key={x}>
+                <span>0{i + 1}</span>
+                <strong>{x}</strong>
+                <span>↗</span>
+              </div>
+            ),
+          )}
+          <p>From a starting point to a preliminary roadmap.</p>
+        </div>
+      </section>
+      <section className="shell section dw-blueprint">
+        <BlueprintCover />
+        <div>
+          <span className="eyebrow">06 / FOUNDER BLUEPRINT</span>
+          <h2>
+            Before you build.
+            <br />
+            <em>Know the company.</em>
+          </h2>
+          <p>
+            A strategic engagement to turn the idea into a coordinated company
+            roadmap.
+          </p>
+          <strong className="dw-price">{founderBlueprint.priceLabel}</strong>
+          <p className="small-note">
+            Strategy and roadmap. Execution scoped separately.
+          </p>
+          <Link className="button" href="/founder-blueprint">
+            Explore Founder Blueprint ↗
+          </Link>
+        </div>
+      </section>
       <section className="shell section">
         <SectionHeading
-          number="04"
-          label="HOW WE WORK"
-          title="A clear path forward."
+          number="07"
+          label="PROCESS"
+          title="Considered. Then constructed."
         />
         <ProcessTimeline />
       </section>
-      <section className="home-template-preview shell section">
-        <div>
-          <span className="eyebrow">05 / TOOLS FOR FOUNDERS</span>
-          <h2>
-            A starting point
-            <br />
-            of your own.
-          </h2>
-        </div>
-        <div>
-          <p>
-            Future templates, documents and creative systems for founders who
-            want to build at their own pace.
-          </p>
-          <p className="small-note">
-            Collections are in development. No products or prices have been
-            released.
-          </p>
-          <Link className="text-link" href="/templates">
-            Explore the planned collections ↗
-          </Link>
-        </div>
+      <section className="shell section dw-archive-link">
+        <span className="eyebrow">08 / SELECTED CREATIVE</span>
+        <Link href="/work/archive">
+          A wider field
+          <br />
+          <em>of expression.</em>
+          <span aria-hidden="true">↗</span>
+        </Link>
       </section>
-      <section className="statement shell section">
-        <span className="eyebrow">06 / THE STUDIO</span>
-        <h2>{site.statement}</h2>
-        <div>
-          <p>{site.description}</p>
+      <section className="shell section dw-statement">
+        <span className="eyebrow">09 / THE STUDIO</span>
+        <h2>
+          An idea rarely
+          <br />
+          needs only one thing.
+        </h2>
+        <div className="dw-offset">
+          <p>
+            We connect strategy, design and technology around the whole company.
+            One considered direction, carried through the build.
+          </p>
           <Link className="text-link" href="/studio">
-            Meet the studio ↗
+            Inside the studio ↗
           </Link>
         </div>
       </section>

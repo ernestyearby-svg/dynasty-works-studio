@@ -23,7 +23,7 @@ export function WorkExplorer({ projects }: { projects: Project[] }) {
           {
             name: "filter_portfolio",
             description:
-              "Filter visible portfolio projects by discipline. Categories for placeholder projects are provisional.",
+              "Filter approved portfolio projects by discipline.",
             inputSchema: {
               type: "object",
               properties: {

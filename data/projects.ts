@@ -19,14 +19,31 @@ export type Media = {
   caption?: string;
   width?: number;
   height?: number;
+  srcSet?: string;
 };
 export type CaseModule =
   | { type: "text"; title: string; body: string }
   | { type: "gallery"; images: Media[] }
   | { type: "video"; src: string; poster: Media; title: string }
   | { type: "device"; image: Media; kind: "desktop" | "mobile" }
-  | { type: "comparison"; before: Media; after: Media };
+  | { type: "comparison"; before: Media; after: Media }
+  | {
+      type: "media-sequence";
+      layout:
+        | "packaging"
+        | "lineup"
+        | "details"
+        | "dieline"
+        | "environment"
+        | "retail"
+        | "technical"
+        | "mobile-sequence";
+      title: string;
+      images: Media[];
+    };
 export interface Project {
+  /** Approval covers copy, media rights, credits and the exact case-study revision. */
+  publicationApproval?: { approved: true; reference: string };
   marketSections?: MarketCaseSection[];
   slug: string;
   title: string;

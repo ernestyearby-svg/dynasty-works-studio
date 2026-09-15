@@ -20,3 +20,7 @@ IKLA Maison, SmokeSuite, Mr. Cliff’s, Ohana to Alpine and Quick Fix currently 
 ## Approval needed
 
 Confirm logo/identity, all project imagery, categorization, media rights and credits before public launch. Replace the illustrative bottle image with approved project-specific work. No stock imagery, third-party remote assets or invented product screenshots were used.
+
+## V1.5 superseding status
+
+Both concept subjects and their derivatives have been removed from public serving and preserved unchanged in internal-assets. The old D favicon has been replaced by a temporary typography-only name label. See PORTFOLIO-ASSET-AUDIT.md for publication gates and current flagship status. No client imagery has been approved.

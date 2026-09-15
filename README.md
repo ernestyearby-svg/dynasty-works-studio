@@ -159,3 +159,7 @@ Founder Blueprint is now the first approved engagement at **$1,500 USD**. This s
 The new /api/submissions/general, /api/submissions/builder and /api/submissions/blueprint handlers validate strict bounded requests, but production dependencies are null and valid requests return 503 not_configured. The forms do not transmit. No Supabase project, payment processor, upload storage or portal has been connected. The reviewed-SQL proposal under docs/database is not deployed.
 
 See FOUNDER-BLUEPRINT.md, INQUIRY-PIPELINE.md, SUPABASE-INTEGRATION-PLAN.md and PACKAGE-ENGINE.md. Run scripts/qa-founder-blueprint.mjs for the new synthetic recommendation/validation/security tests alongside prior QA suites. Real database integration and permission tests remain mandatory before activation.
+
+## V1.5 creative system
+
+See DYNASTY-WORKS-BRAND-SYSTEM.md and PORTFOLIO-ASSET-AUDIT.md. The concept derivatives described above are now preserved under internal-assets, outside public hosting. All unapproved project detail routes are gated; this supersedes the earlier placeholder publication behavior. /creative-review is a noindex non-navigation review route; /work/archive is an approval-gated creative library. The business architecture, $1,500 Blueprint and disabled backend are unchanged.

@@ -1,6 +1,6 @@
 import Link from "@/components/site-link";
 import { site } from "@/data/site";
-import { PageIntro, FinalCTA, MediaFrame } from "@/components/studio";
+import { PageIntro, FinalCTA } from "@/components/studio";
 export const metadata = {
   title: "Studio",
   description:
@@ -12,19 +12,10 @@ export default function Studio() {
     <>
       <PageIntro
         eyebrow="THE STUDIO / 03"
-        title="Independent minds. Connected thinking."
+        title="An idea rarely needs only one thing."
         description="Dynasty Works Studio brings creative direction and technical execution into one practice."
       />
-      <div className="studio-image shell">
-        <MediaFrame
-          image={{
-            src: site.hero.image,
-            alt: "Original studio concept: sculptural brushed aluminum ribbon illuminated against a black background.",
-            caption: "A study in form, material and possibility.",
-          }}
-          priority
-        />
-      </div>
+
       <section className="statement shell section">
         <span className="eyebrow">OUR POINT OF VIEW</span>
         <h2>{site.statement}</h2>

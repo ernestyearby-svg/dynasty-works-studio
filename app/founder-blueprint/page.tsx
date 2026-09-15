@@ -1,3 +1,4 @@
+import { BlueprintCover } from "@/components/build-sequence";
 import { founderBlueprint as blueprint } from "@/data/founder-blueprint";
 import { BlueprintCTA, BlueprintEvent } from "@/components/blueprint-actions";
 export const metadata = {
@@ -55,6 +56,7 @@ export default function FounderBlueprint() {
           </span>
         </aside>
       </section>
+      <section className="shell dw-blueprint-spread"><BlueprintCover /></section>
       <section className="shell section blueprint-problem">
         <span className="eyebrow">BEFORE MAJOR EXECUTION</span>
         <h2>
