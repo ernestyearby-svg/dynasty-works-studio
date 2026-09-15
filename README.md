@@ -167,3 +167,10 @@ See DYNASTY-WORKS-BRAND-SYSTEM.md and PORTFOLIO-ASSET-AUDIT.md. The concept deri
 ## V1.6 approved production identity
 
 Direction 03 is now the locked production mark. See DYNASTY-WORKS-BRAND-SYSTEM.md and BRAND-ASSET-MANIFEST.md for production usage, sources, optical icon derivatives and document/social templates. /creative-review labels Direction 03 approved and the other territories archived. This supersedes V1.5 identity approval-pending notes only; portfolio approval gates remain unchanged.
+
+
+## V1.7 — AI + Automation Systems
+
+New /automation capability, conditional Builder discovery and conservative automation roadmap. All provider adapters remain disabled. The 122 core services, eight practices, seven packages, five partnership types, $1,500 Founder Blueprint and 22 Direction 03 brand assets are preserved. See [AI-AUTOMATION-SYSTEMS.md](AI-AUTOMATION-SYSTEMS.md), [WORKFLOW-ARCHITECTURE.md](WORKFLOW-ARCHITECTURE.md), [AUTOMATION-SECURITY.md](AUTOMATION-SECURITY.md), [LEAD-ENGINE.md](LEAD-ENGINE.md), [CONTENT-ENGINE.md](CONTENT-ENGINE.md) and [N8N-INTEGRATION-PLAN.md](N8N-INTEGRATION-PLAN.md).
+
+Automation model regression: node scripts/qa-automation.mjs. No credentials, database or workflow setup is required for this release.

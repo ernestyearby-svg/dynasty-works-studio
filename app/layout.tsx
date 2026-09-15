@@ -4,6 +4,7 @@ import Link from "@/components/site-link";
 import { Navbar } from "@/components/navbar";
 import "./globals.css";
 import "./brand-system.css";
+import "./automation.css";
 import { site } from "@/data/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.origin),

@@ -21,6 +21,7 @@ export type RoadmapPhase =
   | "Launch"
   | "Distribution"
   | "Activation"
+  | "Automation System"
   | "Growth";
 export const roadmapPhases: RoadmapPhase[] = [
   "Foundation",
@@ -31,6 +32,7 @@ export const roadmapPhases: RoadmapPhase[] = [
   "Launch",
   "Distribution",
   "Activation",
+  "Automation System",
   "Growth",
 ];
 export interface CatalogService {

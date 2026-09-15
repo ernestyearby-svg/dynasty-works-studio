@@ -1,3 +1,4 @@
+import { AutomationPlan } from "@/components/automation";
 import { BrandProgression } from "@/components/brand-progression";
 import { founderBlueprint } from "@/data/founder-blueprint";
 import { BlueprintCTA } from "@/components/blueprint-actions";
@@ -65,6 +66,7 @@ export function RoadmapSummary({ build }: { build: CompanyBuild }) {
           </li>
         ))}
       </ol>
+      {r.automation && <AutomationPlan plan={r.automation} />}
       <p className="professional-boundary">{r.timelineNote}</p>
       <div className="roadmap-responsibilities">
         {(["DIRECT", "COORDINATED", "PROFESSIONAL_REQUIRED"] as const).map(

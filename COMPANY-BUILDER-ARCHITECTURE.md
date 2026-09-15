@@ -164,3 +164,12 @@ Founder Blueprint is approved at $1,500; other prices remain null. Early-stage b
 The builder adds an optional uncertainty choice; it allows an undecided founder to continue without selecting arbitrary services. The roadmap download now groups immediate priorities and future work, and includes the Blueprint fee/link only when recommended. The $1,500 fee is for the strategic Blueprint, not execution of the full roadmap. See FOUNDER-BLUEPRINT.md for the canonical scope.
 
 The separate progressive Blueprint intake is memory-only and does not consume private builder contact data through URLs or browser storage. Strict future server envelopes require submission consent separately from local acknowledgment. Routes remain disabled, recompute recommendations before future writes, and never accept posted internal pricing or statuses. See INQUIRY-PIPELINE.md and SUPABASE-INTEGRATION-PLAN.md.
+
+
+## V1.7 — conditional automation discovery
+
+Selecting AI / Automation on Scope exposes an optional multi-select assessment, descriptive maturity and expandable current-system/process context. No extra required step. Older version-1 drafts remain valid through optional strict bounded schema fields. Deselecting automation clears its assessment. The process note is memory-only and stripped during persistence and reload.
+
+recommendAutomation considers type, stage, maturity, current systems, manual-process context and desired outcomes. Idea/prelaunch or unspecified outcomes start with process mapping, workflow architecture and approval design; integrations remain future scope. Operating clients receive selected-outcome specializations. Connections require an existing-system inventory; AI integrations are suggested only for an established Intelligent starting point. AI Agents are available to scope, never automatically recommended. Maturity is not a score.
+
+Core parents enter Automation System; the detailed ten-stage plan appears in summary and downloaded roadmap. The separate automation scope suggestion does not replace the seven existing package structures or Founder Blueprint logic. Starting mode is Draft only. The lead payload carries assessment only when relevant; future server recomputation remains required.

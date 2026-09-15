@@ -17,3 +17,8 @@ DIRECT covers creative, research, strategy and technology execution. COORDINATED
 ## Review queue
 
 Approve service-specific scope, deliverable depth, capacity, exclusions, professional jurisdictions and portfolio evidence before a public commercial launch. No rate cards or internal margins belong in this catalog.
+
+
+## V1.7 — automation specialization layer
+
+The 122 base service records and IDs remain stable. data/automation.ts adds 27 unique specialization records under existing BUILD parents: Workflow Automation, AI Integrations, Database Architecture, Internal Business Systems, Internal Dashboards and Analytics Foundations. Names matching existing core services are references, not duplicate core records. All 27 appear on /automation; additional names appear under their catalog parent. No ninth practice is created. RoadmapPhase now supports Automation System for relevant Builder recommendations.

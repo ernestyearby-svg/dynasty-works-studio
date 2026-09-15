@@ -1,3 +1,4 @@
+import { automationServices } from "@/data/automation";
 import Link from "@/components/site-link";
 import { practices, type PracticeId } from "@/data/practices";
 import { serviceCatalog, boundaryCopy } from "@/data/service-catalog";
@@ -60,6 +61,20 @@ export function PracticeCatalog({ id }: { id?: PracticeId }) {
                         <span aria-hidden="true">+</span>
                       </summary>
                       <p>{s.longDescription}</p>
+                      {automationServices.some(
+                        (a) => a.parentServiceId === s.id,
+                      ) && (
+                        <ul className="automation-service-list">
+                          {automationServices
+                            .filter(
+                              (a) =>
+                                a.parentServiceId === s.id && a.name !== s.name,
+                            )
+                            .map((a) => (
+                              <li key={a.id}>{a.name}</li>
+                            ))}
+                        </ul>
+                      )}
                       <p className="small-note">
                         {boundaryCopy[s.professionalBoundary]}
                       </p>
@@ -72,6 +87,13 @@ export function PracticeCatalog({ id }: { id?: PracticeId }) {
                     </details>
                   ))}
                 </div>
+                {p.id === "build" && (
+                  <p className="automation-catalog-link">
+                    <Link href="/automation" className="text-link">
+                      AI + Automation Systems — explore connected operations ↗
+                    </Link>
+                  </p>
+                )}
                 <div className="catalog-next">
                   <Link href={"/capabilities/" + p.id} className="text-link">
                     Explore the {p.title.toLowerCase()} practice ↗

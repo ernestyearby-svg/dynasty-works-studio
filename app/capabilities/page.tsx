@@ -1,3 +1,4 @@
+import { AutomationFeature } from "@/components/automation";
 import { PageIntro, FinalCTA } from "@/components/studio";
 import { PracticeCatalog, CommercialPaths } from "@/components/service-catalog";
 export const metadata = {
@@ -17,6 +18,7 @@ export default function Capabilities() {
       <section className="shell section">
         <PracticeCatalog />
       </section>
+      <AutomationFeature />
       <CommercialPaths />
       <FinalCTA />
     </>

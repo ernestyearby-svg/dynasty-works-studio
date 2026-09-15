@@ -1,3 +1,4 @@
+import type { AutomationAssessment } from "@/data/automation";
 import type { BuildNeed, BusinessType } from "@/data/company-builder";
 export type EntityId = string;
 export type ApprovalState =
@@ -18,6 +19,7 @@ export interface Company {
 }
 export interface CompanyBuild {
   version: 1;
+  automation?: AutomationAssessment;
   businessStage?: "Idea" | "Preparing to launch" | "Operating" | "Growing";
   productReady?: boolean;
   storefrontReady?: boolean;

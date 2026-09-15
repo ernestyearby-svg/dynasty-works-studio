@@ -1,4 +1,5 @@
 "use client";
+import { AutomationAssessment } from "@/components/automation-assessment";
 import { BrandProgression } from "@/components/brand-progression";
 import { useState, useEffect, useRef } from "react";
 import Link from "@/components/site-link";
@@ -83,6 +84,9 @@ export function CompanyBuilder() {
             ...saved,
             build: {
               ...saved.build,
+              automation: saved.build.automation
+                ? { ...saved.build.automation, manualProcess: "" }
+                : undefined,
               name: "",
               company: "",
               email: "",
@@ -124,6 +128,9 @@ export function CompanyBuilder() {
         JSON.stringify({
           build: {
             ...build,
+            automation: build.automation
+              ? { ...build.automation, manualProcess: "" }
+              : undefined,
             name: "",
             company: "",
             email: "",
@@ -573,6 +580,7 @@ export function CompanyBuilder() {
                     </label>
                   ))}
                 </fieldset>
+                <AutomationAssessment build={build} onChange={update} />
                 {build.needs.some((n) =>
                   [
                     "Company Setup",
@@ -663,9 +671,9 @@ export function CompanyBuilder() {
                   />
                   <span>
                     I understand my selections are saved in this tab for the
-                    session. Contact details and written budget are memory-only.
-                    Nothing is sent to the studio; I can clear the draft or
-                    download a copy.
+                    session. Contact details, written budget and automation
+                    process notes are memory-only. Nothing is sent to the
+                    studio; I can clear the draft or download a copy.
                   </span>
                 </label>
                 <p className="small-note">

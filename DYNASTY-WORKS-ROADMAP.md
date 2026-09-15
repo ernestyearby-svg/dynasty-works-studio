@@ -42,3 +42,8 @@ Commercial foundation now includes a central catalog, preliminary package engine
 Founder Blueprint is the sole approved public price at $1,500. Its scope, page, intake architecture, document outline and recommendation behavior are implemented. The existing seven-phase roadmap remains: this advances the canonical engagement and intake-preparation milestones without marking secure intake/CRM/payment/portal complete.
 
 Next gate: supply and authorize the intended Supabase project, approve privacy/terms and consent/retention, implement and test transactional server persistence plus distributed abuse controls, then explicitly enable submissions. Payment, uploads and portal access remain separate gated milestones. See SUPABASE-INTEGRATION-PLAN.md for the exact checklist.
+
+
+## V1.7 — capability and architecture
+
+AI + Automation Systems: public /automation, 27 centralized BUILD specializations, relevant Builder assessment and Automation System planning phase. Existing brand and commercial architecture preserved. Internal priorities: 01 Lead Engine, 02 Content Engine. Next phase requires architecture acceptance, named providers and owners, authorization, security/approval tests, monitoring and explicit activation. No current automation is live.

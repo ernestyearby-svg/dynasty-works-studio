@@ -29,3 +29,10 @@ Service scope/capacity; package contents and optional add-ons; private pricing m
 Founder Blueprint now has an approved $1,500 public price and canonical scope. Other packages remain unpriced; no internal costs or margins are populated. The new Founder Blueprint intake remains memory-only. A proposed four-table private schema and testable server submission boundary are prepared, with default-disabled dependencies. Neither environment variables nor a validated local form imply an active connection. Production submissions, payments, uploads and portal access remain off.
 
 See FOUNDER-BLUEPRINT.md for the offer, INQUIRY-PIPELINE.md for request/contracts/states, and SUPABASE-INTEGRATION-PLAN.md for database/environment/security review and activation. A mock successful repository test proves handler behavior only, not a real backend. Local intake-completed events are not submitted-lead or purchase events. All analytics remain no-op.
+
+
+## V1.7 — future automation engagements
+
+Five unpriced scoping categories: Automation Audit, Workflow Build, Connected Operations, AI Operating System, Automation Partnership. These are not additional priced packages. The seven package structures and five growth types remain unchanged; automation assessment enriches the preliminary roadmap.
+
+Automation Partnership maps to existing Automation Partner: monitoring, maintenance, API/model updates, integration upkeep, reporting and optimization, with new workflows separately scoped. No autonomous-performance guarantee or published price. Founder Blueprint remains $1,500; strategic planning does not include unscoped implementation. All execution awaits authorized integrations and workflow approval.

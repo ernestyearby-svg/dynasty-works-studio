@@ -1,3 +1,4 @@
+import { recommendAutomation } from "@/lib/automation-plan";
 import { founderBlueprint } from "@/data/founder-blueprint";
 import {
   serviceById,
@@ -18,6 +19,7 @@ export interface RoadmapItem {
   source: "requested" | "dependency" | "suggested";
 }
 export interface BuildRoadmap {
+  automation: ReturnType<typeof recommendAutomation>;
   stage: BusinessStage;
   phases: { name: RoadmapPhase; items: RoadmapItem[] }[];
   items: RoadmapItem[];
@@ -215,11 +217,16 @@ export function generateRoadmap(input: CompanyBuild): BuildRoadmap {
       source,
     });
   }
+  const automation = recommendAutomation(b, stage);
   for (const need of b.needs)
-    for (const id of needServices[need])
+    for (const id of need === "AI / Automation"
+      ? [...new Set(automation?.services.map((s) => s.parentServiceId) || [])]
+      : needServices[need])
       add(
         id,
-        "Included because you selected " + need.toLowerCase() + ".",
+        need === "AI / Automation"
+          ? automation!.reason
+          : "Included because you selected " + need.toLowerCase() + ".",
         "requested",
       );
   if (stage === "Idea" && b.needs.length > 1) {
@@ -357,7 +364,12 @@ export function generateRoadmap(input: CompanyBuild): BuildRoadmap {
   const phases = roadmapPhases
     .map((name) => ({
       name,
-      items: all.filter((i) => serviceById[i.serviceId].phase === name),
+      items: all.filter(
+        (i) =>
+          (automation?.services.some((s) => s.parentServiceId === i.serviceId)
+            ? "Automation System"
+            : serviceById[i.serviceId].phase) === name,
+      ),
     }))
     .filter((p) => p.items.length);
   const has = (p: RoadmapPhase) => phases.some((x) => x.name === p);
@@ -425,6 +437,7 @@ export function generateRoadmap(input: CompanyBuild): BuildRoadmap {
           };
   return {
     stage,
+    automation,
     phases,
     items: all,
     engagement,
@@ -449,6 +462,7 @@ export interface BuilderLeadPayload {
   businessStage: BusinessStage;
   existingAssets: string[];
   selectedNeeds: string[];
+  automation?: CompanyBuild["automation"];
   launchTimeline: string;
   budgetRange: string;
   recommendedServices: RoadmapItem[];
@@ -479,6 +493,7 @@ export function createLeadPayload(
       ...(b.storefrontReady ? ["Existing e-commerce store"] : []),
     ],
     selectedNeeds: b.needs,
+    automation: normalizeBuild(b).automation,
     launchTimeline: b.launch,
     budgetRange: b.budgetNote || b.budgetChoice,
     recommendedServices: r.items,
@@ -529,6 +544,20 @@ export function roadmapText(b: CompanyBuild): string {
       ),
     ]),
     "",
+    ...(r.automation
+      ? [
+          "AUTOMATION SYSTEM",
+          r.automation.engagement,
+          r.automation.reason,
+          r.automation.context,
+          "Desired outcomes: " + r.automation.goals.join(", "),
+          "Starting mode: " + r.automation.mode,
+          ...r.automation.services.map((s) => "- " + s.name),
+          ...r.automation.stages.map((s) => s.name + " [" + s.timing + "]"),
+          r.automation.status,
+          "",
+        ]
+      : []),
     "IMMEDIATE PRIORITIES",
     ...names("initial"),
     "",

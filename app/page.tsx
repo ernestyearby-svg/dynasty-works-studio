@@ -1,3 +1,4 @@
+import { AutomationFeature } from "@/components/automation";
 import Link from "@/components/site-link";
 import { content } from "@/lib/content";
 import {
@@ -162,6 +163,7 @@ export default async function Home() {
           </Link>
         </div>
       </section>
+      <AutomationFeature />
       <FinalCTA />
     </>
   );

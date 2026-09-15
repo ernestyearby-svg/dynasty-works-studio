@@ -1,3 +1,8 @@
+import {
+  automationGoals,
+  automationMaturities,
+  currentSystems,
+} from "@/data/automation";
 import { businessStages } from "@/data/service-catalog";
 import { z } from "zod";
 import {
@@ -31,6 +36,15 @@ export const emptyCompanyBuild: CompanyBuild = {
 export const companyDraftSchema = z
   .object({
     version: z.literal(1),
+    automation: z
+      .object({
+        goals: z.array(z.enum(automationGoals)).max(17).optional(),
+        maturity: z.enum(automationMaturities).optional(),
+        systems: z.array(z.enum(currentSystems)).max(8).optional(),
+        manualProcess: z.string().max(400).optional(),
+      })
+      .strict()
+      .optional(),
     businessStage: z.enum(businessStages).optional(),
     productReady: z.boolean().optional(),
     storefrontReady: z.boolean().optional(),
@@ -72,6 +86,18 @@ export function normalizeBuild(build: CompanyBuild): CompanyBuild {
   const allowed = availableNeeds(build);
   return {
     ...build,
+    automation:
+      build.needs.includes("AI / Automation") && build.automation
+        ? {
+            ...build.automation,
+            goals: [...new Set(build.automation.goals || [])].filter((g) =>
+              automationGoals.includes(g),
+            ),
+            systems: [...new Set(build.automation.systems || [])].filter((s) =>
+              currentSystems.includes(s),
+            ),
+          }
+        : undefined,
     needs: [...new Set(build.needs)].filter((n) => allowed.includes(n)),
     starting: [...new Set(build.starting)].filter(
       (s) => s !== startingPoints[0] || build.starting.length === 1,
