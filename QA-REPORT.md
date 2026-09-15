@@ -1,0 +1,37 @@
+# Version 1 QA report
+Date: 2026-09-15
+
+## Passed
+- Production build completed successfully.
+- ESLint: zero errors and zero warnings.
+- TypeScript: zero errors.
+- All 12 rendered pages return HTTP 200. Missing project returns HTTP 404.
+- Sitemap and robots endpoints return HTTP 200.
+- Automated checks covered 29 production internal links/assets, unique page titles, descriptions, canonicals, one H1 per page and absence of lorem ipsum.
+- Nine API checks: unconfigured response, invalid email, honeypot, unsafe URL scheme, empty input, malformed JSON, unsupported media type, cross-origin request and oversized request.
+- Browser checked all 12 rendered pages at 320, 375, 390, 430, 768, 1024, 1440, 1920 and 2560 pixels: no horizontal page overflow.
+- Mobile menu open/navigation/close behavior checked.
+- Portfolio UI filtering and WebMCP filtering checked. Invalid WebMCP category is rejected without corrupting filter state.
+- Capabilities disclosures and template details checked.
+- Four-step inquiry tested with synthetic data: service requirement, description/details, email validation, acknowledgment, review, local download and explicit not-submitted message.
+- Optimized image loading and alt text checked in the browser.
+- Production navigation and filter interactivity checked after fixing a runtime prefetch issue.
+- Basic source secret-pattern scan found no credentials. Environment template contains no private values.
+- Original assets preserved; client facts, products, prices and outcomes are clearly unapproved or absent.
+
+## Runtime findings and resolutions
+The Sites starter uses Vinext beta with Next.js conventions. Its production Link prefetch/navigation failed during browser QA. Navigation now uses a small native anchor wrapper (components/site-link.tsx), retaining ordinary document navigation and avoiding the failing client routing path. There were no new browser errors after that fix.
+
+The local Wrangler proxy intermittently returned a plain-text worker-restart HTTP 503, separately from the intentional JSON 503 returned by the disabled inquiry endpoint. This resembles the [reported Cloudflare local proxy issue](https://github.com/cloudflare/workers-sdk/issues/14641). The final regression run passed with one explicitly counted retry of that exact local proxy error. Application errors are not retried by the test. The user-facing form never transmits a draft while delivery is unconfigured.
+
+On Windows, rebuilding while the production emulator held dist open caused a file-lock failure. Stopping that emulator before rebuilding resolved it. The development preview stayed available.
+
+## Scope limits
+- Browser checks used the available Chromium-based environment. Safari, Firefox, physical iOS/Android devices, assistive-technology audits and real-user performance measurements remain for launch QA.
+- No Lighthouse score or WCAG certification is claimed.
+- Optional video, before/after and device modules are typed and implemented but await approved real assets for content-specific visual QA.
+- Native anchors trigger full document navigation; animated SPA transitions are not implemented.
+- No external inquiry delivery, uploads, payments or CMS persistence is enabled or represented as tested.
+- Retina assets are limited to the generated 1536-pixel masters; replace with higher-resolution approved imagery for large displays where needed.
+- Public indexing remains disabled pending content approval.
+
