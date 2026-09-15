@@ -1,3 +1,4 @@
+import { businessStages } from "@/data/service-catalog";
 import { z } from "zod";
 import {
   businessTypes,
@@ -30,6 +31,14 @@ export const emptyCompanyBuild: CompanyBuild = {
 export const companyDraftSchema = z
   .object({
     version: z.literal(1),
+    businessStage: z.enum(businessStages).optional(),
+    productReady: z.boolean().optional(),
+    storefrontReady: z.boolean().optional(),
+    redesignIdentity: z.boolean().optional(),
+    engagementPreference: z
+      .enum(["Explore together", "Do it myself", "Guide me", "Build it for me"])
+      .optional(),
+    referralSource: z.string().max(200).optional(),
     businessType: z.union([z.enum(businessTypes), z.literal("")]),
     physicalMarket: z.boolean(),
     starting: z.array(z.enum(startingPoints)).max(7),

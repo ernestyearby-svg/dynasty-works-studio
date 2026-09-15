@@ -9,11 +9,7 @@ import {
   FinalCTA,
   ProjectArtwork,
 } from "@/components/studio";
-import {
-  CompanyInvitation,
-  CompanyJourney,
-  PracticeGrid,
-} from "@/components/company-sections";
+import { CompanyInvitation, PracticeGrid } from "@/components/company-sections";
 export default async function Home() {
   const projects = await content.listProjects();
   const featured = projects.filter((p) => p.featured);
@@ -44,13 +40,23 @@ export default async function Home() {
         </div>
       </section>
       <CompanyInvitation />
-      <section className="shell home-journey">
-        <span className="eyebrow">
-          ONE ROADMAP / THE STAGES YOUR BUSINESS NEEDS
-        </span>
-        <CompanyJourney compact />
-        <Link className="text-link" href="/start-a-business#journey">
-          Explore the company-building process ↗
+      <section className="shell home-journey commercial-system">
+        <span className="eyebrow">ONE STUDIO. THE ENTIRE BUILD.</span>
+        <h2>
+          From idea. To company.
+          <br />
+          <em>To market. To growth.</em>
+        </h2>
+        <p className="commercial-sequence">
+          Start <span>→</span> Brand <span>→</span> Build <span>→</span> Launch{" "}
+          <span>→</span> Distribute <span>→</span> Activate <span>→</span> Grow
+        </p>
+        <p className="small-note">
+          Follow the stages your business needs. Publishing supports the journey
+          wherever communication matters.
+        </p>
+        <Link className="button dark" href="/start-a-business/builder">
+          Build your roadmap ↗
         </Link>
       </section>
       <section className="dark-section shell section">

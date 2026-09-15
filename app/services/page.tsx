@@ -7,7 +7,7 @@ import {
 } from "@/components/studio";
 import { PracticeGrid, MarketEntry } from "@/components/company-sections";
 export const metadata = {
-  title: "Capabilities",
+  title: "Studio Disciplines",
   description:
     "Eight connected practices: company strategy and formation coordination, brand, digital build, launch, distribution preparation, activation, growth and publishing.",
   alternates: { canonical: "/services" },

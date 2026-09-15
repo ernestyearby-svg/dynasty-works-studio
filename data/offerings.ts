@@ -1,3 +1,5 @@
+import { engagementPackages } from "./packages";
+import { serviceById } from "./service-catalog";
 export interface StudioPackage {
   id: string;
   name: string;
@@ -10,91 +12,20 @@ export interface StudioPackage {
   status: "draft" | "approved";
   cta: string;
 }
-export const studioPackages: StudioPackage[] = [
-  {
-    id: "idea-identity",
-    name: "Idea to Identity",
-    services: ["Company strategy", "Naming", "Brand identity"],
-    deliverables: [],
-    timeline: null,
-    startingPrice: null,
-    recommendedFor: "Founders shaping an idea.",
-    addOns: [],
-    status: "draft",
-    cta: "/start-a-business/builder",
-  },
-  {
-    id: "company-launch",
-    name: "Company Launch",
-    services: [
-      "Formation coordination",
-      "Brand identity",
-      "Website",
-      "Launch strategy",
-    ],
-    deliverables: [],
-    timeline: null,
-    startingPrice: null,
-    recommendedFor: "Founders preparing to launch.",
-    addOns: [],
-    status: "draft",
-    cta: "/start-a-business/builder",
-  },
-  {
-    id: "brand-build",
-    name: "Brand Build",
-    services: ["Brand strategy", "Identity", "Packaging"],
-    deliverables: [],
-    timeline: null,
-    startingPrice: null,
-    recommendedFor: "Businesses building or refreshing a brand.",
-    addOns: [],
-    status: "draft",
-    cta: "/start-a-business/builder",
-  },
-  {
-    id: "digital-build",
-    name: "Digital Build",
-    services: ["Websites", "Applications", "Automation"],
-    deliverables: [],
-    timeline: null,
-    startingPrice: null,
-    recommendedFor: "Businesses improving their digital infrastructure.",
-    addOns: [],
-    status: "draft",
-    cta: "/start-a-business/builder",
-  },
-  {
-    id: "full-company",
-    name: "Full Company Build",
-    services: [
-      "Company strategy",
-      "Formation coordination",
-      "Brand",
-      "Build",
-      "Launch",
-    ],
-    deliverables: [],
-    timeline: null,
-    startingPrice: null,
-    recommendedFor: "Founders coordinating a complete build.",
-    addOns: [],
-    status: "draft",
-    cta: "/start-a-business/builder",
-  },
-  {
-    id: "growth",
-    name: "Growth Partnership",
-    services: ["Ongoing creative", "Optimization", "Campaigns"],
-    deliverables: [],
-    timeline: null,
-    startingPrice: null,
-    recommendedFor: "Established businesses planning their next stage.",
-    addOns: [],
-    status: "draft",
-    cta: "/start-a-business/builder",
-  },
-];
+// Compatibility adapter for V1.2 package cards. The authoritative package definitions live in packages.ts.
+export const studioPackages: StudioPackage[] = engagementPackages.map((p) => ({
+  id: p.id,
+  name: p.name,
+  services: p.services.map((id) => serviceById[id].name),
+  deliverables: [],
+  timeline: null,
+  startingPrice: null,
+  recommendedFor: p.idealFor,
+  addOns: [],
+  status: "draft",
+  cta: "/start-a-business/builder",
+}));
+
 export const recurringOfferings = [
   "Creative Retainer",
   "Website Management",

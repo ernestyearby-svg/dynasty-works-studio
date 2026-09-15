@@ -32,3 +32,7 @@ Define approved specialist categories, credential review, jurisdictions, consent
 ## Recommended next phase
 
 Finish Phase 2 operational readiness alongside Phase 1 portfolio approval: confirm the service scope, deliver one approved flagship case study, then connect and test secure inquiry intake. Keep marketplace prices, packages, retainers, partner names and professional claims unpublished until reviewed.
+
+## V1.3 progress within the seven-phase plan
+
+Commercial foundation now includes a central catalog, preliminary package engine, growth partnership architecture and dependency-aware local roadmaps. This advances the service/engagement design portion of the plan; secure intake, CRM, portal, billing, approved templates and verified public evidence remain future milestones. Prioritize approval of one complete engagement scope, then durable consented intake with staff review. Do not treat V1.3 recommendations as accepted proposals or move straight to automated quoting.

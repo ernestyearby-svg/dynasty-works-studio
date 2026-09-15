@@ -1,7 +1,10 @@
 import type { BuildNeed, BusinessType } from "@/data/company-builder";
 export type EntityId = string;
 export type ApprovalState =
-  "draft" | "pending" | "approved" | "revision_requested";
+  | "draft"
+  | "pending"
+  | "approved"
+  | "revision_requested";
 export interface Client {
   id: EntityId;
   displayName: string;
@@ -15,6 +18,16 @@ export interface Company {
 }
 export interface CompanyBuild {
   version: 1;
+  businessStage?: "Idea" | "Preparing to launch" | "Operating" | "Growing";
+  productReady?: boolean;
+  storefrontReady?: boolean;
+  redesignIdentity?: boolean;
+  engagementPreference?:
+    | "Explore together"
+    | "Do it myself"
+    | "Guide me"
+    | "Build it for me";
+  referralSource?: string;
   businessType: BusinessType | "";
   physicalMarket: boolean;
   starting: string[];

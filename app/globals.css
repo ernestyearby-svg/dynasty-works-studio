@@ -2419,3 +2419,293 @@ button:disabled {
     min-height: 40px;
   }
 }
+/* V1.3: commercial catalog and a sequenced, reviewable roadmap. */
+.commercial-system h2 {
+  font-size: clamp(32px, 4.4vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  margin: 22px 0;
+}
+.commercial-sequence {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: clamp(17px, 2vw, 25px);
+  margin: 28px 0;
+}
+.commercial-sequence span {
+  color: var(--muted);
+}
+.commercial-system .button {
+  margin-top: 22px;
+}
+.catalog-practice {
+  border-top: 1px solid var(--line);
+}
+.catalog-practice:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.catalog-practice > summary {
+  display: grid;
+  grid-template-columns: 160px 1fr 1fr 24px;
+  gap: 24px;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+  padding: 32px 0;
+}
+.catalog-practice > summary h2 {
+  font-size: clamp(32px, 4vw, 58px);
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+.catalog-practice > summary > span:last-child {
+  font-size: 28px;
+}
+.catalog-practice[open] > summary > span:last-child {
+  transform: rotate(45deg);
+}
+.catalog-body {
+  padding: 0 0 40px;
+}
+.catalog-audience {
+  font-size: 22px;
+  line-height: 1.5;
+  max-width: 700px;
+  margin: 0 0 32px;
+}
+.catalog-services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 40px;
+}
+.catalog-services > details {
+  min-width: 0;
+  border-top: 1px solid var(--line);
+  padding: 18px 0;
+}
+.catalog-services summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+}
+.catalog-services p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 18px 0;
+}
+.catalog-next {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.commercial-paths > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 40px;
+  margin-top: 24px;
+}
+.commercial-paths a {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+  font-size: 20px;
+}
+.growth-partners {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+.growth-partners article {
+  border: 1px solid var(--line);
+  padding: 36px;
+}
+.growth-partners h2 {
+  font-size: 34px;
+  letter-spacing: -0.04em;
+  margin: 24px 0 14px;
+}
+.growth-partners p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+.builder-subheading {
+  font-size: 18px;
+  margin: 30px 0 16px;
+}
+.roadmap-heading {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 32px;
+  margin-top: 28px;
+}
+.roadmap-heading h3 {
+  font-size: clamp(26px, 3vw, 43px);
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  margin: 20px 0;
+}
+.roadmap-heading p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.roadmap-phases {
+  list-style: none;
+  padding: 0;
+  margin: 32px 0;
+}
+.roadmap-phases > li {
+  border-top: 1px solid var(--line);
+  padding: 24px 0 16px;
+}
+.roadmap-phase-title {
+  display: flex;
+  gap: 18px;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+.roadmap-phase-title > span {
+  font-size: 12px;
+  color: var(--muted);
+  font-family: monospace;
+}
+.roadmap-phase-title h4 {
+  font-size: 25px;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+.roadmap-phases ul {
+  list-style: none;
+  padding: 0 0 0 35px;
+}
+.roadmap-phases ul > li {
+  margin-bottom: 20px;
+}
+.roadmap-phases ul > li > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  align-items: baseline;
+}
+.roadmap-phases strong {
+  font-size: 16px;
+}
+.roadmap-timing {
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 7px;
+  background: #e9e8df;
+}
+.roadmap-timing.future {
+  background: #e8ddd1;
+  color: #564530;
+}
+.roadmap-phases p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 6px 0;
+}
+.roadmap-responsibilities details,
+.roadmap-contact {
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+.roadmap-responsibilities summary,
+.roadmap-contact summary {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
+.roadmap-responsibilities p,
+.roadmap-responsibilities li {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.roadmap-engagement {
+  border: 1px solid var(--ink);
+  padding: 28px;
+  margin: 28px 0;
+}
+.roadmap-engagement h3 {
+  font-size: 32px;
+  line-height: 1.15;
+  margin: 18px 0;
+  letter-spacing: -0.04em;
+}
+.roadmap-engagement p,
+.roadmap-tools p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+.roadmap-tools {
+  padding: 24px;
+  background: #eeede6;
+  margin-bottom: 24px;
+}
+.roadmap-tools h4 {
+  font-size: 24px;
+  margin: 16px 0;
+}
+.roadmap-summary,
+.catalog-body {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 800px) {
+  .catalog-practice > summary {
+    grid-template-columns: 1fr 24px;
+    gap: 12px;
+    padding: 24px 0;
+  }
+  .catalog-practice > summary .eyebrow {
+    grid-column: 1;
+  }
+  .catalog-practice > summary h2 {
+    grid-column: 1;
+  }
+  .catalog-practice > summary > span:nth-last-child(2) {
+    grid-column: 1;
+  }
+  .catalog-practice > summary > span:last-child {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .catalog-services,
+  .growth-partners,
+  .commercial-paths > div {
+    grid-template-columns: 1fr;
+  }
+  .growth-partners article {
+    padding: 24px;
+  }
+  .catalog-audience {
+    font-size: 19px;
+  }
+  .roadmap-heading,
+  .roadmap-engagement {
+    padding: 22px;
+  }
+  .roadmap-phases ul {
+    padding-left: 0;
+  }
+  .roadmap-phase-title h4 {
+    font-size: 22px;
+  }
+  .builder-actions .button {
+    white-space: normal;
+    text-align: center;
+  }
+  .roadmap-heading h3 {
+    font-size: 30px;
+  }
+}

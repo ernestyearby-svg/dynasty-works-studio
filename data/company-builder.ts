@@ -51,6 +51,9 @@ export const coreNeeds = [
   "E-book / Publication",
   "Business Collateral",
   "Ongoing Support",
+  "Launch",
+  "Website Optimization",
+  "E-commerce Optimization",
 ] as const;
 export const marketNeeds = [
   "Distribution Strategy",

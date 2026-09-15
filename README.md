@@ -143,3 +143,11 @@ See COMPANY-BUILDER-ARCHITECTURE.md and EXPANSION-REPORT.md for the full model, 
 Run `node scripts/qa-company-builder.mjs` for business-type eligibility, stale-selection removal, saved-draft validation, proof gating and unpublished-offering checks. The test uses the existing esbuild dependency; no new package was installed.
 
 No numeric budget bands are published. Package and retainer placeholders remain drafts with null prices/timelines. The professional network contains categories only, not named members. No tracker or analytics provider is enabled. The builder stays noindex even when public content indexing is later enabled.
+
+## V1.3 — Commercial roadmap engine
+
+The service catalog now defines 122 services across eight practices. Seven preliminary package structures and five growth partnerships reference catalog IDs, with no public prices. The builder adds stage, readiness, asset suppression, working preference and a deterministic roadmap with dependency-aware phases and honest future-work labels. See SERVICE-CATALOG.md, PACKAGE-ENGINE.md, RECOMMENDATION-ENGINE.md and COMMERCIAL-ARCHITECTURE.md.
+
+New routes: /capabilities, /capabilities/[practice] (eight practices), /growth-partnership. Existing /services and portfolio routes remain available. Contact and written budget are now memory-only; only non-contact selections persist for the tab session. Reload requires re-entry. No backend transmission, CRM, pricing or tracking is enabled.
+
+Additional regression command: node scripts/qa-recommendation-engine.mjs. Private commercial type contracts stay outside runtime imports in server/internal-pricing.ts.

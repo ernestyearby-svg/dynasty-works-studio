@@ -150,3 +150,9 @@ The current recordStudioEvent does nothing: no analytics SDK, cookies, IDs, netw
 ## Future automation
 
 Potential later workflows: detect missing milestones, assemble a draft roadmap, flag professional review, route approvals, check asset readiness and identify the next agreed task. Use explicit rules first. AI-assisted recommendations require evaluation, source grounding, permissions and human review for professional or consequential decisions. No AI capability is implemented or claimed now.
+
+## V1.3 implementation update
+
+The 122-service catalog, seven engagement templates, five growth partnerships and deterministic recommendation engine are implemented. See SERVICE-CATALOG.md, PACKAGE-ENGINE.md, RECOMMENDATION-ENGINE.md and COMMERCIAL-ARCHITECTURE.md for the authoritative V1.3 contracts, dependency rules, review boundaries and future CRM interface. Nine possible roadmap phases are distinct from the eight-practice taxonomy; empty phases are omitted.
+
+Privacy change: contact fields, written budget and referral text are memory-only. Prior session drafts are scrubbed on restore; only non-contact choices recover after reload. No payload is transmitted and no pricing is calculated.

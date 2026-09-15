@@ -6,6 +6,18 @@ const routes = [
   "/start-a-business",
   "/start-a-business/builder",
   "/services",
+  "/capabilities",
+  ...[
+    "start",
+    "brand",
+    "build",
+    "launch",
+    "distribute",
+    "activate",
+    "grow",
+    "publish",
+  ].map((p) => "/capabilities/" + p),
+  "/growth-partnership",
   "/studio",
   "/templates",
   "/contact",
@@ -91,7 +103,11 @@ async function post(body, headers = { "Content-Type": "application/json" }) {
   const message = await response.clone().text();
   // Local Wrangler can drop requests in its proxy. Never retry application errors.
   // https://github.com/cloudflare/workers-sdk/issues/14641
-  if (["localhost", "127.0.0.1"].includes(new URL(origin).hostname) && response.status === 503 && message.startsWith("Your worker restarted mid-request")) {
+  if (
+    ["localhost", "127.0.0.1"].includes(new URL(origin).hostname) &&
+    response.status === 503 &&
+    message.startsWith("Your worker restarted mid-request")
+  ) {
     localProxyRetries++;
     return fetch(origin + "/api/inquiries", options);
   }

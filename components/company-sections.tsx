@@ -1,3 +1,4 @@
+import { serviceCatalog } from "@/data/service-catalog";
 import Link from "@/components/site-link";
 import {
   companyJourney,
@@ -76,9 +77,13 @@ export function PracticeGrid({ compact = false }: { compact?: boolean }) {
           </summary>
           <div className="practice-content">
             <ul>
-              {practice.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
+              {serviceCatalog
+                .filter((s) => s.practice === practice.id && s.active)
+                .slice(0, compact ? 5 : 8)
+                .map((s) => s.name)
+                .map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
             </ul>
             {practice.boundary && (
               <ProfessionalBoundary kind={practice.boundary} />
@@ -93,8 +98,8 @@ export function PracticeGrid({ compact = false }: { compact?: boolean }) {
                 ))}
               </div>
             </div>
-            <Link href="/start-a-business/builder" className="text-link">
-              Add context to your brief ↗
+            <Link href={"/capabilities/" + practice.id} className="text-link">
+              Explore this practice ↗
             </Link>
           </div>
         </details>

@@ -7,7 +7,18 @@ export type StudioEventName =
   | "start_project"
   | "submit_inquiry"
   | "view_template"
-  | "contact_click";
+  | "contact_click"
+  | "builder_started"
+  | "builder_completed"
+  | "roadmap_generated"
+  | "package_recommended"
+  | "service_viewed"
+  | "practice_viewed"
+  | "roadmap_downloaded"
+  | "strategy_review_clicked"
+  | "template_viewed"
+  | "project_inquiry_started"
+  | "project_inquiry_submitted";
 export type StudioEvent = {
   name: StudioEventName;
   route?: string;

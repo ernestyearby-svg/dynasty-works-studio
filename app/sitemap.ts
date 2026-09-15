@@ -1,3 +1,4 @@
+import { practices } from "@/data/practices";
 import type { MetadataRoute } from "next";
 import { site } from "@/data/site";
 import { content } from "@/lib/content";
@@ -7,6 +8,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/work",
     "/start-a-business",
     "/services",
+    "/capabilities",
+    "/growth-partnership",
+    ...practices.map((p) => "/capabilities/" + p.id),
     "/studio",
     "/templates",
     "/contact",

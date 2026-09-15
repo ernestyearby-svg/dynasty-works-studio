@@ -27,6 +27,14 @@ import {
   isMarketNeed,
   hasPhysicalMarket,
 } from "@/lib/company-builder";
+import { businessStages } from "@/data/service-catalog";
+import {
+  inferStage,
+  generateRoadmap,
+  roadmapText,
+  createLeadPayload,
+} from "@/lib/recommendation-engine";
+import { RoadmapSummary } from "@/components/roadmap-summary";
 import { recordStudioEvent } from "@/lib/analytics";
 import type { CompanyBuild } from "@/types/company";
 const stepLabels = [
@@ -45,7 +53,7 @@ const stepTitles = [
   "When do you want to launch?",
   "Let’s frame the project range.",
   "Who’s behind the idea?",
-  "Your company build.",
+  "Your Dynasty Build Roadmap.",
 ];
 export function CompanyBuilder() {
   const [build, setBuild] = useState<CompanyBuild>(emptyCompanyBuild);
@@ -54,12 +62,38 @@ export function CompanyBuilder() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [message, setMessage] = useState("");
   const [storageWarning, setStorageWarning] = useState("");
+  const leadIdentity = useRef<{
+    builderSessionId: string;
+    createdAt: string;
+  } | null>(null);
   const title = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
+    leadIdentity.current = {
+      builderSessionId: crypto.randomUUID(),
+      createdAt: new Date().toISOString(),
+    };
     let saved: null | ReturnType<typeof parseSavedBuild> = null;
     try {
       const raw = sessionStorage.getItem(companyBuildStorageKey);
-      if (raw) saved = parseSavedBuild(raw);
+      if (raw) {
+        saved = parseSavedBuild(raw);
+        if (saved)
+          saved = {
+            ...saved,
+            build: {
+              ...saved.build,
+              name: "",
+              company: "",
+              email: "",
+              phone: "",
+              website: "",
+              budgetNote: "",
+              referralSource: "",
+              acknowledged: false,
+            },
+            step: Math.min(saved.step, 5),
+          };
+      }
     } catch {
       /* Private browsing may disallow storage. Memory remains usable. */
     }
@@ -77,7 +111,7 @@ export function CompanyBuilder() {
     setStep(saved?.step || 0);
     setReady(true);
     recordStudioEvent({
-      name: "start_company_builder",
+      name: "builder_started",
       route: "/start-a-business/builder",
     });
   }, []);
@@ -86,7 +120,20 @@ export function CompanyBuilder() {
     try {
       sessionStorage.setItem(
         companyBuildStorageKey,
-        JSON.stringify({ build, step }),
+        JSON.stringify({
+          build: {
+            ...build,
+            name: "",
+            company: "",
+            email: "",
+            phone: "",
+            website: "",
+            budgetNote: "",
+            referralSource: "",
+            acknowledged: false,
+          },
+          step: Math.min(step, 5),
+        }),
       );
     } catch {
       // eslint-disable-next-line react-hooks/set-state-in-effect -- Report unavailable browser storage, retaining the in-memory draft.
@@ -109,11 +156,18 @@ export function CompanyBuilder() {
       step: next + 1,
       route: "/start-a-business/builder",
     });
-    if (next === 6)
-      recordStudioEvent({
-        name: "complete_company_builder",
-        route: "/start-a-business/builder",
-      });
+    if (next === 6) {
+      for (const name of [
+        "builder_completed",
+        "roadmap_generated",
+        "package_recommended",
+      ] as const)
+        recordStudioEvent({
+          name,
+          route: "/start-a-business/builder",
+          contentId: generateRoadmap(build).engagement.id,
+        });
+    }
     setTimeout(() => title.current?.focus(), 20);
   }
   function proceed() {
@@ -145,6 +199,10 @@ export function CompanyBuilder() {
     });
   }
   function download() {
+    recordStudioEvent({
+      name: "roadmap_downloaded",
+      route: "/start-a-business/builder",
+    });
     const body = [
       "DYNASTY WORKS STUDIO — YOUR COMPANY BUILD",
       "LOCAL BRIEF ONLY. Not submitted or accepted. No quote or timeline commitment.",
@@ -165,6 +223,7 @@ export function CompanyBuilder() {
         Website: build.website || "Not provided",
       }).map(([key, value]) => key + ": " + value),
       "",
+      roadmapText(build),
       professionalBoundaries.general,
     ].join("\n");
     const url = URL.createObjectURL(
@@ -172,12 +231,16 @@ export function CompanyBuilder() {
     );
     const a = document.createElement("a");
     a.href = url;
-    a.download = "dynasty-company-build.txt";
+    a.download = "dynasty-build-roadmap.txt";
     a.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
     setMessage("Summary downloaded. Nothing has been submitted.");
   }
   function startBuild() {
+    recordStudioEvent({
+      name: "strategy_review_clicked",
+      route: "/start-a-business/builder",
+    });
     const found = validateCompanyBuild(build);
     if (Object.keys(found).length) {
       const first = [0, 1, 2, 3, 4, 5].find(
@@ -187,6 +250,7 @@ export function CompanyBuilder() {
       setErrors(found);
       return;
     }
+    if (leadIdentity.current) createLeadPayload(build, leadIdentity.current); // Prepared in memory only; no transport is configured.
     setMessage(
       "Your brief is ready, but it has not been submitted. Delivery is not connected yet. Download the summary to keep a copy.",
     );
@@ -197,12 +261,21 @@ export function CompanyBuilder() {
     } catch {
       /* In-memory clear still works. */
     }
+    leadIdentity.current = {
+      builderSessionId: crypto.randomUUID(),
+      createdAt: new Date().toISOString(),
+    };
     setBuild(emptyCompanyBuild);
     go(0);
     setMessage("Draft cleared from this tab.");
   }
   function radios(
-    key: "businessType" | "launch" | "budgetChoice",
+    key:
+      | "businessType"
+      | "launch"
+      | "budgetChoice"
+      | "businessStage"
+      | "engagementPreference",
     options: readonly string[],
   ) {
     return (
@@ -210,7 +283,7 @@ export function CompanyBuilder() {
         aria-label={stepTitles[step]}
         aria-invalid={!!errors[key]}
         aria-describedby={errors[key] ? "builder-errors" : undefined}
-        value={build[key]}
+        value={key === "businessStage" ? inferStage(build) : build[key] || ""}
         onValueChange={(value) => update({ [key]: value })}
         className="builder-options"
       >
@@ -303,7 +376,9 @@ export function CompanyBuilder() {
         </ol>
         <p className="small-note">
           This is a local planning brief. Nothing is sent to the studio. Your
-          draft is saved in this browser tab for the session.
+          non-contact selections are saved in this tab for the session. Contact
+          details and your written budget stay in memory and must be re-entered
+          after a reload.
         </p>
         <button className="clear-draft" onClick={reset} disabled={!ready}>
           Clear this draft
@@ -368,8 +443,12 @@ export function CompanyBuilder() {
             {step === 1 && (
               <>
                 <p className="muted">
-                  Select what you already have. More than one can apply.
+                  Choose your current stage, then select what you already have.
+                  More than one asset can apply.
                 </p>
+                <h3 className="builder-subheading">Business stage</h3>
+                {radios("businessStage", businessStages)}
+                <h3 className="builder-subheading">Existing assets</h3>
                 <fieldset className="builder-options">
                   <legend className="sr-only">Your starting point</legend>
                   {startingPoints.map((point, i) => (
@@ -391,6 +470,42 @@ export function CompanyBuilder() {
                     </label>
                   ))}
                 </fieldset>
+                <label className="builder-check-note">
+                  <Checkbox
+                    checked={!!build.storefrontReady}
+                    onCheckedChange={(v) =>
+                      update({ storefrontReady: v === true })
+                    }
+                  />
+                  <span>I already have an e-commerce store.</span>
+                </label>
+                {physical && (
+                  <label className="builder-check-note">
+                    <Checkbox
+                      checked={!!build.productReady}
+                      onCheckedChange={(v) =>
+                        update({ productReady: v === true })
+                      }
+                    />
+                    <span>
+                      My physical product or location is developed and ready for
+                      market-readiness review.
+                    </span>
+                  </label>
+                )}
+                {build.starting.includes(startingPoints[3]) && (
+                  <label className="builder-check-note">
+                    <Checkbox
+                      checked={!!build.redesignIdentity}
+                      onCheckedChange={(v) =>
+                        update({ redesignIdentity: v === true })
+                      }
+                    />
+                    <span>
+                      I explicitly want to redesign my existing identity.
+                    </span>
+                  </label>
+                )}
               </>
             )}
             {step === 2 && (
@@ -473,6 +588,16 @@ export function CompanyBuilder() {
                   Budget bands are under internal review. There are no published
                   prices or estimates here.
                 </p>
+                <h3 className="builder-subheading">
+                  How would you like to work?
+                </h3>
+                {radios("engagementPreference", [
+                  "Explore together",
+                  "Do it myself",
+                  "Guide me",
+                  "Build it for me",
+                ])}
+                <h3 className="builder-subheading">Project range</h3>
                 {radios("budgetChoice", budgetChoices)}
                 {build.budgetChoice === budgetChoices[1] && (
                   <label className="form-field budget-note">
@@ -501,6 +626,15 @@ export function CompanyBuilder() {
                 {field("email", "Email", "email")}
                 {field("phone", "Phone", "tel", true)}
                 {field("website", "Website", "url", true)}
+                <label className="form-field">
+                  How did you hear about us?{" "}
+                  <span className="optional">Optional</span>
+                  <input
+                    maxLength={200}
+                    value={build.referralSource || ""}
+                    onChange={(e) => update({ referralSource: e.target.value })}
+                  />
+                </label>
                 <label className="builder-check-note">
                   <Checkbox
                     checked={build.acknowledged}
@@ -510,8 +644,9 @@ export function CompanyBuilder() {
                     aria-invalid={!!errors.acknowledged}
                   />
                   <span>
-                    I understand this brief is saved in this browser tab for the
-                    session. It is not sent to the studio, and I can clear it or
+                    I understand my selections are saved in this tab for the
+                    session. Contact details and written budget are memory-only.
+                    Nothing is sent to the studio; I can clear the draft or
                     download a copy.
                   </span>
                 </label>
@@ -523,39 +658,43 @@ export function CompanyBuilder() {
             )}
             {step === 6 && (
               <>
-                <div className="build-summary">
-                  <span className="eyebrow">{build.businessType}</span>
-                  <div className="build-equation">
-                    {build.needs.map((need, i) => (
-                      <span key={need}>
-                        {i > 0 && <b aria-hidden="true">+</b>}
-                        {need}
-                      </span>
-                    ))}
+                <RoadmapSummary build={build} />
+                <details className="roadmap-contact">
+                  <summary>Your supplied brief and contact details</summary>
+                  <div className="build-summary">
+                    <span className="eyebrow">{build.businessType}</span>
+                    <div className="build-equation">
+                      {build.needs.map((need, i) => (
+                        <span key={need}>
+                          {i > 0 && <b aria-hidden="true">+</b>}
+                          {need}
+                        </span>
+                      ))}
+                    </div>
+                    <dl className="brief-review">
+                      {[
+                        ["Starting point", build.starting.join(" / ")],
+                        ["Desired launch", build.launch],
+                        [
+                          "Range",
+                          build.budgetChoice === budgetChoices[1]
+                            ? build.budgetNote
+                            : build.budgetChoice,
+                        ],
+                        ["Company", build.company],
+                        ["Name", build.name],
+                        ["Email", build.email],
+                        ["Phone", build.phone || "Not provided"],
+                        ["Website", build.website || "Not provided"],
+                      ].map(([label, value]) => (
+                        <div key={label}>
+                          <dt>{label}</dt>
+                          <dd>{value}</dd>
+                        </div>
+                      ))}
+                    </dl>
                   </div>
-                  <dl className="brief-review">
-                    {[
-                      ["Starting point", build.starting.join(" / ")],
-                      ["Desired launch", build.launch],
-                      [
-                        "Range",
-                        build.budgetChoice === budgetChoices[1]
-                          ? build.budgetNote
-                          : build.budgetChoice,
-                      ],
-                      ["Company", build.company],
-                      ["Name", build.name],
-                      ["Email", build.email],
-                      ["Phone", build.phone || "Not provided"],
-                      ["Website", build.website || "Not provided"],
-                    ].map(([label, value]) => (
-                      <div key={label}>
-                        <dt>{label}</dt>
-                        <dd>{value}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                </div>
+                </details>
                 <p className="professional-boundary">
                   {professionalBoundaries.general}
                 </p>
@@ -564,7 +703,7 @@ export function CompanyBuilder() {
                   not connected; no submission is saved by the studio.
                 </p>
                 <button className="button" type="button" onClick={download}>
-                  Download my summary ↓
+                  Download roadmap ↓
                 </button>
               </>
             )}
@@ -592,7 +731,7 @@ export function CompanyBuilder() {
               )}
               <button className="button dark" type="submit">
                 {step === 6
-                  ? "Start the build"
+                  ? "Request strategy review"
                   : step === 5
                     ? "Review my build"
                     : "Continue"}{" "}

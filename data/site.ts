@@ -19,7 +19,7 @@ export const site = {
 export const navigation = [
   { label: "Work", href: "/work" },
   { label: "Start a Business", href: "/start-a-business" },
-  { label: "Capabilities", href: "/services" },
+  { label: "Capabilities", href: "/capabilities" },
   { label: "Templates", href: "/templates" },
   { label: "Studio", href: "/studio" },
   { label: "Start a Project ↗", href: "/contact" },
