@@ -1,3 +1,4 @@
+import { BrandSymbol } from "@/components/brand-symbol";
 export const buildSequence = [
   "Idea",
   "Company",
@@ -19,27 +20,43 @@ export function BuildSequence() {
     </ol>
   );
 }
-export function BlueprintCover() {
+export function BlueprintCover({
+  clientCompany,
+  date,
+  template = false,
+}: { clientCompany?: string; date?: string; template?: boolean } = {}) {
   return (
     <div
       className="dw-document"
-      aria-label="Founder Blueprint document design direction"
+      aria-label="Dynasty Works Founder Blueprint cover"
     >
-      <div className="eyebrow">
-        DYNASTY WORKS / STUDIO<span>STRATEGIC SERIES — 01</span>
+      <div className="document-brand">
+        <BrandSymbol />
+        <strong>DYNASTY WORKS</strong>
+        <span className="eyebrow">STUDIO / STRATEGIC SERIES 01</span>
       </div>
       <p>
         FOUNDER
         <br />
-        <em>BLUEPRINT.</em>
+        <em>BLUEPRINT</em>
       </p>
+      {(template || clientCompany || date) && (
+        <div className="document-fields">
+          <div>{clientCompany || "[CLIENT / COMPANY]"}</div>
+          <div>{date || "[DATE]"}</div>
+        </div>
+      )}
       <div className="dw-document-grid" aria-hidden="true">
         <span>IDEA</span>
-        <span>COMPANY</span>
-        <span>MARKET</span>
+        <span>BUILD</span>
+        <span>GROW</span>
       </div>
       <footer>
-        <span>A COMPANY, CONSIDERED.</span>
+        <span>
+          FROM IDEA
+          <br />
+          TO EXECUTION.
+        </span>
         <span>30 / 60 / 90</span>
       </footer>
     </div>

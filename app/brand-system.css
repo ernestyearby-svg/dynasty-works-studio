@@ -1,18 +1,22 @@
-/* V1.5: shared identity tokens and editorial surfaces. Breakpoints: 700 / 1100 px. */
+/* V1.6: shared identity tokens and editorial surfaces. Breakpoints: 700 / 1100 px. */
 :root {
-  --obsidian: #181a19;
-  --bone: #f1eee7;
-  --gray: #d2cfc6;
-  --graphite: #62645f;
-  --bronze: #b7a88e;
+  --obsidian: #0a0a0a;
+  --bone: #f4f1ea;
+  --stone: #6b6b6b;
+  --champagne: #d4b483;
+  --warm-taupe: #a89b8a;
+  --soft-sand: #d9d2c7;
+  --gray: var(--soft-sand);
+  --graphite: #1f1f1f;
+  --bronze: #8c6f4e;
   --ink: var(--obsidian);
   --paper: var(--bone);
-  --muted: var(--graphite);
+  --muted: var(--stone);
   --line: var(--gray);
-  --accent: var(--bronze);
+  --accent: var(--champagne);
   --font-body: Arial, Helvetica, sans-serif;
   --font-editorial: Georgia, "Times New Roman", serif;
-  --font-technical: "Courier New", monospace;
+  --font-technical: var(--font-body);
   --type-xl: clamp(2.25rem, 7.8vw, 9rem);
   --type-display: clamp(2.5rem, 6.6vw, 7.5rem);
   --type-h1: clamp(2.6rem, 6vw, 6.8rem);
@@ -23,7 +27,9 @@
   --type-body: 1rem;
   --type-small: 0.875rem;
   --type-caption: 0.75rem;
-  --type-eyebrow: 0.6875rem;
+  --type-eyebrow: 0.75rem;
+  --type-navigation: 0.875rem;
+  --type-button: 0.875rem;
   --type-technical: 0.75rem;
   --s1: 0.25rem;
   --s2: 0.5rem;
@@ -45,7 +51,7 @@
   --motion-fast: 180ms;
   --motion-reveal: 700ms;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --focus: #80683f;
+  --focus: var(--bronze);
 }
 body {
   font-family: var(--font-body);
@@ -785,3 +791,327 @@ em {
   --measure-180px: 180px;
   --measure-80px: 80px;
 }
+
+/* Production identity application */
+.production-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s4);
+  color: inherit;
+  max-width: 100%;
+}
+.brand-symbol {
+  display: block;
+  width: 70px;
+  height: auto;
+  flex: 0 0 auto;
+  overflow: visible;
+}
+.identity-lockup {
+  gap: var(--s2);
+}
+.identity-lockup > span {
+  font-size: var(--type-navigation);
+  letter-spacing: 0.035em;
+}
+.identity-lockup small {
+  font-size: var(--type-caption);
+  letter-spacing: 0.24em;
+}
+.nav {
+  gap: var(--s4);
+}
+.nav-links {
+  font-size: var(--type-navigation);
+}
+.button {
+  font-size: var(--type-button);
+}
+.dw-hero-meta {
+  align-items: center;
+}
+.dw-hero-meta .production-lockup {
+  font-family: var(--font-body);
+  letter-spacing: normal;
+}
+.dw-hero-meta .brand-symbol {
+  width: 60px;
+}
+.brand-progression {
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+  margin-block: var(--s5);
+  font-size: var(--type-caption);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.brand-progression > span {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+.brand-stage-label {
+  color: var(--muted);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+.brand-stage-label > span {
+  padding-inline: var(--s1);
+}
+.brand-progression .brand-symbol {
+  width: 64px;
+}
+.brand-module {
+  animation: module-connect 260ms var(--ease) both;
+}
+.module-0 {
+  clip-path: inset(0 64% 0 0);
+}
+.module-1 {
+  clip-path: inset(0 36% 0 36%);
+  animation-delay: 160ms;
+}
+.module-2 {
+  clip-path: inset(0 0 0 64%);
+  animation-delay: 320ms;
+}
+.is-complete .brand-resolve {
+  animation: brand-resolve 240ms ease both;
+  animation-delay: 520ms;
+}
+@keyframes module-connect {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes brand-resolve {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.practice-item summary > .eyebrow {
+  border: 0;
+  border-left: 3px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  position: relative;
+}
+.practice-item summary > .eyebrow:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  border-top: 3px solid currentColor;
+}
+.dw-sequence li {
+  border-top-width: 2px;
+}
+.roadmap-phase-title > span {
+  border-left: 3px solid currentColor;
+  padding-left: var(--s3);
+}
+.case-section > h2 {
+  border-left: 3px solid var(--ink);
+  padding-left: var(--s4);
+}
+.dw-document {
+  gap: var(--s6);
+}
+.document-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s4);
+}
+.document-brand .brand-symbol {
+  width: 90px;
+}
+.document-brand strong {
+  font-size: var(--type-small);
+  letter-spacing: 0.08em;
+}
+.document-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s5);
+  font-size: var(--type-small);
+}
+.document-fields > div {
+  border-top: 1px solid var(--stone);
+  padding-top: var(--s3);
+}
+.dw-document-grid {
+  border-color: var(--stone);
+}
+.dw-document-grid > span {
+  border-color: var(--stone);
+  font-size: var(--type-caption);
+}
+.dw-document footer {
+  font-size: var(--type-caption);
+}
+.review-approved {
+  border-top: 2px solid var(--ink);
+  padding-top: var(--s6);
+}
+.review-approved .territory-three {
+  background: var(--obsidian);
+  color: var(--bone);
+}
+.review-approved .brand-symbol {
+  width: min(70%, 280px);
+}
+.review-approved .brand-progression {
+  margin: var(--s6) 0;
+}
+.review-archive-label {
+  margin-block: var(--s7);
+  font-size: var(--type-small);
+}
+.review-territories article:has(.territory-three) {
+  grid-column: 1 / -1;
+}
+.review-territories article:has(.territory-three) .territory {
+  aspect-ratio: 3/1;
+  min-height: 220px;
+}
+.review-palette {
+  grid-template-columns: repeat(4, 1fr);
+}
+.swatch-stone {
+  background: var(--stone);
+  color: var(--bone);
+}
+.swatch-champagne {
+  background: var(--champagne);
+}
+.swatch-warm-taupe {
+  background: var(--warm-taupe);
+}
+.swatch-soft-sand {
+  background: var(--soft-sand);
+}
+.swatch-bronze {
+  background: var(--bronze);
+  color: var(--bone);
+}
+.identity-size-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s6);
+  margin-block: var(--s6);
+}
+.identity-size-strip figure {
+  margin: 0;
+}
+.identity-size-strip img {
+  max-width: 100%;
+  height: auto;
+}
+.identity-size-strip figcaption {
+  font-size: var(--type-caption);
+  margin-top: var(--s3);
+}
+.brand-asset-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s5);
+  margin-block: var(--s6);
+}
+.brand-asset-links a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.document-system-example {
+  background: var(--bone);
+  color: var(--ink);
+  border: var(--border);
+  padding: var(--s7);
+  margin-block: var(--s6);
+}
+.document-system-example header,
+.document-system-example footer {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s5);
+  align-items: center;
+  flex-wrap: wrap;
+}
+.document-system-example header {
+  border-bottom: var(--border);
+  padding-bottom: var(--s5);
+}
+.document-system-example footer {
+  border-top: var(--border);
+  padding-top: var(--s5);
+  font-size: var(--type-caption);
+}
+.dw-product-diagram .muted,
+.roadmap-engagement .muted {
+  color: var(--graphite);
+}
+@media (max-width: 700px) {
+  .production-lockup {
+    gap: var(--s3);
+  }
+  .nav .brand-symbol {
+    width: 44px;
+  }
+  .nav .identity-lockup > span {
+    font-size: var(--type-navigation);
+  }
+  .nav .identity-lockup small {
+    font-size: var(--type-caption);
+  }
+  .dw-document {
+    padding: var(--s5);
+  }
+  .review-palette {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .review-territories article:has(.territory-three) .territory {
+    aspect-ratio: 4/3;
+  }
+  .dw-document-grid {
+    min-height: 80px;
+  }
+  .document-fields {
+    grid-template-columns: 1fr;
+  }
+  .dw-hero-register {
+    font-size: var(--type-caption);
+  }
+  .dw-hero-register > span:nth-child(2) {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-module,
+  .is-complete .brand-resolve {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Approved palette: graphite text on sand meets normal-text contrast. */
+.market-entry .section-description,.market-entry .muted,.market-entry .professional-boundary,.blueprint-final .small-note,.offering-card .small-note{color:var(--graphite)}
+.swatch-bronze>span{font-size:1.25rem;font-weight:700}
+
+.pathway-result .small-note{color:var(--graphite)}
+
+.roadmap-heading .brand-stage-label{color:var(--bone)}
+.roadmap-engagement .small-note,.brief-review dt{color:var(--graphite)}

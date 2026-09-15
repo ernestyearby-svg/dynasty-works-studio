@@ -1,3 +1,4 @@
+import { Wordmark } from "@/components/wordmark";
 import { RelatedServices } from "@/components/company-sections";
 import { OptimizedImage } from "@/components/optimized-image";
 import Link from "@/components/site-link";
@@ -31,7 +32,7 @@ export function Hero({
   return (
     <section className="dw-hero shell">
       <div className="dw-hero-meta eyebrow">
-        <span>DYNASTY WORKS / STUDIO</span>
+        <Wordmark />
         <span>STRATEGY · DESIGN · TECHNOLOGY</span>
       </div>
       <h1>

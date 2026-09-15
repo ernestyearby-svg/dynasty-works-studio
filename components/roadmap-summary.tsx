@@ -1,3 +1,4 @@
+import { BrandProgression } from "@/components/brand-progression";
 import { founderBlueprint } from "@/data/founder-blueprint";
 import { BlueprintCTA } from "@/components/blueprint-actions";
 import Link from "@/components/site-link";
@@ -15,7 +16,7 @@ export function RoadmapSummary({ build }: { build: CompanyBuild }) {
       aria-label="Your Dynasty Build Roadmap"
     >
       <div className="roadmap-heading">
-        <span className="eyebrow">YOUR DYNASTY BUILD</span>
+        <BrandProgression complete />
         <h3>
           {build.businessType}
           <br />
@@ -103,9 +104,15 @@ export function RoadmapSummary({ build }: { build: CompanyBuild }) {
         <span className="eyebrow">RECOMMENDED ENGAGEMENT</span>
         <h3>{r.engagement.name}</h3>
         {r.engagement.id === founderBlueprint.id && (
-          <><p className="blueprint-result-price">
-            {founderBlueprint.priceLabel}
-          </p><p className="small-note">Strategy and roadmap engagement. Execution of the recommended services is scoped separately.</p></>
+          <>
+            <p className="blueprint-result-price">
+              {founderBlueprint.priceLabel}
+            </p>
+            <p className="small-note">
+              Strategy and roadmap engagement. Execution of the recommended
+              services is scoped separately.
+            </p>
+          </>
         )}
         <p>{r.engagement.reason}</p>
         <p className="small-note">{preliminaryNotice}</p>

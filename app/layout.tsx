@@ -18,7 +18,29 @@ export const metadata: Metadata = {
   },
   description:
     "An integrated company-building studio connecting strategy, formation coordination, branding, digital development, launch and growth.",
-  icons: { icon: "/favicon.svg" },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      {
+        url: "/assets/brand/icons/icon-32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/assets/brand/icons/icon-16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+    ],
+    apple: [
+      {
+        url: "/assets/brand/icons/icon-180.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
+  manifest: "/manifest.webmanifest",
   openGraph: { type: "website", siteName: "Dynasty Works Studio" },
   twitter: { card: "summary_large_image" },
 };

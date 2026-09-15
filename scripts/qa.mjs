@@ -99,7 +99,8 @@ for (const path of [
   );
 const review = await (await fetch(origin + "/creative-review")).text();
 assert.match(review, /noindex/);
-assert.match(review, /IDENTITY EXPLORATION/);
+assert.ok(review.includes("APPROVED / PRODUCTION DIRECTION"));
+assert.match(review, /ARCHIVED EXPLORATIONS/);
 const home = await (await fetch(origin + "/")).text();
 assert.ok(!home.includes("concept-beverage"));
 assert.ok(!home.includes('href="/creative-review"'));

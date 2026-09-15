@@ -163,3 +163,7 @@ See FOUNDER-BLUEPRINT.md, INQUIRY-PIPELINE.md, SUPABASE-INTEGRATION-PLAN.md and 
 ## V1.5 creative system
 
 See DYNASTY-WORKS-BRAND-SYSTEM.md and PORTFOLIO-ASSET-AUDIT.md. The concept derivatives described above are now preserved under internal-assets, outside public hosting. All unapproved project detail routes are gated; this supersedes the earlier placeholder publication behavior. /creative-review is a noindex non-navigation review route; /work/archive is an approval-gated creative library. The business architecture, $1,500 Blueprint and disabled backend are unchanged.
+
+## V1.6 approved production identity
+
+Direction 03 is now the locked production mark. See DYNASTY-WORKS-BRAND-SYSTEM.md and BRAND-ASSET-MANIFEST.md for production usage, sources, optical icon derivatives and document/social templates. /creative-review labels Direction 03 approved and the other territories archived. This supersedes V1.5 identity approval-pending notes only; portfolio approval gates remain unchanged.

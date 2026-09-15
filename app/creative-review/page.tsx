@@ -1,3 +1,6 @@
+import { BrandSymbol } from "@/components/brand-symbol";
+import { BrandProgression } from "@/components/brand-progression";
+import { OptimizedImage } from "@/components/optimized-image";
 import Link from "@/components/site-link";
 import {
   flagshipPlans,
@@ -9,7 +12,7 @@ import { BlueprintCover, BuildSequence } from "@/components/build-sequence";
 export const metadata = {
   title: "Internal Creative Review",
   description:
-    "Four identity explorations and the Dynasty Works Studio design direction. Not final brand assets.",
+    "Approved Direction 03 production identity, application standards and archived explorations.",
   robots: { index: false, follow: false },
   alternates: { canonical: "/creative-review" },
 };
@@ -17,24 +20,37 @@ export default function CreativeReview() {
   return (
     <div className="creative-review">
       <section className="shell page-intro">
-        <span className="eyebrow">
-          INTERNAL CREATIVE REVIEW / NOT FINAL BRAND ASSETS
-        </span>
+        <span className="eyebrow">INTERNAL BRAND REGISTER / V1.6</span>
         <h1>
-          Four territories.
+          One identity.
           <br />
-          <em>An open direction.</em>
+          <em>Built to belong.</em>
         </h1>
         <p>
-          Identity exploration / Not final. The typography-only production
-          lockup remains temporary. No territory has been selected.
+          Direction 03 — Modular System Mark is approved as the production
+          identity. Directions 01, 02 and 04 are archived explorations, retained
+          only as historical records.
         </p>
       </section>
       <section className="shell review-territories">
+        <article className="review-approved">
+          <header>
+            <span>03 / MODULAR SYSTEM</span>
+            <span>APPROVED / PRODUCTION DIRECTION</span>
+          </header>
+          <div className="territory territory-three">
+            <BrandSymbol />
+            <span>IDEA → BUILD → GROW</span>
+          </div>
+          <p>
+            The approved master: construction through progression. A modular
+            grammar for progression, documents and motion.
+          </p>
+        </article>
         <article>
           <header>
             <span>01 / ARCHITECTURAL WORDMARK</span>
-            <span>IDENTITY EXPLORATION / NOT FINAL</span>
+            <span>ARCHIVED EXPLORATIONS</span>
           </header>
           <div className="territory territory-one">
             <strong>
@@ -52,7 +68,7 @@ export default function CreativeReview() {
         <article>
           <header>
             <span>02 / DW RELATIONSHIP</span>
-            <span>IDENTITY EXPLORATION / NOT FINAL</span>
+            <span>ARCHIVED EXPLORATIONS</span>
           </header>
           <div className="territory territory-two">
             <svg
@@ -78,38 +94,8 @@ export default function CreativeReview() {
         </article>
         <article>
           <header>
-            <span>03 / MODULAR SYSTEM</span>
-            <span>IDENTITY EXPLORATION / NOT FINAL</span>
-          </header>
-          <div className="territory territory-three">
-            <svg
-              viewBox="0 0 280 150"
-              role="img"
-              aria-label="Exploratory connected modules progressing through three stages"
-            >
-              <path
-                d="M20 125V95H90V60H160V25H230V125Z"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="10"
-              />
-              <path
-                d="M90 95V125M160 60V125"
-                stroke="currentColor"
-                strokeWidth="2"
-              />
-            </svg>
-            <span>IDEA → COMPANY → MARKET</span>
-          </div>
-          <p>
-            A connected framework grows by addition. A modular grammar for
-            progression, documents and motion.
-          </p>
-        </article>
-        <article>
-          <header>
             <span>04 / EDITORIAL DESIGN HOUSE</span>
-            <span>IDENTITY EXPLORATION / NOT FINAL</span>
+            <span>ARCHIVED EXPLORATIONS</span>
           </header>
           <div className="territory territory-four">
             <strong>
@@ -124,6 +110,52 @@ export default function CreativeReview() {
             exceptionally quiet supporting detail.
           </p>
         </article>
+      </section>
+      <section className="shell section">
+        <span className="eyebrow">PRODUCTION ASSETS / ONE VECTOR MASTER</span>
+        <h2>One system. Every scale.</h2>
+        <div className="brand-asset-links">
+          {[
+            "logo/logo-primary.svg",
+            "logo/logo-horizontal.svg",
+            "logo/logo-stacked.svg",
+            "logo/wordmark.svg",
+            "symbol/symbol.svg",
+            "symbol/symbol-outline.svg",
+            "symbol/symbol-reversed.svg",
+          ].map((file) => (
+            <a key={file} href={"/assets/brand/" + file} download>
+              {file.split("/")[1]}
+            </a>
+          ))}
+        </div>
+        <div className="identity-size-strip">
+          {[16, 32, 48, 180, 192, 512].map((size) => (
+            <figure key={size}>
+              <OptimizedImage
+                src={"/assets/brand/icons/icon-" + size + ".png"}
+                width={Math.min(size, 96)}
+                height={Math.min(size, 96)}
+                alt={"Modular icon at " + size + " pixels"}
+              />
+              <figcaption>
+                {size} × {size}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <p>
+          16–48px uses the optical small-size derivative. Larger assets retain
+          the master hairline divisions. Above 96px, the previews here are
+          scaled down; the source files retain their labeled dimensions.
+        </p>
+        <h3>Motion: idea, build, grow.</h3>
+        <BrandProgression complete />
+        <p>
+          Three connected modules resolve in under one second. The full static
+          mark remains visible when reduced motion is requested. No forced site
+          introduction.
+        </p>
       </section>
       <section className="shell section">
         <span className="eyebrow">TYPE / SYSTEM FONTS — NO FONT DOWNLOAD</span>
@@ -146,6 +178,8 @@ export default function CreativeReview() {
             "Caption",
             "Eyebrow",
             "Technical Label",
+            "Navigation",
+            "Button",
           ].map((x, i) => (
             <div key={x}>
               <span className="eyebrow">
@@ -168,6 +202,8 @@ export default function CreativeReview() {
                       "caption",
                       "eyebrow",
                       "technical",
+                      "navigation",
+                      "button",
                     ][i] +
                     ")",
                 }}
@@ -181,7 +217,16 @@ export default function CreativeReview() {
       <section className="shell section">
         <h2>Material, without ornament.</h2>
         <div className="review-palette">
-          {["obsidian", "bone", "gray", "graphite", "bronze"].map((x) => (
+          {[
+            "obsidian",
+            "graphite",
+            "stone",
+            "bone",
+            "champagne",
+            "warm-taupe",
+            "soft-sand",
+            "bronze",
+          ].map((x) => (
             <div key={x} className={"swatch swatch-" + x}>
               <span>{x}</span>
             </div>
@@ -270,13 +315,84 @@ export default function CreativeReview() {
         </div>
       </section>
       <section className="shell section">
-        <span className="eyebrow">FUTURE IDENTITY / APPROVAL REQUIRED</span>
+        <span className="eyebrow">
+          DOCUMENT / PRESENTATION / SOCIAL ARCHITECTURE
+        </span>
+        <h2>A consistent institution.</h2>
+        <div className="dw-product">
+          <BlueprintCover template />
+          <div>
+            <h3>Documents</h3>
+            <p>
+              Founder Blueprint, proposals, pitch decks, reports, invoices,
+              strategy documents, case studies, sales sheets and project
+              roadmaps share a cover, technical header, restrained footer and
+              page-number grid.
+            </p>
+            <h3>Presentations</h3>
+            <p>
+              Obsidian covers. Bone editorial pages. Large type, approved
+              full-bleed imagery and quiet technical captions.
+            </p>
+            <h3>Social</h3>
+            <p>
+              One avatar across Instagram, LinkedIn, YouTube, TikTok, X and
+              future platforms. Announcement, case study, project reveal, quote,
+              education, process, Blueprint and Builder formats share the same
+              margins and type hierarchy. No content calendar or fabricated
+              posts are included.
+            </p>
+          </div>
+        </div>
+        <div className="document-system-example">
+          <header>
+            <BrandSymbol />
+            <span className="eyebrow">[DOCUMENT TYPE] / [SECTION]</span>
+          </header>
+          <h3>[Section title]</h3>
+          <p>
+            [Approved content uses the shared editorial grid. Bracketed labels
+            are template fields, not client information.]
+          </p>
+          <footer>
+            <span>DYNASTY WORKS / STUDIO</span>
+            <span>[DATE] / [PAGE NUMBER]</span>
+          </footer>
+        </div>
+        <div className="brand-asset-links">
+          <a
+            href="/assets/brand/documents/blueprint-cover-template.svg"
+            download
+          >
+            Blueprint cover template
+          </a>
+          <a
+            href="/assets/brand/documents/presentation-cover-template.svg"
+            download
+          >
+            Presentation cover template
+          </a>
+          <a href="/assets/brand/social/avatar.svg" download>
+            Social avatar
+          </a>
+          <a href="/assets/brand/social/opengraph-template.svg" download>
+            OpenGraph architecture
+          </a>
+        </div>
+        <p>
+          The OpenGraph SVG is an editable layout template. It is not wired as a
+          crawler image: broad social previews need a separately approved raster
+          export. No project imagery is fabricated.
+        </p>
+      </section>
+      <section className="shell section">
+        <span className="eyebrow">PRODUCTION IDENTITY / DIRECTION 03</span>
         <h2>A family of expressions.</h2>
         <p>{identityVariants.join(" · ")}</p>
         <p>
-          Approve a territory, refine letterforms and test small-scale use
-          before producing these final assets. The current favicon is a
-          temporary typographic label.
+          The modular symbol is locked. All variants derive from one vector
+          master. Small icons omit the hairline dividers and strengthen the
+          outer stroke; the module positions are unchanged.
         </p>
       </section>
     </div>

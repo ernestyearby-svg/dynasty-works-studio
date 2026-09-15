@@ -1,51 +1,108 @@
-# Dynasty Works Studio — working brand system V1.5
+# Dynasty Works Studio — production brand guidelines V1.6
 
-## Idea and personality
+## Brand strategy and approval
 
-WE BUILD THE COMPANY AROUND THE IDEA. Intelligent, precise, ambitious and enduring. Independent design house, venture studio and technology practice. Express permanence through proportion, structure and care. Official working name: DYNASTY WORKS STUDIO; primary DYNASTY WORKS, secondary STUDIO.
+Direction 03, the Modular System Mark from V1.5, is the approved production identity. The decision is locked for this system. Directions 01, 02 and 04 are archived historical explorations and are not active choices. Do not redesign the symbol or introduce alternatives.
 
-## Identity status
+Master name: DYNASTY WORKS. Subordinate descriptor: STUDIO. Primary proposition: WE BUILD THE COMPANY / AROUND THE IDEA. Supporting language: FROM IDEA TO EXECUTION. Operating sequence: IDEA → COMPANY → BRAND → BUILD → LAUNCH → MARKET → GROWTH. Use selectively; do not attach the proposition to every application.
 
-Production uses only a temporary typography lockup, shared by header and footer. The old D/ symbol is removed. The favicon is a temporary typographic name label, not an approved final mark. No permanent identity has been selected or exported.
+Character: precise, intelligent, structural and permanent; a design house, venture studio, technology company and architectural practice. Combine modular intelligence with editorial restraint.
 
-Four native vector/type explorations live at /creative-review, all labeled IDENTITY EXPLORATION / NOT FINAL:
-1. Architectural wordmark: aligned edges, measured spacing and institutional restraint.
-2. DW relationship: curved enclosure paired with geometric spans on a shared axis; no overlapping initials.
-3. Modular system: connected stepped structure expressing idea, company and market.
-4. Editorial design house: serif scale and contrast with a quiet studio descriptor.
+## Logo system and symbol meaning
 
-Human approval selects a territory before refinement, small-scale testing and final production assets. The planned family includes primary/secondary, horizontal/vertical, monogram/symbol, favicon/app/social, black/white/one-color, small-scale, document/watermark/presentation and motion versions. These are architecture only.
+The approved stepped outline and its two internal divisions are preserved exactly. Main interpretation: IDEA → BUILD → GROW. Internal interpretation: STRATEGY → EXECUTION → SCALE. Public applications need not explain it.
 
-## Typography
+One vector master resides at brand-source/modular-master.json. Original outer path M20 125V95H90V60H160V25H230V125Z, 10-unit stroke; dividers M90 95V125M160 60V125, 2-unit stroke. Miter joins, no rotation or distortion. A 250×150 viewBox balances the original unequal canvas margins; it does not change the geometry.
 
-No fonts are downloaded. Arial/Helvetica/system sans carries the core; Georgia/Times serif supplies editorial contrast; Courier New/monospace supports technical labels. These use the viewer’s installed fonts; no font binaries are distributed. Avoid extra families. Premium licensing is unresolved: a future licensed grotesk/editorial-serif pairing requires visual selection and license review; no purchase or specific commercial font is presumed approved.
+Production configurations: primary symbol/name/descriptor, horizontal, stacked, wordmark, symbol, outline and reversed. The approved mark is itself an outline, so symbol-outline.svg deliberately matches symbol.svg. Do not invent a filled alternative. SVG logo lettering is outlined for portable rendering; the responsive website uses accessible live name text alongside the same vector geometry. The responsive compact header retains a 12px descriptor.
 
-The hierarchy is centralized in app/brand-system.css: XL 2.25–9rem, display 2.5–7.5rem, H1 2.6–6.8rem, H2 2–4.9rem, H3 1.4–2.4rem, H4 1.25rem, large body 1.2–1.6rem, body 1rem, small .875rem, caption .75rem, eyebrow .6875rem and technical .75rem. Oversized copy uses tight tracking and short lines; body text stays comfortably spaced. The review route demonstrates every level.
+## Clear space
 
-## Palette
+Let X = 35 master units, one half of a 70-unit module width. Maintain at least X between the visible symbol and unrelated content; scale X with the mark. At 70px SVG width, X is 9.8px. Lockups have built-in internal spacing; add X around their outside. Compact browser/application icons are a specific optical exception using a centered square field and safe margins. Never crowd the mark against image edges or navigation.
 
-Obsidian #181a19; warm bone #f1eee7; architectural gray #d2cfc6; graphite #62645f; restrained bronze #b7a88e. Bronze is a supporting material, never a simulated gold finish. Dark-on-light and bone-on-obsidian carry primary text. Legacy colors are centrally declared for existing application surfaces; new surfaces use the five semantic colors. Interactive focus uses a separate high-contrast token.
+## Minimum size
 
-## Grid and spacing
+| Application | Digital minimum | Print recommendation |
+|---|---|---|
+| Full detail symbol | 72px wide | 16mm wide; proof the fine dividers |
+| Small symbol | 16px favicon; 32px preferred for interface use | 8mm only after physical proof |
+| Exported primary lockup | 350px wide | 85mm wide |
+| Exported horizontal lockup | 350px wide | 85mm wide |
+| Exported stacked lockup | 250px wide | 60mm wide |
+| Exported wordmark | 216px wide | 52mm wide |
+| Responsive HTML header | Compact symbol + live name text; 12px descriptor | Not a print asset |
 
-Desktop editorial sections use twelve columns, with 6/6 and 8/4 divisions. Tablet uses two and four column structures; mobile uses one and two. Sections have deliberate asymmetric offsets, generous space and controlled reading widths. Container maximum 1800px, fluid gutters 20–88px and section spacing 72–144px. Breakpoints remain literal 700px and 1100px because CSS custom properties cannot define media conditions. The legacy 1024px rules remain for established business forms. Existing measurements are centralized into measure tokens to preserve layout behavior. New components use the semantic spacing scale.
+The exported lockup minima keep the descriptor near 12px digitally. Below them use the symbol or responsive live-text compact lockup, not a shrunken full SVG. Print sizes are recommendations pending printer/material proof, not a claim of physical testing. Tested PNG canvases: 16, 32, 48, 180, 192, 512px. Small 16–48px derivatives remove hairline dividers and strengthen the outer stroke to 18; all coordinates remain fixed. Do not use that optical derivative at display scale.
 
-## Motion and interaction
+## Locked palette
 
-180ms interactions; 700ms editorial entrance/image movement; cubic-bezier(.22,1,.36,1). One restrained hero entrance, small hover movement and clear state changes. No scroll hijacking, continuous float or heavy autoplay. Reduced motion disables animation, transitions, smooth scrolling and transforms. Every essential project label is visible without hover.
+| Name | Value | Role |
+|---|---|---|
+| Obsidian | #0A0A0A | Primary dark environment |
+| Graphite | #1F1F1F | Secondary dark, readable text on sand |
+| Stone | #6B6B6B | Secondary text on Bone, technical rules |
+| Bone | #F4F1EA | Primary light environment |
+| Champagne | #D4B483 | Restrained highlight |
+| Warm Taupe | #A89B8A | Supporting neutral |
+| Soft Sand | #D9D2C7 | Quiet panel surface |
+| Accent Bronze | #8C6F4E | Restrained accent and focus treatment |
 
-## Photography, 3D and portfolio
+Colors are centralized in app/brand-system.css; legacy application colors resolve to this palette. Alpha blends derive from these colors only. Champagne/Bronze normally occupy less than approximately 10% of a composition. No random extra brand colors or black-and-gold decoration. Obsidian/Bone contrast is 17.55:1; Stone/Bone 4.72:1. Stone on Sand is 3.55:1, so regular text on Sand uses Graphite. Bone/Bronze is 4.14:1: use large bold labels or avoid text on Bronze. Focus indicators use appropriate high-contrast colors on light/dark surfaces.
 
-The work is the proof. Only real, rights-cleared and approved project assets enter the portfolio. No AI concept is presented as a client outcome. Preserve masters and author separate derivatives with explicit dimensions and alt text. Lazy-load below-fold media. Videos use controls, playsInline and preload none. Hero can accept an explicitly approved poster/image or controlled film; currently it uses typography only.
+## Typography and hierarchy
 
-Case modules: narrative, gallery, video, minimal desktop/mobile frame, real-pair BeforeAfter and media-sequence layouts for packaging, lineup, details, dieline, environment, retail, technical and mobile sequences. Large renders and turntables use those same media primitives. Use approved process material across idea, strategy, early concept, identity, development, prototype, digital, campaign and market; omit unsupported stages. No invented before image or outcome. The featured case section remains gated until approved work exists.
+Modern grotesk: installed Arial/Helvetica/system sans for navigation, labels, Builder, practice names, service taxonomy and UI. Editorial serif: installed Georgia/Times for selected storytelling, case statements and Blueprint moments. Technical labels now use the grotesk rather than a third monospaced family. No font binaries, remote font calls or new licenses are introduced. Premium alternatives remain a separate future license/visual-selection decision, not an approved purchase.
 
-/work/archive supports twelve categories with a curated empty state while approval is pending. Unapproved case URLs return 404. Preserve architecture without exposing unfinished material. See PORTFOLIO-ASSET-AUDIT.md for all five flagship plans.
+Tokens cover Display XL, Display, H1–H4, Body Large, Body, Small, Caption, Eyebrow, Technical Label, Navigation and Button. Body is 16px; small/navigation/button 14px; secondary labels 12px. Display sizes scale fluidly; tracking is controlled and tighter only on display text. Avoid decorative serif in controls. Maintain adequate line height and test long content at narrow widths.
 
-## UI, documents and practices
+## Grid and modular language
 
-Square edges, visible hairlines, quiet fills and generous click targets. Eight practices share a numbered 01–08 identifier. They are a coordinated system, not eight logos. Builder progress, selected options, phase numbering and engagement panel use the same identity; recommendation logic is unchanged. Downloads remain the functioning plain-text roadmap. The Blueprint cover is an on-page design direction, not a generated client deliverable or a new PDF product. It introduces document numbering, a three-part grid and 30/60/90 sequence. Price remains $1,500; execution is separate.
+Preserve the twelve-column desktop editorial grid, balanced 6/6 and asymmetric 8/4 sections, responsive tablet and mobile grids, 1800px maximum container and fluid gutters. Breakpoints remain literal for CSS compatibility. Use the underlying stepped construction in corner rules, numbered practice markers, timelines and phase edges. Do not repeat the complete logo as a decorative pattern. Approved client work keeps its own colors and identity; Dynasty Works supplies the gallery structure.
 
-## Do / don’t
+## Motion
 
-Do use proportion, typography, approved process evidence and quiet material contrast. Do keep labels and forms readable and keyboard reachable. Do preserve the private audience and disabled backend. Do not use crowns, crests, castles, bridges, lions, columns, chess pieces, generic luxury monograms or gold clichés. Do not approve an identity by implementing it. Do not publish unapproved media, fabricated results or supposed certifications.
+Three clipped views of the exact master reveal module 01, connect module 02, then complete module 03. Module starts are 0/160/320ms with 260ms entrances; name resolves at 520ms for 240ms. Total 760ms. Used on Builder completion and the internal demonstration. No full-site intro, blocking transition, loop or animation library. Reduced-motion media rules immediately show the static completed mark and name. Do not repurpose the movement to imply a loading operation that is not actually taking place.
+
+## Digital UI and practices
+
+Header/footer and hero use the approved lockup. Mobile keeps a compact readable lockup without dominating navigation. Company Builder adds IDEA → BUILD → GROW and the modular mark; completion uses the motion sequence. No recommendation logic is changed. Blueprint uses the mark, technical labels, phase numbering and an Obsidian/Bone cover. Its approved $1,500 price and separately scoped execution remain unchanged.
+
+Eight practices use one corner-rule/number system: 01 START, 02 BRAND, 03 BUILD, 04 LAUNCH, 05 DISTRIBUTE, 06 ACTIVATE, 07 GROW, 08 PUBLISH. They are not separate logos. Buttons are high-contrast rectangular forms; secondary actions use thin outlines/text. Inputs, filters, accordions, progress, tabs/dialog primitives and roadmap containers inherit restrained colors, precise edges and visible focus. Preserve functional accessible states.
+
+## Photography, 3D and material
+
+Architectural, cinematic, editorial, high-detail, intentional and authentic to the project. Human or product focus when relevant. Stone, metal, paper, glass, concrete and black textured surfaces can inform material choices without becoming literal decoration. Avoid generic corporate stock, handshakes, fake teams, random AI businesspeople and startup clichés. Portfolio media is never recolored to match the studio. No new client imagery was created for this phase.
+
+3D requires actual approved work; use large renders, process, technical and environmental views, controlled video/turntables, explicit media dimensions and lazy loading. Never imply engineering certification. BeforeAfter requires real approved pairs. Preserve masters; create derivatives separately.
+
+## Portfolio
+
+The first five flagship plans remain MyMosa / My Drink Family, IKLA Maison, SmokeSuite, Mr. Cliff’s Premium Bourbon and From Ohana to Alpine. Brand approval does not approve their work. They still require project-specific media, scope, rights, credits and factual narrative. Existing portfolio gates, media modules, large presentation surfaces and archive categories remain. No fictitious dates, outcomes, testimonials or certifications.
+
+## Document system
+
+Shared cover: approved modular mark, DYNASTY WORKS, document title, client/company and date only when supplied, then FROM IDEA / TO EXECUTION. Blueprint uses FOUNDER / BLUEPRINT. Empty web covers omit client fields; downloadable templates show explicit bracketed fields. Do not publish templates as completed client deliverables.
+
+Founder Blueprint, proposals, pitch decks, reports, invoices, strategy documents, case studies, sales sheets and project roadmaps share a 12-column editorial grid, consistent cover spacing, technical section header, quiet studio footer and page number/date slots. Use 8% page margins as a starting point, typography hierarchy and thin rules. Place document mark once per page header or footer; use low-opacity watermark only on open space, never behind essential text. This phase supplies SVG architecture and examples, not actual invoices, client documents or PDF generation.
+
+## Presentation system
+
+16:9 Obsidian cover; Bone editorial body; large grotesk title with selective serif moments; approved full-bleed media and technical captions. One idea per slide, aligned to the modular grid. The cover SVG has a bracketed title; no fake client data. Create actual decks only when the content is provided.
+
+## Social and OpenGraph architecture
+
+Use the same centered avatar across Instagram, LinkedIn, YouTube, TikTok, X and future platforms. Preserve safe area when platform cropping changes. Base layouts: announcement (one proposition), case study/reveal (approved media first), quote (verified attribution), education (one concept), process (real evidence), Blueprint and Builder (actual product screens). Use 8% safe margins, an Obsidian/Bone base, consistent technical captions and small mark placement. No platform accounts are modified or posts created.
+
+1200×630 OpenGraph SVG architecture includes the mark, name and approved proposition. It is an editable template, not live raster sharing metadata; social crawlers do not consistently support SVG. A later approved raster export can be wired to metadata. Do not generate fake portfolio imagery for it. Favicon, Apple touch and 192/512 application icons are wired now. No service worker/offline behavior is added.
+
+## Accessibility and performance
+
+Decorative inline marks use aria-hidden and focusable=false; home links have a useful accessible name. Asset SVGs have title/role labels. Visible status and labels remain readable, with explicit focus and reduced-motion behavior. Do not communicate meaning only by color. SVGs use native geometry, no external scripts/raster dependencies. Logo lettering is outlined; editable templates use system font text. Tiny PNGs exist only for requested favicon/application derivatives. No motion library, new video or large decorative asset.
+
+## Misuse
+
+Do not stretch, rotate arbitrarily, add shadows, invent outlines, recolor randomly, apply gradients, place on unreadable imagery, alter module relationships or add crowns/shields/bridges/crests/lions/chess pieces. Use only the approved outline version. Do not revive the archived explorations as production choices. Keep clear space and minimum sizes.
+
+## Production locations
+
+See BRAND-ASSET-MANIFEST.md. SVGs: public/assets/brand/{logo,symbol,icons,social,documents}. Favicon: public/favicon.svg. Application references: public/manifest.webmanifest and app/layout.tsx. Masters: brand-source/. Shared geometry component: components/brand-symbol.tsx. Approved review/archive: /creative-review (noindex, no navigation, existing private hosting).

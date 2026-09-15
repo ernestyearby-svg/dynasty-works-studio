@@ -1,4 +1,5 @@
 "use client";
+import { BrandProgression } from "@/components/brand-progression";
 import { useState, useEffect, useRef } from "react";
 import Link from "@/components/site-link";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -365,7 +366,7 @@ export function CompanyBuilder() {
         <Link href="/start-a-business" className="text-link">
           ← Start a Business
         </Link>
-        <span className="eyebrow">A GUIDED START</span>
+        <BrandProgression />
         <h1>
           Build my
           <br />
