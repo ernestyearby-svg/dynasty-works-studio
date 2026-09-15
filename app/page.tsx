@@ -1,144 +1,175 @@
-import { AutomationFeature } from "@/components/automation";
 import Link from "@/components/site-link";
 import { content } from "@/lib/content";
 import {
-  Hero,
-  SectionHeading,
-  ProjectCard,
-  ProcessTimeline,
-  FinalCTA,
-} from "@/components/studio";
-import { PracticeGrid } from "@/components/company-sections";
-import { BuildSequence, BlueprintCover } from "@/components/build-sequence";
+  ExperienceHero,
+  CinematicWork,
+  ExperienceClosing,
+} from "@/components/digital-experience";
+import {
+  AssemblyExperience,
+  CapabilityExperience,
+  BlueprintProduct,
+  LivingSystem,
+} from "@/components/experience-interactive";
 import { founderBlueprint } from "@/data/founder-blueprint";
+import { practices } from "@/data/practices";
 export default async function Home() {
-  const projects = await content.listProjects();
-  const featured = projects.filter((p) => p.featured);
-  const focus = featured[2];
+  const projects = (await content.listProjects()).filter((p) => p.featured);
   return (
-    <>
-      <Hero />
-      <section className="shell section dw-selected">
-        <SectionHeading
-          number="01"
-          label="SELECTED WORK"
-          title="The work is the proof."
-        />
-        {featured.length ? (
-          <div className="selected-grid">
-            {featured.slice(0, 2).map((p) => (
-              <ProjectCard project={p} key={p.slug} />
+    <div className="ex-home">
+      <ExperienceHero />
+      <section
+        id="experience-intro"
+        className="shell ex-intro ex-section"
+        data-reveal
+      >
+        <span className="eyebrow">01 / THE WHOLE COMPANY</span>
+        <h2>
+          An idea is
+          <br />
+          only the
+          <br />
+          <em>beginning.</em>
+        </h2>
+        <div>
+          <p>
+            A company is everything that comes around it. The strategy. The
+            identity. The product. The systems that bring it to life.
+          </p>
+          <p>We connect those pieces, from first direction to execution.</p>
+          <Link href="/studio" className="text-link">
+            Inside Dynasty Works ↗
+          </Link>
+        </div>
+      </section>
+      <section className="shell ex-section ex-selected">
+        <div className="ex-section-top">
+          <span className="eyebrow">02 / SELECTED WORK</span>
+          <Link href="/work" className="text-link">
+            The portfolio ↗
+          </Link>
+        </div>
+        <CinematicWork projects={projects} />
+      </section>
+      <section className="ex-system-section">
+        <div className="shell ex-section">
+          <div className="ex-system-title" data-reveal>
+            <span className="eyebrow">03 / THE BUILD SYSTEM</span>
+            <h2>
+              IDEAS
+              <br />
+              NEED
+              <br />
+              <em>SYSTEMS.</em>
+            </h2>
+            <p>
+              One direction.
+              <br />
+              Every part connected.
+            </p>
+          </div>
+          <AssemblyExperience />
+          <div className="ex-practice-rail">
+            {practices.map((p, i) => (
+              <Link href={"/capabilities/" + p.id} key={p.id}>
+                <span>0{i + 1}</span>
+                {p.title}
+              </Link>
             ))}
           </div>
-        ) : (
-          <div className="dw-work-intro">
-            <p>
-              Ideas take shape.
+        </div>
+      </section>
+      <section className="ex-builder-environment">
+        <div className="shell ex-section ex-builder-product">
+          <div data-reveal>
+            <span className="eyebrow">04 / DWS COMPANY BUILDER</span>
+            <h2>
+              The first move.
               <br />
-              <em>Across every dimension.</em>
+              <em>Made clear.</em>
+            </h2>
+            <p>
+              Start with what you have. Define what you need. See a considered
+              sequence for the company you want to build.
             </p>
-            <div>
-              <span className="eyebrow">THE PORTFOLIO</span>
-              <p>Our selected case studies are being curated for release.</p>
-              <Link className="text-link" href="/work">
-                Explore the work index ↗
-              </Link>
-            </div>
+            <Link href="/start-a-business/builder" className="button dark">
+              Build your company ↗
+            </Link>
           </div>
-        )}
-      </section>
-      <section className="shell section dw-system">
-        <span className="eyebrow">02 / THE BUILD SYSTEM</span>
-        <h2>
-          One idea.
-          <br />
-          <em>A connected company.</em>
-        </h2>
-        <BuildSequence />
-        <p className="dw-offset">
-          The strategy informs the brand. The brand shapes the product. The
-          product meets the market. Every decision belongs to a larger whole.
-        </p>
-      </section>
-      {focus && (
-        <section className="shell section">
-          <SectionHeading number="03" label="IN FOCUS" title={focus.title} />
-          <ProjectCard project={focus} />
-        </section>
-      )}
-      <section className="shell section dark-section">
-        <SectionHeading
-          number="04"
-          label="EIGHT CONNECTED PRACTICES"
-          title="One studio. The entire build."
-        />
-        <PracticeGrid compact />
-        <Link className="text-link" href="/capabilities">
-          Explore our capabilities ↗
-        </Link>
-      </section>
-      <section className="shell section dw-product">
-        <div>
-          <span className="eyebrow">05 / COMPANY BUILDER</span>
-          <h2>
-            Your idea.
-            <br />
-            Your next move.
-          </h2>
-          <p>
-            A guided starting point. Map what you have, what you need and the
-            order to build it.
-          </p>
-          <Link className="button dark" href="/start-a-business/builder">
-            Build your company ↗
-          </Link>
-        </div>
-        <div className="dw-product-diagram">
-          <span className="eyebrow">A GUIDED BUILD / 01—07</span>
-          {["Define the idea", "Connect the needs", "Sequence the build"].map(
-            (x, i) => (
-              <div key={x}>
-                <span>0{i + 1}</span>
-                <strong>{x}</strong>
-                <span>↗</span>
-              </div>
-            ),
-          )}
-          <p>From a starting point to a preliminary roadmap.</p>
+          <div className="ex-builder-window" data-reveal>
+            <header>
+              <BrandMarkLabel />
+              <span className="eyebrow">01 — 07</span>
+            </header>
+            <span className="eyebrow">YOUR STARTING POINT</span>
+            <h3>
+              What are
+              <br />
+              we building?
+            </h3>
+            <div className="ex-window-options">
+              <span>A new idea</span>
+              <span>A growing company</span>
+            </div>
+            <div className="ex-window-roadmap">
+              <span>IDEA</span>
+              <span>BUILD</span>
+              <span>GROW</span>
+            </div>
+            <Link href="/start-a-business/builder" className="text-link">
+              Begin your build ↗
+            </Link>
+          </div>
         </div>
       </section>
-      <section className="shell section dw-blueprint">
-        <BlueprintCover />
-        <div>
-          <span className="eyebrow">06 / FOUNDER BLUEPRINT</span>
+      <section className="shell ex-section ex-blueprint-section">
+        <BlueprintProduct />
+        <div data-reveal>
+          <span className="eyebrow">05 / FOUNDER BLUEPRINT</span>
           <h2>
-            Before you build.
+            Clarity.
             <br />
-            <em>Know the company.</em>
+            <em>
+              Before
+              <br />
+              commitment.
+            </em>
           </h2>
           <p>
-            A strategic engagement to turn the idea into a coordinated company
-            roadmap.
+            A strategic engagement that makes the company tangible before major
+            execution begins.
           </p>
-          <strong className="dw-price">{founderBlueprint.priceLabel}</strong>
+          <strong className="ex-price">{founderBlueprint.priceLabel}</strong>
           <p className="small-note">
-            Strategy and roadmap. Execution scoped separately.
+            Strategy and roadmap.
+            <br />
+            Execution scoped separately.
           </p>
-          <Link className="button" href="/founder-blueprint">
-            Explore Founder Blueprint ↗
+          <Link href="/founder-blueprint" className="button">
+            Explore the Blueprint ↗
           </Link>
         </div>
       </section>
-      <section className="shell section">
-        <SectionHeading
-          number="07"
-          label="PROCESS"
-          title="Considered. Then constructed."
-        />
-        <ProcessTimeline />
+      <section className="ex-automation-environment">
+        <div className="shell ex-section">
+          <div className="ex-automation-intro" data-reveal>
+            <span className="eyebrow">06 / AI + AUTOMATION SYSTEMS</span>
+            <h2>
+              Behind the business.
+              <br />
+              <em>A better way to work.</em>
+            </h2>
+            <p>Connect the work. Keep the judgment.</p>
+          </div>
+          <LivingSystem />
+          <Link href="/automation" className="text-link">
+            Explore AI + Automation Systems ↗
+          </Link>
+        </div>
       </section>
-      <section className="shell section dw-archive-link">
-        <span className="eyebrow">08 / SELECTED CREATIVE</span>
+      <CapabilityExperience />
+      <section className="shell ex-section ex-gallery-invitation">
+        <span className="eyebrow">THE CREATIVE ARCHIVE</span>
         <Link href="/work/archive">
           A wider field
           <br />
@@ -146,25 +177,10 @@ export default async function Home() {
           <span aria-hidden="true">↗</span>
         </Link>
       </section>
-      <section className="shell section dw-statement">
-        <span className="eyebrow">09 / THE STUDIO</span>
-        <h2>
-          An idea rarely
-          <br />
-          needs only one thing.
-        </h2>
-        <div className="dw-offset">
-          <p>
-            We connect strategy, design and technology around the whole company.
-            One considered direction, carried through the build.
-          </p>
-          <Link className="text-link" href="/studio">
-            Inside the studio ↗
-          </Link>
-        </div>
-      </section>
-      <AutomationFeature />
-      <FinalCTA />
-    </>
+      <ExperienceClosing />
+    </div>
   );
+}
+function BrandMarkLabel() {
+  return <span className="eyebrow">DYNASTY WORKS / COMPANY BUILDER</span>;
 }

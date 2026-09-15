@@ -55,7 +55,7 @@ const stepTitles = [
   "When do you want to launch?",
   "Let’s frame the project range.",
   "Who’s behind the idea?",
-  "Your Dynasty Build Roadmap.",
+  "Your build is ready.",
 ];
 export function CompanyBuilder() {
   const [build, setBuild] = useState<CompanyBuild>(emptyCompanyBuild);
@@ -390,14 +390,14 @@ export function CompanyBuilder() {
         <p className="small-note">
           This is a local planning brief. Nothing is sent to the studio. Your
           non-contact selections are saved in this tab for the session. Contact
-          details and your written budget stay in memory and must be re-entered
-          after a reload.
+          details, written budget and process notes stay in memory and must be
+          re-entered after a reload.
         </p>
         <button className="clear-draft" onClick={reset} disabled={!ready}>
           Clear this draft
         </button>
       </aside>
-      <section className="builder-main">
+      <section className="builder-main" data-build-step={step}>
         <div className="builder-progress-label">
           <span>STEP {step + 1} OF 7</span>
           <span>{stepLabels[step]}</span>
@@ -411,6 +411,7 @@ export function CompanyBuilder() {
           <p role="status">Preparing your brief…</p>
         ) : (
           <form
+            key={step}
             noValidate
             onSubmit={(e) => {
               e.preventDefault();

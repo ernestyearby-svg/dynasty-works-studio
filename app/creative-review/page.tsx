@@ -1,3 +1,4 @@
+import { ExperienceReview } from "@/components/experience-review";
 import { BrandSymbol } from "@/components/brand-symbol";
 import { BrandProgression } from "@/components/brand-progression";
 import { OptimizedImage } from "@/components/optimized-image";
@@ -19,6 +20,7 @@ export const metadata = {
 export default function CreativeReview() {
   return (
     <div className="creative-review">
+      <ExperienceReview />
       <section className="shell page-intro">
         <span className="eyebrow">INTERNAL BRAND REGISTER / V1.6</span>
         <h1>

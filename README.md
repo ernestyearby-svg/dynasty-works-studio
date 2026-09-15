@@ -174,3 +174,10 @@ Direction 03 is now the locked production mark. See DYNASTY-WORKS-BRAND-SYSTEM.m
 New /automation capability, conditional Builder discovery and conservative automation roadmap. All provider adapters remain disabled. The 122 core services, eight practices, seven packages, five partnership types, $1,500 Founder Blueprint and 22 Direction 03 brand assets are preserved. See [AI-AUTOMATION-SYSTEMS.md](AI-AUTOMATION-SYSTEMS.md), [WORKFLOW-ARCHITECTURE.md](WORKFLOW-ARCHITECTURE.md), [AUTOMATION-SECURITY.md](AUTOMATION-SECURITY.md), [LEAD-ENGINE.md](LEAD-ENGINE.md), [CONTENT-ENGINE.md](CONTENT-ENGINE.md) and [N8N-INTEGRATION-PLAN.md](N8N-INTEGRATION-PLAN.md).
 
 Automation model regression: node scripts/qa-automation.mjs. No credentials, database or workflow setup is required for this release.
+
+
+## V1.8 — digital experience
+
+New cinematic homepage, interactive build/identity/Blueprint/workflow moments, refined navigation and Company Builder presentation. Existing recommendation logic, prices, service/package catalog, brand assets and disabled integrations are unchanged. /creative-review includes the internal Digital Experience register and remains noindex.
+
+See [DWS-VISUAL-ASSET-PLAN.md](DWS-VISUAL-ASSET-PLAN.md) for approved-media requirements, responsive crops and budgets. No proprietary raster/3D assets or client work were fabricated; precise vector and native UI treatments remain until separate media approval. Experience QA: node scripts/qa-experience.mjs against the local production server. Motion honors device preferences and the footer's Reduce motion control.

@@ -1,3 +1,4 @@
+import { LivingSystem } from "@/components/experience-interactive";
 import Link from "@/components/site-link";
 import { WorkflowMap } from "@/components/automation";
 import {
@@ -60,6 +61,11 @@ export default function AutomationPage() {
             Directed by human judgment.
           </p>
         </aside>
+      </section>
+      <section className="ex-automation-environment">
+        <div className="shell ex-section">
+          <LivingSystem />
+        </div>
       </section>
       <section className="shell section">
         <div className="automation-heading">

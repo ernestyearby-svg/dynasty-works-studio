@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { categories, type Category, type Project } from "@/data/projects";
-import { ProjectGrid } from "@/components/studio";
+import { CinematicWork } from "@/components/digital-experience";
 export function WorkExplorer({ projects }: { projects: Project[] }) {
   const [active, setActive] = useState<Category>("All");
   useEffect(() => {
@@ -22,8 +22,7 @@ export function WorkExplorer({ projects }: { projects: Project[] }) {
         context.registerTool(
           {
             name: "filter_portfolio",
-            description:
-              "Filter approved portfolio projects by discipline.",
+            description: "Filter approved portfolio projects by discipline.",
             inputSchema: {
               type: "object",
               properties: {
@@ -87,7 +86,7 @@ export function WorkExplorer({ projects }: { projects: Project[] }) {
         {String(filtered.length).padStart(2, "0")} projects / {active}
       </div>
       {filtered.length ? (
-        <ProjectGrid projects={filtered} />
+        <CinematicWork projects={filtered} />
       ) : (
         <div className="empty-state">
           <h2>More work is taking shape.</h2>

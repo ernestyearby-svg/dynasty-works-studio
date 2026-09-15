@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { MarketCaseSections } from "@/components/company-sections";
 import { notFound } from "next/navigation";
 import Link from "@/components/site-link";
@@ -50,7 +51,19 @@ export default async function ProjectPage({
   const next =
     all[(all.findIndex((item) => item.slug === slug) + 1) % all.length];
   return (
-    <>
+    <div
+      className="ex-project-page"
+      style={
+        p.exhibition?.approvalReference.trim() &&
+        /^#[0-9a-f]{6}$/i.test(p.exhibition.background) &&
+        /^#[0-9a-f]{6}$/i.test(p.exhibition.foreground)
+          ? ({
+              "--ex-project-bg": p.exhibition.background,
+              "--ex-project-fg": p.exhibition.foreground,
+            } as CSSProperties)
+          : undefined
+      }
+    >
       <section className="case-intro shell">
         <Link className="text-link" href="/work">
           ← All work
@@ -143,6 +156,6 @@ export default async function ProjectPage({
         </Link>
       </div>
       <FinalCTA />
-    </>
+    </div>
   );
 }

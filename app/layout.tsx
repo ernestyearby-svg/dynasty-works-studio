@@ -1,3 +1,4 @@
+import { ExperienceMotion } from "@/components/experience-motion";
 import { Wordmark } from "@/components/wordmark";
 import type { Metadata } from "next";
 import Link from "@/components/site-link";
@@ -5,6 +6,7 @@ import { Navbar } from "@/components/navbar";
 import "./globals.css";
 import "./brand-system.css";
 import "./automation.css";
+import "./experience.css";
 import { site } from "@/data/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.origin),
@@ -73,6 +75,7 @@ export default function RootLayout({
           <div className="footer-bottom">
             <span>© {new Date().getFullYear()} Dynasty Works Studio</span>
             <span>STRATEGY → DESIGN → BUILD → LAUNCH</span>
+            <ExperienceMotion />
             <a href="#main">Back to top ↑</a>
           </div>
         </footer>

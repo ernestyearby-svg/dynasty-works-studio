@@ -43,6 +43,11 @@ export type CaseModule =
     };
 export interface Project {
   /** Approval covers copy, media rights, credits and the exact case-study revision. */
+  exhibition?: {
+    background: string;
+    foreground: string;
+    approvalReference: string;
+  };
   publicationApproval?: { approved: true; reference: string };
   marketSections?: MarketCaseSection[];
   slug: string;

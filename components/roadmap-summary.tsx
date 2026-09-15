@@ -35,7 +35,7 @@ export function RoadmapSummary({ build }: { build: CompanyBuild }) {
         A rule-based starting point. Suggested items are optional; initial scope
         and future work remain subject to review.
       </p>
-      <ol className="roadmap-phases">
+      <ol className="roadmap-phases ex-roadmap-assembly">
         {r.phases.map((p, i) => (
           <li key={p.name}>
             <div className="roadmap-phase-title">
