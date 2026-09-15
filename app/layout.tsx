@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s | Dynasty Works Studio",
   },
   description:
-    "We build brands, products, experiences and systems. A multidisciplinary studio working across strategy, design and technology.",
+    "An integrated company-building studio connecting strategy, formation coordination, branding, digital development, launch and growth.",
   icons: { icon: "/favicon.svg" },
   openGraph: { type: "website", siteName: "Dynasty Works Studio" },
   twitter: { card: "summary_large_image" },
@@ -57,4 +57,3 @@ export default function RootLayout({
     </html>
   );
 }
-

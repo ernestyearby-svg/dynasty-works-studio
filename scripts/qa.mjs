@@ -3,6 +3,8 @@ const origin = process.argv[2] || "http://localhost:5174";
 const routes = [
   "/",
   "/work",
+  "/start-a-business",
+  "/start-a-business/builder",
   "/services",
   "/studio",
   "/templates",

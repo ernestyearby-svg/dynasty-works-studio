@@ -1,3 +1,4 @@
+import { EngagementLevels } from "@/components/company-sections";
 import { content } from "@/lib/content";
 import { templateCategories } from "@/data/templates";
 import { PageIntro, FinalCTA } from "@/components/studio";
@@ -26,6 +27,10 @@ export default async function Templates() {
           <span className="eyebrow">ON THE DRAWING BOARD</span>
           <p>{templateCategories.join(" / ")}</p>
         </div>
+      </section>
+      <section className="shell section">
+        <h2 className="engagement-title">Build at your own pace.</h2>
+        <EngagementLevels />
       </section>
       <FinalCTA />
     </>

@@ -1,3 +1,4 @@
+import type { MarketCaseSection } from "@/types/company";
 export const categories = [
   "All",
   "Branding",
@@ -26,6 +27,7 @@ export type CaseModule =
   | { type: "device"; image: Media; kind: "desktop" | "mobile" }
   | { type: "comparison"; before: Media; after: Media };
 export interface Project {
+  marketSections?: MarketCaseSection[];
   slug: string;
   title: string;
   client: string | null;

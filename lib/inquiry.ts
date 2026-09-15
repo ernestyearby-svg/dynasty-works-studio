@@ -1,3 +1,4 @@
+import { marketNeeds } from "@/data/company-builder";
 import { z } from "zod";
 export const inquiryServices = [
   "Brand Strategy",
@@ -14,6 +15,10 @@ export const inquiryServices = [
   "Presentation / Collateral",
   "Multiple Services",
   "Other",
+  "Company Setup",
+  "Trademark Coordination",
+  "Licensing Research",
+  ...marketNeeds,
 ] as const;
 export const stages = [
   "Idea",
@@ -22,12 +27,9 @@ export const stages = [
   "Expansion",
 ] as const;
 export const budgets = [
-  "Under $5,000",
-  "$5,000–$15,000",
-  "$15,000–$30,000",
-  "$30,000–$75,000",
-  "$75,000+",
   "Let’s discuss",
+  "I have a range to discuss",
+  "Range not decided",
 ] as const;
 export const timeframes = [
   "Within 1 month",
@@ -60,7 +62,8 @@ export const inquirySchema = z
     services: z
       .array(z.enum(inquiryServices))
       .min(1, "Select at least one service.")
-      .max(14),
+      .max(inquiryServices.length),
+    physicalMarket: z.boolean().default(false),
     description: clean(20, 5000),
     company: clean(1, 150),
     stage: z.enum(stages),

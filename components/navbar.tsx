@@ -40,7 +40,7 @@ export function Navbar() {
           <Link
             key={n.href}
             href={n.href}
-            className={i === 4 ? "nav-cta" : ""}
+            className={i === navigation.length - 1 ? "nav-cta" : ""}
             onClick={() => setOpen(false)}
           >
             {n.label}
@@ -50,4 +50,3 @@ export function Navbar() {
     </header>
   );
 }
-

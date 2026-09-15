@@ -5,27 +5,36 @@ import {
   FinalCTA,
   SectionHeading,
 } from "@/components/studio";
+import { PracticeGrid, MarketEntry } from "@/components/company-sections";
 export const metadata = {
   title: "Capabilities",
   description:
-    "Strategy, branding, packaging, web, applications, AI, visualization and creative production.",
+    "Eight connected practices: company strategy and formation coordination, brand, digital build, launch, distribution preparation, activation, growth and publishing.",
   alternates: { canonical: "/services" },
 };
 export default function Services() {
   return (
     <>
       <PageIntro
-        eyebrow="WHAT WE DO / 02"
-        title="Built around the whole idea."
-        description="A multidisciplinary practice connecting the thinking, the making and the technology. Bring us one challenge or the entire picture."
+        eyebrow="EIGHT PRACTICES / ONE STUDIO"
+        title="Built around the whole company."
+        description="Start with the opportunity. Build the identity and infrastructure. Prepare for the market and keep moving forward."
       />
       <section className="shell capabilities-page">
-        <ServiceGrid />
+        <PracticeGrid />
+        <details className="specialist-disciplines" id="specialist-disciplines">
+          <summary>
+            <span>Explore our specialist disciplines</span>
+            <span>12 disciplines +</span>
+          </summary>
+          <ServiceGrid />
+        </details>
       </section>
+      <MarketEntry />
       <section className="shell section">
         <SectionHeading
           number="01–06"
-          label="FROM IDEA TO EXECUTION"
+          label="HOW WE WORK"
           title="One connected process."
         />
         <ProcessTimeline />

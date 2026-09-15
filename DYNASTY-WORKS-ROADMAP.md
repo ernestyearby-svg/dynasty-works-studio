@@ -1,31 +1,34 @@
 # Dynasty Works Studio roadmap
 
-## Phase 1 — Studio Website
+## Phase 1 — Studio + Portfolio
 
-Delivered: editorial site, seven route patterns, six placeholder case studies, 12 capability groups, filtered portfolio, coming-soon catalog, safe brief builder, SEO architecture, responsive components and documentation.
-Launch gates: approve identity and copy; replace provisional categories/artwork; connect and test inquiry delivery; approve privacy/retention terms; choose domain; enable indexing only for the approved public site.
+Preserve the editorial website, six case-study placeholders, media modules, portfolio filters and technical foundation. Approve identity, rights, project scope, client/year facts and imagery. Produce one complete flagship case study. Connect secure inquiry delivery and finalize launch/privacy requirements.
 
-## Phase 2 — Full Portfolio Library
+## Phase 2 — Company Builder
 
-1. Inventory approved high-resolution assets for all six named projects.
-2. Confirm client names, years, role, scope, deliverables, permission to publish and verified outcomes.
-3. Produce one complete flagship case study with the strongest approved imagery.
-4. Add gallery, video, desktop/mobile, packaging and before/after modules where supported by actual work.
-5. Introduce authenticated content administration, version history, ordered projects, draft previews and publication permissions.
-6. Add image processing and accessibility review to the asset pipeline.
+Delivered in V1.1/V1.2: founder entry page, four pathways, seven-step local builder, eight practices and company stages, context-aware market recommendations, session recovery and downloadable summary. Includes retail-readiness and market-entry frameworks.
+Next: approve scope and budget policy, validate service boundaries with relevant professionals, connect a durable intake backend, test delivery and define project onboarding.
 
-## Phase 3 — Template Marketplace
+## Phase 3 — Templates Marketplace
 
-Define actual products, formats, license terms, support and prices. Build available-product details and previews. Connect provider-neutral checkout, signed payment webhooks, receipts, protected downloads, refunds and catalog administration. Add purchase and delivery regression tests before sales launch.
+Approve real products, prices, licenses, formats, support and fulfillment. Offer DIY, guided and full-studio engagement paths without fake inventory. Connect provider-neutral checkout, verified webhooks, receipts, refunds and protected downloads.
 
 ## Phase 4 — Client Portal
 
-Authenticated client accounts, project workspaces, milestones, secure file exchange and approvals. Establish tenant boundaries, authorization policies, audit records and retention rules before storing client data.
+Implement authenticated, tenant-scoped overview, tasks, documents, brand vault, project files, approvals, finance references, messages and launch center. Establish role separation, private storage, audit records and retention before receiving sensitive data.
 
-## Phase 5 — Studio Operating Platform
+## Phase 5 — Studio Operating System
 
-Coordinate inquiry intake, estimating, proposals, project operations, reusable creative systems and bounded AI workflows. Add analytics with meaningful consent and verified reporting. Introduce automation incrementally with permissions, monitoring and human review where needed.
+Coordinate inquiry review, proposals, delivery phases, resources, approvals, launch readiness, content production and ongoing support. Model distribution/activation dependencies only for relevant clients; use verified operational records.
 
-## Highest priority next
+## Phase 6 — AI-Assisted Company Builder
 
-Approved assets and one complete flagship case study; a verified inquiry destination and durable delivery; then portfolio editing and the first real template product.
+Evaluate bounded assistance for roadmap drafting, missing-work detection and next-step suggestions. Use permission-aware data access, source grounding and human review. Professional/legal/regulatory decisions remain with qualified people. No unsupported AI is live in the current release.
+
+## Phase 7 — Scalable Platform / Partner Network
+
+Define approved specialist categories, credential review, jurisdictions, consent to publish, referral responsibilities and partner onboarding. Expand company operations and market support without implying unverified relationships, licenses or guaranteed outcomes.
+
+## Recommended next phase
+
+Finish Phase 2 operational readiness alongside Phase 1 portfolio approval: confirm the service scope, deliver one approved flagship case study, then connect and test secure inquiry intake. Keep marketplace prices, packages, retainers, partner names and professional claims unpublished until reviewed.

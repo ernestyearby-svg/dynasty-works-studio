@@ -35,3 +35,13 @@ On Windows, rebuilding while the production emulator held dist open caused a fil
 - Retina assets are limited to the generated 1536-pixel masters; replace with higher-resolution approved imagery for large displays where needed.
 - Public indexing remains disabled pending content approval.
 
+
+## V1.1 + V1.2 expansion verification — September 15, 2026
+
+- Production build, TypeScript and ESLint passed; lint reported zero warnings/errors. Git whitespace check passed.
+- All 14 rendered routes, robots and sitemap returned HTTP 200; missing case study returned 404. Verified 36 production internal links/assets, metadata and heading checks, and nine inquiry API cases. One retry was limited to the previously documented local Wrangler restart error.
+- Company-builder model tests passed: physical-market eligibility, software exclusions, explicit physical intent, stale-selection pruning, optional recommendations, draft validation/recovery, contact/budget validation, evidence gates, eight stages/practices and unapproved offering data.
+- All seven builder steps were checked for horizontal overflow at 320, 375, 390, 430, 768, 1024, 1440, 1920 and 2560 pixels. Eight representative site routes were also checked at those nine widths; no page overflow was found.
+- Browser checks covered founder pathways, carried milestones, required fields, email errors, budget discussion, conditional distribution options, back navigation, session reload recovery, review, local download, honest not-submitted messaging and draft clearing. Mobile navigation and conditional inquiry options passed.
+- Production browser flow completed all seven steps with synthetic details and produced no new browser warnings/errors. Synthetic drafts were cleared. No real inquiry was transmitted.
+- Existing QA scope limits above still apply. No new backend, account system, payments, analytics collection or professional partner integration is represented as live.

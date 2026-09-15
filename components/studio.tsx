@@ -1,3 +1,4 @@
+import { RelatedServices } from "@/components/company-sections";
 import { OptimizedImage } from "@/components/optimized-image";
 import Link from "@/components/site-link";
 import type { Project, Media, CaseModule } from "@/data/projects";
@@ -40,11 +41,11 @@ export function Hero() {
           <br />
           {site.hero.support}
         </p>
-        <Link className="button light" href="/work">
-          Explore our work <span>↗</span>
+        <Link className="button light" href="/start-a-business">
+          Build something <span>↗</span>
         </Link>
-        <Link className="hero-contact" href="/contact">
-          Start a project ↗
+        <Link className="hero-contact" href="/work">
+          See what we’ve built ↗
         </Link>
         <span className="scroll-note">SCROLL TO EXPLORE ↓</span>
       </div>
@@ -213,6 +214,7 @@ export function ServiceGrid({ compact = false }: { compact?: boolean }) {
                 <li key={item}>{item}</li>
               ))}
             </ul>
+            <RelatedServices slug={s.slug} />
             <Link href="/contact">Discuss a project ↗</Link>
           </div>
         </details>
@@ -344,4 +346,3 @@ export function CaseModuleView({ module }: { module: CaseModule }) {
       return <BeforeAfter {...module} />;
   }
 }
-

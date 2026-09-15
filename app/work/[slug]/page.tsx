@@ -1,3 +1,4 @@
+import { MarketCaseSections } from "@/components/company-sections";
 import { notFound } from "next/navigation";
 import Link from "@/components/site-link";
 import { content } from "@/lib/content";
@@ -116,6 +117,7 @@ export default async function ProjectPage({
             title={p.title + " film"}
           />
         )}
+        <MarketCaseSections sections={p.marketSections} />
         <CaseStudySection title="Final deliverables">
           {p.deliverables.length ? (
             <ul>
@@ -144,4 +146,3 @@ export default async function ProjectPage({
     </>
   );
 }
-

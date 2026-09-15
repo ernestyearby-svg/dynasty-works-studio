@@ -1,4 +1,6 @@
 "use client";
+import { isMarketNeed } from "@/lib/company-builder";
+import { professionalBoundaries } from "@/data/company-builder";
 import { useState, useRef } from "react";
 import {
   inquiryServices,
@@ -9,6 +11,7 @@ import {
 } from "@/lib/inquiry";
 type Draft = {
   services: string[];
+  physicalMarket: boolean;
   description: string;
   company: string;
   stage: string;
@@ -24,6 +27,7 @@ type Draft = {
 };
 const initial: Draft = {
   services: [],
+  physicalMarket: false,
   description: "",
   company: "",
   stage: "",
@@ -251,6 +255,26 @@ export function InquiryForm() {
           {step === 0 && (
             <>
               <p className="muted">Select everything that applies.</p>
+              <label className="builder-check-note">
+                <input
+                  type="checkbox"
+                  checked={draft.physicalMarket}
+                  onChange={(e) => {
+                    const physicalMarket = e.target.checked;
+                    setDraft((d) => ({
+                      ...d,
+                      physicalMarket,
+                      services: physicalMarket
+                        ? d.services
+                        : d.services.filter((s) => !isMarketNeed(s)),
+                    }));
+                  }}
+                />
+                <span>
+                  This project includes physical products, retail or
+                  hospitality.
+                </span>
+              </label>
               <fieldset
                 className="service-choices"
                 aria-describedby={
@@ -258,33 +282,42 @@ export function InquiryForm() {
                 }
               >
                 <legend className="sr-only">Project services</legend>
-                {inquiryServices.map((s) => (
-                  <label
-                    key={s}
-                    className={
-                      draft.services.includes(s) ? "choice selected" : "choice"
-                    }
-                  >
-                    <input
-                      type="checkbox"
-                      checked={draft.services.includes(s)}
-                      aria-invalid={!!errors.services}
-                      onChange={() =>
-                        change(
-                          "services",
-                          draft.services.includes(s)
-                            ? draft.services.filter((x) => x !== s)
-                            : [...draft.services, s],
-                        )
+                {inquiryServices
+                  .filter((s) => draft.physicalMarket || !isMarketNeed(s))
+                  .map((s) => (
+                    <label
+                      key={s}
+                      className={
+                        draft.services.includes(s)
+                          ? "choice selected"
+                          : "choice"
                       }
-                    />
-                    <span>{s}</span>
-                    <span aria-hidden="true">
-                      {draft.services.includes(s) ? "✓" : "+"}
-                    </span>
-                  </label>
-                ))}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={draft.services.includes(s)}
+                        aria-invalid={!!errors.services}
+                        onChange={() =>
+                          change(
+                            "services",
+                            draft.services.includes(s)
+                              ? draft.services.filter((x) => x !== s)
+                              : [...draft.services, s],
+                          )
+                        }
+                      />
+                      <span>{s}</span>
+                      <span aria-hidden="true">
+                        {draft.services.includes(s) ? "✓" : "+"}
+                      </span>
+                    </label>
+                  ))}
               </fieldset>
+              {draft.physicalMarket && (
+                <p className="professional-boundary">
+                  {professionalBoundaries.market}
+                </p>
+              )}
               {errors.services && (
                 <p id="services-error" className="field-error">
                   {errors.services}

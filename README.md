@@ -1,6 +1,6 @@
-# Dynasty Works Studio — Version 1 foundation
+# Dynasty Works Studio — Version 1.2
 
-An editorial studio website and extensible portfolio foundation. All six project records are explicitly labeled placeholders; client attribution, years, deliverables and outcomes are not fabricated. Inquiries and commerce are intentionally unavailable until real providers are connected.
+An integrated company-building studio website with an editorial portfolio, founder pathways and a seven-step local company brief builder. All six project records are explicitly labeled placeholders; client attribution, years, deliverables and outcomes are not fabricated. Inquiries and commerce are intentionally unavailable until real providers are connected.
 
 ## Technology
 
@@ -33,7 +33,9 @@ The completed production build is in dist/server and dist/client. `npm start` se
 - / — home: hero, selected work, capabilities, process, featured case study, studio statement, CTA
 - /work — all projects and 11 discipline filters
 - /work/[slug] — six case studies and a real not-found state
-- /services — 12 expandable capability groups
+- /start-a-business — flagship founder pathways and connected company/market journey
+- /start-a-business/builder — seven-step guided local brief
+- /services — eight practices and the original 12 specialist disciplines
 - /studio — studio statement, principles and visual study
 - /templates — three clearly labeled collection previews
 - /contact — four-step brief builder and local download
@@ -88,7 +90,7 @@ ContentRepository in lib/content.ts is asynchronous so a CMS can replace the loc
 
 ## Add a service
 
-Add a slug, title, intro and items in data/services.ts. The home and capabilities page render the same source. Add a corresponding inquiry choice in lib/inquiry.ts only when visitors should be able to request it separately.
+Add a slug, title, intro and items in data/services.ts. The specialist-discipline disclosure uses this source. The eight top-level practices are in data/practices.ts. Add a corresponding inquiry choice in lib/inquiry.ts only when visitors should be able to request it separately.
 
 ## Add a template
 
@@ -96,7 +98,7 @@ Add a TemplateProduct in data/templates.ts. Keep price null and status placehold
 
 ## Inquiry behavior and connection checklist
 
-The UI keeps its brief only in React memory. It does not use localStorage, upload files or transmit the draft. Download produces a local JSON copy. Clicking Submit project displays an explicit **not submitted** message.
+The project inquiry UI keeps its brief only in React memory. It does not use localStorage, upload files or transmit the draft. Download produces a local JSON copy. Clicking Submit project displays an explicit **not submitted** message.
 
 The API contract is implemented independently and returns HTTP 503 for a valid request while unconfigured; invalid JSON, schema failures, oversized requests, unsupported media and cross-origin requests are rejected. It does not log or persist the request. Upload controls are disabled. Upload policy and adapter interfaces are present, with a five-file/10 MB per-file allowlist as a future starting point.
 
@@ -134,3 +136,10 @@ See QA-REPORT.md for completed checks and limits. See DYNASTY-WORKS-ROADMAP.md f
 
 Navigation uses components/site-link.tsx for native document transitions after production QA identified a Vinext prefetch issue. See QA-REPORT.md.
 
+## V1.1 / V1.2 Company Builder expansion
+
+See COMPANY-BUILDER-ARCHITECTURE.md and EXPANSION-REPORT.md for the full model, professional boundaries and file inventory. The seven-step Company Builder saves a versioned draft in sessionStorage for the current tab, validates restored data, and offers local download and clearing. It makes no submission request. This session-storage behavior is separate from the original project inquiry form, which remains memory-only.
+
+Run `node scripts/qa-company-builder.mjs` for business-type eligibility, stale-selection removal, saved-draft validation, proof gating and unpublished-offering checks. The test uses the existing esbuild dependency; no new package was installed.
+
+No numeric budget bands are published. Package and retainer placeholders remain drafts with null prices/timelines. The professional network contains categories only, not named members. No tracker or analytics provider is enabled. The builder stays noindex even when public content indexing is later enabled.
