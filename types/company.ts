@@ -21,6 +21,7 @@ export interface CompanyBuild {
   businessStage?: "Idea" | "Preparing to launch" | "Operating" | "Growing";
   productReady?: boolean;
   storefrontReady?: boolean;
+  uncertainNeeds?: boolean;
   redesignIdentity?: boolean;
   engagementPreference?:
     | "Explore together"

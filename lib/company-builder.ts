@@ -34,6 +34,7 @@ export const companyDraftSchema = z
     businessStage: z.enum(businessStages).optional(),
     productReady: z.boolean().optional(),
     storefrontReady: z.boolean().optional(),
+    uncertainNeeds: z.boolean().optional(),
     redesignIdentity: z.boolean().optional(),
     engagementPreference: z
       .enum(["Explore together", "Do it myself", "Guide me", "Build it for me"])
@@ -138,7 +139,7 @@ export function validateCompanyStep(
     errors.businessType = "Choose a business type.";
   if (step === 1 && !build.starting.length)
     errors.starting = "Select at least one starting point.";
-  if (step === 2 && !build.needs.length)
+  if (step === 2 && !build.needs.length && !build.uncertainNeeds)
     errors.needs = "Select at least one need.";
   if (step === 3 && !build.launch) errors.launch = "Choose a launch window.";
   if (step === 4) {

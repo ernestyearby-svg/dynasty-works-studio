@@ -1,3 +1,4 @@
+import { founderBlueprint } from "@/data/founder-blueprint";
 import {
   serviceById,
   roadmapPhases,
@@ -342,6 +343,16 @@ export function generateRoadmap(input: CompanyBuild): BuildRoadmap {
       "Measure the storefront journey before making changes.",
     );
   }
+  if (b.uncertainNeeds) {
+    add(
+      "start-business-concept-strategy",
+      "Clarify the idea and the decisions you want help making.",
+    );
+    add(
+      "start-launch-roadmap-development",
+      "Determine which work is needed and in what order.",
+    );
+  }
   const all = [...items.values()];
   const phases = roadmapPhases
     .map((name) => ({
@@ -350,7 +361,20 @@ export function generateRoadmap(input: CompanyBuild): BuildRoadmap {
     }))
     .filter((p) => p.items.length);
   const has = (p: RoadmapPhase) => phases.some((x) => x.name === p);
-  let packageId = "founder-blueprint";
+  const early = stage === "Idea" || stage === "Preparing to launch";
+  const assetCount = [
+    existingIdentity,
+    existingWebsite,
+    existingCompany,
+    b.productReady,
+    b.storefrontReady,
+  ].filter(Boolean).length;
+  const blueprintFit =
+    (early &&
+      ((assetCount <= 1 && (b.needs.length > 0 || b.uncertainNeeds)) ||
+        (b.needs.length >= 3 && phases.length >= 3))) ||
+    (!!b.uncertainNeeds && (b.needs.length !== 1 || early));
+  let packageId = "company-launch";
   if (stage === "Growing" && marketIntent) packageId = "market-expansion";
   else if (
     b.needs.includes("Ongoing Support") ||
@@ -364,6 +388,7 @@ export function generateRoadmap(input: CompanyBuild): BuildRoadmap {
     packageId = "company-launch";
   else if (has("Brand") && !has("Digital")) packageId = "identity-build";
   else if (all.length > 7) packageId = "company-launch";
+  if (blueprintFit) packageId = "founder-blueprint";
   const pkg = engagementPackages.find((p) => p.id === packageId)!;
   const engagement =
     b.engagementPreference === "Do it myself"
@@ -373,8 +398,9 @@ export function generateRoadmap(input: CompanyBuild): BuildRoadmap {
           reason:
             "You prefer self-guided resources. Approved tools will be offered when available; specialist tasks still require professional review.",
         }
-      : b.engagementPreference === "Guide me" ||
-          (all.length <= 4 &&
+      : (!blueprintFit && b.engagementPreference === "Guide me") ||
+          (!blueprintFit &&
+            all.length <= 4 &&
             packageId !== "growth-partnership" &&
             b.engagementPreference !== "Build it for me")
         ? {
@@ -386,9 +412,16 @@ export function generateRoadmap(input: CompanyBuild): BuildRoadmap {
         : {
             id: pkg.id,
             name: pkg.name,
-            reason:
-              pkg.idealFor +
-              ". The roadmap, rather than every package service, defines the starting discussion.",
+            reason: blueprintFit
+              ? b.uncertainNeeds
+                ? "You want help deciding what needs to be built. Founder Blueprint clarifies the requirements and organizes a reviewed execution sequence."
+                : "Your " +
+                  stage.toLowerCase() +
+                  "-stage build spans " +
+                  phases.map((p) => p.name.toLowerCase()).join(", ") +
+                  ". Founder Blueprint organizes those dependencies before execution begins."
+              : pkg.idealFor +
+                ". The roadmap, rather than every package service, defines the starting discussion.",
           };
   return {
     stage,
@@ -467,14 +500,19 @@ export function createLeadPayload(
 }
 export function roadmapText(b: CompanyBuild): string {
   const r = generateRoadmap(b);
+  const names = (timing: "initial" | "future") =>
+    r.items
+      .filter((i) => i.timing === timing)
+      .map((i) => "- " + serviceById[i.serviceId].name);
   return [
-    "YOUR DYNASTY BUILD ROADMAP",
-    b.businessType + " / " + r.stage,
-    r.phases.length +
-      " applicable phases / " +
-      r.items.length +
-      " potential services",
+    "DYNASTY WORKS STUDIO",
+    "COMPANY BUILD ROADMAP",
+    "Business type: " + b.businessType,
+    "Current stage: " + r.stage,
+    "",
     r.timelineNote,
+    "",
+    "RECOMMENDED PHASES + SERVICES",
     ...r.phases.flatMap((p, i) => [
       "",
       String(i + 1).padStart(2, "0") + " " + p.name.toUpperCase(),
@@ -483,9 +521,7 @@ export function roadmapText(b: CompanyBuild): string {
           "- " +
           serviceById[x.serviceId].name +
           " [" +
-          x.timing +
-          "; " +
-          x.source +
+          (x.timing === "initial" ? "Initial priority" : "Future phase") +
           "] — " +
           x.reason +
           " " +
@@ -493,9 +529,23 @@ export function roadmapText(b: CompanyBuild): string {
       ),
     ]),
     "",
+    "IMMEDIATE PRIORITIES",
+    ...names("initial"),
+    "",
+    "FUTURE PHASES",
+    ...names("future"),
+    "",
     "RECOMMENDED ENGAGEMENT: " + r.engagement.name,
+    ...(r.engagement.id === founderBlueprint.id
+      ? [
+          founderBlueprint.priceLabel,
+          "Strategy and roadmap engagement. Execution of the recommended services is scoped separately.",
+          "Review the approved scope: /founder-blueprint",
+          "Start the intake preview: /founder-blueprint/intake",
+        ]
+      : []),
     r.engagement.reason,
     ...r.specialistNotes,
-    "Preliminary recommendation. Final scope follows project review. No price, submission or delivery commitment.",
+    "Preliminary roadmap. Final scope follows review. No submission, purchase or delivery commitment.",
   ].join("\n");
 }

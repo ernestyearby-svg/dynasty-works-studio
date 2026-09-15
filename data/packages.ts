@@ -1,3 +1,4 @@
+import { founderBlueprint } from "./founder-blueprint";
 import { businessTypes } from "./company-builder";
 import {
   businessStages,
@@ -18,7 +19,8 @@ export interface EngagementPackage {
   businessStages: readonly BusinessStage[];
   featured: boolean;
   active: boolean;
-  publicPrice: null;
+  publicPrice: number | null;
+  approvalStatus: "approved" | "preliminary";
 }
 const definitions: [string, string, string, string[]][] = [
   [
@@ -120,8 +122,10 @@ export const engagementPackages: EngagementPackage[] = definitions.map(
     name,
     idealFor,
     description:
-      idealFor +
-      ". A starting point for project review, with final scope agreed together.",
+      id === founderBlueprint.id
+        ? founderBlueprint.description
+        : idealFor +
+          ". A starting point for project review, with final scope agreed together.",
     services,
     optionalServices: [],
     buyingMode:
@@ -134,7 +138,9 @@ export const engagementPackages: EngagementPackage[] = definitions.map(
     businessStages,
     featured: ["company-launch", "brand-to-market"].includes(id),
     active: true,
-    publicPrice: null,
+    publicPrice:
+      id === founderBlueprint.id ? founderBlueprint.publicPrice : null,
+    approvalStatus: id === founderBlueprint.id ? "approved" : "preliminary",
   }),
 );
 export const growthPartnerships = [

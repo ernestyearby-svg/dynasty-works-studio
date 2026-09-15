@@ -19,11 +19,14 @@ export const studioPackages: StudioPackage[] = engagementPackages.map((p) => ({
   services: p.services.map((id) => serviceById[id].name),
   deliverables: [],
   timeline: null,
-  startingPrice: null,
+  startingPrice: p.publicPrice,
   recommendedFor: p.idealFor,
   addOns: [],
-  status: "draft",
-  cta: "/start-a-business/builder",
+  status: p.approvalStatus === "approved" ? "approved" : "draft",
+  cta:
+    p.id === "founder-blueprint"
+      ? "/founder-blueprint"
+      : "/start-a-business/builder",
 }));
 
 export const recurringOfferings = [

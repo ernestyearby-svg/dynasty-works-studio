@@ -58,3 +58,17 @@ On Windows, rebuilding while the production emulator held dist open caused a fil
 - Additional model checks cover dependency ordering/references, product readiness, absent website/store optimization, asset suppression, explicit identity redesign, physical-intent override, DIY/DWY preference, launch-window guidance, package price nulls and consent=false in the future payload.
 
 Prior browser/device/accessibility and backend scope limits remain. No Lighthouse or cross-browser certification is claimed.
+
+## V1.4 verification — September 15, 2026
+
+- Production build, TypeScript and ESLint passed. The 122-service catalog and prior routes remain intact.
+- All 26 rendered pages plus robots/sitemap returned 200; missing project returned 404. Verified 56 production internal links/assets and nine legacy inquiry API cases. The previously documented local Wrangler restart required one counted retry in the legacy suite.
+- Blueprint model/security tests passed: early founder fit, mature website-update non-fit, established identity work, food/beverage future commercialization, software physical-market exclusions, uncertain scope, DIY preference, approved-price uniqueness and roadmap text.
+- Synthetic handler tests covered disabled state, origin/media-type/JSON/size validation, honeypot, explicit consent, strict rejection of posted recommendation fields, mock-only limiter/bot/persistence success/failure/conflict and the exact-revision human-review delivery gate.
+- Six additional HTTP checks against the compiled local server passed: all three valid submission types return 503 not_configured, invalid input returns 422, foreign origin 403 and unknown type 404. This suite was rerun once after the local emulator returned its known plain-text worker-restart error. No real backend write was attempted.
+- /docs/database/inquiry-schema.proposed.sql, /FOUNDER-BLUEPRINT.md and /server/submission-adapters.ts returned 404. Compiled-client scans found no Supabase secret variable, internal lead-status label, private schema, persistence implementation or private margin fields.
+- Founder Blueprint page, all five intake steps and the updated builder result passed horizontal overflow checks at 320, 375, 390, 430, 768, 1024, 1440, 1920 and 2560 pixels. Desktop, tablet and mobile controls remained usable; capture clipping in the in-app browser is the earlier documented tooling limitation.
+- Browser checks passed: approved price/scope, CTA to intake, empty-field validation, unsafe reference rejection, applicable physical-market goals, review, local download, explicit disabled status, clearing on reload, uncertain builder scope, Blueprint reason/price and CTA. Synthetic drafts were cleared. Final production offer and post-fix browser-console checks showed no new warnings/errors. One temporary development duplicate-import error was fixed before final checks.
+- Existing company-builder and six-scenario recommendation regression suites passed with updated approved-price/Blueprint expectations.
+
+Database SQL remains an unapplied proposal. Real Supabase RLS/grant/transaction tests, distributed rate-limit/bot integration, payments, uploads and portal authorization have not been performed or represented as active. Prior cross-browser/device/accessibility scope limits continue to apply.

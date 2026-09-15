@@ -23,3 +23,9 @@ The no-op typed adapter prepares builder_started, builder_completed, roadmap_gen
 ## Commercial approval queue
 
 Service scope/capacity; package contents and optional add-ons; private pricing method; recurring cadence; professional authorization/jurisdictions; actual available tools; verified case studies; intake destination; client consent and retention; public-launch approval. The next useful milestone is one approved engagement scope and secure, consented durable inquiry delivery.
+
+## V1.4 authoritative update
+
+Founder Blueprint now has an approved $1,500 public price and canonical scope. Other packages remain unpriced; no internal costs or margins are populated. The new Founder Blueprint intake remains memory-only. A proposed four-table private schema and testable server submission boundary are prepared, with default-disabled dependencies. Neither environment variables nor a validated local form imply an active connection. Production submissions, payments, uploads and portal access remain off.
+
+See FOUNDER-BLUEPRINT.md for the offer, INQUIRY-PIPELINE.md for request/contracts/states, and SUPABASE-INTEGRATION-PLAN.md for database/environment/security review and activation. A mock successful repository test proves handler behavior only, not a real backend. Local intake-completed events are not submitted-lead or purchase events. All analytics remain no-op.

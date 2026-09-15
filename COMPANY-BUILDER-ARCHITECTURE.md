@@ -156,3 +156,11 @@ Potential later workflows: detect missing milestones, assemble a draft roadmap, 
 The 122-service catalog, seven engagement templates, five growth partnerships and deterministic recommendation engine are implemented. See SERVICE-CATALOG.md, PACKAGE-ENGINE.md, RECOMMENDATION-ENGINE.md and COMMERCIAL-ARCHITECTURE.md for the authoritative V1.3 contracts, dependency rules, review boundaries and future CRM interface. Nine possible roadmap phases are distinct from the eight-practice taxonomy; empty phases are omitted.
 
 Privacy change: contact fields, written budget and referral text are memory-only. Prior session drafts are scrubbed on restore; only non-contact choices recover after reload. No payload is transmitted and no pricing is calculated.
+
+## V1.4 — Approved Blueprint recommendation
+
+Founder Blueprint is approved at $1,500; other prices remain null. Early-stage businesses with little infrastructure, multiple interdependent needs, or explicit uncertainty are candidates. A mature business seeking a defined website update remains a direct/growth engagement. DIY preference is not overridden. Explanations use the founder's own stage/scope; no urgency is introduced.
+
+The builder adds an optional uncertainty choice; it allows an undecided founder to continue without selecting arbitrary services. The roadmap download now groups immediate priorities and future work, and includes the Blueprint fee/link only when recommended. The $1,500 fee is for the strategic Blueprint, not execution of the full roadmap. See FOUNDER-BLUEPRINT.md for the canonical scope.
+
+The separate progressive Blueprint intake is memory-only and does not consume private builder contact data through URLs or browser storage. Strict future server envelopes require submission consent separately from local acknowledgment. Routes remain disabled, recompute recommendations before future writes, and never accept posted internal pricing or statuses. See INQUIRY-PIPELINE.md and SUPABASE-INTEGRATION-PLAN.md.

@@ -31,7 +31,7 @@ const section={title:"Retail Placement",body:"Verified narrative",status:"approv
 assert.equal(approvedMarketSections([section,{...section,status:"draft"},{...section,proofRef:null},{...section,approvedAt:null}]).length,1);
 assert.deepEqual(companyJourney.map(s=>s.id),["idea","form","brand","build","launch","distribute","activate","grow"]);
 assert.equal(practices.length,8);
-assert.ok(studioPackages.every(p=>p.status==="draft"&&p.startingPrice===null));
+assert.ok(studioPackages.every(p=>(p.id==="founder-blueprint"?p.status==="approved"&&p.startingPrice===1500:p.status==="draft"&&p.startingPrice===null)));
 assert.ok(recurringOfferings.every(p=>p.status==="draft"&&p.price===null));
 console.log("PASS: eligibility, pruning, draft recovery, validation, proof gates and unpublished-offering checks.");
 `;

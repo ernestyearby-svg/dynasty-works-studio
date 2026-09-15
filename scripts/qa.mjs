@@ -7,6 +7,8 @@ const routes = [
   "/start-a-business/builder",
   "/services",
   "/capabilities",
+  "/founder-blueprint",
+  "/founder-blueprint/intake",
   ...[
     "start",
     "brand",

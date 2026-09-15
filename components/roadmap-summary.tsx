@@ -1,3 +1,5 @@
+import { founderBlueprint } from "@/data/founder-blueprint";
+import { BlueprintCTA } from "@/components/blueprint-actions";
 import Link from "@/components/site-link";
 import { generateRoadmap } from "@/lib/recommendation-engine";
 import { serviceById, boundaryCopy } from "@/data/service-catalog";
@@ -100,8 +102,21 @@ export function RoadmapSummary({ build }: { build: CompanyBuild }) {
       <div className="roadmap-engagement">
         <span className="eyebrow">RECOMMENDED ENGAGEMENT</span>
         <h3>{r.engagement.name}</h3>
+        {r.engagement.id === founderBlueprint.id && (
+          <><p className="blueprint-result-price">
+            {founderBlueprint.priceLabel}
+          </p><p className="small-note">Strategy and roadmap engagement. Execution of the recommended services is scoped separately.</p></>
+        )}
         <p>{r.engagement.reason}</p>
         <p className="small-note">{preliminaryNotice}</p>
+        {r.engagement.id === founderBlueprint.id && (
+          <>
+            <Link href="/founder-blueprint" className="text-link">
+              Review the Blueprint scope ↗
+            </Link>
+            <BlueprintCTA>Start Founder Blueprint</BlueprintCTA>
+          </>
+        )}
       </div>
       {(r.stage === "Idea" || r.engagement.id === "dynasty-tools") && (
         <div className="roadmap-tools">

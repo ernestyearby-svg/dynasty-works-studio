@@ -157,6 +157,11 @@ export function CompanyBuilder() {
       route: "/start-a-business/builder",
     });
     if (next === 6) {
+      if (generateRoadmap(build).engagement.id === "founder-blueprint")
+        recordStudioEvent({
+          name: "founder_blueprint_recommended",
+          route: "/start-a-business/builder",
+        });
       for (const name of [
         "builder_completed",
         "roadmap_generated",
@@ -513,6 +518,18 @@ export function CompanyBuilder() {
                 <p className="muted">
                   Build the scope around your needs. Suggestions are optional.
                 </p>
+                <label className="builder-check-note">
+                  <Checkbox
+                    checked={!!build.uncertainNeeds}
+                    onCheckedChange={(v) =>
+                      update({ uncertainNeeds: v === true })
+                    }
+                  />
+                  <span>
+                    I need help determining which services and sequence are
+                    right.
+                  </span>
+                </label>
                 {recommendations.length > 0 && (
                   <div className="builder-recommendations">
                     <span className="eyebrow">A CONSIDERED START</span>

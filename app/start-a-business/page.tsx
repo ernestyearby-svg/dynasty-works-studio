@@ -64,6 +64,17 @@ export default function StartBusiness() {
         </div>
         <EngagementLevels />
       </section>
+      <section className="shell section">
+        <span className="eyebrow">THE FIRST ENGAGEMENT</span>
+        <h2>Founder Blueprint · $1,500</h2>
+        <p className="section-description">
+          A strategy session, research and a reviewed company-development
+          roadmap before major execution begins.
+        </p>
+        <Link href="/founder-blueprint" className="button dark">
+          Explore Founder Blueprint ↗
+        </Link>
+      </section>
       <FinalCTA />
     </>
   );

@@ -131,6 +131,12 @@ export function CommercialPaths() {
   return (
     <section className="shell section commercial-paths">
       <span className="eyebrow">FIND YOUR STARTING POINT</span>
+      <p>
+        <Link href="/founder-blueprint" className="text-link">
+          Founder Blueprint — $1,500 · Turn the idea into a buildable company
+          roadmap ↗
+        </Link>
+      </p>
       <div>
         {[
           ["I have an idea", "/start-a-business/builder"],

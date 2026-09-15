@@ -36,3 +36,9 @@ Finish Phase 2 operational readiness alongside Phase 1 portfolio approval: confi
 ## V1.3 progress within the seven-phase plan
 
 Commercial foundation now includes a central catalog, preliminary package engine, growth partnership architecture and dependency-aware local roadmaps. This advances the service/engagement design portion of the plan; secure intake, CRM, portal, billing, approved templates and verified public evidence remain future milestones. Prioritize approval of one complete engagement scope, then durable consented intake with staff review. Do not treat V1.3 recommendations as accepted proposals or move straight to automated quoting.
+
+## V1.4 — First approved offer; infrastructure still gated
+
+Founder Blueprint is the sole approved public price at $1,500. Its scope, page, intake architecture, document outline and recommendation behavior are implemented. The existing seven-phase roadmap remains: this advances the canonical engagement and intake-preparation milestones without marking secure intake/CRM/payment/portal complete.
+
+Next gate: supply and authorize the intended Supabase project, approve privacy/terms and consent/retention, implement and test transactional server persistence plus distributed abuse controls, then explicitly enable submissions. Payment, uploads and portal access remain separate gated milestones. See SUPABASE-INTEGRATION-PLAN.md for the exact checklist.

@@ -151,3 +151,11 @@ The service catalog now defines 122 services across eight practices. Seven preli
 New routes: /capabilities, /capabilities/[practice] (eight practices), /growth-partnership. Existing /services and portfolio routes remain available. Contact and written budget are now memory-only; only non-contact selections persist for the tab session. Reload requires re-entry. No backend transmission, CRM, pricing or tracking is enabled.
 
 Additional regression command: node scripts/qa-recommendation-engine.mjs. Private commercial type contracts stay outside runtime imports in server/internal-pricing.ts.
+
+## V1.4 — Founder Blueprint and disabled secure-intake preparation
+
+Founder Blueprint is now the first approved engagement at **$1,500 USD**. This supersedes earlier statements that every package is unpriced. No other package price is approved. /founder-blueprint presents its scope; /founder-blueprint/intake offers five progressive, memory-only screens with validation and local download. The builder recommends Blueprint when strategic sequencing is appropriate and preserves direct paths for mature single-service needs.
+
+The new /api/submissions/general, /api/submissions/builder and /api/submissions/blueprint handlers validate strict bounded requests, but production dependencies are null and valid requests return 503 not_configured. The forms do not transmit. No Supabase project, payment processor, upload storage or portal has been connected. The reviewed-SQL proposal under docs/database is not deployed.
+
+See FOUNDER-BLUEPRINT.md, INQUIRY-PIPELINE.md, SUPABASE-INTEGRATION-PLAN.md and PACKAGE-ENGINE.md. Run scripts/qa-founder-blueprint.mjs for the new synthetic recommendation/validation/security tests alongside prior QA suites. Real database integration and permission tests remain mandatory before activation.

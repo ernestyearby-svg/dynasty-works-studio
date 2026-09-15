@@ -20,7 +20,7 @@ const ids=r=>r.items.map(i=>i.serviceId);
 assert.equal(serviceCatalog.length,122);
 assert.equal(new Set(serviceCatalog.map(s=>s.id)).size,122);
 for(const s of serviceCatalog) for(const dep of [...s.dependencies,...s.recommendedNextServices])assert.ok(serviceById[dep],dep);
-for(const p of engagementPackages) {assert.equal(p.publicPrice,null);for(const id of [...p.services,...p.optionalServices])assert.ok(serviceById[id],id);}
+for(const p of engagementPackages) {assert.equal(p.publicPrice,p.id==='founder-blueprint'?1500:null);for(const id of [...p.services,...p.optionalServices])assert.ok(serviceById[id],id);}
 assert.equal(engagementPackages.length,7);assert.equal(growthPartnerships.length,5);
 assert.equal(new Set(results.map(r=>ids(r).join('|'))).size,6,'Scenarios materially differ');
 assert.ok(results[0].items.some(i=>serviceById[i.serviceId].practice==='distribute'&&i.timing==='future'));
@@ -37,12 +37,12 @@ assert.ok(ids(noSite).includes('build-website-development'));assert.ok(!ids(noSi
 const noStore=generateRoadmap({...cases[5],storefrontReady:false});assert.ok(ids(noStore).includes('build-e-commerce'));assert.ok(!ids(noStore).includes('grow-e-commerce-optimization'));
 assert.ok(ids(generateRoadmap({...cases[1],redesignIdentity:true})).includes('brand-logo-design'));
 assert.equal(generateRoadmap({...cases[0],engagementPreference:'Do it myself'}).engagement.id,'dynasty-tools');
-assert.equal(generateRoadmap({...cases[0],engagementPreference:'Guide me'}).engagement.id,'dynasty-guided');
+assert.equal(generateRoadmap({...cases[0],engagementPreference:'Guide me'}).engagement.id,'founder-blueprint');
 assert.notEqual(generateRoadmap({...cases[0],launch:'ASAP'}).timelineNote,results[0].timelineNote);
 assert.ok(ids(generateRoadmap({...cases[2],physicalMarket:true,needs:['Distribution Strategy']})).some(id=>serviceById[id].practice==='distribute'));
 const payload=createLeadPayload(cases[0],{builderSessionId:'synthetic-session',createdAt:'2026-09-15T00:00:00Z'});
 assert.equal(payload.consentState.submissionConsent,false);assert.deepEqual(payload.recommendedPhases,results[0].phases.map(p=>p.name));
-assert.ok(roadmapText(cases[0]).includes('future'));assert.ok(companyDraftSchema.safeParse(cases[0]).success);
+assert.ok(roadmapText(cases[0]).includes('Future'));assert.ok(companyDraftSchema.safeParse(cases[0]).success);
 for(const r of results){assert.equal(new Set(ids(r)).size,r.items.length);for(const p of r.phases)assert.ok(p.items.length);}
 console.log(JSON.stringify(results.map((r,i)=>({scenario:cases[i].businessType,phases:r.phases.length,services:r.items.length,engagement:r.engagement.name})),null,2));
 console.log('PASS: six scenarios, prerequisites, readiness, existing assets, explicit redesign, modes, timeline, catalog references, price gates and payload.');

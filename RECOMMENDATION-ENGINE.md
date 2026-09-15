@@ -30,3 +30,9 @@ Readiness is self-reported, not certification. Initial scope still requires revi
 ## Verification
 
 `scripts/qa-recommendation-engine.mjs` covers the six required business scenarios plus catalog references, existing asset suppression, readiness, explicit redesign, absent website/store optimization, physical intent override, DIY/DWY, timelines and payload consent. `scripts/qa-company-builder.mjs` preserves V1.2 regression coverage.
+
+## V1.4 recommendation precedence update
+
+The V1.3 package fallback above is superseded: an early founder (Idea or Preparing to launch) with at most one existing infrastructure category and a selected need/uncertainty, or at least three needs across three phases, is considered for Founder Blueprint. Explicit uncertainty also qualifies unless it accompanies a single defined need in a mature business. This adds a strategic first step without altering the roadmap's future execution services. Mature one-service work stays direct/growth, and explicit DIY preference remains Dynasty Tools. Guide me can resolve to the more specific Founder Blueprint when it fits. The public fee is $1,500 only for that approved strategy engagement.
+
+The download contains user-facing reasons and phase priorities, not scoring rules, private prices or margins. No AI is claimed. New tests cover fit/non-fit, food/beverage future work, software exclusions, approved-price uniqueness and uncertainty. See scripts/qa-founder-blueprint.mjs.
