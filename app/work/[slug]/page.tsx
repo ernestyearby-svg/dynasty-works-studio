@@ -107,17 +107,17 @@ export default async function ProjectPage({
           <p>{p.shortDescription}</p>
         </CaseStudySection>
         {p.challenge && (
-          <CaseStudySection title="The challenge">
+          <CaseStudySection title="Challenge">
             <p>{p.challenge}</p>
           </CaseStudySection>
         )}
         {p.strategy && (
-          <CaseStudySection title="The strategy">
+          <CaseStudySection title="System">
             <p>{p.strategy}</p>
           </CaseStudySection>
         )}
         {p.execution && (
-          <CaseStudySection title="The solution">
+          <CaseStudySection title="Execution">
             <p>{p.execution}</p>
           </CaseStudySection>
         )}
@@ -146,7 +146,7 @@ export default async function ProjectPage({
             </p>
           )}
         </CaseStudySection>
-        <CaseStudySection title="Outcome">
+        <CaseStudySection title="Market / Current status">
           <p>
             {p.outcome ||
               "The project story and verified outcomes are awaiting approval."}

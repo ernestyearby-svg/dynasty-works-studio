@@ -1,26 +1,33 @@
-import { AutomationFeature } from "@/components/automation";
 import { PageIntro, FinalCTA } from "@/components/studio";
+import {
+  StageArchitecture,
+  DigitalSystemsFeature,
+} from "@/components/company-creation";
 import { PracticeCatalog, CommercialPaths } from "@/components/service-catalog";
 export const metadata = {
-  title: "Capabilities",
+  title: "Company Creation Capabilities",
   description:
-    "Explore eight connected studio practices, from company foundations to brand, digital, market activation and growth.",
+    "Explore company strategy, brand and packaging design, product development, websites and applications, launch and automation through four connected stages.",
   alternates: { canonical: "/capabilities" },
 };
 export default function Capabilities() {
   return (
-    <>
+    <div className="v2-page">
       <PageIntro
-        eyebrow="ONE STUDIO / EIGHT PRACTICES"
-        title="The right expertise. In the right order."
-        description="Start with one specific need or connect the disciplines around a complete company build. Explore each practice at your own pace."
+        eyebrow="DEFINE / BUILD / LAUNCH / SCALE"
+        title="The right capability. At the right stage."
+        description="Four stages organize the work. Open a stage to discover what it involves, then explore the disciplines behind it."
       />
-      <section className="shell section">
-        <PracticeCatalog />
+      <section className="shell v2-stage-section">
+        <StageArchitecture />
+        <details className="v2-deep-catalog">
+          <summary>Explore all eight specialist practices</summary>
+          <PracticeCatalog />
+        </details>
       </section>
-      <AutomationFeature />
+      <DigitalSystemsFeature />
       <CommercialPaths />
       <FinalCTA />
-    </>
+    </div>
   );
 }

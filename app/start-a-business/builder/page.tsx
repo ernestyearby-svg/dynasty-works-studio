@@ -1,8 +1,8 @@
 import { CompanyBuilder } from "@/components/company-builder";
 export const metadata = {
-  title: "Build My Company",
+  title: "Company Builder — Founder Diagnostic",
   description:
-    "A guided local brief for your company’s strategy, identity, infrastructure, launch and next stage.",
+    "A founder diagnostic and company roadmap across Define, Build, Launch and Scale. A strategic starting point, not a quote calculator.",
   alternates: { canonical: "/start-a-business/builder" },
   robots: { index: false, follow: false },
 };

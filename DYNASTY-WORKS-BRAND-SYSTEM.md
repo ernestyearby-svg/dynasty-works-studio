@@ -1,10 +1,10 @@
-# Dynasty Works Studio — production brand guidelines V1.6
+# Dynasty Works Studio — production identity V1.6 / positioning V2.0
 
 ## Brand strategy and approval
 
 Direction 03, the Modular System Mark from V1.5, is the approved production identity. The decision is locked for this system. Directions 01, 02 and 04 are archived historical explorations and are not active choices. Do not redesign the symbol or introduce alternatives.
 
-Master name: DYNASTY WORKS. Subordinate descriptor: STUDIO. Primary proposition: WE BUILD THE COMPANY / AROUND THE IDEA. Supporting language: FROM IDEA TO EXECUTION. Operating sequence: IDEA → COMPANY → BRAND → BUILD → LAUNCH → MARKET → GROWTH. Use selectively; do not attach the proposition to every application.
+Master name: DYNASTY WORKS. Subordinate descriptor: STUDIO. Category: COMPANY CREATION STUDIO. Primary proposition: FROM IDEA / TO COMPANY. Supporting line: Strategy. Identity. Product. Technology. Market. Secondary proposition: One studio. From first move to market. Public operating sequence: DEFINE → BUILD → LAUNCH → SCALE. The original symbol meaning and production assets remain unchanged. Use selectively; do not attach the proposition to every application.
 
 Character: precise, intelligent, structural and permanent; a design house, venture studio, technology company and architectural practice. Combine modular intelligence with editorial restraint.
 

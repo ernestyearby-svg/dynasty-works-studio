@@ -59,6 +59,45 @@ export function MymosaCaseStudy() {
         <a href="#mm-family">03 / THE DRINK FAMILY</a>
         <a href="#mm-packaging">04 / PACKAGING</a>
       </nav>
+      <section
+        className="v2-case-framework shell"
+        aria-label="Company creation case study"
+      >
+        <p className="eyebrow">CATEGORY + BRAND ECOSYSTEM</p>
+        <div>
+          <article>
+            <h2>CHALLENGE</h2>
+            <p>
+              Present eight distinct flavor identities within a coherent product
+              family, while preserving the original brand artwork.
+            </p>
+          </article>
+          <article>
+            <h2>SYSTEM</h2>
+            <p>
+              One MyMosa identity. Eight flagship flavors. Seventeen official
+              house identities in the wider My Drink Family architecture.
+            </p>
+          </article>
+          <article>
+            <h2>EXECUTION</h2>
+            <p>
+              The approved product masters, outlined wordmarks and family marks
+              shown here form an editorial exhibition of the actual source
+              system.
+            </p>
+          </article>
+          <article>
+            <h2>MARKET / CURRENT STATUS</h2>
+            <p>
+              Premium Wine Cocktails. This exhibition documents the approved
+              identity and product assets. Digital, campaign and market chapters
+              await cleared material; no commercial results or availability
+              claims are made.
+            </p>
+          </article>
+        </div>
+      </section>
       <section className="mm-intro shell" id="mm-idea">
         <p className="eyebrow">01 / THE IDEA</p>
         <h2>

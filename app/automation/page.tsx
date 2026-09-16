@@ -1,3 +1,4 @@
+import { DigitalSystemsFeature } from "@/components/company-creation";
 import { LivingSystem } from "@/components/experience-interactive";
 import Link from "@/components/site-link";
 import { WorkflowMap } from "@/components/automation";
@@ -9,7 +10,7 @@ import {
   workflowExamples,
 } from "@/data/automation";
 export const metadata = {
-  title: "AI + Automation Systems",
+  title: "Digital Systems — AI + Automation",
   description:
     "Build the operating system behind your business: connected workflows, considered AI integration and clear human approval.",
   alternates: { canonical: "/automation" },
@@ -19,7 +20,7 @@ export default function AutomationPage() {
     <>
       <section className="shell automation-hero">
         <div>
-          <span className="eyebrow">BUILD / SPECIALIZED CAPABILITY</span>
+          <span className="eyebrow">DIGITAL SYSTEMS / BUILD + SCALE</span>
           <h1>
             Build the business.
             <br />
@@ -62,6 +63,7 @@ export default function AutomationPage() {
           </p>
         </aside>
       </section>
+      <DigitalSystemsFeature />
       <section className="ex-automation-environment">
         <div className="shell ex-section">
           <LivingSystem />

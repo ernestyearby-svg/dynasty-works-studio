@@ -73,7 +73,7 @@ export function Navbar() {
             href={n.href}
             aria-current={
               pathname === n.href ||
-              (n.href !== "/" && pathname?.startsWith(n.href + "/")) ||
+              (n.href !== "/" && n.href !== "/start-a-business" && pathname?.startsWith(n.href + "/")) ||
               (n.href === "/capabilities" && pathname === "/automation")
                 ? "page"
                 : undefined

@@ -4,25 +4,26 @@ export const site = {
     firstLine: "From idea",
     secondLine: "to",
     accent: "company.",
-    description: "Strategy. Brand. Technology.",
+    description: "Strategy. Identity. Product. Technology. Market.",
     support: "From the first idea to the next stage of growth.",
     image: undefined as string | undefined,
     video: undefined as string | undefined,
   },
-  statement: "We don’t separate strategy from execution.",
+  statement: "A company is a system.",
   description:
-    "We connect company strategy, formation coordination, branding, digital development, launch and growth. For physical-market businesses, that can include distribution preparation and market activation.",
+    "Dynasty Works is a company creation studio. We connect strategy, identity, product, technology and market systems to move an idea toward an operating company.",
   origin:
     process.env.NEXT_PUBLIC_SITE_URL ||
     "https://dynasty-works-studio.ernestyearby.chatgpt.site",
 };
 export const navigation = [
   { label: "Work", href: "/work" },
+  { label: "How We Build", href: "/how-we-build" },
+  { label: "Company Builder", href: "/start-a-business/builder" },
   { label: "Capabilities", href: "/capabilities" },
-  { label: "Start a Business", href: "/start-a-business" },
+  { label: "Concept Lab", href: "/concept-lab" },
   { label: "Studio", href: "/studio" },
-  { label: "About", href: "/studio#about" },
-  { label: "BUILD YOUR COMPANY →", href: "/start-a-business/builder" },
+  { label: "START A COMPANY →", href: "/start-a-business" },
 ];
 export const processSteps = [
   ["Discover", "Understand the opportunity."],

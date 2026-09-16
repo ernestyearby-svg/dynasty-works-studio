@@ -1,3 +1,4 @@
+import { creationStages, stageForPhase } from "@/data/company-creation";
 import { recommendAutomation } from "@/lib/automation-plan";
 import { founderBlueprint } from "@/data/founder-blueprint";
 import {
@@ -526,6 +527,17 @@ export function roadmapText(b: CompanyBuild): string {
     "Current stage: " + r.stage,
     "",
     r.timelineNote,
+    "",
+    "COMPANY CREATION / FOUR-STAGE OVERVIEW",
+    ...creationStages.map(
+      (stage) =>
+        stage.name +
+        ": " +
+        (r.phases
+          .filter((p) => stageForPhase[p.name] === stage.id)
+          .map((p) => p.name)
+          .join(", ") || "No additional scope indicated by this diagnostic."),
+    ),
     "",
     "RECOMMENDED PHASES + SERVICES",
     ...r.phases.flatMap((p, i) => [

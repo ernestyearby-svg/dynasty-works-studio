@@ -1,7 +1,7 @@
+import { StageArchitecture } from "@/components/company-creation";
 import Link from "@/components/site-link";
 import { companyCopy } from "@/data/company-builder";
 import {
-  CompanyJourney,
   MarketEntry,
   EngagementLevels,
   ProfessionalBoundary,
@@ -40,7 +40,7 @@ export default function StartBusiness() {
           </div>
         </div>
         <span className="business-hero-note">
-          STRATEGY → FORMATION → BRAND → BUILD → LAUNCH → GROWTH
+          DEFINE → BUILD → LAUNCH → SCALE
         </span>
       </section>
       <FounderPathways />
@@ -53,7 +53,7 @@ export default function StartBusiness() {
           Start where you are. Follow the stages your business needs. Open a
           stage to explore its scope.
         </p>
-        <CompanyJourney />
+        <StageArchitecture />
         <ProfessionalBoundary />
       </section>
       <MarketEntry />

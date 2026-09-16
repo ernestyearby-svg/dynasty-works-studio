@@ -375,10 +375,15 @@ export function CompanyBuilder() {
         </Link>
         <BrandProgression />
         <h1>
-          Build my
+          Bring us
           <br />
-          <em>company.</em>
+          <em>the idea.</em>
         </h1>
+        <p className="v2-builder-intro">
+          Founder diagnostic + company roadmap. Answer a focused set of
+          questions to map your next move across Define, Build, Launch and
+          Scale.
+        </p>
         <ol className="builder-step-list">
           {stepLabels.map((label, i) => (
             <li key={label} aria-current={step === i ? "step" : undefined}>

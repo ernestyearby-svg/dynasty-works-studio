@@ -1,6 +1,6 @@
-# Dynasty Works Studio — V1.8A / Portfolio Phase 1A
+# Dynasty Works Studio — V2.0 Company Creation Studio
 
-An integrated company-building studio website with an editorial portfolio, founder pathways and a seven-step local company brief builder. MyMosa is the first approved case study; the other five records remain withheld pending approval. Client attribution, years, deliverables and outcomes are not fabricated. Inquiries and commerce are intentionally unavailable until real providers are connected.
+A company creation studio website with an editorial portfolio, founder pathways and a seven-step local company brief builder. MyMosa is the first approved case study; the other five records remain withheld pending approval. Client attribution, years, deliverables and outcomes are not fabricated. Inquiries and commerce are intentionally unavailable until real providers are connected.
 
 ## Technology
 
@@ -191,3 +191,7 @@ Homepage presentation follows the supplied architectural visual master. See [imp
 `/work/mymosa` exhibits the eight user-approved TIGHT-002 can masters, official MyMosa and My Drink Family vectors, and seventeen house identities. The homepage uses a smaller lossless derivative of the same authentic lineup. New empty architectural scenery is explicitly an exhibition composition. Source masters are immutable; no product or logo is regenerated.
 
 See `MYMOSA-PORTFOLIO-SOURCE-MANIFEST.md` for approval boundaries and held assets, `MYMOSA-PORTFOLIO-QA.md` for checks, and `internal-assets/mymosa/published-assets.json` for exact hashes. `node scripts/qa-mymosa.mjs http://127.0.0.1:8788` validates provenance, visible pixel equality, official vector equality and HTTP assets. The preparation/QA scripts use this workstation’s Sharp runtime and source paths intentionally; they are not application dependencies.
+
+## V2.0 public experience
+
+The public architecture is DEFINE / BUILD / LAUNCH / SCALE. The unchanged 122-service catalog, eight practices, seven packages and five partnership structures remain underneath it. New routes: `/how-we-build` and `/concept-lab`. The Company Builder is a founder diagnostic with a four-stage summary and download; its recommendation engine is preserved. See `V2-COMPANY-CREATION-REPORT.md` for the audit, route mapping, source restrictions and QA.

@@ -3,7 +3,8 @@ const source = `
 import assert from 'node:assert/strict';
 import {emptyCompanyBuild,companyDraftSchema} from '@/lib/company-builder';
 import {generateRoadmap,createLeadPayload,roadmapText} from '@/lib/recommendation-engine';
-import {serviceCatalog,serviceById} from '@/data/service-catalog';
+import {serviceCatalog,serviceById,roadmapPhases} from '@/data/service-catalog';
+import {creationStages,stageForPhase} from '@/data/company-creation';
 import {engagementPackages,growthPartnerships} from '@/data/packages';
 import {startingPoints as a} from '@/data/company-builder';
 const scenario=(businessType,businessStage,starting,needs,extra={})=>({...emptyCompanyBuild,businessType,businessStage,starting,needs,launch:'Exploring',...extra});
@@ -16,6 +17,12 @@ const cases=[
  scenario('E-commerce','Operating',[a[2],a[3],a[4]],['E-commerce Optimization'],{storefrontReady:true})
 ];
 const results=cases.map(generateRoadmap);
+assert.deepEqual(Object.keys(stageForPhase).sort(),[...roadmapPhases].sort(),'Every recommendation phase has one public stage');
+for(let i=0;i<results.length;i++){
+ const grouped=creationStages.flatMap(s=>results[i].phases.filter(p=>stageForPhase[p.name]===s.id));
+ assert.deepEqual(grouped,results[i].phases,'Four-stage presentation preserves recommendation order and items');
+ const text=roadmapText(cases[i]);for(const stage of creationStages)assert.ok(text.includes(stage.name+': '),'Download includes '+stage.name);
+}
 const ids=r=>r.items.map(i=>i.serviceId);
 assert.equal(serviceCatalog.length,122);
 assert.equal(new Set(serviceCatalog.map(s=>s.id)).size,122);

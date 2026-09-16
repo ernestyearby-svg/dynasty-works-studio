@@ -9,6 +9,7 @@ import "./automation.css";
 import "./experience.css";
 import "./visual-master.css";
 import "./mymosa.css";
+import "./company-creation.css";
 import { site } from "@/data/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.origin),
@@ -18,11 +19,11 @@ export const metadata: Metadata = {
     follow: process.env.INDEXING_ENABLED === "true",
   },
   title: {
-    default: "Dynasty Works Studio — Ideas into execution",
+    default: "Dynasty Works Studio — Company Creation Studio",
     template: "%s | Dynasty Works Studio",
   },
   description:
-    "An integrated company-building studio connecting strategy, formation coordination, branding, digital development, launch and growth.",
+    "A company creation studio connecting strategy, brand development, product, websites and applications, launch and automation systems.",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -76,13 +77,14 @@ export default function RootLayout({
               <Link href="/capabilities">Capabilities</Link>
               <Link href="/start-a-business">Start a Business</Link>
               <Link href="/studio">Studio</Link>
-              <Link href="/studio#about">About</Link>
+              <Link href="/how-we-build">How We Build</Link>
+              <Link href="/concept-lab">Concept Lab</Link>
               <Link href="/contact">Contact</Link>
             </nav>
           </div>
           <div className="footer-bottom">
             <span>© {new Date().getFullYear()} Dynasty Works Studio</span>
-            <span>STRATEGY → DESIGN → BUILD → LAUNCH</span>
+            <span>DEFINE → BUILD → LAUNCH → SCALE</span>
             <ExperienceMotion />
             <a href="#main">Back to top ↑</a>
           </div>

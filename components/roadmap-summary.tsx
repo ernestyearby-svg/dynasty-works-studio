@@ -1,3 +1,4 @@
+import { creationStages, stageForPhase } from "@/data/company-creation";
 import { AutomationPlan } from "@/components/automation";
 import { BrandProgression } from "@/components/brand-progression";
 import { founderBlueprint } from "@/data/founder-blueprint";
@@ -35,6 +36,26 @@ export function RoadmapSummary({ build }: { build: CompanyBuild }) {
         A rule-based starting point. Suggested items are optional; initial scope
         and future work remain subject to review.
       </p>
+      <div
+        className="v2-roadmap-stages"
+        aria-label="Your four-stage company roadmap"
+      >
+        {creationStages.map((stage) => {
+          const phases = r.phases.filter(
+            (p) => stageForPhase[p.name] === stage.id,
+          );
+          return (
+            <section key={stage.id}>
+              <h4>{stage.name}</h4>
+              <p>
+                {phases.length
+                  ? phases.map((p) => p.name).join(" / ")
+                  : "No additional scope indicated by this diagnostic."}
+              </p>
+            </section>
+          );
+        })}
+      </div>
       <ol className="roadmap-phases ex-roadmap-assembly">
         {r.phases.map((p, i) => (
           <li key={p.name}>

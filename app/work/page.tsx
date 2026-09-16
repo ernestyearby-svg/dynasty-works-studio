@@ -1,26 +1,38 @@
-import Link from "@/components/site-link";
-import { content } from "@/lib/content";
 import { PageIntro, FinalCTA } from "@/components/studio";
+import { FlagshipWork } from "@/components/company-creation";
 import { WorkExplorer } from "@/components/work-explorer";
+import { content } from "@/lib/content";
+import Link from "@/components/site-link";
 export const metadata = {
-  title: "Work",
+  title: "Company Creation — Selected Work",
   description:
-    "Explore the evolving Dynasty Works Studio portfolio across brand, packaging, digital and experiences.",
+    "Explore company-building systems through approved brand, packaging, product and digital work. Each project retains its own identity.",
   alternates: { canonical: "/work" },
 };
 export default async function Work() {
   return (
-    <>
+    <div className="v2-page">
       <PageIntro
-        eyebrow="THE PORTFOLIO / 01"
-        title="Work, in every dimension."
-        description="Ideas made visible. Systems made useful. A growing collection of creative and technical work."
+        eyebrow="SELECTED WORK / COMPANY CREATION"
+        title="Different companies. Connected thinking."
+        description="A brand ecosystem. A fashion house. A physical product. A hospitality platform. Each calls for a different system."
       />
-      <section className="shell work-section">
-
-        <WorkExplorer projects={await content.listProjects()} /><Link className="text-link" href="/work/archive">The creative archive ↗</Link>
+      <section className="shell v2-work-page">
+        <FlagshipWork full />
+        <p className="small-note">
+          Classifications describe the editorial direction for each case study.
+          Only approved source material and verified scope appear in published
+          cases; forthcoming disciplines are not completed-work claims.
+        </p>
+        <details className="v2-deep-catalog">
+          <summary>Browse published work by discipline</summary>
+          <WorkExplorer projects={await content.listProjects()} />
+        </details>
+        <Link href="/concept-lab" className="text-link">
+          EXPLORE CONCEPT LAB →
+        </Link>
       </section>
       <FinalCTA />
-    </>
+    </div>
   );
 }

@@ -173,3 +173,9 @@ Selecting AI / Automation on Scope exposes an optional multi-select assessment, 
 recommendAutomation considers type, stage, maturity, current systems, manual-process context and desired outcomes. Idea/prelaunch or unspecified outcomes start with process mapping, workflow architecture and approval design; integrations remain future scope. Operating clients receive selected-outcome specializations. Connections require an existing-system inventory; AI integrations are suggested only for an established Intelligent starting point. AI Agents are available to scope, never automatically recommended. Maturity is not a score.
 
 Core parents enter Automation System; the detailed ten-stage plan appears in summary and downloaded roadmap. The separate automation scope suggestion does not replace the seven existing package structures or Founder Blueprint logic. Starting mode is Draft only. The lead payload carries assessment only when relevant; future server recomputation remains required.
+
+## V2.0 — Company Creation Studio
+
+Public stages are DEFINE / BUILD / LAUNCH / SCALE. The existing detailed roadmap phases remain unchanged; `data/company-creation.ts` maps every phase once into the public sequence. Both on-screen summary and text download include the same overview. No new scoring, price estimation, recommendation rules or backend writes were added. Brand/Build work can span multiple stages; the public architecture is not a maturity score.
+
+Concept Lab and four flagship source packs remain approval-gated. Licensed professionals, live integrations and commercial outcomes are never inferred from a capability listing.

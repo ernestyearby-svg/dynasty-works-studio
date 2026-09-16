@@ -4,6 +4,8 @@ const routes = [
   "/",
   "/work",
   "/work/mymosa",
+  "/how-we-build",
+  "/concept-lab",
   "/start-a-business",
   "/start-a-business/builder",
   "/services",

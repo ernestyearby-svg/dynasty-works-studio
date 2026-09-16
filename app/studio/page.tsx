@@ -1,19 +1,20 @@
+import { CreationNetwork } from "@/components/company-creation";
 import Link from "@/components/site-link";
 import { site } from "@/data/site";
 import { PageIntro, FinalCTA } from "@/components/studio";
 export const metadata = {
   title: "Studio",
   description:
-    "An integrated creative and technology practice that connects strategy to execution.",
+    "A company creation studio connecting strategy, identity, product, technology and market.",
   alternates: { canonical: "/studio" },
 };
 export default function Studio() {
   return (
     <>
       <PageIntro
-        eyebrow="THE STUDIO / 03"
+        eyebrow="COMPANY CREATION STUDIO"
         title="An idea rarely needs only one thing."
-        description="Dynasty Works Studio brings creative direction and technical execution into one practice."
+        description="One studio. From first move to market. We connect the work required to turn an idea into a functioning company."
       />
 
       <section id="about" className="statement shell section">
@@ -48,6 +49,7 @@ export default function Studio() {
           </article>
         ))}
       </section>
+      <CreationNetwork />
       <FinalCTA />
     </>
   );

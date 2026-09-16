@@ -51,3 +51,9 @@ AI + Automation Systems: public /automation, 27 centralized BUILD specialization
 ## V1.8A — visual master implementation
 
 Architectural homepage, editorial typography, layered approach, five-project gallery architecture, proprietary Builder presentation and cinematic closing implemented. Next: supply authentic flagship media and verified scope. Separate stone/warm-surface texture slots retain CSS fallbacks. Secure integrations remain a separate approved phase. See V1.8A-VISUAL-MASTER-IMPLEMENTATION.md.
+
+## V2.0 — Company Creation Studio
+
+Public stages are DEFINE / BUILD / LAUNCH / SCALE. The existing detailed roadmap phases remain unchanged; `data/company-creation.ts` maps every phase once into the public sequence. Both on-screen summary and text download include the same overview. No new scoring, price estimation, recommendation rules or backend writes were added. Brand/Build work can span multiple stages; the public architecture is not a maturity score.
+
+Concept Lab and four flagship source packs remain approval-gated. Licensed professionals, live integrations and commercial outcomes are never inferred from a capability listing.
