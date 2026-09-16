@@ -72,12 +72,12 @@ export interface Project {
   art: string;
   modules: CaseModule[];
 }
-const still: Media = {
-  src: "/assets/projects/concept-beverage-still-life.webp",
-  alt: "Concept study: an unbranded amber bottle and aluminum can on a stone plinth.",
-  caption: "Illustrative concept study · not approved client artwork",
-  width: 1536,
-  height: 1024,
+const mymosaExhibition: Media = {
+  src: "/assets/portfolio/mymosa/web/flagship-eight-thumbnail.webp",
+  alt: "The eight approved MyMosa can masters in a new architectural exhibition composition.",
+  caption: "Original product artwork · New exhibition composition",
+  width: 640,
+  height: 389,
 };
 export const projects: Project[] = [
   {
@@ -86,15 +86,20 @@ export const projects: Project[] = [
     client: null,
     year: null,
     category: ["Branding", "Packaging"],
-    industries: ["Beverage — to confirm"],
-    services: ["Scope awaiting approval"],
+    industries: ["Premium Wine Cocktails"],
+    services: ["Product identity", "Packaging", "Brand architecture"],
     shortDescription:
-      "A place for the MyMosa / My Drink Family story. Final project scope and artwork are awaiting approval.",
-    heroImage: still,
-    gallery: [still],
+      "MyMosa Premium Wine Cocktails: eight flagship flavors and the official My Drink Family brand architecture.",
+    heroImage: mymosaExhibition,
+    gallery: [mymosaExhibition],
     deliverables: [],
     featured: true,
-    status: "placeholder",
+    status: "published",
+    publicationApproval: {
+      approved: true,
+      reference:
+        "Portfolio Phase 1A: explicit user approval of eight unchanged -002 masters; official identity checkpoint sections 6–7; controlled brand canon. See MYMOSA-PORTFOLIO-SOURCE-MANIFEST.md.",
+    },
     order: 1,
     art: "beverage",
     modules: [],

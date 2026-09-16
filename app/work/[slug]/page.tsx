@@ -1,3 +1,4 @@
+import { MymosaCaseStudy } from "@/components/mymosa-case-study";
 import type { CSSProperties } from "react";
 import { MarketCaseSections } from "@/components/company-sections";
 import { notFound } from "next/navigation";
@@ -47,6 +48,7 @@ export default async function ProjectPage({
   const { slug } = await params;
   const p = await content.getProject(slug);
   if (!p) notFound();
+  if (p.slug === "mymosa") return <MymosaCaseStudy />;
   const all = await content.listProjects();
   const next =
     all[(all.findIndex((item) => item.slug === slug) + 1) % all.length];

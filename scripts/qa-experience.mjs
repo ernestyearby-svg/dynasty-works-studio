@@ -17,6 +17,7 @@ assert.ok(
   imageSources.every(
     (s) =>
       s.startsWith("/assets/brand/") ||
+      s === "/assets/portfolio/mymosa/web/flagship-eight-thumbnail.webp" ||
       /^\/assets\/experience\/DWS-(ARCH-01|ARCH-02|FINAL-01)\.webp$/.test(s),
   ),
   "Only production brand assets and commissioned DWS environments; never mockup client imagery",

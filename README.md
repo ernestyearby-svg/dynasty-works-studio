@@ -1,6 +1,6 @@
-# Dynasty Works Studio — Version 1.2
+# Dynasty Works Studio — V1.8A / Portfolio Phase 1A
 
-An integrated company-building studio website with an editorial portfolio, founder pathways and a seven-step local company brief builder. All six project records are explicitly labeled placeholders; client attribution, years, deliverables and outcomes are not fabricated. Inquiries and commerce are intentionally unavailable until real providers are connected.
+An integrated company-building studio website with an editorial portfolio, founder pathways and a seven-step local company brief builder. MyMosa is the first approved case study; the other five records remain withheld pending approval. Client attribution, years, deliverables and outcomes are not fabricated. Inquiries and commerce are intentionally unavailable until real providers are connected.
 
 ## Technology
 
@@ -185,3 +185,9 @@ See [DWS-VISUAL-ASSET-PLAN.md](DWS-VISUAL-ASSET-PLAN.md) for approved-media requ
 ## V1.8A — approved visual master
 
 Homepage presentation follows the supplied architectural visual master. See [implementation, asset requirements and QA](V1.8A-VISUAL-MASTER-IMPLEMENTATION.md). Direction 03, all 22 production assets, business logic and disabled integrations remain intact. New environments are conceptual DWS imagery; authentic portfolio assets still require approval.
+
+## MyMosa Portfolio Phase 1A
+
+`/work/mymosa` exhibits the eight user-approved TIGHT-002 can masters, official MyMosa and My Drink Family vectors, and seventeen house identities. The homepage uses a smaller lossless derivative of the same authentic lineup. New empty architectural scenery is explicitly an exhibition composition. Source masters are immutable; no product or logo is regenerated.
+
+See `MYMOSA-PORTFOLIO-SOURCE-MANIFEST.md` for approval boundaries and held assets, `MYMOSA-PORTFOLIO-QA.md` for checks, and `internal-assets/mymosa/published-assets.json` for exact hashes. `node scripts/qa-mymosa.mjs http://127.0.0.1:8788` validates provenance, visible pixel equality, official vector equality and HTTP assets. The preparation/QA scripts use this workstation’s Sharp runtime and source paths intentionally; they are not application dependencies.

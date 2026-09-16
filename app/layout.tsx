@@ -8,6 +8,7 @@ import "./brand-system.css";
 import "./automation.css";
 import "./experience.css";
 import "./visual-master.css";
+import "./mymosa.css";
 import { site } from "@/data/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.origin),

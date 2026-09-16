@@ -3,6 +3,7 @@ const origin = process.argv[2] || "http://localhost:5174";
 const routes = [
   "/",
   "/work",
+  "/work/mymosa",
   "/start-a-business",
   "/start-a-business/builder",
   "/services",
@@ -77,7 +78,6 @@ for (const path of ["/robots.txt", "/sitemap.xml"]) {
 }
 assert.equal((await fetch(origin + "/work/does-not-exist")).status, 404);
 for (const slug of [
-  "mymosa",
   "ikla-maison",
   "smokesuite",
   "mr-cliffs",
