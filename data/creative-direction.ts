@@ -113,7 +113,61 @@ export interface ArchiveEntry {
   projectSlug?: string;
   approval: { approved: boolean; reference: string };
 }
-export const archiveEntries: ArchiveEntry[] = [];
+export const archiveEntries: ArchiveEntry[] = [
+  {
+    id: "mdf-seal",
+    title: "My Drink Family / Master seal",
+    category: "Brand Identity",
+    projectSlug: "mymosa",
+    media: {
+      src: "/assets/portfolio/mymosa/identity/my-drink-family-seal-primary-light.svg",
+      alt: "Official My Drink Family master seal",
+      width: 800,
+      height: 800,
+      caption: "Official production vector / brand architecture",
+    },
+    approval: {
+      approved: true,
+      reference:
+        "MYMOSA-PORTFOLIO-SOURCE-MANIFEST.md / identity checkpoint sections 6–7",
+    },
+  },
+  {
+    id: "mymosa-packaging",
+    title: "MyMosa / The flagship eight",
+    category: "Packaging",
+    projectSlug: "mymosa",
+    media: {
+      src: "/assets/portfolio/mymosa/web/flagship-eight-thumbnail.webp",
+      alt: "Eight approved MyMosa product masters",
+      width: 640,
+      height: 389,
+      caption: "Unchanged product masters / exhibition composition",
+    },
+    approval: {
+      approved: true,
+      reference: "Explicit user approval of all eight exact -002 masters",
+    },
+  },
+  {
+    id: "cliffs-digital",
+    title: "Mr. Cliff’s / Digital experience",
+    category: "Websites",
+    projectSlug: "mr-cliffs",
+    media: {
+      src: "/assets/portfolio/mr-cliffs/desktop-home.webp",
+      alt: "Actual Mr. Cliff’s desktop website capture",
+      width: 1440,
+      height: 1000,
+      caption: "Production project / actual interface capture",
+    },
+    approval: {
+      approved: true,
+      reference:
+        "CREATIVE-BUILD-AUDIT.md / project inventory and source interface capture",
+    },
+  },
+];
 export const identityVariants = [
   "Primary logo",
   "Secondary logo",

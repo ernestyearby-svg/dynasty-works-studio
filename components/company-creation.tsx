@@ -1,9 +1,5 @@
 import Link from "@/components/site-link";
-import {
-  creationStages,
-  flagshipDirections,
-  networkCategories,
-} from "@/data/company-creation";
+import { creationStages, networkCategories } from "@/data/company-creation";
 import { projects } from "@/data/projects";
 import { isApprovedProject } from "@/lib/content";
 import { OptimizedImage as Image } from "@/components/optimized-image";
@@ -60,51 +56,47 @@ export function StageArchitecture({
   );
 }
 export function FlagshipWork({ full = false }: { full?: boolean }) {
+  const published = projects
+    .filter((p) => isApprovedProject(p) && p.heroImage)
+    .sort((a, b) => a.order - b.order);
   return (
-    <div className={"v2-work-list" + (full ? " v2-work-full" : "")} tabIndex={0} role="region" aria-label="Flagship company creation work; scroll horizontally on mobile">
-      {flagshipDirections.map((f, i) => {
-        const project = projects.find((p) => p.slug === f.slug);
-        const approved =
-          project && isApprovedProject(project) && project.heroImage;
-        return (
-          <article
-            key={f.slug}
-            className={approved ? "v2-work-approved" : "v2-work-pending"}
-          >
-            {approved && (
-              <Link href={"/work/" + f.slug} className="v2-work-image">
-                <Image
-                  src={project.heroImage!.src}
-                  width={640}
-                  height={389}
-                  alt={project.heroImage!.alt}
-                  loading="lazy"
-                />
-              </Link>
+    <div
+      className={"v2-work-list" + (full ? " v2-work-full" : "")}
+      tabIndex={0}
+      role="region"
+      aria-label="Flagship company creation work; scroll horizontally on mobile"
+    >
+      {published.map((project, i) => (
+        <article key={project.slug} className="v2-work-approved">
+          <Link href={"/work/" + project.slug} className="v2-work-image">
+            <Image
+              src={project.heroImage!.src}
+              srcSet={project.heroImage!.srcSet}
+              sizes="(max-width: 700px) 85vw, 50vw"
+              width={project.heroImage!.width || 640}
+              height={project.heroImage!.height || 389}
+              alt={project.heroImage!.alt}
+              loading="lazy"
+            />
+          </Link>
+          <div className="v2-work-caption">
+            <span className="eyebrow">
+              0{i + 1} /{" "}
+              {project.slug === "mymosa"
+                ? "BRAND ECOSYSTEM"
+                : "DIGITAL EXPERIENCE"}
+            </span>
+            <h3>{project.title}</h3>
+            <p>{project.services.join(" / ")}</p>
+            {full && (
+              <p className="v2-disciplines">{project.shortDescription}</p>
             )}
-            <div className="v2-work-caption">
-              <span className="eyebrow">
-                0{i + 1} /{" "}
-                {approved ? "PRODUCTION ASSETS · EXHIBITION" : "FORTHCOMING"}
-              </span>
-              <h3>{f.name}</h3>
-              <p>{f.classification}</p>
-              {full && (
-                <p className="v2-disciplines">
-                  Case-study roadmap: {f.disciplines.join(" / ")}
-                </p>
-              )}
-              {approved ? (
-                <Link href={"/work/" + f.slug} className="text-link">
-                  EXPLORE THE CASE STUDY →
-                </Link>
-              ) : (
-                <span className="small-note">{f.status}</span>
-              )}
-            </div>
-          </article>
-        );
-      })}
+            <Link href={"/work/" + project.slug} className="text-link">
+              EXPLORE THE CASE STUDY →
+            </Link>
+          </div>
+        </article>
+      ))}
     </div>
   );
 }

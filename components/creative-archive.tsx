@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
 import {
-  archiveCategories,
   type ArchiveCategory,
   type ArchiveEntry,
 } from "@/data/creative-direction";
+import Link from "@/components/site-link";
 import { MediaFrame } from "@/components/studio";
 export function CreativeArchive({ entries }: { entries: ArchiveEntry[] }) {
   const [category, setCategory] = useState<ArchiveCategory | "All">("All");
@@ -21,16 +21,18 @@ export function CreativeArchive({ entries }: { entries: ArchiveEntry[] }) {
         role="group"
         aria-label="Filter creative archive"
       >
-        {["All", ...archiveCategories].map((c) => (
-          <button
-            key={c}
-            aria-pressed={category === c}
-            className={category === c ? "active" : ""}
-            onClick={() => setCategory(c as ArchiveCategory | "All")}
-          >
-            {c}
-          </button>
-        ))}
+        {["All", ...Array.from(new Set(entries.map((e) => e.category)))].map(
+          (c) => (
+            <button
+              key={c}
+              aria-pressed={category === c}
+              className={category === c ? "active" : ""}
+              onClick={() => setCategory(c as ArchiveCategory | "All")}
+            >
+              {c}
+            </button>
+          ),
+        )}
       </div>
       <p className="eyebrow" aria-live="polite">
         {visible.length} works / {category}
@@ -42,6 +44,11 @@ export function CreativeArchive({ entries }: { entries: ArchiveEntry[] }) {
               <MediaFrame image={e.media} />
               <h2>{e.title}</h2>
               <p>{e.category}</p>
+              {e.projectSlug && (
+                <Link href={"/work/" + e.projectSlug} className="text-link">
+                  Explore the project →
+                </Link>
+              )}
             </article>
           ))}
         </div>

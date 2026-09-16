@@ -115,11 +115,11 @@
 }
 .v2-work-list {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-columns: 1.15fr 1fr;
   gap: 0 40px;
 }
 .v2-work-approved {
-  grid-row: span 2;
+  min-width: 0;
 }
 .v2-work-image {
   display: block;
@@ -308,8 +308,10 @@
 .v2-flagship > img {
   width: 100%;
   height: 100%;
-  min-height: 620px;
-  object-fit: cover;
+  min-height: 400px;
+  padding: 14%;
+  background: #eee6d9;
+  object-fit: contain;
   object-position: 50% 50%;
 }
 .v2-flagship > .shell {
@@ -674,7 +676,7 @@
   .v2-hero-foot {
     position: absolute;
     bottom: 28px;
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     max-width: 28ch !important;
     line-height: 1.8;
   }
@@ -728,11 +730,11 @@
     min-height: 100px;
   }
   .v2-system-grid button strong {
-    font-size: 0.66rem;
+    font-size: 0.75rem;
     letter-spacing: 0;
   }
   .v2-system-grid button > span:first-child {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
   }
   .v2-system-detail {
     min-height: 265px;
@@ -846,7 +848,7 @@
     padding-inline: 6px;
   }
   .v2-system-grid button strong {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
   }
 }
 .company-builder > .builder-sidebar,
@@ -882,3 +884,90 @@
 [data-motion="reduced"] .v2-work-image:hover img {
   transform: none;
 }
+
+/* Completion sweep: preserve project worlds and readable controls. */
+.v2-work-list:not(.v2-work-full) .v2-work-approved:nth-child(even) {
+  margin-top: 90px;
+}
+.v2-work-full .v2-work-approved:nth-child(even) .v2-work-image {
+  order: 2;
+}
+.v2-work-image img {
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+}
+.v2-work-approved:nth-child(even) .v2-work-image {
+  background: #e9dfca;
+}
+.v2-work-caption .text-link,
+.v2-stage-links,
+.v2-system-grid button strong {
+  font-size: 0.875rem;
+}
+.ex-project-page .case-hero .project-art {
+  aspect-ratio: 16 / 9;
+}
+.ex-project-page .project-facts {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+}
+.resource-grid article {
+  padding-block: 28px;
+  border-top: 1px solid #6b6b6b;
+}
+.resource-grid h2 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  margin: 25px 0;
+}
+.dw-archive-grid .media-frame {
+  background: #f4f1ea;
+}
+.dw-archive-grid img {
+  object-fit: contain;
+}
+@media (max-width: 700px) {
+  .v2-work-list:not(.v2-work-full) .v2-work-approved:nth-child(even) {
+    margin-top: 0;
+  }
+  .v2-work-full .v2-work-approved:nth-child(even) .v2-work-image {
+    order: 0;
+  }
+  .v2-flagship > img {
+    min-height: 230px;
+    padding: 15%;
+  }
+  .resource-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .v2-system-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+.ex-project-page .case-title h1 {
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  font-size: clamp(3rem, 7vw, 7.5rem);
+  line-height: 1.06;
+  max-width: 15ch;
+}
+.ex-project-page .project-facts p,
+.ex-project-page .case-section p,
+.ex-project-page figcaption {
+  color: var(--ex-project-fg);
+}
+.master-blueprint .dw-document footer,
+.master-blueprint .dw-document-grid > span {
+  font-size: 0.75rem;
+}
+.ex-project-page .device-mobile { width: min(100%, 390px); margin: 60px auto; }
+
+.page-intro h1 { font-family: var(--font-editorial); font-weight: 400; }
+.dw-archive-grid .media-frame img { aspect-ratio: 4 / 3; object-fit: contain; }
+.dw-archive-grid .media-frame img[src$=".svg"] { padding: 30px; }

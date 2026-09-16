@@ -32,14 +32,15 @@ export default function ConceptLab() {
           ))}
         </div>
         <aside>
-          <p className="eyebrow">THE COLLECTION</p>
-          <h2>In preparation.</h2>
+          <p className="eyebrow">THE PRACTICE</p>
+          <h2>Explore before you commit.</h2>
           <p>
-            Approved explorations will appear here. No speculative project is
-            presented as a client relationship, endorsement or released product.
+            Test a direction through identity studies, product visualizations
+            and packaging explorations. Define the question, develop the idea
+            and review what is worth taking further.
           </p>
           <Link href="/work" className="text-link">
-            VIEW APPROVED WORK →
+            VIEW SELECTED WORK →
           </Link>
           <details>
             <summary>How work is classified</summary>

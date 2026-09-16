@@ -4,6 +4,7 @@ const routes = [
   "/",
   "/work",
   "/work/mymosa",
+  "/work/mr-cliffs",
   "/how-we-build",
   "/concept-lab",
   "/start-a-business",
@@ -82,7 +83,6 @@ assert.equal((await fetch(origin + "/work/does-not-exist")).status, 404);
 for (const slug of [
   "ikla-maison",
   "smokesuite",
-  "mr-cliffs",
   "ohana-to-alpine",
   "quick-fix",
 ])

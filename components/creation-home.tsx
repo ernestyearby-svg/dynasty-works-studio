@@ -83,10 +83,10 @@ export function CreationHomepage() {
       </section>
       <section className="v2-flagship">
         <Image
-          src="/assets/portfolio/mymosa/web/flagship-eight-exhibition.webp"
+          src="/assets/portfolio/mymosa/identity/my-drink-family-horizontal-primary-light.svg"
           width={1400}
-          height={850}
-          alt="Eight authentic approved MyMosa can masters in a new exhibition composition"
+          height={320}
+          alt="Official My Drink Family horizontal identity"
           loading="lazy"
         />
         <div className="shell">
@@ -101,7 +101,7 @@ export function CreationHomepage() {
           <p>MyMosa / My Drink Family</p>
           <p>
             Eight flagship flavors. Seventeen house identities. Explore the
-            approved identity, packaging and brand architecture.
+            identity, packaging and brand architecture.
           </p>
           <Link href="/work/mymosa" className="text-link">
             ENTER THE MYMOSA WORLD →
@@ -147,7 +147,7 @@ export function CreationHomepage() {
               </li>
             ))}
           </ol>
-          <p className="small-note">FORMAT PREVIEW / NO CLIENT DATA</p>
+          <p className="small-note">YOUR NEXT STEPS, ORGANIZED.</p>
         </div>
       </section>
       <section className="v2-capability shell">

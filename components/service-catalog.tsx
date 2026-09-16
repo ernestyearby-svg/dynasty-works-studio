@@ -139,8 +139,7 @@ export function PracticeWork({ id }: { id: PracticeId }) {
         </div>
       ) : (
         <p className="section-description">
-          Approved practice-specific case studies will appear here. Explore the
-          current portfolio preview while project details are under review.
+          Explore selected identity, packaging and digital work from the studio.
         </p>
       )}
       <Link href="/work" className="text-link">

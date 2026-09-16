@@ -18,7 +18,9 @@ assert.ok(
     (s) =>
       s.startsWith("/assets/brand/") ||
       s === "/assets/portfolio/mymosa/web/flagship-eight-thumbnail.webp" ||
-      s === "/assets/portfolio/mymosa/web/flagship-eight-exhibition.webp" ||
+      s ===
+        "/assets/portfolio/mymosa/identity/my-drink-family-horizontal-primary-light.svg" ||
+      s === "/assets/portfolio/mr-cliffs/window-hero.webp" ||
       /^\/assets\/experience\/DWS-(ARCH-01|ARCH-02|FINAL-01)\.webp$/.test(s),
   ),
   "Only production brand assets and commissioned DWS environments; never mockup client imagery",

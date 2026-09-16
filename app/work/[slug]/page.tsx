@@ -80,16 +80,18 @@ export default async function ProjectPage({
         </div>
         <div className="project-facts">
           {[
-            ["Client", p.client || "Awaiting approval"],
+            ["Client", p.client],
             ["Industry", p.industries.join(", ")],
-            ["Year", p.year?.toString() || "To confirm"],
+            ["Year", p.year?.toString()],
             ["Services", p.services.join(", ")],
-          ].map(([label, value]) => (
-            <div key={label}>
-              <span className="eyebrow">{label}</span>
-              <p>{value}</p>
-            </div>
-          ))}
+          ]
+            .filter(([, value]) => Boolean(value))
+            .map(([label, value]) => (
+              <div key={label}>
+                <span className="eyebrow">{label}</span>
+                <p>{value}</p>
+              </div>
+            ))}
         </div>
       </section>
       <div className="shell case-hero">

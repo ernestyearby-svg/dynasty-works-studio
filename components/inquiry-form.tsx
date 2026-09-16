@@ -72,7 +72,7 @@ export function InquiryForm() {
             key === "description"
               ? "Tell us a little more (20–5,000 characters)."
               : key === "consent"
-                ? "Please acknowledge how this preview handles your details."
+                ? "Please acknowledge how your brief is handled."
                 : key === "stage" || key === "budget" || key === "timeframe"
                   ? "Choose an option."
                   : key === "name"
@@ -125,10 +125,8 @@ export function InquiryForm() {
   }
   function submit() {
     if (!validate()) return;
-    // Never transmit personal details until a real delivery provider is connected.
-    setMessage(
-      "Your project has not been submitted. Inquiry delivery is not connected yet. Download your brief to keep a copy.",
-    );
+    // The backend remains disabled; the completed brief is a local download.
+    download();
   }
   function field(
     key: keyof Draft,
@@ -220,8 +218,8 @@ export function InquiryForm() {
         <div className="inquiry-note">
           <span className="eyebrow">BEFORE YOU BEGIN</span>
           <p>
-            Inquiry delivery is being connected. You can prepare and download
-            your brief here. It will not be sent or saved by the studio.
+            Prepare and download your project brief here. Online submission is
+            unavailable; nothing is sent or saved by the studio.
           </p>
         </div>
       </aside>
@@ -359,18 +357,6 @@ export function InquiryForm() {
               {field("phone", "Phone", "tel", true)}
               {field("website", "Website", "url", true)}
               {field("reference", "Reference link", "url", true)}
-              <div className="upload-placeholder">
-                <span>Files & references</span>
-                <p>
-                  File uploads will be available when inquiry delivery launches.
-                  For now, include a reference link above.
-                </p>
-                <input
-                  type="file"
-                  disabled
-                  aria-label="File upload unavailable"
-                />
-              </div>
               <label className="consent">
                 <input
                   type="checkbox"
@@ -379,8 +365,8 @@ export function InquiryForm() {
                   aria-invalid={!!errors.consent}
                 />
                 <span>
-                  I understand this is a preview. My brief stays in this browser
-                  tab unless I download it, and submission is not yet available.
+                  My brief stays in this browser tab unless I download it. I
+                  understand it will not be submitted to the studio.
                 </span>
               </label>
               {errors.consent && (
@@ -411,12 +397,9 @@ export function InquiryForm() {
                 ))}
               </dl>
               <p className="content-note">
-                Submission is not connected. Download a copy to keep your brief.
-                This form does not store your details.
+                Download a copy to keep your brief. Online submission is
+                unavailable; nothing is sent to the studio.
               </p>
-              <button className="button" type="button" onClick={download}>
-                Download brief ↓
-              </button>
             </>
           )}
           <div className="honeypot" aria-hidden="true">
@@ -449,7 +432,7 @@ export function InquiryForm() {
               <span className="muted">01 / 04</span>
             )}
             <button className="button dark" type="submit">
-              {step === 3 ? "Submit project" : "Continue"} <span>↗</span>
+              {step === 3 ? "Download brief" : "Continue"} <span>↗</span>
             </button>
           </div>
         </form>

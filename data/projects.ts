@@ -74,6 +74,7 @@ export interface Project {
 }
 const mymosaExhibition: Media = {
   src: "/assets/portfolio/mymosa/web/flagship-eight-thumbnail.webp",
+  srcSet: "/assets/portfolio/mymosa/web/flagship-eight-thumbnail.webp 640w, /assets/portfolio/mymosa/web/flagship-eight-exhibition.webp 1400w",
   alt: "The eight approved MyMosa can masters in a new architectural exhibition composition.",
   caption: "Original product artwork · New exhibition composition",
   width: 640,
@@ -145,18 +146,77 @@ export const projects: Project[] = [
     title: "Mr. Cliff’s Premium Bourbon",
     client: null,
     year: null,
-    category: ["Branding", "Packaging"],
-    industries: ["Spirits — to confirm"],
-    services: ["Scope awaiting approval"],
+    category: ["Web"],
+    industries: ["Spirits"],
+    services: [
+      "Digital experience",
+      "Editorial direction",
+      "Responsive website",
+    ],
     shortDescription:
-      "A dedicated place for the bourbon project. The final bottle design, identity and scope remain to be confirmed.",
+      "A digital experience built around warm ivory, oxblood, bourbon amber and the brand’s existing visual world.",
+    heroImage: {
+      src: "/assets/portfolio/mr-cliffs/window-hero.webp",
+      srcSet:
+        "/assets/portfolio/mr-cliffs/window-thumbnail.webp 800w, /assets/portfolio/mr-cliffs/window-hero.webp 1600w",
+      alt: "Existing Mr. Cliff’s project artwork: bottle and glass in warm window light",
+      width: 1600,
+      height: 900,
+      caption: "Production website artwork / brand visualization",
+    },
     gallery: [],
-    deliverables: [],
-    featured: false,
-    status: "placeholder",
+    deliverables: [
+      "Editorial homepage",
+      "Desktop and mobile layouts",
+      "Bourbon, story and recipe page architecture",
+    ],
+    challenge:
+      "Translate the brand’s existing visual material into a coherent digital experience, with clear paths into the bourbon, its story and cocktail recipes.",
+    strategy:
+      "Warm ivory sets the editorial rhythm. Oxblood anchors key moments. Product artwork carries the brand’s character, while restrained navigation keeps the experience easy to explore.",
+    execution:
+      "The website pairs large editorial typography with original project assets. Desktop and mobile compositions give the product its own space. The interface captures below come directly from the project build.",
+    outcome:
+      "This case study exhibits the website design and its existing production artwork. The imagery is a brand visualization, not historical evidence. No sales, conversion or distribution results are claimed.",
+    featured: true,
+    status: "published",
+    publicationApproval: {
+      approved: true,
+      reference:
+        "Creative Build Protocol: authentic existing project assets authorized. Source ASSET_INVENTORY.md identifies approved production imagery; actual interface captures verify digital scope. CREATIVE-BUILD-AUDIT.md and internal-assets/completion/published-assets.json.",
+    },
+    exhibition: {
+      background: "#381b24",
+      foreground: "#f4f1ea",
+      approvalReference:
+        "Existing Mr-Cliffs-Aesthetic-Upgrade production palette; gallery preserves the project world.",
+    },
     order: 4,
     art: "bourbon",
-    modules: [],
+    modules: [
+      {
+        type: "device",
+        kind: "desktop",
+        image: {
+          src: "/assets/portfolio/mr-cliffs/desktop-home.webp",
+          alt: "Actual Mr. Cliff’s website desktop homepage",
+          width: 1440,
+          height: 1000,
+          caption: "Digital experience / desktop interface capture",
+        },
+      },
+      {
+        type: "device",
+        kind: "mobile",
+        image: {
+          src: "/assets/portfolio/mr-cliffs/mobile-home.webp",
+          alt: "Actual Mr. Cliff’s website mobile homepage",
+          width: 390,
+          height: 1000,
+          caption: "Digital experience / mobile interface capture",
+        },
+      },
+    ],
   },
   {
     slug: "ohana-to-alpine",
