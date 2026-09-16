@@ -16,7 +16,7 @@ export default function Studio() {
         description="Dynasty Works Studio brings creative direction and technical execution into one practice."
       />
 
-      <section className="statement shell section">
+      <section id="about" className="statement shell section">
         <span className="eyebrow">OUR POINT OF VIEW</span>
         <h2>{site.statement}</h2>
         <div>

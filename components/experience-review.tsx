@@ -1,5 +1,5 @@
 import Link from "@/components/site-link";
-import { HeroObject } from "@/components/digital-experience";
+import { OptimizedImage } from "@/components/optimized-image";
 import {
   LivingSystem,
   BlueprintProduct,
@@ -8,22 +8,29 @@ import { experienceAssets } from "@/data/digital-experience";
 export function ExperienceReview() {
   return (
     <section className="shell ex-section ex-review">
-      <span className="eyebrow">INTERNAL / V1.8</span>
+      <span className="eyebrow">INTERNAL / V1.8A</span>
       <h2>Digital experience.</h2>
       <p>
-        A presentation system around the approved identity. Proprietary imagery
-        awaits a separate asset approval round.
+        Production presentation follows the supplied homepage visual master. The
+        approved Direction 03 geometry and existing functionality remain the
+        foundation.
       </p>
       <div className="ex-review-grid">
         <article>
           <h3>Hero system</h3>
           <div className="ex-review-dark">
-            <HeroObject />
+            <OptimizedImage
+              src="/assets/experience/DWS-ARCH-01.webp"
+              alt="Direction 03 interpreted as a champagne architectural monument"
+              width={1738}
+              height={905}
+              loading="lazy"
+            />
           </div>
           <p>
-            Exact Direction 03 vector fallback. Prepared for an approved static
-            object render and optional user-controlled film; no invented 3D
-            asset.
+            V1.8A architectural environment: a conceptual Dynasty Works render
+            using the locked stair-step identity. It is not client work or a
+            photograph of a real installation.
           </p>
         </article>
         <article>
@@ -34,8 +41,10 @@ export function ExperienceReview() {
             <span>Bone</span>
           </div>
           <p>
-            Lighting and transparency belong to interface surfaces. Glass, metal
-            and stone photography/rendering remain asset requirements.
+            Commissioned stone, glass and landscape environments now support the
+            homepage. The earlier asset register below is retained as historical
+            V1.8 planning; current status is documented in
+            V1.8A-VISUAL-MASTER-IMPLEMENTATION.md.
           </p>
           <h3>Motion system</h3>
           <p>

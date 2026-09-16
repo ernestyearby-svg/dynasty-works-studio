@@ -5,17 +5,21 @@ import { gzipSync } from "node:zlib";
 const origin = process.argv[2] || "http://127.0.0.1:8788";
 const html = await (await fetch(origin + "/")).text();
 assert.match(html, /WE BUILD/);
-assert.match(html, /ex-hero-object/);
+assert.match(html, /master-hero/);
 assert.match(html, /ex-blueprint-product/);
-assert.match(html, /ex-living-system/);
+assert.match(html, /AI \+ AUTOMATION SYSTEMS/);
 assert.ok(!html.includes("<video"), "No unapproved hero film");
 assert.ok(!html.includes("concept-beverage"), "No unapproved client imagery");
 const imageSources = [...html.matchAll(/<img[^>]+src="([^"]+)"/g)].map(
   (m) => m[1],
 );
 assert.ok(
-  imageSources.every((s) => s.startsWith("/assets/brand/")),
-  "Only approved existing imagery",
+  imageSources.every(
+    (s) =>
+      s.startsWith("/assets/brand/") ||
+      /^\/assets\/experience\/DWS-(ARCH-01|ARCH-02|FINAL-01)\.webp$/.test(s),
+  ),
+  "Only production brand assets and commissioned DWS environments; never mockup client imagery",
 );
 const review = await (await fetch(origin + "/creative-review")).text();
 assert.match(review, /Digital experience/);

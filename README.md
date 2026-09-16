@@ -181,3 +181,7 @@ Automation model regression: node scripts/qa-automation.mjs. No credentials, dat
 New cinematic homepage, interactive build/identity/Blueprint/workflow moments, refined navigation and Company Builder presentation. Existing recommendation logic, prices, service/package catalog, brand assets and disabled integrations are unchanged. /creative-review includes the internal Digital Experience register and remains noindex.
 
 See [DWS-VISUAL-ASSET-PLAN.md](DWS-VISUAL-ASSET-PLAN.md) for approved-media requirements, responsive crops and budgets. No proprietary raster/3D assets or client work were fabricated; precise vector and native UI treatments remain until separate media approval. Experience QA: node scripts/qa-experience.mjs against the local production server. Motion honors device preferences and the footer's Reduce motion control.
+
+## V1.8A — approved visual master
+
+Homepage presentation follows the supplied architectural visual master. See [implementation, asset requirements and QA](V1.8A-VISUAL-MASTER-IMPLEMENTATION.md). Direction 03, all 22 production assets, business logic and disabled integrations remain intact. New environments are conceptual DWS imagery; authentic portfolio assets still require approval.

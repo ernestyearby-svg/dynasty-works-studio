@@ -47,3 +47,7 @@ Next gate: supply and authorize the intended Supabase project, approve privacy/t
 ## V1.7 — capability and architecture
 
 AI + Automation Systems: public /automation, 27 centralized BUILD specializations, relevant Builder assessment and Automation System planning phase. Existing brand and commercial architecture preserved. Internal priorities: 01 Lead Engine, 02 Content Engine. Next phase requires architecture acceptance, named providers and owners, authorization, security/approval tests, monitoring and explicit activation. No current automation is live.
+
+## V1.8A — visual master implementation
+
+Architectural homepage, editorial typography, layered approach, five-project gallery architecture, proprietary Builder presentation and cinematic closing implemented. Next: supply authentic flagship media and verified scope. Separate stone/warm-surface texture slots retain CSS fallbacks. Secure integrations remain a separate approved phase. See V1.8A-VISUAL-MASTER-IMPLEMENTATION.md.

@@ -49,14 +49,17 @@ assert.equal((await handleSubmission(req(envelope),'blueprint',{...deps,reposito
 assert.equal(canDeliverBlueprint({state:'draft'}),false);assert.equal(canDeliverBlueprint({state:'approved',revision:2,approvedRevision:1,reviewedBy:'staff',reviewedAt:'date',privatePdfObjectPath:'private'}),false);assert.equal(canDeliverBlueprint({state:'approved',revision:2,approvedRevision:2,reviewedBy:'staff',reviewedAt:'date',privatePdfObjectPath:'private'}),true);
 if(process.argv[2]) {
  const origin=process.argv[2];const u=new URL(origin);assert.ok(u.protocol==='http:'&&['localhost','127.0.0.1'].includes(u.hostname)&&u.port,'Local QA only');
+ // Retry only the known local Wrangler restart response, never application errors.
+ async function localFetch(url,options){const r=await fetch(url,options);if(r.status===503&&(await r.clone().text()).startsWith('Your worker restarted mid-request'))return fetch(url,options);return r;}
+
  const general={services:['Website'],physicalMarket:false,description:'Synthetic project description for local QA only.',company:'Example',stage:'Idea',budget:'Let’s discuss',timeframe:'Flexible',name:'QA Founder',email:'qa@example.com',phone:'',website:'',reference:'',consent:true,honeypot:''};
  for(const [kind,data] of [['general',general],['builder',base],['blueprint',intake]]){
-  const result=await fetch(origin+'/api/submissions/'+kind,{method:'POST',headers:{origin,'content-type':'application/json'},body:JSON.stringify({...common,data})});
+  const result=await localFetch(origin+'/api/submissions/'+kind,{method:'POST',headers:{origin,'content-type':'application/json'},body:JSON.stringify({...common,data})});
   assert.equal(result.status,503,kind+' disabled status');assert.equal((await result.json()).status,'not_configured');assert.equal(result.headers.get('cache-control'),'no-store');
  }
- const invalid=await fetch(origin+'/api/submissions/blueprint',{method:'POST',headers:{origin,'content-type':'application/json'},body:JSON.stringify({...envelope,data:{...intake,email:'bad'}})});assert.equal(invalid.status,422);
- const cross=await fetch(origin+'/api/submissions/blueprint',{method:'POST',headers:{origin:'https://untrusted.example','content-type':'application/json'},body:JSON.stringify(envelope)});assert.equal(cross.status,403);
- const unknown=await fetch(origin+'/api/submissions/unknown',{method:'POST',headers:{origin,'content-type':'application/json'},body:'{}'});assert.equal(unknown.status,404);
+ const invalid=await localFetch(origin+'/api/submissions/blueprint',{method:'POST',headers:{origin,'content-type':'application/json'},body:JSON.stringify({...envelope,data:{...intake,email:'bad'}})});assert.equal(invalid.status,422);
+ const cross=await localFetch(origin+'/api/submissions/blueprint',{method:'POST',headers:{origin:'https://untrusted.example','content-type':'application/json'},body:JSON.stringify(envelope)});assert.equal(cross.status,403);
+ const unknown=await localFetch(origin+'/api/submissions/unknown',{method:'POST',headers:{origin,'content-type':'application/json'},body:'{}'});assert.equal(unknown.status,404);
  console.log('PASS: six actual local HTTP checks for all three disabled submission types, validation, origin rejection and unknown kind.');
 }
 console.log('PASS: Blueprint fit/non-fit, only approved price, physical exclusions, uncertainty, downloads, intake validation, disabled endpoints, security gates, mock-only persistence/error states and human-review delivery gate.');
@@ -72,4 +75,7 @@ const result = await build({
 await import(
   "data:text/javascript;base64," +
     Buffer.from(result.outputFiles[0].text).toString("base64")
-);
+).catch((error) => {
+  console.error(error.message);
+  process.exitCode = 1;
+});

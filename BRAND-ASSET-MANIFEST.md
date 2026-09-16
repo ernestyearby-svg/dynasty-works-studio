@@ -47,3 +47,7 @@ The 16/32/48px PNGs and favicon omit only the two hairline dividers and use an 1
 ## Templates and sharing
 
 Blueprint cover includes bracketed client/company and date fields; no fictitious client values are populated. Presentation template is 1600×900; OpenGraph template is 1200×630. The latter prepares the layout only and is not installed as a live crawler image. Social avatar is ready; announcement, case-study, project-reveal, quote, educational, process, Blueprint and Builder post architecture is documented in the brand guidelines. No posts are fabricated.
+
+## V1.8A presentation assets
+
+The 22 production identity assets above are unchanged. New supporting environments and licensed fonts live outside /assets/brand/. See the complete V1.8A register in V1.8A-VISUAL-MASTER-IMPLEMENTATION.md. Environments are conceptual DWS imagery; they must never be used as client proof.

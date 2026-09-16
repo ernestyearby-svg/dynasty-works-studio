@@ -51,7 +51,7 @@ Colors are centralized in app/brand-system.css; legacy application colors resolv
 
 ## Typography and hierarchy
 
-Modern grotesk: installed Arial/Helvetica/system sans for navigation, labels, Builder, practice names, service taxonomy and UI. Editorial serif: installed Georgia/Times for selected storytelling, case statements and Blueprint moments. Technical labels now use the grotesk rather than a third monospaced family. No font binaries, remote font calls or new licenses are introduced. Premium alternatives remain a separate future license/visual-selection decision, not an approved purchase.
+V1.8A production web typography: self-hosted Manrope grotesk for navigation, labels, Builder, practice names, service taxonomy and UI; Bodoni Moda regular/italic for editorial storytelling, case statements and Blueprint moments. Three Latin WOFF2 files in public/assets/fonts/ use SIL Open Font Licenses stored alongside them. No remote runtime font calls. Arial and Georgia remain fallback fonts only. Existing outlined production logo lettering remains unchanged.
 
 Tokens cover Display XL, Display, H1–H4, Body Large, Body, Small, Caption, Eyebrow, Technical Label, Navigation and Button. Body is 16px; small/navigation/button 14px; secondary labels 12px. Display sizes scale fluidly; tracking is controlled and tighter only on display text. Avoid decorative serif in controls. Maintain adequate line height and test long content at narrow widths.
 
@@ -97,7 +97,7 @@ Use the same centered avatar across Instagram, LinkedIn, YouTube, TikTok, X and 
 
 ## Accessibility and performance
 
-Decorative inline marks use aria-hidden and focusable=false; home links have a useful accessible name. Asset SVGs have title/role labels. Visible status and labels remain readable, with explicit focus and reduced-motion behavior. Do not communicate meaning only by color. SVGs use native geometry, no external scripts/raster dependencies. Logo lettering is outlined; editable templates use system font text. Tiny PNGs exist only for requested favicon/application derivatives. No motion library, new video or large decorative asset.
+Decorative inline marks use aria-hidden and focusable=false; home links have a useful accessible name. Asset SVGs have title/role labels. Visible status and labels remain readable, with explicit focus and reduced-motion behavior. Do not communicate meaning only by color. SVGs use native geometry, no external scripts/raster dependencies. Logo lettering is outlined; editable templates use system font text. Tiny PNGs exist only for requested favicon/application derivatives. No motion library or new video. V1.8A adds optimized, responsive conceptual environments; source renders remain internal.
 
 ## Misuse
 

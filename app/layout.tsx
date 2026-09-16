@@ -7,6 +7,7 @@ import "./globals.css";
 import "./brand-system.css";
 import "./automation.css";
 import "./experience.css";
+import "./visual-master.css";
 import { site } from "@/data/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.origin),
@@ -66,11 +67,17 @@ export default function RootLayout({
               <Wordmark />
             </Link>
             <p>
-              Independent thinking.
-              <br />
-              One coordinated creative system.
+              IDEAS TODAY.
+              <br />A MORE AMBITIOUS TOMORROW.
             </p>
-            <Link href="/contact">Start a conversation ↗</Link>
+            <nav aria-label="Footer navigation">
+              <Link href="/work">Work</Link>
+              <Link href="/capabilities">Capabilities</Link>
+              <Link href="/start-a-business">Start a Business</Link>
+              <Link href="/studio">Studio</Link>
+              <Link href="/studio#about">About</Link>
+              <Link href="/contact">Contact</Link>
+            </nav>
           </div>
           <div className="footer-bottom">
             <span>© {new Date().getFullYear()} Dynasty Works Studio</span>

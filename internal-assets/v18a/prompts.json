@@ -1,0 +1,24 @@
+[
+  {
+    "key": "hero",
+    "prompt": "Use case: stylized-concept. Create ONE clean standalone wide cinematic architectural hero asset, intended 1920x1000 landscape. Reference image 1 is the APPROVED physical sculpture geometry and must be preserved exactly: three adjacent rectangular bays rising left-to-right, a single continuous thick stair-step outline with thin vertical dividers, common horizontal base. Exact frontal outline coordinates: M20 125V95H90V60H160V25H230V125Z with thick outline width10; thin internal dividers M90 95V125M160 60V125 width2. Interpret the outline as massive warm champagne metal manufactured frame beams with open voids and slender vertical partitions, not filled solid slabs. Reference image 2 is ENVIRONMENT AND LIGHTING inspiration only: black stone tall monumental interior, glossy reflective dark floor, vertical opening admitting warm sunset light. Do not copy its diagonal-bars logo. Place the APPROVED stair-step sculpture centered-right, largely frontal with restrained visible extrusion depth, monumental scale and precision crisp fabrication. Left 45 percent stays deep black negative space for future live HTML headline. Refined tactile stone and warm champagne metals, dramatic architectural photography, soft floor reflection, controlled light slot. This is a Dynasty Works Studio conceptual environment, never client work. Output ONLY the standalone scene. NO typography, text, UI, statistics, page layout, borders, watermarks, people, diagonal bars, or any other logos.",
+    "refs": [
+      "C:/Users/ernes/.codex/visualizations/2026/09/15/01a0a5f6-4758-70e3-b555-a568a899ed77/approved-mark-reference.png",
+      "C:/Users/ernes/Downloads/Dynasty Works Studio_ Building What’s Next.png"
+    ]
+  },
+  {
+    "key": "approach",
+    "prompt": "Use case: stylized-concept. Generate ONE standalone wide cinematic architectural exhibit image, landscape around 1920x1000. Reference provided is composition/material inspiration only, specifically its middle warm-ivory APPROACH section containing separated upright material layers. Make a beautiful exploded assembly of five thin upright parallel rectangular planes standing on a warm ivory stone surface: pale veined limestone, pure matte black anodized metal, smoky glass, crystal-clear glass, and a photographic alpine landscape plane. Architectural exhibit / luxury material study, dimensional spacing, subtle accurate shadows, oblique view, precision sharp edges, understated warm diffuse studio lighting. Planes centered with generous breathing room. Ivory backdrop and surface merge seamlessly. The layers must be clean abstract materials and generic unbranded mountain imagery only: no symbols on stone, no logo, no brand/project/client imagery. This is original Dynasty Works Studio conceptual environment imagery, never client work. Output ONLY the standalone scene, no webpage, no typography, no UI, no labels, no lettering, no watermark, no people.",
+    "refs": [
+      "C:/Users/ernes/Downloads/Dynasty Works Studio_ Building What’s Next.png"
+    ]
+  },
+  {
+    "key": "landscape",
+    "prompt": "Use case: stylized-concept. Generate ONE clean standalone wide cinematic mountain/cloud landscape image, landscape around 1920x1000. Provided reference is environment and mood inspiration only, specifically its closing mountain sunset section. Panoramic alpine mountains above a dramatic low cloud sea viewed from an exquisitely precise black stone terrace. Dark monolithic architectural wall and terrace on the right, polished charcoal stone floor catching warm sunlight; mountains and clouds span left and center, distant warm sunset near right-center. Editorial architectural photography, atmospheric depth, natural mineral texture, quiet monumental scale, restrained warm champagne sunlight, deep black foreground, photorealistic material detail. Open central sky and dark mountain area left allows optional HTML copy later. This is original Dynasty Works Studio conceptual environment imagery, never client work. Output ONLY the landscape scene. NO people (remove the person visible in reference), text, letters, UI, statistics, logos, watermark, page elements or borders.",
+    "refs": [
+      "C:/Users/ernes/Downloads/Dynasty Works Studio_ Building What’s Next.png"
+    ]
+  }
+]

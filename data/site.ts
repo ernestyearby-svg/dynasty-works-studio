@@ -18,11 +18,11 @@ export const site = {
 };
 export const navigation = [
   { label: "Work", href: "/work" },
-  { label: "Start a Business", href: "/start-a-business" },
   { label: "Capabilities", href: "/capabilities" },
-  { label: "Templates", href: "/templates" },
+  { label: "Start a Business", href: "/start-a-business" },
   { label: "Studio", href: "/studio" },
-  { label: "Start a Project ↗", href: "/contact" },
+  { label: "About", href: "/studio#about" },
+  { label: "BUILD YOUR COMPANY →", href: "/start-a-business/builder" },
 ];
 export const processSteps = [
   ["Discover", "Understand the opportunity."],

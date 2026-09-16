@@ -35,7 +35,10 @@ export function Navbar() {
     };
   }, [open]);
   return (
-    <header ref={header} className="nav shell">
+    <header
+      ref={header}
+      className={"nav shell" + (pathname === "/" ? " master-nav" : "")}
+    >
       <Link
         href="/"
         className="wordmark"
