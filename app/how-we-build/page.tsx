@@ -4,6 +4,7 @@ import {
   CreationNetwork,
 } from "@/components/company-creation";
 import { CompanySystem } from "@/components/company-system";
+import { Foundry } from "@/components/foundry";
 export const metadata = {
   title: "How We Build — Define, Build, Launch, Scale",
   description:
@@ -18,6 +19,7 @@ export default function HowWeBuild() {
         title="From first move to market."
         description="Define the direction. Build the company. Prepare the launch. Strengthen what comes next. Start at the stage your business needs."
       />
+      <Foundry />
       <section className="shell v2-stage-section">
         <StageArchitecture expanded />
       </section>

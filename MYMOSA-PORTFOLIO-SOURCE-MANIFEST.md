@@ -403,3 +403,7 @@ Digital, campaign, historical packaging, retail/event evidence and relaunch chap
 - Notes: 640px wide lossless WebP; no redraw, uniform proportional resampling.
 
 This smaller derivative replaces the full-size composition as the homepage/work-gallery source; the case study retains the full-size composition.
+
+
+## V3 responsive exhibition derivatives
+Eight additional WebP files in public/assets/portfolio/mymosa/web/responsive/ are proportion-preserving 200px-wide delivery variants of the existing lossless product masters. The unchanged original files remain available as the high-resolution srcset candidates. No packaging, logo, flavor art or text was recreated. Exact source/derivative checksums and usage records are appended to internal-assets/mymosa/published-assets.json.

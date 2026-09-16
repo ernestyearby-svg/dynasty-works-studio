@@ -374,6 +374,7 @@ export function CompanyBuilder() {
           ← Start a Business
         </Link>
         <BrandProgression />
+        <p className="eyebrow">FOUNDER DIAGNOSTIC / COMPANY BUILDER</p>
         <h1>
           Bring us
           <br />

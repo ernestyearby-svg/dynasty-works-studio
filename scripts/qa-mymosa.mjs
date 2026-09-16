@@ -96,7 +96,19 @@ if (origin) {
     assert.equal((await fetch(origin + src)).status, 200, src);
   }
   const home = await (await fetch(origin + "/")).text();
-  assert.match(home, /flagship-eight-thumbnail.webp/);
+  for (const flavor of [
+    "classic-orange",
+    "pineapple",
+    "tropical-blend",
+    "strawberry",
+    "blood-orange",
+    "watermelon",
+    "mango",
+    "peach",
+  ])
+    assert.ok(
+      home.includes("/assets/portfolio/mymosa/web/" + flavor + ".webp"),
+    );
   assert.match(home, /href="\/work\/mymosa"/);
 }
 console.log(

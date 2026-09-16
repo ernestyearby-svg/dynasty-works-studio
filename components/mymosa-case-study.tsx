@@ -1,3 +1,4 @@
+import { ProductLineup } from "@/components/editorial-work";
 import Link from "@/components/site-link";
 import { OptimizedImage as Image } from "@/components/optimized-image";
 import assets from "@/data/mymosa-assets.json";
@@ -34,24 +35,11 @@ export function MymosaCaseStudy() {
             </p>
           </div>
         </div>
-        <figure
-          className="mm-stage"
-          tabIndex={0}
-          aria-label="Eight-can exhibition; scroll horizontally on small screens"
-        >
-          <Image
-            src={base + "web/flagship-eight-exhibition.webp"}
-            width={1400}
-            height={850}
-            alt="The eight approved MyMosa can artworks, displayed at equal height in a new architectural exhibition"
-            loading="eager"
-            fetchPriority="high"
-          />
-          <figcaption>
-            THE FLAGSHIP EIGHT{" "}
-            <span>New exhibition composition · Original product artwork</span>
-          </figcaption>
-        </figure>
+        <ProductLineup priority />
+        <p className="v3-case-caption shell">
+          THE FLAGSHIP EIGHT · New exhibition composition · Original product
+          artwork
+        </p>
       </section>
       <nav className="mm-chapters shell" aria-label="Case study chapters">
         <a href="#mm-idea">01 / THE IDEA</a>
@@ -284,8 +272,8 @@ export function MymosaCaseStudy() {
             <span className="eyebrow">03 / ENVIRONMENT</span>
             <h3>A new setting</h3>
             <p>
-              The architectural stage is a new exhibition composition, separate
-              from the original product artwork.
+              An open color field brings the products forward. Every can and
+              official identity remains unchanged.
             </p>
           </div>
         </div>

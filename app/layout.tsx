@@ -7,9 +7,10 @@ import "./globals.css";
 import "./brand-system.css";
 import "./automation.css";
 import "./experience.css";
-import "./visual-master.css";
+import "./production-foundations.css";
 import "./mymosa.css";
 import "./company-creation.css";
+import "./editorial-v3.css";
 import { site } from "@/data/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.origin),
@@ -57,7 +58,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="dws-v3">
         <a href="#main" className="skip-link">
           Skip to content
         </a>

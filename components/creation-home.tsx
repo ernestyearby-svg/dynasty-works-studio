@@ -1,223 +1,180 @@
 import Link from "@/components/site-link";
-import { MasterEnvironment } from "@/components/master-home";
-import { CompanySystem } from "@/components/company-system";
-import {
-  StageArchitecture,
-  FlagshipWork,
-  DigitalSystemsFeature,
-} from "@/components/company-creation";
-import { BlueprintProduct } from "@/components/experience-interactive";
-import { BrandSymbol } from "@/components/brand-symbol";
 import { OptimizedImage as Image } from "@/components/optimized-image";
-import { founderBlueprint } from "@/data/founder-blueprint";
+import { MymosaReveal, CliffsReveal } from "@/components/editorial-work";
+import { Foundry } from "@/components/foundry";
+import { StageArchitecture } from "@/components/company-creation";
+import { BrandSymbol } from "@/components/brand-symbol";
 export function CreationHomepage() {
   return (
-    <div className="v2-home">
-      <section className="v2-hero">
-        <MasterEnvironment name="DWS-ARCH-01" hero />
-        <div className="shell">
-          <p className="eyebrow">COMPANY CREATION STUDIO</p>
-          <h1>
-            FROM IDEA
-            <br />
-            <em>TO COMPANY.</em>
-          </h1>
-          <p className="v2-hero-support">
-            Strategy. Identity. Product. Technology. Market.
-          </p>
-          <div className="v2-actions">
-            <Link href="/start-a-business/builder" className="button light">
-              BUILD YOUR COMPANY →
-            </Link>
-            <Link href="/work" className="text-link">
-              EXPLORE THE WORK
-            </Link>
-          </div>
-          <p className="v2-hero-foot">ONE STUDIO. FROM FIRST MOVE TO MARKET.</p>
+    <div className="v3-home">
+      <section className="v3-declaration">
+        <div className="v3-register">
+          <p>COMPANY CREATION STUDIO</p>
+          <span>STRATEGY THROUGH EXECUTION</span>
         </div>
-      </section>
-      <section className="v2-selected shell">
-        <div className="v2-section-heading">
-          <div>
-            <p className="eyebrow">01 / SELECTED WORK</p>
-            <h2>
-              Companies take
-              <br />
-              <em>different forms.</em>
-            </h2>
-          </div>
-          <Link href="/work" className="text-link">
-            EXPLORE THE WORK →
-          </Link>
+        <h1>
+          <span>FROM IDEA</span>
+          <em>
+            <span>TO</span> COMPANY.
+          </em>
+        </h1>
+        <div className="v3-workline" aria-hidden="true">
+          <BrandSymbol />
         </div>
-        <FlagshipWork />
-      </section>
-      <section className="v2-system shell" id="the-system">
-        <div className="v2-section-heading">
-          <div>
-            <p className="eyebrow">02 / THE SYSTEM</p>
-            <h2>
-              A COMPANY
-              <br />
-              <em>IS A SYSTEM.</em>
-            </h2>
-          </div>
+        <div className="v3-declaration-foot">
           <p>
-            Identity, product, technology, market and operations depend on each
-            other. Dynasty Works connects the pieces.
+            Strategy. Identity. Product.
+            <br />
+            Technology. Market.
           </p>
+          <Link href="/start-a-business/builder" className="text-link">
+            BUILD YOUR COMPANY ↗
+          </Link>
+          <a href="#selected-work" className="text-link">
+            EXPLORE THE WORK ↓
+          </a>
         </div>
-        <CompanySystem />
       </section>
-      <section className="v2-stage-section shell">
-        <p className="eyebrow">03 / HOW WE BUILD</p>
-        <h2>
-          Four stages.
-          <br />
-          <em>One connected company.</em>
-        </h2>
+      <MymosaReveal />
+      <section className="v3-disciplines">
+        <div>
+          <p className="eyebrow">WHAT WE BUILD</p>
+          <h2>
+            One idea.
+            <br />
+            <em>Many dimensions.</em>
+          </h2>
+        </div>
+        <div className="v3-discipline-list">
+          {[
+            ["Strategy", "/capabilities/start"],
+            ["Identity", "/capabilities/brand"],
+            ["Product", "/capabilities/build"],
+            ["Technology", "/automation"],
+            ["Market", "/capabilities/launch"],
+          ].map(([label, href], i) => (
+            <Link key={label} href={href}>
+              <span>0{i + 1}</span>
+              <span>{label}</span>
+              <span aria-hidden="true">↗</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+      <section className="v3-family">
+        <div className="v3-register">
+          <p>INSIDE THE SYSTEM</p>
+          <span>MY DRINK FAMILY / BRAND ARCHITECTURE</span>
+        </div>
+        <div className="v3-family-grid">
+          <Image
+            src="/assets/portfolio/mymosa/identity/my-drink-family-seal-primary-light.svg"
+            width={800}
+            height={800}
+            alt="Official My Drink Family master seal"
+            loading="lazy"
+          />
+          <div>
+            <p className="eyebrow">ONE MASTER. SEVENTEEN HOUSE IDENTITIES.</p>
+            <h2>
+              More than
+              <br />
+              <em>a single mark.</em>
+            </h2>
+            <p>
+              The individual product and the wider family speak the same
+              language. Explore the original identity system.
+            </p>
+            <Link href="/work/mymosa#mm-family" className="text-link">
+              EXPLORE THE FAMILY →
+            </Link>
+          </div>
+        </div>
+      </section>
+      <Foundry />
+      <CliffsReveal />
+      <section className="v3-process">
+        <div className="v3-register">
+          <p>HOW WE BUILD</p>
+          <span>FOUR STAGES. ONE CONNECTED COMPANY.</span>
+        </div>
         <StageArchitecture />
         <Link href="/how-we-build" className="text-link">
-          SEE HOW WE BUILD →
+          OUR APPROACH →
         </Link>
       </section>
-      <section className="v2-flagship">
-        <Image
-          src="/assets/portfolio/mymosa/identity/my-drink-family-horizontal-primary-light.svg"
-          width={1400}
-          height={320}
-          alt="Official My Drink Family horizontal identity"
-          loading="lazy"
-        />
-        <div className="shell">
-          <p className="eyebrow">
-            04 / FLAGSHIP 01 · CATEGORY + BRAND ECOSYSTEM
-          </p>
-          <h2>
-            One origin.
-            <br />
-            <em>A family of possibilities.</em>
-          </h2>
-          <p>MyMosa / My Drink Family</p>
-          <p>
-            Eight flagship flavors. Seventeen house identities. Explore the
-            identity, packaging and brand architecture.
-          </p>
-          <Link href="/work/mymosa" className="text-link">
-            ENTER THE MYMOSA WORLD →
-          </Link>
+      <section className="v3-builder-entry">
+        <div className="v3-register">
+          <p>COMPANY BUILDER</p>
+          <span>FOUNDER DIAGNOSTIC + ROADMAP ENGINE</span>
         </div>
-      </section>
-      <section className="v2-builder shell">
-        <div>
-          <p className="eyebrow">05 / COMPANY BUILDER</p>
-          <h2>
-            BRING US
-            <br />
-            <em>THE IDEA.</em>
-          </h2>
-          <p>
-            Answer a focused set of questions. We’ll map what it takes to move
-            the idea toward a company.
-          </p>
-          <p className="small-note">
-            Founder diagnostic + company roadmap. A considered starting point,
-            not a quote.
-          </p>
-          <Link href="/start-a-business/builder" className="button dark">
-            START YOUR COMPANY ROADMAP →
-          </Link>
-        </div>
-        <div
-          className="v2-roadmap-preview"
-          aria-label="Company roadmap format preview"
-        >
-          <BrandSymbol />
-          <p className="eyebrow">DYNASTY WORKS / COMPANY BUILDER</p>
-          <h3>
-            Your company.
-            <br />
-            <em>A clearer next move.</em>
-          </h3>
-          <ol>
-            {["DEFINE", "BUILD", "LAUNCH", "SCALE"].map((s, i) => (
-              <li key={s}>
-                <span>0{i + 1}</span>
-                {s}
-              </li>
-            ))}
-          </ol>
-          <p className="small-note">YOUR NEXT STEPS, ORGANIZED.</p>
-        </div>
-      </section>
-      <section className="v2-capability shell">
-        <p className="eyebrow">06 / CAPABILITIES</p>
         <h2>
-          Simple on the surface.
+          BRING US
           <br />
-          <em>Deep in execution.</em>
+          <em>THE IDEA.</em>
         </h2>
-        <p>
-          Start with the stage your company needs. Open the disciplines, explore
-          the scope and connect the right capabilities.
-        </p>
-        <Link href="/capabilities" className="text-link">
-          EXPLORE THE CAPABILITIES →
-        </Link>
-      </section>
-      <DigitalSystemsFeature />
-      <section className="v2-lab-teaser shell">
-        <p className="eyebrow">07 / CONCEPT LAB</p>
-        <h2>
-          Room for
-          <br />
-          <em>what could be.</em>
-        </h2>
-        <p>
-          Identity, packaging, products and future concepts. An experimental
-          space, clearly separated from commissioned work.
-        </p>
-        <Link href="/concept-lab" className="text-link">
-          ENTER CONCEPT LAB →
-        </Link>
-      </section>
-      <section className="master-blueprint shell">
-        <div>
-          <p className="eyebrow">08 / FOUNDER BLUEPRINT</p>
-          <h2>
-            THE COMPANY.
+        <div className="v3-builder-bottom">
+          <p>
+            Answer a focused set of questions.
             <br />
-            <em>ON PAPER.</em>
+            We’ll map what it takes to move forward.
+          </p>
+          <Link href="/start-a-business/builder" className="v3-entry-link">
+            START YOUR ROADMAP <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+        <p className="v3-small">
+          Need a deeper strategic engagement?{" "}
+          <Link href="/founder-blueprint">Founder Blueprint — $1,500 →</Link>
+        </p>
+      </section>
+      <section className="v3-studio-pair">
+        <article>
+          <p className="eyebrow">CONCEPT LAB / EXPERIMENTAL PRACTICE</p>
+          <h2>
+            What if
+            <br />
+            <em>comes first.</em>
           </h2>
           <p>
-            A paid strategic engagement for founders who need a structured
-            company-development roadmap before full execution.
+            A space for identity, product and packaging explorations. Clearly
+            distinguished from commercial work.
           </p>
-          <strong>{founderBlueprint.priceLabel}</strong>
-          <p className="small-note">
-            Strategy and roadmap. Execution scoped separately.
-          </p>
-          <Link href="/founder-blueprint" className="text-link">
-            EXPLORE THE BLUEPRINT →
+          <Link href="/concept-lab" className="text-link">
+            THE CONCEPT LAB →
           </Link>
-        </div>
-        <BlueprintProduct />
+        </article>
+        <article>
+          <p className="eyebrow">DYNASTY WORKS / THE STUDIO</p>
+          <h2>
+            Independent thinking.
+            <br />
+            <em>Connected execution.</em>
+          </h2>
+          <p>
+            We connect strategy, identity, product, technology and market. One
+            studio, from the first question to the next move.
+          </p>
+          <Link href="/studio" className="text-link">
+            MEET THE STUDIO →
+          </Link>
+          <Link href="/automation" className="text-link">
+            AI + AUTOMATION SYSTEMS →
+          </Link>
+        </article>
       </section>
-      <section className="master-closing">
-        <MasterEnvironment name="DWS-FINAL-01" />
-        <div className="shell master-closing-inner">
-          <div>
-            <p className="eyebrow">FROM FIRST MOVE TO MARKET.</p>
-            <h2>
-              BUILD WHAT
-              <br />
-              <em>COMES NEXT.</em>
-            </h2>
-          </div>
-          <Link href="/start-a-business/builder" className="button light">
-            BUILD YOUR COMPANY →
-          </Link>
-        </div>
+      <section className="v3-threshold">
+        <p className="eyebrow">WE BUILD WHAT’S NEXT.</p>
+        <Link href="/start-a-business/builder">
+          <h2>
+            WHAT ARE
+            <br />
+            <em>WE BUILDING?</em>
+          </h2>
+          <span>
+            START A COMPANY <span aria-hidden="true">↗</span>
+          </span>
+        </Link>
       </section>
     </div>
   );

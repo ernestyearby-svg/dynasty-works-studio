@@ -1,5 +1,5 @@
 import { PageIntro, FinalCTA } from "@/components/studio";
-import { FlagshipWork } from "@/components/company-creation";
+import { MymosaReveal, CliffsReveal } from "@/components/editorial-work";
 import { WorkExplorer } from "@/components/work-explorer";
 import { content } from "@/lib/content";
 import Link from "@/components/site-link";
@@ -11,14 +11,15 @@ export const metadata = {
 };
 export default async function Work() {
   return (
-    <div className="v2-page">
+    <div className="v3-home v3-work-index">
       <PageIntro
         eyebrow="SELECTED WORK / COMPANY CREATION"
-        title="Different companies. Connected thinking."
+        title="Work, in its many forms."
         description="Identity, packaging and digital experiences. Explore the work through the systems behind it."
       />
+      <MymosaReveal />
+      <CliffsReveal />
       <section className="shell v2-work-page">
-        <FlagshipWork full />
         <details className="v2-deep-catalog">
           <summary>Browse published work by discipline</summary>
           <WorkExplorer projects={await content.listProjects()} />

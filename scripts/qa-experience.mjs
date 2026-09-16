@@ -5,8 +5,13 @@ import { gzipSync } from "node:zlib";
 const origin = process.argv[2] || "http://127.0.0.1:8788";
 const html = await (await fetch(origin + "/")).text();
 assert.match(html, /FROM IDEA/);
-assert.match(html, /v2-hero/);
-assert.match(html, /ex-blueprint-product/);
+assert.match(html, /v3-declaration/);
+assert.match(html, /THE FOUNDRY/);
+assert.match(html, /FOUNDER DIAGNOSTIC/);
+assert.ok(
+  !html.includes("/assets/experience/"),
+  "V3 homepage must stand without CGI environments",
+);
 assert.match(html, /AI \+ AUTOMATION SYSTEMS/);
 assert.ok(!html.includes("<video"), "No unapproved hero film");
 assert.ok(!html.includes("concept-beverage"), "No unapproved client imagery");
@@ -17,9 +22,11 @@ assert.ok(
   imageSources.every(
     (s) =>
       s.startsWith("/assets/brand/") ||
-      s === "/assets/portfolio/mymosa/web/flagship-eight-thumbnail.webp" ||
+      /^\/assets\/portfolio\/mymosa\/web\/(classic-orange|pineapple|tropical-blend|strawberry|blood-orange|watermelon|mango|peach)\.webp$/.test(
+        s,
+      ) ||
       s ===
-        "/assets/portfolio/mymosa/identity/my-drink-family-horizontal-primary-light.svg" ||
+        "/assets/portfolio/mymosa/identity/my-drink-family-seal-primary-light.svg" ||
       s === "/assets/portfolio/mr-cliffs/window-hero.webp" ||
       /^\/assets\/experience\/DWS-(ARCH-01|ARCH-02|FINAL-01)\.webp$/.test(s),
   ),

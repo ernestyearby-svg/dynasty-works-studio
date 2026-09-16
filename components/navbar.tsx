@@ -37,6 +37,12 @@ export function Navbar() {
   return (
     <header
       ref={header}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") {
+            setOpen(false);
+            toggle.current?.focus();
+          }
+        }}
       className={"nav shell" + (pathname === "/" ? " master-nav" : "")}
     >
       <Link
@@ -60,12 +66,7 @@ export function Navbar() {
         id="site-navigation"
         aria-label="Main navigation"
         className={`nav-links ${open ? "open" : ""}`}
-        onKeyDown={(e) => {
-          if (e.key === "Escape") {
-            setOpen(false);
-            toggle.current?.focus();
-          }
-        }}
+
       >
         {navigation.map((n, i) => (
           <Link
