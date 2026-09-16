@@ -3,37 +3,17 @@ import { OptimizedImage as Image } from "@/components/optimized-image";
 import { MymosaReveal, CliffsReveal } from "@/components/editorial-work";
 import { Foundry } from "@/components/foundry";
 import { StageArchitecture } from "@/components/company-creation";
-import { BrandSymbol } from "@/components/brand-symbol";
 export function CreationHomepage() {
   return (
     <div className="v3-home">
       <section className="v3-declaration">
-        <div className="v3-register">
-          <p>COMPANY CREATION STUDIO</p>
-          <span>STRATEGY THROUGH EXECUTION</span>
-        </div>
         <h1>
           <span>FROM IDEA</span>
           <em>
             <span>TO</span> COMPANY.
           </em>
         </h1>
-        <div className="v3-workline" aria-hidden="true">
-          <BrandSymbol />
-        </div>
-        <div className="v3-declaration-foot">
-          <p>
-            Strategy. Identity. Product.
-            <br />
-            Technology. Market.
-          </p>
-          <Link href="/start-a-business/builder" className="text-link">
-            BUILD YOUR COMPANY ↗
-          </Link>
-          <a href="#selected-work" className="text-link">
-            EXPLORE THE WORK ↓
-          </a>
-        </div>
+        <p className="art-identifier">COMPANY CREATION STUDIO</p>
       </section>
       <MymosaReveal />
       <section className="v3-disciplines">
@@ -52,11 +32,9 @@ export function CreationHomepage() {
             ["Product", "/capabilities/build"],
             ["Technology", "/automation"],
             ["Market", "/capabilities/launch"],
-          ].map(([label, href], i) => (
+          ].map(([label, href]) => (
             <Link key={label} href={href}>
-              <span>0{i + 1}</span>
               <span>{label}</span>
-              <span aria-hidden="true">↗</span>
             </Link>
           ))}
         </div>
@@ -103,7 +81,7 @@ export function CreationHomepage() {
           OUR APPROACH →
         </Link>
       </section>
-      <section className="v3-builder-entry">
+      <section className="v3-builder-entry" id="company-builder">
         <div className="v3-register">
           <p>COMPANY BUILDER</p>
           <span>FOUNDER DIAGNOSTIC + ROADMAP ENGINE</span>
@@ -163,7 +141,7 @@ export function CreationHomepage() {
           </Link>
         </article>
       </section>
-      <section className="v3-threshold">
+      <section className="v3-threshold" id="start-a-company">
         <p className="eyebrow">WE BUILD WHAT’S NEXT.</p>
         <Link href="/start-a-business/builder">
           <h2>

@@ -11,7 +11,7 @@ import "./production-foundations.css";
 import "./mymosa.css";
 import "./company-creation.css";
 import "./editorial-v3.css";
-import "./institution-skin.css";
+import "./art-direction.css";
 import { site } from "@/data/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.origin),

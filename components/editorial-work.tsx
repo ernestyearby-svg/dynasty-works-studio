@@ -2,10 +2,10 @@ import Link from "@/components/site-link";
 import { OptimizedImage as Image } from "@/components/optimized-image";
 import assets from "@/data/mymosa-assets.json";
 
-export function ProductLineup({ priority = false }: { priority?: boolean }) {
+export function ProductLineup({ priority = false, exhibition = false }: { priority?: boolean; exhibition?: boolean }) {
   return (
     <div
-      className="v3-products"
+      className={"v3-products" + (exhibition ? " art-exhibition" : "")}
       tabIndex={0}
       role="region"
       aria-label="Eight authentic MyMosa products; scroll horizontally to explore every flavor"
@@ -15,7 +15,7 @@ export function ProductLineup({ priority = false }: { priority?: boolean }) {
           <Image
             src={f.src}
             srcSet={"/assets/portfolio/mymosa/web/responsive/"+f.slug+".webp 200w, "+f.src+" "+f.width+"w"}
-            sizes="(max-width: 700px) 110px, (max-width: 1000px) 98px, (max-width: 1600px) 9vw, 150px"
+            sizes={exhibition ? "(max-width: 700px) 60vw, 22vw" : "(max-width: 700px) 110px, (max-width: 1000px) 98px, (max-width: 1600px) 9vw, 150px"}
             width={f.width}
             height={f.height}
             alt={
@@ -36,28 +36,16 @@ export function ProductLineup({ priority = false }: { priority?: boolean }) {
 export function MymosaReveal() {
   return (
     <article className="v3-mymosa" id="selected-work">
-      <div className="v3-register">
-        <p>01 / SELECTED WORK</p>
-        <span>MYMOSA / MY DRINK FAMILY</span>
-        <span>BRAND · PACKAGING · IDENTITY</span>
-      </div>
       <div className="v3-project-heading">
-        <h2>
-          A category.
-          <br />
-          <em>A whole family.</em>
-        </h2>
-        <Link
-          href="/work/mymosa"
-          className="v3-round-link"
-          aria-label="Explore the MyMosa case study"
-        >
-          ↗
-        </Link>
+        <div>
+          <p className="art-identifier">Selected work</p>
+          <h2>MyMosa / My Drink Family</h2>
+        </div>
+        <p>A category. A whole family.</p>
       </div>
-      <ProductLineup />
+      <ProductLineup exhibition />
       <div className="v3-project-caption">
-        <p>MyMosa / My Drink Family</p>
+        <p>BRAND · PACKAGING · IDENTITY</p>
         <p>
           Premium Wine Cocktails.
           <br />
@@ -72,9 +60,8 @@ export function MymosaReveal() {
 }
 export function CliffsReveal() {
   return (
-    <article className="v3-cliffs">
+    <article className="v3-cliffs" id="mr-cliffs">
       <div className="v3-cliffs-copy">
-        <p className="eyebrow">02 / SELECTED WORK</p>
         <h2>
           Good bourbon.
           <br />
@@ -93,7 +80,7 @@ export function CliffsReveal() {
         <Image
           src="/assets/portfolio/mr-cliffs/window-hero.webp"
           srcSet="/assets/portfolio/mr-cliffs/window-thumbnail.webp 800w, /assets/portfolio/mr-cliffs/window-hero.webp 1600w"
-          sizes="(max-width: 700px) 100vw, 65vw"
+          sizes="100vw"
           width={1600}
           height={900}
           alt="Mr. Cliff’s existing brand artwork: bourbon bottle and glass in window light"

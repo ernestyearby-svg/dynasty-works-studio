@@ -43,8 +43,6 @@ export function Foundry() {
     <section className="v3-foundry" aria-labelledby="foundry-title">
       <div className="v3-register">
         <p>THE FOUNDRY</p>
-        <span>AN IDEA, CONSTRUCTED.</span>
-        <span>EXPLORE THE SEQUENCE</span>
       </div>
       <div className="v3-foundry-layout">
         <div>
@@ -66,7 +64,6 @@ export function Foundry() {
                 onClick={() => setActive(i)}
                 aria-controls="foundry-detail"
               >
-                <span>0{i + 1}</span>
                 {label}
               </button>
             ))}
@@ -78,9 +75,6 @@ export function Foundry() {
           aria-live="polite"
           aria-atomic="true"
         >
-          <span className="v3-foundry-number" aria-hidden="true">
-            0{active + 1}
-          </span>
           <p className="eyebrow">{steps[active][0]}</p>
           <h3>{steps[active][1]}</h3>
           <p>{steps[active][2]}</p>
