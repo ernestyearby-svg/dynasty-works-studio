@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.netlify/
+.openai/
+.env
+.env.*
+!.env.example
+*.tsbuildinfo

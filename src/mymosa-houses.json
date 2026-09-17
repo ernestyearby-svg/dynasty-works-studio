@@ -1,0 +1,87 @@
+[
+  {
+    "id": "mymosa",
+    "display": "MyMosa",
+    "descriptor": "MIMOSA"
+  },
+  {
+    "id": "mytini",
+    "display": "MyTini",
+    "descriptor": "MARTINI"
+  },
+  {
+    "id": "mygarita",
+    "display": "MyGarita",
+    "descriptor": "MARGARITA"
+  },
+  {
+    "id": "myjito",
+    "display": "MyJito",
+    "descriptor": "MOJITO"
+  },
+  {
+    "id": "mytai",
+    "display": "MyTai",
+    "descriptor": "MAI TAI"
+  },
+  {
+    "id": "mymose",
+    "display": "MyMosé",
+    "descriptor": "ROSÉ COCKTAIL"
+  },
+  {
+    "id": "mycolada",
+    "display": "MyColada",
+    "descriptor": "PIÑA COLADA"
+  },
+  {
+    "id": "myscato",
+    "display": "MyScato",
+    "descriptor": "MOSCATO COCKTAIL"
+  },
+  {
+    "id": "mymaria",
+    "display": "MyMaria",
+    "descriptor": "BLOODY MARY"
+  },
+  {
+    "id": "mygria",
+    "display": "MyGria",
+    "descriptor": "SANGRIA"
+  },
+  {
+    "id": "mymule",
+    "display": "MyMule",
+    "descriptor": "MULE"
+  },
+  {
+    "id": "mybellini",
+    "display": "MyBellini",
+    "descriptor": "BELLINI"
+  },
+  {
+    "id": "mynegroni",
+    "display": "MyNegroni",
+    "descriptor": "NEGRONI"
+  },
+  {
+    "id": "myfrench75",
+    "display": "MyFrench 75",
+    "descriptor": "FRENCH 75"
+  },
+  {
+    "id": "mydaiquiri",
+    "display": "MyDaiquiri",
+    "descriptor": "DAIQUIRI"
+  },
+  {
+    "id": "mypolitan",
+    "display": "MyPolitan",
+    "descriptor": "COSMOPOLITAN"
+  },
+  {
+    "id": "myhugo",
+    "display": "MyHugo",
+    "descriptor": "HUGO SPRITZ"
+  }
+]

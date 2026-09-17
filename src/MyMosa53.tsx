@@ -1,0 +1,22 @@
+import {useEffect,useRef,useState,type CSSProperties} from 'react';
+import './mymosa53.css';
+import {BrandArchitecture,PackagingSystem} from './MyMosa531';
+const flavors=[
+ {name:'Classic Orange',file:'classic-orange',color:'#ef8e24',note:'Orange surrounds the shared cream center.'},
+ {name:'Pineapple',file:'pineapple',color:'#e8c441',note:'Yellow establishes a distinct flavor expression.'},
+ {name:'Tropical',file:'tropical-blend',color:'#5bbbb0',note:'Turquoise frames the same central label hierarchy.'},
+ {name:'Strawberry',file:'strawberry',color:'#e75c6b',note:'Red and pink distinguish the strawberry expression.'},
+];
+function Can({index,hero=false,preload=false}:{index:number;hero?:boolean;preload?:boolean}){const f=flavors[index];return <img src={'/assets/mymosa-native/'+f.file+'.webp'} srcSet={'/assets/mymosa-native/'+f.file+'-240.webp 240w, /assets/mymosa-native/'+f.file+'.webp '+(index===0?406:405)+'w'} sizes={hero?'(max-width:800px) 200px, 290px':'(max-width:800px) 190px, 260px'} width={index===0?406:405} height={1172} alt={'MyMosa '+f.name+' 355 mL can.'} loading={hero||preload?'eager':'lazy'} fetchPriority={hero?'high':'auto'} decoding="async"/>}
+export default function MyMosa53(){
+ const [active,setActive]=useState(0),[family,setFamily]=useState(true),[entered,setEntered]=useState(false);
+ const system=useRef<HTMLElement>(null),buttons=useRef<(HTMLButtonElement|null)[]>([]);
+ useEffect(()=>{document.title='MyMosa / My Drink Family — Dynasty Works Studio';const observer=new IntersectionObserver(([e])=>{if(e.isIntersecting){setEntered(true);observer.disconnect()}},{threshold:.12});if(system.current)observer.observe(system.current);return()=>observer.disconnect()},[]);
+ function choose(i:number){setActive(i);setFamily(false)}
+ return <div className="m53"><a className="m53-skip" href="#m53-main">Skip to case study</a><header className="m53-header"><a className="m53-wordmark" href="/v5-2-review/">DYNASTY WORKS<span>STUDIO</span></a><a href="/work">← Selected Work</a><a href="/v5-2-review/#review-builder">Start a company ↗</a></header><main id="m53-main">
+ <section className="m53-arrival" aria-labelledby="m53-title"><div className="m53-arrival-top"><span>01 / SELECTED WORK</span><p>Consumer<br/>Beverage<br/>Brand system</p></div><h1 id="m53-title">MyMosa<span>/ My Drink Family</span></h1><div className="m53-arrival-product"><Can index={0} hero/><span>CLASSIC ORANGE / 355 mL</span></div><div className="m53-premise"><h2>A product idea<br/>became<br/><em>a brand system.</em></h2><p>Identity / Packaging / Product</p></div><a className="m53-enter" href="#flagship">One product. A flavor system.<span aria-hidden="true">↓</span></a></section>
+ <section ref={system} id="flagship" className={'m53-system '+(entered?'has-entered':'')+(family?' is-family':' is-focused')} style={{'--flavor':flavors[active].color} as CSSProperties} aria-labelledby="m53-system-title"><header><span>02 / FLAGSHIP PRODUCT SYSTEM</span><p>Premium Wine Cocktails<br/>355 mL</p></header><h2 id="m53-system-title">One brand.<br/><em>Four expressions.</em></h2><div className="m53-product-stage">{flavors.map((f,i)=><figure key={f.file} className={i===active?'is-active':''} style={{'--order':i} as CSSProperties}><Can index={i} preload={entered}/><figcaption><span>0{i+1}</span>{f.name}</figcaption></figure>)}</div>
+ <div className="m53-product-controls"><div className="m53-flavor-index" role="group" aria-label="Select flavor">{flavors.map((f,i)=><button key={f.file} ref={el=>{buttons.current[i]=el}} aria-pressed={i===active} onClick={()=>choose(i)} onKeyDown={e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?3:(i+(e.key==='ArrowRight'?1:3))%4;choose(next);buttons.current[next]?.focus()}}}><small>0{i+1}</small>{f.name}<span aria-hidden="true" style={{background:f.color}}/></button>)}</div><button className="m53-compare" aria-pressed={family} onClick={()=>setFamily(!family)}>{family?'View selected flavor':'Compare all four'} <span aria-hidden="true">↗</span></button></div>
+ <div className="m53-annotation" aria-live="polite"><div><span>{family?'ONE PRODUCT FAMILY':'0'+(active+1)+' / FLAVOR EXPRESSION'}</span><h3>{family?'A shared architecture.':flavors[active].name}</h3></div><p>{family?'The wordmark, cream center and glass motif repeat across four distinct flavor colors.':flavors[active].note}<br/><span>The product artwork remains unchanged.</span></p></div></section>
+ <BrandArchitecture/><PackagingSystem/></main></div>
+}

@@ -1,0 +1,302 @@
+{
+  "01-ikla-creative-direction": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "02-ikla-identity-system": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "03-ikla-emblem-system": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "04-ikla-typography-system": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "05-ikla-color-system": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "06-ikla-pattern-surface-system": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "07-ikla-material-study": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "08-ikla-apparel-accessories": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "09-ikla-packaging-experience": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "10-ikla-editorial-lifestyle": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "01-mymosa-four-flavor-hero": {
+    "width": 1774,
+    "height": 887,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "02-mymosa-lifestyle-campaign": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "03-mymosa-packaging-development": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "04-mymosa-brand-system": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "01-altius-hospitality-system": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "01-aura-technology-system": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "01-lumiere-fragrance-system": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "01-nova-company-creation-system": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "02-nova-digital-product-system": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "01-solara-culinary-system": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "01-veritas-spirits-system": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      960,
+      1536
+    ]
+  },
+  "ikla-direction-detail": {
+    "width": 376,
+    "height": 455,
+    "widths": [
+      376
+    ]
+  },
+  "ikla-living-detail": {
+    "width": 330,
+    "height": 455,
+    "widths": [
+      330
+    ]
+  },
+  "ikla-pattern-detail": {
+    "width": 307,
+    "height": 182,
+    "widths": [
+      307
+    ]
+  },
+  "ikla-material-detail": {
+    "width": 437,
+    "height": 353,
+    "widths": [
+      437
+    ]
+  },
+  "mymosa-orange-detail": {
+    "width": 259,
+    "height": 607,
+    "widths": [
+      259
+    ]
+  },
+  "mymosa-pineapple-detail": {
+    "width": 251,
+    "height": 607,
+    "widths": [
+      251
+    ]
+  },
+  "mymosa-tropical-detail": {
+    "width": 250,
+    "height": 607,
+    "widths": [
+      250
+    ]
+  },
+  "mymosa-strawberry-detail": {
+    "width": 253,
+    "height": 607,
+    "widths": [
+      253
+    ]
+  },
+  "veritas-detail": {
+    "width": 666,
+    "height": 393,
+    "widths": [
+      480,
+      666
+    ]
+  },
+  "lumiere-detail": {
+    "width": 646,
+    "height": 409,
+    "widths": [
+      480,
+      646
+    ]
+  },
+  "aura-detail": {
+    "width": 396,
+    "height": 259,
+    "widths": [
+      396
+    ]
+  },
+  "altius-detail": {
+    "width": 648,
+    "height": 399,
+    "widths": [
+      480,
+      648
+    ]
+  },
+  "solara-detail": {
+    "width": 657,
+    "height": 373,
+    "widths": [
+      480,
+      657
+    ]
+  },
+  "nova-detail": {
+    "width": 623,
+    "height": 374,
+    "widths": [
+      480,
+      623
+    ]
+  },
+  "nova-product-detail": {
+    "width": 565,
+    "height": 436,
+    "widths": [
+      480,
+      565
+    ]
+  }
+}

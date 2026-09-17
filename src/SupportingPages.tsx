@@ -1,0 +1,26 @@
+import PracticePage from "./PracticePage";
+import Page0 from "../legacy/app/founder-blueprint/page";
+import Page1 from "../legacy/app/founder-blueprint/intake/page";
+import Page2 from "../legacy/app/studio/page";
+import Page3 from "../legacy/app/capabilities/page";
+import Page4 from "../legacy/app/contact/page";
+import Page5 from "../legacy/app/automation/page";
+import Page6 from "../legacy/app/growth-partnership/page";
+import Page7 from "../legacy/app/how-we-build/page";
+import Page8 from "../legacy/app/services/page";
+import Page9 from "../legacy/app/templates/page";
+import Page10 from "../legacy/app/start-a-business/page";
+import Page11 from "../legacy/app/start-a-business/builder/page";
+import {Navbar} from '../legacy/components/navbar';
+import {ExperienceMotion} from '../legacy/components/experience-motion';
+import "../legacy/app/globals.css";
+import "../legacy/app/brand-system.css";
+import "../legacy/app/automation.css";
+import "../legacy/app/experience.css";
+import "../legacy/app/production-foundations.css";
+import "../legacy/app/mymosa.css";
+import "../legacy/app/company-creation.css";
+import "../legacy/app/editorial-v3.css";
+import "../legacy/app/art-direction.css";
+const pages={"/founder-blueprint":Page0,"/founder-blueprint/intake":Page1,"/studio":Page2,"/capabilities":Page3,"/contact":Page4,"/automation":Page5,"/growth-partnership":Page6,"/how-we-build":Page7,"/services":Page8,"/templates":Page9,"/start-a-business":Page10,"/start-a-business/builder":Page11};
+export default function SupportingPages(){const path=window.location.pathname.replace(/\/$/,'');const Page=path.startsWith("/capabilities/")?PracticePage:pages[path as keyof typeof pages];return <><a href='#main' className='skip-link'>Skip to content</a><Navbar/><main id='main'><Page/></main><footer className='footer shell'><a href='/'>Dynasty Works Studio</a><nav aria-label='Footer navigation'><a href='/work'>Work</a><a href='/capabilities'>Capabilities</a><a href='/company-builder'>Company Builder</a><a href='/studio'>Studio</a><a href='/contact'>Contact</a></nav><ExperienceMotion/></footer></>}
