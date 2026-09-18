@@ -1,6 +1,7 @@
+import {Suspense} from 'react';
 import {createRoot} from 'react-dom/client';
 import {flushSync} from 'react-dom';
-import ExperienceSystem from './experience/ExperienceSystem';
+import ExperienceSystem,{RouteLoading} from './experience/ExperienceSystem';
 import {installMotionTokens} from './experience/tokens';
 
 installMotionTokens();
@@ -13,8 +14,9 @@ if(supporting)document.body.classList.add('dws-v3');
 // Resolve only this document's route before its first transition snapshot.
 // No SPA router: browser navigation, history and form lifecycles remain native.
 const {default:Page}=await (isLab?import('./ExperienceLab'):supporting?import('./SupportingPages'):path==='/work/mymosa'?import('./MyMosa53'):path==='/v5-1-review'?import('./Review51'):path==='/prototype'?import('./Prototype'):path==='/'||path==='/v5-2-review'?import('./Review52'):import('./V5WorkEntry'));
-flushSync(()=>createRoot(document.getElementById('root')!).render(<>{!isLab&&<ExperienceSystem/>}<Page/></>));
+flushSync(()=>createRoot(document.getElementById('root')!).render(<>{!isLab&&<ExperienceSystem/>}<Suspense fallback={<RouteLoading/>}><Page/></Suspense></>));
 if(window.location.hash){
  const target=document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
  if(target)void document.fonts.ready.then(()=>requestAnimationFrame(()=>target.scrollIntoView({behavior:'instant'})));
 }
+
