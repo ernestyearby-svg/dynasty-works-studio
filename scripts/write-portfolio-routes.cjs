@@ -5,3 +5,5 @@ for(const [route,title]of Object.entries(pages)){const dir=path.join('dist',rout
 const supportRoutes=["founder-blueprint","founder-blueprint/intake","studio","capabilities","contact","automation","growth-partnership","how-we-build","services","templates","start-a-business","start-a-business/builder","capabilities/start","capabilities/brand","capabilities/build","capabilities/launch","capabilities/distribute","capabilities/activate","capabilities/grow","capabilities/publish"];
 for(const route of supportRoutes){const dir=path.join("dist",route);fs.mkdirSync(dir,{recursive:true});fs.writeFileSync(path.join(dir,"index.html"),html);}
 fs.writeFileSync("dist/404.html",html.replace(/<title>.*?<\/title>/,"<title>Page not found — Dynasty Works Studio</title>"));
+
+fs.mkdirSync('dist/experience-lab',{recursive:true});fs.writeFileSync('dist/experience-lab/index.html',html.replace(/<title>.*?<\/title>/,'<title>DWS / Experience Lab — V5.4</title>'));
