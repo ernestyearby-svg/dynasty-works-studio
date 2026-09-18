@@ -81,7 +81,7 @@ export default function ExperienceSystem(){
   const acceptCancellation=(transition:NativeTransition)=>{
    // Native history can replace an in-flight transition. Its ready promise
    // rejects with AbortError by contract; navigation itself still completes.
-   void transition.ready.catch((error:unknown)=>{if(!(error instanceof DOMException&&error.name==='AbortError'))console.error(error);});
+   void transition.ready.catch((error:unknown)=>{if(!(typeof error==='object'&&error!==null&&'name' in error&&error.name==='AbortError'))console.error(error);});
   };
   const onSwap=(event:Event)=>{clearTimeout(loadingTimer);update('transition');const transition=(event as Event&{viewTransition?:NativeTransition}).viewTransition;if(transition)acceptCancellation(transition);};
   const onReveal=(event:Event)=>{
