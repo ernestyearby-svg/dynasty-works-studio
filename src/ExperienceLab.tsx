@@ -1,9 +1,10 @@
 import {useEffect, useRef, useState} from 'react';
 import './experience-lab.css';
+import {DWS_MOTION as motion} from './experience/tokens';
 
 const states=['Idle','Hover','Navigation','Transition','Loading','Complete'] as const;
 type State=typeof states[number];
-const motion={fast:160,standard:360,system:720,ease:'cubic-bezier(.22,.68,.12,1)'};
+
 const notes:Record<State,string>={Idle:'One open plane. Ready for what comes next.',Hover:'The open edge extends toward an available action.',Navigation:'The signal follows a deliberate change of context.',Transition:'The plane compresses; its structure stays intact.',Loading:'A finite assembly study. No request is being made.',Complete:'The signal reaches the corner. The system resolves.'};
 const navigation=['Work','How we build','Company Builder','Capabilities','Studio'];
 
@@ -97,3 +98,4 @@ export default function ExperienceLab(){
   </section>
  </main>;
 }
+

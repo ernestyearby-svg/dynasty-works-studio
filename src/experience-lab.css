@@ -12,3 +12,5 @@ body:has(.experience-lab){margin:0;background:#f3f1eb}.experience-lab *{box-sizi
 .el-section-meta{padding-right:150px}
 .el-persistent{width:148px;height:80px;padding:12px}
 @media(max-width:760px){.el-section-meta{padding-right:85px;flex-direction:column;gap:5px}.el-section-meta>span:last-child{text-align:left;max-width:none}.el-persistent{width:108px;height:66px;padding:8px}.el-persistent svg{width:38px}}
+
+.experience-lab{--fast:var(--dws-fast);--standard:var(--dws-standard);--system:var(--dws-system);--resolve:var(--dws-ease)}
