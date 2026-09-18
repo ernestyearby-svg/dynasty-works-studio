@@ -20,11 +20,13 @@ const loaders={
  mymosa:()=>import('./MyMosa53'),
  review51:()=>import('./Review51'),
  prototype:()=>import('./Prototype'),
- home:()=>import('./Review52'),
+ home:()=>import('./CinematicHome'),
  work:()=>import('./V5WorkEntry'),
 };
 const route=path==='/visual-environment-lab'?'environment':isLab?'lab':supporting?'support':path==='/work/mymosa'?'mymosa':path==='/v5-1-review'?'review51':path==='/prototype'?'prototype':path==='/'||path==='/v5-2-review'?'home':'work';
 const {default:Page}=await loaders[route]();
+const room=path==='/'||path==='/v5-2-review'?'creation':path==='/work'?'gallery':path.startsWith('/concept-lab')?'laboratory':path==='/studio'?'human':null;
+if(room){document.body.dataset.cinematicRoom=room;await import('./cinematic-rooms.css');}
 flushSync(()=>createRoot(document.getElementById('root')!).render(<>{!isLab&&<ExperienceSystem/>}<Suspense fallback={<RouteLoading/>}><Page/></Suspense></>));
 if(window.location.hash){
  const target=document.getElementById(decodeURIComponent(window.location.hash.slice(1)));

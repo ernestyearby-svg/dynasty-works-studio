@@ -1,6 +1,8 @@
-import {useEffect} from 'react';
+import {useEffect,useState,lazy,Suspense,useCallback,Component,type ReactNode,type CSSProperties} from 'react';
 import Review52,{type CreationEnvironmentState} from './Review52';
 import './visual-environment.css';
+
+const CompanyRenderer=lazy(()=>import('./CompanyRenderer'));
 
 type Point=[number,number,number];
 const clamp=(v:number)=>Math.max(0,Math.min(1,v));
@@ -26,21 +28,39 @@ function Environment({position,phase,reduced,material}:CreationEnvironmentState)
   <path d={line([x,h,z],[x+w,h,z])} className="ve-edge"/>
   <path d={line([x+w,h,z],[x+w,0,z])} className="ve-rebate" opacity={identity*.32}/>
  </g>;
- return <div className="ve-environment" style={material} data-position={p.toFixed(4)} data-stage={phase} aria-hidden="true">
-  <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" focusable="false">
+ return <div className="ve-environment" style={{...material,'--ve-dusk':resolve((p-2.6)/1.4),'--ve-built':p/7} as CSSProperties} data-position={p.toFixed(4)} data-stage={phase} data-layer="environment-system" aria-hidden="true">
+  <div className="ve-cinematic-field" data-layer="01-cinematic-atmosphere"><div className="ve-mineral-dusk"/><div className="ve-light-volume"/></div>
+  <svg className="ve-atmosphere" data-layer="01-environment" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" focusable="false">
    <defs>
-    <linearGradient id="ve-stone" x1="0" y1="0" x2=".75" y2="1"><stop stopColor="var(--surface-top)"/><stop offset=".3" stopColor="var(--surface-front)"/><stop offset="1" stopColor="var(--surface-side)"/></linearGradient>
-    <linearGradient id="ve-metal" x1="0" x2="1"><stop stopColor="var(--surface-side)"/><stop offset=".08" stopColor="var(--surface-front)"/><stop offset=".92" stopColor="var(--surface-front)"/><stop offset="1" stopColor="var(--surface-top)"/></linearGradient>
-    <linearGradient id="ve-reveal" x2="0" y2="1"><stop stopColor="#080a0d" stopOpacity=".58"/><stop offset="1" stopColor="#080a0d" stopOpacity=".08"/></linearGradient>
-    <linearGradient id="ve-daylight" x2="0" y2="1"><stop stopColor="#fff4d9" stopOpacity=".38"/><stop offset="1" stopColor="#fff4d9" stopOpacity="0"/></linearGradient>
-    <linearGradient id="ve-light"><stop stopColor="#f6eedb" stopOpacity="0"/><stop offset="1" stopColor="#f6eedb" stopOpacity=".28"/></linearGradient>
-    <linearGradient id="ve-floor" x2="0" y2="1"><stop stopColor="var(--field)"/><stop offset="1" stopColor="var(--surface-side)" stopOpacity=".25"/></linearGradient>
+    {/* Surface-only rendering: fixed grain, no new geometry or animation. */}
+    <filter id="ve-mineral" x="0" y="0" width="100%" height="100%" colorInterpolationFilters="sRGB">
+     <feTurbulence type="fractalNoise" baseFrequency=".72 .26" numOctaves="2" seed="17" result="grain"/>
+     <feColorMatrix in="grain" type="saturate" values="0"/>
+     <feComponentTransfer><feFuncA type="linear" slope=".13"/></feComponentTransfer>
+     <feBlend in="SourceGraphic" mode="soft-light"/>
+     <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+    <filter id="ve-penumbra" x="-15%" y="-25%" width="130%" height="150%"><feGaussianBlur stdDeviation="2.2"/></filter>
+    <filter id="ve-aperture-bloom" x="-100%" y="-10%" width="300%" height="120%">
+     <feGaussianBlur stdDeviation="3"/><feComponentTransfer><feFuncA type="linear" slope=".35"/></feComponentTransfer>
+     <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="ve-stone" x1="0" y1="0" x2=".75" y2="1"><stop stopColor="var(--surface-top)"/><stop offset=".12" stopColor="var(--surface-top)"/><stop offset=".46" stopColor="var(--surface-front)"/><stop offset="1" stopColor="var(--surface-side)"/></linearGradient>
+    <linearGradient id="ve-metal" x1="0" x2="1"><stop stopColor="var(--surface-side)"/><stop offset=".035" stopColor="var(--surface-top)"/><stop offset=".09" stopColor="var(--surface-side)"/><stop offset=".64" stopColor="var(--surface-front)"/><stop offset=".96" stopColor="var(--surface-side)"/><stop offset="1" stopColor="var(--surface-top)"/></linearGradient>
+    <linearGradient id="ve-reveal" x2="0" y2="1"><stop stopColor="#080a0d" stopOpacity=".82"/><stop offset="1" stopColor="#080a0d" stopOpacity=".18"/></linearGradient>
+    <linearGradient id="ve-daylight" x2="0" y2="1"><stop stopColor="#fff4d9" stopOpacity=".52"/><stop offset="1" stopColor="#fff4d9" stopOpacity="0"/></linearGradient>
+    <linearGradient id="ve-light"><stop stopColor="#f6eedb" stopOpacity="0"/><stop offset="1" stopColor="#f6eedb" stopOpacity=".36"/></linearGradient>
+    <linearGradient id="ve-floor" x2="0" y2="1"><stop stopColor="var(--field)"/><stop offset=".3" stopColor="var(--surface-side)" stopOpacity=".2"/><stop offset=".57" stopColor="#d4c2a0" stopOpacity=".13"/><stop offset=".72" stopColor="var(--surface-top)" stopOpacity=".16"/><stop offset="1" stopColor="var(--surface-side)" stopOpacity=".42"/></linearGradient>
     <linearGradient id="ve-quiet"><stop stopColor="white" stopOpacity="0"/><stop offset=".36" stopColor="white" stopOpacity=".07"/><stop offset=".65" stopColor="white" stopOpacity=".4"/><stop offset="1" stopColor="white" stopOpacity=".9"/></linearGradient>
     <mask id="ve-hierarchy"><rect width="1440" height="900" fill="url(#ve-quiet)"/></mask>
    </defs>
    <g mask="url(#ve-hierarchy)">
     <path d="M0 365H1440V900H0Z" fill="url(#ve-floor)"/>
     <path d="M0 365H1440" className="ve-horizon" opacity={.12+market*.18}/>
+   </g>
+  </svg>
+  <svg className="ve-construction" data-layer="02-reactive-construction" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" focusable="false">
+   <g mask="url(#ve-hierarchy)">
     {/* One aperture casts the same light through every construction state. */}
     <polygon points={points([[540,760,850],[630,760,850],[1130,0,-80],[560,0,-80]])} fill="url(#ve-light)" opacity={.18+identity*.25+space*.42}/>
     <g className="ve-grid" opacity={axes*.18}>
@@ -116,9 +136,24 @@ function Environment({position,phase,reduced,material}:CreationEnvironmentState)
  </div>;
 }
 
-const renderEnvironment=(state:CreationEnvironmentState)=><Environment {...state}/>;
-export default function VisualEnvironmentLab(){
- useEffect(()=>{document.title='DWS — Visual Environment Lab';},[]);
- return <Review52 environment={renderEnvironment}/>;
-}
 
+class RendererBoundary extends Component<{children:ReactNode;onFailure:()=>void},{failed:boolean}>{
+ state={failed:false};
+ static getDerivedStateFromError(){return {failed:true};}
+ componentDidCatch(){this.props.onFailure();}
+ render(){return this.state.failed?null:this.props.children;}
+}
+export default function VisualEnvironmentLab({candidate=false}:{candidate?:boolean}){
+ const [cinematic,setCinematic]=useState(true),[initialized,setInitialized]=useState(false),[ready,setReady]=useState(false),[failed,setFailed]=useState(false);
+ const onReady=useCallback(()=>setReady(true),[]);
+ const onFailure=useCallback(()=>{setReady(false);setFailed(true);},[]);
+ useEffect(()=>{if(!candidate)document.title='DWS — V5.7 Cinematic Environment Lab';const id=requestAnimationFrame(()=>setInitialized(true));return()=>cancelAnimationFrame(id);},[candidate]);
+ const renderEnvironment=useCallback((state:CreationEnvironmentState)=><>
+  <Environment {...state}/>
+  {cinematic&&initialized&&!failed&&<div className="ve-cinematic-company ve-integrated" data-ready={ready} style={{...state.material,opacity:ready&&state.position<8?1:0,background:state.material['--field' as keyof CSSProperties]} as CSSProperties}>
+   <RendererBoundary onFailure={onFailure}><Suspense fallback={null}><CompanyRenderer {...state} onReady={onReady} onFailure={onFailure}/></Suspense></RendererBoundary>
+  </div>}
+ </>,[cinematic,initialized,failed,ready,onReady,onFailure]);
+ const choose=(value:boolean)=>{if(value===cinematic&&!failed)return;setReady(false);setFailed(false);setCinematic(value);};
+ return <><Review52 environment={renderEnvironment}/>{!candidate&&<div className="ve-render-toggle" role="group" aria-label="Environmental renderer"><button aria-pressed={!cinematic||failed} onClick={()=>choose(false)}>Lightweight</button><button aria-pressed={cinematic&&!failed} onClick={()=>choose(true)}>Cinematic</button>{failed&&<span role="status">Lightweight fallback active</span>}</div>}</>;
+}
