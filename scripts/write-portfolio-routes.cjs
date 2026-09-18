@@ -10,3 +10,5 @@ fs.writeFileSync("dist/404.html",html.replace(/<title>.*?<\/title>/,"<title>Page
 
 fs.mkdirSync('dist/experience-lab',{recursive:true});fs.writeFileSync('dist/experience-lab/index.html',html.replace(/<title>.*?<\/title>/,'<title>DWS / Experience Lab — V5.4</title>'));
 
+
+fs.mkdirSync('dist/visual-environment-lab',{recursive:true});fs.writeFileSync('dist/visual-environment-lab/index.html',html.replace(/<title>.*?<\/title>/,'<title>DWS — Visual Environment Lab</title>'));

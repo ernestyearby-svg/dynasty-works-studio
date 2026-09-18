@@ -11,7 +11,7 @@ function complete(){update('complete');clearTimeout(completionTimer);completionT
 const subscribe=(callback:()=>void)=>{subscribers.add(callback);return()=>{subscribers.delete(callback);};};
 const snapshot=()=>state;
 const actionSelector='.r52-desktop-nav a,.r52-menu a,.site-head nav a,.r51-action,.r52-nav-action,.r52-path-action,.r52-talk,.p-enter,.nav-start,.r52-work-path,.r52-lab-path';
-const homePaths=['/','/v5-2-review','/v5-2-review/'];
+const homePaths=['/','/v5-2-review','/v5-2-review/','/visual-environment-lab','/visual-environment-lab/'];
 const storageKey='dws-navigation-intent';
 function readIntent(){try{return JSON.parse(sessionStorage.getItem(storageKey)||'null') as {path:string;time:number}|null;}catch{return null;}}
 function clearIntent(){try{sessionStorage.removeItem(storageKey);}catch{/* Storage may be disabled; navigation still works. */}}

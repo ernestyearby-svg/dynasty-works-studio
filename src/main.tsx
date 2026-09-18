@@ -15,6 +15,7 @@ if(supporting)document.body.classList.add('dws-v3');
 // No SPA router: browser navigation, history and form lifecycles remain native.
 const loaders={
  lab:()=>import('./ExperienceLab'),
+ environment:()=>import('./VisualEnvironmentLab'),
  support:()=>import('./SupportingPages'),
  mymosa:()=>import('./MyMosa53'),
  review51:()=>import('./Review51'),
@@ -22,7 +23,7 @@ const loaders={
  home:()=>import('./Review52'),
  work:()=>import('./V5WorkEntry'),
 };
-const route=isLab?'lab':supporting?'support':path==='/work/mymosa'?'mymosa':path==='/v5-1-review'?'review51':path==='/prototype'?'prototype':path==='/'||path==='/v5-2-review'?'home':'work';
+const route=path==='/visual-environment-lab'?'environment':isLab?'lab':supporting?'support':path==='/work/mymosa'?'mymosa':path==='/v5-1-review'?'review51':path==='/prototype'?'prototype':path==='/'||path==='/v5-2-review'?'home':'work';
 const {default:Page}=await loaders[route]();
 flushSync(()=>createRoot(document.getElementById('root')!).render(<>{!isLab&&<ExperienceSystem/>}<Suspense fallback={<RouteLoading/>}><Page/></Suspense></>));
 if(window.location.hash){
