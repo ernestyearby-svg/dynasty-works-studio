@@ -13,10 +13,21 @@ const supporting=supportRoutes.includes(path);
 if(supporting)document.body.classList.add('dws-v3');
 // Resolve only this document's route before its first transition snapshot.
 // No SPA router: browser navigation, history and form lifecycles remain native.
-const {default:Page}=await (isLab?import('./ExperienceLab'):supporting?import('./SupportingPages'):path==='/work/mymosa'?import('./MyMosa53'):path==='/v5-1-review'?import('./Review51'):path==='/prototype'?import('./Prototype'):path==='/'||path==='/v5-2-review'?import('./Review52'):import('./V5WorkEntry'));
+const loaders={
+ lab:()=>import('./ExperienceLab'),
+ support:()=>import('./SupportingPages'),
+ mymosa:()=>import('./MyMosa53'),
+ review51:()=>import('./Review51'),
+ prototype:()=>import('./Prototype'),
+ home:()=>import('./Review52'),
+ work:()=>import('./V5WorkEntry'),
+};
+const route=isLab?'lab':supporting?'support':path==='/work/mymosa'?'mymosa':path==='/v5-1-review'?'review51':path==='/prototype'?'prototype':path==='/'||path==='/v5-2-review'?'home':'work';
+const {default:Page}=await loaders[route]();
 flushSync(()=>createRoot(document.getElementById('root')!).render(<>{!isLab&&<ExperienceSystem/>}<Suspense fallback={<RouteLoading/>}><Page/></Suspense></>));
 if(window.location.hash){
  const target=document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
  if(target)void document.fonts.ready.then(()=>requestAnimationFrame(()=>target.scrollIntoView({behavior:'instant'})));
 }
+
 
