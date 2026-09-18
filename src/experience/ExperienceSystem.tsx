@@ -55,7 +55,8 @@ export default function ExperienceSystem(){
    return true;
   };
   const observer=new MutationObserver(()=>{if(ready())observer.disconnect();});
-  if(!ready())observer.observe(document.getElementById('root')!,{childList:true,subtree:true});
+  const root=document.getElementById('root');
+  if(!ready()&&root)observer.observe(root,{childList:true,subtree:true});
   const actionable=(target:EventTarget|null)=>target instanceof Element?target.closest<HTMLElement>(actionSelector):null;
   const enter=(event:Event)=>{if(actionable(event.target)&&!['navigation','transition','loading'].includes(state))update('hover');};
   const leave=(event:Event)=>{if(actionable(event.target)&&state==='hover')update('idle');};
@@ -76,9 +77,16 @@ export default function ExperienceSystem(){
    loadingTimer=setTimeout(()=>{if(state==='navigation'&&!document.hidden)update('loading');},DWS_MOTION.fast);
    try{sessionStorage.setItem(storageKey,JSON.stringify({path:url.pathname+url.search,time:Date.now()}));}catch{/* Optional state only. */}
   };
-  const onSwap=()=>{clearTimeout(loadingTimer);update('transition');};
+  type NativeTransition={ready:Promise<void>;finished:Promise<void>;skipTransition:()=>void};
+  const acceptCancellation=(transition:NativeTransition)=>{
+   // Native history can replace an in-flight transition. Its ready promise
+   // rejects with AbortError by contract; navigation itself still completes.
+   void transition.ready.catch((error:unknown)=>{if(!(error instanceof DOMException&&error.name==='AbortError'))console.error(error);});
+  };
+  const onSwap=(event:Event)=>{clearTimeout(loadingTimer);update('transition');const transition=(event as Event&{viewTransition?:NativeTransition}).viewTransition;if(transition)acceptCancellation(transition);};
   const onReveal=(event:Event)=>{
-   const transition=(event as Event&{viewTransition?:{finished:Promise<void>;skipTransition:()=>void}}).viewTransition;
+   const transition=(event as Event&{viewTransition?:NativeTransition}).viewTransition;
+   if(transition)acceptCancellation(transition);
    if(reduced.matches||document.hidden)transition?.skipTransition();
    if(transition)void transition.finished.then(()=>complete(),()=>update('idle'));
   };
