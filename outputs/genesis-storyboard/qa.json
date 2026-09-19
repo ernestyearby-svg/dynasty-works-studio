@@ -1,0 +1,926 @@
+{
+  "checks": [
+    {
+      "name": "forward 0",
+      "pass": true
+    },
+    {
+      "name": "same persistent node 0",
+      "pass": true
+    },
+    {
+      "name": "forward 10",
+      "pass": true
+    },
+    {
+      "name": "same persistent node 10",
+      "pass": true
+    },
+    {
+      "name": "forward 20",
+      "pass": true
+    },
+    {
+      "name": "same persistent node 20",
+      "pass": true
+    },
+    {
+      "name": "forward 32",
+      "pass": true
+    },
+    {
+      "name": "same persistent node 32",
+      "pass": true
+    },
+    {
+      "name": "forward 45",
+      "pass": true
+    },
+    {
+      "name": "same persistent node 45",
+      "pass": true
+    },
+    {
+      "name": "forward 50",
+      "pass": true
+    },
+    {
+      "name": "same persistent node 50",
+      "pass": true
+    },
+    {
+      "name": "forward 56",
+      "pass": true
+    },
+    {
+      "name": "same persistent node 56",
+      "pass": true
+    },
+    {
+      "name": "forward 60",
+      "pass": true
+    },
+    {
+      "name": "same persistent node 60",
+      "pass": true
+    },
+    {
+      "name": "forward 68",
+      "pass": true
+    },
+    {
+      "name": "same persistent node 68",
+      "pass": true
+    },
+    {
+      "name": "forward 70",
+      "pass": true
+    },
+    {
+      "name": "same persistent node 70",
+      "pass": true
+    },
+    {
+      "name": "forward 78",
+      "pass": true
+    },
+    {
+      "name": "same persistent node 78",
+      "pass": true
+    },
+    {
+      "name": "forward 84",
+      "pass": true
+    },
+    {
+      "name": "same persistent node 84",
+      "pass": true
+    },
+    {
+      "name": "forward 89",
+      "pass": true
+    },
+    {
+      "name": "same persistent node 89",
+      "pass": true
+    },
+    {
+      "name": "forward 93",
+      "pass": true
+    },
+    {
+      "name": "same persistent node 93",
+      "pass": true
+    },
+    {
+      "name": "forward 96",
+      "pass": true
+    },
+    {
+      "name": "same persistent node 96",
+      "pass": true
+    },
+    {
+      "name": "forward 100",
+      "pass": true
+    },
+    {
+      "name": "same persistent node 100",
+      "pass": true
+    },
+    {
+      "name": "reverse exact contour 100",
+      "pass": true
+    },
+    {
+      "name": "reverse exact contour 96",
+      "pass": true
+    },
+    {
+      "name": "reverse exact contour 93",
+      "pass": true
+    },
+    {
+      "name": "reverse exact contour 89",
+      "pass": true
+    },
+    {
+      "name": "reverse exact contour 84",
+      "pass": true
+    },
+    {
+      "name": "reverse exact contour 78",
+      "pass": true
+    },
+    {
+      "name": "reverse exact contour 70",
+      "pass": true
+    },
+    {
+      "name": "reverse exact contour 68",
+      "pass": true
+    },
+    {
+      "name": "reverse exact contour 60",
+      "pass": true
+    },
+    {
+      "name": "reverse exact contour 56",
+      "pass": true
+    },
+    {
+      "name": "reverse exact contour 50",
+      "pass": true
+    },
+    {
+      "name": "reverse exact contour 45",
+      "pass": true
+    },
+    {
+      "name": "reverse exact contour 32",
+      "pass": true
+    },
+    {
+      "name": "reverse exact contour 20",
+      "pass": true
+    },
+    {
+      "name": "reverse exact contour 10",
+      "pass": true
+    },
+    {
+      "name": "reverse exact contour 0",
+      "pass": true
+    },
+    {
+      "name": "return point matches Signal",
+      "pass": true
+    },
+    {
+      "name": "Direction equals Return L",
+      "pass": true
+    },
+    {
+      "name": "canonical source contour",
+      "pass": true
+    },
+    {
+      "name": "Form to Company bounded continuous geometry",
+      "pass": true
+    },
+    {
+      "name": "no scene replacement",
+      "pass": true
+    },
+    {
+      "name": "held no release",
+      "pass": true
+    },
+    {
+      "name": "held advance disabled",
+      "pass": true
+    },
+    {
+      "name": "keyboard focus visible",
+      "pass": true
+    },
+    {
+      "name": "explicit authorization",
+      "pass": true
+    },
+    {
+      "name": "validation before release",
+      "pass": true
+    },
+    {
+      "name": "authorized release",
+      "pass": true
+    },
+    {
+      "name": "settled",
+      "pass": true
+    },
+    {
+      "name": "capacity restored",
+      "pass": true
+    },
+    {
+      "name": "receipt contribution",
+      "pass": true
+    },
+    {
+      "name": "feedback affects next proposal",
+      "pass": true
+    },
+    {
+      "name": "reentry does not duplicate",
+      "pass": true
+    },
+    {
+      "name": "repeat release blocked",
+      "pass": true
+    },
+    {
+      "name": "overflow 320/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 320/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 320/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 320/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 320/45",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 320/45",
+      "pass": true
+    },
+    {
+      "name": "overflow 320/56",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 320/56",
+      "pass": true
+    },
+    {
+      "name": "overflow 320/70",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 320/70",
+      "pass": true
+    },
+    {
+      "name": "overflow 320/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 320/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 320/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 320/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 360/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 360/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 360/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 360/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 360/45",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 360/45",
+      "pass": true
+    },
+    {
+      "name": "overflow 360/56",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 360/56",
+      "pass": true
+    },
+    {
+      "name": "overflow 360/70",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 360/70",
+      "pass": true
+    },
+    {
+      "name": "overflow 360/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 360/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 360/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 360/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 375/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 375/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 375/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 375/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 375/45",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 375/45",
+      "pass": true
+    },
+    {
+      "name": "overflow 375/56",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 375/56",
+      "pass": true
+    },
+    {
+      "name": "overflow 375/70",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 375/70",
+      "pass": true
+    },
+    {
+      "name": "overflow 375/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 375/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 375/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 375/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 390/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 390/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 390/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 390/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 390/45",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 390/45",
+      "pass": true
+    },
+    {
+      "name": "overflow 390/56",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 390/56",
+      "pass": true
+    },
+    {
+      "name": "overflow 390/70",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 390/70",
+      "pass": true
+    },
+    {
+      "name": "overflow 390/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 390/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 390/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 390/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 430/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 430/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 430/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 430/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 430/45",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 430/45",
+      "pass": true
+    },
+    {
+      "name": "overflow 430/56",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 430/56",
+      "pass": true
+    },
+    {
+      "name": "overflow 430/70",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 430/70",
+      "pass": true
+    },
+    {
+      "name": "overflow 430/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 430/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 430/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 430/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 768/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 768/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 768/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 768/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 768/45",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 768/45",
+      "pass": true
+    },
+    {
+      "name": "overflow 768/56",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 768/56",
+      "pass": true
+    },
+    {
+      "name": "overflow 768/70",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 768/70",
+      "pass": true
+    },
+    {
+      "name": "overflow 768/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 768/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 768/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 768/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 1024/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1024/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 1024/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1024/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 1024/45",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1024/45",
+      "pass": true
+    },
+    {
+      "name": "overflow 1024/56",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1024/56",
+      "pass": true
+    },
+    {
+      "name": "overflow 1024/70",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1024/70",
+      "pass": true
+    },
+    {
+      "name": "overflow 1024/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1024/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 1024/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1024/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 1280/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1280/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 1280/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1280/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 1280/45",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1280/45",
+      "pass": true
+    },
+    {
+      "name": "overflow 1280/56",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1280/56",
+      "pass": true
+    },
+    {
+      "name": "overflow 1280/70",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1280/70",
+      "pass": true
+    },
+    {
+      "name": "overflow 1280/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1280/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 1280/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1280/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 1440/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1440/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 1440/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1440/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 1440/45",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1440/45",
+      "pass": true
+    },
+    {
+      "name": "overflow 1440/56",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1440/56",
+      "pass": true
+    },
+    {
+      "name": "overflow 1440/70",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1440/70",
+      "pass": true
+    },
+    {
+      "name": "overflow 1440/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1440/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 1440/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1440/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 1920/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1920/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 1920/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1920/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 1920/45",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1920/45",
+      "pass": true
+    },
+    {
+      "name": "overflow 1920/56",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1920/56",
+      "pass": true
+    },
+    {
+      "name": "overflow 1920/70",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1920/70",
+      "pass": true
+    },
+    {
+      "name": "overflow 1920/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1920/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 1920/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1920/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 2560/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 2560/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 2560/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 2560/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 2560/45",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 2560/45",
+      "pass": true
+    },
+    {
+      "name": "overflow 2560/56",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 2560/56",
+      "pass": true
+    },
+    {
+      "name": "overflow 2560/70",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 2560/70",
+      "pass": true
+    },
+    {
+      "name": "overflow 2560/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 2560/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 2560/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 2560/100",
+      "pass": true
+    },
+    {
+      "name": "keyboard scrub",
+      "pass": true
+    },
+    {
+      "name": "reduced motion transaction",
+      "pass": true
+    },
+    {
+      "name": "reduced no transition",
+      "pass": true
+    },
+    {
+      "name": "reduced return L",
+      "pass": true
+    },
+    {
+      "name": "reduced point continuity",
+      "pass": true
+    },
+    {
+      "name": "direct refresh Signal",
+      "pass": true
+    },
+    {
+      "name": "fonts loaded",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "captures": [
+    "outputs/genesis-storyboard/signal-1440.png",
+    "outputs/genesis-storyboard/direction-1440.png",
+    "outputs/genesis-storyboard/form-1440.png",
+    "outputs/genesis-storyboard/form-to-company-1440.png",
+    "outputs/genesis-storyboard/company-held-1440.png",
+    "outputs/genesis-storyboard/company-active-1440.png",
+    "outputs/genesis-storyboard/company-settled-1440.png",
+    "outputs/genesis-storyboard/return-l-1440.png",
+    "outputs/genesis-storyboard/return-point-1440.png",
+    "outputs/genesis-storyboard/signal-390.png",
+    "outputs/genesis-storyboard/form-390.png",
+    "outputs/genesis-storyboard/company-settled-390.png",
+    "outputs/genesis-storyboard/return-point-390.png",
+    "outputs/genesis-storyboard/company-held-390.png"
+  ],
+  "maxContourDeltaPerHalfPercent": 0.6361688510448857
+}
