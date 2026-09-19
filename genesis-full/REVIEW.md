@@ -59,7 +59,7 @@ The explicit new-state visual details resolve into the approved Company surface.
 - Reduced motion removes spatial transaction transitions; complete operation and Return remain available.
 - No horizontal/heading overflow across ten stages at 320, 360, 375, 390, 430, 768, 1024, 1280, 1440, 1920, 2560.
 - 30 required captures: 13 desktop states, 7 transition positions, 10 mobile states.
-- Twelve locked-spine render comparisons: pixel-identical at six locked positions across 1440 and 390. The comparison isolates the SVG from overlapping DOM text; it does not claim whole-page pixel identity after adding the ten-state navigation.
+- Twelve locked-spine render comparisons: pixel-identical at six locked positions across 1440 and 390. The comparison uses settled, reduced-motion frames with normalized scroll and isolates the SVG from overlapping DOM text; it does not claim whole-page pixel identity after adding the ten-state navigation.
 
 Mobile uses browser emulation; no physical-phone or audible screen-reader certification is claimed. Semantic announcements and keyboard behavior were inspected/tested in Chromium. Existing large renderer chunk advisory in the protected full-site build remains untouched. The new isolated entry is approximately 67 kB gzip JavaScript including React. No physical-device frame-rate claim is made.
 
@@ -68,3 +68,4 @@ Mobile uses browser emulation; no physical-phone or audible screen-reader certif
 01–09, A/B proof, approved storyboard, V5.8, investor deployment, public production, GitHub main, MyMosa and IKLA: unchanged. Original recovery references retained. Only founder-requested recovery branch/tag were pushed; development remains local. No deployment occurred.
 
 STOP FOR FOUNDER REVIEW.
+
