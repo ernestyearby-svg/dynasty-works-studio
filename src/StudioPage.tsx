@@ -86,7 +86,7 @@ export default function StudioPage() {
             </p>
             <p className="studio-hero-sub">
               Technology accelerates execution. AI expands computational speed. But commercial endurance requires
-              uncompromising taste, strategic discipline, and senior human judgment. We build companies with founders,
+              uncompromising taste, strategic discipline, and human judgment. We build companies with founders,
               not for anonymous scale.
             </p>
 
@@ -148,34 +148,34 @@ export default function StudioPage() {
 
             <div className="studio-tenets-grid">
               <article className="studio-tenet-card">
-                <span className="studio-tenet-num">01 / SENIOR LEADERSHIP</span>
-                <h3>Direct Practitioner Collaboration</h3>
+                <span className="studio-tenet-num">01 / FOUNDER PARTNERSHIP</span>
+                <h3>Direct Collaboration</h3>
                 <p>
-                  Founders partner directly with senior creative directors and technology architects. No junior handoffs, no account-management bureaucracy, and no translation layers.
+                  Direct collaboration and strategic alignment throughout the build. Founders work directly with the practice without account-management bureaucracy or translation layers.
                 </p>
               </article>
 
               <article className="studio-tenet-card">
                 <span className="studio-tenet-num">02 / END-TO-END OWNERSHIP</span>
-                <h3>One Unified Creative System</h3>
+                <h3>Connected Company Systems</h3>
                 <p>
-                  One team conceives the strategy, crafts the identity, authors the software, and engineers the physical products. The commercial thesis remains unbroken across every physical and digital surface.
+                  Strategy, identity, product, digital systems, and commercial architecture are developed as one connected company system. The core commercial proposition remains unified across every physical and digital touchpoint.
                 </p>
               </article>
 
               <article className="studio-tenet-card">
                 <span className="studio-tenet-num">03 / HUMAN AUTHORIZATION</span>
-                <h3>Technology Subordinate to Judgment</h3>
+                <h3>Judgment at the Helm</h3>
                 <p>
-                  We leverage advanced computational tools and generative pipelines to accelerate iteration, but every strategic recommendation, design standard, and line of production code is rigorously vetted and authorized by human judgment.
+                  AI and computational systems accelerate research, iteration, and execution. Strategic decisions, brand standards, and production code remain strictly subject to human judgment and approval.
                 </p>
               </article>
 
               <article className="studio-tenet-card">
                 <span className="studio-tenet-num">04 / HIGH CONVICTION</span>
-                <h3>Constrained Studio Volume</h3>
+                <h3>Integrated Creation</h3>
                 <p>
-                  We deliberately restrict the number of venture builds we accept each year. We do not operate a volume agency factory; we commit obsessive focus to each venture we help bring to life.
+                  DWS approaches company creation as an integrated build rather than a collection of disconnected deliverables, ensuring the commercial thesis carries through to market.
                 </p>
               </article>
             </div>

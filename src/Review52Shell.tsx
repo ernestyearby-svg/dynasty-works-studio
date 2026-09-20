@@ -309,23 +309,23 @@ export function StudioSignal() {
         <div className="r52-studio-body">
           <p className="r52-studio-lead">
             Technology and AI accelerate execution, but commercial endurance requires uncompromising creative taste,
-            strategic discipline, and senior partnership. We build companies with founders, not for anonymous scale.
+            strategic discipline, and human judgment. We build companies with founders, not for anonymous scale.
           </p>
           <div className="r52-studio-tenets">
             <div className="r52-tenet">
               <span className="r52-tenet-num">01</span>
-              <h4>End-to-End Ownership</h4>
-              <p>One unified team conceives the strategy, crafts the identity, builds the code, and engineers the physical products. Nothing is lost in handoffs.</p>
+              <h4>Founder Partnership</h4>
+              <p>Direct collaboration and strategic alignment throughout the build, without bureaucracy or translation layers.</p>
             </div>
             <div className="r52-tenet">
               <span className="r52-tenet-num">02</span>
-              <h4>Human Judgment at the Helm</h4>
-              <p>We leverage cutting-edge computational tools and generative pipelines, but every aesthetic and strategic decision is directed by senior creative practitioners.</p>
+              <h4>End-to-End Ownership</h4>
+              <p>Strategy, identity, product, digital systems, and commercial architecture are developed as one connected company system.</p>
             </div>
             <div className="r52-tenet">
               <span className="r52-tenet-num">03</span>
-              <h4>High-Conviction Partners</h4>
-              <p>We accept a deliberately constrained volume of new venture builds each year to ensure deep, obsessive founder-to-partner collaboration.</p>
+              <h4>Human Authorization</h4>
+              <p>AI and computational systems accelerate research, iteration, and execution. Strategic decisions and production standards remain strictly subject to human judgment and approval.</p>
             </div>
           </div>
         </div>

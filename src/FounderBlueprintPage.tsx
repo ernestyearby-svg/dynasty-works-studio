@@ -191,7 +191,7 @@ export default function FounderBlueprintPage() {
                 <span className="fb-kicker">03 / WHAT HAPPENS?</span>
                 <h3>Discovery, Deep Research, and Architectural Synthesis</h3>
                 <p>
-                  We begin with your completed intake and an intensive 60–90 minute strategy working session. Our senior practitioners then analyze the market, define required disciplines, uncover hidden technical dependencies, and map your 30/60/90 execution sequence.
+                  We begin with your completed intake and an intensive 60–90 minute strategy working session. We then analyze the market, define required disciplines, uncover hidden technical dependencies, and map your 30/60/90 execution sequence.
                 </p>
               </article>
 
