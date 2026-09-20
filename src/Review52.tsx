@@ -3,7 +3,6 @@ import './review51.css';
 import './review52.css';
 import {
   ReviewHeader,
-  HomeSelectedWork,
   HomeCapabilities,
   StudioSignal,
   Proof,
@@ -218,7 +217,6 @@ export default function Review52({ environment }: { environment?: (state: Creati
   const destination = useRef<HTMLDivElement>(null);
   const [assembly, setAssembly] = useState(0);
   const [placement, setPlacement] = useState({ left: 0, top: 0, width: 0, height: 0 });
-  const [artOpacity, setArtOpacity] = useState(1);
   const rail = useRef<HTMLElement>(null);
   const [reduced, setReduced] = useState(false);
 
@@ -238,25 +236,21 @@ export default function Review52({ environment }: { environment?: (state: Creati
         if (!rail.current) return;
         const r = rail.current.getBoundingClientRect();
         const length = rail.current.offsetHeight - innerHeight;
+        const t = Math.max(0, Math.min(1, 1 - r.top / innerHeight));
+        setAssembly(t);
         const progress = Math.max(0, -r.top / length);
         setTemperature(progress <= 1 ? Math.min(7, progress * 8) : 8 + Math.min(1, (-r.top - length) / innerHeight));
-        setPhase(Math.max(0, Math.min(7, Math.floor((-r.top / length) * 8))));
-
-        if (scrollY < 180 && origin.current) {
-          const a = origin.current.getBoundingClientRect();
-          setPlacement({ left: a.left, top: a.top, width: a.width, height: a.height });
-          setAssembly(0);
-          setArtOpacity(Math.max(0, 1 - scrollY / 140));
-        } else if (r.top > 0) {
-          setArtOpacity(0);
-        } else {
-          setArtOpacity(1);
-          setAssembly(1);
-          if (destination.current) {
-            const b = destination.current.getBoundingClientRect();
-            setPlacement({ left: b.left, top: b.top, width: b.width, height: b.height });
-          }
+        if (origin.current && destination.current) {
+          const a = origin.current.getBoundingClientRect(), b = destination.current.getBoundingClientRect();
+          const blend = t * t * (3 - 2 * t);
+          setPlacement({
+            left: a.left + (b.left - a.left) * blend,
+            top: a.top + (b.top - a.top) * blend,
+            width: a.width + (b.width - a.width) * blend,
+            height: a.height + (b.height - a.height) * blend,
+          });
         }
+        setPhase(Math.max(0, Math.min(7, Math.floor((-r.top / length) * 8))));
       });
     };
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -302,10 +296,7 @@ export default function Review52({ environment }: { environment?: (state: Creati
         </div>
       </section>
 
-      {/* 02: SELECTED WORK / PROOF (EARLY ON HOMEPAGE) */}
-      <HomeSelectedWork />
-
-      {/* 03: HOW WE BUILD / CREATION CHAMBER */}
+      {/* 02: HOW WE BUILD / CREATION CHAMBER */}
       <section ref={rail} className="p-evolution" id="creation" aria-label="Idea to company">
         <div className={'p-stage ' + (temperature >= 3.5 && temperature < 8.5 ? 'is-dark' : '')} style={materialStyle(temperature)}>
           <div className="p-stage-top">
@@ -334,35 +325,27 @@ export default function Review52({ environment }: { environment?: (state: Creati
         </div>
       </section>
 
-      {/* 04: OPERATING SYSTEM */}
+      {/* 03: OPERATING SYSTEM */}
       <Operating />
 
-      {/* 05: CAPABILITY BRIDGE */}
+      {/* 04: CAPABILITY BRIDGE */}
       <HomeCapabilities />
 
-      {/* 06: COMPANY BUILDER */}
+      {/* 05: COMPANY BUILDER */}
       <ReviewBuilder />
 
-      {/* 07: THE STUDIO / HUMAN SIGNAL */}
+      {/* 06: THE STUDIO / HUMAN SIGNAL */}
       <StudioSignal />
 
-      {/* 08: EXPERIMENTAL LAB & ARCHIVE */}
+      {/* 07: EXPERIMENTAL LAB & ARCHIVE */}
       <Proof />
 
-      {/* 09: INVITATION & FOOTER */}
+      {/* 08: INVITATION & FOOTER */}
       <Invitation />
       <ReviewFooter />
 
       {/* PERSISTENT PRIMITIVE */}
-      <div
-        className="p-shared-art"
-        style={{
-          ...placement,
-          ...materialStyle(temperature),
-          opacity: artOpacity,
-          visibility: artOpacity === 0 ? 'hidden' : 'visible',
-        }}
-      >
+      <div className="p-shared-art" style={{ ...placement, ...materialStyle(temperature) }}>
         <Artifact phase={phase} assembly={assembly} />
       </div>
     </div>

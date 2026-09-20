@@ -26,29 +26,29 @@
       "detail": ""
     },
     {
-      "name": "Selected Work placed immediately after hero and before creation chamber",
+      "name": "Selected Work section removed from homepage per founder override",
       "pass": true,
-      "detail": "heroY:0, proofY:1000, creationY:2249.296875"
+      "detail": "work section count: 0"
     },
     {
-      "name": "MyMosa card present",
+      "name": "Hero directly precedes creation chamber",
       "pass": true,
-      "detail": ""
+      "detail": "heroBottom:1000, creationY:1000"
     },
     {
-      "name": "IKLA Maison card present",
+      "name": "MyMosa NOT featured on homepage",
       "pass": true,
-      "detail": ""
+      "detail": "found 0"
     },
     {
-      "name": "Mr. Cliffs card present",
+      "name": "IKLA Maison NOT featured on homepage",
       "pass": true,
-      "detail": ""
+      "detail": "found 0"
     },
     {
-      "name": "All 3 authentic proof images loaded",
+      "name": "Mr. Cliffs NOT featured on homepage",
       "pass": true,
-      "detail": ""
+      "detail": "found 0"
     },
     {
       "name": "Zero placeholders on homepage",

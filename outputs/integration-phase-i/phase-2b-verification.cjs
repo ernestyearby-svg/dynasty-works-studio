@@ -43,32 +43,22 @@ const fs = require('fs');
   const secondaryHref = await secondaryCta.getAttribute('href');
   check('secondary CTA links to /work', secondaryHref === '/work');
 
-  // Where is the proof? Check section order
+  // Where is the proof? Check section order: Hero flows directly into Creation Chamber
   const arrivalBox = await page.locator('.p-arrival').boundingBox();
-  const proofBox = await page.locator('#work').boundingBox();
   const creationBox = await page.locator('#creation').boundingBox();
-  check('Selected Work placed immediately after hero and before creation chamber', proofBox.y > arrivalBox.y && proofBox.y < creationBox.y, `heroY:${arrivalBox.y}, proofY:${proofBox.y}, creationY:${creationBox.y}`);
+  const workSectionCount = await page.locator('#work').count();
+  check('Selected Work section removed from homepage per founder override', workSectionCount === 0, `work section count: ${workSectionCount}`);
+  check('Hero directly precedes creation chamber', creationBox.y >= arrivalBox.y + arrivalBox.height - 10, `heroBottom:${arrivalBox.y + arrivalBox.height}, creationY:${creationBox.y}`);
 
-  console.log('--- 2. Testing Early Portfolio Proof on Homepage ---');
-  const mymosaCard = page.locator('#work a[href="/work/mymosa"]');
-  check('MyMosa card present', await mymosaCard.count() > 0);
+  console.log('--- 2. Testing Absence of Case Studies on Homepage (Founder-Locked Rule) ---');
+  const mymosaOnHome = await page.locator('a[href="/work/mymosa"]').count();
+  check('MyMosa NOT featured on homepage', mymosaOnHome === 0, `found ${mymosaOnHome}`);
 
-  const iklaCard = page.locator('#work a[href="/work/ikla-maison"]');
-  check('IKLA Maison card present', await iklaCard.count() > 0);
+  const iklaOnHome = await page.locator('a[href="/work/ikla-maison"]').count();
+  check('IKLA Maison NOT featured on homepage', iklaOnHome === 0, `found ${iklaOnHome}`);
 
-  const cliffsCard = page.locator('#work a[href="/work/mr-cliffs"]');
-  check('Mr. Cliffs card present', await cliffsCard.count() > 0);
-
-  // Check proof images loading
-  const proofImages = await page.locator('#work img').all();
-  let allProofLoaded = proofImages.length === 3;
-  for (const img of proofImages) {
-    await img.scrollIntoViewIfNeeded();
-    await page.waitForTimeout(100);
-    const loaded = await img.evaluate(el => el.complete && el.naturalWidth > 0);
-    if (!loaded) allProofLoaded = false;
-  }
-  check('All 3 authentic proof images loaded', allProofLoaded);
+  const cliffsOnHome = await page.locator('a[href="/work/mr-cliffs"]').count();
+  check('Mr. Cliffs NOT featured on homepage', cliffsOnHome === 0, `found ${cliffsOnHome}`);
 
   // Zero placeholder check
   const placeholders = await page.locator(':has-text("ASSET SET PENDING")').count();
