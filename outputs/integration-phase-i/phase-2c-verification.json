@@ -1,0 +1,201 @@
+{
+  "checks": [
+    {
+      "name": "Builder header has \"Build the architecture before building the company\"",
+      "pass": true,
+      "detail": "04 / COMPANY BUILDERBuild the architecturebefore building the company.Tell us what we're building. Tell us where it stands. Tell us what it needs.Dynasty Works will generate an initial company-build roadmap."
+    },
+    {
+      "name": "Builder explainer states \"Tell us what we're building. Tell us where it stands. Tell us what it needs.\"",
+      "pass": true,
+      "detail": "Tell us what we're building. Tell us where it stands. Tell us what it needs.Dynasty Works will generate an initial company-build roadmap."
+    },
+    {
+      "name": "Capture 01-builder-entry-1440.png saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "14 business types available",
+      "pass": true,
+      "detail": "found 14"
+    },
+    {
+      "name": "Capture 02-diagnostic-step-1440.png saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Step 2 is \"Where does it stand?\"",
+      "pass": true,
+      "detail": "Where does it stand?"
+    },
+    {
+      "name": "Step 3 is \"What does it need?\"",
+      "pass": true,
+      "detail": "What does it need?"
+    },
+    {
+      "name": "Executive roadmap generated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Roadmap title includes venture name",
+      "pass": true,
+      "detail": "Aethelgard Botanical Spirits — Company Build Roadmap"
+    },
+    {
+      "name": "Four macro creation stages rendered",
+      "pass": true,
+      "detail": "found 4"
+    },
+    {
+      "name": "Active macro stages highlighted",
+      "pass": true,
+      "detail": "active: 3"
+    },
+    {
+      "name": "Immediate priorities callout rendered",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Immediate critical path chips present",
+      "pass": true,
+      "detail": "found 7 immediate services"
+    },
+    {
+      "name": "Phase blocks rendered sequentially",
+      "pass": true,
+      "detail": "found 6 phases"
+    },
+    {
+      "name": "Timing badges present on services",
+      "pass": true,
+      "detail": "found 16 badges"
+    },
+    {
+      "name": "Service dependency notes rendered",
+      "pass": true,
+      "detail": "found 9 dependencies"
+    },
+    {
+      "name": "Guidance panel includes timeline notice",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Guidance panel includes professional boundaries",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Guidance panel recommends studio engagement",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Commercial boundaries disclaimer present",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Capture 03-generated-roadmap-1440.png saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Roadmap .txt downloaded with content",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Capture 04-lead-capture-1440.png saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Structured brief JSON downloaded",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Brief contains deterministic recommended services",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Lead success confirmation rendered",
+      "pass": true,
+      "detail": "✓ Roadmap & Strategic Brief Saved.Your brief has been compiled and saved locally. In this static preview environment, please email our directors directly at contact@dynastyworks.studio or visit our Contact page with your saved brief."
+    },
+    {
+      "name": "Commercial ladder features Founder Blueprint $1,500",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "External r51-blueprint retains $1,500",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Capture 05-builder-entry-390.png saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Capture 06-generated-roadmap-390.png saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "viewport 320x640 zero horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "viewport 390x844 zero horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "viewport 430x932 zero horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "viewport 768x1024 zero horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "viewport 1024x768 zero horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "viewport 1440x900 zero horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "viewport 1920x1080 zero horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "viewport 2560x1440 zero horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Zero console errors during diagnostic execution",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "failed": [],
+  "errors": []
+}

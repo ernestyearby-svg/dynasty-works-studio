@@ -1,24 +1,742 @@
-import { useEffect, useRef, useState } from 'react';
-import { startingPoints, type BusinessType, type BuildNeed } from '@/data/company-builder';
+import React, { useEffect, useRef, useState } from 'react';
+import {
+  startingPoints,
+  launchWindows,
+  budgetChoices,
+  type BusinessType,
+  type BuildNeed,
+} from '@/data/company-builder';
 import { emptyCompanyBuild, availableNeeds, normalizeBuild } from '@/lib/company-builder';
-import { generateRoadmap, roadmapText } from '@/lib/recommendation-engine';
-import { businessStages, serviceById, type BusinessStage } from '@/data/service-catalog';
+import {
+  generateRoadmap,
+  roadmapText,
+  createLeadPayload,
+  type BuildRoadmap,
+} from '@/lib/recommendation-engine';
+import { businessStages, serviceById, type BusinessStage, type RoadmapPhase } from '@/data/service-catalog';
+import { creationStages, stageForPhase } from '@/data/company-creation';
 import type { CompanyBuild } from '@/types/company';
-const suggested:BuildNeed[]=['Brand Identity','Packaging','Website','E-commerce','Application','Launch','AI / Automation','Ongoing Support','Distribution Strategy'];
-export default function ReviewDiagnostic({businessType,onRestart,onMapChange}:{businessType:BusinessType;onRestart:()=>void;onMapChange:(map:{phases:string[];complete:boolean})=>void}){
- const [step,setStep]=useState(0);const[stage,setStage]=useState<BusinessStage>('Idea');const[starting,setStarting]=useState<CompanyBuild['starting']>([]);const[needs,setNeeds]=useState<BuildNeed[]>([]);const[error,setError]=useState('');const[downloadPrepared,setDownloadPrepared]=useState(false);const title=useRef<HTMLHeadingElement>(null);
- useEffect(()=>{title.current?.focus();},[step]);
- const build=normalizeBuild({...emptyCompanyBuild,businessType,businessStage:stage,starting:starting.length?starting:[startingPoints[0]],needs,uncertainNeeds:!needs.length,launch:'Exploring',budgetChoice:'Let’s define the range together'});
- useEffect(()=>{onMapChange({phases:generateRoadmap(build).phases.map(p=>p.name),complete:step===2});},[businessType,stage,starting,needs,step]);
- const permitted=availableNeeds(build);const result=step===2?generateRoadmap(build):null;
- function next(){if(step===0&&!starting.length){setError('Select your current starting point.');return;}setError('');setStep(step+1);}
- function toggleAsset(item:CompanyBuild['starting'][number]){setStarting(current=>current.includes(item)?current.filter(x=>x!==item):item===startingPoints[0]?[item]:[...current.filter(x=>x!==startingPoints[0]),item]);}
- function download(){const url=URL.createObjectURL(new Blob([roadmapText(build)],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='dynasty-works-initial-roadmap.txt';document.body.appendChild(a);a.click();a.remove();setDownloadPrepared(true);setTimeout(()=>URL.revokeObjectURL(url),1000);}
- return <div className="diagnostic r51-diagnostic"><div className="diagnostic-progress" aria-label={'Roadmap step '+(step+1)+' of 3'}>{[0,1,2].map(i=><span key={i} className={i<=step?'complete':''}/>)}</div><p className="step-count">{businessType} · {step+1} / 3</p><h3 ref={title} tabIndex={-1}>{['Where are you now?','What needs building?','Your first direction.'][step]}</h3>
- {step===0&&<><label htmlFor="business-stage">Business stage</label><select id="business-stage" value={stage} onChange={e=>setStage(e.target.value as BusinessStage)}>{businessStages.map(s=><option key={s}>{s}</option>)}</select><fieldset><legend>What already exists?</legend>{startingPoints.map(item=><label className="check-choice" key={item}><input type="checkbox" checked={starting.includes(item)} onChange={()=>toggleAsset(item)}/><span>{item}</span></label>)}</fieldset></>}
- {step===1&&<fieldset><legend>Select priorities, or continue to explore together.</legend>{suggested.filter(n=>permitted.includes(n)).map(item=><label className="check-choice" key={item}><input type="checkbox" checked={needs.includes(item)} onChange={()=>setNeeds(current=>current.includes(item)?current.filter(n=>n!==item):[...current,item])}/><span>{item}</span></label>)}</fieldset>}
- {error&&<p role="alert" className="form-error">{error}</p>}
- {result&&<div className="roadmap-result"><p className="result-intro">An initial recommendation based on your selections. Final scope follows a conversation.</p><ol>{result.phases.map(phase=><li key={phase.name}><h4>{phase.name}</h4><p>{phase.items.slice(0,2).map(item=>serviceById[item.serviceId].name).join(' · ')}</p></li>)}</ol><p className="result-engagement">Explore: <strong>{result.engagement.name}</strong></p><p className="instrument-note">{result.timelineNote}</p><button className="primary-action" onClick={download}>Download your roadmap <span aria-hidden="true">↓</span></button><p className="instrument-note" role="status">{downloadPrepared?"Roadmap file prepared. If the download did not start, read the full roadmap below.":"This preview does not collect contact details or submit an inquiry."}</p><details className="roadmap-text"><summary>Read the full roadmap</summary><pre>{roadmapText(build)}</pre></details></div>}
- <div className="diagnostic-actions"><button className="quiet-button" onClick={()=>step?setStep(step-1):onRestart()}>{step?'Back':'Change business type'}</button>{step<2?<button className="primary-action" onClick={next}>{step===1?'Create roadmap':'Continue'} <span aria-hidden="true">→</span></button>:<button className="quiet-button" onClick={onRestart}>Start again</button>}</div>
- </div>;
+import './ReviewDiagnostic.css';
+
+const suggested: BuildNeed[] = [
+  'Brand Identity',
+  'Packaging',
+  'Website',
+  'E-commerce',
+  'Application',
+  'Launch',
+  'AI / Automation',
+  'Ongoing Support',
+  'Distribution Strategy',
+  'Retail Readiness',
+  'Market Activation',
+  'Advertising',
+  'Social Content',
+  'Video',
+  'Pitch Deck',
+  'Business Collateral',
+];
+
+interface ReviewDiagnosticProps {
+  businessType: BusinessType;
+  onRestart: () => void;
+  onMapChange: (map: { phases: string[]; complete: boolean }) => void;
+}
+
+export default function ReviewDiagnostic({
+  businessType,
+  onRestart,
+  onMapChange,
+}: ReviewDiagnosticProps) {
+  const [step, setStep] = useState(0);
+  const [stage, setStage] = useState<BusinessStage>('Idea');
+  const [starting, setStarting] = useState<CompanyBuild['starting']>([]);
+  const [needs, setNeeds] = useState<BuildNeed[]>([]);
+  const [error, setError] = useState('');
+  const [downloadPrepared, setDownloadPrepared] = useState(false);
+
+  // Optional Planning Context
+  const [companyName, setCompanyName] = useState('');
+  const [launchWindow, setLaunchWindow] = useState('Exploring');
+  const [budgetChoice, setBudgetChoice] = useState('Let’s define the range together');
+  const [budgetNote, setBudgetNote] = useState('');
+  const [teamNote, setTeamNote] = useState('');
+  const [contextExpanded, setContextExpanded] = useState(false);
+
+  // Post-Roadmap Lead Capture
+  const [leadName, setLeadName] = useState('');
+  const [leadEmail, setLeadEmail] = useState('');
+  const [leadPhone, setLeadPhone] = useState('');
+  const [leadAmbition, setLeadAmbition] = useState('');
+  const [leadSaved, setLeadSaved] = useState(false);
+  const [leadError, setLeadError] = useState('');
+
+  const title = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    title.current?.focus();
+  }, [step]);
+
+  const build = normalizeBuild({
+    ...emptyCompanyBuild,
+    businessType,
+    businessStage: stage,
+    starting: starting.length ? starting : [startingPoints[0]],
+    needs,
+    uncertainNeeds: !needs.length,
+    company: companyName,
+    launch: (launchWindow as any) || 'Exploring',
+    budgetChoice: (budgetChoice as any) || 'Let’s define the range together',
+    budgetNote,
+  });
+
+  useEffect(() => {
+    onMapChange({
+      phases: generateRoadmap(build).phases.map((p) => p.name),
+      complete: step === 2,
+    });
+  }, [businessType, stage, starting, needs, step, companyName, launchWindow, budgetChoice, budgetNote]);
+
+  const permitted = availableNeeds(build);
+  const result: BuildRoadmap | null = step === 2 ? generateRoadmap(build) : null;
+
+  function next() {
+    if (step === 0 && !starting.length) {
+      setError('Select your current starting point to continue.');
+      return;
+    }
+    setError('');
+    setStep(step + 1);
+  }
+
+  function toggleAsset(item: CompanyBuild['starting'][number]) {
+    setStarting((current) =>
+      current.includes(item)
+        ? current.filter((x) => x !== item)
+        : item === startingPoints[0]
+        ? [item]
+        : [...current.filter((x) => x !== startingPoints[0]), item]
+    );
+  }
+
+  function toggleNeed(item: BuildNeed) {
+    setNeeds((current) =>
+      current.includes(item) ? current.filter((n) => n !== item) : [...current, item]
+    );
+  }
+
+  function download() {
+    const slug = (companyName || businessType).toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const filename = `dynasty-works-${slug}-roadmap.txt`;
+    const url = URL.createObjectURL(
+      new Blob([roadmapText(build)], { type: 'text/plain;charset=utf-8' })
+    );
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setDownloadPrepared(true);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  function handlePrint() {
+    window.print();
+  }
+
+  function handleSaveLead(e?: React.FormEvent) {
+    if (e) e.preventDefault();
+    if (!leadName.trim() || !leadEmail.trim() || !leadEmail.includes('@')) {
+      setLeadError('Please provide your name and a valid work email.');
+      return;
+    }
+    setLeadError('');
+    const identity = {
+      builderSessionId: 'dws_' + Math.random().toString(36).slice(2, 10),
+      createdAt: new Date().toISOString(),
+    };
+    const leadBuild: CompanyBuild = {
+      ...build,
+      name: leadName.trim(),
+      email: leadEmail.trim(),
+      phone: leadPhone.trim(),
+      company: companyName.trim() || build.company || 'Confidential Venture',
+    };
+    const payload = createLeadPayload(leadBuild, identity);
+
+    try {
+      localStorage.setItem('dws_company_builder_lead', JSON.stringify(payload));
+    } catch {
+      // Local storage fallback
+    }
+
+    // Prepare JSON brief download
+    const slug = (companyName || businessType).toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const briefFilename = `dynasty-works-${slug}-brief.json`;
+    const blob = new Blob([JSON.stringify(payload, null, 2)], {
+      type: 'application/json',
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = briefFilename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+    setLeadSaved(true);
+  }
+
+  return (
+    <div className="diagnostic r51-diagnostic dws-diagnostic-shell">
+      {/* Step Indicators */}
+      <div className="diagnostic-progress" aria-label={`Roadmap step ${step + 1} of 3`}>
+        {[0, 1, 2].map((i) => (
+          <span key={i} className={i <= step ? 'complete' : ''} />
+        ))}
+      </div>
+
+      <div className="dws-diag-meta">
+        <span className="step-count">{businessType} · Step {step + 1} of 3</span>
+        <span>
+          {step === 0
+            ? '02 / OPERATIONAL STAGE'
+            : step === 1
+            ? '03 / STRATEGIC PRIORITIES'
+            : '04 / EXECUTIVE ROADMAP'}
+        </span>
+      </div>
+
+      <h3 ref={title} tabIndex={-1} className="dws-diag-step-title">
+        {step === 0
+          ? 'Where does it stand?'
+          : step === 1
+          ? 'What does it need?'
+          : 'Executive Company Build Roadmap'}
+      </h3>
+
+      <p className="dws-diag-step-desc">
+        {step === 0
+          ? 'Establish the operational starting point so our engine sequences the foundational dependencies.'
+          : step === 1
+          ? 'Select the critical capabilities required to transform this concept into a functional operating company.'
+          : 'A boardroom-grade strategic architecture organizing proprietary services across four macro execution phases.'}
+      </p>
+
+      {/* STEP 0: STAGE & EXISTING ASSETS */}
+      {step === 0 && (
+        <>
+          <div className="dws-diag-field">
+            <label htmlFor="business-stage" className="dws-diag-label">
+              Operational Stage
+            </label>
+            <select
+              id="business-stage"
+              className="dws-diag-select"
+              value={stage}
+              onChange={(e) => setStage(e.target.value as BusinessStage)}
+            >
+              {businessStages.map((s) => (
+                <option key={s} value={s}>
+                  {s} Stage
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <fieldset className="dws-diag-field">
+            <legend className="dws-diag-label">What already exists?</legend>
+            <div className="dws-check-grid">
+              {startingPoints.map((item) => (
+                <label
+                  className={`check-choice dws-check-card ${starting.includes(item) ? 'is-checked' : ''}`}
+                  key={item}
+                >
+                  <input
+                    type="checkbox"
+                    checked={starting.includes(item)}
+                    onChange={() => toggleAsset(item)}
+                  />
+                  <span className="dws-check-label">{item}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+        </>
+      )}
+
+      {/* STEP 1: PRIORITIES & OPTIONAL PLANNING CONTEXT */}
+      {step === 1 && (
+        <>
+          <fieldset className="dws-diag-field">
+            <legend className="dws-diag-label">
+              Select Build Priorities (or continue with foundational defaults)
+            </legend>
+            <div className="dws-check-grid">
+              {suggested
+                .filter((n) => permitted.includes(n))
+                .map((item) => (
+                  <label
+                    className={`check-choice dws-check-card ${needs.includes(item) ? 'is-checked' : ''}`}
+                    key={item}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={needs.includes(item)}
+                      onChange={() => toggleNeed(item)}
+                    />
+                    <span className="dws-check-label">{item}</span>
+                  </label>
+                ))}
+            </div>
+          </fieldset>
+
+          {/* Optional Planning Context */}
+          <div className="dws-context-accordion">
+            <button
+              type="button"
+              className="dws-context-toggle"
+              onClick={() => setContextExpanded(!contextExpanded)}
+              aria-expanded={contextExpanded}
+            >
+              <span className="dws-context-toggle-title">
+                {contextExpanded ? '− Close Planning Context' : '+ Add Planning Context'}
+                <span className="dws-context-tag">Improves Qualification · Optional</span>
+              </span>
+              <span aria-hidden="true">{contextExpanded ? '▲' : '▼'}</span>
+            </button>
+
+            {contextExpanded && (
+              <div className="dws-context-fields">
+                <div>
+                  <label htmlFor="company-name" className="dws-diag-label">
+                    Company / Project Name
+                  </label>
+                  <input
+                    id="company-name"
+                    type="text"
+                    className="dws-diag-input"
+                    placeholder="e.g. Sovereign Living"
+                    value={companyName}
+                    onChange={(e) => setCompanyName(e.target.value)}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="launch-window" className="dws-diag-label">
+                    Target Launch Window
+                  </label>
+                  <select
+                    id="launch-window"
+                    className="dws-diag-select"
+                    value={launchWindow}
+                    onChange={(e) => setLaunchWindow(e.target.value)}
+                  >
+                    {launchWindows.map((lw) => (
+                      <option key={lw} value={lw}>
+                        {lw}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="budget-choice" className="dws-diag-label">
+                    Approximate Build Budget
+                  </label>
+                  <select
+                    id="budget-choice"
+                    className="dws-diag-select"
+                    value={budgetChoice}
+                    onChange={(e) => setBudgetChoice(e.target.value)}
+                  >
+                    {budgetChoices.map((bc) => (
+                      <option key={bc} value={bc}>
+                        {bc}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="budget-note" className="dws-diag-label">
+                    Budget Guidance Notes
+                  </label>
+                  <input
+                    id="budget-note"
+                    type="text"
+                    className="dws-diag-input"
+                    placeholder="e.g. Seeking seed-stage foundation"
+                    value={budgetNote}
+                    onChange={(e) => setBudgetNote(e.target.value)}
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+        </>
+      )}
+
+      {error && (
+        <p role="alert" className="form-error">
+          {error}
+        </p>
+      )}
+
+      {/* STEP 2: EXECUTIVE COMPANY BUILD ROADMAP */}
+      {result && (
+        <div className="roadmap-result dws-executive-roadmap" id="executive-roadmap">
+          {/* Executive Header */}
+          <div className="dws-roadmap-head">
+            <div className="dws-roadmap-super">
+              <span>DYNASTY WORKS STUDIO / STRATEGIC ARCHITECTURE</span>
+              <span>CONFIDENTIAL ROADMAP</span>
+            </div>
+            <h3 className="dws-roadmap-title">
+              {companyName ? `${companyName} — Company Build Roadmap` : `${businessType} Build Roadmap`}
+            </h3>
+
+            <div className="dws-roadmap-meta-grid">
+              <div className="dws-meta-item">
+                <small>Business Type</small>
+                <strong>{businessType}</strong>
+              </div>
+              <div className="dws-meta-item">
+                <small>Current Stage</small>
+                <strong>{result.stage}</strong>
+              </div>
+              <div className="dws-meta-item">
+                <small>Target Window</small>
+                <strong>{launchWindow}</strong>
+              </div>
+              <div className="dws-meta-item">
+                <small>Recommended Scope</small>
+                <strong>{result.items.length} Disciplines</strong>
+              </div>
+            </div>
+          </div>
+
+          {/* 4-Stage Macro Architecture Overview */}
+          <div className="dws-macro-architecture">
+            <div className="dws-section-subtitle">
+              01 / FOUR-STAGE MACRO CREATION SYSTEM
+            </div>
+            <div className="dws-macro-grid">
+              {creationStages.map((stageItem) => {
+                const activeServices = result.phases
+                  .filter((p) => stageForPhase[p.name] === stageItem.id)
+                  .flatMap((p) => p.items);
+                const isActive = activeServices.length > 0;
+                return (
+                  <div
+                    key={stageItem.id}
+                    className={`dws-macro-card ${isActive ? 'is-active' : 'is-idle'}`}
+                  >
+                    <div>
+                      <span className="dws-macro-step">{stageItem.id.toUpperCase()}</span>
+                      <h4 className="dws-macro-name">{stageItem.name}</h4>
+                      <p className="dws-macro-line">{stageItem.line}</p>
+                    </div>
+                    <span className="dws-macro-badge">
+                      {isActive ? `${activeServices.length} Recommended` : 'Foundation Only'}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Immediate Priorities Callout */}
+          {(() => {
+            const initials = result.items.filter((i) => i.timing === 'initial');
+            return initials.length > 0 ? (
+              <div className="dws-immediate-callout">
+                <h4>Immediate First Moves ({initials.length} Critical Path Services)</h4>
+                <p>
+                  These capabilities represent Day 1 dependencies. Downstream product,
+                  market activation, and automated scaling rely on these foundations:
+                </p>
+                <div className="dws-immediate-chips">
+                  {initials.map((item) => (
+                    <span key={item.serviceId} className="dws-immediate-chip">
+                      {serviceById[item.serviceId]?.name || item.serviceId}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ) : null;
+          })()}
+
+          {/* Sequential Service Architecture & Dependencies */}
+          <div className="dws-phase-sequence">
+            <div className="dws-section-subtitle">
+              02 / SEQUENTIAL PHASES & SERVICE DEPENDENCIES
+            </div>
+            <ol>
+              {result.phases.map((phase, pIdx) => (
+                <li key={phase.name} className="dws-phase-block">
+                  <div className="dws-phase-head">
+                    <h4>
+                      {String(pIdx + 1).padStart(2, '0')} {phase.name}
+                    </h4>
+                    <span className="dws-phase-stage-tag">
+                      Stage: {stageForPhase[phase.name]?.toUpperCase() || 'CORE'}
+                    </span>
+                  </div>
+
+                  <div className="dws-service-table">
+                    {phase.items.map((item) => {
+                      const svc = serviceById[item.serviceId];
+                      return (
+                        <div key={item.serviceId} className="dws-service-row">
+                          <div className="dws-service-name">{svc?.name || item.serviceId}</div>
+                          <div className="dws-service-desc">
+                            {item.reason}
+                            {item.prerequisiteNotes.length > 0 && (
+                              <span className="dws-service-dependency">
+                                ↳ {item.prerequisiteNotes.join(' ')}
+                              </span>
+                            )}
+                          </div>
+                          <div className="dws-service-badge-col">
+                            <span
+                              className={`dws-timing-badge ${
+                                item.timing === 'initial' ? 'initial' : 'future'
+                              }`}
+                            >
+                              {item.timing === 'initial' ? 'Initial priority' : 'Future phase'}
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          {/* Strategic Guidance & Regulatory Boundaries */}
+          <div className="dws-guidance-panel">
+            <div className="dws-guidance-title">Timeline & Dependency Notice</div>
+            <p className="dws-guidance-text">{result.timelineNote}</p>
+
+            {result.specialistNotes.length > 0 && (
+              <>
+                <div className="dws-guidance-title" style={{ marginTop: '14px' }}>
+                  Professional Boundaries
+                </div>
+                {result.specialistNotes.map((note, idx) => (
+                  <p key={idx} className="dws-guidance-text">
+                    {note}
+                  </p>
+                ))}
+              </>
+            )}
+
+            <div className="dws-guidance-title" style={{ marginTop: '14px' }}>
+              Recommended Studio Engagement
+            </div>
+            <p className="dws-guidance-text result-engagement">
+              Primary Vehicle: <strong>{result.engagement.name}</strong> — {result.engagement.reason}
+            </p>
+          </div>
+
+          {/* Commercial Boundaries Elegant Notice */}
+          <div className="dws-boundaries-note">
+            Preliminary strategic diagnostic. Final scope, commercial terms, and execution timeline
+            are established through direct studio review. Non-binding advisory roadmap.
+          </div>
+
+          {/* Export Actions (Txt download for regressions, PDF print trigger) */}
+          <div className="dws-export-bar">
+            <button className="primary-action" onClick={download}>
+              Download your roadmap <span aria-hidden="true">↓</span>
+            </button>
+            <button className="dws-btn-secondary" onClick={handlePrint}>
+              Print / Save as PDF <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+
+          <p className="instrument-note" role="status">
+            {downloadPrepared
+              ? 'Roadmap file prepared and downloaded. You can also review the complete raw output below.'
+              : 'This preliminary roadmap is generated locally in your browser. All inputs remain private.'}
+          </p>
+
+          {/* Collapsible raw text output */}
+          <details className="roadmap-text">
+            <summary>Read raw engine output</summary>
+            <pre>{roadmapText(build)}</pre>
+          </details>
+
+          {/* POST-ROADMAP LEAD CAPTURE (SAVE ROADMAP / CONTINUE WITH DYNASTY WORKS) */}
+          <div className="dws-lead-capture-box">
+            <div className="dws-lead-header">
+              <span className="dws-lead-kicker">POST-DIAGNOSTIC ENGAGEMENT</span>
+              <h4 className="dws-lead-title">Save My Roadmap / Continue With Dynasty Works</h4>
+              <p className="dws-lead-subtitle">
+                Preserve this strategic architecture to your file and request a preliminary review
+                with our principals. Your roadmap value has already been delivered.
+              </p>
+            </div>
+
+            {leadSaved ? (
+              <div className="dws-lead-success" role="status">
+                <strong>✓ Roadmap & Strategic Brief Saved.</strong>
+                <p style={{ margin: '6px 0 0' }}>
+                  Your brief has been compiled and saved locally. In this static preview environment,
+                  please email our directors directly at{' '}
+                  <a href="mailto:contact@dynastyworks.studio" style={{ color: '#2457ff' }}>
+                    contact@dynastyworks.studio
+                  </a>{' '}
+                  or visit our <a href="/contact" style={{ color: '#2457ff' }}>Contact page</a> with
+                  your saved brief.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSaveLead}>
+                <div className="dws-lead-grid">
+                  <div>
+                    <label htmlFor="lead-name" className="dws-diag-label">
+                      Founder Name *
+                    </label>
+                    <input
+                      id="lead-name"
+                      type="text"
+                      required
+                      className="dws-diag-input"
+                      placeholder="Your name"
+                      value={leadName}
+                      onChange={(e) => setLeadName(e.target.value)}
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="lead-email" className="dws-diag-label">
+                      Work Email *
+                    </label>
+                    <input
+                      id="lead-email"
+                      type="email"
+                      required
+                      className="dws-diag-input"
+                      placeholder="founder@venture.com"
+                      value={leadEmail}
+                      onChange={(e) => setLeadEmail(e.target.value)}
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="lead-phone" className="dws-diag-label">
+                      Phone Number (Optional)
+                    </label>
+                    <input
+                      id="lead-phone"
+                      type="tel"
+                      className="dws-diag-input"
+                      placeholder="+1 (555) 000-0000"
+                      value={leadPhone}
+                      onChange={(e) => setLeadPhone(e.target.value)}
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="lead-ambition" className="dws-diag-label">
+                      Core Ambition / Target Notes (Optional)
+                    </label>
+                    <input
+                      id="lead-ambition"
+                      type="text"
+                      className="dws-diag-input"
+                      placeholder="e.g. Target Q4 retail expansion"
+                      value={leadAmbition}
+                      onChange={(e) => setLeadAmbition(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+                {leadError && (
+                  <p role="alert" className="form-error" style={{ marginBottom: '14px' }}>
+                    {leadError}
+                  </p>
+                )}
+
+                <div className="dws-lead-actions">
+                  <button type="submit" className="primary-action">
+                    Save Roadmap & Request Review <span aria-hidden="true">→</span>
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+
+          {/* FOUNDER BLUEPRINT COMMERCIAL LADDER */}
+          <div className="dws-commercial-ladder">
+            <div className="dws-ladder-title">DYNASTY WORKS COMMERCIAL ENGAGEMENT LADDER</div>
+            <div className="dws-ladder-grid">
+              <div className="dws-ladder-step is-current">
+                <span className="dws-ladder-num">TIER 01 / INITIAL ROADMAP</span>
+                <div className="dws-ladder-name">Company Builder</div>
+                <div className="dws-ladder-price">Free / Completed</div>
+                <p className="dws-ladder-desc">
+                  Deterministic strategic assessment mapping initial scope, sequence, and service
+                  dependencies.
+                </p>
+              </div>
+
+              <div className="dws-ladder-step">
+                <span className="dws-ladder-num">TIER 02 / STRATEGIC ADVISORY</span>
+                <div className="dws-ladder-name">Founder Blueprint</div>
+                <div className="dws-ladder-price">$1,500 Strategic Scoping</div>
+                <p className="dws-ladder-desc">
+                  A high-conviction 2–3 week strategic engagement clarifying brand architecture,
+                  technical requirements, and exact execution specs.
+                </p>
+                <a href="/founder-blueprint" className="dws-ladder-action">
+                  Explore Blueprint <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+
+              <div className="dws-ladder-step">
+                <span className="dws-ladder-num">TIER 03 / VENTURE CREATION</span>
+                <div className="dws-ladder-name">Full Company Build</div>
+                <div className="dws-ladder-price">Custom Scope</div>
+                <p className="dws-ladder-desc">
+                  End-to-end execution across Strategy, Identity, Product, Packaging, Digital,
+                  Automation, and Market launch.
+                </p>
+                <a href="/contact" className="dws-ladder-action">
+                  Talk to Studio <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Navigation Actions */}
+      <div className="diagnostic-actions">
+        <button
+          className="quiet-button"
+          onClick={() => (step ? setStep(step - 1) : onRestart())}
+        >
+          {step ? 'Back' : 'Change business type'}
+        </button>
+
+        {step < 2 ? (
+          <button className="primary-action" onClick={next}>
+            {step === 1 ? 'Create roadmap' : 'Continue'}{' '}
+            <span aria-hidden="true">→</span>
+          </button>
+        ) : (
+          <button className="quiet-button" onClick={onRestart}>
+            Start again
+          </button>
+        )}
+      </div>
+    </div>
+  );
 }

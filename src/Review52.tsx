@@ -454,13 +454,13 @@ function ReviewBuilder() {
     <section id="review-builder" className={'r51-builder ' + (map.complete ? 'has-result' : '')}>
       <header>
         <span>04 / COMPANY BUILDER</span>
-        <h2>Bring us<br /><em>the idea.</em></h2>
-        <p>This is how we build.<br />Now, make it yours.</p>
+        <h2>Build the architecture<br /><em>before building the company.</em></h2>
+        <p>Tell us what we're building. Tell us where it stands. Tell us what it needs.<br />Dynasty Works will generate an initial company-build roadmap.</p>
       </header>
       <div className="r51-instrument">
         <div className="r51-instrument-status">
           <span>DYNASTY WORKS / FOUNDER DIAGNOSTIC</span>
-          <span>{map.complete ? 'OUTPUT / INITIAL ROADMAP' : type ? 'INPUT / YOUR COMPANY' : started ? '01 / COMPANY TYPE' : 'READY / YOUR IDEA'}</span>
+          <span>{map.complete ? 'OUTPUT / EXECUTIVE ROADMAP' : type ? 'INPUT / STRATEGIC PROFILE' : started ? '01 / COMPANY TYPE' : 'READY / YOUR IDEA'}</span>
         </div>
         <div className="r51-response">
           <div className={'r51-response-art ' + classes + (started ? ' is-active' : '')}>

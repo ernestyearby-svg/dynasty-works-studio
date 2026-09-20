@@ -1,0 +1,756 @@
+/* Dynasty Works Studio — Company Creation Diagnostic & Executive Roadmap Styles */
+
+.dws-diagnostic-shell {
+  width: 100%;
+  color: #161a12;
+}
+
+/* Diagnostic Progress & Header */
+.dws-diag-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 20px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #57614e;
+}
+
+.dws-diag-step-title {
+  font-family: PBodoni, serif;
+  font-weight: 400;
+  font-size: clamp(32px, 3.8vw, 54px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin: 0 0 12px;
+  color: #111214;
+}
+
+.dws-diag-step-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #555c4d;
+  margin: 0 0 28px;
+  max-width: 52ch;
+}
+
+/* Form Controls & Checkboxes */
+.dws-diag-field {
+  margin-bottom: 24px;
+}
+
+.dws-diag-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #495241;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.dws-diag-select,
+.dws-diag-input,
+.dws-diag-textarea {
+  display: block;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid #9aa091;
+  color: #111214;
+  font: inherit;
+  font-size: 15px;
+  padding: 14px 16px;
+  border-radius: 0;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.dws-diag-select:focus,
+.dws-diag-input:focus,
+.dws-diag-textarea:focus {
+  outline: 2px solid #2457ff;
+  outline-offset: 2px;
+  background: #ffffff;
+  border-color: #2457ff;
+}
+
+/* Checkbox Grid */
+.dws-check-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+  margin: 16px 0 24px;
+}
+
+.dws-check-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid #b8beaf;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-height: 52px;
+}
+
+.dws-check-card:hover {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: #76806c;
+}
+
+.dws-check-card.is-checked {
+  background: #ffffff;
+  border-color: #2457ff;
+  box-shadow: 0 2px 8px rgba(36, 87, 255, 0.08);
+}
+
+.dws-check-card input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #737c69;
+  flex-shrink: 0;
+  margin-top: 1px;
+  background: transparent;
+  transition: all 0.15s;
+}
+
+.dws-check-card input[type="checkbox"]:checked {
+  background: #2457ff;
+  border-color: #2457ff;
+  box-shadow: inset 0 0 0 3px #ffffff;
+}
+
+.dws-check-label {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #1c2217;
+  font-weight: 500;
+}
+
+/* Optional Commercial Context Card */
+.dws-context-accordion {
+  border: 1px solid #b0b7a6;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 24px 0;
+  padding: 18px 20px;
+}
+
+.dws-context-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+}
+
+.dws-context-toggle-title {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2d3527;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dws-context-tag {
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  padding: 2px 6px;
+  background: #dfe3d8;
+  color: #565f4d;
+  font-weight: 500;
+}
+
+.dws-context-fields {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #c5cbd0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .dws-context-fields {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Executive Roadmap Presentation (.roadmap-result) */
+.roadmap-result.dws-executive-roadmap {
+  background: #faf8f5;
+  border: 1px solid #9aa091;
+  padding: clamp(24px, 4vw, 44px);
+  margin-top: 10px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+/* Executive Header */
+.dws-roadmap-head {
+  border-bottom: 2px solid #161a12;
+  padding-bottom: 24px;
+  margin-bottom: 30px;
+}
+
+.dws-roadmap-super {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #555d4d;
+  margin-bottom: 12px;
+}
+
+.dws-roadmap-title {
+  font-family: PBodoni, serif;
+  font-weight: 400;
+  font-size: clamp(34px, 4vw, 56px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  margin: 0 0 16px;
+  color: #111214;
+}
+
+.dws-roadmap-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  background: #f0eee8;
+  padding: 14px 18px;
+  border: 1px solid #c8cec0;
+  font-size: 11px;
+}
+
+.dws-meta-item small {
+  display: block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #636b5b;
+  margin-bottom: 4px;
+}
+
+.dws-meta-item strong {
+  color: #111214;
+  font-weight: 600;
+}
+
+/* 4-Stage Macro Architecture */
+.dws-macro-architecture {
+  margin-bottom: 36px;
+}
+
+.dws-section-subtitle {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #596150;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.dws-macro-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .dws-macro-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .dws-macro-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dws-macro-card {
+  border: 1px solid #b7beb0;
+  background: #ffffff;
+  padding: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dws-macro-card.is-active {
+  border-top: 3px solid #2457ff;
+}
+
+.dws-macro-card.is-idle {
+  opacity: 0.65;
+  border-top: 3px solid #b7beb0;
+}
+
+.dws-macro-step {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: #606857;
+  font-weight: 600;
+}
+
+.dws-macro-name {
+  font-family: PManrope, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 6px 0 4px;
+  color: #111214;
+}
+
+.dws-macro-line {
+  font-size: 11px;
+  line-height: 1.4;
+  color: #5d6655;
+  margin: 0 0 14px;
+}
+
+.dws-macro-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  background: #e9eefb;
+  color: #1d46c8;
+  font-weight: 600;
+}
+
+.dws-macro-card.is-idle .dws-macro-badge {
+  background: #ededed;
+  color: #717171;
+}
+
+/* Immediate Priorities Callout */
+.dws-immediate-callout {
+  background: #171b14;
+  color: #f3f1eb;
+  padding: 24px 28px;
+  margin-bottom: 36px;
+  border-left: 4px solid #2457ff;
+}
+
+.dws-immediate-callout h4 {
+  font-family: PManrope, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8da4ff;
+  margin: 0 0 12px;
+}
+
+.dws-immediate-callout p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #cfd4c8;
+  margin: 0 0 14px;
+}
+
+.dws-immediate-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dws-immediate-chip {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 6px 12px;
+  font-size: 11px;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+/* Sequential Service Architecture */
+.dws-phase-sequence {
+  margin-bottom: 36px;
+}
+
+.dws-phase-block {
+  border-top: 1px solid #161a12;
+  padding: 20px 0 28px;
+}
+
+.dws-phase-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+
+.dws-phase-head h4 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: #111214;
+}
+
+.dws-phase-stage-tag {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2457ff;
+  font-weight: 700;
+}
+
+.dws-service-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dws-service-row {
+  border-top: 1px solid #d8decb;
+  padding: 14px 0;
+  display: grid;
+  grid-template-columns: 240px 1fr 140px;
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .dws-service-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+.dws-service-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #12160f;
+  line-height: 1.4;
+}
+
+.dws-service-desc {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #4f5746;
+}
+
+.dws-service-dependency {
+  font-size: 11px;
+  color: #7b4a1b;
+  margin-top: 4px;
+  display: block;
+}
+
+.dws-service-badge-col {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .dws-service-badge-col {
+    text-align: left;
+  }
+}
+
+.dws-timing-badge {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  font-weight: 600;
+}
+
+.dws-timing-badge.initial {
+  background: #2457ff;
+  color: #ffffff;
+}
+
+.dws-timing-badge.future {
+  border: 1px solid #9ba290;
+  color: #555d4c;
+  background: transparent;
+}
+
+/* Strategic Guidance & Specialist Notes */
+.dws-guidance-panel {
+  background: #f2efe9;
+  border: 1px solid #c1c7b8;
+  padding: 18px 22px;
+  margin-bottom: 28px;
+}
+
+.dws-guidance-title {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #4b5343;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.dws-guidance-text {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #3b4234;
+  margin: 0 0 10px;
+}
+
+.dws-guidance-text:last-child {
+  margin-bottom: 0;
+}
+
+/* Commercial Boundaries Note */
+.dws-boundaries-note {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #6d7564;
+  font-style: italic;
+  margin: 20px 0;
+  border-left: 2px solid #9ca392;
+  padding-left: 14px;
+}
+
+/* Export Actions */
+.dws-export-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 28px 0;
+  align-items: center;
+}
+
+.dws-btn-secondary {
+  border: 1px solid #161a12;
+  background: transparent;
+  color: #161a12;
+  padding: 16px 22px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dws-btn-secondary:hover {
+  background: #161a12;
+  color: #ffffff;
+}
+
+/* Post-Roadmap Lead Capture */
+.dws-lead-capture-box {
+  background: #ffffff;
+  border: 1px solid #2457ff;
+  padding: clamp(24px, 3.5vw, 36px);
+  margin: 36px 0 20px;
+  box-shadow: 0 4px 18px rgba(36, 87, 255, 0.06);
+}
+
+.dws-lead-header {
+  margin-bottom: 20px;
+}
+
+.dws-lead-kicker {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2457ff;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.dws-lead-title {
+  font-family: PBodoni, serif;
+  font-size: clamp(24px, 2.5vw, 34px);
+  font-weight: 400;
+  margin: 0 0 8px;
+  color: #111214;
+}
+
+.dws-lead-subtitle {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #555c4d;
+  margin: 0;
+}
+
+.dws-lead-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 650px) {
+  .dws-lead-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dws-lead-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.dws-lead-success {
+  background: #eef6ee;
+  border: 1px solid #7cb77c;
+  padding: 16px 20px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #1e4d1e;
+}
+
+/* Founder Blueprint Ladder */
+.dws-commercial-ladder {
+  background: #f0eee7;
+  border: 1px solid #b8beae;
+  padding: 24px;
+  margin-top: 36px;
+}
+
+.dws-ladder-title {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #58614f;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.dws-ladder-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 768px) {
+  .dws-ladder-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dws-ladder-step {
+  background: #ffffff;
+  border: 1px solid #c5ccbd;
+  padding: 16px;
+  position: relative;
+}
+
+.dws-ladder-step.is-current {
+  border-color: #2457ff;
+}
+
+.dws-ladder-num {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: #6b7362;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.dws-ladder-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111214;
+  margin-bottom: 4px;
+}
+
+.dws-ladder-price {
+  font-size: 12px;
+  color: #2457ff;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.dws-ladder-desc {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #555d4c;
+  margin: 0;
+}
+
+.dws-ladder-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #2457ff;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.dws-ladder-action:hover {
+  text-decoration: underline;
+}
+
+/* Print Optimization Styles */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .p-prototype header,
+  .p-prototype footer,
+  .p-evolution,
+  .p-shared-art,
+  .r51-operating,
+  .r52-home-capabilities,
+  .r52-studio-signal,
+  .p-invitation,
+  .dws-export-bar,
+  .dws-lead-capture-box,
+  .dws-commercial-ladder,
+  .diagnostic-actions,
+  .roadmap-text {
+    display: none !important;
+  }
+  .roadmap-result.dws-executive-roadmap {
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+  .dws-roadmap-head {
+    border-bottom: 2px solid #000000 !important;
+  }
+  .dws-immediate-callout {
+    background: #f0f0f0 !important;
+    color: #000000 !important;
+    border-left: 4px solid #000000 !important;
+  }
+  .dws-immediate-callout h4,
+  .dws-immediate-callout p,
+  .dws-immediate-chip {
+    color: #000000 !important;
+  }
+  .dws-immediate-chip {
+    background: #ffffff !important;
+    border: 1px solid #000000 !important;
+  }
+  .dws-timing-badge.initial {
+    background: #000000 !important;
+    color: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
