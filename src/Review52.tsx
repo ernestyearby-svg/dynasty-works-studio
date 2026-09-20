@@ -451,7 +451,7 @@ function ReviewBuilder() {
     );
   const classes = ['strategy', 'identity', 'product', 'digital', 'experience', 'market', 'systems'].filter(active).map((s) => 'has-' + s).join(' ');
   return (
-    <section id="review-builder" className={'r51-builder ' + (map.complete ? 'has-result' : '')}>
+    <section id="review-builder" className={'r51-builder ' + (started ? 'is-started ' : '') + (map.complete ? 'has-result' : '')}>
       <header>
         <span>04 / COMPANY BUILDER</span>
         <h2>Build the architecture<br /><em>before building the company.</em></h2>

@@ -14,7 +14,7 @@ import {
   type BuildRoadmap,
 } from '@/lib/recommendation-engine';
 import { businessStages, serviceById, type BusinessStage, type RoadmapPhase } from '@/data/service-catalog';
-import { creationStages, stageForPhase } from '@/data/company-creation';
+import { creationStages, stageForPhase, type CreationStage } from '@/data/company-creation';
 import type { CompanyBuild } from '@/types/company';
 import './ReviewDiagnostic.css';
 
@@ -60,10 +60,9 @@ export default function ReviewDiagnostic({
   const [launchWindow, setLaunchWindow] = useState('Exploring');
   const [budgetChoice, setBudgetChoice] = useState('Let’s define the range together');
   const [budgetNote, setBudgetNote] = useState('');
-  const [teamNote, setTeamNote] = useState('');
   const [contextExpanded, setContextExpanded] = useState(false);
 
-  // Post-Roadmap Lead Capture
+  // Post-Roadmap Studio Brief Preparation
   const [leadName, setLeadName] = useState('');
   const [leadEmail, setLeadEmail] = useState('');
   const [leadPhone, setLeadPhone] = useState('');
@@ -171,7 +170,7 @@ export default function ReviewDiagnostic({
       // Local storage fallback
     }
 
-    // Prepare JSON brief download
+    // Trigger brief JSON download
     const slug = (companyName || businessType).toLowerCase().replace(/[^a-z0-9]+/g, '-');
     const briefFilename = `dynasty-works-${slug}-brief.json`;
     const blob = new Blob([JSON.stringify(payload, null, 2)], {
@@ -469,53 +468,73 @@ export default function ReviewDiagnostic({
             ) : null;
           })()}
 
-          {/* Sequential Service Architecture & Dependencies */}
+          {/* Sequential Service Architecture Organized by Macro Landmarks */}
           <div className="dws-phase-sequence">
             <div className="dws-section-subtitle">
               02 / SEQUENTIAL PHASES & SERVICE DEPENDENCIES
             </div>
-            <ol>
-              {result.phases.map((phase, pIdx) => (
-                <li key={phase.name} className="dws-phase-block">
-                  <div className="dws-phase-head">
-                    <h4>
-                      {String(pIdx + 1).padStart(2, '0')} {phase.name}
-                    </h4>
-                    <span className="dws-phase-stage-tag">
-                      Stage: {stageForPhase[phase.name]?.toUpperCase() || 'CORE'}
-                    </span>
-                  </div>
+            
+            {creationStages.map((stageItem) => {
+              const stagePhases = result.phases.filter(
+                (p) => stageForPhase[p.name] === stageItem.id
+              );
+              if (stagePhases.length === 0) return null;
 
-                  <div className="dws-service-table">
-                    {phase.items.map((item) => {
-                      const svc = serviceById[item.serviceId];
-                      return (
-                        <div key={item.serviceId} className="dws-service-row">
-                          <div className="dws-service-name">{svc?.name || item.serviceId}</div>
-                          <div className="dws-service-desc">
-                            {item.reason}
-                            {item.prerequisiteNotes.length > 0 && (
-                              <span className="dws-service-dependency">
-                                ↳ {item.prerequisiteNotes.join(' ')}
-                              </span>
-                            )}
-                          </div>
-                          <div className="dws-service-badge-col">
-                            <span
-                              className={`dws-timing-badge ${
-                                item.timing === 'initial' ? 'initial' : 'future'
-                              }`}
-                            >
-                              {item.timing === 'initial' ? 'Initial priority' : 'Future phase'}
-                            </span>
-                          </div>
-                        </div>
-                      );
-                    })}
+              return (
+                <div key={stageItem.id} className="dws-macro-landmark">
+                  <div className="dws-macro-landmark-head">
+                    <span className="dws-macro-landmark-tag">
+                      STAGE {stageItem.id.toUpperCase()}
+                    </span>
+                    <h4 className="dws-macro-landmark-title">{stageItem.name}</h4>
                   </div>
-                </li>
-              ))}
-            </ol>
+                  <p className="dws-macro-landmark-desc">{stageItem.line}</p>
+
+                  <ol style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                    {stagePhases.map((phase) => (
+                      <li key={phase.name} className="dws-phase-block">
+                        <div className="dws-phase-head">
+                          <h4>{phase.name}</h4>
+                          <span className="dws-phase-count">
+                            {phase.items.length} {phase.items.length === 1 ? 'service' : 'services'}
+                          </span>
+                        </div>
+
+                        <div className="dws-service-table">
+                          {phase.items.map((item) => {
+                            const svc = serviceById[item.serviceId];
+                            return (
+                              <div key={item.serviceId} className="dws-service-row">
+                                <div className="dws-service-name">
+                                  {svc?.name || item.serviceId}
+                                </div>
+                                <div className="dws-service-desc">
+                                  {item.reason}
+                                  {item.prerequisiteNotes.length > 0 && (
+                                    <span className="dws-service-dependency">
+                                      ↳ {item.prerequisiteNotes.join(' ')}
+                                    </span>
+                                  )}
+                                </div>
+                                <div className="dws-service-badge-col">
+                                  <span
+                                    className={`dws-timing-badge ${
+                                      item.timing === 'initial' ? 'initial' : 'future'
+                                    }`}
+                                  >
+                                    {item.timing === 'initial' ? 'Initial priority' : 'Future phase'}
+                                  </span>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              );
+            })}
           </div>
 
           {/* Strategic Guidance & Regulatory Boundaries */}
@@ -550,7 +569,56 @@ export default function ReviewDiagnostic({
             are established through direct studio review. Non-binding advisory roadmap.
           </div>
 
-          {/* Export Actions (Txt download for regressions, PDF print trigger) */}
+          {/* RECOMMENDED NEXT DECISION — COMMERCIAL ENGAGEMENT LADDER */}
+          <div className="dws-commercial-ladder">
+            <div className="dws-ladder-title">RECOMMENDED NEXT DECISION · COMMERCIAL ENGAGEMENT LADDER</div>
+            <div className="dws-ladder-grid">
+              <div className="dws-ladder-step">
+                <div>
+                  <span className="dws-ladder-num">TIER 01 / INITIAL ROADMAP</span>
+                  <div className="dws-ladder-name">Company Builder</div>
+                  <div className="dws-ladder-price">Free / Completed Above</div>
+                  <p className="dws-ladder-desc">
+                    Deterministic strategic assessment mapping initial scope, sequence, and service
+                    dependencies.
+                  </p>
+                </div>
+              </div>
+
+              <div className="dws-ladder-step is-highlighted">
+                <span className="dws-ladder-badge">RECOMMENDED NEXT STEP</span>
+                <div>
+                  <span className="dws-ladder-num">TIER 02 / STRATEGIC ADVISORY</span>
+                  <div className="dws-ladder-name">Founder Blueprint</div>
+                  <div className="dws-ladder-price">$1,500 Strategic Scoping</div>
+                  <p className="dws-ladder-desc">
+                    A high-conviction 2–3 week strategic engagement clarifying brand architecture,
+                    technical requirements, and exact execution specs.
+                  </p>
+                </div>
+                <a href="/founder-blueprint" className="dws-ladder-cta-primary">
+                  Explore Founder Blueprint <span aria-hidden="true">→</span>
+                </a>
+              </div>
+
+              <div className="dws-ladder-step">
+                <div>
+                  <span className="dws-ladder-num">TIER 03 / VENTURE CREATION</span>
+                  <div className="dws-ladder-name">Full Company Build</div>
+                  <div className="dws-ladder-price">Custom Scope</div>
+                  <p className="dws-ladder-desc">
+                    End-to-end execution across Strategy, Identity, Product, Packaging, Digital,
+                    Automation, and Market launch.
+                  </p>
+                </div>
+                <a href="/contact" className="dws-ladder-action">
+                  Talk to the Studio <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Export Utilities */}
           <div className="dws-export-bar">
             <button className="primary-action" onClick={download}>
               Download your roadmap <span aria-hidden="true">↓</span>
@@ -572,28 +640,32 @@ export default function ReviewDiagnostic({
             <pre>{roadmapText(build)}</pre>
           </details>
 
-          {/* POST-ROADMAP LEAD CAPTURE (SAVE ROADMAP / CONTINUE WITH DYNASTY WORKS) */}
+          {/* POST-ROADMAP STUDIO BRIEF PREPARATION (TRUTHFUL CTA LANGUAGE & DELIBERATE INPUTS) */}
           <div className="dws-lead-capture-box">
             <div className="dws-lead-header">
-              <span className="dws-lead-kicker">POST-DIAGNOSTIC ENGAGEMENT</span>
-              <h4 className="dws-lead-title">Save My Roadmap / Continue With Dynasty Works</h4>
+              <span className="dws-lead-kicker">LOCAL PREPARATION UTILITY</span>
+              <h4 className="dws-lead-title">Save Roadmap & Prepare Studio Brief</h4>
               <p className="dws-lead-subtitle">
-                Preserve this strategic architecture to your file and request a preliminary review
-                with our principals. Your roadmap value has already been delivered.
+                Your initial roadmap has been generated above. Complete your founder details below
+                to compile a formal studio brief and download a private project dossier to your
+                computer. Nothing is transmitted over the network.
               </p>
             </div>
 
             {leadSaved ? (
               <div className="dws-lead-success" role="status">
-                <strong>✓ Roadmap & Strategic Brief Saved.</strong>
-                <p style={{ margin: '6px 0 0' }}>
-                  Your brief has been compiled and saved locally. In this static preview environment,
-                  please email our directors directly at{' '}
-                  <a href="mailto:contact@dynastyworks.studio" style={{ color: '#2457ff' }}>
-                    contact@dynastyworks.studio
+                <strong>✓ Roadmap & Studio Brief Prepared.</strong>
+                <p style={{ margin: '8px 0 0' }}>
+                  Your structured company brief has been downloaded to your device and saved to your
+                  browser session. To initiate a direct conversation with studio principals, please
+                  share your brief via our{' '}
+                  <a href="/contact" style={{ color: '#2457ff', fontWeight: 600 }}>
+                    Contact channel
                   </a>{' '}
-                  or visit our <a href="/contact" style={{ color: '#2457ff' }}>Contact page</a> with
-                  your saved brief.
+                  or email{' '}
+                  <a href="mailto:contact@dynastyworks.studio" style={{ color: '#2457ff', fontWeight: 600 }}>
+                    contact@dynastyworks.studio
+                  </a>.
                 </p>
               </div>
             ) : (
@@ -608,7 +680,7 @@ export default function ReviewDiagnostic({
                       type="text"
                       required
                       className="dws-diag-input"
-                      placeholder="Your name"
+                      placeholder="Your full name"
                       value={leadName}
                       onChange={(e) => setLeadName(e.target.value)}
                     />
@@ -629,7 +701,7 @@ export default function ReviewDiagnostic({
                     />
                   </div>
 
-                  <div>
+                  <div className="dws-lead-full">
                     <label htmlFor="lead-phone" className="dws-diag-label">
                       Phone Number (Optional)
                     </label>
@@ -643,15 +715,15 @@ export default function ReviewDiagnostic({
                     />
                   </div>
 
-                  <div>
+                  <div className="dws-lead-full">
                     <label htmlFor="lead-ambition" className="dws-diag-label">
                       Core Ambition / Target Notes (Optional)
                     </label>
-                    <input
+                    <textarea
                       id="lead-ambition"
-                      type="text"
-                      className="dws-diag-input"
-                      placeholder="e.g. Target Q4 retail expansion"
+                      rows={3}
+                      className="dws-diag-textarea"
+                      placeholder="e.g. Target launch Q4, seeking retail placement and premium e-commerce flagship."
                       value={leadAmbition}
                       onChange={(e) => setLeadAmbition(e.target.value)}
                     />
@@ -666,53 +738,11 @@ export default function ReviewDiagnostic({
 
                 <div className="dws-lead-actions">
                   <button type="submit" className="primary-action">
-                    Save Roadmap & Request Review <span aria-hidden="true">→</span>
+                    Save Roadmap & Prepare Studio Brief <span aria-hidden="true">→</span>
                   </button>
                 </div>
               </form>
             )}
-          </div>
-
-          {/* FOUNDER BLUEPRINT COMMERCIAL LADDER */}
-          <div className="dws-commercial-ladder">
-            <div className="dws-ladder-title">DYNASTY WORKS COMMERCIAL ENGAGEMENT LADDER</div>
-            <div className="dws-ladder-grid">
-              <div className="dws-ladder-step is-current">
-                <span className="dws-ladder-num">TIER 01 / INITIAL ROADMAP</span>
-                <div className="dws-ladder-name">Company Builder</div>
-                <div className="dws-ladder-price">Free / Completed</div>
-                <p className="dws-ladder-desc">
-                  Deterministic strategic assessment mapping initial scope, sequence, and service
-                  dependencies.
-                </p>
-              </div>
-
-              <div className="dws-ladder-step">
-                <span className="dws-ladder-num">TIER 02 / STRATEGIC ADVISORY</span>
-                <div className="dws-ladder-name">Founder Blueprint</div>
-                <div className="dws-ladder-price">$1,500 Strategic Scoping</div>
-                <p className="dws-ladder-desc">
-                  A high-conviction 2–3 week strategic engagement clarifying brand architecture,
-                  technical requirements, and exact execution specs.
-                </p>
-                <a href="/founder-blueprint" className="dws-ladder-action">
-                  Explore Blueprint <span aria-hidden="true">↗</span>
-                </a>
-              </div>
-
-              <div className="dws-ladder-step">
-                <span className="dws-ladder-num">TIER 03 / VENTURE CREATION</span>
-                <div className="dws-ladder-name">Full Company Build</div>
-                <div className="dws-ladder-price">Custom Scope</div>
-                <p className="dws-ladder-desc">
-                  End-to-end execution across Strategy, Identity, Product, Packaging, Digital,
-                  Automation, and Market launch.
-                </p>
-                <a href="/contact" className="dws-ladder-action">
-                  Talk to Studio <span aria-hidden="true">↗</span>
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       )}

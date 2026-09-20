@@ -20,7 +20,7 @@
 .dws-diag-step-title {
   font-family: PBodoni, serif;
   font-weight: 400;
-  font-size: clamp(32px, 3.8vw, 54px);
+  font-size: clamp(30px, 3.5vw, 50px);
   line-height: 1.05;
   letter-spacing: -0.04em;
   margin: 0 0 12px;
@@ -31,7 +31,7 @@
   font-size: 13px;
   line-height: 1.6;
   color: #555c4d;
-  margin: 0 0 28px;
+  margin: 0 0 26px;
   max-width: 52ch;
 }
 
@@ -50,28 +50,75 @@
   font-weight: 600;
 }
 
-.dws-diag-select,
-.dws-diag-input,
-.dws-diag-textarea {
+.dws-diag-select {
   display: block;
   width: 100%;
-  background: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.65);
   border: 1px solid #9aa091;
   color: #111214;
   font: inherit;
   font-size: 15px;
-  padding: 14px 16px;
+  padding: 13px 16px;
   border-radius: 0;
   transition: border-color 0.2s, background-color 0.2s;
 }
 
-.dws-diag-select:focus,
-.dws-diag-input:focus,
-.dws-diag-textarea:focus {
+.dws-diag-select:focus {
   outline: 2px solid #2457ff;
   outline-offset: 2px;
   background: #ffffff;
   border-color: #2457ff;
+}
+
+/* CRITICAL OVERRIDE: Ensure inputs and textarea render as deliberate, full-width fields */
+.dws-diagnostic-shell input.dws-diag-input,
+.dws-diagnostic-shell .dws-diag-input {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 48px !important;
+  height: 48px !important;
+  background: #ffffff !important;
+  border: 1px solid #9aa091 !important;
+  color: #111214 !important;
+  font-family: PManrope, sans-serif !important;
+  font-size: 14px !important;
+  padding: 12px 16px !important;
+  border-radius: 0 !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  flex: 1 1 100% !important;
+}
+
+.dws-diagnostic-shell textarea.dws-diag-textarea,
+.dws-diagnostic-shell .dws-diag-textarea {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 96px !important;
+  background: #ffffff !important;
+  border: 1px solid #9aa091 !important;
+  color: #111214 !important;
+  font-family: PManrope, sans-serif !important;
+  font-size: 14px !important;
+  padding: 12px 16px !important;
+  border-radius: 0 !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  resize: vertical !important;
+  line-height: 1.5 !important;
+}
+
+.dws-diagnostic-shell input.dws-diag-input:focus,
+.dws-diagnostic-shell textarea.dws-diag-textarea:focus {
+  outline: 2px solid #2457ff !important;
+  outline-offset: 2px !important;
+  border-color: #2457ff !important;
+  background: #ffffff !important;
 }
 
 /* Checkbox Grid */
@@ -87,7 +134,7 @@
   align-items: flex-start;
   gap: 12px;
   padding: 14px 16px;
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.4);
   border: 1px solid #b8beaf;
   cursor: pointer;
   transition: all 0.2s;
@@ -95,7 +142,7 @@
 }
 
 .dws-check-card:hover {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.75);
   border-color: #76806c;
 }
 
@@ -132,7 +179,7 @@
 /* Optional Commercial Context Card */
 .dws-context-accordion {
   border: 1px solid #b0b7a6;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.35);
   margin: 24px 0;
   padding: 18px 20px;
 }
@@ -216,7 +263,7 @@
 .dws-roadmap-title {
   font-family: PBodoni, serif;
   font-weight: 400;
-  font-size: clamp(34px, 4vw, 56px);
+  font-size: clamp(32px, 3.8vw, 52px);
   line-height: 1.02;
   letter-spacing: -0.04em;
   margin: 0 0 16px;
@@ -378,46 +425,84 @@
   letter-spacing: 0.02em;
 }
 
+/* Macro Landmark Architecture */
+.dws-macro-landmark {
+  border-top: 2px solid #161a12;
+  margin: 36px 0 24px;
+  padding-top: 20px;
+}
+
+.dws-macro-landmark-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.dws-macro-landmark-tag {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2457ff;
+  font-weight: 700;
+}
+
+.dws-macro-landmark-title {
+  font-family: PManrope, sans-serif;
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #111214;
+  margin: 0;
+}
+
+.dws-macro-landmark-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #586150;
+  margin: 0 0 20px;
+  font-style: italic;
+}
+
 /* Sequential Service Architecture */
 .dws-phase-sequence {
   margin-bottom: 36px;
 }
 
 .dws-phase-block {
-  border-top: 1px solid #161a12;
-  padding: 20px 0 28px;
+  border-top: 1px solid #d4dacb;
+  padding: 16px 0 22px;
 }
 
 .dws-phase-head {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .dws-phase-head h4 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.02em;
   margin: 0;
   color: #111214;
 }
 
-.dws-phase-stage-tag {
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #2457ff;
-  font-weight: 700;
+.dws-phase-count {
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: #5e6654;
 }
 
 .dws-service-table {
   width: 100%;
-  border-collapse: collapse;
 }
 
 .dws-service-row {
-  border-top: 1px solid #d8decb;
+  border-top: 1px solid #e3e8dc;
   padding: 14px 0;
   display: grid;
   grid-template-columns: 240px 1fr 140px;
@@ -429,6 +514,7 @@
   .dws-service-row {
     grid-template-columns: 1fr;
     gap: 8px;
+    padding: 12px 0;
   }
 }
 
@@ -521,12 +607,136 @@
   padding-left: 14px;
 }
 
-/* Export Actions */
+/* Commercial Engagement Ladder */
+.dws-commercial-ladder {
+  background: #f0eee7;
+  border: 1px solid #b8beae;
+  padding: 24px;
+  margin: 36px 0 28px;
+}
+
+.dws-ladder-title {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #58614f;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.dws-ladder-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 800px) {
+  .dws-ladder-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dws-ladder-step {
+  background: #ffffff;
+  border: 1px solid #c5ccbd;
+  padding: 20px 18px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dws-ladder-step.is-highlighted {
+  border: 2px solid #2457ff;
+  box-shadow: 0 4px 16px rgba(36, 87, 255, 0.08);
+}
+
+.dws-ladder-badge {
+  position: absolute;
+  top: -10px;
+  right: 14px;
+  background: #2457ff;
+  color: #ffffff;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  font-weight: 700;
+}
+
+.dws-ladder-num {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: #6b7362;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.dws-ladder-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111214;
+  margin-bottom: 4px;
+}
+
+.dws-ladder-price {
+  font-size: 12px;
+  color: #2457ff;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.dws-ladder-desc {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #555d4c;
+  margin: 0 0 14px;
+}
+
+.dws-ladder-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #2457ff;
+  color: #ffffff !important;
+  padding: 12px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid #2457ff;
+  transition: background 0.2s;
+}
+
+.dws-ladder-cta-primary:hover {
+  background: #1640d0;
+  border-color: #1640d0;
+}
+
+.dws-ladder-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #111214;
+  text-decoration: none;
+  margin-top: 8px;
+}
+
+.dws-ladder-action:hover {
+  color: #2457ff;
+  text-decoration: underline;
+}
+
+/* Document Utilities / Export Bar */
 .dws-export-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  margin: 28px 0;
+  gap: 14px;
+  margin: 24px 0 16px;
   align-items: center;
 }
 
@@ -534,7 +744,7 @@
   border: 1px solid #161a12;
   background: transparent;
   color: #161a12;
-  padding: 16px 22px;
+  padding: 15px 22px;
   font: inherit;
   font-size: 12px;
   font-weight: 600;
@@ -543,7 +753,7 @@
   transition: all 0.2s;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .dws-btn-secondary:hover {
@@ -551,13 +761,12 @@
   color: #ffffff;
 }
 
-/* Post-Roadmap Lead Capture */
+/* Post-Roadmap Lead Capture (Local Preparation Utility) */
 .dws-lead-capture-box {
   background: #ffffff;
-  border: 1px solid #2457ff;
-  padding: clamp(24px, 3.5vw, 36px);
-  margin: 36px 0 20px;
-  box-shadow: 0 4px 18px rgba(36, 87, 255, 0.06);
+  border: 1px solid #c2c8b8;
+  padding: clamp(22px, 3.5vw, 34px);
+  margin: 28px 0 20px;
 }
 
 .dws-lead-header {
@@ -565,10 +774,10 @@
 }
 
 .dws-lead-kicker {
-  font-size: 10px;
+  font-size: 9px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #2457ff;
+  color: #5a6452;
   font-weight: 700;
   display: block;
   margin-bottom: 6px;
@@ -576,7 +785,7 @@
 
 .dws-lead-title {
   font-family: PBodoni, serif;
-  font-size: clamp(24px, 2.5vw, 34px);
+  font-size: clamp(22px, 2.3vw, 32px);
   font-weight: 400;
   margin: 0 0 8px;
   color: #111214;
@@ -602,6 +811,10 @@
   }
 }
 
+.dws-lead-full {
+  grid-column: 1 / -1;
+}
+
 .dws-lead-actions {
   display: flex;
   align-items: center;
@@ -616,91 +829,6 @@
   font-size: 12px;
   line-height: 1.6;
   color: #1e4d1e;
-}
-
-/* Founder Blueprint Ladder */
-.dws-commercial-ladder {
-  background: #f0eee7;
-  border: 1px solid #b8beae;
-  padding: 24px;
-  margin-top: 36px;
-}
-
-.dws-ladder-title {
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #58614f;
-  margin-bottom: 14px;
-  font-weight: 700;
-}
-
-.dws-ladder-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin-bottom: 18px;
-}
-
-@media (max-width: 768px) {
-  .dws-ladder-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.dws-ladder-step {
-  background: #ffffff;
-  border: 1px solid #c5ccbd;
-  padding: 16px;
-  position: relative;
-}
-
-.dws-ladder-step.is-current {
-  border-color: #2457ff;
-}
-
-.dws-ladder-num {
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  color: #6b7362;
-  display: block;
-  margin-bottom: 4px;
-}
-
-.dws-ladder-name {
-  font-size: 14px;
-  font-weight: 700;
-  color: #111214;
-  margin-bottom: 4px;
-}
-
-.dws-ladder-price {
-  font-size: 12px;
-  color: #2457ff;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.dws-ladder-desc {
-  font-size: 11px;
-  line-height: 1.5;
-  color: #555d4c;
-  margin: 0;
-}
-
-.dws-ladder-action {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #2457ff;
-  text-decoration: none;
-  margin-top: 10px;
-}
-
-.dws-ladder-action:hover {
-  text-decoration: underline;
 }
 
 /* Print Optimization Styles */

@@ -6,34 +6,29 @@
       "detail": "04 / COMPANY BUILDERBuild the architecturebefore building the company.Tell us what we're building. Tell us where it stands. Tell us what it needs.Dynasty Works will generate an initial company-build roadmap."
     },
     {
-      "name": "Builder explainer states \"Tell us what we're building. Tell us where it stands. Tell us what it needs.\"",
+      "name": "Desktop H2 font size scaled down to balanced proportion (< 110px)",
       "pass": true,
-      "detail": "Tell us what we're building. Tell us where it stands. Tell us what it needs.Dynasty Works will generate an initial company-build roadmap."
+      "detail": "fontSize: 77.76px"
     },
     {
-      "name": "Capture 01-builder-entry-1440.png saved",
+      "name": "Capture 01-entry-desktop-1440.png saved",
       "pass": true,
       "detail": ""
     },
     {
-      "name": "14 business types available",
+      "name": "Start CTA has architectural proportions (height >= 50px)",
       "pass": true,
-      "detail": "found 14"
+      "detail": "height: 52px"
     },
     {
-      "name": "Capture 02-diagnostic-step-1440.png saved",
+      "name": "Capture 02-diagnostic-desktop-1440.png saved",
       "pass": true,
       "detail": ""
     },
     {
-      "name": "Step 2 is \"Where does it stand?\"",
+      "name": "Company name input rendered as deliberate full-width field (width > 200px, height >= 44px)",
       "pass": true,
-      "detail": "Where does it stand?"
-    },
-    {
-      "name": "Step 3 is \"What does it need?\"",
-      "pass": true,
-      "detail": "What does it need?"
+      "detail": "w:295.953125, h:48"
     },
     {
       "name": "Executive roadmap generated",
@@ -41,112 +36,107 @@
       "detail": ""
     },
     {
-      "name": "Roadmap title includes venture name",
-      "pass": true,
-      "detail": "Aethelgard Botanical Spirits — Company Build Roadmap"
-    },
-    {
-      "name": "Four macro creation stages rendered",
-      "pass": true,
-      "detail": "found 4"
-    },
-    {
-      "name": "Active macro stages highlighted",
-      "pass": true,
-      "detail": "active: 3"
-    },
-    {
-      "name": "Immediate priorities callout rendered",
+      "name": "Capture 03-roadmap-top-desktop-1440.png saved",
       "pass": true,
       "detail": ""
     },
     {
-      "name": "Immediate critical path chips present",
+      "name": "Macro creation landmarks present",
       "pass": true,
-      "detail": "found 7 immediate services"
+      "detail": "found 3 active landmarks"
     },
     {
-      "name": "Phase blocks rendered sequentially",
+      "name": "Sequential service rows rendered",
       "pass": true,
-      "detail": "found 6 phases"
+      "detail": "found 16 services"
     },
     {
-      "name": "Timing badges present on services",
-      "pass": true,
-      "detail": "found 16 badges"
-    },
-    {
-      "name": "Service dependency notes rendered",
-      "pass": true,
-      "detail": "found 9 dependencies"
-    },
-    {
-      "name": "Guidance panel includes timeline notice",
+      "name": "Capture 04-roadmap-continuation-desktop-1440.png saved",
       "pass": true,
       "detail": ""
     },
     {
-      "name": "Guidance panel includes professional boundaries",
+      "name": "Primary commercial action is \"Explore Founder Blueprint\"",
       "pass": true,
       "detail": ""
     },
     {
-      "name": "Guidance panel recommends studio engagement",
+      "name": "Blueprint CTA links to /founder-blueprint",
       "pass": true,
       "detail": ""
     },
     {
-      "name": "Commercial boundaries disclaimer present",
+      "name": "Secondary action links to /contact",
       "pass": true,
       "detail": ""
     },
     {
-      "name": "Capture 03-generated-roadmap-1440.png saved",
+      "name": "Truthful CTA title is \"Save Roadmap & Prepare Studio Brief\"",
+      "pass": true,
+      "detail": "Save Roadmap & Prepare Studio Brief"
+    },
+    {
+      "name": "Subtitle truthfully states \"Nothing is transmitted over the network\"",
+      "pass": true,
+      "detail": "Your initial roadmap has been generated above. Complete your founder details below to compile a formal studio brief and download a private project dossier to your computer. Nothing is transmitted over the network."
+    },
+    {
+      "name": "Founder name input is deliberate full-width control (width > 200px, height >= 44px)",
+      "pass": true,
+      "detail": "width: 236.953125px, height: 48px"
+    },
+    {
+      "name": "Work email input is deliberate full-width control (width > 200px, height >= 44px)",
+      "pass": true,
+      "detail": "width: 236.953125px, height: 48px"
+    },
+    {
+      "name": "Core ambition textarea has deliberate height (height >= 80px, width > 200px)",
+      "pass": true,
+      "detail": "width: 489.90625px, height: 96px"
+    },
+    {
+      "name": "Brief JSON downloaded with contact email",
       "pass": true,
       "detail": ""
     },
     {
-      "name": "Roadmap .txt downloaded with content",
+      "name": "Success notice confirms \"Roadmap & Studio Brief Prepared\"",
+      "pass": true,
+      "detail": "✓ Roadmap & Studio Brief Prepared.Your structured company brief has been downloaded to your device and saved to your browser session. To initiate a direct conversation with studio principals, please share your brief via our Contact channel or email contact@dynastyworks.studio."
+    },
+    {
+      "name": "Roadmap .txt export downloaded",
       "pass": true,
       "detail": ""
     },
     {
-      "name": "Capture 04-lead-capture-1440.png saved",
+      "name": "Mobile H2 font size scaled comfortably (< 48px)",
+      "pass": true,
+      "detail": "fontSize: 34px"
+    },
+    {
+      "name": "Mobile unstarted entry suppresses clipped primitive fragment",
       "pass": true,
       "detail": ""
     },
     {
-      "name": "Structured brief JSON downloaded",
+      "name": "Capture 05-entry-mobile-390.png saved",
       "pass": true,
       "detail": ""
     },
     {
-      "name": "Brief contains deterministic recommended services",
+      "name": "Capture 06-roadmap-top-mobile-390.png saved",
       "pass": true,
       "detail": ""
     },
     {
-      "name": "Lead success confirmation rendered",
-      "pass": true,
-      "detail": "✓ Roadmap & Strategic Brief Saved.Your brief has been compiled and saved locally. In this static preview environment, please email our directors directly at contact@dynastyworks.studio or visit our Contact page with your saved brief."
-    },
-    {
-      "name": "Commercial ladder features Founder Blueprint $1,500",
+      "name": "Capture 07-roadmap-mid-mobile-390.png saved",
       "pass": true,
       "detail": ""
     },
     {
-      "name": "External r51-blueprint retains $1,500",
-      "pass": true,
-      "detail": ""
-    },
-    {
-      "name": "Capture 05-builder-entry-390.png saved",
-      "pass": true,
-      "detail": ""
-    },
-    {
-      "name": "Capture 06-generated-roadmap-390.png saved",
+      "name": "Capture 08-continuation-mobile-390.png saved",
       "pass": true,
       "detail": ""
     },
@@ -191,7 +181,7 @@
       "detail": ""
     },
     {
-      "name": "Zero console errors during diagnostic execution",
+      "name": "Zero console errors during execution",
       "pass": true,
       "detail": ""
     }
