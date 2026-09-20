@@ -1,0 +1,174 @@
+{
+  "checks": [
+    {
+      "name": "kicker identifies studio",
+      "pass": true,
+      "detail": "Company creation studio"
+    },
+    {
+      "name": "H1 is \"From idea to company.\"",
+      "pass": true,
+      "detail": "From ideato company."
+    },
+    {
+      "name": "thesis defines complete company building",
+      "pass": true,
+      "detail": "We partner with founders to turn ideas into complete operating companies — unifying strategy, identity, product, digital systems, and market launch."
+    },
+    {
+      "name": "primary CTA links to #review-builder",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "secondary CTA links to /work",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Selected Work placed immediately after hero and before creation chamber",
+      "pass": true,
+      "detail": "heroY:0, proofY:1000, creationY:2249.296875"
+    },
+    {
+      "name": "MyMosa card present",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "IKLA Maison card present",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Mr. Cliffs card present",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "All 3 authentic proof images loaded",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Zero placeholders on homepage",
+      "pass": true,
+      "detail": "found 0"
+    },
+    {
+      "name": "Creation chamber labeled HOW WE BUILD",
+      "pass": true,
+      "detail": "DYNASTY WORKS / HOW WE BUILDProprietary 8-Stage Company Creation System"
+    },
+    {
+      "name": "8 stages present",
+      "pass": true,
+      "detail": "01Idea, 02Strategy, 03Identity, 04Product, 05Digital, 06Experience, 07Market, 08Company"
+    },
+    {
+      "name": "desktop evolution height reduced to ~240vh (no scroll trap)",
+      "pass": true,
+      "detail": "height is 2400px"
+    },
+    {
+      "name": "clicking stage selects Identity",
+      "pass": true,
+      "detail": "03Identity"
+    },
+    {
+      "name": "Operating states section present",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "9 capabilities rendered",
+      "pass": true,
+      "detail": "found 9"
+    },
+    {
+      "name": "capabilities links to disciplines score",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Studio signal heading present",
+      "pass": true,
+      "detail": "Systems guided by human judgment."
+    },
+    {
+      "name": "3 studio tenets present",
+      "pass": true,
+      "detail": "found 3"
+    },
+    {
+      "name": "Invitation primary CTA links to #review-builder",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Invitation talk link links to /contact",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "viewport 320x640 zero horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile evolution height reduced to ~200vh at 320px",
+      "pass": true,
+      "detail": "height: 1280px"
+    },
+    {
+      "name": "viewport 390x844 zero horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile evolution height reduced to ~200vh at 390px",
+      "pass": true,
+      "detail": "height: 1688px"
+    },
+    {
+      "name": "viewport 430x932 zero horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile evolution height reduced to ~200vh at 430px",
+      "pass": true,
+      "detail": "height: 1864px"
+    },
+    {
+      "name": "viewport 768x1024 zero horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile evolution height reduced to ~200vh at 768px",
+      "pass": true,
+      "detail": "height: 2048px"
+    },
+    {
+      "name": "viewport 1024x768 zero horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "viewport 1440x900 zero horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "viewport 1920x1080 zero horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "viewport 2560x1440 zero horizontal overflow",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}
