@@ -90,3 +90,41 @@
  .m531-flavors{display:grid;grid-template-columns:1fr 1fr;gap:0 15px;margin-top:35px}
  .m531-flavors button{font-size:11px!important;gap:9px}
 }
+.m531-family-seal{display:block;margin-bottom:16px;width:52px;height:52px;opacity:.9}
+.m531-seal-stage{background:#ded9cd;padding:20px;border-radius:2px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;max-width:180px;border:1px solid #c2bcae}
+.m531-house-seal{width:100%;height:auto;max-width:130px;display:block}
+.m531-exhibition{padding:85px var(--g) 95px;background:#f4f1ea;color:#111214}
+.m531-exhibition>header{display:flex;justify-content:space-between;gap:25px;font-size:10px;letter-spacing:.055em}
+.m531-exhibition>header>span:last-child{color:#70746b}
+.m531-exhibition>h2{font-family:M53Manrope,sans-serif;font-weight:400;font-size:clamp(48px,5.8vw,102px);letter-spacing:-.06em;line-height:1.06;margin:55px 0 25px}
+.m531-exhibition h2 em{font-family:M53Bodoni,serif;font-weight:400}
+.m531-exhibition-hero{margin:55px 0 70px}
+.m531-exhibition-hero img{width:100%;height:auto;display:block}
+.m531-exhibition-hero figcaption{font-size:11px;color:#70746b;margin-top:14px}
+.m531-eight-stage{border-top:1px solid #cfcbbe;padding-top:60px;margin-bottom:70px}
+.m531-eight-display{display:grid;grid-template-columns:1fr 1.2fr;gap:6vw;align-items:center}
+.m531-eight-can{margin:0;display:flex;flex-direction:column;align-items:center}
+.m531-eight-can img{max-height:550px;width:auto;max-width:100%;object-fit:contain}
+.m531-eight-can figcaption{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:20px}
+.m531-eight-can strong{font-size:24px;font-weight:500;letter-spacing:-.02em}
+.m531-eight-can span{font-size:11px;color:#70746b;letter-spacing:.05em;text-transform:uppercase}
+.m531-eight-controls{display:flex;flex-direction:column;gap:2px}
+.m531-eight-controls button{display:flex;align-items:center;gap:20px;padding:15px 0;background:none;border:0;border-bottom:1px solid #dcd8cc;text-align:left;color:#111214;cursor:pointer;font-size:16px;font-family:inherit}
+.m531-eight-controls button[aria-pressed=true]{font-weight:600;border-bottom-color:#111214}
+.m531-eight-controls button small{font-size:10px;color:#70746b;min-width:20px}
+.m531-eight-controls button span.m531-dot{margin-left:auto;width:10px;height:10px;border-radius:50%;display:inline-block}
+.m531-navigation{border-top:1px solid #cfcbbe;padding-top:50px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:25px}
+.m531-back{font-size:13px;color:#111214;text-decoration:none}
+.m531-back:hover{text-decoration:underline}
+.m531-next{display:flex;flex-direction:column;align-items:flex-end;gap:6px;text-decoration:none;color:#111214}
+.m531-next strong{font-size:clamp(22px,2.5vw,36px);font-weight:400;letter-spacing:-.03em}
+.m531-next:hover strong{color:#2457ff}
+@media(max-width:800px){
+ .m531-exhibition{padding:45px var(--g) 55px}
+ .m531-exhibition>h2{font-size:clamp(39px,10.5vw,70px);margin:35px 0 25px}
+ .m531-eight-display{display:flex;flex-direction:column;gap:35px}
+ .m531-eight-can img{max-height:420px}
+ .m531-eight-controls{width:100%}
+ .m531-eight-controls button{font-size:14px;padding:12px 0}
+ .m531-navigation{padding-top:35px}
+}

@@ -10,6 +10,7 @@ export const portfolioTitles:Record<string,string>={
  '/work':'Dynasty Works Studio — Selected Work',
  '/work/mymosa':'MyMosa / My Drink Family — Dynasty Works Studio Case Study',
  '/work/ikla-maison':'IKLA Maison — Dynasty Works Studio Case Study',
+ '/work/mr-cliffs':'Mr. Cliff’s Premium Bourbon — Dynasty Works Studio Case Study',
  '/concept-lab':'Concept Lab — Dynasty Works Studio',
  ...Object.fromEntries(concepts.map(c=>['/concept-lab/'+c.slug,c.slug==='nova'?'NOVA Company Creation Concept Study — Dynasty Works Studio':c.name+' Concept Study — Dynasty Works Studio'])),
 };

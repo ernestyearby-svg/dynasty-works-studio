@@ -1,21 +1,290 @@
 import {useEffect,useState,type ReactNode} from 'react';
 import {SiteHeader,SiteFooter} from './SiteChrome';
+import images from './portfolio-images.json';
 import {concepts,portfolioTitles} from './portfolio-data';
 import './portfolio.css';
-function Image({alt,className=''}:{id:string;alt:string;critical?:boolean;className?:string;sizes?:string}){return <div className={'v5-asset-pending '+className}><span>ASSET SET PENDING</span><p>{alt}</p><small>Native project assets will be curated for the next Work review.</small></div>}
-function Visual({id,alt,caption,critical=false,className=''}:{id:string;alt:string;caption:string;critical?:boolean;className?:string}){return <figure className={'portfolio-visual '+className}><Image id={id} alt={alt} critical={critical}/><figcaption>{caption}</figcaption></figure>}
-function Intro({label,title,copy,children}:{label:string;title:ReactNode;copy:string;children?:ReactNode}){return <header className="portfolio-intro wrap"><p className="kicker">{label}</p><h1>{title}</h1><div className="intro-bottom"><p>{copy}</p>{children}</div></header>}
-function LabGate(){return <section className="lab-gate wrap"><p className="kicker">CONCEPT LAB</p><h2>What else<br/>can we build?</h2><div><p>Independent studies exploring how strategy, identity, product, digital and experience can become complete systems.</p><p className="concept-classification">Conceptual studies · Not client engagements</p><a className="text-action" href="/concept-lab">Enter Concept Lab <span aria-hidden="true">↗</span></a></div></section>}
-function CompanyGate(){return <section className="company-gate wrap"><p className="kicker">FROM IDEA TO COMPANY.</p><h2>Bring us the idea.</h2><a href="/#review-builder" className="primary-action">Start a company <span aria-hidden="true">↗</span></a></section>}
-function Work(){return <><Intro label="SELECTED WORK / COMPANY CREATION" title={<>Different companies.<br/>Connected thinking.</>} copy="Different categories require different expressions. The system behind the work remains connected."/><section className="work-project work-mymosa wrap"><div className="project-heading"><div><p className="kicker">01 / SELECTED WORK</p><h2><a href="/work/mymosa">MyMosa <span>/ My Drink Family</span></a></h2></div><p>Consumer / Beverage / Brand System</p></div><a className="project-entrance" href="/work/mymosa" aria-label="Explore MyMosa case study"><Image id="01-mymosa-four-flavor-hero" alt="MyMosa four-flavor packaging presentation: Classic Orange, Pineapple, Tropical and Strawberry." critical/></a><div className="project-bottom"><p>Brand / Packaging / Product / Campaign / Digital / Market</p><a className="text-action" href="/work/mymosa">Explore case study →</a></div></section><section className="work-project work-ikla wrap"><div className="project-heading"><div><p className="kicker">02 / SELECTED WORK</p><h2><a href="/work/ikla-maison">IKLA Maison</a></h2></div><p>Fashion / Identity / Lifestyle</p></div><div className="ikla-entrance"><a className="project-entrance" href="/work/ikla-maison" aria-label="Explore IKLA Maison case study"><Image id="01-ikla-creative-direction" alt="IKLA Maison quiet-luxury creative direction study."/></a><div><p className="quiet-statement">A quieter expression.<br/>A complete design language.</p><p>Creative direction, identity, typography, color, pattern, materials and packaging.</p><a className="text-action" href="/work/ikla-maison">Explore case study →</a></div></div></section><LabGate/><CompanyGate/></>}
-function Chapter({number,title,copy,children,id}:{number:string;title:string;copy:string;children?:ReactNode;id?:string}){return <section className="case-chapter wrap" id={id}><div className="chapter-heading"><p className="kicker">{number}</p><h2>{title}</h2><p>{copy}</p></div>{children}</section>}
-function Back(){return <a href="/work" className="text-action">← Back to Work</a>}
-function Next({name,href}:{name:string;href:string}){return <nav className="next-project wrap" aria-label="Case study navigation"><Back/><a href={href}><span className="kicker">NEXT PROJECT</span><strong>{name} <span aria-hidden="true">↗</span></strong></a><a href="/concept-lab" className="text-action">Explore Concept Lab →</a></nav>}
-function MyMosa(){return <article className="case-study case-mymosa"><Intro label="01 / SELECTED WORK" title={<>MyMosa<span className="case-subtitle">/ My Drink Family</span></>} copy="Premium Wine Cocktails. A product family expressed through flavor, packaging and a connected brand world."><Back/></Intro><div className="wrap"><Visual id="01-mymosa-four-flavor-hero" alt="MyMosa four-flavor packaging system." caption="Product presentation · project visualization" critical/></div><Chapter number="01 / THE FOUNDATION" title="One family. Distinct expressions." copy="MyMosa / My Drink Family brings product, identity and consumer-facing creative into a common system. This case study follows the supplied work from its four-flavor presentation into packaging and brand expression."/><Chapter number="02 / PRODUCT SYSTEM" title="Flavor gives the family its rhythm." copy="Classic Orange, Pineapple, Tropical and Strawberry share a recognizable composition while color distinguishes each expression."><div className="flavor-rail" tabIndex={0} role="region" aria-label="Four flavor details; scroll horizontally on mobile">{[['orange','Classic Orange'],['pineapple','Pineapple'],['tropical','Tropical'],['strawberry','Strawberry']].map(([id,name])=><figure key={id}><Image id={'mymosa-'+id+'-detail'} alt={'MyMosa '+name+' — unchanged source detail.'} sizes="(max-width:800px) 190px, 220px"/><figcaption>{name}</figcaption></figure>)}</div></Chapter><Chapter number="03 / PACKAGING DEVELOPMENT" title="A structure for every expression." copy="Flavor differentiation and visual hierarchy work together across the packaging presentation. The process board brings the product family, color and application into one view."><Visual id="03-mymosa-packaging-development" alt="MyMosa packaging development board with flavor system and layout studies." caption="Packaging development visualization · not a production specification"/></Chapter><Chapter number="04 / BRAND EXPRESSION" title="From package to occasion." copy="The same visual language extends into campaign imagery: sunlight, flavor and a shared sense of occasion."><Visual id="02-mymosa-lifestyle-campaign" alt="MyMosa lifestyle campaign visualization with four flavors in a sunlit setting." caption="Lifestyle / campaign visualization"/></Chapter><Chapter number="05 / SYSTEM THINKING" title="The product is only one part." copy="Brand, packaging, product, campaign, digital and market form the wider project architecture. The supplied visual system connects the product to the way the brand is encountered."><Visual id="04-mymosa-brand-system" alt="MyMosa brand system presentation spanning packaging and campaign direction." caption="Brand-world development"/></Chapter><Next name="IKLA Maison" href="/work/ikla-maison"/></article>}
-function Process({id,title,alt}:{id:string;title:string;alt:string}){const[open,setOpen]=useState(false);return <details className="process-disclosure" onToggle={e=>setOpen(e.currentTarget.open)}><summary>{title}<span aria-hidden="true">+</span></summary>{open&&<Visual id={id} alt={alt} caption="Earlier design exploration · process context, not the current quiet-luxury direction"/>}</details>}
-function IKLA(){return <article className="case-study case-ikla"><Intro label="02 / SELECTED WORK" title="IKLA Maison" copy="Quiet casual luxury. A design language shaped by material, fit, modern living and considered detail."><Back/></Intro><div className="wrap"><Visual id="01-ikla-creative-direction" alt="IKLA Maison quiet-luxury creative direction study." caption="Creative direction · current quiet-casual-luxury presentation" critical/></div><nav className="chapter-navigation wrap" aria-label="IKLA chapters">{['direction','identity','typography','color','marks','surface','materials','application','packaging','world'].map((id,i)=><a key={id} href={'#'+id}>{String(i+1).padStart(2,'0')} {id}</a>)}</nav><Chapter id="direction" number="01 / CREATIVE DIRECTION" title="Modern living. Lasting character." copy="Timeless style, elevated essentials and natural textures establish the direction. Global influence is expressed through culture, travel and a considered everyday wardrobe."/><Chapter id="identity" number="02 / IDENTITY" title="A house with a shared language." copy="The identity architecture connects the wordmark and supporting marks across the brand. Earlier heraldic studies provide process context; the current presentation favors restraint."><Process id="02-ikla-identity-system" title="View identity architecture study" alt="IKLA identity architecture exploration with wordmark and heraldic applications."/></Chapter><Chapter id="typography" number="03 / TYPOGRAPHY" title="Hierarchy before decoration." copy="A typographic system establishes relationships between the house name, editorial statements and functional information. Typeface names shown on the supplied board are explorations, not a verified licensing or approved-font specification."><Visual id="04-ikla-typography-system" alt="IKLA typography study exploring hierarchy, lockups and applications." caption="Typography system study"/></Chapter><Chapter id="color" number="04 / COLOR" title="A palette with room to breathe." copy="Maison Green, Imperial Black, Regal Gold and Cream White form the core identity. Supporting neutrals explore a quieter expression across fabric, print and space."><Visual id="05-ikla-color-system" alt="IKLA color study with core colors and supporting neutral explorations." caption="Color system · core identity and supporting exploration"/></Chapter><Chapter id="marks" number="05 / EMBLEM & MARKS" title="Character, at the right scale." copy="The mark studies explore a family of expressions. The direction for everyday applications is smaller, tonal and integrated into material."><Process id="03-ikla-emblem-system" title="View emblem and mark exploration" alt="Earlier IKLA emblem exploration with griffin, monogram and supporting marks."/></Chapter><Chapter id="surface" number="06 / PATTERN & SURFACE" title="Refinement in repetition." copy="Micro monogram, herringbone, stripe, textile texture and botanical influence extend identity into surface. Embossing and lining offer quieter places for a mark to live."><Visual id="06-ikla-pattern-surface-system" alt="IKLA quiet-luxury pattern and surface system with tonal textile applications." caption="Pattern / surface system"/><div className="detail-aside"><Image id="ikla-pattern-detail" alt="Source detail of tonal IKLA monogram and herringbone textiles." sizes="(max-width:800px) 90vw, 420px"/><p>Pattern becomes part of the material, rather than a layer placed over it.</p></div></Chapter><Chapter id="materials" number="07 / MATERIALS" title="The detail carries the idea." copy="Fabric, leather, embroidery, hardware, woven labels and finishes provide the physical vocabulary. This is a material study, not a claim about sourcing or manufactured output."><div className="detail-aside"><Image id="ikla-material-detail" alt="IKLA material study detail showing fabric and textured applications." sizes="(max-width:800px) 90vw, 480px"/><p>Texture, scale and finish connect the visual system to touch.</p></div><Process id="07-ikla-material-study" title="View complete material exploration" alt="Earlier IKLA material and hardware study."/></Chapter><Chapter id="application" number="08 / APPLICATION" title="Designed to be lived in." copy="The current direction emphasizes fit, texture and elevated everyday pieces. Small branding lets material and construction lead."><div className="quiet-pair"><Visual id="ikla-direction-detail" alt="IKLA quiet-luxury knitwear direction, cropped directly from the approved creative-direction master." caption="Current direction / knitwear"/><Visual id="ikla-living-detail" alt="IKLA quiet-luxury everyday styling, cropped directly from the creative-direction master." caption="Current direction / everyday styling"/></div><Process id="08-ikla-apparel-accessories" title="View earlier apparel and accessory exploration" alt="Earlier logo-forward IKLA apparel and accessories exploration."/></Chapter><Chapter id="packaging" number="09 / PACKAGING" title="The experience continues." copy="Packaging connects garment, label, paper and presentation. The supplied study shows how those touchpoints can belong to one house."><Visual id="09-ikla-packaging-experience" alt="IKLA packaging experience study with garment, boxes, cards and labels." caption="Packaging experience study"/></Chapter><Chapter id="world" number="10 / BRAND WORLD" title="A quieter way to arrive." copy="Natural light, texture and modern living frame the current direction. The brand world supports the product without overwhelming it."><div className="closing-quiet"><Image id="ikla-living-detail" alt="Quiet IKLA editorial styling in natural light." sizes="(max-width:800px) 70vw, 360px"/><p>Material.<br/>Fit.<br/>Restraint.</p></div><Process id="10-ikla-editorial-lifestyle" title="View earlier editorial exploration" alt="Earlier logo-heavy IKLA lifestyle exploration, retained as process evidence."/></Chapter><Next name="MyMosa / My Drink Family" href="/work/mymosa"/></article>}
-function ConceptLab(){return <><Intro label="DYNASTY WORKS / CONCEPT LAB" title={<>What else<br/>can we build?</>} copy="Independent studies exploring how strategy, identity, product, digital and experience can become complete systems."><p className="concept-classification">Conceptual studies<br/>Not client engagements</p></Intro><nav className="concept-jumps wrap" aria-label="Concept studies">{concepts.map(c=><a href={'#'+c.slug} key={c.slug}>{c.name} ↘</a>)}</nav><div className="concept-sequence wrap">{concepts.map((c,i)=><section id={c.slug} className={'concept-entry concept-entry-'+i} key={c.slug}><div className="concept-copy"><p className="kicker">{String(i+1).padStart(2,'0')} / CONCEPT STUDY</p><h2><a href={'/concept-lab/'+c.slug}>{c.name}</a></h2><p>{c.disciplines}</p><p className="concept-premise">{c.premise}</p><a className="text-action" href={'/concept-lab/'+c.slug}>Explore study →</a></div><a href={'/concept-lab/'+c.slug} aria-label={'Explore '+c.name+' concept study'}><Image id={c.detail} alt={c.detailAlt} sizes="(max-width:800px) 90vw, 650px"/></a></section>)}</div><CompanyGate/></>}
-function ConceptDetail({slug}:{slug:string}){const index=concepts.findIndex(c=>c.slug===slug),c=concepts[index],next=concepts[(index+1)%concepts.length];if(!c)return <NotFound/>;return <article className="concept-detail"><Intro label="DYNASTY WORKS CONCEPT STUDY" title={c.name} copy={c.premise}><a href="/concept-lab" className="text-action">← Back to Concept Lab</a></Intro><div className="concept-premise-section wrap"><p className="concept-classification">Fictional capability demonstration<br/>Not a client engagement or operating company</p><p>{c.system}</p><p>{c.disciplines}</p></div><div className="concept-focus wrap"><Visual id={c.detail} alt={c.detailAlt} caption="Concept study / detail" critical/></div>{slug==='nova'?<Nova/>:<section className="concept-board wrap"><h2>The connected system.</h2><p>Identity, application and experience explored together.</p><Visual id={c.image} alt={c.name+' conceptual brand system board.'} caption="Concept study · imagery, settings and product specifications are illustrative"/></section>}<nav className="next-project wrap" aria-label="Concept study navigation"><a href="/concept-lab" className="text-action">← Back to Concept Lab</a><a href={'/concept-lab/'+next.slug}><span className="kicker">NEXT CONCEPT</span><strong>{next.name} ↗</strong></a><a href="/work" className="text-action">Selected Work →</a></nav><CompanyGate/></article>}
-function Nova(){return <><Chapter number="01 / COMPANY CREATION" title="From idea to company." copy="NOVA is a fictional wellness concept used to explore the entire creation chain. Each discipline builds on the decisions before it."><ol className="creation-chain">{['Strategy','Naming','Identity','Product','Packaging','Digital','Environment','Campaign','Market'].map(s=><li key={s}>{s}</li>)}</ol><Visual id="01-nova-company-creation-system" alt="NOVA conceptual company-creation system from strategy through market." caption="Concept study · all market-impact figures within the artwork are fictional, not achieved results"/></Chapter><Chapter number="02 / DIGITAL PRODUCT" title="One identity. Many interactions." copy="The digital product study connects UX, UI, components and user journeys across mobile, desktop and wearable concepts. It demonstrates design thinking, not a live application or validated health outcome."><div className="nova-product-focus"><Visual id="nova-product-detail" alt="NOVA fictional mobile interface design detail." caption="Concept UI · displayed values are sample data"/></div><Visual id="02-nova-digital-product-system" alt="NOVA conceptual digital product board with mobile, desktop and wearable design explorations." caption="Concept study · user counts, scores and outcomes in the artwork are fictional interface or vision data"/></Chapter></>}
-function NotFound(){return <Intro label="DYNASTY WORKS STUDIO" title="Page not found." copy="Return to the studio or explore the work."><a className="text-action" href="/work">Back to Work →</a></Intro>}
-export default function Portfolio(){const[reduced,setReduced]=useState(false);const path=window.location.pathname.replace(/\/$/,'')||'/';useEffect(()=>{document.title=portfolioTitles[path]||'Page not found — Dynasty Works Studio'},[path]);let page:ReactNode=<NotFound/>;if(path==='/work')page=<Work/>;else if(path==='/work/mymosa')page=<MyMosa/>;else if(path==='/work/ikla-maison')page=<IKLA/>;else if(path==='/concept-lab')page=<ConceptLab/>;else if(concepts.some(c=>path==='/concept-lab/'+c.slug))page=<ConceptDetail slug={path.split('/').pop()!}/>;return <div className="portfolio-site" data-reduced={reduced}><a className="skip" href="#main">Skip to content</a><SiteHeader portfolio/><main id="main">{page}</main><SiteFooter reduced={reduced} onMotion={()=>setReduced(!reduced)}/></div>}
+
+type ImageKey=keyof typeof images;
+
+function Image({id,alt,critical=false,className='',sizes='(max-width: 800px) 100vw, 90vw'}:{id:string;alt:string;critical?:boolean;className?:string;sizes?:string}){
+ const a=images[id as ImageKey];
+ if(!a) return null;
+ const set=(format:string)=>a.widths.map(w=>`/assets/portfolio/${id}-${w}.${format} ${w}w`).join(', ');
+ const defaultWidth=a.widths[Math.min(1,a.widths.length-1)];
+ return <picture className={'portfolio-image '+className}><source type="image/avif" srcSet={set('avif')} sizes={sizes}/><img src={`/assets/portfolio/${id}-${defaultWidth}.webp`} srcSet={set('webp')} sizes={sizes} width={a.width} height={a.height} alt={alt} loading={critical?'eager':'lazy'} fetchPriority={critical?'high':'auto'} decoding="async"/></picture>;
+}
+
+function Visual({id,alt,caption,critical=false,className=''}:{id:string;alt:string;caption:string;critical?:boolean;className?:string}){
+ return <figure className={'portfolio-visual '+className}><Image id={id} alt={alt} critical={critical}/><figcaption>{caption}</figcaption></figure>;
+}
+
+function Intro({label,title,copy,children}:{label:string;title:ReactNode;copy:string;children?:ReactNode}){
+ return <header className="portfolio-intro wrap"><p className="kicker">{label}</p><h1>{title}</h1><div className="intro-bottom"><p>{copy}</p>{children}</div></header>;
+}
+
+function LabGate(){
+ return <section className="lab-gate wrap"><p className="kicker">CONCEPT LAB</p><h2>What else<br/>can we build?</h2><div><p>Independent studies exploring how strategy, identity, product, digital and experience can become complete systems.</p><p className="concept-classification">Conceptual studies · Not client engagements</p><a className="text-action" href="/concept-lab">Enter Concept Lab <span aria-hidden="true">↗</span></a></div></section>;
+}
+
+function CompanyGate(){
+ return <section className="company-gate wrap"><p className="kicker">FROM IDEA TO COMPANY.</p><h2>Bring us the idea.</h2><a href="/#review-builder" className="primary-action">Start a company <span aria-hidden="true">↗</span></a></section>;
+}
+
+function Work(){
+ return <>
+  <Intro label="SELECTED WORK / COMPANY CREATION" title={<>Different companies.<br/>Connected thinking.</>} copy="Different categories require different expressions. The system behind the work remains connected."/>
+  <section className="work-project work-mymosa wrap">
+   <div className="project-heading">
+    <div>
+     <p className="kicker">01 / SELECTED WORK</p>
+     <h2><a href="/work/mymosa">MyMosa <span>/ My Drink Family</span></a></h2>
+    </div>
+    <p>Consumer / Beverage / Brand Architecture</p>
+   </div>
+   <a className="project-entrance" href="/work/mymosa" aria-label="Explore MyMosa case study">
+    <Image id="01-mymosa-four-flavor-hero" alt="MyMosa four-flavor packaging presentation: Classic Orange, Pineapple, Tropical and Strawberry." critical/>
+   </a>
+   <div className="project-bottom">
+    <p>Brand Architecture · 17 House Marks · Packaging Structure · 8 Commercial Expressions</p>
+    <a className="text-action" href="/work/mymosa">Explore case study →</a>
+   </div>
+  </section>
+  <section className="work-project work-ikla wrap">
+   <div className="project-heading">
+    <div>
+     <p className="kicker">02 / SELECTED WORK</p>
+     <h2><a href="/work/ikla-maison">IKLA Maison</a></h2>
+    </div>
+    <p>Fashion / Quiet Luxury / Living System</p>
+   </div>
+   <div className="ikla-entrance">
+    <a className="project-entrance" href="/work/ikla-maison" aria-label="Explore IKLA Maison case study">
+     <Image id="01-ikla-creative-direction" alt="IKLA Maison quiet-luxury creative direction study."/>
+    </a>
+    <div>
+     <p className="quiet-statement">A quieter expression.<br/>A complete design language.</p>
+     <p>Creative direction, identity, crest & monogram, typography, color, pattern, materials, apparel and packaging.</p>
+     <a className="text-action" href="/work/ikla-maison">Explore case study →</a>
+    </div>
+   </div>
+  </section>
+  <section className="work-project work-cliffs wrap">
+   <div className="project-heading">
+    <div>
+     <p className="kicker">03 / SELECTED WORK</p>
+     <h2><a href="/work/mr-cliffs">Mr. Cliff’s <span>Premium Bourbon</span></a></h2>
+    </div>
+    <p>Spirits / Hospitality / Digital Flagship</p>
+   </div>
+   <div className="cliffs-entrance">
+    <a className="project-entrance" href="/work/mr-cliffs" aria-label="Explore Mr. Cliff’s case study">
+     <picture className="portfolio-image">
+      <source srcSet="/assets/portfolio/mr-cliffs/window-thumbnail.webp 800w, /assets/portfolio/mr-cliffs/window-hero.webp 1600w" sizes="(max-width: 800px) 100vw, 850px"/>
+      <img src="/assets/portfolio/mr-cliffs/window-hero.webp" width={1600} height={900} alt="Mr. Cliff’s Premium Bourbon in warm window light" loading="lazy" decoding="async"/>
+     </picture>
+    </a>
+    <div>
+     <p className="quiet-statement">Atmosphere, warmth<br/>and restraint.</p>
+     <p>Editorial typography, digital flagship architecture, desktop and mobile responsive interfaces, and physical storefront presence.</p>
+     <a className="text-action" href="/work/mr-cliffs">Explore case study →</a>
+    </div>
+   </div>
+  </section>
+  <LabGate/>
+  <CompanyGate/>
+ </>;
+}
+
+function Chapter({number,title,copy,children,id}:{number:string;title:string;copy:string;children?:ReactNode;id?:string}){
+ return <section className="case-chapter wrap" id={id}><div className="chapter-heading"><p className="kicker">{number}</p><h2>{title}</h2><p>{copy}</p></div>{children}</section>;
+}
+
+function Back(){
+ return <a href="/work" className="text-action">← Back to Work</a>;
+}
+
+function Next({name,href}:{name:string;href:string}){
+ return <nav className="next-project wrap" aria-label="Case study navigation"><Back/><a href={href}><span className="kicker">NEXT PROJECT</span><strong>{name} <span aria-hidden="true">↗</span></strong></a><a href="/concept-lab" className="text-action">Explore Concept Lab →</a></nav>;
+}
+
+function MyMosa(){
+ return <article className="case-study case-mymosa">
+  <Intro label="01 / SELECTED WORK" title={<>MyMosa<span className="case-subtitle">/ My Drink Family</span></>} copy="Premium Wine Cocktails. A product family expressed through flavor, packaging and a connected brand world."><Back/></Intro>
+  <div className="wrap"><Visual id="01-mymosa-four-flavor-hero" alt="MyMosa four-flavor packaging system." caption="Product presentation · project visualization" critical/></div>
+  <Chapter number="01 / THE FOUNDATION" title="One family. Distinct expressions." copy="MyMosa / My Drink Family brings product, identity and consumer-facing creative into a common system. This case study follows the supplied work from its four-flavor presentation into packaging and brand expression."/>
+  <Chapter number="02 / PRODUCT SYSTEM" title="Flavor gives the family its rhythm." copy="Classic Orange, Pineapple, Tropical and Strawberry share a recognizable composition while color distinguishes each expression.">
+   <div className="flavor-rail" tabIndex={0} role="region" aria-label="Four flavor details; scroll horizontally on mobile">
+    {[['orange','Classic Orange'],['pineapple','Pineapple'],['tropical','Tropical'],['strawberry','Strawberry']].map(([id,name])=><figure key={id}><Image id={'mymosa-'+id+'-detail'} alt={'MyMosa '+name+' — unchanged source detail.'} sizes="(max-width:800px) 190px, 220px"/><figcaption>{name}</figcaption></figure>)}
+   </div>
+  </Chapter>
+  <Chapter number="03 / PACKAGING DEVELOPMENT" title="A structure for every expression." copy="Flavor differentiation and visual hierarchy work together across the packaging presentation. The process board brings the product family, color and application into one view."><Visual id="03-mymosa-packaging-development" alt="MyMosa packaging development board with flavor system and layout studies." caption="Packaging development visualization · not a production specification"/></Chapter>
+  <Chapter number="04 / BRAND EXPRESSION" title="From package to occasion." copy="The same visual language extends into campaign imagery: sunlight, flavor and a shared sense of occasion."><Visual id="02-mymosa-lifestyle-campaign" alt="MyMosa lifestyle campaign visualization with four flavors in a sunlit setting." caption="Lifestyle / campaign visualization"/></Chapter>
+  <Chapter number="05 / SYSTEM THINKING" title="The product is only one part." copy="Brand, packaging, product, campaign, digital and market form the wider project architecture. The supplied visual system connects the product to the way the brand is encountered."><Visual id="04-mymosa-brand-system" alt="MyMosa brand system presentation spanning packaging and campaign direction." caption="Brand-world development"/></Chapter>
+  <Next name="IKLA Maison" href="/work/ikla-maison"/>
+ </article>;
+}
+
+function Process({id,title,alt}:{id:string;title:string;alt:string}){
+ const[open,setOpen]=useState(false);
+ return <details className="process-disclosure" onToggle={e=>setOpen(e.currentTarget.open)}><summary>{title}<span aria-hidden="true">+</span></summary>{open&&<Visual id={id} alt={alt} caption="Design exploration · authentic study asset"/>}</details>;
+}
+
+function IKLA(){
+ return <article className="case-study case-ikla">
+  <Intro label="02 / SELECTED WORK" title="IKLA Maison" copy="Quiet casual luxury. A design language shaped by material, fit, modern living and considered detail."><Back/></Intro>
+  <div className="wrap"><Visual id="01-ikla-creative-direction" alt="IKLA Maison quiet-luxury creative direction study." caption="Creative direction · current quiet-casual-luxury presentation" critical/></div>
+  <nav className="chapter-navigation wrap" aria-label="IKLA chapters">{['direction','identity','typography','color','marks','surface','materials','application','packaging','world'].map((id,i)=><a key={id} href={'#'+id}>{String(i+1).padStart(2,'0')} {id}</a>)}</nav>
+  <Chapter id="direction" number="01 / CREATIVE DIRECTION" title="Modern living. Lasting character." copy="Timeless style, elevated essentials and natural textures establish the direction. Global influence is expressed through culture, travel and a considered everyday wardrobe."/>
+  <Chapter id="identity" number="02 / IDENTITY" title="A house with a shared language." copy="The identity architecture connects the wordmark and supporting marks across the brand. Earlier heraldic studies provide process context; the current presentation favors restraint.">
+   <Process id="02-ikla-identity-system" title="View identity architecture study" alt="IKLA identity architecture exploration with wordmark and heraldic applications."/>
+  </Chapter>
+  <Chapter id="typography" number="03 / TYPOGRAPHY" title="Hierarchy before decoration." copy="A typographic system establishes relationships between the house name, editorial statements and functional information.">
+   <Visual id="04-ikla-typography-system" alt="IKLA typography study exploring hierarchy, lockups and applications." caption="Typography system study"/>
+  </Chapter>
+  <Chapter id="color" number="04 / COLOR" title="A palette with room to breathe." copy="Maison Green, Imperial Black, Regal Gold and Cream White form the core identity. Supporting neutrals explore a quieter expression across fabric, print and space.">
+   <Visual id="05-ikla-color-system" alt="IKLA color study with core colors and supporting neutral explorations." caption="Color system · core identity and supporting exploration"/>
+  </Chapter>
+  <Chapter id="marks" number="05 / EMBLEM & MARKS" title="Character, at the right scale." copy="The mark studies explore a family of expressions. The direction for everyday applications is smaller, tonal and integrated into material.">
+   <Process id="03-ikla-emblem-system" title="View emblem and mark exploration" alt="IKLA emblem exploration with griffin, monogram and supporting marks."/>
+  </Chapter>
+  <Chapter id="surface" number="06 / PATTERN & SURFACE" title="Refinement in repetition." copy="Micro monogram, herringbone, stripe, textile texture and botanical influence extend identity into surface. Embossing and lining offer quieter places for a mark to live.">
+   <Visual id="06-ikla-pattern-surface-system" alt="IKLA quiet-luxury pattern and surface system with tonal textile applications." caption="Pattern / surface system"/>
+   <div className="detail-aside"><Image id="ikla-pattern-detail" alt="Source detail of tonal IKLA monogram and herringbone textiles." sizes="(max-width:800px) 90vw, 420px"/><p>Pattern becomes part of the material, rather than a layer placed over it.</p></div>
+  </Chapter>
+  <Chapter id="materials" number="07 / MATERIALS" title="The detail carries the idea." copy="Fabric, leather, embroidery, hardware, woven labels and finishes provide the physical vocabulary. This is a material study demonstrating texture, scale and finish.">
+   <div className="detail-aside"><Image id="ikla-material-detail" alt="IKLA material study detail showing fabric and textured applications." sizes="(max-width:800px) 90vw, 480px"/><p>Texture, scale and finish connect the visual system to touch.</p></div>
+   <Process id="07-ikla-material-study" title="View complete material exploration" alt="IKLA material and hardware study."/>
+  </Chapter>
+  <Chapter id="application" number="08 / APPLICATION" title="Designed to be lived in." copy="The current direction emphasizes fit, texture and elevated everyday pieces. Small branding lets material and construction lead.">
+   <div className="quiet-pair"><Visual id="ikla-direction-detail" alt="IKLA quiet-luxury knitwear direction, cropped directly from the approved creative-direction master." caption="Current direction / knitwear"/><Visual id="ikla-living-detail" alt="IKLA quiet-luxury everyday styling, cropped directly from the creative-direction master." caption="Current direction / everyday styling"/></div>
+   <Process id="08-ikla-apparel-accessories" title="View apparel and accessory exploration" alt="IKLA apparel and accessories exploration."/>
+  </Chapter>
+  <Chapter id="packaging" number="09 / PACKAGING" title="The experience continues." copy="Packaging connects garment, label, paper and presentation. The supplied study shows how those touchpoints can belong to one house.">
+   <Visual id="09-ikla-packaging-experience" alt="IKLA packaging experience study with garment, boxes, cards and labels." caption="Packaging experience study"/>
+  </Chapter>
+  <Chapter id="world" number="10 / BRAND WORLD" title="A quieter way to arrive." copy="Natural light, texture and modern living frame the current direction. The brand world supports the product without overwhelming it.">
+   <div className="closing-quiet"><Image id="ikla-living-detail" alt="Quiet IKLA editorial styling in natural light." sizes="(max-width:800px) 70vw, 360px"/><p>Material.<br/>Fit.<br/>Restraint.</p></div>
+   <Process id="10-ikla-editorial-lifestyle" title="View editorial exploration" alt="IKLA lifestyle exploration, retained as process evidence."/>
+  </Chapter>
+  <Next name="Mr. Cliff’s Premium Bourbon" href="/work/mr-cliffs"/>
+ </article>;
+}
+
+function Cliffs(){
+ return <article className="case-study case-cliffs">
+  <Intro label="03 / SELECTED WORK" title={<>Mr. Cliff’s<span className="case-subtitle">Premium Bourbon</span></>} copy="Heritage spirits, architectural atmosphere and digital execution. A brand presence built around warm window light, oxblood restraint and authentic bourbon character."><Back/></Intro>
+  <div className="wrap">
+   <figure className="portfolio-visual cliffs-hero-visual">
+    <picture className="portfolio-image">
+     <source srcSet="/assets/portfolio/mr-cliffs/window-thumbnail.webp 800w, /assets/portfolio/mr-cliffs/window-hero.webp 1600w" sizes="(max-width: 800px) 100vw, 1200px"/>
+     <img src="/assets/portfolio/mr-cliffs/window-hero.webp" width={1600} height={900} alt="Mr. Cliff’s Premium Bourbon bottle and glass in warm window light" loading="eager" fetchPriority="high" decoding="async"/>
+    </picture>
+    <figcaption>Brand visual atmosphere · Authentic project artwork</figcaption>
+   </figure>
+  </div>
+  <Chapter number="01 / ATMOSPHERE & IDENTITY" title="Grounded in warmth and restraint." copy="Warm ivory, deep oxblood and amber establish the tone. Product artwork carries the brand’s heritage, letting typography and material lead the experience without unnecessary decorative excess."/>
+  <Chapter number="02 / DIGITAL FLAGSHIP" title="A coherent digital expression." copy="The website translates the physical hospitality atmosphere into a responsive digital experience. Desktop and mobile compositions give the bourbon bottle, story and cocktail recipes dedicated space.">
+   <div className="cliffs-device-grid">
+    <figure className="cliffs-device-desktop">
+     <img src="/assets/portfolio/mr-cliffs/desktop-home.webp" width={1440} height={1000} alt="Mr. Cliff’s desktop flagship website capture" loading="lazy" decoding="async"/>
+     <figcaption>Digital flagship · Desktop interface capture</figcaption>
+    </figure>
+    <figure className="cliffs-device-mobile">
+     <img src="/assets/portfolio/mr-cliffs/mobile-home.webp" width={390} height={1000} alt="Mr. Cliff’s mobile website capture" loading="lazy" decoding="async"/>
+     <figcaption>Responsive mobile interface capture</figcaption>
+    </figure>
+   </div>
+  </Chapter>
+  <Chapter number="03 / STOREFRONT & PRESENCE" title="From physical encounter to digital arrival." copy="The window artwork establishes an inviting physical presence that carries seamlessly into the digital flagship. Authentic lighting and bottle presentation anchor the brand in hospitality.">
+   <div className="cliffs-window-feature">
+    <img src="/assets/portfolio/mr-cliffs/window-thumbnail.webp" width={800} height={450} alt="Mr. Cliff’s storefront window presentation detail" loading="lazy" decoding="async"/>
+    <p>A hospitality atmosphere where material, lighting and physical environment reinforce brand character before a word is spoken.</p>
+   </div>
+  </Chapter>
+  <Chapter number="04 / COMMERCIAL POSITIONING" title="Clarity without fabrication." copy="This case study exhibits the website design, responsive layouts and original production artwork. No unverified retail relationships, distribution claims or sales figures are asserted."/>
+  <Next name="MyMosa / My Drink Family" href="/work/mymosa"/>
+ </article>;
+}
+
+function ConceptLab(){
+ return <>
+  <Intro label="DYNASTY WORKS / CONCEPT LAB" title={<>What else<br/>can we build?</>} copy="Independent studies exploring how strategy, identity, product, digital and experience can become complete systems."><p className="concept-classification">Conceptual studies<br/>Not client engagements</p></Intro>
+  <nav className="concept-jumps wrap" aria-label="Concept studies">{concepts.map(c=><a href={'#'+c.slug} key={c.slug}>{c.name} ↘</a>)}</nav>
+  <div className="concept-sequence wrap">
+   {concepts.map((c,i)=><section id={c.slug} className={'concept-entry concept-entry-'+i} key={c.slug}>
+    <div className="concept-copy">
+     <p className="kicker">{String(i+1).padStart(2,'0')} / CONCEPT STUDY</p>
+     <h2><a href={'/concept-lab/'+c.slug}>{c.name}</a></h2>
+     <p>{c.disciplines}</p>
+     <p className="concept-premise">{c.premise}</p>
+     <a className="text-action" href={'/concept-lab/'+c.slug}>Explore study →</a>
+    </div>
+    <a href={'/concept-lab/'+c.slug} aria-label={'Explore '+c.name+' concept study'}>
+     <Image id={c.detail} alt={c.detailAlt} sizes="(max-width:800px) 90vw, 650px"/>
+    </a>
+   </section>)}
+  </div>
+  <CompanyGate/>
+ </>;
+}
+
+function ConceptDetail({slug}:{slug:string}){
+ const index=concepts.findIndex(c=>c.slug===slug),c=concepts[index],next=concepts[(index+1)%concepts.length];
+ if(!c)return <NotFound/>;
+ return <article className="concept-detail">
+  <Intro label="DYNASTY WORKS CONCEPT STUDY" title={c.name} copy={c.premise}><a href="/concept-lab" className="text-action">← Back to Concept Lab</a></Intro>
+  <div className="concept-premise-section wrap">
+   <p className="concept-classification">Fictional capability demonstration<br/>Not a client engagement or operating company</p>
+   <p>{c.system}</p>
+   <p>{c.disciplines}</p>
+  </div>
+  <div className="concept-focus wrap"><Visual id={c.detail} alt={c.detailAlt} caption="Concept study / detail" critical/></div>
+  {slug==='nova'?<Nova/>:<section className="concept-board wrap">
+   <h2>The connected system.</h2>
+   <p>Identity, application and experience explored together.</p>
+   <Visual id={c.image} alt={c.name+' conceptual brand system board.'} caption="Concept study · imagery, settings and product specifications are illustrative"/>
+  </section>}
+  <nav className="next-project wrap" aria-label="Concept study navigation">
+   <a href="/concept-lab" className="text-action">← Back to Concept Lab</a>
+   <a href={'/concept-lab/'+next.slug}><span className="kicker">NEXT CONCEPT</span><strong>{next.name} ↗</strong></a>
+   <a href="/work" className="text-action">Selected Work →</a>
+  </nav>
+  <CompanyGate/>
+ </article>;
+}
+
+function Nova(){
+ return <>
+  <Chapter number="01 / COMPANY CREATION" title="From idea to company." copy="NOVA is a fictional wellness concept used to explore the entire creation chain. Each discipline builds on the decisions before it.">
+   <ol className="creation-chain">{['Strategy','Naming','Identity','Product','Packaging','Digital','Environment','Campaign','Market'].map(s=><li key={s}>{s}</li>)}</ol>
+   <Visual id="01-nova-company-creation-system" alt="NOVA conceptual company-creation system from strategy through market." caption="Concept study · all market-impact figures within the artwork are fictional, not achieved results"/>
+  </Chapter>
+  <Chapter number="02 / DIGITAL PRODUCT" title="One identity. Many interactions." copy="The digital product study connects UX, UI, components and user journeys across mobile, desktop and wearable concepts. It demonstrates design thinking, not a live application or validated health outcome.">
+   <div className="nova-product-focus"><Visual id="nova-product-detail" alt="NOVA fictional mobile interface design detail." caption="Concept UI · displayed values are sample data"/></div>
+   <Visual id="02-nova-digital-product-system" alt="NOVA conceptual digital product board with mobile, desktop and wearable design explorations." caption="Concept study · user counts, scores and outcomes in the artwork are fictional interface or vision data"/>
+  </Chapter>
+ </>;
+}
+
+function NotFound(){
+ return <Intro label="DYNASTY WORKS STUDIO" title="Page not found." copy="Return to the studio or explore the work."><a className="text-action" href="/work">Back to Work →</a></Intro>;
+}
+
+export default function Portfolio(){
+ const[reduced,setReduced]=useState(false);
+ const path=window.location.pathname.replace(/\/$/,'')||'/';
+ useEffect(()=>{document.title=portfolioTitles[path]||'Page not found — Dynasty Works Studio'},[path]);
+ let page:ReactNode=<NotFound/>;
+ if(path==='/work')page=<Work/>;
+ else if(path==='/work/mymosa')page=<MyMosa/>;
+ else if(path==='/work/ikla-maison')page=<IKLA/>;
+ else if(path==='/work/mr-cliffs')page=<Cliffs/>;
+ else if(path==='/concept-lab')page=<ConceptLab/>;
+ else if(concepts.some(c=>path==='/concept-lab/'+c.slug))page=<ConceptDetail slug={path.split('/').pop()!}/>;
+ return <div className="portfolio-site" data-reduced={reduced}>
+  <a className="skip" href="#main">Skip to content</a>
+  <SiteHeader portfolio/>
+  <main id="main">{page}</main>
+  <SiteFooter reduced={reduced} onMotion={()=>setReduced(!reduced)}/>
+ </div>;
+}
