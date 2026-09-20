@@ -297,6 +297,8 @@ export default async function handler(request: Request): Promise<Response> {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Accept-Profile': 'dynasty_private',
+        'Content-Profile': 'dynasty_private',
         apikey: supabaseKey,
         Authorization: `Bearer ${supabaseKey}`,
       },
