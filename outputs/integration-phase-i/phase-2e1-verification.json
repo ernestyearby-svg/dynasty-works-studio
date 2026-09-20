@@ -1,0 +1,227 @@
+{
+  "passed": 44,
+  "failed": 0,
+  "total": 44,
+  "checks": [
+    {
+      "name": "Migration file exists at version-controlled path",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "SQL creates isolated schema dynasty_private",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "SQL immediately revokes schema access from public, anon, authenticated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Table dynasty_private.rate_limits defined",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Table dynasty_private.rate_limits has forced RLS",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Table dynasty_private.leads defined",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Table dynasty_private.leads has forced RLS",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Table dynasty_private.inquiries defined",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Table dynasty_private.inquiries has forced RLS",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Table dynasty_private.builder_submissions defined",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Table dynasty_private.builder_submissions has forced RLS",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Table dynasty_private.founder_blueprint_intakes defined",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Table dynasty_private.founder_blueprint_intakes has forced RLS",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Table dynasty_private.general_inquiries defined",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Table dynasty_private.general_inquiries has forced RLS",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Public/Anon/Authenticated table permissions completely revoked",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Atomic submit_inquiry function defined with SECURITY DEFINER",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Restricted search_path set on submit_inquiry function",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Execution revoked from public, anon, authenticated",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Execution granted strictly to service_role",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Durable rate limit evaluated in database transaction with IP hash",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Raw IP address is NEVER stored in SQL schema",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Idempotency key uniqueness and conflict detection implemented",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Serverless scaffold exists at netlify/functions/submissions.ts",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Controlled feature flag INQUIRY_SUBMISSIONS_ENABLED implemented",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Defensive headers present (Cache-Control: no-store, X-Content-Type-Options: nosniff)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Strict HTTP Method check (POST only, 405 on others)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "48KB maximum payload size limit enforced",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Origin allowlist validation enforced (403 on forbidden origin)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Zero-friction honeypot trap enforced (400 on bot entry)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Strict submission-kind validation for builder, blueprint, and general",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Server-side deterministic recomputation for Company Builder leads",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "IP address hashed with server pepper before RPC execution",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Structured PII-redacted logging (zero founder personal data logged)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "netlify.toml defines functions directory as netlify/functions",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "netlify.toml routes /api/submissions/:kind to serverless function before catch-all",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Client build artifacts exist in dist/phase-i/assets",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Zero server secrets or administrative credentials leaked into client bundle",
+      "pass": true,
+      "detail": "All client chunks clean"
+    },
+    {
+      "name": "Disabled mode returns HTTP 503 not_configured",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Disabled message informs about local export",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "GET request returns HTTP 405 Method Not Allowed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Untrusted origin returns HTTP 403 Origin Not Allowed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Honeypot entry returns HTTP 400 Bot detected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Invalid payload returns HTTP 422 with field errors",
+      "pass": true,
+      "detail": "Received status: 422"
+    }
+  ]
+}
