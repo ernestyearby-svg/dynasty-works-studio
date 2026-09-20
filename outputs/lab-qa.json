@@ -1,0 +1,33 @@
+{
+  "errors": [],
+  "results": [
+    {
+      "width": 320,
+      "overflow": false,
+      "complete": true
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "complete": true
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "complete": true
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "complete": true
+    },
+    {
+      "width": 1920,
+      "overflow": false,
+      "complete": true
+    },
+    {
+      "reducedMotionKeyboard": true
+    }
+  ]
+}

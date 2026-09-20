@@ -1,0 +1,30 @@
+{
+  "errors": [],
+  "widths": [
+    320,
+    360,
+    375,
+    390,
+    430,
+    768,
+    1024,
+    1280,
+    1440,
+    1920,
+    2560
+  ],
+  "checks": [
+    "timer countdown/pause",
+    "intent selection and swipe",
+    "identity application continuity",
+    "packaging forward/reverse and material/print",
+    "keyboard",
+    "reduced motion",
+    "overflow"
+  ],
+  "frameSample": {
+    "median": 16.699999999999818,
+    "p95": 16.899999999999636,
+    "context": "Headless Edge desktop frame intervals, not physical-device guarantee"
+  }
+}

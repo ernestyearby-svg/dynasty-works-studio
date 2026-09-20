@@ -1,0 +1,110 @@
+[
+  {
+    "width": 1440,
+    "route": "3d-product",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "route": "web",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "route": "os",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "route": "3d-product",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "route": "web",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "route": "os",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 320,
+    "route": "3d-product",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 320,
+    "route": "web",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 320,
+    "route": "os",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 768,
+    "route": "3d-product",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 768,
+    "route": "web",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 768,
+    "route": "os",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 1920,
+    "route": "3d-product",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 1920,
+    "route": "web",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 1920,
+    "route": "os",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 2560,
+    "route": "3d-product",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 2560,
+    "route": "web",
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 2560,
+    "route": "os",
+    "overflow": false,
+    "errors": []
+  }
+]

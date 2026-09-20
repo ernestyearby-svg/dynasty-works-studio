@@ -1,0 +1,72 @@
+{
+  "failures": [],
+  "menu": true,
+  "closed": true,
+  "reducedPhase": "0",
+  "fonts": {
+    "manrope": true,
+    "bodoni": true
+  },
+  "routes": [
+    {
+      "route": "/work",
+      "status": 200,
+      "heading": "Different companies.\nConnected thinking.",
+      "images": 0
+    },
+    {
+      "route": "/work/mymosa",
+      "status": 200,
+      "heading": "MyMosa\n/ My Drink Family",
+      "images": 0
+    },
+    {
+      "route": "/work/ikla-maison",
+      "status": 200,
+      "heading": "IKLA Maison",
+      "images": 0
+    },
+    {
+      "route": "/concept-lab",
+      "status": 200,
+      "heading": "What else\ncan we build?",
+      "images": 0
+    },
+    {
+      "route": "/concept-lab/veritas",
+      "status": 200,
+      "heading": "Véritas",
+      "images": 0
+    },
+    {
+      "route": "/concept-lab/lumiere",
+      "status": 200,
+      "heading": "Lumière",
+      "images": 0
+    },
+    {
+      "route": "/concept-lab/aura",
+      "status": 200,
+      "heading": "Aūra",
+      "images": 0
+    },
+    {
+      "route": "/concept-lab/altius",
+      "status": 200,
+      "heading": "Altius",
+      "images": 0
+    },
+    {
+      "route": "/concept-lab/solara",
+      "status": 200,
+      "heading": "Solara",
+      "images": 0
+    },
+    {
+      "route": "/concept-lab/nova",
+      "status": 200,
+      "heading": "Nova",
+      "images": 0
+    }
+  ]
+}

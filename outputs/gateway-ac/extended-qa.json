@@ -1,0 +1,409 @@
+{
+  "checks": [
+    {
+      "name": "a selected 0 width 320",
+      "pass": true
+    },
+    {
+      "name": "a selected 1 width 320",
+      "pass": true
+    },
+    {
+      "name": "a selected 2 width 320",
+      "pass": true
+    },
+    {
+      "name": "a selected 3 width 320",
+      "pass": true
+    },
+    {
+      "name": "a selected 4 width 320",
+      "pass": true
+    },
+    {
+      "name": "a selected 5 width 320",
+      "pass": true
+    },
+    {
+      "name": "a selected 6 width 320",
+      "pass": true
+    },
+    {
+      "name": "a selected 7 width 320",
+      "pass": true
+    },
+    {
+      "name": "a selected 8 width 320",
+      "pass": true
+    },
+    {
+      "name": "c selected 0 width 320",
+      "pass": true
+    },
+    {
+      "name": "c selected 1 width 320",
+      "pass": true
+    },
+    {
+      "name": "c selected 2 width 320",
+      "pass": true
+    },
+    {
+      "name": "c selected 3 width 320",
+      "pass": true
+    },
+    {
+      "name": "c selected 4 width 320",
+      "pass": true
+    },
+    {
+      "name": "c selected 5 width 320",
+      "pass": true
+    },
+    {
+      "name": "c selected 6 width 320",
+      "pass": true
+    },
+    {
+      "name": "c selected 7 width 320",
+      "pass": true
+    },
+    {
+      "name": "c selected 8 width 320",
+      "pass": true
+    },
+    {
+      "name": "a selected 0 width 390",
+      "pass": true
+    },
+    {
+      "name": "a selected 1 width 390",
+      "pass": true
+    },
+    {
+      "name": "a selected 2 width 390",
+      "pass": true
+    },
+    {
+      "name": "a selected 3 width 390",
+      "pass": true
+    },
+    {
+      "name": "a selected 4 width 390",
+      "pass": true
+    },
+    {
+      "name": "a selected 5 width 390",
+      "pass": true
+    },
+    {
+      "name": "a selected 6 width 390",
+      "pass": true
+    },
+    {
+      "name": "a selected 7 width 390",
+      "pass": true
+    },
+    {
+      "name": "a selected 8 width 390",
+      "pass": true
+    },
+    {
+      "name": "c selected 0 width 390",
+      "pass": true
+    },
+    {
+      "name": "c selected 1 width 390",
+      "pass": true
+    },
+    {
+      "name": "c selected 2 width 390",
+      "pass": true
+    },
+    {
+      "name": "c selected 3 width 390",
+      "pass": true
+    },
+    {
+      "name": "c selected 4 width 390",
+      "pass": true
+    },
+    {
+      "name": "c selected 5 width 390",
+      "pass": true
+    },
+    {
+      "name": "c selected 6 width 390",
+      "pass": true
+    },
+    {
+      "name": "c selected 7 width 390",
+      "pass": true
+    },
+    {
+      "name": "c selected 8 width 390",
+      "pass": true
+    },
+    {
+      "name": "a selected 0 width 768",
+      "pass": true
+    },
+    {
+      "name": "a selected 1 width 768",
+      "pass": true
+    },
+    {
+      "name": "a selected 2 width 768",
+      "pass": true
+    },
+    {
+      "name": "a selected 3 width 768",
+      "pass": true
+    },
+    {
+      "name": "a selected 4 width 768",
+      "pass": true
+    },
+    {
+      "name": "a selected 5 width 768",
+      "pass": true
+    },
+    {
+      "name": "a selected 6 width 768",
+      "pass": true
+    },
+    {
+      "name": "a selected 7 width 768",
+      "pass": true
+    },
+    {
+      "name": "a selected 8 width 768",
+      "pass": true
+    },
+    {
+      "name": "c selected 0 width 768",
+      "pass": true
+    },
+    {
+      "name": "c selected 1 width 768",
+      "pass": true
+    },
+    {
+      "name": "c selected 2 width 768",
+      "pass": true
+    },
+    {
+      "name": "c selected 3 width 768",
+      "pass": true
+    },
+    {
+      "name": "c selected 4 width 768",
+      "pass": true
+    },
+    {
+      "name": "c selected 5 width 768",
+      "pass": true
+    },
+    {
+      "name": "c selected 6 width 768",
+      "pass": true
+    },
+    {
+      "name": "c selected 7 width 768",
+      "pass": true
+    },
+    {
+      "name": "c selected 8 width 768",
+      "pass": true
+    },
+    {
+      "name": "a selected 0 width 1440",
+      "pass": true
+    },
+    {
+      "name": "a selected 1 width 1440",
+      "pass": true
+    },
+    {
+      "name": "a selected 2 width 1440",
+      "pass": true
+    },
+    {
+      "name": "a selected 3 width 1440",
+      "pass": true
+    },
+    {
+      "name": "a selected 4 width 1440",
+      "pass": true
+    },
+    {
+      "name": "a selected 5 width 1440",
+      "pass": true
+    },
+    {
+      "name": "a selected 6 width 1440",
+      "pass": true
+    },
+    {
+      "name": "a selected 7 width 1440",
+      "pass": true
+    },
+    {
+      "name": "a selected 8 width 1440",
+      "pass": true
+    },
+    {
+      "name": "c selected 0 width 1440",
+      "pass": true
+    },
+    {
+      "name": "c selected 1 width 1440",
+      "pass": true
+    },
+    {
+      "name": "c selected 2 width 1440",
+      "pass": true
+    },
+    {
+      "name": "c selected 3 width 1440",
+      "pass": true
+    },
+    {
+      "name": "c selected 4 width 1440",
+      "pass": true
+    },
+    {
+      "name": "c selected 5 width 1440",
+      "pass": true
+    },
+    {
+      "name": "c selected 6 width 1440",
+      "pass": true
+    },
+    {
+      "name": "c selected 7 width 1440",
+      "pass": true
+    },
+    {
+      "name": "c selected 8 width 1440",
+      "pass": true
+    },
+    {
+      "name": "a selected 0 width 2560",
+      "pass": true
+    },
+    {
+      "name": "a selected 1 width 2560",
+      "pass": true
+    },
+    {
+      "name": "a selected 2 width 2560",
+      "pass": true
+    },
+    {
+      "name": "a selected 3 width 2560",
+      "pass": true
+    },
+    {
+      "name": "a selected 4 width 2560",
+      "pass": true
+    },
+    {
+      "name": "a selected 5 width 2560",
+      "pass": true
+    },
+    {
+      "name": "a selected 6 width 2560",
+      "pass": true
+    },
+    {
+      "name": "a selected 7 width 2560",
+      "pass": true
+    },
+    {
+      "name": "a selected 8 width 2560",
+      "pass": true
+    },
+    {
+      "name": "c selected 0 width 2560",
+      "pass": true
+    },
+    {
+      "name": "c selected 1 width 2560",
+      "pass": true
+    },
+    {
+      "name": "c selected 2 width 2560",
+      "pass": true
+    },
+    {
+      "name": "c selected 3 width 2560",
+      "pass": true
+    },
+    {
+      "name": "c selected 4 width 2560",
+      "pass": true
+    },
+    {
+      "name": "c selected 5 width 2560",
+      "pass": true
+    },
+    {
+      "name": "c selected 6 width 2560",
+      "pass": true
+    },
+    {
+      "name": "c selected 7 width 2560",
+      "pass": true
+    },
+    {
+      "name": "c selected 8 width 2560",
+      "pass": true
+    },
+    {
+      "name": "actual entry Object Zero",
+      "pass": true
+    },
+    {
+      "name": "native back returns gateway",
+      "pass": true
+    },
+    {
+      "name": "native study web",
+      "pass": true
+    },
+    {
+      "name": "native study os",
+      "pass": true
+    },
+    {
+      "name": "native study mobile",
+      "pass": true
+    },
+    {
+      "name": "native study identity",
+      "pass": true
+    },
+    {
+      "name": "native study packaging",
+      "pass": true
+    },
+    {
+      "name": "native study capital",
+      "pass": true
+    },
+    {
+      "name": "native study orchestration",
+      "pass": true
+    },
+    {
+      "name": "native study space",
+      "pass": true
+    },
+    {
+      "name": "genesis native entry",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

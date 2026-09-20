@@ -1,0 +1,68 @@
+/* V5.8 candidate-only rooms. Content, layout and interaction selectors remain intact.
+   No raster downloads, extra scene loops or pointer-intercepting decoration. */
+body[data-cinematic-room]{--room-stone:#d2cbbf;--room-mineral:#292d2e;--room-light:#eee5d3}
+/* Architect's room: illumination is confined to the perimeter. The instrument
+   keeps its existing high-contrast paper surface and all functional controls. */
+body[data-cinematic-room=creation] .r51-builder{
+ background:linear-gradient(90deg,transparent 94%,#161b1c26 94.2%),
+ linear-gradient(179deg,transparent 83%,#777b7630 83.2%,transparent 83.5%),
+ radial-gradient(ellipse at 99% 12%,#fff1d5a6,transparent 45%),
+ linear-gradient(115deg,#c2bfb5,#ddd6c9 54%,#acaea6);
+ --field:#d1ccbf;
+}
+body[data-cinematic-room=creation] .r51-instrument{background:#ddd8cced;box-shadow:32px 35px 60px -48px #12191980}
+/* Threshold: an open-corner aperture in a single mineral field. */
+body[data-cinematic-room=creation] .r52-invitation{
+ color:#f0ece3;--ink:#f0ece3;--blue:#678aff;
+ background:
+ linear-gradient(90deg,transparent 85%,#cfc2a745 85.1%,#cfc2a718 85.5%,transparent 86%),
+ linear-gradient(180deg,transparent 16%,#eee2c31a 16.2%,transparent 16.5%),
+ radial-gradient(ellipse at 95% 42%,#655e4c80,transparent 44%),
+ linear-gradient(115deg,#181d1f 18%,#303535 70%,#181d1e);
+}
+body[data-cinematic-room=creation] .r52-invitation .r52-seed{border-color:#d6d2c7}
+body[data-cinematic-room=creation] .r52-invitation .r52-talk{border-color:#8d918d}
+body[data-cinematic-room=creation] .r52-invitation .r51-action{color:#fff;background:#2457ff}
+/* Gallery: a quiet entrance bay; project surfaces retain their native colors. */
+body[data-cinematic-room=gallery],body[data-cinematic-room=laboratory]{background:#d7d2c8}
+body[data-cinematic-room=gallery] .portfolio-site,
+body[data-cinematic-room=laboratory] .portfolio-site{background:transparent}
+body[data-cinematic-room=gallery] .portfolio-intro,
+body[data-cinematic-room=laboratory] .portfolio-intro{position:relative;isolation:isolate;color:#f2eee5;--graphite:#cccac3;--line:#69706e;--blue:#88a3ff}
+body[data-cinematic-room=gallery] .portfolio-intro::before,
+body[data-cinematic-room=laboratory] .portfolio-intro::before{
+ content:'';position:absolute;inset:0 calc((min(100vw,1680px) - 100vw)/2);z-index:-1;pointer-events:none;
+ background:
+ linear-gradient(90deg,transparent 77%,#090e1255 77.1%,transparent 82%),
+ linear-gradient(90deg,transparent 93%,#eee5d24a 93.1%,transparent 93.4%),
+ linear-gradient(179deg,transparent 83%,#c9c9ba2b 83.2%,transparent 83.5%),
+ radial-gradient(ellipse at 100% 30%,#6f6a5880,transparent 44%),
+ linear-gradient(110deg,#24292b 30%,#3d4241 82%,#212627);
+}
+body[data-cinematic-room=gallery] .portfolio-intro .intro-bottom>p,
+body[data-cinematic-room=laboratory] .portfolio-intro .intro-bottom>p{color:#cccac3}
+body[data-cinematic-room=gallery] .work-project{background:#eeece5}
+body[data-cinematic-room=gallery] .lab-gate{background:#d7d2c8}
+/* Laboratory: the same bay, still open and unresolved. Static material depth. */
+body[data-cinematic-room=laboratory] .portfolio-intro::before{
+ background:linear-gradient(90deg,transparent 77%,#0b0f1433 77.1%,transparent 82%),
+ linear-gradient(180deg,transparent 22%,#99aaa521 22.1%,transparent 22.5%),
+ linear-gradient(90deg,transparent 94%,#2457ff70 94.1%,transparent 94.3%),
+ radial-gradient(ellipse at 87% 10%,#737c814d,transparent 43%),
+ linear-gradient(115deg,#222829,#3a4245 70%,#232a2e);
+}
+body[data-cinematic-room=laboratory] .concept-sequence{background:linear-gradient(110deg,#dedbd3,#e9e6dd 66%,#cacbc4)}
+body[data-cinematic-room=laboratory] .concept-jumps{background:#dedbd3}
+/* Human room: warmer mineral response, without synthetic office imagery. */
+body[data-cinematic-room=human]{background:#d4cdbf}
+body[data-cinematic-room=human] #main{background:radial-gradient(ellipse at 96% 8%,#fff0d1a6,transparent 40%),linear-gradient(105deg,#e4ded1,#c9c3b7 90%,#a7a69c)}
+body[data-cinematic-room=human] .page-intro{background:transparent}
+body[data-cinematic-room=human] .statement,
+body[data-cinematic-room=human] .studio-principles{background:transparent}
+@media(max-width:800px){
+ body[data-cinematic-room=creation] .r51-builder{background:radial-gradient(ellipse at 100% 0%,#f0e3c970,transparent 52%),linear-gradient(170deg,#c5c2b7,#d6d1c5)}
+ body[data-cinematic-room=creation] .r51-instrument{box-shadow:none}
+ body[data-cinematic-room=creation] .r52-invitation{background:linear-gradient(90deg,transparent 94%,#cfc2a73a 94.2%,transparent 95%),radial-gradient(ellipse at 100% 35%,#655e4c66,transparent 60%),#222829}
+ body[data-cinematic-room=gallery] .portfolio-intro::before,
+ body[data-cinematic-room=laboratory] .portfolio-intro::before{background:linear-gradient(90deg,transparent 95%,#e1dbbd26 95.2%,transparent 96%),radial-gradient(ellipse at 100% 0%,#6f716044,transparent 70%),#2b3031}
+}

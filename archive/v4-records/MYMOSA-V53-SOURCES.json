@@ -1,0 +1,42 @@
+[
+  {
+    "flavor": "CLASSIC-ORANGE",
+    "source": "C:/Users/ernes/OneDrive/Documents/ChatGPT/My drink family/MYDRINKFAMILY_MASTER_ASSETS/09_TRANSPARENT_PRODUCTS/MYMOSA/USER_CAN_REPLACEMENTS_02/CLASSIC-ORANGE-TIGHT-002.png",
+    "width": 406,
+    "height": 1172,
+    "sha256": "281735e75a63ed773c0cd4217d3ab48f50b78e0f86428813a3f8b52259613127",
+    "derivative": "classic-orange.webp",
+    "visiblePixelsIdentical": true,
+    "bytes": 505262
+  },
+  {
+    "flavor": "PINEAPPLE",
+    "source": "C:/Users/ernes/OneDrive/Documents/ChatGPT/My drink family/MYDRINKFAMILY_MASTER_ASSETS/09_TRANSPARENT_PRODUCTS/MYMOSA/USER_CAN_REPLACEMENTS_02/PINEAPPLE-TIGHT-002.png",
+    "width": 405,
+    "height": 1172,
+    "sha256": "1fc25057dc67c95e9ea38ac35bdd3d1d304bf34f8cb50caa197f6e50bbee9dca",
+    "derivative": "pineapple.webp",
+    "visiblePixelsIdentical": true,
+    "bytes": 482996
+  },
+  {
+    "flavor": "TROPICAL-BLEND",
+    "source": "C:/Users/ernes/OneDrive/Documents/ChatGPT/My drink family/MYDRINKFAMILY_MASTER_ASSETS/09_TRANSPARENT_PRODUCTS/MYMOSA/USER_CAN_REPLACEMENTS_02/TROPICAL-BLEND-TIGHT-002.png",
+    "width": 405,
+    "height": 1172,
+    "sha256": "7639ac33f8d74f22428869b99b6353bc2b55f22ee050b3a66308f9da3902ddd8",
+    "derivative": "tropical-blend.webp",
+    "visiblePixelsIdentical": true,
+    "bytes": 462654
+  },
+  {
+    "flavor": "STRAWBERRY",
+    "source": "C:/Users/ernes/OneDrive/Documents/ChatGPT/My drink family/MYDRINKFAMILY_MASTER_ASSETS/09_TRANSPARENT_PRODUCTS/MYMOSA/USER_CAN_REPLACEMENTS_02/STRAWBERRY-TIGHT-002.png",
+    "width": 405,
+    "height": 1172,
+    "sha256": "cf509c117abceda5221c5eda9f88986571570f1d4587f3d79992de0e9cea9ec7",
+    "derivative": "strawberry.webp",
+    "visiblePixelsIdentical": true,
+    "bytes": 490048
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "checks": [
+    {
+      "name": "homepage geometry prior to proof unchanged",
+      "pass": true
+    },
+    {
+      "name": "roadmap generated",
+      "pass": true
+    },
+    {
+      "name": "roadmap download",
+      "pass": true
+    },
+    {
+      "name": "blueprint price",
+      "pass": true
+    },
+    {
+      "name": "native route focus",
+      "pass": true
+    },
+    {
+      "name": "route announcement",
+      "pass": true
+    },
+    {
+      "name": "shell above study",
+      "pass": true
+    },
+    {
+      "name": "next route",
+      "pass": true
+    }
+  ]
+}

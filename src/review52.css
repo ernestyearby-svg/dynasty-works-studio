@@ -1,0 +1,83 @@
+/* V5.2 shell only. Locked Acts 01–04 inherit review51.css without overrides. */
+.r52 .r52-header{gap:24px}
+.r52-desktop-nav{display:flex;align-items:center;gap:clamp(18px,2vw,36px);margin-left:auto}
+.r52-desktop-nav a{font-size:11px;padding:15px 0}
+.r52-desktop-nav a:hover,.r52-footer a:hover{color:var(--blue)}
+.r52-nav-action{font-size:11px;white-space:nowrap;margin-left:2vw;padding-block:15px}
+.r52-nav-action span{color:var(--blue);margin-left:15px}
+.r52-menu-trigger{display:none}
+.r52-menu{border:0;background:#ece9e1;color:#111214;padding:25px;width:min(460px,calc(100% - 32px));max-height:calc(100svh - 32px)}
+.r52-menu::backdrop{background:rgb(17 18 20 / .55)}
+.r52-menu>div{display:flex;justify-content:space-between;gap:20px;font-size:11px;align-items:center}
+.r52-menu button{border:0;background:none;padding:15px 0;min-height:44px}
+.r52-menu nav{display:flex;flex-direction:column;margin:25px 0}
+.r52-menu nav a{display:flex;justify-content:space-between;font-size:24px;letter-spacing:-.04em;padding:14px 0;border-bottom:1px solid #a8a79e;min-height:52px}
+.r52-menu nav a span{color:var(--blue)}
+.r52-folio{font-size:10px;letter-spacing:.06em}
+.r52-proof{background:#262728;color:#ede9df;padding:85px var(--g) 100px;position:relative}
+.r52-proof h2{font-family:PManrope,sans-serif;font-weight:400;font-size:clamp(46px,6.1vw,106px);line-height:1.04;letter-spacing:-.06em;margin:65px 0 75px;max-width:17ch}
+.r52-proof h2 em{font-family:PBodoni,serif;font-weight:400}
+.r52-paths{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:25px;position:relative}
+.r52-work-path{grid-column:5/13;border-left:9px solid #ede9df;border-bottom:9px solid #ede9df;padding:28px 0 27px 35px;position:relative}
+.r52-work-path:before{content:'';position:absolute;left:26px;top:0;right:0;height:1px;background:#8f9289}
+.r52-work-path:after{content:'';position:absolute;right:0;top:-4px;width:9px;height:9px;border-radius:50%;background:#2457ff}
+.r52-path-meta{font-size:9px;letter-spacing:.07em;color:#c6c4ba}
+.r52-work-path h3{font-weight:400;font-size:clamp(70px,9vw,150px);line-height:.95;letter-spacing:-.065em;margin:35px 0 50px}
+.r52-path-action{display:flex;justify-content:space-between;gap:30px;font-size:12px}
+.r52-path-action>span{font-size:23px;margin-right:10px;transition:transform .4s}
+.r52-paths a:hover .r52-path-action>span{transform:translate(3px,-3px)}
+.r52-paths a:focus-visible{outline-color:#ede9df}
+.r52-lab-path{grid-column:1/5;grid-row:1;align-self:end;padding-bottom:25px;margin-right:5vw}
+.r52-lab-path h3{font-family:PBodoni,serif;font-weight:400;letter-spacing:-.03em;font-size:clamp(30px,3.2vw,55px);margin:20px 0 30px}
+.r52-lab-path .r52-path-meta{display:block;max-width:25ch;line-height:1.7}
+.r52-lab-path .r52-path-action{border-top:1px solid #7d807a;padding-top:20px}
+.r52-invitation{background:#ece9e1;padding:65px var(--g) 90px}
+.r52-invitation-top{display:flex;justify-content:space-between;gap:25px}
+.r52-invitation-top p{font-size:12px;line-height:1.7;margin:0;width:25%}
+.r52-invitation h2{font-family:PManrope,sans-serif;font-weight:400;font-size:clamp(76px,11.7vw,220px);letter-spacing:-.075em;line-height:.95;margin:110px 0 70px}
+.r52-invitation h2 em{font-family:PBodoni,serif;font-weight:400;letter-spacing:-.055em}
+.r52-invitation-end{display:flex;justify-content:space-between;align-items:end;gap:35px}
+.r52-invitation-end>div{display:flex;gap:55px;align-items:center}
+.r52-talk{font-size:12px;display:flex;gap:35px;align-items:center;padding:18px 0;border-bottom:1px solid #85867e}
+.r52-talk span{font-size:22px;color:var(--blue)}
+.r52-seed{display:block;position:relative;width:60px;height:60px;border-left:9px solid #111214;border-bottom:9px solid #111214}
+.r52-seed:before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:#85867e}
+.r52-seed i{position:absolute;right:-3px;top:-3px;width:6px;height:6px;background:#2457ff;border-radius:50%}
+.r52-footer{background:#ece9e1;border-top:1px solid #aaa99f;margin:0;padding:45px var(--g) 25px;display:grid;grid-template-columns:1fr 1fr;gap:35px}
+.r52-footer-identity p{font-size:11px;line-height:1.8;margin:25px 0 0;color:#515352}
+.r52-footer nav{display:grid;grid-template-columns:1fr 1fr;column-gap:35px;align-content:start}
+.r52-footer nav a{padding:12px 0;font-size:12px;min-height:44px}
+.r52-footer small{grid-column:1/-1;color:#515352;font-size:9px}
+@media(max-width:1150px){
+ .r52-desktop-nav{display:none}
+ .r52 .r52-menu-trigger{display:block;background:none;border:0;min-height:44px;padding:12px 0;font-size:12px}
+ .r52-nav-action{margin-left:auto}
+}
+@media(max-width:800px){
+ .r52 .r52-header{gap:15px}
+ .r52-nav-action{display:none}
+ .r52 .r52-menu-trigger{margin-left:auto}
+ .r52-proof{padding:55px var(--g) 60px}
+ .r52-folio{font-size:8px}
+ .r52-proof h2{font-size:clamp(39px,10.5vw,75px);margin:40px 0 55px;line-height:1.07;letter-spacing:-.055em}
+ .r52-paths{display:flex;flex-direction:column;gap:45px}
+ .r52-work-path{padding:20px 0 23px 22px;border-width:6px}
+ .r52-work-path h3{font-size:clamp(66px,19vw,120px);margin:28px 0 40px}
+ .r52-work-path:before{left:18px}
+ .r52-path-meta{font-size:8px}
+ .r52-path-action{font-size:11px;gap:15px}
+ .r52-lab-path{align-self:auto;margin:0 0 0 25%;padding:0}
+ .r52-lab-path h3{font-size:34px;margin:15px 0 20px}
+ .r52-invitation{padding:45px var(--g) 55px}
+ .r52-invitation-top{display:block}
+ .r52-invitation-top p{width:auto;margin:30px 0 0;font-size:11px}
+ .r52-invitation h2{font-size:clamp(56px,15vw,115px);margin:65px 0 45px;line-height:1.02}
+ .r52-invitation-end{gap:20px;align-items:start}
+ .r52-seed{width:32px;height:32px;border-width:5px;margin-top:10px;flex-shrink:0}
+ .r52-invitation-end>div{flex-direction:column;align-items:stretch;gap:20px}
+ .r52-invitation-end .r51-action{padding:17px 20px;gap:25px}
+ .r52-talk{font-size:11px;justify-content:space-between}
+ .r52-footer{padding:35px var(--g) 25px;grid-template-columns:1fr;gap:25px}
+ .r52-footer .p-wordmark{font-size:13px}
+ .r52-footer nav{gap:0 20px}
+}

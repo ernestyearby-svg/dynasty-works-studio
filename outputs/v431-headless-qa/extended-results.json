@@ -1,0 +1,132 @@
+{
+  "errors": [],
+  "geometry": [
+    {
+      "width": 320,
+      "overflow": false,
+      "rawTextInBounds": true,
+      "humanTypeInBounds": true
+    },
+    {
+      "width": 360,
+      "overflow": false,
+      "rawTextInBounds": true,
+      "humanTypeInBounds": true
+    },
+    {
+      "width": 375,
+      "overflow": false,
+      "rawTextInBounds": true,
+      "humanTypeInBounds": true
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "rawTextInBounds": true,
+      "humanTypeInBounds": true
+    },
+    {
+      "width": 430,
+      "overflow": false,
+      "rawTextInBounds": true,
+      "humanTypeInBounds": true
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "rawTextInBounds": true,
+      "humanTypeInBounds": true
+    },
+    {
+      "width": 1024,
+      "overflow": false,
+      "rawTextInBounds": true,
+      "humanTypeInBounds": true
+    },
+    {
+      "width": 1280,
+      "overflow": false,
+      "rawTextInBounds": true,
+      "humanTypeInBounds": true
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "rawTextInBounds": true,
+      "humanTypeInBounds": true
+    },
+    {
+      "width": 1920,
+      "overflow": false,
+      "rawTextInBounds": true,
+      "humanTypeInBounds": true
+    },
+    {
+      "width": 2560,
+      "overflow": false,
+      "rawTextInBounds": true,
+      "humanTypeInBounds": true
+    }
+  ],
+  "resultOverflow": [
+    {
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "overflow": false
+    }
+  ],
+  "routes": [
+    "/work/ikla-maison",
+    "/work/mymosa",
+    "/work",
+    "/concept-lab/altius",
+    "/concept-lab/aura",
+    "/concept-lab/lumiere",
+    "/concept-lab/nova",
+    "/concept-lab/solara",
+    "/concept-lab/veritas",
+    "/concept-lab"
+  ],
+  "keyboard": "PASS",
+  "download": "PASS",
+  "manualSignal": "PASS"
+}

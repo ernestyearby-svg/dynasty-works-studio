@@ -1,0 +1,5 @@
+const http=require('http');http.createServer((req,res)=>{res.setHeader('Content-Type','text/html');res.end(`<!doctype html><style>@view-transition{navigation:auto}::view-transition-group(root){animation-duration:720ms}</style><script>
+const marks=[];function log(kind,x){console.log(JSON.stringify({kind,name:x?.name,message:x?.message,stack:x?.stack,t:performance.now(),route:location.pathname}));}
+addEventListener('unhandledrejection',e=>log('unhandled',e.reason));
+for(const name of ['pageswap','pagereveal'])addEventListener(name,e=>{if(!e.viewTransition)return;let v=e.viewTransition;log(name);v.ready.then(()=>log('ready'),e=>log('ready-rejected',e));v.finished.then(()=>log('finished'),e=>log('finished-rejected',e));if(location.pathname.includes('skip'))v.skipTransition();});
+</script><h1>Native transition control</h1><a href='/skip-${req.url.includes('skip-a')?'b':'a'}'>Next</a><a href='/normal'>Normal</a>`)}).listen(5193,'127.0.0.1',()=>console.log('Diagnostic-only native transition fixture: 5193'));

@@ -1,0 +1,59 @@
+{
+  "cases": [
+    {
+      "test": "fresh",
+      "url": "http://127.0.0.1:5186/",
+      "heading": "From idea\nto company.",
+      "focus": "BODY"
+    },
+    {
+      "test": "Home Work",
+      "url": "http://127.0.0.1:5186/work",
+      "heading": "Different companies.\nConnected thinking.",
+      "focus": "H1"
+    },
+    {
+      "test": "Work Home",
+      "url": "http://127.0.0.1:5186/",
+      "heading": "From idea\nto company.",
+      "focus": "H1"
+    },
+    {
+      "test": "Home Builder",
+      "url": "http://127.0.0.1:5186/#review-builder",
+      "heading": "From idea\nto company.",
+      "focus": "SECTION"
+    },
+    {
+      "test": "Home Concept",
+      "url": "http://127.0.0.1:5186/concept-lab",
+      "heading": "What else\ncan we build?",
+      "focus": "H1"
+    },
+    {
+      "test": "refresh",
+      "url": "http://127.0.0.1:5186/concept-lab",
+      "heading": "What else\ncan we build?",
+      "focus": "BODY"
+    },
+    {
+      "test": "rapid history",
+      "url": "http://127.0.0.1:5186/work",
+      "heading": "Different companies.\nConnected thinking.",
+      "focus": "BODY"
+    },
+    {
+      "test": "double-click",
+      "url": "http://127.0.0.1:5186/work",
+      "heading": "Different companies.\nConnected thinking.",
+      "focus": "H1"
+    }
+  ],
+  "errors": [],
+  "fixture": [
+    "{\"kind\":\"pageswap\",\"t\":59.80000001192093,\"route\":\"/normal\"}",
+    "{\"kind\":\"pagereveal\",\"t\":12.600000023841858,\"route\":\"/skip-a\"}",
+    "{\"kind\":\"ready-rejected\",\"name\":\"AbortError\",\"message\":\"Transition was skipped. skipTransition() called\",\"t\":12.699999988079071,\"route\":\"/skip-a\"}",
+    "{\"kind\":\"finished\",\"t\":12.699999988079071,\"route\":\"/skip-a\"}"
+  ]
+}

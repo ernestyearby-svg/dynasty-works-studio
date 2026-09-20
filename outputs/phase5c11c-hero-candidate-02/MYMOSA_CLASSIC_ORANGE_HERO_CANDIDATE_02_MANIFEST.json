@@ -1,0 +1,17 @@
+{
+  "asset_id": "MYMOSA_CLASSIC_ORANGE_HERO_CANDIDATE_02",
+  "status": "CANDIDATE \u2014 NOT APPROVED",
+  "provenance": "NEW CROWN BRIDGE RECONSTRUCTED PRODUCTION ASSET; ownership per user",
+  "source_path": "C:\\Users\\ernes\\Downloads\\ChatGPT Image Sep 18, 2026, 08_09_17 AM.png",
+  "preserved_source": "C:\\Users\\ernes\\OneDrive\\Documents\\ChatGPT\\Dynasty Works Studio\\outputs\\phase5c11c-hero-candidate-02\\ORIGINAL_SUPPLIED_HERO_02.png",
+  "sha256": "d24dc44824e0f974a441c98761c0745188cacd87aa2aa6c85deeefd24b91315e",
+  "preserved_hash": "d24dc44824e0f974a441c98761c0745188cacd87aa2aa6c85deeefd24b91315e",
+  "visual_authority": "C:\\Users\\ernes\\OneDrive\\Documents\\ChatGPT\\N8N rewire\\evidence\\MYMOSA_2026_REFERENCE\\CLASSIC_ORANGE_2026_USER_REFERENCE.jpg",
+  "reference_sha256": "a0e2f580af72373e10d81dbf1bbc4cf9f1eca2eda5edfea1b99c10cbd66fe91d",
+  "candidate_01": {
+    "path": "C:\\Users\\ernes\\OneDrive\\Documents\\ChatGPT\\N8N rewire\\native-sources\\MYMOSA_2026_HERO_PHASE5C11B_ALPHA_INTAKE\\ORIGINAL_SUPPLIED_HERO.png",
+    "sha256": "831e13ee0d9173bf3de99b464e467194dd8511e8a88d9842455cc6f0ebba4dc8",
+    "status": "REJECTED / REFERENCE"
+  },
+  "canonical_promotion": false
+}

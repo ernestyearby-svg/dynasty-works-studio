@@ -1,0 +1,108 @@
+{
+  "errors": [],
+  "results": [
+    {
+      "width": 1440,
+      "stages": [
+        "One possibility.",
+        "Give it direction.",
+        "Make it recognizable.",
+        "Give it a form.",
+        "Make it work.",
+        "Bring it into the world.",
+        "Connect it to people.",
+        "Everything. Working together."
+      ],
+      "fonts": "loaded",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "path": "/",
+      "status": 200,
+      "noindex": "noindex, nofollow",
+      "url": "https://dynasty-works-studio-review.netlify.app/"
+    },
+    {
+      "width": 1440,
+      "path": "/work",
+      "status": 200,
+      "noindex": "noindex, nofollow",
+      "url": "https://dynasty-works-studio-review.netlify.app/work/"
+    },
+    {
+      "width": 1440,
+      "path": "/work/mymosa",
+      "status": 200,
+      "noindex": "noindex, nofollow",
+      "url": "https://dynasty-works-studio-review.netlify.app/work/mymosa/"
+    },
+    {
+      "width": 1440,
+      "path": "/concept-lab",
+      "status": 200,
+      "noindex": "noindex, nofollow",
+      "url": "https://dynasty-works-studio-review.netlify.app/concept-lab/"
+    },
+    {
+      "width": 1440,
+      "path": "/company-builder",
+      "status": 200,
+      "noindex": "noindex, nofollow",
+      "url": "https://dynasty-works-studio-review.netlify.app/#review-builder"
+    },
+    {
+      "width": 390,
+      "stages": [
+        "One possibility.",
+        "Give it direction.",
+        "Make it recognizable.",
+        "Give it a form.",
+        "Make it work.",
+        "Bring it into the world.",
+        "Connect it to people.",
+        "Everything. Working together."
+      ],
+      "fonts": "loaded",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "path": "/",
+      "status": 200,
+      "noindex": "noindex, nofollow",
+      "url": "https://dynasty-works-studio-review.netlify.app/"
+    },
+    {
+      "width": 390,
+      "path": "/work",
+      "status": 200,
+      "noindex": "noindex, nofollow",
+      "url": "https://dynasty-works-studio-review.netlify.app/work/"
+    },
+    {
+      "width": 390,
+      "path": "/work/mymosa",
+      "status": 200,
+      "noindex": "noindex, nofollow",
+      "url": "https://dynasty-works-studio-review.netlify.app/work/mymosa/"
+    },
+    {
+      "width": 390,
+      "path": "/concept-lab",
+      "status": 200,
+      "noindex": "noindex, nofollow",
+      "url": "https://dynasty-works-studio-review.netlify.app/concept-lab/"
+    },
+    {
+      "width": 390,
+      "path": "/company-builder",
+      "status": 200,
+      "noindex": "noindex, nofollow",
+      "url": "https://dynasty-works-studio-review.netlify.app/#review-builder"
+    },
+    {
+      "reducedMotion": true
+    }
+  ]
+}

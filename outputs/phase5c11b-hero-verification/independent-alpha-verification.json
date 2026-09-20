@@ -1,0 +1,36 @@
+{
+  "source": "C:\\Users\\ernes\\OneDrive\\Documents\\ChatGPT\\N8N rewire\\native-sources\\MYMOSA_2026_HERO_PHASE5C11B_ALPHA_INTAKE\\ORIGINAL_SUPPLIED_HERO.png",
+  "sha256": "831e13ee0d9173bf3de99b464e467194dd8511e8a88d9842455cc6f0ebba4dc8",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "mode": "RGBA",
+  "transparent": 1190578,
+  "partial": 382286,
+  "opaque": 0,
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "clear_bowl": {
+    "mean_alpha": 252.98806722689076,
+    "range": [
+      252,
+      254
+    ]
+  },
+  "stem": {
+    "mean_alpha": 252.68375,
+    "range": [
+      252,
+      253
+    ]
+  },
+  "matches_download": true,
+  "provisional_placement_mm": [
+    26.951350416852662,
+    79.62656400384985
+  ],
+  "effective_dpi_subject": 475.93162500604365
+}

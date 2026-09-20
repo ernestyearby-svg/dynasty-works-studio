@@ -1,0 +1,92 @@
+/* Acts 03–04 only. No selectors change the approved first two acts. */
+.m531-architecture,.m531-packaging{padding:70px var(--g) 75px}
+.m531-folio{font-size:10px;letter-spacing:.055em}
+.m531-architecture{background:#ece9e1}
+.m531-architecture>h2,.m531-packaging>h2{font-family:M53Manrope,sans-serif;font-weight:400;font-size:clamp(48px,5.8vw,102px);letter-spacing:-.06em;line-height:1.06;margin:55px 0 30px}
+.m531-architecture h2 em,.m531-packaging h2 em,.m531-family h3 em{font-family:M53Bodoni,serif;font-weight:400}
+.m531-intro{font-size:12px;line-height:1.8;max-width:43ch;margin-left:auto}
+.m531-relationship{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:25px;align-items:center;margin:85px 0 30px;position:relative}
+.m531-origin{grid-column:1/6;border-bottom:1px solid #777b73;padding:0 0 35px;position:relative}
+.m531-origin:after{content:'';position:absolute;right:0;bottom:-4px;width:7px;height:7px;background:#2457ff}
+.m531-origin>span,.m531-family>span{font-size:9px;letter-spacing:.04em}
+.m531-origin h3{font-family:M53Bodoni,serif;font-size:clamp(60px,6.5vw,110px);font-weight:400;letter-spacing:-.05em;line-height:1;margin:25px 0}
+.m531-origin p,.m531-family p{font-size:11px;line-height:1.7}
+.m531-family{grid-column:7/13;border-left:1px solid #96998f;padding-left:35px}
+.m531-family h3{font-size:clamp(46px,5vw,90px);letter-spacing:-.05em;font-weight:400;line-height:1;margin:25px 0}
+.m531-expand{display:flex;justify-content:space-between;gap:30px;padding:20px 0;background:none;border:0;border-bottom:1px solid #96998f;font-size:12px!important;min-height:52px;width:100%;text-align:left;color:#111214}
+.m531-expand>span{font-size:22px;color:#2457ff}
+.m531-index-heading{display:flex;justify-content:space-between;gap:25px;font-size:9px;padding-top:55px}
+.m531-index-heading p{font-size:10px;line-height:1.6;margin:0}
+.m531-house-layout{display:grid;grid-template-columns:1.3fr 1fr;gap:8vw;margin-top:30px}
+.m531-house-list{display:flex;flex-direction:column}
+.m531-house-list button{display:flex;align-items:center;gap:25px;background:none;border:0;border-bottom:1px solid #b1b2a8;padding:17px 0;text-align:left;color:#111214}
+.m531-house-list small{font-size:10px;color:#50544c}
+.m531-house-list button>span{font-size:clamp(28px,3.1vw,54px);letter-spacing:-.055em}
+.m531-house-list i{margin-left:auto;font-style:normal;color:#2457ff;opacity:0}
+.m531-house-list [aria-pressed=true] i{opacity:1}
+.m531-house-list [aria-pressed=true]>span{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:8px}
+.m531-house-detail{align-self:center}
+.m531-house-detail>span{font-size:9px}
+.m531-house-detail h4{font-family:M53Bodoni,serif;font-size:clamp(36px,4vw,70px);font-weight:400;letter-spacing:-.035em;margin:25px 0 12px}
+.m531-house-detail p{font-size:15px;text-transform:capitalize}
+.m531-house-detail small{display:block;font-size:10px;line-height:1.7;max-width:28ch;color:#50544c}
+.m531-pages{display:flex;gap:25px;margin-top:30px}
+.m531-pages button{background:none;border:0;border-bottom:2px solid transparent;padding:15px 4px;min-height:48px;font-size:11px;color:#111214}
+.m531-pages [aria-current]{border-color:#2457ff}
+.m531-packaging{background:#111214;color:#ede9df}
+.m531-packaging>header{display:flex;justify-content:space-between;gap:25px}
+.m531-packaging>header>span:last-child{font-size:9px;color:#c6c4ba}
+.m531-packaging>h2{margin-bottom:60px}
+.m531-package-layout{display:grid;grid-template-columns:5fr 6fr;gap:9vw;align-items:start}
+.m531-master{margin:0;display:flex;flex-direction:column;align-items:center}
+.m531-master>img{height:700px;max-width:100%;width:auto;object-fit:contain}
+.m531-master figcaption{display:flex;justify-content:space-between;gap:45px;font-size:12px;margin-top:20px}
+.m531-master figcaption>span{color:#c6c4ba;font-size:10px}
+.m531-zone-nav{display:flex;flex-wrap:wrap;gap:4px 22px;border-bottom:1px solid #737870;padding-bottom:20px}
+.m531-zone-nav button{background:none;border:0;color:#ede9df;padding:13px 0;min-height:44px;font-size:11px!important;display:flex;gap:10px}
+.m531-zone-nav small{font-size:9px;color:#c6c4ba}
+.m531-zone-nav [aria-pressed=true]{text-decoration:underline;text-decoration-color:var(--m531-accent);text-underline-offset:8px}
+.m531-detail{padding-top:30px}
+.m531-detail>span{font-size:9px;color:var(--m531-accent);letter-spacing:.05em}
+.m531-crop-field{min-height:360px;display:flex;align-items:center;padding:15px 0}
+.m531-crop-field img{width:auto;height:auto;max-width:100%!important;object-fit:contain}
+.m531-detail h3{font-family:M53Bodoni,serif;font-weight:400;font-size:36px;margin:15px 0;letter-spacing:-.025em}
+.m531-detail p{font-size:12px;line-height:1.8;max-width:42ch;color:#c6c4ba;margin:0}
+.m531-flavors{display:flex;gap:40px;border-top:1px solid #737870;margin-top:55px;padding-top:15px}
+.m531-flavors button{background:none;border:0;color:#ede9df;display:flex;align-items:center;gap:12px;padding:15px 0;min-height:50px;font-size:12px!important}
+.m531-flavors small{font-size:9px;color:#c6c4ba}
+.m531-flavors i{width:7px;height:7px;opacity:0;border-radius:50%}
+.m531-flavors [aria-pressed=true] i{opacity:1}
+.m531-flavors [aria-pressed=true]{text-decoration:underline;text-underline-offset:8px}
+.m531-packaging button:focus-visible{outline-color:#ede9df}
+@media(max-width:800px){
+ .m531-architecture,.m531-packaging{padding:45px var(--g) 50px}
+ .m531-folio{font-size:8px}
+ .m531-architecture>h2,.m531-packaging>h2{font-size:clamp(39px,10.5vw,70px);margin:35px 0 25px}
+ .m531-intro{font-size:11px;margin-left:15%;max-width:33ch}
+ .m531-relationship{display:block;margin:50px 0 25px}
+ .m531-origin{padding-bottom:25px;margin-right:18%}
+ .m531-origin h3{font-size:62px}
+ .m531-family{margin:35px 0 0 15%;padding-left:22px}
+ .m531-family h3{font-size:45px}
+ .m531-expand{font-size:11px!important}
+ .m531-index-heading{padding-top:30px;gap:15px}
+ .m531-index-heading p{font-size:9px}
+ .m531-house-layout{display:block}
+ .m531-house-list button>span{font-size:32px}
+ .m531-house-detail{margin:30px 0 0 15%}
+ .m531-house-detail h4{font-size:42px;margin:15px 0}
+ .m531-pages{gap:18px;justify-content:space-between}
+ .m531-packaging>header>span:last-child{font-size:7px;max-width:18ch;text-align:right}
+ .m531-package-layout{display:flex;flex-direction:column;gap:35px}
+ .m531-master{width:100%}
+ .m531-master>img{height:490px}
+ .m531-inspection{width:100%}
+ .m531-zone-nav{gap:0 16px}
+ .m531-zone-nav button{font-size:10px!important}
+ .m531-crop-field{min-height:340px}
+ .m531-crop-field img{max-width:100%!important}
+ .m531-detail h3{font-size:32px}
+ .m531-flavors{display:grid;grid-template-columns:1fr 1fr;gap:0 15px;margin-top:35px}
+ .m531-flavors button{font-size:11px!important;gap:9px}
+}

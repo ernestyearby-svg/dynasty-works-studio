@@ -1,0 +1,134 @@
+[
+  {
+    "file": "symbol/symbol.svg",
+    "purpose": "Master symbol",
+    "bg": "Bone / light",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "symbol/symbol-outline.svg",
+    "purpose": "Approved outline master; intentionally identical to symbol",
+    "bg": "Bone / light",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "symbol/symbol-reversed.svg",
+    "purpose": "Reversed symbol",
+    "bg": "Obsidian / Graphite",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "symbol/symbol-small.svg",
+    "purpose": "Small-size optical derivative: dividers omitted, outer stroke 18",
+    "bg": "Bone / light",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "logo/logo-primary.svg",
+    "purpose": "Default symbol + two-line name lockup",
+    "bg": "Bone / light",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "logo/logo-horizontal.svg",
+    "purpose": "Wide horizontal lockup",
+    "bg": "Bone / light",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "logo/logo-stacked.svg",
+    "purpose": "Stacked cover lockup",
+    "bg": "Bone / light",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "logo/wordmark.svg",
+    "purpose": "Name-only two-line wordmark",
+    "bg": "Bone / light",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "logo/logo-primary-reversed.svg",
+    "purpose": "Primary reversed lockup",
+    "bg": "Obsidian / Graphite",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "documents/document-mark.svg",
+    "purpose": "Header / footer / page mark",
+    "bg": "Bone / light",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "documents/watermark.svg",
+    "purpose": "Low-opacity document watermark",
+    "bg": "Bone only; never behind critical text",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "icons/app-icon.svg",
+    "purpose": "Application master",
+    "bg": "Opaque Obsidian",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "social/avatar.svg",
+    "purpose": "Universal social avatar; centered safe area",
+    "bg": "Opaque Obsidian",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "icons/icon-16.png",
+    "purpose": "Application / favicon derivative 16px",
+    "bg": "Opaque Obsidian",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "icons/icon-32.png",
+    "purpose": "Application / favicon derivative 32px",
+    "bg": "Opaque Obsidian",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "icons/icon-48.png",
+    "purpose": "Application / favicon derivative 48px",
+    "bg": "Opaque Obsidian",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "icons/icon-180.png",
+    "purpose": "Apple touch icon",
+    "bg": "Opaque Obsidian",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "icons/icon-192.png",
+    "purpose": "Application / favicon derivative 192px",
+    "bg": "Opaque Obsidian",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "icons/icon-512.png",
+    "purpose": "Application / favicon derivative 512px",
+    "bg": "Opaque Obsidian",
+    "status": "PRODUCTION"
+  },
+  {
+    "file": "documents/blueprint-cover-template.svg",
+    "purpose": "Editable cover architecture; replace bracketed fields before client use",
+    "bg": "Obsidian",
+    "status": "TEMPLATE — NO CLIENT DATA"
+  },
+  {
+    "file": "social/opengraph-template.svg",
+    "purpose": "1200 × 630 OpenGraph layout architecture; not wired as a raster social card",
+    "bg": "Obsidian",
+    "status": "TEMPLATE"
+  },
+  {
+    "file": "documents/presentation-cover-template.svg",
+    "purpose": "16:9 presentation title architecture",
+    "bg": "Obsidian",
+    "status": "TEMPLATE — NO CLIENT DATA"
+  }
+]

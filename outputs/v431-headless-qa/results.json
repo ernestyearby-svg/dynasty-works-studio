@@ -1,0 +1,70 @@
+{
+  "captures": [
+    "desktop-hero",
+    "desktop-raw",
+    "desktop-capabilities",
+    "desktop-method",
+    "desktop-human",
+    "desktop-builder",
+    "desktop-range",
+    "desktop-work",
+    "desktop-closing",
+    "desktop-method-build",
+    "desktop-method-launch",
+    "desktop-method-scale",
+    "mobile-hero",
+    "mobile-raw",
+    "mobile-capabilities",
+    "mobile-method",
+    "mobile-builder",
+    "mobile-closing"
+  ],
+  "errors": [],
+  "responsive": [
+    {
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "overflow": false
+    }
+  ],
+  "builder": "PASS"
+}

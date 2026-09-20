@@ -1,0 +1,392 @@
+{
+  "errors": [],
+  "widths": [
+    {
+      "width": 320,
+      "state": "arrival",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "state": "strategy",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "state": "product",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "state": "digital",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "state": "experience",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "state": "company",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "state": "builder",
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "state": "arrival",
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "state": "strategy",
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "state": "product",
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "state": "digital",
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "state": "experience",
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "state": "company",
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "state": "builder",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "state": "arrival",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "state": "strategy",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "state": "product",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "state": "digital",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "state": "experience",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "state": "company",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "state": "builder",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "state": "arrival",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "state": "strategy",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "state": "product",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "state": "digital",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "state": "experience",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "state": "company",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "state": "builder",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "state": "arrival",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "state": "strategy",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "state": "product",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "state": "digital",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "state": "experience",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "state": "company",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "state": "builder",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "state": "arrival",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "state": "strategy",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "state": "product",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "state": "digital",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "state": "experience",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "state": "company",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "state": "builder",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "state": "arrival",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "state": "strategy",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "state": "product",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "state": "digital",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "state": "experience",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "state": "company",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "state": "builder",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "state": "arrival",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "state": "strategy",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "state": "product",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "state": "digital",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "state": "experience",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "state": "company",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "state": "builder",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "state": "arrival",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "state": "strategy",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "state": "product",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "state": "digital",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "state": "experience",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "state": "company",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "state": "builder",
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "state": "arrival",
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "state": "strategy",
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "state": "product",
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "state": "digital",
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "state": "experience",
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "state": "company",
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "state": "builder",
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "state": "arrival",
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "state": "strategy",
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "state": "product",
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "state": "digital",
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "state": "experience",
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "state": "company",
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "state": "builder",
+      "overflow": false
+    }
+  ],
+  "blueprint": 1,
+  "sections": 4
+}

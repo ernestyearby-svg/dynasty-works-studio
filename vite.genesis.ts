@@ -1,0 +1,5 @@
+import {defineConfig} from 'vite';
+import react from '@vitejs/plugin-react';
+import {fileURLToPath} from 'node:url';
+import {mkdirSync,copyFileSync} from 'node:fs';
+export default defineConfig({plugins:[react(),{name:'genesis-proof-only',configureServer(server){server.middlewares.use((req,_res,next)=>{if(/^\/genesis-proof(?:\/[ab])?\/?$/.test(req.url?.split('?')[0]||''))req.url='/genesis-proof/index.html';next();});},closeBundle(){mkdirSync('dist-genesis/fonts',{recursive:true});for(const font of ['manrope','bodoni-moda'])copyFileSync(`public/fonts/${font}.woff2`,`dist-genesis/fonts/${font}.woff2`);for(const route of ['a','b']){mkdirSync(`dist-genesis/genesis-proof/${route}`,{recursive:true});copyFileSync('dist-genesis/genesis-proof/index.html',`dist-genesis/genesis-proof/${route}/index.html`);}}}],build:{outDir:'dist-genesis',copyPublicDir:false,rollupOptions:{input:fileURLToPath(new URL('./genesis-proof/index.html',import.meta.url))}},server:{host:'127.0.0.1',port:5195,strictPort:true}});

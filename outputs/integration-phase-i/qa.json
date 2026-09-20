@@ -1,0 +1,1863 @@
+{
+  "checks": [
+    {
+      "name": "one homepage invitation",
+      "pass": true
+    },
+    {
+      "name": "eight stages",
+      "pass": true
+    },
+    {
+      "name": "object-zero shell",
+      "pass": true
+    },
+    {
+      "name": "sovereign-os shell",
+      "pass": true
+    },
+    {
+      "name": "capital shell",
+      "pass": true
+    },
+    {
+      "name": "space shell",
+      "pass": true
+    },
+    {
+      "name": "only two cases",
+      "pass": true
+    },
+    {
+      "name": "route /capabilities",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities 2560",
+      "pass": true
+    },
+    {
+      "name": "route /capabilities/disciplines",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/disciplines 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/disciplines 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/disciplines 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/disciplines 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/disciplines 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/disciplines 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/disciplines 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/disciplines 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/disciplines 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/disciplines 2560",
+      "pass": true
+    },
+    {
+      "name": "route /capabilities/object-zero",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/object-zero 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/object-zero 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/object-zero 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/object-zero 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/object-zero 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/object-zero 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/object-zero 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/object-zero 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/object-zero 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/object-zero 2560",
+      "pass": true
+    },
+    {
+      "name": "route /capabilities/living-canvas",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/living-canvas 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/living-canvas 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/living-canvas 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/living-canvas 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/living-canvas 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/living-canvas 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/living-canvas 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/living-canvas 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/living-canvas 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/living-canvas 2560",
+      "pass": true
+    },
+    {
+      "name": "route /capabilities/sovereign-os",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/sovereign-os 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/sovereign-os 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/sovereign-os 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/sovereign-os 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/sovereign-os 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/sovereign-os 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/sovereign-os 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/sovereign-os 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/sovereign-os 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/sovereign-os 2560",
+      "pass": true
+    },
+    {
+      "name": "route /capabilities/signal",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/signal 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/signal 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/signal 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/signal 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/signal 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/signal 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/signal 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/signal 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/signal 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/signal 2560",
+      "pass": true
+    },
+    {
+      "name": "route /capabilities/form",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/form 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/form 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/form 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/form 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/form 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/form 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/form 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/form 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/form 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/form 2560",
+      "pass": true
+    },
+    {
+      "name": "route /capabilities/surface-structure",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/surface-structure 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/surface-structure 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/surface-structure 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/surface-structure 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/surface-structure 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/surface-structure 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/surface-structure 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/surface-structure 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/surface-structure 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/surface-structure 2560",
+      "pass": true
+    },
+    {
+      "name": "route /capabilities/capital",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/capital 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/capital 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/capital 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/capital 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/capital 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/capital 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/capital 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/capital 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/capital 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/capital 2560",
+      "pass": true
+    },
+    {
+      "name": "route /capabilities/orchestration",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/orchestration 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/orchestration 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/orchestration 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/orchestration 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/orchestration 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/orchestration 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/orchestration 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/orchestration 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/orchestration 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/orchestration 2560",
+      "pass": true
+    },
+    {
+      "name": "route /capabilities/space",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/space 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/space 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/space 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/space 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/space 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/space 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/space 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/space 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/space 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/space 2560",
+      "pass": true
+    },
+    {
+      "name": "route /genesis",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis 2560",
+      "pass": true
+    },
+    {
+      "name": "route /work",
+      "pass": true
+    },
+    {
+      "name": "overflow /work 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /work 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /work 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /work 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /work 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /work 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /work 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /work 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /work 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /work 2560",
+      "pass": true
+    },
+    {
+      "name": "route /work/mymosa",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/mymosa 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/mymosa 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/mymosa 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/mymosa 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/mymosa 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/mymosa 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/mymosa 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/mymosa 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/mymosa 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/mymosa 2560",
+      "pass": true
+    },
+    {
+      "name": "route /work/ikla-maison",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/ikla-maison 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/ikla-maison 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/ikla-maison 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/ikla-maison 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/ikla-maison 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/ikla-maison 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/ikla-maison 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/ikla-maison 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/ikla-maison 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /work/ikla-maison 2560",
+      "pass": true
+    },
+    {
+      "name": "route /concept-lab",
+      "pass": true
+    },
+    {
+      "name": "overflow /concept-lab 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /concept-lab 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /concept-lab 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /concept-lab 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /concept-lab 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /concept-lab 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /concept-lab 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /concept-lab 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /concept-lab 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /concept-lab 2560",
+      "pass": true
+    },
+    {
+      "name": "route /studio",
+      "pass": true
+    },
+    {
+      "name": "overflow /studio 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /studio 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /studio 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /studio 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /studio 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /studio 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /studio 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /studio 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /studio 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /studio 2560",
+      "pass": true
+    },
+    {
+      "name": "route /capabilities/brand",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/brand 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/brand 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/brand 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/brand 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/brand 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/brand 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/brand 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/brand 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/brand 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /capabilities/brand 2560",
+      "pass": true
+    },
+    {
+      "name": "route /capability-lab/web",
+      "pass": true
+    },
+    {
+      "name": "overflow /capability-lab/web 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /capability-lab/web 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /capability-lab/web 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /capability-lab/web 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /capability-lab/web 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /capability-lab/web 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /capability-lab/web 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /capability-lab/web 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /capability-lab/web 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /capability-lab/web 2560",
+      "pass": true
+    },
+    {
+      "name": "route /genesis-full",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis-full 320",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis-full 360",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis-full 375",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis-full 390",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis-full 430",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis-full 768",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis-full 1024",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis-full 1440",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis-full 1920",
+      "pass": true
+    },
+    {
+      "name": "overflow /genesis-full 2560",
+      "pass": true
+    },
+    {
+      "name": "back",
+      "pass": true
+    },
+    {
+      "name": "forward",
+      "pass": true
+    },
+    {
+      "name": "keyboard selected",
+      "pass": true
+    },
+    {
+      "name": "focus",
+      "pass": true
+    },
+    {
+      "name": "reduced",
+      "pass": true
+    },
+    {
+      "name": "dialog",
+      "pass": true
+    },
+    {
+      "name": "focus return",
+      "pass": true
+    },
+    {
+      "name": "announcement",
+      "pass": true
+    },
+    {
+      "name": "artifact return",
+      "pass": true
+    },
+    {
+      "name": "no three /capabilities",
+      "pass": true
+    },
+    {
+      "name": "no three /capabilities/disciplines",
+      "pass": true
+    },
+    {
+      "name": "no artifact scenes home",
+      "pass": true
+    }
+  ],
+  "errors": [
+    {
+      "route": "http://127.0.0.1:5202/capabilities/disciplines",
+      "message": "Transition was aborted because of invalid state. ViewTransition opt-in disabled"
+    }
+  ],
+  "network": {
+    "/": [
+      "http://127.0.0.1:5202/",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/main-BM2n9Fgf.js",
+      "http://127.0.0.1:5202/assets/main-DrtL8six.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/CinematicHome-Byt5HDmB.js",
+      "http://127.0.0.1:5202/assets/VisualEnvironmentLab-DAAqZ2DW.js",
+      "http://127.0.0.1:5202/assets/ReviewDiagnostic-TBdP_fj8.js",
+      "http://127.0.0.1:5202/assets/types-yelcF-hm.js",
+      "http://127.0.0.1:5202/assets/ReviewDiagnostic-DNlbRrJj.css",
+      "http://127.0.0.1:5202/assets/VisualEnvironmentLab-Clr8IyrL.css",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/cinematic-rooms-D7OOOIk4.css",
+      "http://127.0.0.1:5202/assets/CompanyRenderer-DnPIYJ5t.js",
+      "http://127.0.0.1:5202/assets/three.module-B5b-PyPN.js",
+      "http://127.0.0.1:5202/",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/main-BM2n9Fgf.js",
+      "http://127.0.0.1:5202/assets/main-DrtL8six.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/CinematicHome-Byt5HDmB.js",
+      "http://127.0.0.1:5202/assets/VisualEnvironmentLab-DAAqZ2DW.js",
+      "http://127.0.0.1:5202/assets/ReviewDiagnostic-TBdP_fj8.js",
+      "http://127.0.0.1:5202/assets/types-yelcF-hm.js",
+      "http://127.0.0.1:5202/assets/ReviewDiagnostic-DNlbRrJj.css",
+      "http://127.0.0.1:5202/assets/VisualEnvironmentLab-Clr8IyrL.css",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/cinematic-rooms-D7OOOIk4.css",
+      "http://127.0.0.1:5202/assets/CompanyRenderer-DnPIYJ5t.js",
+      "http://127.0.0.1:5202/assets/three.module-B5b-PyPN.js"
+    ],
+    "/capabilities": [
+      "http://127.0.0.1:5202/capabilities",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Gateway-OZMSjXm-.js",
+      "http://127.0.0.1:5202/assets/proof-CSW9jwFU.css",
+      "http://127.0.0.1:5202/capabilities",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Gateway-OZMSjXm-.js",
+      "http://127.0.0.1:5202/assets/proof-CSW9jwFU.css",
+      "http://127.0.0.1:5202/capabilities",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Gateway-OZMSjXm-.js",
+      "http://127.0.0.1:5202/assets/proof-CSW9jwFU.css",
+      "http://127.0.0.1:5202/capabilities",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Gateway-OZMSjXm-.js",
+      "http://127.0.0.1:5202/assets/proof-CSW9jwFU.css",
+      "http://127.0.0.1:5202/capabilities/disciplines",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/capabilities",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Gateway-OZMSjXm-.js",
+      "http://127.0.0.1:5202/assets/proof-CSW9jwFU.css",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Gateway-OZMSjXm-.js",
+      "http://127.0.0.1:5202/assets/proof-CSW9jwFU.css",
+      "http://127.0.0.1:5202/capabilities/disciplines",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Gateway-OZMSjXm-.js",
+      "http://127.0.0.1:5202/assets/proof-CSW9jwFU.css"
+    ],
+    "/capabilities/disciplines": [
+      "http://127.0.0.1:5202/capabilities/disciplines",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Gateway-OZMSjXm-.js",
+      "http://127.0.0.1:5202/assets/proof-CSW9jwFU.css",
+      "http://127.0.0.1:5202/capabilities/disciplines",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Gateway-OZMSjXm-.js",
+      "http://127.0.0.1:5202/assets/proof-CSW9jwFU.css",
+      "http://127.0.0.1:5202/capabilities/disciplines",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Gateway-OZMSjXm-.js",
+      "http://127.0.0.1:5202/assets/proof-CSW9jwFU.css"
+    ],
+    "/capabilities/object-zero": [
+      "http://127.0.0.1:5202/capabilities/object-zero",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Artifact-Cju9WSnY.js",
+      "http://127.0.0.1:5202/assets/capability-r9lyERay.css",
+      "http://127.0.0.1:5202/assets/ProductStudy-BVlJvBx1.js",
+      "http://127.0.0.1:5202/assets/NativeScene-duGtWnhg.js",
+      "http://127.0.0.1:5202/assets/three.module-B5b-PyPN.js",
+      "http://127.0.0.1:5202/assets/RoomEnvironment-C2-8a1KP.js",
+      "http://127.0.0.1:5202/assets/RoundedBoxGeometry-CFDpnyGA.js",
+      "http://127.0.0.1:5202/capabilities/object-zero",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Artifact-Cju9WSnY.js",
+      "http://127.0.0.1:5202/assets/capability-r9lyERay.css",
+      "http://127.0.0.1:5202/assets/ProductStudy-BVlJvBx1.js",
+      "http://127.0.0.1:5202/assets/NativeScene-duGtWnhg.js",
+      "http://127.0.0.1:5202/assets/three.module-B5b-PyPN.js",
+      "http://127.0.0.1:5202/assets/RoomEnvironment-C2-8a1KP.js",
+      "http://127.0.0.1:5202/assets/RoundedBoxGeometry-CFDpnyGA.js"
+    ],
+    "/capabilities/sovereign-os": [
+      "http://127.0.0.1:5202/capabilities/sovereign-os",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Artifact-Cju9WSnY.js",
+      "http://127.0.0.1:5202/assets/capability-r9lyERay.css",
+      "http://127.0.0.1:5202/assets/OperatingStudy-ClqzU8HE.js",
+      "http://127.0.0.1:5202/capabilities/sovereign-os",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Artifact-Cju9WSnY.js",
+      "http://127.0.0.1:5202/assets/capability-r9lyERay.css",
+      "http://127.0.0.1:5202/assets/OperatingStudy-ClqzU8HE.js",
+      "http://127.0.0.1:5202/capabilities/sovereign-os",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Artifact-Cju9WSnY.js",
+      "http://127.0.0.1:5202/assets/capability-r9lyERay.css",
+      "http://127.0.0.1:5202/assets/OperatingStudy-ClqzU8HE.js"
+    ],
+    "/capabilities/capital": [
+      "http://127.0.0.1:5202/capabilities/capital",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Artifact-Cju9WSnY.js",
+      "http://127.0.0.1:5202/assets/capability-r9lyERay.css",
+      "http://127.0.0.1:5202/assets/Capital-Dd9BQkf4.js",
+      "http://127.0.0.1:5202/assets/Capital-BMztIcor.css",
+      "http://127.0.0.1:5202/capabilities/capital",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Artifact-Cju9WSnY.js",
+      "http://127.0.0.1:5202/assets/capability-r9lyERay.css",
+      "http://127.0.0.1:5202/assets/Capital-Dd9BQkf4.js",
+      "http://127.0.0.1:5202/assets/Capital-BMztIcor.css",
+      "http://127.0.0.1:5202/capabilities/capital",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Artifact-Cju9WSnY.js",
+      "http://127.0.0.1:5202/assets/capability-r9lyERay.css",
+      "http://127.0.0.1:5202/assets/Capital-Dd9BQkf4.js",
+      "http://127.0.0.1:5202/assets/Capital-BMztIcor.css",
+      "http://127.0.0.1:5202/capabilities/disciplines",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css"
+    ],
+    "/capabilities/space": [
+      "http://127.0.0.1:5202/capabilities/space",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Artifact-Cju9WSnY.js",
+      "http://127.0.0.1:5202/assets/capability-r9lyERay.css",
+      "http://127.0.0.1:5202/assets/Space-BOZ4dTIY.js",
+      "http://127.0.0.1:5202/assets/Space-DO29wyVo.css",
+      "http://127.0.0.1:5202/assets/SpaceScene-A1ALbYOh.js",
+      "http://127.0.0.1:5202/assets/three.module-B5b-PyPN.js",
+      "http://127.0.0.1:5202/assets/RoomEnvironment-C2-8a1KP.js",
+      "http://127.0.0.1:5202/assets/RoundedBoxGeometry-CFDpnyGA.js",
+      "http://127.0.0.1:5202/capabilities/space",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Artifact-Cju9WSnY.js",
+      "http://127.0.0.1:5202/assets/capability-r9lyERay.css",
+      "http://127.0.0.1:5202/assets/Space-BOZ4dTIY.js",
+      "http://127.0.0.1:5202/assets/Space-DO29wyVo.css",
+      "http://127.0.0.1:5202/assets/SpaceScene-A1ALbYOh.js",
+      "http://127.0.0.1:5202/assets/three.module-B5b-PyPN.js",
+      "http://127.0.0.1:5202/assets/RoomEnvironment-C2-8a1KP.js",
+      "http://127.0.0.1:5202/assets/RoundedBoxGeometry-CFDpnyGA.js"
+    ],
+    "/genesis": [
+      "http://127.0.0.1:5202/genesis",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/main-BCDSSnFX.js",
+      "http://127.0.0.1:5202/assets/main-B8IeHJLn.css",
+      "http://127.0.0.1:5202/genesis",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/main-BCDSSnFX.js",
+      "http://127.0.0.1:5202/assets/main-B8IeHJLn.css",
+      "http://127.0.0.1:5202/genesis",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/main-BCDSSnFX.js",
+      "http://127.0.0.1:5202/assets/main-B8IeHJLn.css"
+    ],
+    "/work": [
+      "http://127.0.0.1:5202/work",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/main-BM2n9Fgf.js",
+      "http://127.0.0.1:5202/assets/main-DrtL8six.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/V5WorkEntry-_srDRTx7.js",
+      "http://127.0.0.1:5202/assets/V5WorkEntry-uQXZZQuG.css",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/cinematic-rooms-D7OOOIk4.css",
+      "http://127.0.0.1:5202/work",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/main-BM2n9Fgf.js",
+      "http://127.0.0.1:5202/assets/main-DrtL8six.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/V5WorkEntry-_srDRTx7.js",
+      "http://127.0.0.1:5202/assets/V5WorkEntry-uQXZZQuG.css",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/cinematic-rooms-D7OOOIk4.css"
+    ],
+    "/capabilities/living-canvas": [
+      "http://127.0.0.1:5202/capabilities/living-canvas",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Artifact-Cju9WSnY.js",
+      "http://127.0.0.1:5202/assets/capability-r9lyERay.css",
+      "http://127.0.0.1:5202/assets/WebStudy-cMEGIBlH.js",
+      "http://127.0.0.1:5202/assets/WebStudy-D-b5GlSl.css"
+    ],
+    "/capabilities/signal": [
+      "http://127.0.0.1:5202/capabilities/signal",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Artifact-Cju9WSnY.js",
+      "http://127.0.0.1:5202/assets/capability-r9lyERay.css",
+      "http://127.0.0.1:5202/assets/Signal-ClqRk6Zo.js",
+      "http://127.0.0.1:5202/assets/Signal-C9PQEHHS.css"
+    ],
+    "/capabilities/form": [
+      "http://127.0.0.1:5202/capabilities/form",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Artifact-Cju9WSnY.js",
+      "http://127.0.0.1:5202/assets/capability-r9lyERay.css",
+      "http://127.0.0.1:5202/assets/FormEngine-CgBQKb21.js",
+      "http://127.0.0.1:5202/assets/FormEngine-B0oLWaUP.css"
+    ],
+    "/capabilities/surface-structure": [
+      "http://127.0.0.1:5202/capabilities/surface-structure",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Artifact-Cju9WSnY.js",
+      "http://127.0.0.1:5202/assets/capability-r9lyERay.css",
+      "http://127.0.0.1:5202/assets/Packaging-odXlneaX.js",
+      "http://127.0.0.1:5202/assets/Packaging-eNmQo-9A.css",
+      "http://127.0.0.1:5202/assets/PackagingScene-BuXgAmq1.js",
+      "http://127.0.0.1:5202/assets/three.module-B5b-PyPN.js",
+      "http://127.0.0.1:5202/assets/RoomEnvironment-C2-8a1KP.js"
+    ],
+    "/capabilities/orchestration": [
+      "http://127.0.0.1:5202/capabilities/orchestration",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Dp0qgtYr.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/tokens-BCt0pztw.js",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/Shell-C1ups0YK.js",
+      "http://127.0.0.1:5202/assets/Artifact-Cju9WSnY.js",
+      "http://127.0.0.1:5202/assets/capability-r9lyERay.css",
+      "http://127.0.0.1:5202/assets/Orchestration-DzMWmze-.js",
+      "http://127.0.0.1:5202/assets/Orchestration-B6iVt5Bp.css"
+    ],
+    "/work/mymosa": [
+      "http://127.0.0.1:5202/work/mymosa",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/main-BM2n9Fgf.js",
+      "http://127.0.0.1:5202/assets/main-DrtL8six.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/MyMosa53-BazdDTfv.js",
+      "http://127.0.0.1:5202/assets/MyMosa53-CsoYk-_8.css",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/mymosa-native/classic-orange.webp",
+      "http://127.0.0.1:5202/assets/mymosa-native/pineapple.webp",
+      "http://127.0.0.1:5202/assets/mymosa-native/tropical-blend.webp",
+      "http://127.0.0.1:5202/assets/mymosa-native/strawberry.webp"
+    ],
+    "/work/ikla-maison": [
+      "http://127.0.0.1:5202/work/ikla-maison",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/main-BM2n9Fgf.js",
+      "http://127.0.0.1:5202/assets/main-DrtL8six.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/V5WorkEntry-_srDRTx7.js",
+      "http://127.0.0.1:5202/assets/V5WorkEntry-uQXZZQuG.css",
+      "http://127.0.0.1:5202/favicon.svg"
+    ],
+    "/concept-lab": [
+      "http://127.0.0.1:5202/concept-lab",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/main-BM2n9Fgf.js",
+      "http://127.0.0.1:5202/assets/main-DrtL8six.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/V5WorkEntry-_srDRTx7.js",
+      "http://127.0.0.1:5202/assets/V5WorkEntry-uQXZZQuG.css",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/cinematic-rooms-D7OOOIk4.css"
+    ],
+    "/studio": [
+      "http://127.0.0.1:5202/studio",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/main-BM2n9Fgf.js",
+      "http://127.0.0.1:5202/assets/main-DrtL8six.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/SupportingPages-HAO-pxIM.js",
+      "http://127.0.0.1:5202/assets/types-yelcF-hm.js",
+      "http://127.0.0.1:5202/assets/SupportingPages-DDL1MrO7.css",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/cinematic-rooms-D7OOOIk4.css",
+      "http://127.0.0.1:5202/assets/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/assets/fonts/bodoni-moda-italic.woff2"
+    ],
+    "/capabilities/brand": [
+      "http://127.0.0.1:5202/capabilities/brand",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/main-BM2n9Fgf.js",
+      "http://127.0.0.1:5202/assets/main-DrtL8six.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-Bne1RRKx.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/ExperienceSystem-CikaZDrk.css",
+      "http://127.0.0.1:5202/assets/SupportingPages-HAO-pxIM.js",
+      "http://127.0.0.1:5202/assets/types-yelcF-hm.js",
+      "http://127.0.0.1:5202/assets/SupportingPages-DDL1MrO7.css",
+      "http://127.0.0.1:5202/favicon.svg",
+      "http://127.0.0.1:5202/assets/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/assets/portfolio/mymosa/web/flagship-eight-exhibition.webp",
+      "http://127.0.0.1:5202/assets/portfolio/mymosa/web/flagship-eight-thumbnail.webp",
+      "http://127.0.0.1:5202/assets/portfolio/mymosa/web/flagship-eight-exhibition.webp"
+    ],
+    "/capability-lab/web": [
+      "http://127.0.0.1:5202/capability-lab/web",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/main-5y81TNT3.js",
+      "http://127.0.0.1:5202/assets/capability-r9lyERay.css",
+      "http://127.0.0.1:5202/assets/WebStudy-cMEGIBlH.js",
+      "http://127.0.0.1:5202/assets/WebStudy-D-b5GlSl.css",
+      "http://127.0.0.1:5202/favicon.svg"
+    ],
+    "/genesis-full": [
+      "http://127.0.0.1:5202/genesis-full",
+      "http://127.0.0.1:5202/fonts/manrope.woff2",
+      "http://127.0.0.1:5202/fonts/bodoni-moda.woff2",
+      "http://127.0.0.1:5202/assets/candidate-DxJm71LL.js",
+      "http://127.0.0.1:5202/assets/jsx-runtime-B97tdcO-.js",
+      "http://127.0.0.1:5202/assets/modulepreload-polyfill-BxR_cmXS.js",
+      "http://127.0.0.1:5202/assets/preload-helper-DgFuoWHe.js",
+      "http://127.0.0.1:5202/assets/react-dom-DekC6c5Y.js",
+      "http://127.0.0.1:5202/assets/client-CcVw5G31.js",
+      "http://127.0.0.1:5202/assets/data-DdXqoFe2.js",
+      "http://127.0.0.1:5202/assets/candidate-Cr1nZhdS.css",
+      "http://127.0.0.1:5202/assets/main-BCDSSnFX.js",
+      "http://127.0.0.1:5202/assets/tokens-BFu_GOvu.js",
+      "http://127.0.0.1:5202/assets/main-B8IeHJLn.css",
+      "http://127.0.0.1:5202/favicon.svg"
+    ]
+  }
+}

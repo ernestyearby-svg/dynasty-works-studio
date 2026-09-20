@@ -1,0 +1,272 @@
+{
+  "errors": [],
+  "sizes": [
+    {
+      "width": 320,
+      "flavor": "Classic Orange",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 320,
+      "flavor": "Pineapple",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 320,
+      "flavor": "Tropical",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 320,
+      "flavor": "Strawberry",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 360,
+      "flavor": "Classic Orange",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 360,
+      "flavor": "Pineapple",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 360,
+      "flavor": "Tropical",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 360,
+      "flavor": "Strawberry",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 375,
+      "flavor": "Classic Orange",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 375,
+      "flavor": "Pineapple",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 375,
+      "flavor": "Tropical",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 375,
+      "flavor": "Strawberry",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 390,
+      "flavor": "Classic Orange",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 390,
+      "flavor": "Pineapple",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 390,
+      "flavor": "Tropical",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 390,
+      "flavor": "Strawberry",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 430,
+      "flavor": "Classic Orange",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 430,
+      "flavor": "Pineapple",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 430,
+      "flavor": "Tropical",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 430,
+      "flavor": "Strawberry",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 768,
+      "flavor": "Classic Orange",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 768,
+      "flavor": "Pineapple",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 768,
+      "flavor": "Tropical",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 768,
+      "flavor": "Strawberry",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 1024,
+      "flavor": "Classic Orange",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 1024,
+      "flavor": "Pineapple",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 1024,
+      "flavor": "Tropical",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 1024,
+      "flavor": "Strawberry",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 1280,
+      "flavor": "Classic Orange",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 1280,
+      "flavor": "Pineapple",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 1280,
+      "flavor": "Tropical",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 1280,
+      "flavor": "Strawberry",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 1440,
+      "flavor": "Classic Orange",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 1440,
+      "flavor": "Pineapple",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 1440,
+      "flavor": "Tropical",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 1440,
+      "flavor": "Strawberry",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 1920,
+      "flavor": "Classic Orange",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 1920,
+      "flavor": "Pineapple",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 1920,
+      "flavor": "Tropical",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 1920,
+      "flavor": "Strawberry",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 2560,
+      "flavor": "Classic Orange",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 2560,
+      "flavor": "Pineapple",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 2560,
+      "flavor": "Tropical",
+      "overflow": false,
+      "visible": true
+    },
+    {
+      "width": 2560,
+      "flavor": "Strawberry",
+      "overflow": false,
+      "visible": true
+    }
+  ],
+  "keyboard": "true",
+  "reduced": "0s",
+  "sections": 2
+}

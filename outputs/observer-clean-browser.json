@@ -1,0 +1,21 @@
+[
+  {
+    "kind": "plain",
+    "errors": [],
+    "frames": 1
+  },
+  {
+    "kind": "frame",
+    "errors": [],
+    "frames": 2
+  },
+  {
+    "kind": "hud",
+    "errors": [],
+    "frames": 2
+  },
+  {
+    "cleanCandidateUrl": "https://app.netlify.com/edge-access?domain=codex-v5-4-experience-integration--dynasty-works-v54-candidate.netlify.app&requested_path=%2F&site_id=d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "title": "Team protection | Netlify"
+  }
+]

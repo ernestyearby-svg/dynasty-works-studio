@@ -1,0 +1,11 @@
+{
+  "focus": {
+    "active": "02Strategy",
+    "outline": "rgb(17, 18, 20) solid 3px"
+  },
+  "mobileViewportPerformance": {
+    "medianMs": 16.69999999999891,
+    "p95Ms": 16.80000000000291
+  },
+  "video": "Unavailable: recorder binary missing"
+}

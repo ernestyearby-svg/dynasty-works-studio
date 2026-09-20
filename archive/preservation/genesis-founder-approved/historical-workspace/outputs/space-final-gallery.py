@@ -1,0 +1,7 @@
+from pathlib import Path
+p=Path('outputs/space-final-founder-gate')
+items=[('plan-1440','1440 / PLAN'),('structure-1440','1440 / STRUCTURE'),('material-1440','1440 / MATERIAL'),('light-1440','1440 / LIGHT'),('human-scale-1440','1440 / HUMAN SCALE'),('occupation-1440','1440 / OCCUPATION'),('occupation-390','390 / OCCUPATION')]
+s='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="robots" content="noindex,nofollow"><title>DWS — Space Final Founder Gate</title><style>body{background:#e7e6e0;color:#363b39;margin:0;font:16px Arial,sans-serif}header,main{padding:40px 5%}h1{font-size:clamp(42px,6vw,90px);letter-spacing:-.06em;margin:25px 0}p{line-height:1.7;max-width:760px}a{color:inherit}figure{margin:25px 0 70px}figcaption{margin-bottom:16px}img{width:100%;height:auto}figure.mobile img{max-width:390px}</style><header><small>DWS / PHASE III / FINAL FOUNDER GATE</small><h1>SPACE</h1><p>The approved pavilion, represented with material differentiation, filtered light, site definition and purposeful human occupation. Seven new captures only. No deployment.</p><a href="/capability-lab/space">Open the continuous study →</a></header><main>'''
+for name,label in items:s+=f'<figure class="{"mobile" if "390" in name else "desktop"}"><figcaption>{label}</figcaption><a href="space-{name}.png"><img src="space-{name}.png" alt="Space — {label}" loading="lazy"></a></figure>'
+(p/'index.html').write_text(s+'</main></html>',encoding='utf-8')
+

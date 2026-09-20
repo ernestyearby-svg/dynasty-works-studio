@@ -1,0 +1,44 @@
+{
+  "frames": 79,
+  "medianMs": 16.699999999999932,
+  "p95Ms": 16.800000000000068,
+  "aliasIntegrated": true,
+  "widths": [
+    {
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "overflow": false
+    }
+  ]
+}

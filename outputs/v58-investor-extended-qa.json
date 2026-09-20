@@ -1,0 +1,314 @@
+{
+  "base": "https://dynasty-works-studio-review.netlify.app",
+  "noindex": "noindex, nofollow",
+  "initMs": "473.9000000357628",
+  "widths": [
+    {
+      "width": 320,
+      "pages": [
+        {
+          "route": "/",
+          "overflow": false
+        },
+        {
+          "route": "/work",
+          "overflow": false
+        },
+        {
+          "route": "/concept-lab",
+          "overflow": false
+        },
+        {
+          "route": "/studio",
+          "overflow": false
+        },
+        {
+          "route": "/work/mymosa",
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "pages": [
+        {
+          "route": "/",
+          "overflow": false
+        },
+        {
+          "route": "/work",
+          "overflow": false
+        },
+        {
+          "route": "/concept-lab",
+          "overflow": false
+        },
+        {
+          "route": "/studio",
+          "overflow": false
+        },
+        {
+          "route": "/work/mymosa",
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "pages": [
+        {
+          "route": "/",
+          "overflow": false
+        },
+        {
+          "route": "/work",
+          "overflow": false
+        },
+        {
+          "route": "/concept-lab",
+          "overflow": false
+        },
+        {
+          "route": "/studio",
+          "overflow": false
+        },
+        {
+          "route": "/work/mymosa",
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "pages": [
+        {
+          "route": "/",
+          "overflow": false
+        },
+        {
+          "route": "/work",
+          "overflow": false
+        },
+        {
+          "route": "/concept-lab",
+          "overflow": false
+        },
+        {
+          "route": "/studio",
+          "overflow": false
+        },
+        {
+          "route": "/work/mymosa",
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "pages": [
+        {
+          "route": "/",
+          "overflow": false
+        },
+        {
+          "route": "/work",
+          "overflow": false
+        },
+        {
+          "route": "/concept-lab",
+          "overflow": false
+        },
+        {
+          "route": "/studio",
+          "overflow": false
+        },
+        {
+          "route": "/work/mymosa",
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "pages": [
+        {
+          "route": "/",
+          "overflow": false
+        },
+        {
+          "route": "/work",
+          "overflow": false
+        },
+        {
+          "route": "/concept-lab",
+          "overflow": false
+        },
+        {
+          "route": "/studio",
+          "overflow": false
+        },
+        {
+          "route": "/work/mymosa",
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "pages": [
+        {
+          "route": "/",
+          "overflow": false
+        },
+        {
+          "route": "/work",
+          "overflow": false
+        },
+        {
+          "route": "/concept-lab",
+          "overflow": false
+        },
+        {
+          "route": "/studio",
+          "overflow": false
+        },
+        {
+          "route": "/work/mymosa",
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "pages": [
+        {
+          "route": "/",
+          "overflow": false
+        },
+        {
+          "route": "/work",
+          "overflow": false
+        },
+        {
+          "route": "/concept-lab",
+          "overflow": false
+        },
+        {
+          "route": "/studio",
+          "overflow": false
+        },
+        {
+          "route": "/work/mymosa",
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "pages": [
+        {
+          "route": "/",
+          "overflow": false
+        },
+        {
+          "route": "/work",
+          "overflow": false
+        },
+        {
+          "route": "/concept-lab",
+          "overflow": false
+        },
+        {
+          "route": "/studio",
+          "overflow": false
+        },
+        {
+          "route": "/work/mymosa",
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "pages": [
+        {
+          "route": "/",
+          "overflow": false
+        },
+        {
+          "route": "/work",
+          "overflow": false
+        },
+        {
+          "route": "/concept-lab",
+          "overflow": false
+        },
+        {
+          "route": "/studio",
+          "overflow": false
+        },
+        {
+          "route": "/work/mymosa",
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "width": 2560,
+      "pages": [
+        {
+          "route": "/",
+          "overflow": false
+        },
+        {
+          "route": "/work",
+          "overflow": false
+        },
+        {
+          "route": "/concept-lab",
+          "overflow": false
+        },
+        {
+          "route": "/studio",
+          "overflow": false
+        },
+        {
+          "route": "/work/mymosa",
+          "overflow": false
+        }
+      ]
+    }
+  ],
+  "perf": [
+    {
+      "width": 1440,
+      "medianMs": 16.699999999999818,
+      "p95Ms": 16.800000000000182
+    },
+    {
+      "width": 390,
+      "medianMs": 16.699999999999818,
+      "p95Ms": 16.800000000000182
+    }
+  ],
+  "navigation": [
+    {
+      "motion": "no-preference",
+      "focus": "H1",
+      "signal": 1
+    },
+    {
+      "motion": "reduce",
+      "focus": "H1",
+      "signal": 1
+    }
+  ],
+  "builderRedirect": true,
+  "notFound": {
+    "status": 404,
+    "heading": "Page not found."
+  },
+  "contextFallback": true,
+  "unsupported": true,
+  "errors": []
+}

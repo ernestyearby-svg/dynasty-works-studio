@@ -1,0 +1,70 @@
+/* Local gold-city upgrade: editorial clarity around the existing identity. */
+.upgrade-entry { display:grid; grid-template-columns:1fr 1.05fr; gap:10vw; padding-block:130px; }
+.upgrade-entry h2 { margin:28px 0!important; }
+.upgrade-entry > div:first-child > p:last-child { font-size:18px; line-height:1.75; max-width:32ch; }
+.upgrade-paths > a { display:block; padding:32px 0; border-top:1px solid #b9b5ad; text-decoration:none; color:#1f1f1f; }
+.upgrade-paths > a:first-child { padding-top:0; border:0; }
+.upgrade-paths span { font-size:11px; letter-spacing:.08em; }
+.upgrade-paths h3 { font-family:var(--font-editorial); font-size:clamp(30px,3vw,44px); font-weight:400; line-height:1.1; margin:15px 0; }
+.upgrade-paths p { font-size:15px; line-height:1.65; }
+.upgrade-paths strong { display:flex; justify-content:space-between; gap:25px; margin-top:23px; font-size:12px; font-weight:600; }
+.upgrade-paths b { font-size:20px; font-weight:400; transition:transform .25s; }
+.upgrade-paths > a:hover b { transform:translate(3px,-3px); }
+.upgrade-page-intro { padding-top:165px; padding-bottom:100px; }
+.upgrade-page-intro h1 { font-family:var(--font-editorial); font-size:clamp(60px,8.5vw,140px); font-weight:400; line-height:1; letter-spacing:-.045em; margin:35px 0 65px; }
+.upgrade-intro-bottom { display:flex; justify-content:space-between; align-items:flex-end; gap:65px; }
+.upgrade-intro-bottom p { max-width:42ch; font-size:18px; line-height:1.7; margin:0; }
+.upgrade-intro-bottom .upgrade-disclosure { font-size:13px; max-width:40ch; line-height:1.7; margin:0; color:#55534e; }
+.upgrade-method { padding-bottom:60px; }
+.upgrade-scope-note { font-size:13px; max-width:65ch!important; line-height:1.7; margin:0 0 50px; }
+.upgrade-method-stage { display:grid; grid-template-columns:1fr 2fr; gap:7vw; padding:70px 0 90px; border-top:1px solid #b9b5ad; scroll-margin-top:100px; }
+.upgrade-stage-number { font-family:var(--font-editorial); font-size:clamp(110px,16vw,240px); line-height:1; color:#9e978b; letter-spacing:-.05em; }
+.upgrade-method-stage h2 { font-size:clamp(38px,4.4vw,68px); max-width:16ch; margin:20px 0 28px; }
+.upgrade-method-lead { font-size:18px; line-height:1.7; max-width:44ch; }
+.upgrade-output { margin:50px 0 35px; display:grid; grid-template-columns:1fr 1.5fr; gap:35px; }
+.upgrade-output h3 { font-size:14px; line-height:1.6; margin:0; font-weight:600; }
+.upgrade-output ul { list-style:none; margin:0; padding:0; }
+.upgrade-output li { font-size:14px; line-height:1.8; padding-bottom:8px; }
+.upgrade-method-stage details { border-top:1px solid #c7c2b9; padding-top:20px; }
+.upgrade-method-stage summary { display:flex; justify-content:space-between; cursor:pointer; font-size:13px; padding:10px 0; list-style:none; min-height:44px; }
+.upgrade-method-stage summary::-webkit-details-marker { display:none; }
+.upgrade-method-stage details > ul { padding-left:18px; font-size:14px; line-height:1.9; margin:25px 0; }
+.upgrade-method-stage details[open] summary span { transform:rotate(45deg); }
+.upgrade-practice-links { display:flex; flex-wrap:wrap; gap:25px; margin:20px 0; text-transform:capitalize; font-size:13px; }
+.upgrade-example-link { padding-block:100px; border-top:1px solid #c7c2b9; }
+.upgrade-example-link h2 { margin:25px 0 30px; }
+.upgrade-example-link > p:not(.eyebrow) { font-size:17px; line-height:1.8; }
+.upgrade-example-link > div { display:flex; flex-wrap:wrap; gap:20px 55px; }
+.upgrade-study-nav { display:flex; flex-wrap:wrap; gap:25px 60px; padding-bottom:35px; }
+.upgrade-study-nav a { font-size:13px; padding:12px 0; color:inherit; border-bottom:1px solid #797367; }
+.upgrade-studies { padding:0 clamp(20px,5vw,90px) 80px; }
+.upgrade-study { margin:0 0 100px; scroll-margin-top:110px; }
+.upgrade-study-image { background:#d5d2ca; overflow:hidden; }
+.upgrade-study-image img { width:100%; height:auto; display:block; aspect-ratio:3/2; object-fit:contain; }
+.upgrade-study figcaption { display:grid; grid-template-columns:1.2fr 1fr; gap:6vw; padding:35px 0 0; }
+.upgrade-study h2 { font-size:clamp(35px,4vw,66px); max-width:16ch; margin:15px 0 0; }
+.upgrade-concept-label { display:inline-block; font-size:10px; font-weight:600; letter-spacing:.07em; border-bottom:1px solid #777166; padding-bottom:7px; }
+.upgrade-study figcaption p:not(.eyebrow) { font-size:15px; line-height:1.75; margin-top:15px; }
+.upgrade-study figcaption .upgrade-study-note { font-size:12px!important; color:#55534e; }
+.upgrade-study-packaging { width:82%; margin-left:auto; }
+.upgrade-study-product { width:90%; }
+:is(.upgrade-entry,.upgrade-page-intro,.upgrade-method,.upgrade-example-link,.upgrade-study-nav) :is(a,summary):focus-visible { outline:2px solid #1f1f1f; outline-offset:6px; }
+@media(max-width:800px) {
+ .upgrade-entry { grid-template-columns:1fr; gap:55px; padding-block:75px; }
+ .upgrade-page-intro { padding-top:120px; padding-bottom:65px; }
+ .upgrade-page-intro h1 { font-size:clamp(48px,10.5vw,80px); margin:30px 0 40px; }
+ .upgrade-intro-bottom { flex-direction:column; align-items:flex-start; gap:30px; }
+ .upgrade-intro-bottom p { font-size:16px; }
+ .upgrade-method-stage { grid-template-columns:55px 1fr; gap:20px; padding:45px 0 60px; }
+ .upgrade-stage-number { font-size:58px; }
+ .upgrade-method-stage h2 { font-size:clamp(30px,6.5vw,48px); margin-top:18px; }
+ .upgrade-method-lead { font-size:16px; }
+ .upgrade-output { grid-template-columns:1fr; gap:15px; margin-top:30px; }
+ .upgrade-example-link { padding-block:70px; }
+ .upgrade-studies { padding-inline:0; padding-bottom:0; }
+ .upgrade-study { width:100%; margin-bottom:70px; }
+ .upgrade-study figcaption { grid-template-columns:1fr; gap:25px; padding:25px 24px 0; }
+ .upgrade-study h2 { max-width:19ch; font-size:40px; }
+ .upgrade-study-nav { gap:25px; }
+}
+@media(prefers-reduced-motion:reduce) { .upgrade-paths b { transition:none; } }

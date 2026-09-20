@@ -1,0 +1,26 @@
+const fs=require('fs');
+let p=fs.readFileSync('src/Prototype.tsx','utf8');
+p=p.replace("import './prototype.css';","import './review51.css';\nimport {businessTypes,type BusinessType} from '@/data/company-builder';\nimport ReviewDiagnostic from './ReviewDiagnostic';");
+p=p.replace('export default function Prototype()', 'export default function Review51()');
+p=p.replace('<div className="p-prototype">','<div className="p-prototype r51">');
+p=p.replace('href="/prototype"','href="/v5-1-review/"');
+p=p.replace('<a href="#creation">Enter the process <span aria-hidden="true">↘</span></a>','<a href="#review-builder">Start a company <span aria-hidden="true">↗</span></a>');
+p=p.replace('<a className="p-enter" href="#creation">See an idea become a company <span aria-hidden="true">↓</span></a>','<div className="r51-arrival-actions"><a className="r51-action" href="#review-builder">Start a company <span aria-hidden="true">→</span></a><a className="p-enter" href="#operating">See how we build <span aria-hidden="true">↓</span></a></div>');
+p=p.replace('</section><div className="p-shared-art"', '</section><Operating/><ReviewBuilder/><div className="p-shared-art"');
+p=p.replace('setPlacement({left:a.left+', 'setPlacement({left:a.left+');
+/* Once Act 02 leaves, its fixed object travels out with its existing sticky canvas. */
+fs.writeFileSync('src/Review51.tsx',p);
+fs.copyFileSync('src/prototype.css','src/review51.css');
+let d=fs.readFileSync('src/Diagnostic.tsx','utf8');
+d=d.replace('export default function Diagnostic({businessType,onRestart}:{businessType:BusinessType;onRestart:()=>void})','export default function ReviewDiagnostic({businessType,onRestart,onMapChange}:{businessType:BusinessType;onRestart:()=>void;onMapChange:(map:{phases:string[];complete:boolean})=>void})');
+d=d.replace('const permitted=availableNeeds(build);', "useEffect(()=>{onMapChange({phases:generateRoadmap(build).phases.map(p=>p.name),complete:step===2});},[businessType,stage,starting,needs,step]);\n const permitted=availableNeeds(build);");
+d=d.replace('className="diagnostic"','className="diagnostic r51-diagnostic"');
+fs.writeFileSync('src/ReviewDiagnostic.tsx',d);
+fs.mkdirSync('v5-1-review',{recursive:true});
+fs.writeFileSync('v5-1-review/index.html',fs.readFileSync('prototype/index.html','utf8').replace('Creation Prototype','V5.1 — Acts 01–04').replace('prototype-entry','review51-entry'));
+fs.writeFileSync('src/review51-entry.tsx',"import {createRoot} from 'react-dom/client';\nimport Review51 from './Review51';\ncreateRoot(document.getElementById('root')!).render(<Review51/>);\n");
+let main=fs.readFileSync('src/main.tsx','utf8').replace("const Prototype=", "const Review51=lazy(()=>import('./Review51'));\nconst Prototype=");
+main=main.replace("{/^\\/prototype", "{/^\\/v5-1-review\\/?$/.test(window.location.pathname)?<Review51/>:/^\\/prototype");
+fs.writeFileSync('src/main.tsx',main);
+let config=fs.readFileSync('vite.config.ts','utf8').replace("prototype:fileURLToPath", "review51:fileURLToPath(new URL('./v5-1-review/index.html',import.meta.url)),prototype:fileURLToPath");
+fs.writeFileSync('vite.config.ts',config);

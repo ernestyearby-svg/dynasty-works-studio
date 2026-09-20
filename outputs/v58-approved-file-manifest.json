@@ -1,0 +1,3044 @@
+[
+  {
+    "id": "/404.html",
+    "path": "/404.html",
+    "sha": "7ffae4816d8b39f0d3015c496befb44ee2d66dab",
+    "mime_type": "text/html",
+    "size": 1566,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/cinematic-rooms-d7oooik4.css",
+    "path": "/assets/cinematic-rooms-d7oooik4.css",
+    "sha": "38770a3268e14f07d79d5031e115b80dbed6a38f",
+    "mime_type": "text/css",
+    "size": 3845,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/cinematichome-bb2rzszx.js",
+    "path": "/assets/cinematichome-bb2rzszx.js",
+    "sha": "4f42b65af76b0c0af9382d4b42b4eb47cc48117a",
+    "mime_type": "application/javascript",
+    "size": 174,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/client-djjhmq6o.js",
+    "path": "/assets/client-djjhmq6o.js",
+    "sha": "67109d9393251bc70e3185a7da4ef0d3462513f4",
+    "mime_type": "application/javascript",
+    "size": 179012,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/companyrenderer-b8ifbxkb.js",
+    "path": "/assets/companyrenderer-b8ifbxkb.js",
+    "sha": "60204f8f8015baa717ca75681bd025698457eb20",
+    "mime_type": "application/javascript",
+    "size": 536342,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/experiencelab-dbywowkz.js",
+    "path": "/assets/experiencelab-dbywowkz.js",
+    "sha": "31d7540fcd502db7b54efaf3674db1ca35b19822",
+    "mime_type": "application/javascript",
+    "size": 9195,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/experiencelab-dywpbqcl.css",
+    "path": "/assets/experiencelab-dywpbqcl.css",
+    "sha": "9fe5eedaa779f956567b90aa4fd0ae32b9fbe99d",
+    "mime_type": "text/css",
+    "size": 11178,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/fonts/bodoni-moda-italic.woff2",
+    "path": "/assets/fonts/bodoni-moda-italic.woff2",
+    "sha": "9fb444ee4bc13e6b5735af39ff5037c973f423d2",
+    "mime_type": "font/woff2",
+    "size": 29644,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/fonts/bodoni-moda.woff2",
+    "path": "/assets/fonts/bodoni-moda.woff2",
+    "sha": "406cb2bb5f689ff106fcd7d26cb659e6b5908a16",
+    "mime_type": "font/woff2",
+    "size": 26688,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/fonts/manrope.woff2",
+    "path": "/assets/fonts/manrope.woff2",
+    "sha": "b42951014c5eca12749d87a4706caf22dc4fe081",
+    "mime_type": "font/woff2",
+    "size": 24836,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/jsx-runtime-b97tdco-.js",
+    "path": "/assets/jsx-runtime-b97tdco-.js",
+    "sha": "d038903f19b28f32c9d476b986d1b4bb7cb5edb4",
+    "mime_type": "application/javascript",
+    "size": 8408,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/brandformation-1536.avif",
+    "path": "/assets/living/brandformation-1536.avif",
+    "sha": "b9130c0402aa6bcdbb02a11780c8458b0f709a53",
+    "mime_type": "image/avif",
+    "size": 96593,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/brandformation-1536.webp",
+    "path": "/assets/living/brandformation-1536.webp",
+    "sha": "91bb66ec381909e55b8a037fdbff07d3f987b911",
+    "mime_type": "image/webp",
+    "size": 133548,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/brandformation-480.avif",
+    "path": "/assets/living/brandformation-480.avif",
+    "sha": "d0ab2a876acdabaa7824bbac051290013bd9edb8",
+    "mime_type": "image/avif",
+    "size": 13981,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/brandformation-480.webp",
+    "path": "/assets/living/brandformation-480.webp",
+    "sha": "365d0a757fcb8c8619418153f0bbfdce8e5e3007",
+    "mime_type": "image/webp",
+    "size": 18922,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/brandformation-960.avif",
+    "path": "/assets/living/brandformation-960.avif",
+    "sha": "942e92729ffbdc2446cd789953097e824d9bcaec",
+    "mime_type": "image/avif",
+    "size": 45699,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/brandformation-960.webp",
+    "path": "/assets/living/brandformation-960.webp",
+    "sha": "55a99a70ad2002660a34044d6dac40de7ef077b3",
+    "mime_type": "image/webp",
+    "size": 62026,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/digitalexperience-1536.avif",
+    "path": "/assets/living/digitalexperience-1536.avif",
+    "sha": "ebf8b4902a3e6f254d44fba7fd6fe4a44f550a13",
+    "mime_type": "image/avif",
+    "size": 89114,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/digitalexperience-1536.webp",
+    "path": "/assets/living/digitalexperience-1536.webp",
+    "sha": "03cb4eeee41ab48642ead2d93926e2313794839c",
+    "mime_type": "image/webp",
+    "size": 126530,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/digitalexperience-480.avif",
+    "path": "/assets/living/digitalexperience-480.avif",
+    "sha": "7a9c09b927b69f3ae53bf3ba90384ec06e460f00",
+    "mime_type": "image/avif",
+    "size": 16437,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/digitalexperience-480.webp",
+    "path": "/assets/living/digitalexperience-480.webp",
+    "sha": "d755bd34ec753cc5690b57cc0906f8bcfa59f1d1",
+    "mime_type": "image/webp",
+    "size": 23178,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/digitalexperience-960.avif",
+    "path": "/assets/living/digitalexperience-960.avif",
+    "sha": "0dda671e9cd2d109b10d67f99e14fb1c477443af",
+    "mime_type": "image/avif",
+    "size": 48055,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/digitalexperience-960.webp",
+    "path": "/assets/living/digitalexperience-960.webp",
+    "sha": "e461202aef3b77d3dfb041c357102530cdca49b8",
+    "mime_type": "image/webp",
+    "size": 66178,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/futureexperiment-1536.avif",
+    "path": "/assets/living/futureexperiment-1536.avif",
+    "sha": "7bf8f6fec131fc317c0d95df54a888e442c3ab06",
+    "mime_type": "image/avif",
+    "size": 110819,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/futureexperiment-1536.webp",
+    "path": "/assets/living/futureexperiment-1536.webp",
+    "sha": "abc794d2bd8f33957fc2811f5e2749f84ec83d2b",
+    "mime_type": "image/webp",
+    "size": 153020,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/futureexperiment-480.avif",
+    "path": "/assets/living/futureexperiment-480.avif",
+    "sha": "c73fc21b9c0e86c60c0ce3f94d0013d8062fae9a",
+    "mime_type": "image/avif",
+    "size": 18225,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/futureexperiment-480.webp",
+    "path": "/assets/living/futureexperiment-480.webp",
+    "sha": "3258659fcdff9c2aa3014c4a90435c62b2c75b97",
+    "mime_type": "image/webp",
+    "size": 25056,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/futureexperiment-960.avif",
+    "path": "/assets/living/futureexperiment-960.avif",
+    "sha": "1bbd268bc0a749c50d17006ec563ddd76f96658e",
+    "mime_type": "image/avif",
+    "size": 55611,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/futureexperiment-960.webp",
+    "path": "/assets/living/futureexperiment-960.webp",
+    "sha": "1d260cbe5dac994d47084f99e125e3da80a0f4b2",
+    "mime_type": "image/webp",
+    "size": 78080,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/humancreation-1536.avif",
+    "path": "/assets/living/humancreation-1536.avif",
+    "sha": "0201cd0495f93105d2b56beb33775a25b2f20e23",
+    "mime_type": "image/avif",
+    "size": 79720,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/humancreation-1536.webp",
+    "path": "/assets/living/humancreation-1536.webp",
+    "sha": "fcfa34275be5cbd53a4d2c5894b53e2ae6c5d27e",
+    "mime_type": "image/webp",
+    "size": 111518,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/humancreation-480.avif",
+    "path": "/assets/living/humancreation-480.avif",
+    "sha": "dcd25113ffad4706da2f1d77e396be4934749ec1",
+    "mime_type": "image/avif",
+    "size": 17196,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/humancreation-480.webp",
+    "path": "/assets/living/humancreation-480.webp",
+    "sha": "a347022a8e3e6a6295ea46d764535e7d9582f4d7",
+    "mime_type": "image/webp",
+    "size": 25644,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/humancreation-960.avif",
+    "path": "/assets/living/humancreation-960.avif",
+    "sha": "44d3870512952f688f4fbedf45b7fee9fefd4e22",
+    "mime_type": "image/avif",
+    "size": 45345,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/humancreation-960.webp",
+    "path": "/assets/living/humancreation-960.webp",
+    "sha": "858c029610da6739e6ae6188891f77d0f118cd8e",
+    "mime_type": "image/webp",
+    "size": 63660,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/materialcraft-1536.avif",
+    "path": "/assets/living/materialcraft-1536.avif",
+    "sha": "138ead80ab94bf8846065640190b1d2c7f2446f4",
+    "mime_type": "image/avif",
+    "size": 155935,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/materialcraft-1536.webp",
+    "path": "/assets/living/materialcraft-1536.webp",
+    "sha": "933cc5bd891c8b41305114671da05b9a1a7fe9ce",
+    "mime_type": "image/webp",
+    "size": 240780,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/materialcraft-480.avif",
+    "path": "/assets/living/materialcraft-480.avif",
+    "sha": "1b23e25ab3bc31230226d06674878a5c7ea533eb",
+    "mime_type": "image/avif",
+    "size": 21752,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/materialcraft-480.webp",
+    "path": "/assets/living/materialcraft-480.webp",
+    "sha": "f62e4d1639894d93df7a61b3c251849ea0ea6139",
+    "mime_type": "image/webp",
+    "size": 31724,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/materialcraft-960.avif",
+    "path": "/assets/living/materialcraft-960.avif",
+    "sha": "52a1c7495ff6a1a980098f299846ad90dd9069fc",
+    "mime_type": "image/avif",
+    "size": 77865,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/materialcraft-960.webp",
+    "path": "/assets/living/materialcraft-960.webp",
+    "sha": "9dcf4ed939bf313ed9dd5c53ebed76f1aa8abbb8",
+    "mime_type": "image/webp",
+    "size": 110940,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/packaging-1536.avif",
+    "path": "/assets/living/packaging-1536.avif",
+    "sha": "5470707b10d157790296d1e2758097beadd55bcc",
+    "mime_type": "image/avif",
+    "size": 116475,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/packaging-1536.webp",
+    "path": "/assets/living/packaging-1536.webp",
+    "sha": "6d821bcda2e733e84e46b467c4d60d8520d1d14a",
+    "mime_type": "image/webp",
+    "size": 164506,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/packaging-480.avif",
+    "path": "/assets/living/packaging-480.avif",
+    "sha": "fbbcab5cb1cd0e9d190fadf20189c0a31f2f949a",
+    "mime_type": "image/avif",
+    "size": 15751,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/packaging-480.webp",
+    "path": "/assets/living/packaging-480.webp",
+    "sha": "1d142837c1794b2aa6ab399a8e1c9091e6910e28",
+    "mime_type": "image/webp",
+    "size": 21982,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/packaging-960.avif",
+    "path": "/assets/living/packaging-960.avif",
+    "sha": "db6d07a8752127124135ae8a9ebd137013cc2fb0",
+    "mime_type": "image/avif",
+    "size": 55824,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/packaging-960.webp",
+    "path": "/assets/living/packaging-960.webp",
+    "sha": "048ffe7c945316b69740e8e6a233fc806e679e27",
+    "mime_type": "image/webp",
+    "size": 74332,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/physicalexperience-1536.avif",
+    "path": "/assets/living/physicalexperience-1536.avif",
+    "sha": "3f4246b15bc39ead544beef45929230be513f949",
+    "mime_type": "image/avif",
+    "size": 111552,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/physicalexperience-1536.webp",
+    "path": "/assets/living/physicalexperience-1536.webp",
+    "sha": "e4cae0af755d4426567f29e9ec0093bed08d93b8",
+    "mime_type": "image/webp",
+    "size": 151028,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/physicalexperience-480.avif",
+    "path": "/assets/living/physicalexperience-480.avif",
+    "sha": "1ff92697ebfb31613407642d8f98b7d1ba41829a",
+    "mime_type": "image/avif",
+    "size": 16927,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/physicalexperience-480.webp",
+    "path": "/assets/living/physicalexperience-480.webp",
+    "sha": "2476b6f532614f5afd5e8c12065a86b79633b87a",
+    "mime_type": "image/webp",
+    "size": 23864,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/physicalexperience-960.avif",
+    "path": "/assets/living/physicalexperience-960.avif",
+    "sha": "37bd0c048da7d03fe8acb9b4e3728324d607c447",
+    "mime_type": "image/avif",
+    "size": 53781,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/physicalexperience-960.webp",
+    "path": "/assets/living/physicalexperience-960.webp",
+    "sha": "2be11c3c3e8962fc2f6466031f17b53b623f8426",
+    "mime_type": "image/webp",
+    "size": 73496,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/productdesign-1536.avif",
+    "path": "/assets/living/productdesign-1536.avif",
+    "sha": "ec8c8ce3e944eec0be3e50c6715b6613ca99f234",
+    "mime_type": "image/avif",
+    "size": 123515,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/productdesign-1536.webp",
+    "path": "/assets/living/productdesign-1536.webp",
+    "sha": "735c4ddb9b718258227c24e6fad57e19573c9021",
+    "mime_type": "image/webp",
+    "size": 179878,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/productdesign-480.avif",
+    "path": "/assets/living/productdesign-480.avif",
+    "sha": "5e07b5a4beb5ce10d2e4376ba3f81ddc46d52bbc",
+    "mime_type": "image/avif",
+    "size": 17158,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/productdesign-480.webp",
+    "path": "/assets/living/productdesign-480.webp",
+    "sha": "473f1ef171a53c7af00354f5ac6d4a81b3fbc3c3",
+    "mime_type": "image/webp",
+    "size": 24430,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/productdesign-960.avif",
+    "path": "/assets/living/productdesign-960.avif",
+    "sha": "2a68d50445a770a7b45a55535659c6f27465018b",
+    "mime_type": "image/avif",
+    "size": 58752,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/productdesign-960.webp",
+    "path": "/assets/living/productdesign-960.webp",
+    "sha": "2841bd9e84055b22e4b075ff3f19749c11dace9f",
+    "mime_type": "image/webp",
+    "size": 84058,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/rawidea-1536.avif",
+    "path": "/assets/living/rawidea-1536.avif",
+    "sha": "ee735051c05a30f1370c7c119a0be02815e0312a",
+    "mime_type": "image/avif",
+    "size": 122891,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/rawidea-1536.webp",
+    "path": "/assets/living/rawidea-1536.webp",
+    "sha": "79a63a445e4caec83b3477b74702ac39f5cfcabf",
+    "mime_type": "image/webp",
+    "size": 184916,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/rawidea-480.avif",
+    "path": "/assets/living/rawidea-480.avif",
+    "sha": "59e5b953412bf0cd17d055b80d9e647914720c68",
+    "mime_type": "image/avif",
+    "size": 19126,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/rawidea-480.webp",
+    "path": "/assets/living/rawidea-480.webp",
+    "sha": "534e10bdfa1e2125ac8a3284a52dd6294f73a2a1",
+    "mime_type": "image/webp",
+    "size": 27044,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/rawidea-960.avif",
+    "path": "/assets/living/rawidea-960.avif",
+    "sha": "52443dc73bd810b79079ebfff2afd30650952122",
+    "mime_type": "image/avif",
+    "size": 62032,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/rawidea-960.webp",
+    "path": "/assets/living/rawidea-960.webp",
+    "sha": "7d148356fb26f8273b858aa48d01c803dea02d88",
+    "mime_type": "image/webp",
+    "size": 88808,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/scale-1536.avif",
+    "path": "/assets/living/scale-1536.avif",
+    "sha": "ea5ac057b28c3975fda69d77a72c482c2e597c70",
+    "mime_type": "image/avif",
+    "size": 87690,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/scale-1536.webp",
+    "path": "/assets/living/scale-1536.webp",
+    "sha": "51bcf6314f63eeb0a4d42151ddd85e4c963175b9",
+    "mime_type": "image/webp",
+    "size": 113940,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/scale-480.avif",
+    "path": "/assets/living/scale-480.avif",
+    "sha": "5adf1739c9a3ae2e02eb1cbb2bf7b7394e090185",
+    "mime_type": "image/avif",
+    "size": 16307,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/scale-480.webp",
+    "path": "/assets/living/scale-480.webp",
+    "sha": "ef542bbd84b7242932d13745bfff1b27498ec6c6",
+    "mime_type": "image/webp",
+    "size": 21502,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/scale-960.avif",
+    "path": "/assets/living/scale-960.avif",
+    "sha": "a35440d358c2dc6dabb8eed6f3dd95d3577db248",
+    "mime_type": "image/avif",
+    "size": 46465,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/living/scale-960.webp",
+    "path": "/assets/living/scale-960.webp",
+    "sha": "0f33866daeb4f7f6c8d8c2fa5b1f8e646a89d855",
+    "mime_type": "image/webp",
+    "size": 60318,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/main-ci5a5tg_.js",
+    "path": "/assets/main-ci5a5tg_.js",
+    "sha": "0c58576086e4f4ba4ce219538b22e7c2ae316d6c",
+    "mime_type": "application/javascript",
+    "size": 9511,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/main-cikazdrk.css",
+    "path": "/assets/main-cikazdrk.css",
+    "sha": "0803c3a3491deae5352dba210291cf847935ac6d",
+    "mime_type": "text/css",
+    "size": 5590,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/classic-orange-240.webp",
+    "path": "/assets/mymosa-native/classic-orange-240.webp",
+    "sha": "c697967a31d891565ef6fe5f6c2bd45e9ba4878b",
+    "mime_type": "image/webp",
+    "size": 201948,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/classic-orange.webp",
+    "path": "/assets/mymosa-native/classic-orange.webp",
+    "sha": "192cd19d14e943941d9108cec44d7983f0c27820",
+    "mime_type": "image/webp",
+    "size": 505262,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/classic-orange-brand.webp",
+    "path": "/assets/mymosa-native/details/classic-orange-brand.webp",
+    "sha": "c219e06de9dca026a58cf74b87b19ed0aa1dd58d",
+    "mime_type": "image/webp",
+    "size": 90260,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/classic-orange-classification.webp",
+    "path": "/assets/mymosa-native/details/classic-orange-classification.webp",
+    "sha": "5b95d613603c050324d7f94c1105a0cf64e27abe",
+    "mime_type": "image/webp",
+    "size": 56778,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/classic-orange-flavor.webp",
+    "path": "/assets/mymosa-native/details/classic-orange-flavor.webp",
+    "sha": "55efa0ad32686a16a884c0e48a1176b231f72bc5",
+    "mime_type": "image/webp",
+    "size": 72776,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/classic-orange-image.webp",
+    "path": "/assets/mymosa-native/details/classic-orange-image.webp",
+    "sha": "b88a80c9d70539380eaf521344f89e7a7f294d42",
+    "mime_type": "image/webp",
+    "size": 120484,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/classic-orange-information.webp",
+    "path": "/assets/mymosa-native/details/classic-orange-information.webp",
+    "sha": "0dca3cd4e7ced02e9ad501f311570381f6de6366",
+    "mime_type": "image/webp",
+    "size": 64292,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/pineapple-brand.webp",
+    "path": "/assets/mymosa-native/details/pineapple-brand.webp",
+    "sha": "2fd2bfc40697cb4e84a49a8544e4fd64afb01e75",
+    "mime_type": "image/webp",
+    "size": 78906,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/pineapple-classification.webp",
+    "path": "/assets/mymosa-native/details/pineapple-classification.webp",
+    "sha": "68b9f49c615307c3f6d5d317a0464e850045679a",
+    "mime_type": "image/webp",
+    "size": 45922,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/pineapple-flavor.webp",
+    "path": "/assets/mymosa-native/details/pineapple-flavor.webp",
+    "sha": "ce917854787ccd9dfd5726e9583e8dc98178304d",
+    "mime_type": "image/webp",
+    "size": 73276,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/pineapple-image.webp",
+    "path": "/assets/mymosa-native/details/pineapple-image.webp",
+    "sha": "42a7b4f255382e0fd112b21e3d69f2f381656359",
+    "mime_type": "image/webp",
+    "size": 114644,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/pineapple-information.webp",
+    "path": "/assets/mymosa-native/details/pineapple-information.webp",
+    "sha": "1a43ced8230158793b00433436bdd3c5ca688b69",
+    "mime_type": "image/webp",
+    "size": 56798,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/strawberry-brand.webp",
+    "path": "/assets/mymosa-native/details/strawberry-brand.webp",
+    "sha": "62edab2da02b0230ad8faee3815be5b3e4245dda",
+    "mime_type": "image/webp",
+    "size": 81584,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/strawberry-classification.webp",
+    "path": "/assets/mymosa-native/details/strawberry-classification.webp",
+    "sha": "4f353782eb39730e1b08a3d933206e278350fa47",
+    "mime_type": "image/webp",
+    "size": 45570,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/strawberry-flavor.webp",
+    "path": "/assets/mymosa-native/details/strawberry-flavor.webp",
+    "sha": "48b211a29591bda65a0ba490c0938921154eb8d8",
+    "mime_type": "image/webp",
+    "size": 74462,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/strawberry-image.webp",
+    "path": "/assets/mymosa-native/details/strawberry-image.webp",
+    "sha": "a94566e37cffceebeae4359a2e0ebc882d105f45",
+    "mime_type": "image/webp",
+    "size": 113724,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/strawberry-information.webp",
+    "path": "/assets/mymosa-native/details/strawberry-information.webp",
+    "sha": "9984555171fd94ff11616bb0807e250436a60662",
+    "mime_type": "image/webp",
+    "size": 63372,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/tropical-blend-brand.webp",
+    "path": "/assets/mymosa-native/details/tropical-blend-brand.webp",
+    "sha": "e441c4533f76cd359bbfcbf7940d08844d988551",
+    "mime_type": "image/webp",
+    "size": 73808,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/tropical-blend-classification.webp",
+    "path": "/assets/mymosa-native/details/tropical-blend-classification.webp",
+    "sha": "716c4a5d3eaa355edb3da84ae334488233eb214e",
+    "mime_type": "image/webp",
+    "size": 44168,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/tropical-blend-flavor.webp",
+    "path": "/assets/mymosa-native/details/tropical-blend-flavor.webp",
+    "sha": "93d93ec72e42ad3034685c2294a0042e4b1f0ded",
+    "mime_type": "image/webp",
+    "size": 67720,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/tropical-blend-image.webp",
+    "path": "/assets/mymosa-native/details/tropical-blend-image.webp",
+    "sha": "0aa5eaf0cb41d7eb7e30e16382604da7c494650c",
+    "mime_type": "image/webp",
+    "size": 114544,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/details/tropical-blend-information.webp",
+    "path": "/assets/mymosa-native/details/tropical-blend-information.webp",
+    "sha": "6be6279bffd6a85315a73369b067b26657c76f81",
+    "mime_type": "image/webp",
+    "size": 56742,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/pineapple-240.webp",
+    "path": "/assets/mymosa-native/pineapple-240.webp",
+    "sha": "cbe9c697234db1d63bb6285cf5421f15570af1c8",
+    "mime_type": "image/webp",
+    "size": 189124,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/pineapple.webp",
+    "path": "/assets/mymosa-native/pineapple.webp",
+    "sha": "ccfd6aab6458f3930f4ca7059170e1739944abf7",
+    "mime_type": "image/webp",
+    "size": 482996,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/strawberry-240.webp",
+    "path": "/assets/mymosa-native/strawberry-240.webp",
+    "sha": "5d0aa1750b1fe197b21c12c4090048ec7825e521",
+    "mime_type": "image/webp",
+    "size": 192792,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/strawberry.webp",
+    "path": "/assets/mymosa-native/strawberry.webp",
+    "sha": "9889598d6097d3fc9656f76e2414484c6bd38e8b",
+    "mime_type": "image/webp",
+    "size": 490048,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/tropical-blend-240.webp",
+    "path": "/assets/mymosa-native/tropical-blend-240.webp",
+    "sha": "ff3c711705a808efc9555b69cacc0be1cb446d55",
+    "mime_type": "image/webp",
+    "size": 183394,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa-native/tropical-blend.webp",
+    "path": "/assets/mymosa-native/tropical-blend.webp",
+    "sha": "e06c6911c2dcf1bc04d5b0c80d3eaf64a9aee7f2",
+    "mime_type": "image/webp",
+    "size": 462654,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa53-bgnvaebn.js",
+    "path": "/assets/mymosa53-bgnvaebn.js",
+    "sha": "2c1d59fec98063519c2d5539d59e884f9b69d643",
+    "mime_type": "application/javascript",
+    "size": 11720,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/mymosa53-csoyk-_8.css",
+    "path": "/assets/mymosa53-csoyk-_8.css",
+    "sha": "d8717864947a2e8559441a1d68150b93ec238a4b",
+    "mime_type": "text/css",
+    "size": 14103,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-altius-hospitality-system-1536.avif",
+    "path": "/assets/portfolio/01-altius-hospitality-system-1536.avif",
+    "sha": "7596bf492f45646fc2861c5619ed87ec4e15fb2a",
+    "mime_type": "image/avif",
+    "size": 161037,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-altius-hospitality-system-1536.webp",
+    "path": "/assets/portfolio/01-altius-hospitality-system-1536.webp",
+    "sha": "204d0e97644521ae80bf38df94e6bd29931c884c",
+    "mime_type": "image/webp",
+    "size": 238490,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-altius-hospitality-system-480.avif",
+    "path": "/assets/portfolio/01-altius-hospitality-system-480.avif",
+    "sha": "10c7dbd5761ce65849d5541331a270e23a1a10f7",
+    "mime_type": "image/avif",
+    "size": 23853,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-altius-hospitality-system-480.webp",
+    "path": "/assets/portfolio/01-altius-hospitality-system-480.webp",
+    "sha": "e645c339d58e7f5fc13cf35234a4ed0613cd362a",
+    "mime_type": "image/webp",
+    "size": 34980,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-altius-hospitality-system-960.avif",
+    "path": "/assets/portfolio/01-altius-hospitality-system-960.avif",
+    "sha": "757f523e9870b36ec06c9ac2dd5a7d509f94a715",
+    "mime_type": "image/avif",
+    "size": 77413,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-altius-hospitality-system-960.webp",
+    "path": "/assets/portfolio/01-altius-hospitality-system-960.webp",
+    "sha": "fbccef3681ea6649d476eaf5aeacd6440d3ca839",
+    "mime_type": "image/webp",
+    "size": 110634,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-aura-technology-system-1536.avif",
+    "path": "/assets/portfolio/01-aura-technology-system-1536.avif",
+    "sha": "ae741ffd0d1331fdcbeff7b9b725aa46a8f962cc",
+    "mime_type": "image/avif",
+    "size": 115686,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-aura-technology-system-1536.webp",
+    "path": "/assets/portfolio/01-aura-technology-system-1536.webp",
+    "sha": "b8121d0b99f5f0f4d797323c658b5685c7ae413e",
+    "mime_type": "image/webp",
+    "size": 167328,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-aura-technology-system-480.avif",
+    "path": "/assets/portfolio/01-aura-technology-system-480.avif",
+    "sha": "a67015cd4726cd642ae774b72d821a5b20d6a9be",
+    "mime_type": "image/avif",
+    "size": 20497,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-aura-technology-system-480.webp",
+    "path": "/assets/portfolio/01-aura-technology-system-480.webp",
+    "sha": "290e7ffa483b04414181ea749fa607db694e09b7",
+    "mime_type": "image/webp",
+    "size": 29094,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-aura-technology-system-960.avif",
+    "path": "/assets/portfolio/01-aura-technology-system-960.avif",
+    "sha": "8994b857ba60c1af1c10b3eb29194a6f7504e891",
+    "mime_type": "image/avif",
+    "size": 59281,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-aura-technology-system-960.webp",
+    "path": "/assets/portfolio/01-aura-technology-system-960.webp",
+    "sha": "cb494ef293e87be0a6a58935a4fcc43fbc6669a6",
+    "mime_type": "image/webp",
+    "size": 82324,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-ikla-creative-direction-1536.avif",
+    "path": "/assets/portfolio/01-ikla-creative-direction-1536.avif",
+    "sha": "e200a14e29c12e1e11d993940af55f299e69f72c",
+    "mime_type": "image/avif",
+    "size": 170505,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-ikla-creative-direction-1536.webp",
+    "path": "/assets/portfolio/01-ikla-creative-direction-1536.webp",
+    "sha": "1cc6d08f28e756a919f4695f0c6433e5da1839e2",
+    "mime_type": "image/webp",
+    "size": 257170,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-ikla-creative-direction-480.avif",
+    "path": "/assets/portfolio/01-ikla-creative-direction-480.avif",
+    "sha": "63e78263397e597dca3c2a77a4154bc6b9c3a8dc",
+    "mime_type": "image/avif",
+    "size": 25371,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-ikla-creative-direction-480.webp",
+    "path": "/assets/portfolio/01-ikla-creative-direction-480.webp",
+    "sha": "247307717b867699997468d95eec0c8c55168acb",
+    "mime_type": "image/webp",
+    "size": 37378,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-ikla-creative-direction-960.avif",
+    "path": "/assets/portfolio/01-ikla-creative-direction-960.avif",
+    "sha": "7616e52d87be98e1e3e716416529fbff79b89cb8",
+    "mime_type": "image/avif",
+    "size": 81318,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-ikla-creative-direction-960.webp",
+    "path": "/assets/portfolio/01-ikla-creative-direction-960.webp",
+    "sha": "64c2be6943f66894ad237dab3be6b22ffa9dcef3",
+    "mime_type": "image/webp",
+    "size": 119614,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-lumiere-fragrance-system-1536.avif",
+    "path": "/assets/portfolio/01-lumiere-fragrance-system-1536.avif",
+    "sha": "1cae25aed3351a19d514ac74e7be941741f0c968",
+    "mime_type": "image/avif",
+    "size": 126126,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-lumiere-fragrance-system-1536.webp",
+    "path": "/assets/portfolio/01-lumiere-fragrance-system-1536.webp",
+    "sha": "c48fa8689e718c0fd3abd41b4cfd7a3a1fdb558d",
+    "mime_type": "image/webp",
+    "size": 179998,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-lumiere-fragrance-system-480.avif",
+    "path": "/assets/portfolio/01-lumiere-fragrance-system-480.avif",
+    "sha": "30d289b4c649d5818caf1affa1d9195cf9afa302",
+    "mime_type": "image/avif",
+    "size": 21156,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-lumiere-fragrance-system-480.webp",
+    "path": "/assets/portfolio/01-lumiere-fragrance-system-480.webp",
+    "sha": "35ad5dcaec0d387c52a3a582457417c88888f177",
+    "mime_type": "image/webp",
+    "size": 29940,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-lumiere-fragrance-system-960.avif",
+    "path": "/assets/portfolio/01-lumiere-fragrance-system-960.avif",
+    "sha": "6d2c64bbbc8928a08db693bc7131a89fff98e6b8",
+    "mime_type": "image/avif",
+    "size": 64572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-lumiere-fragrance-system-960.webp",
+    "path": "/assets/portfolio/01-lumiere-fragrance-system-960.webp",
+    "sha": "894585228c78ae80feee157252a9bc6a02710ec1",
+    "mime_type": "image/webp",
+    "size": 88582,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-mymosa-four-flavor-hero-1536.avif",
+    "path": "/assets/portfolio/01-mymosa-four-flavor-hero-1536.avif",
+    "sha": "aa1cd5f3a5086b19ee43e174153becf91ecdfe95",
+    "mime_type": "image/avif",
+    "size": 157429,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-mymosa-four-flavor-hero-1536.webp",
+    "path": "/assets/portfolio/01-mymosa-four-flavor-hero-1536.webp",
+    "sha": "ba6f0ce1c99486d7364c4d4fe72ae8bbd5cfe7de",
+    "mime_type": "image/webp",
+    "size": 232152,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-mymosa-four-flavor-hero-480.avif",
+    "path": "/assets/portfolio/01-mymosa-four-flavor-hero-480.avif",
+    "sha": "031f9032ca4bf3e15b62376f3e45422c262140b7",
+    "mime_type": "image/avif",
+    "size": 24476,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-mymosa-four-flavor-hero-480.webp",
+    "path": "/assets/portfolio/01-mymosa-four-flavor-hero-480.webp",
+    "sha": "d135ce67e5b46406f1dbce82af6e50c929472893",
+    "mime_type": "image/webp",
+    "size": 35404,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-mymosa-four-flavor-hero-960.avif",
+    "path": "/assets/portfolio/01-mymosa-four-flavor-hero-960.avif",
+    "sha": "b56bc9056dad5a85066a360827f99568f7e8133a",
+    "mime_type": "image/avif",
+    "size": 77013,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-mymosa-four-flavor-hero-960.webp",
+    "path": "/assets/portfolio/01-mymosa-four-flavor-hero-960.webp",
+    "sha": "7e315a4aed5a9457017faf46243aabdf29caaf72",
+    "mime_type": "image/webp",
+    "size": 112980,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-nova-company-creation-system-1536.avif",
+    "path": "/assets/portfolio/01-nova-company-creation-system-1536.avif",
+    "sha": "ff0708a7fedeb9d04a68eb79d4ccd619c2244420",
+    "mime_type": "image/avif",
+    "size": 155771,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-nova-company-creation-system-1536.webp",
+    "path": "/assets/portfolio/01-nova-company-creation-system-1536.webp",
+    "sha": "8bfee57a6a04ec509590eb2f092e36a8bdbfeb2f",
+    "mime_type": "image/webp",
+    "size": 223600,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-nova-company-creation-system-480.avif",
+    "path": "/assets/portfolio/01-nova-company-creation-system-480.avif",
+    "sha": "959d1ff997f65b15f4db8da22fd0e3e0c875c83a",
+    "mime_type": "image/avif",
+    "size": 24533,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-nova-company-creation-system-480.webp",
+    "path": "/assets/portfolio/01-nova-company-creation-system-480.webp",
+    "sha": "04ffe8071afb8116d88811986e0ae391ecc27afb",
+    "mime_type": "image/webp",
+    "size": 35538,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-nova-company-creation-system-960.avif",
+    "path": "/assets/portfolio/01-nova-company-creation-system-960.avif",
+    "sha": "8fc38509ce0c50b5c872e58f6f8825422d8e86d5",
+    "mime_type": "image/avif",
+    "size": 77128,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-nova-company-creation-system-960.webp",
+    "path": "/assets/portfolio/01-nova-company-creation-system-960.webp",
+    "sha": "dff7370d4f501f78bf87ef386834b0c701dd951f",
+    "mime_type": "image/webp",
+    "size": 105176,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-solara-culinary-system-1536.avif",
+    "path": "/assets/portfolio/01-solara-culinary-system-1536.avif",
+    "sha": "1fa7d5eda5a8509ec77ef4bf9d1b305b5ceaf14d",
+    "mime_type": "image/avif",
+    "size": 169694,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-solara-culinary-system-1536.webp",
+    "path": "/assets/portfolio/01-solara-culinary-system-1536.webp",
+    "sha": "121261d2f84b2618f0d5fb38738466b638ca322d",
+    "mime_type": "image/webp",
+    "size": 243692,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-solara-culinary-system-480.avif",
+    "path": "/assets/portfolio/01-solara-culinary-system-480.avif",
+    "sha": "618a1062244d2bca5f93237d41b7623ba3cb0496",
+    "mime_type": "image/avif",
+    "size": 25780,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-solara-culinary-system-480.webp",
+    "path": "/assets/portfolio/01-solara-culinary-system-480.webp",
+    "sha": "516e30210aaaa05051dc6ac4acf2d2f437624c02",
+    "mime_type": "image/webp",
+    "size": 36772,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-solara-culinary-system-960.avif",
+    "path": "/assets/portfolio/01-solara-culinary-system-960.avif",
+    "sha": "abb25ed03cdcd323dedc0e01c14e92454312ed3c",
+    "mime_type": "image/avif",
+    "size": 83123,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-solara-culinary-system-960.webp",
+    "path": "/assets/portfolio/01-solara-culinary-system-960.webp",
+    "sha": "b333c1ceba3de2f153409503bc5d2c5272b1efc0",
+    "mime_type": "image/webp",
+    "size": 117252,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-veritas-spirits-system-1536.avif",
+    "path": "/assets/portfolio/01-veritas-spirits-system-1536.avif",
+    "sha": "ed9dc5703bb5c4e426be1041f84367dff0b12e8b",
+    "mime_type": "image/avif",
+    "size": 170552,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-veritas-spirits-system-1536.webp",
+    "path": "/assets/portfolio/01-veritas-spirits-system-1536.webp",
+    "sha": "657ea376a2f82d3c560efbfa4f66a0a9c6272db7",
+    "mime_type": "image/webp",
+    "size": 260972,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-veritas-spirits-system-480.avif",
+    "path": "/assets/portfolio/01-veritas-spirits-system-480.avif",
+    "sha": "b6e4cce19f7ffda8b9c09cdb2d41bf9864e42a8c",
+    "mime_type": "image/avif",
+    "size": 25455,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-veritas-spirits-system-480.webp",
+    "path": "/assets/portfolio/01-veritas-spirits-system-480.webp",
+    "sha": "f29bbd8a7ca2e616c0553d75be20da4ed09fe639",
+    "mime_type": "image/webp",
+    "size": 37348,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-veritas-spirits-system-960.avif",
+    "path": "/assets/portfolio/01-veritas-spirits-system-960.avif",
+    "sha": "fe5c39351bbc013a17a00d3099709e83000a819f",
+    "mime_type": "image/avif",
+    "size": 82808,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/01-veritas-spirits-system-960.webp",
+    "path": "/assets/portfolio/01-veritas-spirits-system-960.webp",
+    "sha": "3bbc51593be2c31c9d4b9f8d92493da91eb0e926",
+    "mime_type": "image/webp",
+    "size": 121356,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/02-ikla-identity-system-1536.avif",
+    "path": "/assets/portfolio/02-ikla-identity-system-1536.avif",
+    "sha": "22986fb0ff033bdad9c86ddb379deca6ad7abc54",
+    "mime_type": "image/avif",
+    "size": 167457,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/02-ikla-identity-system-1536.webp",
+    "path": "/assets/portfolio/02-ikla-identity-system-1536.webp",
+    "sha": "bde677536d5d0a8dca91a72bb4be3e9b02f1344a",
+    "mime_type": "image/webp",
+    "size": 255098,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/02-ikla-identity-system-480.avif",
+    "path": "/assets/portfolio/02-ikla-identity-system-480.avif",
+    "sha": "e096832bcbf3684aca8e621e19a2c8e0a9e01c34",
+    "mime_type": "image/avif",
+    "size": 25075,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/02-ikla-identity-system-480.webp",
+    "path": "/assets/portfolio/02-ikla-identity-system-480.webp",
+    "sha": "b0f1c30db75df589c4395d5e020934a84ebd64f0",
+    "mime_type": "image/webp",
+    "size": 36890,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/02-ikla-identity-system-960.avif",
+    "path": "/assets/portfolio/02-ikla-identity-system-960.avif",
+    "sha": "10ebdf27717367ab6a2c54763a429cab2deaa74f",
+    "mime_type": "image/avif",
+    "size": 81643,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/02-ikla-identity-system-960.webp",
+    "path": "/assets/portfolio/02-ikla-identity-system-960.webp",
+    "sha": "26dc0a1250cc48b107bf786143efda086ece56d5",
+    "mime_type": "image/webp",
+    "size": 120838,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/02-mymosa-lifestyle-campaign-1536.avif",
+    "path": "/assets/portfolio/02-mymosa-lifestyle-campaign-1536.avif",
+    "sha": "49d44440c80736e7504181ade4343640c88ad294",
+    "mime_type": "image/avif",
+    "size": 207421,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/02-mymosa-lifestyle-campaign-1536.webp",
+    "path": "/assets/portfolio/02-mymosa-lifestyle-campaign-1536.webp",
+    "sha": "87f213dabd154628f1d51202b5dd274c671c5f20",
+    "mime_type": "image/webp",
+    "size": 316666,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/02-mymosa-lifestyle-campaign-480.avif",
+    "path": "/assets/portfolio/02-mymosa-lifestyle-campaign-480.avif",
+    "sha": "9c6f141261c2b08483072432fcc2a6c72d55168e",
+    "mime_type": "image/avif",
+    "size": 31963,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/02-mymosa-lifestyle-campaign-480.webp",
+    "path": "/assets/portfolio/02-mymosa-lifestyle-campaign-480.webp",
+    "sha": "a2accd3f3177a6b89940efcf4724502b668479cf",
+    "mime_type": "image/webp",
+    "size": 46888,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/02-mymosa-lifestyle-campaign-960.avif",
+    "path": "/assets/portfolio/02-mymosa-lifestyle-campaign-960.avif",
+    "sha": "6633e3f7c602a5fd3c43684314511af4573a2cf6",
+    "mime_type": "image/avif",
+    "size": 105468,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/02-mymosa-lifestyle-campaign-960.webp",
+    "path": "/assets/portfolio/02-mymosa-lifestyle-campaign-960.webp",
+    "sha": "4c34bbd27362010e4a03af98477081a66e068b00",
+    "mime_type": "image/webp",
+    "size": 152734,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/02-nova-digital-product-system-1536.avif",
+    "path": "/assets/portfolio/02-nova-digital-product-system-1536.avif",
+    "sha": "859de451cc9c824ea6273379a0f7f5866a3d5503",
+    "mime_type": "image/avif",
+    "size": 144500,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/02-nova-digital-product-system-1536.webp",
+    "path": "/assets/portfolio/02-nova-digital-product-system-1536.webp",
+    "sha": "c81f81c3a37e4a8ad2f6ba1f8bfb04277d2e7881",
+    "mime_type": "image/webp",
+    "size": 206008,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/02-nova-digital-product-system-480.avif",
+    "path": "/assets/portfolio/02-nova-digital-product-system-480.avif",
+    "sha": "48784ae84eb55554ae4983c20d4c20ff7135903f",
+    "mime_type": "image/avif",
+    "size": 26079,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/02-nova-digital-product-system-480.webp",
+    "path": "/assets/portfolio/02-nova-digital-product-system-480.webp",
+    "sha": "00d60dc88a973ab52b5602a4204eb771a33a3f10",
+    "mime_type": "image/webp",
+    "size": 37258,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/02-nova-digital-product-system-960.avif",
+    "path": "/assets/portfolio/02-nova-digital-product-system-960.avif",
+    "sha": "d0fea3063a24b76f24646888d6eb2cf89354c41a",
+    "mime_type": "image/avif",
+    "size": 75190,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/02-nova-digital-product-system-960.webp",
+    "path": "/assets/portfolio/02-nova-digital-product-system-960.webp",
+    "sha": "f20c63806c8329723636f0b9c7eba61ec9a04e29",
+    "mime_type": "image/webp",
+    "size": 104006,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/03-ikla-emblem-system-1536.avif",
+    "path": "/assets/portfolio/03-ikla-emblem-system-1536.avif",
+    "sha": "1a4c388bd3523dce01490fe1b363b0bcb3adde2d",
+    "mime_type": "image/avif",
+    "size": 216512,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/03-ikla-emblem-system-1536.webp",
+    "path": "/assets/portfolio/03-ikla-emblem-system-1536.webp",
+    "sha": "33895401c285d3d64df73dd351c5edc8402e7d70",
+    "mime_type": "image/webp",
+    "size": 330052,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/03-ikla-emblem-system-480.avif",
+    "path": "/assets/portfolio/03-ikla-emblem-system-480.avif",
+    "sha": "4f0905859da48ea973b503d23a2530b1f00b14eb",
+    "mime_type": "image/avif",
+    "size": 30007,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/03-ikla-emblem-system-480.webp",
+    "path": "/assets/portfolio/03-ikla-emblem-system-480.webp",
+    "sha": "bd25206fb6a78f7b00c22e832c3b703c40207bda",
+    "mime_type": "image/webp",
+    "size": 42676,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/03-ikla-emblem-system-960.avif",
+    "path": "/assets/portfolio/03-ikla-emblem-system-960.avif",
+    "sha": "d90896274459033afc2ae697100d4febc502903e",
+    "mime_type": "image/avif",
+    "size": 101822,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/03-ikla-emblem-system-960.webp",
+    "path": "/assets/portfolio/03-ikla-emblem-system-960.webp",
+    "sha": "251c163688dcf783fe9bbca8fa0fff550bb08999",
+    "mime_type": "image/webp",
+    "size": 147832,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/03-mymosa-packaging-development-1536.avif",
+    "path": "/assets/portfolio/03-mymosa-packaging-development-1536.avif",
+    "sha": "f4ad237dca0275d2c0c21102aec2b374f4fa90fd",
+    "mime_type": "image/avif",
+    "size": 170722,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/03-mymosa-packaging-development-1536.webp",
+    "path": "/assets/portfolio/03-mymosa-packaging-development-1536.webp",
+    "sha": "1062a0b6b84144d632228ed88f37118eeeb3ea53",
+    "mime_type": "image/webp",
+    "size": 245538,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/03-mymosa-packaging-development-480.avif",
+    "path": "/assets/portfolio/03-mymosa-packaging-development-480.avif",
+    "sha": "f88bd8dc12c1d8c20c4db257b538165a01efc32f",
+    "mime_type": "image/avif",
+    "size": 27697,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/03-mymosa-packaging-development-480.webp",
+    "path": "/assets/portfolio/03-mymosa-packaging-development-480.webp",
+    "sha": "3e1d03c1520d437935b3db1275ac49c215022eac",
+    "mime_type": "image/webp",
+    "size": 39056,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/03-mymosa-packaging-development-960.avif",
+    "path": "/assets/portfolio/03-mymosa-packaging-development-960.avif",
+    "sha": "de69c2a3e7bbb3d11689ee39c676057ce53ce707",
+    "mime_type": "image/avif",
+    "size": 84586,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/03-mymosa-packaging-development-960.webp",
+    "path": "/assets/portfolio/03-mymosa-packaging-development-960.webp",
+    "sha": "22324689b1c8085a66437019769892812d2df1ee",
+    "mime_type": "image/webp",
+    "size": 119844,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/04-ikla-typography-system-1536.avif",
+    "path": "/assets/portfolio/04-ikla-typography-system-1536.avif",
+    "sha": "f90a83a69b4737070beebb396d55e3ce86720d7b",
+    "mime_type": "image/avif",
+    "size": 120577,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/04-ikla-typography-system-1536.webp",
+    "path": "/assets/portfolio/04-ikla-typography-system-1536.webp",
+    "sha": "08b609feda7c8435eead0245f6b0670c3d64d191",
+    "mime_type": "image/webp",
+    "size": 169708,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/04-ikla-typography-system-480.avif",
+    "path": "/assets/portfolio/04-ikla-typography-system-480.avif",
+    "sha": "f6733c4cfc35dc396e334d8bf0e7241d12b7076a",
+    "mime_type": "image/avif",
+    "size": 19468,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/04-ikla-typography-system-480.webp",
+    "path": "/assets/portfolio/04-ikla-typography-system-480.webp",
+    "sha": "7e4ebcf8ab62dedbf00b3e03d6e9f8ae0d5ecee9",
+    "mime_type": "image/webp",
+    "size": 25316,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/04-ikla-typography-system-960.avif",
+    "path": "/assets/portfolio/04-ikla-typography-system-960.avif",
+    "sha": "fa2c66252f2726dc19a747db6932b4da16debe30",
+    "mime_type": "image/avif",
+    "size": 59928,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/04-ikla-typography-system-960.webp",
+    "path": "/assets/portfolio/04-ikla-typography-system-960.webp",
+    "sha": "a455aa7002b3e9c7ad22cd2610e2dee5e1ecfeb3",
+    "mime_type": "image/webp",
+    "size": 80258,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/04-mymosa-brand-system-1536.avif",
+    "path": "/assets/portfolio/04-mymosa-brand-system-1536.avif",
+    "sha": "27e4252fae9f05210477608d78463a052922636b",
+    "mime_type": "image/avif",
+    "size": 181419,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/04-mymosa-brand-system-1536.webp",
+    "path": "/assets/portfolio/04-mymosa-brand-system-1536.webp",
+    "sha": "bd3097c7ddc46cb3dfc5ec248c009c5cb5c7ec9f",
+    "mime_type": "image/webp",
+    "size": 265838,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/04-mymosa-brand-system-480.avif",
+    "path": "/assets/portfolio/04-mymosa-brand-system-480.avif",
+    "sha": "b1afc63971a4382c0a446700432fac9be8ed130e",
+    "mime_type": "image/avif",
+    "size": 29919,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/04-mymosa-brand-system-480.webp",
+    "path": "/assets/portfolio/04-mymosa-brand-system-480.webp",
+    "sha": "8f237861e871330f1068778c5668dd4873087c70",
+    "mime_type": "image/webp",
+    "size": 42438,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/04-mymosa-brand-system-960.avif",
+    "path": "/assets/portfolio/04-mymosa-brand-system-960.avif",
+    "sha": "42ec3ff90299ecb3a9422208250badd4bb007091",
+    "mime_type": "image/avif",
+    "size": 90652,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/04-mymosa-brand-system-960.webp",
+    "path": "/assets/portfolio/04-mymosa-brand-system-960.webp",
+    "sha": "0281be2d46ffe1277f06dfd4fe819c24a0022a41",
+    "mime_type": "image/webp",
+    "size": 130538,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/05-ikla-color-system-1536.avif",
+    "path": "/assets/portfolio/05-ikla-color-system-1536.avif",
+    "sha": "98f99e36a679c4e3304983e614a2bef8caf5f636",
+    "mime_type": "image/avif",
+    "size": 115288,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/05-ikla-color-system-1536.webp",
+    "path": "/assets/portfolio/05-ikla-color-system-1536.webp",
+    "sha": "d7113e6f9ce3ca5e5c0e23d3feb607f9f9680bed",
+    "mime_type": "image/webp",
+    "size": 164222,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/05-ikla-color-system-480.avif",
+    "path": "/assets/portfolio/05-ikla-color-system-480.avif",
+    "sha": "2df234e31fc38cc8d08901c22ec8b977e2011a95",
+    "mime_type": "image/avif",
+    "size": 17964,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/05-ikla-color-system-480.webp",
+    "path": "/assets/portfolio/05-ikla-color-system-480.webp",
+    "sha": "4ea684223393c50c4f5f15ecc569dd98d1fdb52f",
+    "mime_type": "image/webp",
+    "size": 23260,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/05-ikla-color-system-960.avif",
+    "path": "/assets/portfolio/05-ikla-color-system-960.avif",
+    "sha": "e64d7e6e6413ee1019712ad6a7610f2c373c03a8",
+    "mime_type": "image/avif",
+    "size": 55349,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/05-ikla-color-system-960.webp",
+    "path": "/assets/portfolio/05-ikla-color-system-960.webp",
+    "sha": "de831ef715f91b78ead100318ff05aa9b7d5cb33",
+    "mime_type": "image/webp",
+    "size": 75494,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/06-ikla-pattern-surface-system-1536.avif",
+    "path": "/assets/portfolio/06-ikla-pattern-surface-system-1536.avif",
+    "sha": "fab799c48dd556a7216c2cd5befa993a99b36464",
+    "mime_type": "image/avif",
+    "size": 161957,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/06-ikla-pattern-surface-system-1536.webp",
+    "path": "/assets/portfolio/06-ikla-pattern-surface-system-1536.webp",
+    "sha": "cf7d92ae1c64f57504063c3159460433817a7893",
+    "mime_type": "image/webp",
+    "size": 250888,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/06-ikla-pattern-surface-system-480.avif",
+    "path": "/assets/portfolio/06-ikla-pattern-surface-system-480.avif",
+    "sha": "555eaae85d21367dea4aa4e0b670a4cea3cd0068",
+    "mime_type": "image/avif",
+    "size": 21706,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/06-ikla-pattern-surface-system-480.webp",
+    "path": "/assets/portfolio/06-ikla-pattern-surface-system-480.webp",
+    "sha": "1e4b4bba292d261dd945aa44ef55521d46c704c8",
+    "mime_type": "image/webp",
+    "size": 32638,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/06-ikla-pattern-surface-system-960.avif",
+    "path": "/assets/portfolio/06-ikla-pattern-surface-system-960.avif",
+    "sha": "34665a1fda5e51f1d416b84c36cf86db74002c94",
+    "mime_type": "image/avif",
+    "size": 78471,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/06-ikla-pattern-surface-system-960.webp",
+    "path": "/assets/portfolio/06-ikla-pattern-surface-system-960.webp",
+    "sha": "848309df9978af3ec05064ebda8c6768baaf5860",
+    "mime_type": "image/webp",
+    "size": 114648,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/07-ikla-material-study-1536.avif",
+    "path": "/assets/portfolio/07-ikla-material-study-1536.avif",
+    "sha": "7cd8d3d92aec8086dbb326951d402bf93fdf0cfb",
+    "mime_type": "image/avif",
+    "size": 223802,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/07-ikla-material-study-1536.webp",
+    "path": "/assets/portfolio/07-ikla-material-study-1536.webp",
+    "sha": "70842d23816b12be6e66a4003ad41d4eaf2b2f2a",
+    "mime_type": "image/webp",
+    "size": 349972,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/07-ikla-material-study-480.avif",
+    "path": "/assets/portfolio/07-ikla-material-study-480.avif",
+    "sha": "a6fd4e2362f7aa6be9a5cb7a7a3e1526c4756a6c",
+    "mime_type": "image/avif",
+    "size": 31210,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/07-ikla-material-study-480.webp",
+    "path": "/assets/portfolio/07-ikla-material-study-480.webp",
+    "sha": "415a001f4584ceb963646e0397330bdccd5b047b",
+    "mime_type": "image/webp",
+    "size": 45516,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/07-ikla-material-study-960.avif",
+    "path": "/assets/portfolio/07-ikla-material-study-960.avif",
+    "sha": "53abfd6bac4f18e44571997d2542e1769e2e4d33",
+    "mime_type": "image/avif",
+    "size": 106062,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/07-ikla-material-study-960.webp",
+    "path": "/assets/portfolio/07-ikla-material-study-960.webp",
+    "sha": "77667579b835185409025a70dc1d1da1dfbcb143",
+    "mime_type": "image/webp",
+    "size": 157224,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/08-ikla-apparel-accessories-1536.avif",
+    "path": "/assets/portfolio/08-ikla-apparel-accessories-1536.avif",
+    "sha": "83ff1a1389ff61f9b28d4b25a0d704a9397a4877",
+    "mime_type": "image/avif",
+    "size": 185388,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/08-ikla-apparel-accessories-1536.webp",
+    "path": "/assets/portfolio/08-ikla-apparel-accessories-1536.webp",
+    "sha": "911840f6342183d7cbbce51fdaea56b5bee60f5d",
+    "mime_type": "image/webp",
+    "size": 278008,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/08-ikla-apparel-accessories-480.avif",
+    "path": "/assets/portfolio/08-ikla-apparel-accessories-480.avif",
+    "sha": "d9da48335ba79e8a529b248a0de164d2d7188471",
+    "mime_type": "image/avif",
+    "size": 26903,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/08-ikla-apparel-accessories-480.webp",
+    "path": "/assets/portfolio/08-ikla-apparel-accessories-480.webp",
+    "sha": "e6cd5389efe26907c867ba60c849b3154383296d",
+    "mime_type": "image/webp",
+    "size": 39026,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/08-ikla-apparel-accessories-960.avif",
+    "path": "/assets/portfolio/08-ikla-apparel-accessories-960.avif",
+    "sha": "debb16b7a948faa00790393e7ea3828bbd15fe64",
+    "mime_type": "image/avif",
+    "size": 89780,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/08-ikla-apparel-accessories-960.webp",
+    "path": "/assets/portfolio/08-ikla-apparel-accessories-960.webp",
+    "sha": "3c8a9e8875493301b5c67b3211f47b133bae5825",
+    "mime_type": "image/webp",
+    "size": 130326,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/09-ikla-packaging-experience-1536.avif",
+    "path": "/assets/portfolio/09-ikla-packaging-experience-1536.avif",
+    "sha": "bf9c66b4169fae1434d8102ea5a9ce7ae414aecc",
+    "mime_type": "image/avif",
+    "size": 176965,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/09-ikla-packaging-experience-1536.webp",
+    "path": "/assets/portfolio/09-ikla-packaging-experience-1536.webp",
+    "sha": "97fedd810e877afbdb07ffa9624a16864341c41a",
+    "mime_type": "image/webp",
+    "size": 266502,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/09-ikla-packaging-experience-480.avif",
+    "path": "/assets/portfolio/09-ikla-packaging-experience-480.avif",
+    "sha": "7840cc075f1df501f13dc995560024f7b48f71a8",
+    "mime_type": "image/avif",
+    "size": 25729,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/09-ikla-packaging-experience-480.webp",
+    "path": "/assets/portfolio/09-ikla-packaging-experience-480.webp",
+    "sha": "88e0081e6f9d6de5c867344576f5ceb51f42e25b",
+    "mime_type": "image/webp",
+    "size": 37996,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/09-ikla-packaging-experience-960.avif",
+    "path": "/assets/portfolio/09-ikla-packaging-experience-960.avif",
+    "sha": "65f6bb9168e8d8232902c0d64d19a793b68c9611",
+    "mime_type": "image/avif",
+    "size": 82655,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/09-ikla-packaging-experience-960.webp",
+    "path": "/assets/portfolio/09-ikla-packaging-experience-960.webp",
+    "sha": "645782fb285b9c1e2190ac96d869b212f705dd03",
+    "mime_type": "image/webp",
+    "size": 124056,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/10-ikla-editorial-lifestyle-1536.avif",
+    "path": "/assets/portfolio/10-ikla-editorial-lifestyle-1536.avif",
+    "sha": "b75dfc44d9fdc90e1df853fbd38b354002f89fd5",
+    "mime_type": "image/avif",
+    "size": 149221,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/10-ikla-editorial-lifestyle-1536.webp",
+    "path": "/assets/portfolio/10-ikla-editorial-lifestyle-1536.webp",
+    "sha": "0124bf443b4664ea6fb3d47a8c936bf693858ba4",
+    "mime_type": "image/webp",
+    "size": 205646,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/10-ikla-editorial-lifestyle-480.avif",
+    "path": "/assets/portfolio/10-ikla-editorial-lifestyle-480.avif",
+    "sha": "96c688025c85dd87e0d67946995f2c62fc49270f",
+    "mime_type": "image/avif",
+    "size": 26449,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/10-ikla-editorial-lifestyle-480.webp",
+    "path": "/assets/portfolio/10-ikla-editorial-lifestyle-480.webp",
+    "sha": "766f3e8d35feb67cef069e8f66bab216db61a1db",
+    "mime_type": "image/webp",
+    "size": 36198,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/10-ikla-editorial-lifestyle-960.avif",
+    "path": "/assets/portfolio/10-ikla-editorial-lifestyle-960.avif",
+    "sha": "5703b42d006102a05d0fd01b5478fa665c5e77d6",
+    "mime_type": "image/avif",
+    "size": 77470,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/10-ikla-editorial-lifestyle-960.webp",
+    "path": "/assets/portfolio/10-ikla-editorial-lifestyle-960.webp",
+    "sha": "451b40a0d1f22eb54e62dd0b56daf7833b98ea11",
+    "mime_type": "image/webp",
+    "size": 107762,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/altius-detail-480.avif",
+    "path": "/assets/portfolio/altius-detail-480.avif",
+    "sha": "2e9d8d66d0fc6ec084718ee0aef37ef8260a09e3",
+    "mime_type": "image/avif",
+    "size": 23371,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/altius-detail-480.webp",
+    "path": "/assets/portfolio/altius-detail-480.webp",
+    "sha": "1541bb329554157fd19f1378392da40f8b028696",
+    "mime_type": "image/webp",
+    "size": 33126,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/altius-detail-648.avif",
+    "path": "/assets/portfolio/altius-detail-648.avif",
+    "sha": "0f53e96b5f0a3b481130bb11da2128e877b16f22",
+    "mime_type": "image/avif",
+    "size": 36567,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/altius-detail-648.webp",
+    "path": "/assets/portfolio/altius-detail-648.webp",
+    "sha": "a7ba566369d036dd5b8ef3bec1d4094234455651",
+    "mime_type": "image/webp",
+    "size": 54816,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/aura-detail-396.avif",
+    "path": "/assets/portfolio/aura-detail-396.avif",
+    "sha": "7153d8092fc3ee7a4909c7d17c419d2ece45d540",
+    "mime_type": "image/avif",
+    "size": 8817,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/aura-detail-396.webp",
+    "path": "/assets/portfolio/aura-detail-396.webp",
+    "sha": "320f65742a98f9c9326e5fab4b266e141c4aeec9",
+    "mime_type": "image/webp",
+    "size": 11420,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/ikla-direction-detail-376.avif",
+    "path": "/assets/portfolio/ikla-direction-detail-376.avif",
+    "sha": "32f9e0febdd45122346ce3cc4e2ec34bff850949",
+    "mime_type": "image/avif",
+    "size": 20170,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/ikla-direction-detail-376.webp",
+    "path": "/assets/portfolio/ikla-direction-detail-376.webp",
+    "sha": "85a827839e888fcbe1a6e2b3f61ba648bd0162ab",
+    "mime_type": "image/webp",
+    "size": 28736,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/ikla-living-detail-330.avif",
+    "path": "/assets/portfolio/ikla-living-detail-330.avif",
+    "sha": "e24977034e52c11a3e04cd1d50c8f8e5df1698b8",
+    "mime_type": "image/avif",
+    "size": 15466,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/ikla-living-detail-330.webp",
+    "path": "/assets/portfolio/ikla-living-detail-330.webp",
+    "sha": "176ac021b6f43d7c567a5d9a59606c8d78870d77",
+    "mime_type": "image/webp",
+    "size": 21780,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/ikla-material-detail-437.avif",
+    "path": "/assets/portfolio/ikla-material-detail-437.avif",
+    "sha": "87d69d673b8d46b94f8681038b53a4f3588be2dd",
+    "mime_type": "image/avif",
+    "size": 34781,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/ikla-material-detail-437.webp",
+    "path": "/assets/portfolio/ikla-material-detail-437.webp",
+    "sha": "da51bdf7e2b793e989bc9a95ad4ab2dbbe7ffaba",
+    "mime_type": "image/webp",
+    "size": 53628,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/ikla-pattern-detail-307.avif",
+    "path": "/assets/portfolio/ikla-pattern-detail-307.avif",
+    "sha": "9997ce205a8ef6541892e7d7666af6e8fe55c81b",
+    "mime_type": "image/avif",
+    "size": 9942,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/ikla-pattern-detail-307.webp",
+    "path": "/assets/portfolio/ikla-pattern-detail-307.webp",
+    "sha": "d8809b619b03bf8825de0618060c1349632b0e1b",
+    "mime_type": "image/webp",
+    "size": 15950,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/lumiere-detail-480.avif",
+    "path": "/assets/portfolio/lumiere-detail-480.avif",
+    "sha": "7da559e388fe6974e79a4a65bd9e4c2c5fc8c388",
+    "mime_type": "image/avif",
+    "size": 15668,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/lumiere-detail-480.webp",
+    "path": "/assets/portfolio/lumiere-detail-480.webp",
+    "sha": "5d6499d6d2290aeead03b71dc7d45372bc82c9b9",
+    "mime_type": "image/webp",
+    "size": 22096,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/lumiere-detail-646.avif",
+    "path": "/assets/portfolio/lumiere-detail-646.avif",
+    "sha": "dc59dc125a468ac588d84834a3041e7680cb900b",
+    "mime_type": "image/avif",
+    "size": 24031,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/lumiere-detail-646.webp",
+    "path": "/assets/portfolio/lumiere-detail-646.webp",
+    "sha": "8014681633ac30d6fb6a2182fda84017e7dc1e0c",
+    "mime_type": "image/webp",
+    "size": 34016,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/mr-cliffs/desktop-home.webp",
+    "path": "/assets/portfolio/mr-cliffs/desktop-home.webp",
+    "sha": "dab40ef8e8e4968a8ace843b2d313dde7fa38285",
+    "mime_type": "image/webp",
+    "size": 108800,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/mr-cliffs/mobile-home.webp",
+    "path": "/assets/portfolio/mr-cliffs/mobile-home.webp",
+    "sha": "ef98028d8adf70ab18259faaaed8efddfd6cc98b",
+    "mime_type": "image/webp",
+    "size": 50564,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/mr-cliffs/window-hero.webp",
+    "path": "/assets/portfolio/mr-cliffs/window-hero.webp",
+    "sha": "694dfd339561220b08127f37f0d9c1b729387b0d",
+    "mime_type": "image/webp",
+    "size": 192434,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/mymosa/web/flagship-eight-thumbnail.webp",
+    "path": "/assets/portfolio/mymosa/web/flagship-eight-thumbnail.webp",
+    "sha": "3953731b308c1864267a0756fc705d93ecdc2af9",
+    "mime_type": "image/webp",
+    "size": 304278,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/mymosa-orange-detail-259.avif",
+    "path": "/assets/portfolio/mymosa-orange-detail-259.avif",
+    "sha": "92019913364399cc4bee646a7391938e8f9b0164",
+    "mime_type": "image/avif",
+    "size": 30430,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/mymosa-orange-detail-259.webp",
+    "path": "/assets/portfolio/mymosa-orange-detail-259.webp",
+    "sha": "f2c5808e0fc5b9da6947f9aebd184ccf5411ae05",
+    "mime_type": "image/webp",
+    "size": 42482,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/mymosa-pineapple-detail-251.avif",
+    "path": "/assets/portfolio/mymosa-pineapple-detail-251.avif",
+    "sha": "cb6b8a0cae8aa273779fea72b40f9921a51ac68c",
+    "mime_type": "image/avif",
+    "size": 27533,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/mymosa-pineapple-detail-251.webp",
+    "path": "/assets/portfolio/mymosa-pineapple-detail-251.webp",
+    "sha": "fd493014abbf652f2beca571efe251a27cc35be5",
+    "mime_type": "image/webp",
+    "size": 37230,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/mymosa-strawberry-detail-253.avif",
+    "path": "/assets/portfolio/mymosa-strawberry-detail-253.avif",
+    "sha": "d8c30ebc7e862bc88d2f21c1bea1b41e48cba7bb",
+    "mime_type": "image/avif",
+    "size": 27164,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/mymosa-strawberry-detail-253.webp",
+    "path": "/assets/portfolio/mymosa-strawberry-detail-253.webp",
+    "sha": "467e52ca327fcd2b8d6694186e41d295e6d676e4",
+    "mime_type": "image/webp",
+    "size": 39584,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/mymosa-tropical-detail-250.avif",
+    "path": "/assets/portfolio/mymosa-tropical-detail-250.avif",
+    "sha": "c07251aa8352593d6bac4ccb697301b0df596b95",
+    "mime_type": "image/avif",
+    "size": 26562,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/mymosa-tropical-detail-250.webp",
+    "path": "/assets/portfolio/mymosa-tropical-detail-250.webp",
+    "sha": "d24c9bfb14c7ff293ef5ea6cdd260dce65d99627",
+    "mime_type": "image/webp",
+    "size": 36238,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/nova-detail-480.avif",
+    "path": "/assets/portfolio/nova-detail-480.avif",
+    "sha": "6dc5cc01317a6cea0620fc6e69d9684509395597",
+    "mime_type": "image/avif",
+    "size": 16306,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/nova-detail-480.webp",
+    "path": "/assets/portfolio/nova-detail-480.webp",
+    "sha": "e40a728b86ab311ca87ee55946f1c9eafe40beb1",
+    "mime_type": "image/webp",
+    "size": 22040,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/nova-detail-623.avif",
+    "path": "/assets/portfolio/nova-detail-623.avif",
+    "sha": "88a6289f5591b4615cac7a3e2c033bbd0d18628b",
+    "mime_type": "image/avif",
+    "size": 22704,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/nova-detail-623.webp",
+    "path": "/assets/portfolio/nova-detail-623.webp",
+    "sha": "090b103093a3007420944924a88f614a9ad492d1",
+    "mime_type": "image/webp",
+    "size": 31998,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/nova-product-detail-480.avif",
+    "path": "/assets/portfolio/nova-product-detail-480.avif",
+    "sha": "11cbf3abb26ab3974506590fc0c74f151257872d",
+    "mime_type": "image/avif",
+    "size": 19381,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/nova-product-detail-480.webp",
+    "path": "/assets/portfolio/nova-product-detail-480.webp",
+    "sha": "09bdf99be819bb46f3bdeba4d8fec993675e2310",
+    "mime_type": "image/webp",
+    "size": 26046,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/nova-product-detail-565.avif",
+    "path": "/assets/portfolio/nova-product-detail-565.avif",
+    "sha": "a8ac2638e51b2ed7430e6f0c044c57ff0ec90935",
+    "mime_type": "image/avif",
+    "size": 24684,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/nova-product-detail-565.webp",
+    "path": "/assets/portfolio/nova-product-detail-565.webp",
+    "sha": "dc2d21e62fd93685a1cdea7c367f73770bee89f8",
+    "mime_type": "image/webp",
+    "size": 32552,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/solara-detail-480.avif",
+    "path": "/assets/portfolio/solara-detail-480.avif",
+    "sha": "c7eda2991935f7a44185089839982c5719809c10",
+    "mime_type": "image/avif",
+    "size": 23838,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/solara-detail-480.webp",
+    "path": "/assets/portfolio/solara-detail-480.webp",
+    "sha": "d7d217a39fd03b2c5de55574aaccda808ba67b1c",
+    "mime_type": "image/webp",
+    "size": 33830,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/solara-detail-657.avif",
+    "path": "/assets/portfolio/solara-detail-657.avif",
+    "sha": "0746a6a68a6507906f696a9a847c84b6eb219fb8",
+    "mime_type": "image/avif",
+    "size": 35575,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/solara-detail-657.webp",
+    "path": "/assets/portfolio/solara-detail-657.webp",
+    "sha": "b07121074c05a979ac74054b995aa38d6f309753",
+    "mime_type": "image/webp",
+    "size": 52580,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/veritas-detail-480.avif",
+    "path": "/assets/portfolio/veritas-detail-480.avif",
+    "sha": "d27980a1719eecb06ed2d667d97cc1db65710617",
+    "mime_type": "image/avif",
+    "size": 19676,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/veritas-detail-480.webp",
+    "path": "/assets/portfolio/veritas-detail-480.webp",
+    "sha": "e665845bd1d053a6bed487023a4b46df6251fec7",
+    "mime_type": "image/webp",
+    "size": 28336,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/veritas-detail-666.avif",
+    "path": "/assets/portfolio/veritas-detail-666.avif",
+    "sha": "07be266d6689f7349175399428357ec5980b70c8",
+    "mime_type": "image/avif",
+    "size": 31247,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/portfolio/veritas-detail-666.webp",
+    "path": "/assets/portfolio/veritas-detail-666.webp",
+    "sha": "fb20b2c2eceba96d994e547619eb02a506ff2974",
+    "mime_type": "image/webp",
+    "size": 45342,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/preload-helper-dgfuowhe.js",
+    "path": "/assets/preload-helper-dgfuowhe.js",
+    "sha": "8d47c5282c9f6911b42c29ab445ade2bc0655a73",
+    "mime_type": "application/javascript",
+    "size": 1193,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/prototype-do7hpdgp.js",
+    "path": "/assets/prototype-do7hpdgp.js",
+    "sha": "3581af464628d13608e53c8bc80502d0ca4b58ba",
+    "mime_type": "application/javascript",
+    "size": 216,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/prototype-dzenrgqa.css",
+    "path": "/assets/prototype-dzenrgqa.css",
+    "sha": "99c908156c4247f18c1c4c56cfa8cfe3b12b7c0f",
+    "mime_type": "text/css",
+    "size": 8883,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/prototype-iukeuj48.js",
+    "path": "/assets/prototype-iukeuj48.js",
+    "sha": "58ff0bf003bb580688530578d6f1163d870d4147",
+    "mime_type": "application/javascript",
+    "size": 65,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/prototype-xrs7fjr2.js",
+    "path": "/assets/prototype-xrs7fjr2.js",
+    "sha": "b828d6887feff1e0f7c273c841b7540b89c53daa",
+    "mime_type": "application/javascript",
+    "size": 13320,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/react-dom-b5h4kwli.js",
+    "path": "/assets/react-dom-b5h4kwli.js",
+    "sha": "f4b48bc0e11a5dfcec9e99cef0e666f633843bb0",
+    "mime_type": "application/javascript",
+    "size": 3546,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/review51-0bf_qhgw.js",
+    "path": "/assets/review51-0bf_qhgw.js",
+    "sha": "05177ae61e254b6270ccbbf616ba464fc487ca1f",
+    "mime_type": "application/javascript",
+    "size": 64,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/review51-bajpm5qh.js",
+    "path": "/assets/review51-bajpm5qh.js",
+    "sha": "1fe35ff304e594b48ff95ec5a9c1c199c2fa510f",
+    "mime_type": "application/javascript",
+    "size": 215,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/review51-ysaue6h7.js",
+    "path": "/assets/review51-ysaue6h7.js",
+    "sha": "0fb3f9ecb923d18b714dd49544f1982850fcfb85",
+    "mime_type": "application/javascript",
+    "size": 20943,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/reviewdiagnostic-dnlbrrjj.css",
+    "path": "/assets/reviewdiagnostic-dnlbrrjj.css",
+    "sha": "c579af4a825e5b7f043bd6f64f17687f40a53180",
+    "mime_type": "text/css",
+    "size": 25913,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/reviewdiagnostic-dwsujmi9.js",
+    "path": "/assets/reviewdiagnostic-dwsujmi9.js",
+    "sha": "d2e36f06866481b10889deb887169448588fde5e",
+    "mime_type": "application/javascript",
+    "size": 43884,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/supportingpages-bw4ru32u.js",
+    "path": "/assets/supportingpages-bw4ru32u.js",
+    "sha": "4c0cc5b0bc3825b3e98bff53066eb226026b9470",
+    "mime_type": "application/javascript",
+    "size": 224345,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/supportingpages-ddl1mro7.css",
+    "path": "/assets/supportingpages-ddl1mro7.css",
+    "sha": "b11eadb38f15374cac13ea5108f6ed095946d14e",
+    "mime_type": "text/css",
+    "size": 170322,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/tokens-csiedrmo.js",
+    "path": "/assets/tokens-csiedrmo.js",
+    "sha": "a21cb00fc4bf627ad16e2ae27e64eb9ab03287e9",
+    "mime_type": "application/javascript",
+    "size": 321,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/types-blobjbca.js",
+    "path": "/assets/types-blobjbca.js",
+    "sha": "b3735c5cfa17ea4b9300ec3cf73c837450fd7af8",
+    "mime_type": "application/javascript",
+    "size": 56463,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/v5workentry-dmizulqb.js",
+    "path": "/assets/v5workentry-dmizulqb.js",
+    "sha": "e4cb607b099439a22cb93fcb6981df6373ccfbc4",
+    "mime_type": "application/javascript",
+    "size": 24849,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/v5workentry-uqxzzqug.css",
+    "path": "/assets/v5workentry-uqxzzqug.css",
+    "sha": "04006536a172ed1837f3a9930049c6f88832646e",
+    "mime_type": "text/css",
+    "size": 25669,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/visualenvironmentlab-c9r6zzhi.js",
+    "path": "/assets/visualenvironmentlab-c9r6zzhi.js",
+    "sha": "cf31ff7844d989abc71d95a521d57124f8179e66",
+    "mime_type": "application/javascript",
+    "size": 36196,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/visualenvironmentlab-clr8iyrl.css",
+    "path": "/assets/visualenvironmentlab-clr8iyrl.css",
+    "sha": "669e04c3860be1064714c21cebbb0a2a1e5ee167",
+    "mime_type": "text/css",
+    "size": 11751,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/assets/visualenvironmentlab-dcyd4y0v.js",
+    "path": "/assets/visualenvironmentlab-dcyd4y0v.js",
+    "sha": "113da44635d7c40e5175a45fd2eaa5130d6d5eac",
+    "mime_type": "application/javascript",
+    "size": 76,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/automation/index.html",
+    "path": "/automation/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/capabilities/activate/index.html",
+    "path": "/capabilities/activate/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/capabilities/brand/index.html",
+    "path": "/capabilities/brand/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/capabilities/build/index.html",
+    "path": "/capabilities/build/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/capabilities/distribute/index.html",
+    "path": "/capabilities/distribute/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/capabilities/grow/index.html",
+    "path": "/capabilities/grow/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/capabilities/index.html",
+    "path": "/capabilities/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/capabilities/launch/index.html",
+    "path": "/capabilities/launch/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/capabilities/publish/index.html",
+    "path": "/capabilities/publish/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/capabilities/start/index.html",
+    "path": "/capabilities/start/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/concept-lab/altius/index.html",
+    "path": "/concept-lab/altius/index.html",
+    "sha": "09a9baf9ef6d8de86684eae1b2dc4cc6c99b5f0d",
+    "mime_type": "text/html",
+    "size": 1540,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/concept-lab/aura/index.html",
+    "path": "/concept-lab/aura/index.html",
+    "sha": "4a23efcabaf90542a96a7b78b2087299932b437c",
+    "mime_type": "text/html",
+    "size": 1536,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/concept-lab/index.html",
+    "path": "/concept-lab/index.html",
+    "sha": "0a62624c5873322099d547e7d7f733021ee683ff",
+    "mime_type": "text/html",
+    "size": 1522,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/concept-lab/lumiere/index.html",
+    "path": "/concept-lab/lumiere/index.html",
+    "sha": "6a470e2ba116a048033db127052f8cf6f80d0d2e",
+    "mime_type": "text/html",
+    "size": 1542,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/concept-lab/nova/index.html",
+    "path": "/concept-lab/nova/index.html",
+    "sha": "82ead0423a4dabe81869463f6491e2dbfbe01703",
+    "mime_type": "text/html",
+    "size": 1570,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/concept-lab/solara/index.html",
+    "path": "/concept-lab/solara/index.html",
+    "sha": "752b0b86e595e2a7073487cea3d63d9f69a5a9b0",
+    "mime_type": "text/html",
+    "size": 1540,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/concept-lab/veritas/index.html",
+    "path": "/concept-lab/veritas/index.html",
+    "sha": "c6a37d95626744d81fb5824ee3094c9adbb84a6a",
+    "mime_type": "text/html",
+    "size": 1542,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/contact/index.html",
+    "path": "/contact/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/experience-lab/index.html",
+    "path": "/experience-lab/index.html",
+    "sha": "6f74670dc4ce9175f2610f0ddee7a7e95f045ae6",
+    "mime_type": "text/html",
+    "size": 1556,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/favicon.svg",
+    "path": "/favicon.svg",
+    "sha": "18a2805414a3ca27c6a5ae79acbd52bd6fdfd65b",
+    "mime_type": "image/svg+xml",
+    "size": 375,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/fonts/bodoni-moda-ofl.txt",
+    "path": "/fonts/bodoni-moda-ofl.txt",
+    "sha": "d0a8e86c2e4143d690bcf61421f84d3816490cd8",
+    "mime_type": "text/plain",
+    "size": 4493,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/fonts/bodoni-moda.woff2",
+    "path": "/fonts/bodoni-moda.woff2",
+    "sha": "406cb2bb5f689ff106fcd7d26cb659e6b5908a16",
+    "mime_type": "font/woff2",
+    "size": 26688,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/fonts/manrope-ofl.txt",
+    "path": "/fonts/manrope-ofl.txt",
+    "sha": "6a8bd4532b7aa7830c1d7c4a030a89180dd36af2",
+    "mime_type": "text/plain",
+    "size": 4477,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/fonts/manrope.woff2",
+    "path": "/fonts/manrope.woff2",
+    "sha": "b42951014c5eca12749d87a4706caf22dc4fe081",
+    "mime_type": "font/woff2",
+    "size": 24836,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/founder-blueprint/index.html",
+    "path": "/founder-blueprint/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/founder-blueprint/intake/index.html",
+    "path": "/founder-blueprint/intake/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/growth-partnership/index.html",
+    "path": "/growth-partnership/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/how-we-build/index.html",
+    "path": "/how-we-build/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/index.html",
+    "path": "/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/prototype/index.html",
+    "path": "/prototype/index.html",
+    "sha": "3acd6c8482dbdeeb3039e5d89a67d73fa6946c8b",
+    "mime_type": "text/html",
+    "size": 972,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/services/index.html",
+    "path": "/services/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/start-a-business/builder/index.html",
+    "path": "/start-a-business/builder/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/start-a-business/index.html",
+    "path": "/start-a-business/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/studio/index.html",
+    "path": "/studio/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/templates/index.html",
+    "path": "/templates/index.html",
+    "sha": "7182b88f9bca59d87e2d0d78e12c57d6c3ac9bef",
+    "mime_type": "text/html",
+    "size": 1572,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/v5-1-review/index.html",
+    "path": "/v5-1-review/index.html",
+    "sha": "c22d43783b30a80d4b1e86a76939e22ebde0c959",
+    "mime_type": "text/html",
+    "size": 1139,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/v5-2-review/index.html",
+    "path": "/v5-2-review/index.html",
+    "sha": "597de5cfc9e3f4a7f0cae46b7ef987e54ec5afb5",
+    "mime_type": "text/html",
+    "size": 1712,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/visual-environment-lab/index.html",
+    "path": "/visual-environment-lab/index.html",
+    "sha": "8532a8bce8161941364c995859378c0c18bedd54",
+    "mime_type": "text/html",
+    "size": 1557,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/work/ikla-maison/index.html",
+    "path": "/work/ikla-maison/index.html",
+    "sha": "0e1fd07a17f1e19b88d5072fe6aab16ad5e227a3",
+    "mime_type": "text/html",
+    "size": 1544,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/work/index.html",
+    "path": "/work/index.html",
+    "sha": "7e609a30cab51a6cc7a2ee5ca2128bd7a4e8f6b6",
+    "mime_type": "text/html",
+    "size": 1526,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/work/mymosa/index.html",
+    "path": "/work/mymosa/index.html",
+    "sha": "641aca99d20657dd50f94610a71aed583b073066",
+    "mime_type": "text/html",
+    "size": 1570,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/_headers",
+    "path": "/_headers",
+    "sha": "9ba6e56dcd6a6bfbd65dd0808e67d9435f118578",
+    "mime_type": "text/plain",
+    "size": 123,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  },
+  {
+    "id": "/_redirects",
+    "path": "/_redirects",
+    "sha": "ecdf29da5727885719dfb8f7a2934be899685bcb",
+    "mime_type": "text/plain",
+    "size": 56,
+    "site_id": "d20efde7-2f7e-4b8f-bea1-0db3670ee6fb",
+    "deploy_id": "6aad65c14dae127045ae07c4"
+  }
+]

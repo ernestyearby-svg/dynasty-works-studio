@@ -1,0 +1,5 @@
+{
+  "debugPortAddress": "127.0.0.1:65421",
+  "defaultEntrypointService": "assets:rpc-proxy:dynasty-works-studio",
+  "userWorkerService": "core:user:dynasty-works-studio"
+}

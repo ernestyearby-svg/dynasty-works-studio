@@ -1,0 +1,29 @@
+/* Isolated lab layer. No changes to foreground geometry, layout or timing. */
+.has-environment .ve-environment{position:fixed;inset:0;pointer-events:none;z-index:0;background:var(--field);overflow:hidden;contain:strict}
+.ve-environment svg{display:block;width:100%;height:100%}
+.ve-environment>.ve-construction{position:absolute;inset:0}
+.ve-environment .ve-shadow{fill:#080a0d;opacity:.18}
+.ve-environment .ve-contact{fill:#080a0d;opacity:.16}
+.ve-environment .ve-joint{stroke:#080a0d;stroke-width:1;fill:none;opacity:.55}
+.ve-environment .ve-rebate{stroke:var(--surface-top);stroke-width:.8;fill:none}
+.ve-environment .ve-channel{stroke:#080a0d;stroke-width:4;fill:none;opacity:.6}
+.ve-environment .ve-top{fill:var(--surface-top)}
+.ve-environment .ve-edge{stroke:var(--drawing);stroke-width:.6;opacity:.25;fill:none}
+.ve-environment .ve-grid{stroke:var(--drawing);stroke-width:.7;fill:none}
+.ve-environment .ve-horizon{stroke:var(--drawing);stroke-width:.6;fill:none}
+.ve-environment .ve-axis{stroke:var(--rule);stroke-width:1;fill:none}
+.ve-environment .ve-aperture{stroke:#eee8d8;stroke-width:2.5;fill:none}
+.ve-environment .ve-pathway{stroke:#2457ff;stroke-width:1.6;fill:none}
+.ve-environment .ve-interface{fill:var(--surface-top);fill-opacity:.12;stroke:var(--rule);stroke-width:.8}
+.ve-environment .ve-canopy{fill:var(--surface-top);stroke:var(--rule);stroke-width:.5}
+.has-environment .p-arrival,.has-environment .p-evolution,.has-environment .p-stage{background:transparent}
+/* The existing foreground remains above the one continuous world. */
+.has-environment .p-arrival{z-index:1}
+@media(max-width:800px){
+ .ve-environment svg{width:155%;max-width:none;margin-left:-48%}
+ .ve-environment .ve-distant,.ve-environment .ve-grid,.ve-environment .ve-bays{display:none}
+ .ve-environment .ve-louvres>g:nth-child(even){display:none}
+ .ve-environment svg{opacity:.65}
+ .ve-environment .ve-canopy{opacity:.08}
+}
+

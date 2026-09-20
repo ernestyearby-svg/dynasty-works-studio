@@ -1,0 +1,154 @@
+{
+  "errors": [],
+  "checks": [
+    {
+      "width": 1440,
+      "stage": 1,
+      "foregroundIdentical": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "stage": 2,
+      "foregroundIdentical": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "stage": 3,
+      "foregroundIdentical": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "stage": 4,
+      "foregroundIdentical": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "stage": 5,
+      "foregroundIdentical": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "stage": 6,
+      "foregroundIdentical": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "stage": 7,
+      "foregroundIdentical": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "stage": 8,
+      "foregroundIdentical": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "interpolation": true,
+      "reverseIdentical": true
+    },
+    {
+      "width": 390,
+      "stage": 1,
+      "foregroundIdentical": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "stage": 2,
+      "foregroundIdentical": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "stage": 3,
+      "foregroundIdentical": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "stage": 4,
+      "foregroundIdentical": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "stage": 5,
+      "foregroundIdentical": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "stage": 6,
+      "foregroundIdentical": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "stage": 7,
+      "foregroundIdentical": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "stage": 8,
+      "foregroundIdentical": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "interpolation": true,
+      "reverseIdentical": true
+    },
+    {
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "overflow": false
+    },
+    {
+      "keyboardStage": "02 / 08"
+    },
+    {
+      "lockedScrollController": true,
+      "lockedArtifact": true
+    }
+  ]
+}
