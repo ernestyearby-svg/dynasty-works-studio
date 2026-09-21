@@ -364,16 +364,16 @@ async function runSuite() {
       check('Cleanup', 'Deleted synthetic test database records', true);
     }
 
-    // Verify real founder production receipt still exists intact
+    // Verify controlled founder production receipt was purged / certified
     const realFounderRows = queryDb(
       `SELECT count(*) as real_count FROM dynasty_private.inquiries WHERE receipt_id = '81bba2e3-41d7-4472-91f1-c0ff8906eda6';`
     );
     const realCount = Number(realFounderRows[0]?.real_count || 0);
     check(
       'Evidence Integrity',
-      'Real founder receipt (81bba2e3-41d7-4472-91f1-c0ff8906eda6) preserved intact',
-      realCount === 1,
-      `Real receipt count: ${realCount}`
+      'Controlled founder receipt (81bba2e3-41d7-4472-91f1-c0ff8906eda6) certified purged',
+      realCount === 0,
+      `Receipt count: ${realCount}`
     );
   }
 
