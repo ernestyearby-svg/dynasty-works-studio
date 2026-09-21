@@ -4,6 +4,10 @@ import { generateRoadmap, type RoadmapItem } from '../../domain/lib/recommendati
 import { normalizeBuild, emptyCompanyBuild } from '../../domain/lib/company-builder';
 import { businessTypes } from '../../domain/data/company-builder';
 import { businessStages } from '../../domain/data/service-catalog';
+import {
+  dispatchSubmissionNotifications,
+  type SubmissionNotificationContext,
+} from './lib/notifications';
 
 // Defensive Response Headers
 const DEFENSIVE_HEADERS: Record<string, string> = {
@@ -275,7 +279,10 @@ export default async function handler(request: Request, context?: any): Promise<
       });
     }
     validatedData = parseResult.data;
-    recomputedDetail = validatedData;
+    recomputedDetail = {
+      ...validatedData,
+      website: validatedData.website || null,
+    };
   } else {
     const parseResult = generalPayloadSchema.safeParse(body.data);
     if (!parseResult.success) {
@@ -286,7 +293,11 @@ export default async function handler(request: Request, context?: any): Promise<
       });
     }
     validatedData = parseResult.data;
-    recomputedDetail = validatedData;
+    recomputedDetail = {
+      ...validatedData,
+      website: validatedData.website || null,
+      referenceUrl: validatedData.referenceUrl || null,
+    };
   }
 
   // 9. Ephemeral Privacy-Preserving Rate Limit Hash
@@ -393,6 +404,72 @@ export default async function handler(request: Request, context?: any): Promise<
       replay: row?.status === 'replay',
       duration_ms: Date.now() - startTime,
     }));
+
+    // Downstream Notification Dispatch (Decoupled from persistence)
+    // Email dispatch failure MUST NEVER rollback or cancel an accepted submission
+    if (row?.status !== 'replay') {
+      const notifCtx: SubmissionNotificationContext = {
+        kind,
+        receiptId,
+        createdAt: new Date().toISOString(),
+        founderName: validatedData.name,
+        founderEmail: validatedData.email,
+        founderPhone: validatedData.phone || null,
+        companyName: validatedData.company,
+        detail: recomputedDetail,
+      };
+
+      try {
+        const notifResult = await dispatchSubmissionNotifications(notifCtx);
+        const notifStatus = notifResult.success ? 'SENT' : 'FAILED';
+
+        await fetch(`${supabaseUrl.replace(/\/$/, '')}/rest/v1/rpc/record_notification_result`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept-Profile': 'dynasty_private',
+            'Content-Profile': 'dynasty_private',
+            apikey: supabaseKey,
+            Authorization: `Bearer ${supabaseKey}`,
+          },
+          body: JSON.stringify({
+            p_receipt_id: receiptId,
+            p_status: notifStatus,
+            p_error: notifResult.error || null,
+            p_metadata: {
+              internal_provider: notifResult.internal.provider,
+              internal_msg_id: notifResult.internal.messageId || null,
+              founder_provider: notifResult.founder.provider,
+              founder_msg_id: notifResult.founder.messageId || null,
+            },
+          }),
+        });
+      } catch (notifErr: any) {
+        console.error(JSON.stringify({
+          event: 'notification_dispatch_failure',
+          receipt_id: receiptId,
+          error: notifErr?.message || String(notifErr),
+        }));
+
+        try {
+          await fetch(`${supabaseUrl.replace(/\/$/, '')}/rest/v1/rpc/record_notification_result`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept-Profile': 'dynasty_private',
+              'Content-Profile': 'dynasty_private',
+              apikey: supabaseKey,
+              Authorization: `Bearer ${supabaseKey}`,
+            },
+            body: JSON.stringify({
+              p_receipt_id: receiptId,
+              p_status: 'FAILED',
+              p_error: notifErr?.message || String(notifErr),
+            }),
+          });
+        } catch (_) {}
+      }
+    }
 
     return respond(202, {
       status: 'accepted',
