@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-09-21T21:54:05.548Z",
+  "total": 8,
+  "passed": 8,
+  "failed": 0,
+  "checks": [
+    {
+      "target": "Apex Domain",
+      "name": "Resolves with HTTP 200 OK",
+      "passed": true,
+      "details": "Status 200"
+    },
+    {
+      "target": "Apex SEO",
+      "name": "X-Robots-Tag permits search indexing (index, follow)",
+      "passed": true,
+      "details": "Header: index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    },
+    {
+      "target": "Apex HTML",
+      "name": "Meta robots permits search indexing",
+      "passed": true
+    },
+    {
+      "target": "Apex HTML",
+      "name": "Title tag renders accurately",
+      "passed": true
+    },
+    {
+      "target": "Apex HTML",
+      "name": "Root mounting container present",
+      "passed": true
+    },
+    {
+      "target": "WWW Redirect",
+      "name": "WWW redirects to apex canonical URL",
+      "passed": true,
+      "details": "Status 301, Location: https://dynastyworksstudio.com/"
+    },
+    {
+      "target": "Production Lock",
+      "name": "Submissions endpoint strictly locked on production (HTTP 503 not_configured)",
+      "passed": true,
+      "details": "Status 503: {\"status\":\"not_configured\",\"message\":\"Secure transmission endpoint is not enabled. Local export and brief download remain available.\"}"
+    },
+    {
+      "target": "Asset Routing",
+      "name": "Assets endpoint correctly routed (returns HTTP 400 on empty request, not 404)",
+      "passed": true,
+      "details": "Status 400"
+    }
+  ]
+}
