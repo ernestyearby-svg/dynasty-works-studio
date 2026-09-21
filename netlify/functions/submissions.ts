@@ -72,6 +72,7 @@ function isOriginAllowed(origin: string | null): boolean {
 // Common Validation Schemas
 const commonEnvelopeSchema = z.object({
   version: z.literal(1),
+  kind: z.enum(['builder', 'blueprint', 'general']).optional(),
   idempotencyKey: z.string().uuid(),
   consent: z.object({
     evaluation: z.literal(true),
@@ -224,14 +225,27 @@ export default async function handler(request: Request, context?: any): Promise<
 
   const { idempotencyKey } = envelopeResult.data;
 
-  // 7. Resolve Submission Kind
+  // 7. Resolve Submission Kind from:
+  //    a) pathname (e.g. /api/submissions/builder or /.netlify/functions/submissions/builder)
+  //    b) searchParams (e.g. ?kind=builder)
+  //    c) body envelope (e.g. { kind: 'builder', ... })
   const url = new URL(request.url);
-  const kindParam = url.searchParams.get('kind') || body.kind;
-  if (kindParam !== 'builder' && kindParam !== 'blueprint' && kindParam !== 'general') {
+  const pathSegments = url.pathname.replace(/\/+$/, '').split('/');
+  const lastPathSegment = pathSegments[pathSegments.length - 1]?.toLowerCase();
+  const pathKind = (lastPathSegment === 'builder' || lastPathSegment === 'blueprint' || lastPathSegment === 'general')
+    ? lastPathSegment
+    : null;
+
+  const queryKind = url.searchParams.get('kind')?.toLowerCase() || null;
+  const bodyKind = (body?.kind && typeof body.kind === 'string') ? body.kind.toLowerCase() : null;
+
+  const resolvedKind = pathKind || queryKind || bodyKind;
+
+  if (resolvedKind !== 'builder' && resolvedKind !== 'blueprint' && resolvedKind !== 'general') {
     return respond(400, { status: 'rejected', message: 'Invalid or missing submission kind parameter' });
   }
 
-  const kind: 'builder' | 'blueprint' | 'general' = kindParam;
+  const kind: 'builder' | 'blueprint' | 'general' = resolvedKind;
 
   // 8. Type-Specific Validation & Recomputation
   let validatedData: any;

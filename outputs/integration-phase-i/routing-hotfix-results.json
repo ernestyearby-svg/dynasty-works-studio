@@ -1,0 +1,69 @@
+{
+  "timestamp": "2026-09-21T20:09:35.008Z",
+  "total": 11,
+  "passed": 11,
+  "failed": 0,
+  "checks": [
+    {
+      "section": "ROUTING_DIRECT",
+      "name": "Builder pure pathname /api/submissions/builder returns HTTP 202 (not 400)",
+      "passed": true,
+      "detail": "status=202, message=Brief securely received."
+    },
+    {
+      "section": "ROUTING_DIRECT",
+      "name": "Builder returns confirmed receiptId",
+      "passed": true
+    },
+    {
+      "section": "ROUTING_DIRECT",
+      "name": "Blueprint pure pathname /api/submissions/blueprint returns HTTP 202",
+      "passed": true,
+      "detail": "status=202, message=Brief securely received."
+    },
+    {
+      "section": "ROUTING_DIRECT",
+      "name": "Blueprint returns confirmed receiptId",
+      "passed": true
+    },
+    {
+      "section": "ROUTING_DIRECT",
+      "name": "General pure pathname /api/submissions/general returns HTTP 202",
+      "passed": true,
+      "detail": "status=202, message=Brief securely received."
+    },
+    {
+      "section": "ROUTING_DIRECT",
+      "name": "General returns confirmed receiptId",
+      "passed": true
+    },
+    {
+      "section": "BROWSER_SUBMISSION",
+      "name": "Browser requested exact canonical URL /api/submissions/builder (no query param)",
+      "passed": true,
+      "detail": "interceptedUrl=http://127.0.0.1:5231/api/submissions/builder"
+    },
+    {
+      "section": "BROWSER_SUBMISSION",
+      "name": "Browser payload contains kind = builder in envelope",
+      "passed": true,
+      "detail": "body.kind=builder"
+    },
+    {
+      "section": "BROWSER_SUBMISSION",
+      "name": "Zero \"Invalid or missing submission kind parameter\" error in UI",
+      "passed": true
+    },
+    {
+      "section": "BROWSER_SUBMISSION",
+      "name": "UI displays success confirmation with receipt ID",
+      "passed": true,
+      "detail": "successText=✓ Brief Securely Received Receipt: 1459e861-beba-4ec4-9f3b-392e2f5b5a92 Brief securely received. Dow"
+    },
+    {
+      "section": "CLEANUP",
+      "name": "Zero synthetic rows remain across all tables in Supabase",
+      "passed": true
+    }
+  ]
+}

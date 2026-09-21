@@ -11,6 +11,7 @@ export type SubmissionKind = 'builder' | 'blueprint' | 'general';
 
 export interface SubmissionEnvelope<T = Record<string, unknown>> {
   version: 1;
+  kind?: SubmissionKind;
   idempotencyKey: string;
   consent: {
     evaluation: true;
@@ -91,6 +92,7 @@ export async function submitInquiry<T extends Record<string, unknown>>(
 
   const envelope: SubmissionEnvelope<T> = {
     version: 1,
+    kind,
     idempotencyKey,
     consent: {
       evaluation: true,
