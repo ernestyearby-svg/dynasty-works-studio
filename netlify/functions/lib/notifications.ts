@@ -207,7 +207,14 @@ export function buildInternalDWSNotification(
         ? 'FOUNDER BLUEPRINT INTAKE'
         : 'CONTACT STUDIO INQUIRY';
 
-  const subject = `[DWS Intake] ${kindLabel} — ${ctx.companyName} (${ctx.receiptId})`;
+  const rawCompany = ctx.companyName?.trim() || '';
+  const isConfidentialOrEmpty =
+    !rawCompany ||
+    rawCompany.toLowerCase() === 'confidential venture' ||
+    rawCompany.toLowerCase() === 'your venture';
+  const displayCompany = isConfidentialOrEmpty ? 'Confidential / Unspecified Venture' : rawCompany;
+
+  const subject = `[DWS Intake] ${kindLabel} — ${displayCompany} (${ctx.receiptId})`;
 
   let specificDetails = '';
   if (ctx.kind === 'builder') {
@@ -256,8 +263,8 @@ TIMESTAMP:         ${ctx.createdAt}
 ==================================================
 
 --- FOUNDER PROFILE ---
-Founder Name:      ${ctx.founderName}
-Company / Venture: ${ctx.companyName}
+Founder Name:      ${ctx.founderName || 'Not specified'}
+Company / Venture: ${displayCompany}
 Work Email:        ${ctx.founderEmail}
 Phone Number:      ${ctx.founderPhone || 'Not provided'}
 ${specificDetails}
@@ -292,9 +299,22 @@ export function buildFounderConfirmation(
         ? 'Founder Blueprint Strategic Intake'
         : 'Studio Advisory Inquiry';
 
-  const text = `Dear ${ctx.founderName || 'Founder'},
+  const rawCompany = ctx.companyName?.trim() || '';
+  const isConfidentialOrEmpty =
+    !rawCompany ||
+    rawCompany.toLowerCase() === 'confidential venture' ||
+    rawCompany.toLowerCase() === 'your venture';
+  const companyRef = isConfidentialOrEmpty ? 'your venture' : rawCompany;
 
-We have received your submission for ${ctx.companyName || 'your venture'} through the Dynasty Works Studio ${kindDescription}.
+  const rawFounder = ctx.founderName?.trim() || '';
+  const greetingName =
+    rawFounder && rawFounder.toLowerCase() !== 'founder'
+      ? rawFounder
+      : 'Founder';
+
+  const text = `Dear ${greetingName},
+
+We have received your submission for ${companyRef} through the Dynasty Works Studio ${kindDescription}.
 
 SUBMISSION REFERENCE:
 Receipt ID: ${ctx.receiptId}

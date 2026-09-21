@@ -800,7 +800,21 @@ export default function ReviewDiagnostic({
                     />
                   </div>
 
-                  <div className="dws-lead-full">
+                  <div>
+                    <label htmlFor="lead-company" className="dws-diag-label">
+                      Company / Venture Name (Optional)
+                    </label>
+                    <input
+                      id="lead-company"
+                      type="text"
+                      className="dws-diag-input"
+                      placeholder="e.g. Sovereign Living"
+                      value={companyName}
+                      onChange={(e) => setCompanyName(e.target.value)}
+                    />
+                  </div>
+
+                  <div>
                     <label htmlFor="lead-phone" className="dws-diag-label">
                       Phone Number (Optional)
                     </label>
