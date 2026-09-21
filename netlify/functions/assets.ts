@@ -8,6 +8,14 @@ import {
   getNotificationTransport,
   IntakeAssetSummary,
 } from './lib/notifications';
+import {
+  isPrincipalKeyConfigured,
+  verifyPrincipalPasscode,
+  checkRateLimit,
+  recordFailedAttempt,
+  recordSuccessfulAttempt,
+  generateSignedAssetUrl,
+} from './lib/principal-auth';
 
 // Security Headers & Allowed Origins Allowlist
 function isOriginAllowed(origin: string | null): boolean {
@@ -94,8 +102,8 @@ export default async function handler(request: Request, context?: any): Promise<
 
   if (allowed && origin) {
     corsHeaders['Access-Control-Allow-Origin'] = origin;
-    corsHeaders['Access-Control-Allow-Methods'] = 'POST, OPTIONS';
-    corsHeaders['Access-Control-Allow-Headers'] = 'Content-Type, Authorization, x-receipt-id, x-filename, x-mimetype';
+    corsHeaders['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS';
+    corsHeaders['Access-Control-Allow-Headers'] = 'Content-Type, Authorization, x-receipt-id, x-filename, x-mimetype, x-principal-key';
     corsHeaders['Access-Control-Max-Age'] = '86400';
   }
 
@@ -103,7 +111,7 @@ export default async function handler(request: Request, context?: any): Promise<
     return new Response(null, { status: 204, headers: corsHeaders });
   }
 
-  if (request.method !== 'POST') {
+  if (request.method !== 'POST' && request.method !== 'GET') {
     return new Response(JSON.stringify({ status: 'error', message: 'Method not allowed' }), {
       status: 405,
       headers: corsHeaders,
@@ -314,7 +322,7 @@ export default async function handler(request: Request, context?: any): Promise<
       }
 
       const { receiptId, uploadedFiles, founderInfo } = body;
-      const registered = [];
+      const registered: any[] = [];
 
       for (const f of uploadedFiles) {
         const rpcPayload = {
@@ -410,7 +418,8 @@ export default async function handler(request: Request, context?: any): Promise<
               founderEmail,
               companyName,
             },
-            uploadedFiles.map((f: any) => ({
+            uploadedFiles.map((f: any, idx: number) => ({
+              id: registered[idx]?.asset_id,
               originalFilename: f.originalFilename,
               mimeType: f.mimeType,
               sizeBytes: f.sizeBytes,
@@ -597,6 +606,7 @@ export default async function handler(request: Request, context?: any): Promise<
           },
           [
             {
+              id: (Array.isArray(rpcData) ? rpcData[0]?.asset_id : rpcData?.asset_id) || null,
               originalFilename: filename,
               mimeType,
               sizeBytes,
@@ -616,6 +626,229 @@ export default async function handler(request: Request, context?: any): Promise<
           asset: rpcData,
         }),
         { status: 201, headers: corsHeaders }
+      );
+    }
+
+    // -------------------------------------------------------------
+    // ACTION 4: PRINCIPAL SECURE ASSET RETRIEVAL (POST Passcode Gate)
+    // -------------------------------------------------------------
+    if (action === 'retrieve') {
+      // Enforce POST method: credentials must never be in GET query parameters
+      if (request.method !== 'POST') {
+        return new Response(
+          JSON.stringify({
+            status: 'error',
+            message: 'Method not allowed. Principal authentication requires POST.',
+          }),
+          { status: 405, headers: corsHeaders }
+        );
+      }
+
+      const clientIp =
+        request.headers.get('x-nf-client-connection-ip') ||
+        request.headers.get('client-ip') ||
+        request.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
+        'unknown';
+
+      // 1. Rate Limiting Check (Brute-force protection)
+      const rateCheck = checkRateLimit(clientIp);
+      if (!rateCheck.allowed) {
+        return new Response(
+          JSON.stringify({
+            status: 'rate_limited',
+            message: 'Too many failed authentication attempts. Access temporarily restricted.',
+            retryAfter: rateCheck.retryAfter,
+          }),
+          {
+            status: 429,
+            headers: {
+              ...corsHeaders,
+              'Retry-After': String(rateCheck.retryAfter || 900),
+            },
+          }
+        );
+      }
+
+      // 2. Verify DWS_PRINCIPAL_KEY is configured on server
+      if (!isPrincipalKeyConfigured()) {
+        console.error('DWS Principal Key is not configured in server environment');
+        return new Response(
+          JSON.stringify({
+            status: 'unconfigured',
+            message: 'Principal vault access is temporarily unconfigured.',
+          }),
+          { status: 503, headers: corsHeaders }
+        );
+      }
+
+      // 3. Parse POST Body
+      const body = await request.json().catch(() => null);
+      if (!body || typeof body !== 'object') {
+        recordFailedAttempt(clientIp);
+        return new Response(
+          JSON.stringify({ status: 'error', message: 'Invalid request payload' }),
+          { status: 400, headers: corsHeaders }
+        );
+      }
+
+      const aid = body.aid || body.assetId;
+      const rid = body.rid || body.receiptId;
+      const passcode =
+        body.passcode ||
+        body.key ||
+        request.headers.get('x-principal-key') ||
+        null;
+
+      // 4. Principal Authentication (Constant-time check against DWS_PRINCIPAL_KEY)
+      if (!passcode || !verifyPrincipalPasscode(passcode)) {
+        recordFailedAttempt(clientIp);
+        // Generic failure response: do not disclose whether passcode was wrong vs aid/rid validity
+        return new Response(
+          JSON.stringify({
+            status: 'error',
+            message: 'Invalid credentials or request reference',
+          }),
+          { status: 401, headers: corsHeaders }
+        );
+      }
+
+      // Successfully authenticated! Reset rate limit failure count
+      recordSuccessfulAttempt(clientIp);
+
+      // 5. Parameter Validation (UUID Format)
+      const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+      if (!aid || !UUID_REGEX.test(aid) || !rid || !UUID_REGEX.test(rid)) {
+        return new Response(
+          JSON.stringify({
+            status: 'error',
+            message: 'Valid asset ID and receipt ID are required',
+          }),
+          { status: 400, headers: corsHeaders }
+        );
+      }
+
+      // 6. Fetch Asset Record via Security Definer RPC
+      const assetCheck = await fetch(
+        `${supabaseUrl.replace(/\/$/, '')}/rest/v1/rpc/get_asset_by_id`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            apikey: supabaseKey,
+            Authorization: `Bearer ${supabaseKey}`,
+            'Accept-Profile': 'dynasty_private',
+            'Content-Profile': 'dynasty_private',
+          },
+          body: JSON.stringify({ p_asset_id: aid }),
+        }
+      );
+
+      if (!assetCheck.ok) {
+        console.error('get_asset_by_id error:', await assetCheck.text());
+        return new Response(
+          JSON.stringify({ status: 'error', message: 'Unable to verify asset reference' }),
+          { status: 500, headers: corsHeaders }
+        );
+      }
+
+      const assetRows: any = await assetCheck.json();
+      if (!Array.isArray(assetRows) || assetRows.length === 0) {
+        return new Response(
+          JSON.stringify({ status: 'not_found', message: 'Specified asset not found in private vault' }),
+          { status: 404, headers: corsHeaders }
+        );
+      }
+
+      const assetRecord = assetRows[0];
+
+      // 7. Authorization Boundary Checks:
+      // Verify asset belongs to receipt
+      if (assetRecord.receipt_id !== rid) {
+        return new Response(
+          JSON.stringify({
+            status: 'forbidden',
+            message: 'Asset does not belong to specified submission receipt',
+          }),
+          { status: 403, headers: corsHeaders }
+        );
+      }
+
+      // Verify asset status is uploaded
+      if (assetRecord.status !== 'uploaded') {
+        return new Response(
+          JSON.stringify({
+            status: 'rejected',
+            message: 'Asset status is not uploaded',
+          }),
+          { status: 400, headers: corsHeaders }
+        );
+      }
+
+      // Verify storage path begins with inquiry ID
+      if (!assetRecord.storage_path || !assetRecord.storage_path.startsWith(`${assetRecord.inquiry_id}/`)) {
+        return new Response(
+          JSON.stringify({
+            status: 'error',
+            message: 'Asset storage path integrity mismatch',
+          }),
+          { status: 500, headers: corsHeaders }
+        );
+      }
+
+      // 8. Generate 15-Minute Short-Lived Signed Download URL
+      const signedData = await generateSignedAssetUrl(assetRecord.storage_path, 900, supabaseUrl, supabaseKey);
+
+      // 9. Audit Logging (Zero credentials or signed URLs logged)
+      try {
+        const ipHash = crypto.createHash('sha256').update(clientIp).digest('hex').substring(0, 16);
+        const userAgent = (request.headers.get('user-agent') || 'unknown').substring(0, 200);
+
+        await fetch(
+          `${supabaseUrl.replace(/\/$/, '')}/rest/v1/rpc/record_asset_retrieval_audit`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              apikey: supabaseKey,
+              Authorization: `Bearer ${supabaseKey}`,
+              'Accept-Profile': 'dynasty_private',
+              'Content-Profile': 'dynasty_private',
+            },
+            body: JSON.stringify({
+              p_asset_id: aid,
+              p_actor: 'principal',
+              p_auth_method: 'passcode',
+              p_ip_hash: ipHash,
+              p_ua: userAgent,
+            }),
+          }
+        ).catch(() => {});
+
+        console.log(JSON.stringify({
+          event: 'principal_asset_retrieval',
+          assetId: aid,
+          inquiryId: assetRecord.inquiry_id,
+          receiptId: assetRecord.receipt_id,
+          authMethod: 'passcode',
+          timestamp: new Date().toISOString(),
+        }));
+      } catch (auditErr) {
+        console.warn('Audit record warning:', auditErr);
+      }
+
+      // 10. Return Authorized Response
+      return new Response(
+        JSON.stringify({
+          status: 'authorized',
+          assetId: aid,
+          receiptId: assetRecord.receipt_id,
+          originalFilename: assetRecord.original_filename,
+          mimeType: assetRecord.mime_type,
+          sizeBytes: Number(assetRecord.size_bytes),
+          signedUrl: signedData.signedUrl,
+          expiresIn: signedData.expiresIn,
+        }),
+        { status: 200, headers: corsHeaders }
       );
     }
 

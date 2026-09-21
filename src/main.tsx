@@ -8,7 +8,7 @@ installMotionTokens();
 const path=window.location.pathname.replace(/\/$/,'')||'/';
 const isLab=path==='/experience-lab';
 if(!isLab)document.documentElement.classList.add('dws-experience-enabled');
-const supportRoutes=['/privacy','/terms','/founder-blueprint/intake','/capabilities','/contact','/automation','/growth-partnership','/how-we-build','/services','/templates','/start-a-business','/start-a-business/builder',...['start','brand','build','launch','distribute','activate','grow','publish'].map(p=>'/capabilities/'+p)];
+const supportRoutes=['/privacy','/terms','/portal/retrieve','/founder-blueprint/intake','/capabilities','/contact','/automation','/growth-partnership','/how-we-build','/services','/templates','/start-a-business','/start-a-business/builder',...['start','brand','build','launch','distribute','activate','grow','publish'].map(p=>'/capabilities/'+p)];
 const supporting=supportRoutes.includes(path);
 if(supporting)document.body.classList.add('dws-v3');
 // Resolve only this document's route before its first transition snapshot.

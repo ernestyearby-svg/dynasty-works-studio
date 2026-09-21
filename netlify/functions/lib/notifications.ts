@@ -417,6 +417,7 @@ export async function dispatchSubmissionNotifications(
 /**
  * Build structured internal notification for Dynasty Works Studio leadership
  * when confidential founder materials are confirmed and stored in the private vault.
+ * Links contain ONLY non-secret identifiers (aid, rid) and require interactive principal passcode authentication.
  */
 export function buildInternalAssetUploadNotification(
   inquiry: {
@@ -426,6 +427,7 @@ export function buildInternalAssetUploadNotification(
     companyName?: string | null;
   },
   assets: Array<{
+    id?: string;
     originalFilename: string;
     mimeType: string;
     sizeBytes: number;
@@ -451,10 +453,16 @@ export function buildInternalAssetUploadNotification(
   const displayCompany = isConfidentialOrEmpty ? 'Confidential / Unspecified Venture' : rawCompany;
 
   const subject = `[DWS Intake] CONFIDENTIAL ASSETS RECEIVED — ${displayCompany} (${inquiry.receiptId})`;
+  const baseUrl = (process.env.BASE_URL || process.env.SITE_URL || 'https://dynastyworksstudio.com').replace(/\/$/, '');
 
-  const list = assets
-    .map((a) => `  - ${a.originalFilename} (${a.mimeType}, ${(a.sizeBytes / (1024 * 1024)).toFixed(2)} MB)`)
-    .join('\n');
+  const textItems = assets.map((a) => {
+    const sizeMb = (a.sizeBytes / (1024 * 1024)).toFixed(2);
+    const portalUrl = a.id ? `${baseUrl}/portal/retrieve?aid=${a.id}&rid=${inquiry.receiptId}` : '';
+
+    return `  - ${a.originalFilename} (${a.mimeType}, ${sizeMb} MB)
+    [ACTION] SECURE RETRIEVAL (Principal Passcode Required):
+    ${portalUrl}`;
+  });
 
   const text = `DYNASTY WORKS STUDIO // CONFIDENTIAL ASSETS RECEIVED
 ==================================================
@@ -468,15 +476,73 @@ Company / Venture: ${displayCompany}
 Contact Email:     ${inquiry.founderEmail || 'On file with submission brief'}
 
 --- CONFIDENTIAL ASSETS VAULT-STORED (${assets.length} file(s)) ---
-${list}
+${textItems.join('\n\n')}
 
 ==================================================
 VAULT SECURITY NOTICE:
 All materials are stored in the private founder asset vault ('founder-intake-assets').
-Public anonymous access is disabled. Retrieval is restricted to authenticated studio principals.
+Public anonymous access is disabled.
+The above retrieval links contain non-secret identifiers only and require explicit DWS Principal Passcode authentication over HTTPS.
+Upon verified authentication, an isolated 15-minute temporary access grant is generated to the requested private object.
+No permanent public URLs exist.
 ==================================================
 Supabase Receipt: ${inquiry.receiptId}
 `;
 
-  return { to, from, subject, text };
+  const htmlItems = assets.map((a) => {
+    const sizeMb = (a.sizeBytes / (1024 * 1024)).toFixed(2);
+    const portalUrl = a.id ? `${baseUrl}/portal/retrieve?aid=${a.id}&rid=${inquiry.receiptId}` : '';
+
+    return `
+      <div style="margin-bottom: 16px; padding: 16px; background: #0f172a; border: 1px solid #1e293b; border-radius: 6px;">
+        <div style="font-weight: 600; color: #f8fafc; font-size: 15px; margin-bottom: 4px;">
+          ${a.originalFilename}
+        </div>
+        <div style="font-size: 12px; color: #94a3b8; margin-bottom: 14px;">
+          ${a.mimeType} · ${sizeMb} MB
+        </div>
+        <div>
+          <a href="${portalUrl}" style="display: inline-block; background: #2563eb; color: #ffffff; padding: 10px 18px; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: 600; letter-spacing: 0.03em;">
+            SECURE RETRIEVAL (Principal Passcode Required) →
+          </a>
+        </div>
+      </div>
+    `;
+  });
+
+  const html = `
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 620px; margin: 0 auto; color: #f8fafc; background: #020617; padding: 24px; border: 1px solid #1e293b; border-radius: 8px;">
+      <div style="font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #94a3b8; margin-bottom: 6px;">
+        DYNASTY WORKS STUDIO // INTAKE INTELLIGENCE
+      </div>
+      <h2 style="font-size: 20px; font-weight: 600; margin: 0 0 16px; color: #f8fafc;">
+        Confidential Assets Received — ${displayCompany}
+      </h2>
+      <div style="background: #0f172a; border: 1px solid #1e293b; padding: 12px 16px; border-radius: 6px; font-size: 13px; margin-bottom: 20px;">
+        <div style="margin-bottom: 4px;"><strong style="color: #cbd5e1;">Founder:</strong> ${inquiry.founderName || 'Not specified'}</div>
+        <div style="margin-bottom: 4px;"><strong style="color: #cbd5e1;">Venture:</strong> ${displayCompany}</div>
+        <div style="margin-bottom: 4px;"><strong style="color: #cbd5e1;">Contact:</strong> ${inquiry.founderEmail || 'On file'}</div>
+        <div><strong style="color: #cbd5e1;">Receipt ID:</strong> <span style="font-family: monospace; color: #10b981;">${inquiry.receiptId}</span></div>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <div style="font-size: 13px; font-weight: 600; color: #cbd5e1; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.05em;">
+          Vault-Stored Materials (${assets.length} file(s))
+        </div>
+        ${htmlItems.join('')}
+      </div>
+
+      <div style="font-size: 11px; color: #64748b; border-top: 1px solid #1e293b; padding-top: 14px; line-height: 1.5;">
+        🔒 <strong>VAULT SECURITY NOTICE:</strong> All materials are held in the private founder intake vault ('founder-intake-assets'). Public anonymous access is disabled. Retrieval links contain non-secret identifiers only and require explicit DWS Principal Passcode authentication over HTTPS.
+      </div>
+    </div>
+  `;
+
+  return {
+    from,
+    to,
+    subject,
+    text,
+    html,
+  };
 }
