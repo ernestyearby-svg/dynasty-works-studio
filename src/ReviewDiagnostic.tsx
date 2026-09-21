@@ -191,7 +191,7 @@ export default function ReviewDiagnostic({
       return;
     }
     if (!leadConsent) {
-      setLeadError('Please confirm consent for Dynasty Works Studio to evaluate your brief.');
+      setLeadError('Please confirm consent for Dynasty Works Studio to evaluate your brief in accordance with our Privacy Notice and Advisory Terms.');
       return;
     }
     setLeadError('');
@@ -909,7 +909,25 @@ export default function ReviewDiagnostic({
                         style={{ marginTop: '3px', cursor: 'pointer' }}
                       />
                       <span>
-                        I authorize Dynasty Works Studio to review this company build roadmap and contact me regarding this strategic brief. (Decline or uncheck to proceed with local-only download).
+                        I authorize Dynasty Works Studio to evaluate this company build brief and contact me regarding this strategic inquiry, in accordance with the{' '}
+                        <a
+                          href="/privacy"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ color: '#f8fafc', textDecoration: 'underline', textUnderlineOffset: '2px' }}
+                        >
+                          Privacy Notice
+                        </a>{' '}
+                        and{' '}
+                        <a
+                          href="/terms"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ color: '#f8fafc', textDecoration: 'underline', textUnderlineOffset: '2px' }}
+                        >
+                          Advisory Terms
+                        </a>
+                        . (Decline or uncheck to proceed with local-only download).
                       </span>
                     </label>
                   </div>

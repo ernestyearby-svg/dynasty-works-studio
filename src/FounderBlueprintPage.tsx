@@ -405,6 +405,8 @@ export default function FounderBlueprintPage() {
             <a href="/#review-builder">Company Builder</a>
             <a href="/studio">Studio</a>
             <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
           </nav>
 
           <div>

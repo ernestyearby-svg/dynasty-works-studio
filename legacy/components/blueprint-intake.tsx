@@ -487,7 +487,7 @@ export function BlueprintIntakeForm() {
                   aria-invalid={!!errors.acknowledged}
                 />
                 <span>
-                  I authorize Dynasty Works Studio to review this Blueprint intake. I understand completing this intake does not purchase or charge the engagement.
+                  I authorize Dynasty Works Studio to review this Blueprint intake in accordance with the <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Notice</a> and <a href="/terms" target="_blank" rel="noopener noreferrer">Advisory Terms</a>. I understand completing this intake does not purchase or charge the engagement.
                 </span>
               </label>
             </div>

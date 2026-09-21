@@ -157,7 +157,7 @@ export function FounderAssetUpload({
             PDF · DOCX · XLSX · PPTX · CSV · TXT · PNG · JPG · WEBP
           </div>
           <div className="dws-asset-drop-limits">
-            Up to 25 MB per file · Max 10 files · Stored in private encrypted vault
+            Up to 25 MB per file · Max 10 files · Stored in private founder intake vault
           </div>
         </div>
       </div>
@@ -236,13 +236,18 @@ export function FounderAssetUpload({
         </div>
       )}
 
-      <div className="dws-asset-security-notice">
-        <span className="dws-asset-shield-icon" aria-hidden="true">
-          🔒
-        </span>
-        <span>
-          Strictly Confidential Intake · Private Cloud Storage · Zero Public Distribution · Evaluated by Principals Only
-        </span>
+      <div className="dws-asset-security-notice" style={{ display: 'flex', flexDirection: 'column', gap: '4px', textAlign: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+          <span className="dws-asset-shield-icon" aria-hidden="true">
+            🔒
+          </span>
+          <span>
+            Strictly Confidential Intake · Private Cloud Storage · Zero Public Distribution · Evaluated by Principals Only
+          </span>
+        </div>
+        <div style={{ fontSize: '11px', color: '#94a3b8' }}>
+          Upload only materials you are authorized to disclose. Do not submit passwords, API keys, private keys, or authentication secrets.
+        </div>
       </div>
     </div>
   );

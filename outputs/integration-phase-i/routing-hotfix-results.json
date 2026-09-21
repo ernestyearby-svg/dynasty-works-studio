@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-21T21:47:59.728Z",
+  "timestamp": "2026-09-21T22:09:29.386Z",
   "total": 11,
   "passed": 11,
   "failed": 0,
@@ -58,7 +58,7 @@
       "section": "BROWSER_SUBMISSION",
       "name": "UI displays success confirmation with receipt ID",
       "passed": true,
-      "detail": "successText=✓ Brief Securely Received Receipt: 316a62db-c485-425e-bb83-e37e7a9a39eb Brief securely received. Dow"
+      "detail": "successText=✓ Brief Securely Received Receipt: 75f16c41-43ca-42d9-912c-aba3d7b6e7d0 Brief securely received. Dow"
     },
     {
       "section": "CLEANUP",

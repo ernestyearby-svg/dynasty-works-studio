@@ -394,6 +394,8 @@ export default function StudioPage() {
             <a href="/#review-builder">Company Builder</a>
             <a href="/founder-blueprint">Founder Blueprint</a>
             <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
           </nav>
 
           <div>

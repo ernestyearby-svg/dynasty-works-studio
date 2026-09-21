@@ -1,4 +1,6 @@
 import PracticePage from "./PracticePage";
+import PrivacyPage from "./PrivacyPage";
+import TermsPage from "./TermsPage";
 import Page0 from "../legacy/app/founder-blueprint/page";
 import Page1 from "../legacy/app/founder-blueprint/intake/page";
 import Page2 from "../legacy/app/studio/page";
@@ -22,5 +24,6 @@ import "../legacy/app/mymosa.css";
 import "../legacy/app/company-creation.css";
 import "../legacy/app/editorial-v3.css";
 import "../legacy/app/art-direction.css";
-const pages={"/founder-blueprint":Page0,"/founder-blueprint/intake":Page1,"/studio":Page2,"/capabilities":Page3,"/contact":Page4,"/automation":Page5,"/growth-partnership":Page6,"/how-we-build":Page7,"/services":Page8,"/templates":Page9,"/start-a-business":Page10,"/start-a-business/builder":Page11};
-export default function SupportingPages(){const path=window.location.pathname.replace(/\/$/,'');const Page=path.startsWith("/capabilities/")?PracticePage:pages[path as keyof typeof pages];return <><a href='#main' className='skip-link'>Skip to content</a><Navbar/><main id='main'><Page/></main><footer className='footer shell'><a href='/'>Dynasty Works Studio</a><nav aria-label='Footer navigation'><a href='/work'>Work</a><a href='/capabilities'>Capabilities</a><a href='/company-builder'>Company Builder</a><a href='/studio'>Studio</a><a href='/contact'>Contact</a></nav><ExperienceMotion/></footer></>}
+const pages={"/privacy":PrivacyPage,"/terms":TermsPage,"/founder-blueprint":Page0,"/founder-blueprint/intake":Page1,"/studio":Page2,"/capabilities":Page3,"/contact":Page4,"/automation":Page5,"/growth-partnership":Page6,"/how-we-build":Page7,"/services":Page8,"/templates":Page9,"/start-a-business":Page10,"/start-a-business/builder":Page11};
+export default function SupportingPages(){const path=window.location.pathname.replace(/\/$/,'');const Page=path.startsWith("/capabilities/")?PracticePage:pages[path as keyof typeof pages];return <><a href='#main' className='skip-link'>Skip to content</a><Navbar/><main id='main'><Page/></main><footer className='footer shell'><a href='/'>Dynasty Works Studio</a><nav aria-label='Footer navigation'><a href='/work'>Work</a><a href='/capabilities'>Capabilities</a><a href='/company-builder'>Company Builder</a><a href='/studio'>Studio</a><a href='/contact'>Contact</a><a href='/privacy'>Privacy</a><a href='/terms'>Terms</a></nav><ExperienceMotion/></footer></>}
+

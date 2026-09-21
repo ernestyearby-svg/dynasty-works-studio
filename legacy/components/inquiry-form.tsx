@@ -425,7 +425,7 @@ export function InquiryForm() {
                   aria-invalid={!!errors.consent}
                 />
                 <span>
-                  I authorize Dynasty Works Studio to review this project brief and contact me regarding this inquiry.
+                  I authorize Dynasty Works Studio to review this project brief and contact me regarding this inquiry, in accordance with the <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Notice</a> and <a href="/terms" target="_blank" rel="noopener noreferrer">Advisory Terms</a>.
                 </span>
               </label>
               {errors.consent && (
