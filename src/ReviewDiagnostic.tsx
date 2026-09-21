@@ -17,6 +17,8 @@ import { businessStages, serviceById, type BusinessStage, type RoadmapPhase } fr
 import { creationStages, stageForPhase, type CreationStage } from '@/data/company-creation';
 import type { CompanyBuild } from '@/types/company';
 import { submitInquiry, generateIdempotencyKey } from '@/lib/submission-client';
+import { FounderAssetUpload } from './FounderAssetUpload';
+import { type FounderAsset, uploadInquiryAssets } from '@/lib/asset-client';
 import './ReviewDiagnostic.css';
 
 const suggested: BuildNeed[] = [
@@ -75,6 +77,8 @@ export default function ReviewDiagnostic({
   const [leadReceiptId, setLeadReceiptId] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionFeedback, setSubmissionFeedback] = useState('');
+  const [assets, setAssets] = useState<FounderAsset[]>([]);
+  const [assetUploadStatus, setAssetUploadStatus] = useState<string | null>(null);
   const idempotencyKeyRef = useRef<string>(generateIdempotencyKey());
 
   const title = useRef<HTMLHeadingElement>(null);
@@ -234,11 +238,54 @@ export default function ReviewDiagnostic({
       });
 
       if (res.success) {
-        setLeadReceiptId(res.data.receiptId);
+        const confirmedReceipt = res.data.receiptId;
+        setLeadReceiptId(confirmedReceipt);
         setLeadSaved(true);
         setSubmissionFeedback(res.data.message || 'Brief securely received.');
         download();
         triggerBriefJsonDownload(localPayload);
+
+        if (assets.length > 0) {
+          setAssetUploadStatus('Securing venture documents in encrypted vault...');
+          setAssets((prev) => prev.map((a) => ({ ...a, status: 'uploading', progress: 15 })));
+
+          try {
+            const rawFiles = assets.map((a) => a.file);
+            const uploadBatch = await uploadInquiryAssets(
+              confirmedReceipt,
+              rawFiles,
+              (fileIndex, progress, status, error) => {
+                setAssets((prev) => {
+                  const copy = [...prev];
+                  if (copy[fileIndex]) {
+                    copy[fileIndex] = {
+                      ...copy[fileIndex],
+                      progress,
+                      status,
+                      error,
+                    };
+                  }
+                  return copy;
+                });
+              }
+            );
+
+            if (uploadBatch.uploadedCount > 0) {
+              setAssetUploadStatus(
+                `✓ ${uploadBatch.uploadedCount} of ${uploadBatch.totalFiles} confidential document(s) securely vault-stored with your brief.`
+              );
+            } else if (uploadBatch.failedCount > 0) {
+              setAssetUploadStatus(
+                'Note: Document vault transfer encountered an issue. Your brief remains securely received.'
+              );
+            }
+          } catch (assetErr) {
+            console.error('Asset upload batch exception:', assetErr);
+            setAssetUploadStatus(
+              'Note: Document vault transfer encountered an issue. Your brief remains securely received.'
+            );
+          }
+        }
       } else {
         if (res.error.status === 'not_configured' || res.error.status === 'unavailable' || res.error.status === 'network_error') {
           setLeadSaved(true);
@@ -758,6 +805,16 @@ export default function ReviewDiagnostic({
                       ? 'Your company build roadmap and founder brief have been securely transmitted to Dynasty Works Studio principals under confidential review.'
                       : 'Your confidential company creation brief has been compiled and downloaded to your device.')}
                 </p>
+                {assetUploadStatus && (
+                  <p style={{ margin: '8px 0 12px', color: '#10b981', fontSize: '13px', fontWeight: 500 }}>
+                    {assetUploadStatus}
+                  </p>
+                )}
+                {assets.length > 0 && (
+                  <div style={{ marginTop: '14px', marginBottom: '14px' }}>
+                    <FounderAssetUpload assets={assets} onChange={setAssets} disabled={true} />
+                  </div>
+                )}
                 <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '12px' }}>
                   <button type="button" className="quiet-button" onClick={download}>
                     Download Roadmap (.txt) ↓
@@ -857,6 +914,13 @@ export default function ReviewDiagnostic({
                     </label>
                   </div>
                 </div>
+
+                {/* Confidential Founder Asset Intake */}
+                <FounderAssetUpload
+                  assets={assets}
+                  onChange={setAssets}
+                  disabled={isSubmitting}
+                />
 
                 <div style={{ display: 'none' }} aria-hidden="true">
                   <label htmlFor="builder-hp-fax">Leave this field blank</label>

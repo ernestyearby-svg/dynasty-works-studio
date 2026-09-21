@@ -1,3 +1,5 @@
+/api/submissions/assets/* /.netlify/functions/assets/:splat 200
+/api/submissions/assets /.netlify/functions/assets 200
 /api/submissions/:kind /.netlify/functions/submissions?kind=:kind 200
 /company-builder /#review-builder 302
 /* /404.html 404

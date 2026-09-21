@@ -1,0 +1,176 @@
+{
+  "suite": "Phase 2F Secure Asset Upload Verification",
+  "timestamp": "2026-09-21T21:47:36.043Z",
+  "total": 31,
+  "passed": 31,
+  "failed": 0,
+  "results": [
+    {
+      "section": "Storage Bucket",
+      "name": "founder-intake-assets bucket exists",
+      "passed": true
+    },
+    {
+      "section": "Storage Bucket",
+      "name": "Bucket is strictly private (public = false)",
+      "passed": true
+    },
+    {
+      "section": "Storage Bucket",
+      "name": "File size limit is set to 25MB (26214400 bytes)",
+      "passed": true
+    },
+    {
+      "section": "Storage Bucket",
+      "name": "Allowed MIME types are restricted",
+      "passed": true
+    },
+    {
+      "section": "Inquiry Creation",
+      "name": "Submissions endpoint returns HTTP 202",
+      "passed": true,
+      "detail": "Status 202: {\"status\":\"accepted\",\"receiptId\":\"2bc0d6de-3a68-4d62-8c90-856233dfdaf9\",\"message\":\"Brief securely received.\"}"
+    },
+    {
+      "section": "Inquiry Creation",
+      "name": "Valid receipt ID generated",
+      "passed": true
+    },
+    {
+      "section": "Inquiry Creation",
+      "name": "Authoritative inquiry persisted in database",
+      "passed": true
+    },
+    {
+      "section": "Authorization",
+      "name": "Assets authorize endpoint returns HTTP 200",
+      "passed": true,
+      "detail": "Status 200: {\"status\":\"authorized\",\"receiptId\":\"2bc0d6de-3a68-4d62-8c90-856233dfdaf9\",\"inquiryId\":\"18f20c6b-dfc4-4516-852a-d5b79e0cd245\",\"uploads\":[{\"fileId\":\"ffe8193d-a423-49b7-ab2d-c62a3d3eac16\",\"originalFilename\":\"pitch-deck.pdf\",\"sanitizedFilename\":\"pitch-deck.pdf\",\"storagePath\":\"18f20c6b-dfc4-4516-852a-d5b79e0cd245/ffe8193d-a423-49b7-ab2d-c62a3d3eac16-pitch-deck.pdf\",\"signedUploadUrl\":\"https://iorzzwtmxiyqdqudrbsw.supabase.co/storage/v1/object/upload/sign/founder-intake-assets/18f20c6b-dfc4-4516-852a-d5b79e0cd245/ffe8193d-a423-49b7-ab2d-c62a3d3eac16-pitch-deck.pdf?token=eyJraWQiOiJmMjk3OWIzNi1mMmQxLTQ0MzktYjEwYS00ZmRjMDc4MTZlMDciLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJmb3VuZGVyLWludGFrZS1hc3NldHMvMThmMjBjNmItZGZjNC00NTE2LTg1MmEtZDViNzllMGNkMjQ1L2ZmZTgxOTNkLWE0MjMtNDliNy1hYjJkLWM2MmEzZDNlYWMxNi1waXRjaC1kZWNrLnBkZiIsInVwc2VydCI6ZmFsc2UsInNjb3BlIjoidXBsb2FkIiwiaWF0IjoxNzkwMDI3MjQxLCJleHAiOjE3OTAwMzQ0NDF9.F5wXixeTUQks9mWh4RNjRZd6a7pR-Z0qBTYbLALJ7NRvo_T665lzoyeUkL6zJ3B_3YijqHaY2RYzhVaPiiXLXA\",\"token\":\"eyJraWQiOiJmMjk3OWIzNi1mMmQxLTQ0MzktYjEwYS00ZmRjMDc4MTZlMDciLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJmb3VuZGVyLWludGFrZS1hc3NldHMvMThmMjBjNmItZGZjNC00NTE2LTg1MmEtZDViNzllMGNkMjQ1L2ZmZTgxOTNkLWE0MjMtNDliNy1hYjJkLWM2MmEzZDNlYWMxNi1waXRjaC1kZWNrLnBkZiIsInVwc2VydCI6ZmFsc2UsInNjb3BlIjoidXBsb2FkIiwiaWF0IjoxNzkwMDI3MjQxLCJleHAiOjE3OTAwMzQ0NDF9.F5wXixeTUQks9mWh4RNjRZd6a7pR-Z0qBTYbLALJ7NRvo_T665lzoyeUkL6zJ3B_3YijqHaY2RYzhVaPiiXLXA\",\"mimeType\":\"application/pdf\",\"sizeBytes\":1024},{\"fileId\":\"7f2a8ccd-d724-4036-9287-ce93b940c3f4\",\"originalFilename\":\"cap-table.xlsx\",\"sanitizedFilename\":\"cap-table.xlsx\",\"storagePath\":\"18f20c6b-dfc4-4516-852a-d5b79e0cd245/7f2a8ccd-d724-4036-9287-ce93b940c3f4-cap-table.xlsx\",\"signedUploadUrl\":\"https://iorzzwtmxiyqdqudrbsw.supabase.co/storage/v1/object/upload/sign/founder-intake-assets/18f20c6b-dfc4-4516-852a-d5b79e0cd245/7f2a8ccd-d724-4036-9287-ce93b940c3f4-cap-table.xlsx?token=eyJraWQiOiJmMjk3OWIzNi1mMmQxLTQ0MzktYjEwYS00ZmRjMDc4MTZlMDciLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJmb3VuZGVyLWludGFrZS1hc3NldHMvMThmMjBjNmItZGZjNC00NTE2LTg1MmEtZDViNzllMGNkMjQ1LzdmMmE4Y2NkLWQ3MjQtNDAzNi05Mjg3LWNlOTNiOTQwYzNmNC1jYXAtdGFibGUueGxzeCIsInVwc2VydCI6ZmFsc2UsInNjb3BlIjoidXBsb2FkIiwiaWF0IjoxNzkwMDI3MjQxLCJleHAiOjE3OTAwMzQ0NDF9.OvvtGuMGI2RW2ughwuTbZcRXcgVQf3PHOLd58k93HSa35srCUsIRlkdY5H1Km5rzLxGe08J5am4HRBbkSa6Reg\",\"token\":\"eyJraWQiOiJmMjk3OWIzNi1mMmQxLTQ0MzktYjEwYS00ZmRjMDc4MTZlMDciLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJmb3VuZGVyLWludGFrZS1hc3NldHMvMThmMjBjNmItZGZjNC00NTE2LTg1MmEtZDViNzllMGNkMjQ1LzdmMmE4Y2NkLWQ3MjQtNDAzNi05Mjg3LWNlOTNiOTQwYzNmNC1jYXAtdGFibGUueGxzeCIsInVwc2VydCI6ZmFsc2UsInNjb3BlIjoidXBsb2FkIiwiaWF0IjoxNzkwMDI3MjQxLCJleHAiOjE3OTAwMzQ0NDF9.OvvtGuMGI2RW2ughwuTbZcRXcgVQf3PHOLd58k93HSa35srCUsIRlkdY5H1Km5rzLxGe08J5am4HRBbkSa6Reg\",\"mimeType\":\"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\",\"sizeBytes\":2048},{\"fileId\":\"3d77e987-0a3e-4700-a7a8-5cf96781b8b4\",\"originalFilename\":\"brand-architecture.png\",\"sanitizedFilename\":\"brand-architecture.png\",\"storagePath\":\"18f20c6b-dfc4-4516-852a-d5b79e0cd245/3d77e987-0a3e-4700-a7a8-5cf96781b8b4-brand-architecture.png\",\"signedUploadUrl\":\"https://iorzzwtmxiyqdqudrbsw.supabase.co/storage/v1/object/upload/sign/founder-intake-assets/18f20c6b-dfc4-4516-852a-d5b79e0cd245/3d77e987-0a3e-4700-a7a8-5cf96781b8b4-brand-architecture.png?token=eyJraWQiOiJmMjk3OWIzNi1mMmQxLTQ0MzktYjEwYS00ZmRjMDc4MTZlMDciLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJmb3VuZGVyLWludGFrZS1hc3NldHMvMThmMjBjNmItZGZjNC00NTE2LTg1MmEtZDViNzllMGNkMjQ1LzNkNzdlOTg3LTBhM2UtNDcwMC1hN2E4LTVjZjk2NzgxYjhiNC1icmFuZC1hcmNoaXRlY3R1cmUucG5nIiwidXBzZXJ0IjpmYWxzZSwic2NvcGUiOiJ1cGxvYWQiLCJpYXQiOjE3OTAwMjcyNDEsImV4cCI6MTc5MDAzNDQ0MX0.Z34MAfNDT5ErvxWkttSLaCnjR-wpu9V3Px6742Z5rB0kFCTdq_XUXq1NqagPrVGl98hpKTU1D83NSsfBZzzIhQ\",\"token\":\"eyJraWQiOiJmMjk3OWIzNi1mMmQxLTQ0MzktYjEwYS00ZmRjMDc4MTZlMDciLCJhbGciOiJIUzUxMiJ9.eyJ1cmwiOiJmb3VuZGVyLWludGFrZS1hc3NldHMvMThmMjBjNmItZGZjNC00NTE2LTg1MmEtZDViNzllMGNkMjQ1LzNkNzdlOTg3LTBhM2UtNDcwMC1hN2E4LTVjZjk2NzgxYjhiNC1icmFuZC1hcmNoaXRlY3R1cmUucG5nIiwidXBzZXJ0IjpmYWxzZSwic2NvcGUiOiJ1cGxvYWQiLCJpYXQiOjE3OTAwMjcyNDEsImV4cCI6MTc5MDAzNDQ0MX0.Z34MAfNDT5ErvxWkttSLaCnjR-wpu9V3Px6742Z5rB0kFCTdq_XUXq1NqagPrVGl98hpKTU1D83NSsfBZzzIhQ\",\"mimeType\":\"image/png\",\"sizeBytes\":4096}]}"
+    },
+    {
+      "section": "Authorization",
+      "name": "Authorization response status is authorized",
+      "passed": true
+    },
+    {
+      "section": "Authorization",
+      "name": "Returned 3 authorized uploads",
+      "passed": true
+    },
+    {
+      "section": "Authorization",
+      "name": "Signed upload URL generated for pitch-deck.pdf",
+      "passed": true
+    },
+    {
+      "section": "Authorization",
+      "name": "Storage path scoped to inquiryId for pitch-deck.pdf",
+      "passed": true
+    },
+    {
+      "section": "Authorization",
+      "name": "Signed upload URL generated for cap-table.xlsx",
+      "passed": true
+    },
+    {
+      "section": "Authorization",
+      "name": "Storage path scoped to inquiryId for cap-table.xlsx",
+      "passed": true
+    },
+    {
+      "section": "Authorization",
+      "name": "Signed upload URL generated for brand-architecture.png",
+      "passed": true
+    },
+    {
+      "section": "Authorization",
+      "name": "Storage path scoped to inquiryId for brand-architecture.png",
+      "passed": true
+    },
+    {
+      "section": "File Transfer",
+      "name": "Binary transfer to signed URL succeeds for pitch-deck.pdf",
+      "passed": true,
+      "detail": "Status 200"
+    },
+    {
+      "section": "File Transfer",
+      "name": "Binary transfer to signed URL succeeds for cap-table.xlsx",
+      "passed": true,
+      "detail": "Status 200"
+    },
+    {
+      "section": "File Transfer",
+      "name": "Binary transfer to signed URL succeeds for brand-architecture.png",
+      "passed": true,
+      "detail": "Status 200"
+    },
+    {
+      "section": "Confirmation",
+      "name": "Confirm endpoint returns HTTP 200",
+      "passed": true,
+      "detail": "Status 200: {\"status\":\"confirmed\",\"receiptId\":\"2bc0d6de-3a68-4d62-8c90-856233dfdaf9\",\"registeredCount\":3,\"assets\":[[{\"asset_id\":\"9ada07ca-1551-475b-9df1-a5e41ee6bec6\",\"inquiry_id\":\"18f20c6b-dfc4-4516-852a-d5b79e0cd245\",\"lead_id\":\"1e3437e6-75fc-4d9b-aae1-25e28f192878\",\"storage_path\":\"18f20c6b-dfc4-4516-852a-d5b79e0cd245/ffe8193d-a423-49b7-ab2d-c62a3d3eac16-pitch-deck.pdf\",\"status\":\"uploaded\"}],[{\"asset_id\":\"ff8ec3ff-e560-49ef-acff-27d834421431\",\"inquiry_id\":\"18f20c6b-dfc4-4516-852a-d5b79e0cd245\",\"lead_id\":\"1e3437e6-75fc-4d9b-aae1-25e28f192878\",\"storage_path\":\"18f20c6b-dfc4-4516-852a-d5b79e0cd245/7f2a8ccd-d724-4036-9287-ce93b940c3f4-cap-table.xlsx\",\"status\":\"uploaded\"}],[{\"asset_id\":\"f7c0addd-5043-49cf-ae8c-a1a9cc3b1bbb\",\"inquiry_id\":\"18f20c6b-dfc4-4516-852a-d5b79e0cd245\",\"lead_id\":\"1e3437e6-75fc-4d9b-aae1-25e28f192878\",\"storage_path\":\"18f20c6b-dfc4-4516-852a-d5b79e0cd245/3d77e987-0a3e-4700-a7a8-5cf96781b8b4-brand-architecture.png\",\"status\":\"uploaded\"}]]}"
+    },
+    {
+      "section": "Confirmation",
+      "name": "Confirmed 3 registered assets",
+      "passed": true,
+      "detail": "Count: 3"
+    },
+    {
+      "section": "Metadata Persistence",
+      "name": "Database contains 3 inquiry_assets records",
+      "passed": true
+    },
+    {
+      "section": "RPC Retrieval",
+      "name": "get_inquiry_assets RPC returns 3 matching records",
+      "passed": true
+    },
+    {
+      "section": "Security Check",
+      "name": "Disallowed extension (.exe) rejected with HTTP 400",
+      "passed": true
+    },
+    {
+      "section": "Security Check",
+      "name": "Oversized file (>25MB) rejected with HTTP 400",
+      "passed": true
+    },
+    {
+      "section": "Security Check",
+      "name": "Non-existent receipt rejected with HTTP 404",
+      "passed": true,
+      "detail": "Status 404: {\"status\":\"not_found\",\"message\":\"Submission record not found\"}"
+    },
+    {
+      "section": "Storage Privacy",
+      "name": "Anonymous GET request to public URL is denied (returns 400 or 404)",
+      "passed": true,
+      "detail": "Status 400"
+    },
+    {
+      "section": "Purge",
+      "name": "Storage test objects deleted from founder-intake-assets bucket",
+      "passed": true
+    },
+    {
+      "section": "Purge Audit",
+      "name": "0 rows remaining in dynasty_private.inquiry_assets",
+      "passed": true,
+      "detail": "Count: 0"
+    },
+    {
+      "section": "Purge Audit",
+      "name": "0 rows remaining in dynasty_private.inquiries",
+      "passed": true,
+      "detail": "Count: 0"
+    },
+    {
+      "section": "Purge Audit",
+      "name": "0 rows remaining in dynasty_private.leads",
+      "passed": true,
+      "detail": "Count: 0"
+    }
+  ]
+}

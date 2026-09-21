@@ -7,6 +7,16 @@
   NODE_VERSION = "22"
 
 [[redirects]]
+  from = "/api/submissions/assets/*"
+  to = "/.netlify/functions/assets/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/api/submissions/assets"
+  to = "/.netlify/functions/assets"
+  status = 200
+
+[[redirects]]
   from = "/api/submissions/:kind"
   to = "/.netlify/functions/submissions?kind=:kind"
   status = 200
@@ -24,6 +34,6 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Robots-Tag = "noindex, nofollow"
+    X-Robots-Tag = "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"

@@ -831,6 +831,282 @@
   color: #1e4d1e;
 }
 
+/* Founder Asset Confidential Intake Component */
+.dws-asset-upload-root {
+  margin: 22px 0 20px;
+  padding: 20px 22px;
+  background: #f8faf6;
+  border: 1px solid #dbe2d4;
+  border-radius: 0;
+}
+
+.dws-asset-header {
+  margin-bottom: 14px;
+}
+
+.dws-asset-kicker {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #57614e;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.dws-asset-headline {
+  font-family: PBodoni, serif;
+  font-size: clamp(18px, 1.8vw, 24px);
+  font-weight: 400;
+  margin: 0 0 6px;
+  color: #111214;
+}
+
+.dws-asset-desc {
+  font-size: 12px;
+  line-height: 1.55;
+  color: #555c4d;
+  margin: 0;
+}
+
+.dws-asset-dropzone {
+  margin-top: 14px;
+  border: 1.5px dashed #aab3a0;
+  background: #ffffff;
+  padding: 24px 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.dws-asset-dropzone:hover,
+.dws-asset-dropzone:focus-visible {
+  border-color: #161a12;
+  background: #f4f6f1;
+  outline: none;
+}
+
+.dws-asset-dropzone.is-dragover {
+  border-color: #2457ff;
+  background: #f0f4ff;
+}
+
+.dws-asset-dropzone.is-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.dws-asset-dropzone-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.dws-asset-drop-icon {
+  font-size: 20px;
+  color: #555c4d;
+  margin-bottom: 2px;
+}
+
+.dws-asset-drop-primary {
+  font-size: 13px;
+  color: #111214;
+  font-weight: 500;
+}
+
+.dws-asset-browse-link {
+  color: #2457ff;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.dws-asset-drop-formats {
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: #6c7562;
+  font-family: monospace;
+}
+
+.dws-asset-drop-limits {
+  font-size: 11px;
+  color: #7d8774;
+}
+
+.dws-asset-error {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #fef2f2;
+  border: 1px solid #f87171;
+  color: #991b1b;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dws-asset-list {
+  margin-top: 16px;
+}
+
+.dws-asset-list-summary {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 600;
+  color: #57614e;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #dbe2d4;
+}
+
+.dws-asset-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dws-asset-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #ffffff;
+  border: 1px solid #dbe2d4;
+  font-size: 13px;
+}
+
+.dws-asset-item.status-error {
+  border-color: #f87171;
+  background: #fef2f2;
+}
+
+.dws-asset-item-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.dws-asset-item-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.dws-asset-item-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.dws-asset-item-name {
+  font-weight: 500;
+  color: #111214;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 280px;
+}
+
+@media (min-width: 768px) {
+  .dws-asset-item-name {
+    max-width: 440px;
+  }
+}
+
+.dws-asset-item-size {
+  font-size: 11px;
+  color: #7d8774;
+  font-family: monospace;
+}
+
+.dws-asset-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.dws-asset-uploading-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dws-asset-progress-bar {
+  display: block;
+  width: 60px;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.dws-asset-progress-fill {
+  display: block;
+  height: 100%;
+  background: #2457ff;
+  transition: width 0.15s ease;
+}
+
+.dws-asset-pct {
+  font-size: 11px;
+  font-family: monospace;
+  color: #555c4d;
+}
+
+.dws-asset-status-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+.dws-asset-status-badge.is-success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.dws-asset-status-badge.is-error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.dws-asset-remove-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  color: #7d8774;
+  cursor: pointer;
+  padding: 2px 6px;
+  transition: color 0.15s;
+}
+
+.dws-asset-remove-btn:hover {
+  color: #991b1b;
+}
+
+.dws-asset-security-notice {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #64748b;
+  letter-spacing: 0.02em;
+}
+
+.dws-asset-shield-icon {
+  font-size: 13px;
+}
+
 /* Print Optimization Styles */
 @media print {
   body {
