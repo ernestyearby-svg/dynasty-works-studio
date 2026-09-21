@@ -89,8 +89,13 @@ export class ResendTransport implements NotificationTransport {
 
   constructor(apiKey: string, defaultFrom?: string) {
     this.apiKey = apiKey;
-    this.defaultFrom = defaultFrom || 'Dynasty Works Studio <onboarding@resend.dev>';
+    this.defaultFrom =
+      defaultFrom ||
+      process.env.EMAIL_FROM ||
+      process.env.RESEND_FROM_EMAIL ||
+      'Dynasty Works Studio <advisory@dynastyworksstudio.com>';
   }
+
 
   async send(dispatch: EmailDispatch): Promise<NotificationResult> {
     try {
@@ -166,7 +171,10 @@ export function getNotificationTransport(): NotificationTransport {
 
   const apiKey = process.env.RESEND_API_KEY;
   if (apiKey && apiKey.trim().length > 0) {
-    const from = process.env.RESEND_FROM_EMAIL || 'Dynasty Works Studio <onboarding@resend.dev>';
+    const from =
+      process.env.EMAIL_FROM ||
+      process.env.RESEND_FROM_EMAIL ||
+      'Dynasty Works Studio <advisory@dynastyworksstudio.com>';
     return new ResendTransport(apiKey, from);
   }
 
@@ -181,8 +189,16 @@ export function buildInternalDWSNotification(
   senderFrom?: string,
   internalRecipient?: string
 ): EmailDispatch {
-  const from = senderFrom || process.env.RESEND_FROM_EMAIL || 'Dynasty Works Studio <onboarding@resend.dev>';
-  const to = internalRecipient || process.env.INTERNAL_NOTIFICATION_EMAIL || 'advisory@dynastyworks.studio';
+  const from =
+    senderFrom ||
+    process.env.EMAIL_FROM ||
+    process.env.RESEND_FROM_EMAIL ||
+    'Dynasty Works Studio <advisory@dynastyworksstudio.com>';
+  const to =
+    internalRecipient ||
+    process.env.INTERNAL_NOTIFICATION_EMAIL ||
+    'advisory@dynastyworksstudio.com';
+
 
   const kindLabel =
     ctx.kind === 'builder'
@@ -261,7 +277,11 @@ export function buildFounderConfirmation(
   ctx: SubmissionNotificationContext,
   senderFrom?: string
 ): EmailDispatch {
-  const from = senderFrom || process.env.RESEND_FROM_EMAIL || 'Dynasty Works Studio <onboarding@resend.dev>';
+  const from =
+    senderFrom ||
+    process.env.EMAIL_FROM ||
+    process.env.RESEND_FROM_EMAIL ||
+    'Dynasty Works Studio <advisory@dynastyworksstudio.com>';
   const to = ctx.founderEmail;
   const subject = 'Dynasty Works Studio — Submission Received';
 
@@ -290,12 +310,13 @@ Please retain this receipt ID for your records.
 Sincerely,
 
 Dynasty Works Studio
-advisory@dynastyworks.studio
-https://dynastyworks.studio
+advisory@dynastyworksstudio.com
+https://dynastyworksstudio.com
 `;
 
-  return { to, from, subject, text, replyTo: 'advisory@dynastyworks.studio' };
+  return { to, from, subject, text, replyTo: 'advisory@dynastyworksstudio.com' };
 }
+
 
 /**
  * Dispatch both internal DWS notification and founder confirmation.

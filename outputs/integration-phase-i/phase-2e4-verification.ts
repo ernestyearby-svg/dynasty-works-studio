@@ -231,7 +231,7 @@ async function runVerification() {
 
     // Verify Email Dispatches for Builder
     check('NOTIF_BUILDER', 'Two emails dispatched for Builder (Internal + Founder)', MockTestTransport.dispatchedEmails.length === 2);
-    const internalBuilderEmail = MockTestTransport.dispatchedEmails.find((e) => e.to === 'advisory@dynastyworks.studio');
+    const internalBuilderEmail = MockTestTransport.dispatchedEmails.find((e) => e.to === 'advisory@dynastyworksstudio.com' || e.to === 'advisory@dynastyworks.studio');
     const founderBuilderEmail = MockTestTransport.dispatchedEmails.find((e) => e.to === builderEmail);
 
     check('NOTIF_BUILDER', 'Internal DWS email dispatched with structured subject', Boolean(internalBuilderEmail?.subject.includes('[DWS Intake] COMPANY BUILDER ROADMAP')));
@@ -297,7 +297,7 @@ async function runVerification() {
 
     // Verify Blueprint emails
     check('NOTIF_BLUEPRINT', 'Two emails dispatched for Blueprint', MockTestTransport.dispatchedEmails.length === 2);
-    const internalBpEmail = MockTestTransport.dispatchedEmails.find((e) => e.to === 'advisory@dynastyworks.studio');
+    const internalBpEmail = MockTestTransport.dispatchedEmails.find((e) => e.to === 'advisory@dynastyworksstudio.com' || e.to === 'advisory@dynastyworks.studio');
     check('NOTIF_BLUEPRINT', 'Internal Blueprint email contains strategic blueprint data', Boolean(internalBpEmail?.text.includes('Precision autonomous robotics') && internalBpEmail?.text.includes('Physical Market:   Yes')));
 
     // --- C. General Contact Studio Conversion Flow ---
