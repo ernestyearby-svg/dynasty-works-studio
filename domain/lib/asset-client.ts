@@ -250,7 +250,8 @@ export async function confirmUploads(
     sizeBytes: number;
     metadata?: Record<string, unknown>;
   }>,
-  baseUrl = ''
+  baseUrl = '',
+  founderInfo?: { name?: string; email?: string; company?: string }
 ): Promise<{ status: string; registeredCount: number; assets: AssetRegistrationSummary[] }> {
   const url = `${baseUrl}/api/submissions/assets/confirm`;
 
@@ -263,6 +264,7 @@ export async function confirmUploads(
     body: JSON.stringify({
       receiptId,
       uploadedFiles,
+      founderInfo,
     }),
   });
 
@@ -327,7 +329,8 @@ export async function uploadInquiryAssets(
   receiptId: string,
   files: File[],
   onFileProgress?: (fileIndex: number, progress: number, status: 'uploading' | 'uploaded' | 'error', error?: string) => void,
-  baseUrl = ''
+  baseUrl = '',
+  founderInfo?: { name?: string; email?: string; company?: string }
 ): Promise<AssetUploadBatchResult> {
   const result: AssetUploadBatchResult = {
     success: false,
@@ -433,7 +436,7 @@ export async function uploadInquiryAssets(
     // 3. Confirm metadata registration for signed uploads
     if (uploadedForConfirmation.length > 0) {
       try {
-        const confirmRes = await confirmUploads(receiptId, uploadedForConfirmation, baseUrl);
+        const confirmRes = await confirmUploads(receiptId, uploadedForConfirmation, baseUrl, founderInfo);
         if (confirmRes.assets && confirmRes.assets.length > 0) {
           result.registeredAssets.push(...confirmRes.assets);
         }

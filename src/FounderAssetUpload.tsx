@@ -173,7 +173,10 @@ export function FounderAssetUpload({
         <div className="dws-asset-list">
           <div className="dws-asset-list-summary">
             <span>Attached Materials ({assets.length}/10)</span>
-            <span>{formatBytes(totalBytes)} / 100 MB aggregate</span>
+            <span style={{ fontSize: '11px', color: '#64748b' }}>
+              Staged locally · Transmits to private vault upon brief submission
+            </span>
+            <span>{formatBytes(totalBytes)} / 100 MB</span>
           </div>
 
           <ul className="dws-asset-items">
@@ -192,21 +195,47 @@ export function FounderAssetUpload({
                 </div>
 
                 <div className="dws-asset-item-actions">
-                  {asset.status === 'uploading' && (
-                    <div className="dws-asset-uploading-indicator">
-                      <span className="dws-asset-progress-bar">
-                        <span
-                          className="dws-asset-progress-fill"
-                          style={{ width: `${asset.progress}%` }}
-                        />
+                  {asset.status === 'pending' && (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span className="dws-asset-status-badge is-staged">
+                        ● Staged Locally
                       </span>
-                      <span className="dws-asset-pct">{asset.progress}%</span>
+                      {!disabled && (
+                        <button
+                          type="button"
+                          className="dws-asset-remove-btn"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            removeAsset(asset.id);
+                          }}
+                          aria-label={`Remove ${asset.name}`}
+                        >
+                          ×
+                        </button>
+                      )}
+                    </div>
+                  )}
+
+                  {asset.status === 'uploading' && (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span className="dws-asset-status-badge is-uploading">
+                        ↑ Uploading...
+                      </span>
+                      <div className="dws-asset-uploading-indicator">
+                        <span className="dws-asset-progress-bar">
+                          <span
+                            className="dws-asset-progress-fill"
+                            style={{ width: `${asset.progress}%` }}
+                          />
+                        </span>
+                        <span className="dws-asset-pct">{asset.progress}%</span>
+                      </div>
                     </div>
                   )}
 
                   {asset.status === 'uploaded' && (
                     <span className="dws-asset-status-badge is-success">
-                      ✓ Securely Transmitted
+                      ✓ Vault Received
                     </span>
                   )}
 
@@ -214,20 +243,6 @@ export function FounderAssetUpload({
                     <span className="dws-asset-status-badge is-error" title={asset.error}>
                       ⚠ Upload Failed
                     </span>
-                  )}
-
-                  {asset.status === 'pending' && !disabled && (
-                    <button
-                      type="button"
-                      className="dws-asset-remove-btn"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        removeAsset(asset.id);
-                      }}
-                      aria-label={`Remove ${asset.name}`}
-                    >
-                      ×
-                    </button>
                   )}
                 </div>
               </li>

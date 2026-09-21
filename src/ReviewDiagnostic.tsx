@@ -240,7 +240,6 @@ export default function ReviewDiagnostic({
       if (res.success) {
         const confirmedReceipt = res.data.receiptId;
         setLeadReceiptId(confirmedReceipt);
-        setLeadSaved(true);
         setSubmissionFeedback(res.data.message || 'Brief securely received.');
         download();
         triggerBriefJsonDownload(localPayload);
@@ -267,6 +266,12 @@ export default function ReviewDiagnostic({
                   }
                   return copy;
                 });
+              },
+              '',
+              {
+                name: leadName.trim(),
+                email: leadEmail.trim(),
+                company: companyName.trim() || build.company || 'Confidential Venture',
               }
             );
 
@@ -286,6 +291,7 @@ export default function ReviewDiagnostic({
             );
           }
         }
+        setLeadSaved(true);
       } else {
         if (res.error.status === 'not_configured' || res.error.status === 'unavailable' || res.error.status === 'network_error') {
           setLeadSaved(true);

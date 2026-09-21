@@ -3,6 +3,7 @@ import { z } from 'zod';
 import {
   SubmissionNotificationContext,
   buildInternalDWSNotification,
+  buildInternalAssetUploadNotification,
   buildFounderConfirmation,
   getNotificationTransport,
   IntakeAssetSummary,
@@ -312,7 +313,7 @@ export default async function handler(request: Request, context?: any): Promise<
         );
       }
 
-      const { receiptId, uploadedFiles } = body;
+      const { receiptId, uploadedFiles, founderInfo } = body;
       const registered = [];
 
       for (const f of uploadedFiles) {
@@ -346,6 +347,81 @@ export default async function handler(request: Request, context?: any): Promise<
           registered.push(resData);
         } else {
           console.error('register_inquiry_asset error:', await rpcRes.text());
+        }
+      }
+
+      // Dispatch internal notification when confidential assets are confirmed
+      if (registered.length > 0) {
+        try {
+          let founderName = founderInfo?.name || null;
+          let founderEmail = founderInfo?.email || null;
+          let companyName = founderInfo?.company || null;
+
+          // Attempt to retrieve lead profile details if not fully provided
+          if (!founderName || !founderEmail || !companyName) {
+            try {
+              const inqCheck = await fetch(
+                `${supabaseUrl.replace(/\/$/, '')}/rest/v1/rpc/get_inquiry_by_receipt`,
+                {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    apikey: supabaseKey,
+                    Authorization: `Bearer ${supabaseKey}`,
+                    'Accept-Profile': 'dynasty_private',
+                    'Content-Profile': 'dynasty_private',
+                  },
+                  body: JSON.stringify({ p_receipt_id: receiptId }),
+                }
+              );
+              if (inqCheck.ok) {
+                const inqRows: any = await inqCheck.json();
+                if (Array.isArray(inqRows) && inqRows.length > 0 && inqRows[0].lead_id) {
+                  const leadRes = await fetch(
+                    `${supabaseUrl.replace(/\/$/, '')}/rest/v1/leads?id=eq.${inqRows[0].lead_id}&select=full_name,email,company_name`,
+                    {
+                      headers: {
+                        apikey: supabaseKey,
+                        Authorization: `Bearer ${supabaseKey}`,
+                        'Accept-Profile': 'dynasty_private',
+                      },
+                    }
+                  );
+                  if (leadRes.ok) {
+                    const leadRows: any = await leadRes.json();
+                    if (Array.isArray(leadRows) && leadRows.length > 0) {
+                      founderName = founderName || leadRows[0].full_name;
+                      founderEmail = founderEmail || leadRows[0].email;
+                      companyName = companyName || leadRows[0].company_name;
+                    }
+                  }
+                }
+              }
+            } catch (dbErr) {
+              console.warn('Asset notification profile lookup warning:', dbErr);
+            }
+          }
+
+          const transport = getNotificationTransport();
+          const notif = buildInternalAssetUploadNotification(
+            {
+              receiptId,
+              founderName,
+              founderEmail,
+              companyName,
+            },
+            uploadedFiles.map((f: any) => ({
+              originalFilename: f.originalFilename,
+              mimeType: f.mimeType,
+              sizeBytes: f.sizeBytes,
+            }))
+          );
+          const dispatchRes = await transport.send(notif);
+          if (!dispatchRes.success) {
+            console.error('Asset notification send failed:', dispatchRes.error);
+          }
+        } catch (notifErr) {
+          console.error('Asset notification unexpected error:', notifErr);
         }
       }
 
@@ -479,6 +555,59 @@ export default async function handler(request: Request, context?: any): Promise<
       );
 
       const rpcData = await rpcRes.json();
+
+      // Dispatch internal notification for direct upload
+      try {
+        let founderName = null;
+        let founderEmail = null;
+        let companyName = null;
+
+        if (inqRows[0]?.lead_id) {
+          try {
+            const leadRes = await fetch(
+              `${supabaseUrl.replace(/\/$/, '')}/rest/v1/leads?id=eq.${inqRows[0].lead_id}&select=full_name,email,company_name`,
+              {
+                headers: {
+                  apikey: supabaseKey,
+                  Authorization: `Bearer ${supabaseKey}`,
+                  'Accept-Profile': 'dynasty_private',
+                },
+              }
+            );
+            if (leadRes.ok) {
+              const leadRows: any = await leadRes.json();
+              if (Array.isArray(leadRows) && leadRows.length > 0) {
+                founderName = leadRows[0].full_name;
+                founderEmail = leadRows[0].email;
+                companyName = leadRows[0].company_name;
+              }
+            }
+          } catch (leadLookupErr) {
+            console.warn('Lead lookup error on direct upload:', leadLookupErr);
+          }
+        }
+
+        const transport = getNotificationTransport();
+        const notif = buildInternalAssetUploadNotification(
+          {
+            receiptId,
+            founderName,
+            founderEmail,
+            companyName,
+          },
+          [
+            {
+              originalFilename: filename,
+              mimeType,
+              sizeBytes,
+            },
+          ]
+        );
+        await transport.send(notif);
+      } catch (directNotifErr) {
+        console.error('Direct asset upload notification failed:', directNotifErr);
+      }
+
       return new Response(
         JSON.stringify({
           status: 'uploaded',

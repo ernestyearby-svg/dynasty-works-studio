@@ -262,7 +262,7 @@ Summary / Notes:   ${g.description || 'None'}
 `;
   }
 
-  let assetsSummary = '\nASSETS RECEIVED: 0 (No materials uploaded)\n';
+  let assetsSummary = '\nASSETS AT INITIAL TRANSMISSION: 0 (Optional founder materials transmit to private vault upon brief confirmation)\n';
   if (ctx.assets && ctx.assets.length > 0) {
     const list = ctx.assets
       .map((a) => `  - ${a.originalFilename} (${a.mimeType}, ${(a.sizeBytes / (1024 * 1024)).toFixed(2)} MB)`)
@@ -412,4 +412,71 @@ export async function dispatchSubmissionNotifications(
     founder: founderResult,
     error: combinedError,
   };
+}
+
+/**
+ * Build structured internal notification for Dynasty Works Studio leadership
+ * when confidential founder materials are confirmed and stored in the private vault.
+ */
+export function buildInternalAssetUploadNotification(
+  inquiry: {
+    receiptId: string;
+    founderName?: string | null;
+    founderEmail?: string | null;
+    companyName?: string | null;
+  },
+  assets: Array<{
+    originalFilename: string;
+    mimeType: string;
+    sizeBytes: number;
+  }>,
+  senderFrom?: string,
+  internalRecipient?: string
+): EmailDispatch {
+  const from =
+    senderFrom ||
+    process.env.EMAIL_FROM ||
+    process.env.RESEND_FROM_EMAIL ||
+    'Dynasty Works Studio <advisory@dynastyworksstudio.com>';
+  const to =
+    internalRecipient ||
+    process.env.INTERNAL_NOTIFICATION_EMAIL ||
+    'ernestyearby@gmail.com';
+
+  const rawCompany = inquiry.companyName?.trim() || '';
+  const isConfidentialOrEmpty =
+    !rawCompany ||
+    rawCompany.toLowerCase() === 'confidential venture' ||
+    rawCompany.toLowerCase() === 'your venture';
+  const displayCompany = isConfidentialOrEmpty ? 'Confidential / Unspecified Venture' : rawCompany;
+
+  const subject = `[DWS Intake] CONFIDENTIAL ASSETS RECEIVED — ${displayCompany} (${inquiry.receiptId})`;
+
+  const list = assets
+    .map((a) => `  - ${a.originalFilename} (${a.mimeType}, ${(a.sizeBytes / (1024 * 1024)).toFixed(2)} MB)`)
+    .join('\n');
+
+  const text = `DYNASTY WORKS STUDIO // CONFIDENTIAL ASSETS RECEIVED
+==================================================
+SUBMISSION RECEIPT: ${inquiry.receiptId}
+TIMESTAMP:          ${new Date().toISOString()}
+==================================================
+
+--- FOUNDER PROFILE ---
+Founder Name:      ${inquiry.founderName || 'Not specified'}
+Company / Venture: ${displayCompany}
+Contact Email:     ${inquiry.founderEmail || 'On file with submission brief'}
+
+--- CONFIDENTIAL ASSETS VAULT-STORED (${assets.length} file(s)) ---
+${list}
+
+==================================================
+VAULT SECURITY NOTICE:
+All materials are stored in the private founder asset vault ('founder-intake-assets').
+Public anonymous access is disabled. Retrieval is restricted to authenticated studio principals.
+==================================================
+Supabase Receipt: ${inquiry.receiptId}
+`;
+
+  return { to, from, subject, text };
 }
