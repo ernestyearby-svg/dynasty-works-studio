@@ -19,6 +19,7 @@ import {
   type BlueprintDraft,
 } from "@legacy/lib/blueprint-intake";
 import { recordStudioEvent } from "@legacy/lib/analytics";
+import { submitInquiry, generateIdempotencyKey } from "@/lib/submission-client";
 const labels = [
   "Founder",
   "The idea",
@@ -38,11 +39,13 @@ export function BlueprintIntakeForm() {
     [step, setStep] = useState(0),
     [errors, setErrors] = useState<Record<string, string>>({}),
     [acknowledged, setAcknowledged] = useState(false),
+    [honeypot, setHoneypot] = useState(""),
     [message, setMessage] = useState("");
   const [submission, setSubmission] = useState<SubmissionUIState>({
     state: "idle",
   });
   const heading = useRef<HTMLHeadingElement>(null);
+  const idempotencyKeyRef = useRef<string>(generateIdempotencyKey());
   useEffect(() => {
     recordStudioEvent({
       name: "founder_blueprint_intake_started",
@@ -77,7 +80,7 @@ export function BlueprintIntakeForm() {
   function advance() {
     const found = validateBlueprintStep(draft, step);
     if (step === 3 && !acknowledged)
-      found.acknowledged = "Please acknowledge that this is a local preview.";
+      found.acknowledged = "Please confirm authorization to review this intake.";
     setErrors(found);
     if (Object.keys(found).length) {
       setTimeout(
@@ -94,13 +97,81 @@ export function BlueprintIntakeForm() {
           name: "founder_blueprint_intake_completed",
           route: "/founder-blueprint/intake",
         });
-    } else
+    } else {
+      submitBlueprint();
+    }
+  }
+  async function submitBlueprint() {
+    setSubmission({ state: "submitting" });
+    setMessage("");
+
+    const payload = {
+      name: draft.name.trim(),
+      email: draft.email.trim(),
+      phone: draft.phone.trim() || "",
+      company: draft.company.trim(),
+      website: draft.website || "",
+      businessType: draft.businessType,
+      businessStage: draft.businessStage,
+      physicalMarket: Boolean(draft.physicalMarket),
+      ideaDescription: draft.ideaDescription.trim(),
+      problemDescription: draft.problemDescription.trim(),
+      targetCustomer: draft.targetCustomer.trim(),
+      existingAssets: draft.existingAssets.trim() || "",
+      requestedNeeds: draft.requestedNeeds.trim(),
+      targetLaunch: draft.targetLaunch.trim() || "Exploring",
+      primaryMarket: draft.primaryMarket.trim() || "General",
+      competitors: draft.competitors.trim() || "",
+      brandAssets: draft.brandAssets.trim() || "",
+      companyDocuments: draft.companyDocuments.trim() || "",
+      digitalAssets: draft.digitalAssets.trim() || "",
+      distributionGoals: draft.distributionGoals.trim() || "",
+      biggestQuestion: draft.biggestQuestion.trim(),
+      references: draft.references || [],
+    };
+
+    try {
+      const res = await submitInquiry("blueprint", payload, {
+        idempotencyKey: idempotencyKeyRef.current,
+        honeypot,
+      });
+
+      if (res.success) {
+        setSubmission({
+          state: "success",
+          receiptId: res.data.receiptId,
+        });
+        setMessage(
+          "Your Founder Blueprint intake was securely received. Receipt: " +
+            res.data.receiptId +
+            ". You can also download a local copy of your intake.",
+        );
+      } else {
+        if (
+          res.error.status === "not_configured" ||
+          res.error.status === "unavailable" ||
+          res.error.status === "network_error"
+        ) {
+          setSubmission({
+            state: "disabled",
+            message:
+              res.error.message +
+              " You can download a local copy of your intake below.",
+          });
+        } else {
+          setSubmission({
+            state: "error",
+            message: res.error.message,
+          });
+        }
+      }
+    } catch {
       setSubmission({
         state: "disabled",
         message:
-          submissionAvailability.message +
-          " Payment and booking are also inactive.",
+          "Unable to complete remote transmission. You can download a local copy of your intake below.",
       });
+    }
   }
   function download() {
     const url = URL.createObjectURL(
@@ -416,8 +487,7 @@ export function BlueprintIntakeForm() {
                   aria-invalid={!!errors.acknowledged}
                 />
                 <span>
-                  I understand this is a memory-only local intake preview.
-                  Nothing is sent to the studio or charged.
+                  I authorize Dynasty Works Studio to review this Blueprint intake. I understand completing this intake does not purchase or charge the engagement.
                 </span>
               </label>
             </div>
@@ -452,6 +522,18 @@ export function BlueprintIntakeForm() {
               </button>
             </>
           )}
+          <div className="honeypot" aria-hidden="true" style={{ display: "none" }}>
+            <label>
+              Leave empty
+              <input
+                name="fax"
+                tabIndex={-1}
+                autoComplete="off"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+              />
+            </label>
+          </div>
           <SubmissionFeedback result={submission} />
           {message && (
             <p className="submission-message" role="status">
@@ -470,9 +552,11 @@ export function BlueprintIntakeForm() {
             ) : (
               <span className="small-note">Your starting point</span>
             )}
-            <button className="button dark" type="submit">
+            <button className="button dark" type="submit" disabled={submission.state === "submitting"}>
               {step === 4
-                ? "Check intake readiness"
+                ? submission.state === "submitting"
+                  ? "Transmitting intake..."
+                  : "Transmit Blueprint intake"
                 : step === 3
                   ? "Review my intake"
                   : "Continue"}{" "}

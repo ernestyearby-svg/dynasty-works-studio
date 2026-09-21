@@ -13,11 +13,22 @@ const DEFENSIVE_HEADERS: Record<string, string> = {
   'Content-Type': 'application/json',
 };
 
-function reply(status: number, body: Record<string, unknown>, extraHeaders: Record<string, string> = {}): Response {
+function reply(
+  status: number,
+  body: Record<string, unknown>,
+  extraHeaders: Record<string, string> = {},
+  origin?: string | null
+): Response {
+  const corsHeaders: Record<string, string> = {};
+  if (origin && isOriginAllowed(origin)) {
+    corsHeaders['Access-Control-Allow-Origin'] = origin;
+    corsHeaders['Vary'] = 'Origin';
+  }
   return new Response(JSON.stringify(body), {
     status,
     headers: {
       ...DEFENSIVE_HEADERS,
+      ...corsHeaders,
       ...extraHeaders,
     },
   });
@@ -41,7 +52,14 @@ function isOriginAllowed(origin: string | null): boolean {
   ];
 
   const allowed = new Set([...defaults, ...configured]);
-  return allowed.has(origin);
+  if (allowed.has(origin)) return true;
+
+  // Dynamically permit Netlify deploy-preview and branch-deploy URLs for the review site
+  if (/^https:\/\/[a-z0-9-]+--dynasty-works-studio-review\.netlify\.app$/.test(origin)) {
+    return true;
+  }
+
+  return false;
 }
 
 // Common Validation Schemas
@@ -118,63 +136,79 @@ const generalPayloadSchema = z.object({
   referenceUrl: safeUrl.optional().default(''),
 }).strict();
 
-export default async function handler(request: Request): Promise<Response> {
+export default async function handler(request: Request, context?: any): Promise<Response> {
   const startTime = Date.now();
+  const origin = request.headers.get('origin');
+  const respond = (status: number, body: Record<string, unknown>, extra: Record<string, string> = {}) =>
+    reply(status, body, extra, origin);
 
-  // 1. HTTP Method Check
-  if (request.method !== 'POST') {
-    return reply(405, { status: 'rejected', message: 'Method Not Allowed' }, { Allow: 'POST' });
+  // 1. Origin Allowlist Validation
+  if (origin && !isOriginAllowed(origin)) {
+    return reply(403, { status: 'rejected', message: 'Origin Not Allowed' });
   }
 
-  // 2. Feature Flag Gate (Controlled Phase 2E.1 Operation)
+  // 2. Preflight OPTIONS Handling
+  if (request.method === 'OPTIONS') {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        'Access-Control-Allow-Origin': origin || '*',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With, Idempotency-Key',
+        'Access-Control-Max-Age': '86400',
+        'Vary': 'Origin',
+      },
+    });
+  }
+
+  // 3. HTTP Method Check
+  if (request.method !== 'POST') {
+    return respond(405, { status: 'rejected', message: 'Method Not Allowed' }, { Allow: 'POST, OPTIONS' });
+  }
+
+  // 4. Feature Flag Gate (Controlled Phase 2E.1 Operation)
   if (process.env.INQUIRY_SUBMISSIONS_ENABLED !== 'true') {
-    return reply(503, {
+    return respond(503, {
       status: 'not_configured',
       message: 'Secure transmission endpoint is not enabled. Local export and brief download remain available.',
     });
   }
 
-  // 3. Origin Allowlist Validation
-  const origin = request.headers.get('origin');
-  if (origin && !isOriginAllowed(origin)) {
-    return reply(403, { status: 'rejected', message: 'Origin Not Allowed' });
-  }
-
   // 4. Content-Type Validation
   const contentType = request.headers.get('content-type') || '';
   if (!contentType.toLowerCase().startsWith('application/json')) {
-    return reply(415, { status: 'rejected', message: 'Expected Content-Type: application/json' });
+    return respond(415, { status: 'rejected', message: 'Expected Content-Type: application/json' });
   }
 
   // 5. Payload Size Bound (Max 48KB)
   const MAX_BYTES = 48000;
   const contentLength = Number(request.headers.get('content-length') || 0);
   if (contentLength > MAX_BYTES) {
-    return reply(413, { status: 'rejected', message: 'Payload Too Large' });
+    return respond(413, { status: 'rejected', message: 'Payload Too Large' });
   }
 
   let rawBodyText = '';
   try {
     const rawBuffer = await request.arrayBuffer();
     if (rawBuffer.byteLength > MAX_BYTES) {
-      return reply(413, { status: 'rejected', message: 'Payload Too Large' });
+      return respond(413, { status: 'rejected', message: 'Payload Too Large' });
     }
     rawBodyText = new TextDecoder('utf-8', { fatal: true }).decode(rawBuffer);
   } catch {
-    return reply(400, { status: 'rejected', message: 'Malformed request body' });
+    return respond(400, { status: 'rejected', message: 'Malformed request body' });
   }
 
   let body: any;
   try {
     body = JSON.parse(rawBodyText);
   } catch {
-    return reply(400, { status: 'rejected', message: 'Invalid JSON' });
+    return respond(400, { status: 'rejected', message: 'Invalid JSON' });
   }
 
   // 6. Common Envelope Validation (Idempotency, Consent, Honeypot)
   const envelopeResult = commonEnvelopeSchema.safeParse(body);
   if (!envelopeResult.success) {
-    return reply(400, {
+    return respond(400, {
       status: 'rejected',
       message: 'Invalid submission envelope or honeypot triggered',
       errors: envelopeResult.error.flatten().fieldErrors,
@@ -187,7 +221,7 @@ export default async function handler(request: Request): Promise<Response> {
   const url = new URL(request.url);
   const kindParam = url.searchParams.get('kind') || body.kind;
   if (kindParam !== 'builder' && kindParam !== 'blueprint' && kindParam !== 'general') {
-    return reply(400, { status: 'rejected', message: 'Invalid or missing submission kind parameter' });
+    return respond(400, { status: 'rejected', message: 'Invalid or missing submission kind parameter' });
   }
 
   const kind: 'builder' | 'blueprint' | 'general' = kindParam;
@@ -199,7 +233,7 @@ export default async function handler(request: Request): Promise<Response> {
   if (kind === 'builder') {
     const parseResult = builderPayloadSchema.safeParse(body.data);
     if (!parseResult.success) {
-      return reply(422, {
+      return respond(422, {
         status: 'validation_error',
         message: 'Please review required Company Builder fields.',
         errors: parseResult.error.flatten().fieldErrors,
@@ -234,7 +268,7 @@ export default async function handler(request: Request): Promise<Response> {
   } else if (kind === 'blueprint') {
     const parseResult = blueprintPayloadSchema.safeParse(body.data);
     if (!parseResult.success) {
-      return reply(422, {
+      return respond(422, {
         status: 'validation_error',
         message: 'Please review required Founder Blueprint fields.',
         errors: parseResult.error.flatten().fieldErrors,
@@ -245,7 +279,7 @@ export default async function handler(request: Request): Promise<Response> {
   } else {
     const parseResult = generalPayloadSchema.safeParse(body.data);
     if (!parseResult.success) {
-      return reply(422, {
+      return respond(422, {
         status: 'validation_error',
         message: 'Please review required Contact fields.',
         errors: parseResult.error.flatten().fieldErrors,
@@ -256,11 +290,17 @@ export default async function handler(request: Request): Promise<Response> {
   }
 
   // 9. Ephemeral Privacy-Preserving Rate Limit Hash
-  const rawIp =
-    request.headers.get('x-nf-client-connection-ip') ||
-    request.headers.get('client-ip') ||
-    request.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
-    '127.0.0.1';
+  // Extract trusted client IP from platform-verified sources (Netlify context.ip or edge header)
+  let rawIp = context?.ip || request.headers.get('x-nf-client-connection-ip');
+
+  // Fallback for simulated test environments only (never trusted in production)
+  if (!rawIp) {
+    if (process.env.NODE_ENV === 'test' || process.env.VITEST || process.env.DWS_TEST_MODE === 'true') {
+      rawIp = request.headers.get('x-forwarded-for')?.split(',')[0].trim() || '127.0.0.1';
+    } else {
+      rawIp = '127.0.0.1';
+    }
+  }
 
   const pepper = process.env.RATE_LIMIT_PEPPER || 'dws_static_dev_pepper';
   const ipHash = crypto.createHash('sha256').update(rawIp + pepper).digest('hex');
@@ -273,7 +313,7 @@ export default async function handler(request: Request): Promise<Response> {
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
   if (!supabaseUrl || !supabaseKey) {
-    return reply(503, {
+    return respond(503, {
       status: 'not_configured',
       message: 'Database connection configuration is missing or incomplete.',
     });
@@ -310,14 +350,14 @@ export default async function handler(request: Request): Promise<Response> {
 
       // Check for custom Postgres exception codes
       if (errText.includes('RATE_LIMITED') || rpcResponse.status === 429) {
-        return reply(429, {
+        return respond(429, {
           status: 'rate_limited',
           message: 'Submission frequency threshold reached. Please try again in a few minutes.',
         }, { 'Retry-After': '600' });
       }
 
       if (errText.includes('IDEMPOTENCY_CONFLICT') || rpcResponse.status === 409) {
-        return reply(409, {
+        return respond(409, {
           status: 'conflict',
           message: 'This request key was previously used with differing information. Please submit a new brief.',
         });
@@ -330,7 +370,7 @@ export default async function handler(request: Request): Promise<Response> {
         duration_ms: Date.now() - startTime,
       }));
 
-      return reply(503, {
+      return respond(503, {
         status: 'unavailable',
         message: 'Secure transmission service is temporarily unavailable. Please download your brief locally.',
       });
@@ -354,7 +394,7 @@ export default async function handler(request: Request): Promise<Response> {
       duration_ms: Date.now() - startTime,
     }));
 
-    return reply(202, {
+    return respond(202, {
       status: 'accepted',
       receiptId,
       message: 'Brief securely received.',
@@ -367,7 +407,7 @@ export default async function handler(request: Request): Promise<Response> {
       duration_ms: Date.now() - startTime,
     }));
 
-    return reply(503, {
+    return respond(503, {
       status: 'unavailable',
       message: 'Unable to complete transmission. Your brief is preserved below.',
     });

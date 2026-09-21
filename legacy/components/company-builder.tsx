@@ -39,6 +39,7 @@ import {
 import { RoadmapSummary } from "@legacy/components/roadmap-summary";
 import { recordStudioEvent } from "@legacy/lib/analytics";
 import type { CompanyBuild } from "@legacy/types/company";
+import { submitInquiry, generateIdempotencyKey } from "@/lib/submission-client";
 const stepLabels = [
   "Business",
   "Starting point",
@@ -64,6 +65,10 @@ export function CompanyBuilder() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [message, setMessage] = useState("");
   const [storageWarning, setStorageWarning] = useState("");
+  const [honeypot, setHoneypot] = useState("");
+  const [receiptId, setReceiptId] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const idempotencyKeyRef = useRef<string>(generateIdempotencyKey());
   const leadIdentity = useRef<{
     builderSessionId: string;
     createdAt: string;
@@ -249,7 +254,7 @@ export function CompanyBuilder() {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
     setMessage("Summary downloaded. Nothing has been submitted.");
   }
-  function startBuild() {
+  async function startBuild() {
     recordStudioEvent({
       name: "strategy_review_clicked",
       route: "/start-a-business/builder",
@@ -263,10 +268,64 @@ export function CompanyBuilder() {
       setErrors(found);
       return;
     }
-    if (leadIdentity.current) createLeadPayload(build, leadIdentity.current); // Prepared in memory only; no transport is configured.
-    setMessage(
-      "Your brief is ready, but it has not been submitted. Delivery is not connected yet. Download the summary to keep a copy.",
-    );
+
+    setIsSubmitting(true);
+    setMessage("");
+
+    const remotePayload = {
+      name: build.name.trim(),
+      email: build.email.trim(),
+      phone: build.phone.trim() || "",
+      company: build.company.trim() || "Confidential Venture",
+      website: build.website || "",
+      businessType: build.businessType,
+      businessStage: build.businessStage,
+      existingAssets: build.starting,
+      selectedNeeds: build.needs,
+      launchTimeline: build.launch || "Exploring",
+      budgetRange:
+        build.budgetChoice === budgetChoices[1]
+          ? build.budgetNote
+          : build.budgetChoice || "",
+      ambitionNotes: build.referralSource || "",
+    };
+
+    try {
+      const res = await submitInquiry("builder", remotePayload, {
+        idempotencyKey: idempotencyKeyRef.current,
+        honeypot,
+      });
+
+      if (res.success) {
+        setReceiptId(res.data.receiptId);
+        setMessage(
+          "Your strategy review brief was securely received. Receipt: " +
+            res.data.receiptId +
+            ". You can also download the roadmap summary below.",
+        );
+      } else {
+        if (
+          res.error.status === "not_configured" ||
+          res.error.status === "unavailable" ||
+          res.error.status === "network_error"
+        ) {
+          download();
+          setMessage(
+            res.error.message +
+              " Your roadmap summary has been downloaded locally.",
+          );
+        } else {
+          setMessage(res.error.message);
+        }
+      }
+    } catch {
+      download();
+      setMessage(
+        "Unable to complete remote transmission. Your roadmap summary has been downloaded locally.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
   function reset() {
     try {
@@ -677,10 +736,7 @@ export function CompanyBuilder() {
                     aria-invalid={!!errors.acknowledged}
                   />
                   <span>
-                    I understand my selections are saved in this tab for the
-                    session. Contact details, written budget and automation
-                    process notes are memory-only. Nothing is sent to the
-                    studio; I can clear the draft or download a copy.
+                    I authorize Dynasty Works Studio to review this company build brief. I understand I can clear the draft or download a copy at any time.
                   </span>
                 </label>
                 <p className="small-note">
@@ -732,14 +788,30 @@ export function CompanyBuilder() {
                   {professionalBoundaries.general}
                 </p>
                 <p className="content-note">
-                  A scope to discuss, not a confirmed engagement. Delivery is
-                  not connected; no submission is saved by the studio.
+                  A scope to discuss, not a confirmed engagement. You can transmit your brief to the studio or download a local roadmap.
                 </p>
+                {receiptId && (
+                  <div style={{ margin: "14px 0", padding: "8px 12px", background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.25)", borderRadius: "4px", color: "#10b981", fontFamily: "monospace", fontSize: "13px" }}>
+                    Receipt ID: <strong>{receiptId}</strong>
+                  </div>
+                )}
                 <button className="button" type="button" onClick={download}>
                   Download roadmap ↓
                 </button>
               </>
             )}
+            <div className="honeypot" aria-hidden="true" style={{ display: "none" }}>
+              <label>
+                Leave empty
+                <input
+                  name="fax"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
+              </label>
+            </div>
             {storageWarning && (
               <p role="status" className="small-note">
                 {storageWarning}
@@ -762,9 +834,11 @@ export function CompanyBuilder() {
               ) : (
                 <span className="small-note">Your starting point</span>
               )}
-              <button className="button dark" type="submit">
+              <button className="button dark" type="submit" disabled={isSubmitting}>
                 {step === 6
-                  ? "Request strategy review"
+                  ? isSubmitting
+                    ? "Transmitting brief..."
+                    : "Request strategy review"
                   : step === 5
                     ? "Review my build"
                     : "Continue"}{" "}

@@ -16,6 +16,7 @@ import {
 import { businessStages, serviceById, type BusinessStage, type RoadmapPhase } from '@/data/service-catalog';
 import { creationStages, stageForPhase, type CreationStage } from '@/data/company-creation';
 import type { CompanyBuild } from '@/types/company';
+import { submitInquiry, generateIdempotencyKey } from '@/lib/submission-client';
 import './ReviewDiagnostic.css';
 
 const suggested: BuildNeed[] = [
@@ -67,8 +68,14 @@ export default function ReviewDiagnostic({
   const [leadEmail, setLeadEmail] = useState('');
   const [leadPhone, setLeadPhone] = useState('');
   const [leadAmbition, setLeadAmbition] = useState('');
+  const [leadConsent, setLeadConsent] = useState(false);
+  const [leadHoneypot, setLeadHoneypot] = useState('');
   const [leadSaved, setLeadSaved] = useState(false);
   const [leadError, setLeadError] = useState('');
+  const [leadReceiptId, setLeadReceiptId] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionFeedback, setSubmissionFeedback] = useState('');
+  const idempotencyKeyRef = useRef<string>(generateIdempotencyKey());
 
   const title = useRef<HTMLHeadingElement>(null);
 
@@ -144,36 +151,23 @@ export default function ReviewDiagnostic({
     window.print();
   }
 
-  function handleSaveLead(e?: React.FormEvent) {
-    if (e) e.preventDefault();
-    if (!leadName.trim() || !leadEmail.trim() || !leadEmail.includes('@')) {
-      setLeadError('Please provide your name and a valid work email.');
-      return;
-    }
-    setLeadError('');
-    const identity = {
-      builderSessionId: 'dws_' + Math.random().toString(36).slice(2, 10),
-      createdAt: new Date().toISOString(),
-    };
-    const leadBuild: CompanyBuild = {
-      ...build,
-      name: leadName.trim(),
-      email: leadEmail.trim(),
-      phone: leadPhone.trim(),
-      company: companyName.trim() || build.company || 'Confidential Venture',
-    };
-    const payload = createLeadPayload(leadBuild, identity);
-
-    try {
-      localStorage.setItem('dws_company_builder_lead', JSON.stringify(payload));
-    } catch {
-      // Local storage fallback
-    }
-
-    // Trigger brief JSON download
+  function triggerBriefJsonDownload(payload?: unknown) {
     const slug = (companyName || businessType).toLowerCase().replace(/[^a-z0-9]+/g, '-');
     const briefFilename = `dynasty-works-${slug}-brief.json`;
-    const blob = new Blob([JSON.stringify(payload, null, 2)], {
+    const dataToSave = payload || createLeadPayload(
+      {
+        ...build,
+        name: leadName.trim() || 'Confidential Founder',
+        email: leadEmail.trim(),
+        phone: leadPhone.trim(),
+        company: companyName.trim() || build.company || 'Confidential Venture',
+      },
+      {
+        builderSessionId: idempotencyKeyRef.current,
+        createdAt: new Date().toISOString(),
+      }
+    );
+    const blob = new Blob([JSON.stringify(dataToSave, null, 2)], {
       type: 'application/json',
     });
     const url = URL.createObjectURL(blob);
@@ -184,8 +178,102 @@ export default function ReviewDiagnostic({
     a.click();
     a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
 
+  async function handleSaveLead(e?: React.FormEvent) {
+    if (e) e.preventDefault();
+    if (!leadName.trim() || !leadEmail.trim() || !leadEmail.includes('@')) {
+      setLeadError('Please provide your name and a valid work email.');
+      return;
+    }
+    if (!leadConsent) {
+      setLeadError('Please confirm consent for Dynasty Works Studio to evaluate your brief.');
+      return;
+    }
+    setLeadError('');
+    setIsSubmitting(true);
+
+    const leadBuild: CompanyBuild = {
+      ...build,
+      name: leadName.trim(),
+      email: leadEmail.trim(),
+      phone: leadPhone.trim(),
+      company: companyName.trim() || build.company || 'Confidential Venture',
+    };
+    const identity = {
+      builderSessionId: idempotencyKeyRef.current,
+      createdAt: new Date().toISOString(),
+    };
+    const localPayload = createLeadPayload(leadBuild, identity);
+
+    try {
+      localStorage.setItem('dws_company_builder_lead', JSON.stringify(localPayload));
+    } catch {
+      // Local storage fallback
+    }
+
+    const remotePayload = {
+      name: leadName.trim(),
+      email: leadEmail.trim(),
+      phone: leadPhone.trim() || '',
+      company: companyName.trim() || build.company || 'Confidential Venture',
+      website: '',
+      businessType,
+      businessStage: stage,
+      existingAssets: starting,
+      selectedNeeds: needs,
+      launchTimeline: launchWindow || 'Exploring',
+      budgetRange: budgetChoice || '',
+      ambitionNotes: leadAmbition.trim() || '',
+    };
+
+    try {
+      const res = await submitInquiry('builder', remotePayload, {
+        idempotencyKey: idempotencyKeyRef.current,
+        honeypot: leadHoneypot,
+      });
+
+      if (res.success) {
+        setLeadReceiptId(res.data.receiptId);
+        setLeadSaved(true);
+        setSubmissionFeedback(res.data.message || 'Brief securely received.');
+        download();
+        triggerBriefJsonDownload(localPayload);
+      } else {
+        if (res.error.status === 'not_configured' || res.error.status === 'unavailable' || res.error.status === 'network_error') {
+          setLeadSaved(true);
+          setSubmissionFeedback(
+            res.error.message ||
+              'Remote submission endpoint is not enabled. Your brief and roadmap are preserved locally.'
+          );
+          download();
+          triggerBriefJsonDownload(localPayload);
+        } else {
+          setLeadError(res.error.message || 'Submission could not be completed.');
+        }
+      }
+    } catch {
+      setLeadSaved(true);
+      setSubmissionFeedback(
+        'Unable to connect to submission service. Your brief and roadmap have been saved locally.'
+      );
+      download();
+      triggerBriefJsonDownload(localPayload);
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
+  function handleDownloadOnly() {
+    if (!leadName.trim() || !leadEmail.trim() || !leadEmail.includes('@')) {
+      setLeadError('Please provide your name and a valid work email.');
+      return;
+    }
+    setLeadError('');
+    download();
+    triggerBriefJsonDownload();
     setLeadSaved(true);
+    setSubmissionFeedback('Local project dossier downloaded. No remote submission was made.');
   }
 
   return (
@@ -643,30 +731,41 @@ export default function ReviewDiagnostic({
           {/* POST-ROADMAP STUDIO BRIEF PREPARATION (TRUTHFUL CTA LANGUAGE & DELIBERATE INPUTS) */}
           <div className="dws-lead-capture-box">
             <div className="dws-lead-header">
-              <span className="dws-lead-kicker">LOCAL PREPARATION UTILITY</span>
-              <h4 className="dws-lead-title">Save Roadmap & Prepare Studio Brief</h4>
+              <span className="dws-lead-kicker">STUDIO BRIEF & TRANSMISSION</span>
+              <h4 className="dws-lead-title">Save Roadmap & Transmit Studio Brief</h4>
               <p className="dws-lead-subtitle">
-                Your initial roadmap has been generated above. Complete your founder details below
-                to compile a formal studio brief and download a private project dossier to your
-                computer. Nothing is transmitted over the network.
+                Your strategic roadmap has been sequenced above. Submit your brief for confidential
+                review by studio principals, or download your complete project dossier locally.
+                Your roadmap and brief are always preserved.
               </p>
             </div>
 
             {leadSaved ? (
               <div className="dws-lead-success" role="status">
-                <strong>✓ Roadmap & Studio Brief Prepared.</strong>
-                <p style={{ margin: '8px 0 0' }}>
-                  Your structured company brief has been downloaded to your device and saved to your
-                  browser session. To initiate a direct conversation with studio principals, please
-                  share your brief via our{' '}
-                  <a href="/contact" style={{ color: '#2457ff', fontWeight: 600 }}>
-                    Contact channel
-                  </a>{' '}
-                  or email{' '}
-                  <a href="mailto:contact@dynastyworks.studio" style={{ color: '#2457ff', fontWeight: 600 }}>
-                    contact@dynastyworks.studio
-                  </a>.
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px' }}>
+                  <strong style={{ color: leadReceiptId ? '#10b981' : '#f59e0b', fontSize: '15px' }}>
+                    {leadReceiptId ? '✓ Brief Securely Received' : '✓ Brief Saved Locally'}
+                  </strong>
+                  {leadReceiptId && (
+                    <span style={{ fontFamily: 'monospace', fontSize: '12px', background: 'rgba(16, 185, 129, 0.1)', color: '#10b981', padding: '3px 8px', borderRadius: '4px', border: '1px solid rgba(16, 185, 129, 0.25)' }}>
+                      Receipt: {leadReceiptId}
+                    </span>
+                  )}
+                </div>
+                <p style={{ margin: '8px 0 12px', color: '#cbd5e1', fontSize: '14px', lineHeight: '1.5' }}>
+                  {submissionFeedback ||
+                    (leadReceiptId
+                      ? 'Your company build roadmap and founder brief have been securely transmitted to Dynasty Works Studio principals under confidential review.'
+                      : 'Your confidential company creation brief has been compiled and downloaded to your device.')}
                 </p>
+                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '12px' }}>
+                  <button type="button" className="quiet-button" onClick={download}>
+                    Download Roadmap (.txt) ↓
+                  </button>
+                  <button type="button" className="quiet-button" onClick={() => triggerBriefJsonDownload()}>
+                    Download Brief (.json) ↓
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSaveLead}>
@@ -728,17 +827,48 @@ export default function ReviewDiagnostic({
                       onChange={(e) => setLeadAmbition(e.target.value)}
                     />
                   </div>
+
+                  <div className="dws-lead-full" style={{ marginTop: '4px' }}>
+                    <label className="dws-diag-consent-label" style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', cursor: 'pointer', fontSize: '13px', color: '#94a3b8' }}>
+                      <input
+                        type="checkbox"
+                        id="builder-consent"
+                        checked={leadConsent}
+                        onChange={(e) => setLeadConsent(e.target.checked)}
+                        style={{ marginTop: '3px', cursor: 'pointer' }}
+                      />
+                      <span>
+                        I authorize Dynasty Works Studio to review this company build roadmap and contact me regarding this strategic brief. (Decline or uncheck to proceed with local-only download).
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+                <div style={{ display: 'none' }} aria-hidden="true">
+                  <label htmlFor="builder-hp-fax">Leave this field blank</label>
+                  <input
+                    id="builder-hp-fax"
+                    type="text"
+                    name="fax"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={leadHoneypot}
+                    onChange={(e) => setLeadHoneypot(e.target.value)}
+                  />
                 </div>
 
                 {leadError && (
-                  <p role="alert" className="form-error" style={{ marginBottom: '14px' }}>
+                  <p role="alert" className="form-error" style={{ marginBottom: '14px', marginTop: '12px' }}>
                     {leadError}
                   </p>
                 )}
 
-                <div className="dws-lead-actions">
-                  <button type="submit" className="primary-action">
-                    Save Roadmap & Prepare Studio Brief <span aria-hidden="true">→</span>
+                <div className="dws-lead-actions" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+                  <button type="submit" className="primary-action" disabled={isSubmitting}>
+                    {isSubmitting ? 'Transmitting Brief...' : 'Transmit Brief to Studio'} <span aria-hidden="true">→</span>
+                  </button>
+                  <button type="button" className="quiet-button" onClick={handleDownloadOnly}>
+                    Download Brief Locally <span aria-hidden="true">↓</span>
                   </button>
                 </div>
               </form>

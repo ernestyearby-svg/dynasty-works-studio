@@ -2,6 +2,7 @@
 import { isMarketNeed } from "@legacy/lib/company-builder";
 import { professionalBoundaries } from "@legacy/data/company-builder";
 import { useState, useRef } from "react";
+import { submitInquiry, generateIdempotencyKey } from "@/lib/submission-client";
 import {
   inquiryServices,
   stages,
@@ -47,6 +48,10 @@ export function InquiryForm() {
   const [draft, setDraft] = useState<Draft>(initial);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [receiptId, setReceiptId] = useState("");
+  const idempotencyKeyRef = useRef<string>(generateIdempotencyKey());
   const titleRef = useRef<HTMLHeadingElement>(null);
   function change(key: keyof Draft, value: string | boolean | string[]) {
     setDraft((d) => ({ ...d, [key]: value }));
@@ -123,10 +128,65 @@ export function InquiryForm() {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
     setMessage("Brief downloaded. Nothing has been submitted.");
   }
-  function submit() {
+  async function submit() {
     if (!validate()) return;
-    // The backend remains disabled; the completed brief is a local download.
-    download();
+    setIsSubmitting(true);
+    setMessage("");
+
+    const payload = {
+      name: draft.name.trim(),
+      email: draft.email.trim(),
+      phone: draft.phone.trim() || "",
+      company: draft.company.trim(),
+      website: draft.website || "",
+      services: draft.services,
+      physicalMarket: Boolean(draft.physicalMarket),
+      description: draft.description.trim(),
+      stage: draft.stage,
+      budget: draft.budget,
+      timeframe: draft.timeframe,
+      referenceUrl: draft.reference || "",
+    };
+
+    try {
+      const result = await submitInquiry("general", payload, {
+        idempotencyKey: idempotencyKeyRef.current,
+        honeypot: draft.honeypot,
+      });
+
+      if (result.success) {
+        setReceiptId(result.data.receiptId);
+        setIsSubmitted(true);
+        setMessage(
+          "Inquiry securely received by studio principals. Receipt: " +
+            result.data.receiptId +
+            ". You can also download a local copy of your brief below.",
+        );
+      } else {
+        if (
+          result.error.status === "not_configured" ||
+          result.error.status === "unavailable" ||
+          result.error.status === "network_error"
+        ) {
+          download();
+          setIsSubmitted(true);
+          setMessage(
+            result.error.message +
+              " Your brief has been downloaded locally.",
+          );
+        } else {
+          setMessage(result.error.message);
+        }
+      }
+    } catch {
+      download();
+      setIsSubmitted(true);
+      setMessage(
+        "Unable to complete remote transmission. Your brief has been downloaded locally.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
   function field(
     key: keyof Draft,
@@ -365,8 +425,7 @@ export function InquiryForm() {
                   aria-invalid={!!errors.consent}
                 />
                 <span>
-                  My brief stays in this browser tab unless I download it. I
-                  understand it will not be submitted to the studio.
+                  I authorize Dynasty Works Studio to review this project brief and contact me regarding this inquiry.
                 </span>
               </label>
               {errors.consent && (
@@ -396,9 +455,13 @@ export function InquiryForm() {
                   </div>
                 ))}
               </dl>
+              {receiptId && (
+                <div style={{ margin: "14px 0", padding: "8px 12px", background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.25)", borderRadius: "4px", color: "#10b981", fontFamily: "monospace", fontSize: "13px" }}>
+                  Receipt ID: <strong>{receiptId}</strong>
+                </div>
+              )}
               <p className="content-note">
-                Download a copy to keep your brief. Online submission is
-                unavailable; nothing is sent to the studio.
+                Transmit your brief securely to studio principals, or download a local copy to keep on your device.
               </p>
             </>
           )}
@@ -419,7 +482,7 @@ export function InquiryForm() {
               {message}
             </p>
           )}
-          <div className="form-actions">
+          <div className="form-actions" style={{ display: "flex", gap: "10px", flexWrap: "wrap", alignItems: "center" }}>
             {step > 0 ? (
               <button
                 type="button"
@@ -431,9 +494,25 @@ export function InquiryForm() {
             ) : (
               <span className="muted">01 / 04</span>
             )}
-            <button className="button dark" type="submit">
-              {step === 3 ? "Download brief" : "Continue"} <span>↗</span>
-            </button>
+            {step === 3 ? (
+              <>
+                <button className="button dark" type="submit" disabled={isSubmitting}>
+                  {isSubmitting
+                    ? "Transmitting brief..."
+                    : isSubmitted
+                      ? "Transmit another update"
+                      : "Transmit brief to studio"}{" "}
+                  <span>↗</span>
+                </button>
+                <button className="button" type="button" onClick={download}>
+                  Download brief locally ↓
+                </button>
+              </>
+            ) : (
+              <button className="button dark" type="submit">
+                Continue <span>↗</span>
+              </button>
+            )}
           </div>
         </form>
       </section>

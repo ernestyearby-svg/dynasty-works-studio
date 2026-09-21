@@ -1,0 +1,294 @@
+{
+  "timestamp": "2026-09-21T04:12:35.041Z",
+  "total": 57,
+  "passed": 57,
+  "failed": 0,
+  "results": [
+    {
+      "section": "S1_CONTRACT",
+      "name": "Client submission module exists",
+      "passed": true
+    },
+    {
+      "section": "S1_CONTRACT",
+      "name": "Exports submitInquiry",
+      "passed": true
+    },
+    {
+      "section": "S1_CONTRACT",
+      "name": "Exports generateIdempotencyKey",
+      "passed": true
+    },
+    {
+      "section": "S1_CONTRACT",
+      "name": "Generates UUID v4 idempotency keys",
+      "passed": true
+    },
+    {
+      "section": "S1_CONTRACT",
+      "name": "Handles 202 accepted with receiptId",
+      "passed": true
+    },
+    {
+      "section": "S1_CONTRACT",
+      "name": "Handles 429 rate limit with Retry-After",
+      "passed": true
+    },
+    {
+      "section": "S1_CONTRACT",
+      "name": "Handles 422 validation error",
+      "passed": true
+    },
+    {
+      "section": "S1_CONTRACT",
+      "name": "Handles 409 conflict",
+      "passed": true
+    },
+    {
+      "section": "S1_CONTRACT",
+      "name": "Handles 503 fallback",
+      "passed": true
+    },
+    {
+      "section": "S1_BUILDER_UI",
+      "name": "Imports submitInquiry",
+      "passed": true
+    },
+    {
+      "section": "S1_BUILDER_UI",
+      "name": "Unchecked explicit consent checkbox present",
+      "passed": true
+    },
+    {
+      "section": "S1_BUILDER_UI",
+      "name": "Hidden honeypot input present",
+      "passed": true
+    },
+    {
+      "section": "S1_BUILDER_UI",
+      "name": "Receipt ID displayed upon 202",
+      "passed": true
+    },
+    {
+      "section": "S1_BUILDER_UI",
+      "name": "Offline download fallback retained (.txt and .json)",
+      "passed": true
+    },
+    {
+      "section": "S1_BUILDER_UI",
+      "name": "Direct local download button available",
+      "passed": true
+    },
+    {
+      "section": "S1_BLUEPRINT_UI",
+      "name": "Imports submitInquiry",
+      "passed": true
+    },
+    {
+      "section": "S1_BLUEPRINT_UI",
+      "name": "Explicit consent acknowledgment present",
+      "passed": true
+    },
+    {
+      "section": "S1_BLUEPRINT_UI",
+      "name": "Hidden honeypot input present",
+      "passed": true
+    },
+    {
+      "section": "S1_BLUEPRINT_UI",
+      "name": "Submits blueprint intake at Step 4",
+      "passed": true
+    },
+    {
+      "section": "S1_BLUEPRINT_UI",
+      "name": "Offline download retained in review step",
+      "passed": true
+    },
+    {
+      "section": "S1_CONTACT_UI",
+      "name": "Imports submitInquiry",
+      "passed": true
+    },
+    {
+      "section": "S1_CONTACT_UI",
+      "name": "Consent checkbox present and truthful",
+      "passed": true
+    },
+    {
+      "section": "S1_CONTACT_UI",
+      "name": "Hidden honeypot input present",
+      "passed": true
+    },
+    {
+      "section": "S1_CONTACT_UI",
+      "name": "Dual transmit and local download buttons present",
+      "passed": true
+    },
+    {
+      "section": "S2_BUILDER",
+      "name": "Company Builder HTTP status is 202 Accepted",
+      "passed": true
+    },
+    {
+      "section": "S2_BUILDER",
+      "name": "Returns accepted status and confirmed receiptId",
+      "passed": true
+    },
+    {
+      "section": "S2_BUILDER_DB",
+      "name": "Inquiry record exists in dynasty_private.inquiries",
+      "passed": true
+    },
+    {
+      "section": "S2_BUILDER_DB",
+      "name": "Receipt ID matches between RPC return and DB row",
+      "passed": true
+    },
+    {
+      "section": "S2_BUILDER_DB",
+      "name": "Child row exists in dynasty_private.builder_submissions",
+      "passed": true
+    },
+    {
+      "section": "S2_BUILDER_DB",
+      "name": "Server recomputed roadmap services stored in child table",
+      "passed": true
+    },
+    {
+      "section": "S2_BUILDER_DB",
+      "name": "Recommended package present in child table",
+      "passed": true
+    },
+    {
+      "section": "S2_BUILDER_DB",
+      "name": "Lead record upserted in dynasty_private.leads",
+      "passed": true
+    },
+    {
+      "section": "S2_BLUEPRINT",
+      "name": "Founder Blueprint HTTP status is 202 Accepted",
+      "passed": true
+    },
+    {
+      "section": "S2_BLUEPRINT",
+      "name": "Returns accepted status and receiptId",
+      "passed": true
+    },
+    {
+      "section": "S2_BLUEPRINT_DB",
+      "name": "Inquiry record exists with inquiry_type = blueprint",
+      "passed": true
+    },
+    {
+      "section": "S2_BLUEPRINT_DB",
+      "name": "Child row exists in dynasty_private.founder_blueprint_intakes",
+      "passed": true
+    },
+    {
+      "section": "S2_GENERAL",
+      "name": "Contact Studio HTTP status is 202 Accepted",
+      "passed": true
+    },
+    {
+      "section": "S2_GENERAL",
+      "name": "Returns accepted status and receiptId",
+      "passed": true
+    },
+    {
+      "section": "S2_GENERAL_DB",
+      "name": "Inquiry record exists with inquiry_type = general",
+      "passed": true
+    },
+    {
+      "section": "S2_GENERAL_DB",
+      "name": "Child row exists in dynasty_private.general_inquiries",
+      "passed": true
+    },
+    {
+      "section": "S3_IDEMPOTENCY",
+      "name": "Replay returns HTTP 202 Accepted",
+      "passed": true
+    },
+    {
+      "section": "S3_IDEMPOTENCY",
+      "name": "Replay returns same confirmed receipt ID",
+      "passed": true
+    },
+    {
+      "section": "S3_IDEMPOTENCY",
+      "name": "Replay did not create a duplicate row in inquiries table",
+      "passed": true
+    },
+    {
+      "section": "S3_CONFLICT",
+      "name": "Conflicting payload with reused key returns HTTP 409 Conflict",
+      "passed": true
+    },
+    {
+      "section": "S3_CONFLICT",
+      "name": "Conflict message explains key reuse",
+      "passed": true
+    },
+    {
+      "section": "S4_SECURITY",
+      "name": "Non-empty honeypot rejected with HTTP 400",
+      "passed": true
+    },
+    {
+      "section": "S4_SECURITY",
+      "name": "Missing consent rejected with HTTP 400",
+      "passed": true
+    },
+    {
+      "section": "S4_SECURITY",
+      "name": "Invalid email rejected with HTTP 422 Validation Error",
+      "passed": true
+    },
+    {
+      "section": "S4_SECURITY",
+      "name": "Payload > 48KB rejected with HTTP 413 Payload Too Large",
+      "passed": true
+    },
+    {
+      "section": "S4_SECURITY",
+      "name": "GET method rejected with HTTP 405 Method Not Allowed",
+      "passed": true
+    },
+    {
+      "section": "S4_SECURITY",
+      "name": "Unrecognized origin rejected with HTTP 403 Forbidden",
+      "passed": true
+    },
+    {
+      "section": "S4_SECURITY",
+      "name": "When INQUIRY_SUBMISSIONS_ENABLED=false returns HTTP 503 not_configured",
+      "passed": true
+    },
+    {
+      "section": "S4_SECURITY",
+      "name": "503 body informs user local download is preserved",
+      "passed": true
+    },
+    {
+      "section": "S4_SECURITY",
+      "name": "Rate limiter triggers HTTP 429 after threshold",
+      "passed": true
+    },
+    {
+      "section": "S4_SECURITY",
+      "name": "Rate limited response includes Retry-After header",
+      "passed": true
+    },
+    {
+      "section": "S5_AUDIT",
+      "name": "Dist bundles audited: zero secret leaks detected",
+      "passed": true,
+      "detail": "all clean"
+    },
+    {
+      "section": "S6_CLEANUP",
+      "name": "All synthetic test rows successfully deleted from Supabase",
+      "passed": true
+    }
+  ]
+}
