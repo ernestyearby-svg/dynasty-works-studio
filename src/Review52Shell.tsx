@@ -1,11 +1,11 @@
 import { useRef, useState } from 'react';
 
 const links = [
-  ['Work', '/#work'],
-  ['How we build', '/#operating'],
-  ['Capabilities', '/#capabilities'],
-  ['Company Builder', '/#review-builder'],
-  ['Studio', '/#studio'],
+  ['Work', '/work'],
+  ['How we build', '/#creation'],
+  ['Capabilities', '/capabilities'],
+  ['Studio', '/studio'],
+  ['Contact', '/contact'],
 ];
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
@@ -54,9 +54,12 @@ export function ReviewHeader() {
           <button onClick={close} aria-label="Close navigation">Close ×</button>
         </div>
         <nav aria-label="Mobile navigation">
-          {links.map(([name, url]) => (
-            <a href={url} key={name} onClick={close}>{name}<Arrow /></a>
-          ))}
+          <a href="/work" onClick={close}>Work <Arrow /></a>
+          <a href="/#creation" onClick={close}>How we build</a>
+          <a href="/capabilities" onClick={close}>Capabilities <Arrow /></a>
+          <a href="/#review-builder" onClick={close}>Company Builder</a>
+          <a href="/studio" onClick={close}>Studio</a>
+          <a href="/contact" onClick={close}>Contact</a>
         </nav>
         <a className="r51-action" href="/#review-builder" onClick={close}>Start a company <Arrow /></a>
       </dialog>
@@ -64,68 +67,147 @@ export function ReviewHeader() {
   );
 }
 
-export function HomeSelectedWork() {
+export function BuiltByTheStudio() {
   return (
-    <section className="r52-home-proof" id="work" aria-labelledby="home-proof-title">
+    <section className="r52-home-proof r52-built-section" id="built" aria-labelledby="built-title">
       <div className="r52-proof-head">
         <div>
-          <span className="r52-folio">02 / FEATURED WORK</span>
-          <h2 id="home-proof-title">Flagship company<br /><em>creation.</em></h2>
+          <span className="r52-folio">03 / BUILT BY THE STUDIO</span>
+          <h2 id="built-title">Authentic operating<br /><em>brand worlds.</em></h2>
         </div>
         <div className="r52-proof-head-aside">
           <p className="r52-proof-thesis">
-            Authentic enterprises engineered from concept to commercial reality.
-            Strategy, identity, physical packaging, digital platforms, and market launch.
+            Real enterprises conceived, engineered, and launched with founders.
+            Zero synthetic claims. Live commercial destinations.
           </p>
         </div>
       </div>
 
-      <div className="r52-featured-fields">
-        {/* 01: MyMosa / My Drink Family */}
-        <article className="r52-brand-field r52-field-mymosa">
+      <div className="r52-featured-fields r52-built-grid">
+        {/* 01: My Drink Family */}
+        <article className="r52-brand-field r52-field-mymosa r52-built-card">
           <div className="r52-field-content">
-            <span className="r52-field-category">CATEGORY PIONEER • BEVERAGE BRAND SYSTEM</span>
-            <h3 className="r52-field-name">MYMOSA / MY DRINK FAMILY</h3>
+            <div className="r52-built-brand-header">
+              <span className="r52-field-category">CATEGORY PIONEER • BEVERAGE BRAND SYSTEM</span>
+              <div className="r52-built-lockup r52-mdf-lockup">
+                <img
+                  src="/assets/portfolio/mymosa/identity/my-drink-family-seal-primary-light.svg"
+                  alt="My Drink Family Seal"
+                  className="r52-built-logo r52-built-seal"
+                  width={44}
+                  height={44}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  src="/assets/portfolio/mymosa/identity/my-drink-family-horizontal-primary-light.svg"
+                  alt="My Drink Family"
+                  className="r52-built-wordmark r52-mdf-wordmark"
+                  width={190}
+                  height={44}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
             <p className="r52-field-copy">
               Category-defining ready-to-drink wine cocktail enterprise built from first principles. Complete brand architecture, seventeen house identities, packaging systems, and national distribution launch.
             </p>
-            <div className="r52-field-actions">
-              <a href="/work/mymosa" className="r52-action-secondary">
-                VIEW CASE STUDY →
-              </a>
+            <div className="r52-field-actions r52-built-actions">
               <a
                 href="https://mydrinkfamily.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="r52-action-primary"
-                aria-label="Visit MyMosa / My Drink Family live website (opens in new tab)"
+                className="r52-action-primary r52-built-action"
+                aria-label="Visit My Drink Family website (opens in new tab)"
               >
-                VISIT LIVE WEBSITE <Arrow />
+                VISIT WEBSITE <Arrow />
               </a>
             </div>
           </div>
         </article>
 
         {/* 02: IKLA Maison */}
-        <article className="r52-brand-field r52-field-ikla">
+        <article className="r52-brand-field r52-field-ikla r52-built-card">
           <div className="r52-field-content">
-            <span className="r52-field-category">LUXURY FASHION • BRAND WORLD</span>
-            <h3 className="r52-field-name">IKLA MAISON</h3>
+            <div className="r52-built-brand-header">
+              <span className="r52-field-category">ULTRA-LUXURY SARTORIAL MAISON</span>
+              <div className="r52-built-lockup r52-ikla-lockup">
+                <img
+                  src="/assets/portfolio/ikla/identity/crest-light.webp"
+                  alt="IKLA Maison Heraldic Crest"
+                  className="r52-built-logo r52-built-crest"
+                  width={44}
+                  height={44}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  src="/assets/portfolio/ikla/identity/wordmark-light.webp"
+                  alt="IKLA Maison"
+                  className="r52-built-wordmark r52-ikla-wordmark"
+                  width={170}
+                  height={54}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
             <p className="r52-field-copy">
               Ultra-luxury European sartorial maison and private-client universe. Timeless architectural tailoring, fine leather goods, silk foulards, and bespoke appointment salon.
             </p>
-            <div className="r52-field-actions">
-              <a href="/work/ikla" className="r52-action-secondary">
-                VIEW CASE STUDY →
-              </a>
+            <div className="r52-field-actions r52-built-actions">
               <a
                 href="https://iklamaison.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="r52-action-primary"
-                aria-label="Visit IKLA Maison live website (opens in new tab)"
+                className="r52-action-primary r52-built-action"
+                aria-label="Visit IKLA Maison website (opens in new tab)"
               >
-                VISIT LIVE WEBSITE <Arrow />
+                VISIT WEBSITE <Arrow />
+              </a>
+            </div>
+          </div>
+        </article>
+
+        {/* 03: Mr. Cliff's */}
+        <article className="r52-brand-field r52-field-cliffs r52-built-card">
+          <div className="r52-field-content">
+            <div className="r52-built-brand-header">
+              <span className="r52-field-category">HERITAGE SPIRITS • DIGITAL FLAGSHIP</span>
+              <div className="r52-built-lockup r52-cliffs-lockup">
+                <img
+                  src="/assets/portfolio/mr-cliffs/mr-cliffs-emblem.webp"
+                  alt="Mr. Cliff's Emblem"
+                  className="r52-built-logo r52-built-emblem"
+                  width={44}
+                  height={44}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  src="/assets/portfolio/mr-cliffs/mr-cliffs-wordmark.svg"
+                  alt="Mr. Cliff's Premium Bourbon Whiskey"
+                  className="r52-built-wordmark r52-cliffs-wordmark"
+                  width={180}
+                  height={32}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+            <p className="r52-field-copy">
+              Kentucky bourbon character meets digital flagship craftsmanship. Evocative brand atmosphere and hospitality presence built around heritage, warmth, and restraint.
+            </p>
+            <div className="r52-field-actions r52-built-actions">
+              <a
+                href="https://mr-cliffs-aesthetic-upgrade.netlify.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="r52-action-primary r52-built-action"
+                aria-label="Visit Mr. Cliff's website (opens in new tab)"
+              >
+                VISIT WEBSITE <Arrow />
               </a>
             </div>
           </div>
@@ -134,7 +216,7 @@ export function HomeSelectedWork() {
 
       <div className="r52-proof-foot">
         <div className="r52-proof-foot-meta">
-          <span>02 / AUTHORITATIVE LIVE ENTERPRISES</span>
+          <span>03 / AUTHORITATIVE LIVE ENTERPRISES</span>
           <span>Zero synthetic client claims</span>
         </div>
       </div>
@@ -142,7 +224,7 @@ export function HomeSelectedWork() {
   );
 }
 
-export function HomeCapabilities() {
+export function CapabilityTerritories() {
   return (
     <section className="r52-home-capabilities" id="capabilities" aria-labelledby="capabilities-title">
       {/* Section Header */}
@@ -226,7 +308,7 @@ export function HomeCapabilities() {
               <source
                 type="image/webp"
                 srcSet="/assets/capabilities/03-INTELLIGENCE-ORCHESTRATION-640.webp 640w, /assets/capabilities/03-INTELLIGENCE-ORCHESTRATION-1024.webp 1024w, /assets/capabilities/03-INTELLIGENCE-ORCHESTRATION.webp 1536w"
-                sizes="(max-width: 768px) 100vw, 100vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1440px) 92vw, 1340px"
               />
               <img
                 src="/assets/capabilities/03-INTELLIGENCE-ORCHESTRATION.png"
@@ -254,7 +336,7 @@ export function HomeCapabilities() {
               <source
                 type="image/webp"
                 srcSet="/assets/capabilities/04-PRODUCT-FROM-MATTER-TO-MARKET-640.webp 640w, /assets/capabilities/04-PRODUCT-FROM-MATTER-TO-MARKET-1024.webp 1024w, /assets/capabilities/04-PRODUCT-FROM-MATTER-TO-MARKET.webp 1536w"
-                sizes="(max-width: 768px) 100vw, (max-width: 1440px) 85vw, 1200px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1440px) 92vw, 1340px"
               />
               <img
                 src="/assets/capabilities/04-PRODUCT-FROM-MATTER-TO-MARKET.png"
@@ -378,10 +460,17 @@ export function ReviewFooter() {
         <p>Company creation studio.<br />From idea to operating enterprise.</p>
       </div>
       <nav aria-label="Footer navigation">
-        {links.map(([name, url]) => (
-          <a href={url} key={name}>{name}</a>
-        ))}
+        <a href="/work">Work</a>
+        <a href="/#creation">How we build</a>
+        <a href="/capabilities">Capabilities</a>
+        <a href="/#review-builder">Company Builder</a>
+        <a href="/studio">Studio</a>
         <a href="/#review-builder">Start a company <Arrow /></a>
+      </nav>
+      <nav className="r52-footer-legal" aria-label="Legal navigation">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/contact">Contact</a>
       </nav>
       <small>© {new Date().getFullYear()} Dynasty Works Studio. All rights reserved.</small>
     </footer>

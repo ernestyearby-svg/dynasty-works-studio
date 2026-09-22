@@ -17,12 +17,11 @@ export const site = {
 };
 export const navigation = [
   { label: "Work", href: "/work" },
-  { label: "How We Build", href: "/how-we-build" },
-  { label: "Company Builder", href: "/start-a-business/builder" },
+  { label: "How We Build", href: "/#creation" },
+  { label: "Company Builder", href: "/#review-builder" },
   { label: "Capabilities", href: "/capabilities" },
-  { label: "Concept Lab", href: "/concept-lab" },
   { label: "Studio", href: "/studio" },
-  { label: "START A COMPANY →", href: "/start-a-business" },
+  { label: "START A COMPANY →", href: "/#review-builder" },
 ];
 export const processSteps = [
   ["Discover", "Understand the opportunity."],

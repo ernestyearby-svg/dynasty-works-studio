@@ -5,3 +5,499 @@
 .work-cliffs{padding-top:70px}.cliffs-entrance{display:grid;grid-template-columns:1.6fr .65fr;align-items:center;gap:65px}.cliffs-entrance>div>p{font-size:14px;line-height:1.8;color:var(--graphite);margin-block:20px}.cliffs-entrance>div>.quiet-statement{font-size:27px;color:var(--ink);line-height:1.4;letter-spacing:-.035em}.cliffs-hero-visual{max-width:1440px;margin-inline:auto}.cliffs-device-grid{display:grid;grid-template-columns:1.7fr 1fr;gap:40px;align-items:end;margin-top:35px}.cliffs-device-desktop img,.cliffs-device-mobile img{width:100%;height:auto;display:block;border:1px solid var(--line)}.cliffs-device-desktop figcaption,.cliffs-device-mobile figcaption{font-size:11px;color:var(--graphite);margin-top:10px}.cliffs-window-feature{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;margin-top:35px}.cliffs-window-feature img{width:100%;height:auto;display:block;border:1px solid var(--line)}.cliffs-window-feature p{font-size:18px;line-height:1.7;color:var(--graphite);max-width:40ch}
 @media(max-width:1050px){.cliffs-entrance{gap:35px;grid-template-columns:1.5fr 1fr}}
 @media(max-width:800px){.cliffs-entrance{display:block}.cliffs-entrance>div{margin-top:25px}.cliffs-entrance>div>.quiet-statement{font-size:26px}.cliffs-device-grid{display:flex;flex-direction:column;gap:25px}.cliffs-window-feature{display:flex;flex-direction:column;gap:20px}.cliffs-window-feature p{font-size:15px}}
+
+/* ==========================================================================
+   V5.8.2 WORK PAGE THREE-BRAND EDITORIAL SHOWCASE
+   ========================================================================== */
+
+.work-showcase-item {
+  padding-block: 75px 85px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.work-brand-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 30px;
+}
+
+.work-brand-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.work-brand-index {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  font-family: inherit;
+}
+
+.work-brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.work-mdf-seal {
+  width: 46px;
+  height: 46px;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+}
+
+.work-ikla-crest {
+  width: 40px;
+  height: 48px;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
+}
+
+.work-cliffs-emblem-badge {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(199, 154, 85, 0.45);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c79a55;
+  background: rgba(199, 154, 85, 0.08);
+  font-family: 'Bodoni Moda', 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.work-brand-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Official Brand Marks & Lockups */
+.work-brand-mark {
+  object-fit: contain;
+  display: block;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.work-mdf-lockup-link,
+.work-ikla-lockup-link,
+.work-cliffs-lockup-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.work-mdf-lockup-link:hover .work-brand-mark,
+.work-ikla-lockup-link:hover .work-brand-mark,
+.work-cliffs-lockup-link:hover .work-brand-mark {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+.work-ikla-lockup-link:hover .work-brand-crest,
+.work-cliffs-lockup-link:hover .work-brand-emblem {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.work-mdf-mark {
+  height: clamp(34px, 3.8vw, 50px);
+  width: auto;
+  max-width: 320px;
+}
+
+.work-brand-crest {
+  height: clamp(36px, 4vw, 50px);
+  width: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.work-ikla-mark {
+  height: clamp(30px, 3.4vw, 42px);
+  width: auto;
+  max-width: 230px;
+}
+
+.work-brand-emblem {
+  height: clamp(34px, 3.8vw, 46px);
+  width: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.work-cliffs-mark {
+  height: clamp(24px, 2.8vw, 36px);
+  width: auto;
+  max-width: 240px;
+}
+
+.work-mdf-title,
+.work-ikla-title,
+.work-cliffs-title {
+  margin: 0;
+  line-height: 1.05;
+}
+
+.work-mdf-title a {
+  font-family: Manrope, sans-serif;
+  font-size: clamp(30px, 3.4vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  transition: color 0.2s ease;
+}
+.work-mdf-title a:hover {
+  color: #e67e22;
+}
+
+.work-ikla-title a {
+  font-family: 'Bodoni Moda', 'Bodoni 72', serif;
+  font-size: clamp(32px, 3.8vw, 60px);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition: color 0.2s ease;
+}
+.work-ikla-title a:hover {
+  color: #c5a968;
+}
+
+.work-cliffs-title a {
+  font-family: 'Bodoni Moda', 'Playfair Display', serif;
+  font-size: clamp(32px, 3.8vw, 60px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  transition: color 0.2s ease;
+}
+.work-cliffs-title a:hover {
+  color: #c79a55;
+}
+
+.work-brand-sub {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.work-brand-mymosa .work-brand-sub {
+  color: #d35400;
+  font-family: Manrope, sans-serif;
+}
+
+.work-brand-ikla .work-brand-sub {
+  color: #233a2d;
+  font-family: 'Bodoni Moda', serif;
+  letter-spacing: 0.2em;
+}
+
+.work-brand-cliffs .work-brand-sub {
+  color: #8a5d36;
+  font-family: 'Bodoni Moda', serif;
+  letter-spacing: 0.16em;
+}
+
+.work-brand-descriptor {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  font-weight: 600;
+  padding-bottom: 6px;
+}
+
+.work-cliffs-specs {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: #8a5d36;
+  font-weight: 600;
+  padding-bottom: 6px;
+}
+
+.work-visual-frame {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.work-visual-frame:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.16);
+}
+
+.work-visual-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Mr. Cliff's Balanced Editorial Stage (Option C + A) */
+.work-cliffs-editorial-stage {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.work-cliffs-frame {
+  background: #151310;
+}
+
+.work-cliffs-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-position: center right;
+}
+
+.work-cliffs-overlay-identity {
+  position: absolute;
+  left: 6%;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 380px;
+  z-index: 2;
+  pointer-events: none;
+  background: rgba(18, 15, 12, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 28px 32px;
+  border-left: 2px solid #c79a55;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.work-cliffs-overlay-tag {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: #c79a55;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.work-cliffs-overlay-name {
+  font-family: 'Bodoni Moda', 'Playfair Display', serif;
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #f7f0e6;
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.work-cliffs-overlay-sub {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: #d0b182;
+  text-transform: uppercase;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* Footer & CTAs */
+.work-brand-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin-top: 26px;
+  flex-wrap: wrap;
+}
+
+.work-brand-summary {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--graphite);
+  max-width: 58ch;
+  margin: 0;
+}
+
+.work-actions-cluster {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.work-primary-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.work-secondary-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 2px;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.work-secondary-cta:hover {
+  border-color: var(--ink);
+  background: rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+.work-cta-mymosa {
+  background: #1b1713;
+  color: #ffffff;
+  border: 1px solid #1b1713;
+}
+.work-cta-mymosa:hover {
+  background: #d35400;
+  color: #ffffff;
+  border-color: #d35400;
+  transform: translateY(-1px);
+}
+
+.work-cta-ikla {
+  background: #1b2d22;
+  color: #f5f0e6;
+  border: 1px solid #1b2d22;
+}
+.work-cta-ikla:hover {
+  background: #c5a968;
+  color: #0e120f;
+  border-color: #c5a968;
+  transform: translateY(-1px);
+}
+
+.work-cta-cliffs {
+  background: #1c1814;
+  color: #e6c078;
+  border: 1px solid #3b312a;
+}
+.work-cta-cliffs:hover {
+  background: #c79a55;
+  color: #100c0c;
+  border-color: #c79a55;
+  transform: translateY(-1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .work-brand-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .work-cliffs-overlay-identity {
+    position: static;
+    transform: none;
+    border-radius: 0 0 4px 4px;
+    border-left: none;
+    border-top: 2px solid #c79a55;
+    max-width: none;
+    padding: 20px 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .work-showcase-item {
+    padding-block: 50px 60px;
+  }
+  .work-brand-lockup {
+    gap: 14px;
+  }
+  .work-brand-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+  .work-actions-cluster {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .work-primary-cta,
+  .work-secondary-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Company Gate Actions */
+.company-gate-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* Portfolio Site Header Persistent Action */
+.site-head .nav-start {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: 1px solid rgba(17, 18, 20, 0.2);
+  border-radius: 2px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.site-head .nav-start:hover {
+  background: var(--ink);
+  color: #ffffff;
+  border-color: var(--ink);
+}
+.site-head .nav-start span {
+  color: var(--blue, #2457ff);
+  transition: transform 0.2s ease;
+}
+.site-head .nav-start:hover span {
+  color: #ffffff;
+  transform: translate(2px, -2px);
+}

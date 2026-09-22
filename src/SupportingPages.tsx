@@ -53,6 +53,6 @@ export default function SupportingPages(){
     document.title = routeTitles[path] || (path.startsWith("/capabilities/") ? "Practice — Dynasty Works Studio" : "Dynasty Works Studio — From idea to company");
   }, [path]);
   const Page=path.startsWith("/capabilities/")?PracticePage:pages[path as keyof typeof pages];
-  return <><a href='#main' className='skip-link'>Skip to content</a><Navbar/><main id='main'><Page/></main><footer className='footer shell'><a href='/'>Dynasty Works Studio</a><nav aria-label='Footer navigation'><a href='/work'>Work</a><a href='/capabilities'>Capabilities</a><a href='/company-builder'>Company Builder</a><a href='/studio'>Studio</a><a href='/contact'>Contact</a><a href='/privacy'>Privacy</a><a href='/terms'>Terms</a></nav><ExperienceMotion/></footer></>
+  return <><a href='#main' className='skip-link'>Skip to content</a><Navbar/><main id='main'><Page/></main><footer className='footer shell'><a href='/'>Dynasty Works Studio</a><nav aria-label='Footer navigation'><a href='/work'>Work</a><a href='/capabilities'>Capabilities</a><a href='/#review-builder'>Company Builder</a><a href='/studio'>Studio</a><a href='/contact'>Contact</a><a href='/privacy'>Privacy</a><a href='/terms'>Terms</a></nav><ExperienceMotion/></footer></>
 }
 

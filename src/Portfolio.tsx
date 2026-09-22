@@ -27,75 +27,172 @@ function LabGate(){
 }
 
 function CompanyGate(){
- return <section className="company-gate wrap"><p className="kicker">FROM IDEA TO COMPANY.</p><h2>Bring us the idea.</h2><a href="/#review-builder" className="primary-action">Start a company <span aria-hidden="true">↗</span></a></section>;
+ return <section className="company-gate wrap"><p className="kicker">FROM IDEA TO COMPANY.</p><h2>Bring us the idea.</h2><div className="company-gate-actions"><a href="/#review-builder" className="primary-action">Start a company <span aria-hidden="true">→</span></a><a href="/capabilities" className="text-action">Explore capabilities →</a></div></section>;
 }
 
 function Work(){
  return <>
-  <Intro label="SELECTED WORK / COMPANY CREATION" title={<>Different companies.<br/>Connected thinking.</>} copy="Different categories require different expressions. The system behind the work remains connected."/>
-  <section className="work-project work-mymosa wrap">
-   <div className="project-heading">
-    <div>
-     <p className="kicker">01 / SELECTED WORK</p>
-     <h2><a href="https://mydrinkfamily.com" target="_blank" rel="noopener noreferrer">MyMosa <span>/ My Drink Family</span></a></h2>
-    </div>
-    <p>CATEGORY PIONEER • BEVERAGE BRAND SYSTEM</p>
-   </div>
-   <a className="project-entrance" href="https://mydrinkfamily.com" target="_blank" rel="noopener noreferrer" aria-label="Visit MyMosa live website">
-    <Image id="01-mymosa-four-flavor-hero" alt="MyMosa four-flavor packaging presentation: Classic Orange, Pineapple, Tropical and Strawberry." critical/>
-   </a>
-   <div className="project-bottom">
-    <p>Brand Architecture · 17 House Marks · Packaging Structure · 8 Commercial Expressions</p>
-    <div style={{display:'flex',gap:'24px',alignItems:'center',flexWrap:'wrap'}}>
-     <a className="text-action" href="/work/mymosa">VIEW CASE STUDY →</a>
-     <a className="text-action" href="https://mydrinkfamily.com" target="_blank" rel="noopener noreferrer">VISIT LIVE WEBSITE ↗</a>
-    </div>
-   </div>
-  </section>
-  <section className="work-project work-ikla wrap">
-   <div className="project-heading">
-    <div>
-     <p className="kicker">02 / SELECTED WORK</p>
-     <h2><a href="https://iklamaison.com" target="_blank" rel="noopener noreferrer">IKLA Maison</a></h2>
-    </div>
-    <p>LUXURY FASHION • BRAND WORLD</p>
-   </div>
-   <div className="ikla-entrance">
-    <a className="project-entrance" href="https://iklamaison.com" target="_blank" rel="noopener noreferrer" aria-label="Visit IKLA Maison live website">
-     <Image id="01-ikla-creative-direction" alt="IKLA Maison quiet-luxury creative direction study."/>
-    </a>
-    <div>
-     <p className="quiet-statement">A quieter expression.<br/>A complete design language.</p>
-     <p>Ultra-luxury European sartorial maison and private-client universe. Timeless architectural tailoring, fine leather goods, silk foulards, and bespoke appointment salon.</p>
-     <div style={{display:'flex',gap:'24px',alignItems:'center',marginTop:'24px',flexWrap:'wrap'}}>
-      <a className="text-action" href="/work/ikla">VIEW CASE STUDY →</a>
-      <a className="text-action" href="https://iklamaison.com" target="_blank" rel="noopener noreferrer">VISIT LIVE WEBSITE ↗</a>
+  <Intro
+   label="SELECTED WORK / OPERATING ENTERPRISES"
+   title={<>Different companies.<br/>Connected thinking.</>}
+   copy="Selected operating brands built across beverage, fashion, and spirits. Each company expresses its own distinct discipline and category authority."
+  />
+
+  {/* 01 MY DRINK FAMILY / MYMOSA */}
+  <section className="work-showcase-item work-brand-mymosa wrap" id="mymosa" aria-labelledby="brand-01-title">
+   <div className="work-brand-header">
+    <div className="work-brand-identity">
+     <span className="work-brand-index">01 / SELECTED WORK</span>
+     <div className="work-brand-lockup">
+      <a href="https://mydrinkfamily.com" target="_blank" rel="noopener noreferrer" id="brand-01-title" className="work-mdf-lockup-link" aria-label="My Drink Family">
+       <img
+        src="/assets/portfolio/mymosa/identity/my-drink-family-horizontal-primary-light.svg"
+        alt="My Drink Family"
+        className="work-brand-mark work-mdf-mark"
+        width={320}
+        height={73}
+        loading="eager"
+       />
+      </a>
      </div>
     </div>
+    <span className="work-brand-descriptor">CATEGORY PIONEER • BEVERAGE BRAND SYSTEM</span>
+   </div>
+
+   <a className="work-visual-frame" href="https://mydrinkfamily.com" target="_blank" rel="noopener noreferrer" aria-label="Visit My Drink Family live website">
+    <picture className="portfolio-image">
+     <source srcSet="/assets/portfolio/01-MY-DRINK-FAMILY-HERO-800.webp 800w, /assets/portfolio/01-MY-DRINK-FAMILY-HERO-1200.webp 1200w, /assets/portfolio/01-MY-DRINK-FAMILY-HERO.webp 1672w" sizes="(max-width: 800px) 100vw, 1340px"/>
+     <img src="/assets/portfolio/01-MY-DRINK-FAMILY-HERO.webp" width={1672} height={941} alt="My Drink Family — Category-defining beverage brand system" loading="eager" decoding="async"/>
+    </picture>
+   </a>
+
+   <div className="work-brand-footer">
+    <p className="work-brand-summary">
+     Category-defining ready-to-drink cocktail enterprise built from first principles — complete brand architecture, 17 house identities, packaging systems, and national distribution launch.
+    </p>
+    <div className="work-actions-cluster">
+     <a className="work-primary-cta work-cta-mymosa" href="https://mydrinkfamily.com" target="_blank" rel="noopener noreferrer">
+      VISIT WEBSITE <span aria-hidden="true">↗</span>
+     </a>
+     <a className="work-secondary-cta" href="/work/mymosa">
+      VIEW PROJECT <span aria-hidden="true">→</span>
+     </a>
+    </div>
    </div>
   </section>
-  <section className="work-project work-cliffs wrap">
-   <div className="project-heading">
-    <div>
-     <p className="kicker">03 / SELECTED WORK</p>
-     <h2><a href="/work/mr-cliffs">Mr. Cliff’s <span>Premium Bourbon</span></a></h2>
+
+  {/* 02 IKLA MAISON */}
+  <section className="work-showcase-item work-brand-ikla wrap" id="ikla" aria-labelledby="brand-02-title">
+   <div className="work-brand-header">
+    <div className="work-brand-identity">
+     <span className="work-brand-index">02 / SELECTED WORK</span>
+     <div className="work-brand-lockup">
+      <a href="https://iklamaison.com" target="_blank" rel="noopener noreferrer" id="brand-02-title" className="work-ikla-lockup-link" aria-label="IKLA Maison">
+       <img
+        src="/assets/portfolio/ikla/identity/crest-light.webp"
+        alt="IKLA Maison Crest"
+        className="work-brand-crest"
+        width={56}
+        height={56}
+        loading="lazy"
+        decoding="async"
+       />
+       <img
+        src="/assets/portfolio/ikla/identity/wordmark-light.webp"
+        alt="IKLA Maison"
+        className="work-brand-mark work-ikla-mark"
+        width={220}
+        height={73}
+        loading="lazy"
+        decoding="async"
+       />
+      </a>
+     </div>
     </div>
-    <p>Spirits / Hospitality / Digital Flagship</p>
+    <span className="work-brand-descriptor">ULTRA-LUXURY SARTORIAL MAISON</span>
    </div>
-   <div className="cliffs-entrance">
-    <a className="project-entrance" href="/work/mr-cliffs" aria-label="Explore Mr. Cliff’s case study">
-     <picture className="portfolio-image">
-      <source srcSet="/assets/portfolio/mr-cliffs/window-thumbnail.webp 800w, /assets/portfolio/mr-cliffs/window-hero.webp 1600w" sizes="(max-width: 800px) 100vw, 850px"/>
-      <img src="/assets/portfolio/mr-cliffs/window-hero.webp" width={1600} height={900} alt="Mr. Cliff’s Premium Bourbon in warm window light" loading="lazy" decoding="async"/>
-     </picture>
-    </a>
-    <div>
-     <p className="quiet-statement">Atmosphere, warmth<br/>and restraint.</p>
-     <p>Editorial typography, digital flagship architecture, desktop and mobile responsive interfaces, and physical storefront presence.</p>
-     <a className="text-action" href="/work/mr-cliffs">Explore case study →</a>
+
+   <a className="work-visual-frame" href="https://iklamaison.com" target="_blank" rel="noopener noreferrer" aria-label="Visit IKLA Maison live website">
+    <picture className="portfolio-image">
+     <source srcSet="/assets/portfolio/02-IKLA-MAISON-HERO-800.webp 800w, /assets/portfolio/02-IKLA-MAISON-HERO-1200.webp 1200w, /assets/portfolio/02-IKLA-MAISON-HERO.webp 1672w" sizes="(max-width: 800px) 100vw, 1340px"/>
+     <img src="/assets/portfolio/02-IKLA-MAISON-HERO.webp" width={1672} height={941} alt="IKLA Maison — Ultra-luxury European sartorial maison" loading="lazy" decoding="async"/>
+    </picture>
+   </a>
+
+   <div className="work-brand-footer">
+    <p className="work-brand-summary">
+     Architectural tailoring, fine leather goods, and an exclusive private-client salon universe shaped by heraldic restraint, digital flagship experience, and bespoke Griffin luxury commissions.
+    </p>
+    <div className="work-actions-cluster">
+     <a className="work-primary-cta work-cta-ikla" href="https://iklamaison.com" target="_blank" rel="noopener noreferrer">
+      VISIT WEBSITE <span aria-hidden="true">↗</span>
+     </a>
+     <a className="work-secondary-cta" href="/work/ikla">
+      VIEW PROJECT <span aria-hidden="true">→</span>
+     </a>
     </div>
    </div>
   </section>
+
+  {/* 03 MR. CLIFF'S */}
+  <section className="work-showcase-item work-brand-cliffs wrap" id="mr-cliffs" aria-labelledby="brand-03-title">
+   <div className="work-brand-header">
+    <div className="work-brand-identity">
+     <span className="work-brand-index">03 / SELECTED WORK</span>
+     <div className="work-brand-lockup">
+      <a href="https://mr-cliffs-aesthetic-upgrade.netlify.app" target="_blank" rel="noopener noreferrer" id="brand-03-title" className="work-cliffs-lockup-link" aria-label="Mr. Cliff's Premium Bourbon Whiskey">
+       <img
+        src="/assets/portfolio/mr-cliffs/mr-cliffs-emblem.webp"
+        alt="Mr. Cliff's Emblem"
+        className="work-brand-emblem"
+        width={50}
+        height={50}
+        loading="lazy"
+        decoding="async"
+       />
+       <img
+        src="/assets/portfolio/mr-cliffs/mr-cliffs-wordmark.svg"
+        alt="Mr. Cliff's"
+        className="work-brand-mark work-cliffs-mark"
+        width={240}
+        height={42}
+        loading="lazy"
+        decoding="async"
+       />
+      </a>
+     </div>
+    </div>
+    <div className="work-cliffs-specs">
+     <span>90 PROOF</span>
+     <span>•</span>
+     <span>45% ALC./VOL.</span>
+     <span>•</span>
+     <span>750 ML</span>
+    </div>
+   </div>
+
+   <a className="work-visual-frame" href="https://mr-cliffs-aesthetic-upgrade.netlify.app" target="_blank" rel="noopener noreferrer" aria-label="Visit Mr. Cliff’s live website">
+    <picture className="portfolio-image">
+     <source srcSet="/assets/portfolio/03-MR-CLIFFS-HERO-800.webp 800w, /assets/portfolio/03-MR-CLIFFS-HERO-1200.webp 1200w, /assets/portfolio/03-MR-CLIFFS-HERO.webp 1672w" sizes="(max-width: 800px) 100vw, 1340px"/>
+     <img src="/assets/portfolio/03-MR-CLIFFS-HERO.webp" width={1672} height={941} alt="Mr. Cliff’s — Heritage spirits and digital flagship" loading="lazy" decoding="async"/>
+    </picture>
+   </a>
+
+   <div className="work-brand-footer">
+    <p className="work-brand-summary">
+     Kentucky bourbon character meets digital flagship craftsmanship — an evocative online brand experience and hospitality presence built around heritage, warmth, and restraint.
+    </p>
+    <div className="work-actions-cluster">
+     <a className="work-primary-cta work-cta-cliffs" href="https://mr-cliffs-aesthetic-upgrade.netlify.app" target="_blank" rel="noopener noreferrer">
+      VISIT WEBSITE <span aria-hidden="true">↗</span>
+     </a>
+     <a className="work-secondary-cta" href="/work/mr-cliffs">
+      VIEW PROJECT <span aria-hidden="true">→</span>
+     </a>
+    </div>
+   </div>
+  </section>
+
   <LabGate/>
   <CompanyGate/>
  </> ;
@@ -202,7 +299,8 @@ function IKLA(){
    </div>
   </Chapter>
 
-  <Next name="MyMosa / My Drink Family" href="/work/mymosa"/>
+  <Next name="Mr. Cliff’s / Heritage Spirits" href="/work/mr-cliffs"/>
+  <CompanyGate/>
  </article>;
 }
 
@@ -238,7 +336,20 @@ function Cliffs(){
    </div>
   </Chapter>
   <Chapter number="04 / COMMERCIAL POSITIONING" title="Clarity without fabrication." copy="This case study exhibits the website design, responsive layouts and original production artwork. No unverified retail relationships, distribution claims or sales figures are asserted."/>
+
+  <Chapter id="experience" number="05 / RESULTING BRAND EXPERIENCE" title="The Digital Flagship & Hospitality World." copy="An authentic digital flagship and physical presence celebrating Kentucky bourbon character, hospitality warmth, and crafted restraint.">
+   <div className="closing-quiet" style={{marginTop:'30px'}}>
+    <div style={{display:'flex',flexDirection:'column',gap:'20px',alignItems:'flex-start'}}>
+     <p style={{fontSize:'clamp(20px,2.6vw,36px)',letterSpacing:'-0.02em',lineHeight:'1.2'}}>Explore the complete, live Mr. Cliff’s digital flagship and hospitality presence.</p>
+     <a href="https://mr-cliffs-aesthetic-upgrade.netlify.app" target="_blank" rel="noopener noreferrer" className="primary-action" style={{fontSize:'11px',letterSpacing:'.08em',padding:'16px 26px',textTransform:'uppercase'}}>
+      VISIT LIVE WEBSITE <span aria-hidden="true">↗</span>
+     </a>
+    </div>
+   </div>
+  </Chapter>
+
   <Next name="MyMosa / My Drink Family" href="/work/mymosa"/>
+  <CompanyGate/>
  </article>;
 }
 

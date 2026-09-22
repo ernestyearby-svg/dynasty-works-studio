@@ -35,10 +35,14 @@ export function CommercialExhibition(){
  <div className="m531-experience-cta" style={{marginBlock:'48px 32px',padding:'36px',background:'#faf8f4',border:'1px solid #ded9cb'}}>
   <span style={{display:'block',fontSize:'11px',letterSpacing:'.12em',fontWeight:600,color:'#947132',marginBottom:'12px',textTransform:'uppercase'}}>06 / RESULTING BRAND EXPERIENCE</span>
   <h3 style={{fontSize:'clamp(22px,2.8vw,36px)',margin:'0 0 12px',fontWeight:400,lineHeight:1.2,color:'#171c1b',fontFamily:'Cinzel,serif'}}>The Operating Beverage Brand World.</h3>
-  <p style={{fontSize:'15px',lineHeight:1.7,color:'#555953',maxWidth:'65ch',margin:'0 0 24px'}}>Explore the live My Drink Family consumer brand world, product portfolio, and digital ecosystem.</p>
-  <a href="https://mydrinkfamily.com" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'#171c1b',color:'#fff',padding:'15px 26px',fontSize:'11px',fontWeight:600,letterSpacing:'.1em',textTransform:'uppercase',textDecoration:'none',transition:'background .2s ease'}}>
-    VISIT LIVE WEBSITE <span aria-hidden="true">↗</span>
-  </a>
- </div>
- <nav className="m531-navigation" aria-label="Case study navigation"><a href="/work" className="m531-back">← Back to Work</a><a href="/work/ikla" className="m531-next"><span className="m531-folio">NEXT PROJECT</span><strong>IKLA Maison ↗</strong></a></nav></section>
+   <div style={{display:'flex',gap:'16px',alignItems:'center',flexWrap:'wrap'}}>
+     <a href="https://mydrinkfamily.com" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'#171c1b',color:'#fff',padding:'15px 26px',fontSize:'11px',fontWeight:600,letterSpacing:'.1em',textTransform:'uppercase',textDecoration:'none',transition:'background .2s ease'}}>
+       VISIT LIVE WEBSITE <span aria-hidden="true">↗</span>
+     </a>
+     <a href="/#review-builder" style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'transparent',color:'#171c1b',padding:'14px 24px',fontSize:'11px',fontWeight:600,letterSpacing:'.1em',textTransform:'uppercase',textDecoration:'none',border:'1px solid rgba(23,28,27,0.25)',transition:'all .2s ease'}}>
+       Start a company <span aria-hidden="true">→</span>
+     </a>
+   </div>
+  </div>
+  <nav className="m531-navigation" aria-label="Case study navigation"><a href="/work" className="m531-back">← Back to Work</a><a href="/work/ikla" className="m531-next"><span className="m531-folio">NEXT PROJECT</span><strong>IKLA Maison ↗</strong></a></nav></section>
 }

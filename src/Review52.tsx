@@ -3,8 +3,7 @@ import './review51.css';
 import './review52.css';
 import {
   ReviewHeader,
-  HomeSelectedWork,
-  HomeCapabilities,
+  BuiltByTheStudio,
   StudioSignal,
   Invitation,
   ReviewFooter,
@@ -211,8 +210,13 @@ function Artifact({ phase, assembly = 0 }: { phase: number; assembly?: number })
 export type CreationEnvironmentState = { position: number; phase: number; reduced: boolean; material: CSSProperties };
 
 export default function Review52({ environment }: { environment?: (state: CreationEnvironmentState) => ReactNode } = {}) {
-  const [temperature] = useState(0);
-  const [phase] = useState(0);
+  const [temperature, setTemperature] = useState(0);
+  const [phase, setPhase] = useState(0);
+  const origin = useRef<HTMLDivElement>(null);
+  const destination = useRef<HTMLDivElement>(null);
+  const [assembly, setAssembly] = useState(0);
+  const [placement, setPlacement] = useState({ left: 0, top: 0, width: 0, height: 0 });
+  const rail = useRef<HTMLElement>(null);
   const [reduced, setReduced] = useState(false);
 
   useEffect(() => {
@@ -223,10 +227,53 @@ export default function Review52({ environment }: { environment?: (state: Creati
     return () => m.removeEventListener('change', update);
   }, []);
 
+  useEffect(() => {
+    let frame = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        if (!rail.current) return;
+        const r = rail.current.getBoundingClientRect();
+        const length = rail.current.offsetHeight - innerHeight;
+        const t = Math.max(0, Math.min(1, 1 - r.top / innerHeight));
+        setAssembly(t);
+        const progress = Math.max(0, -r.top / length);
+        setTemperature(progress <= 1 ? Math.min(7, progress * 8) : 8 + Math.min(1, (-r.top - length) / innerHeight));
+        if (origin.current && destination.current) {
+          const a = origin.current.getBoundingClientRect();
+          const b = destination.current.getBoundingClientRect();
+          const blend = t * t * (3 - 2 * t);
+          setPlacement({
+            left: a.left + (b.left - a.left) * blend,
+            top: a.top + (b.top - a.top) * blend,
+            width: a.width + (b.width - a.width) * blend,
+            height: a.height + (b.height - a.height) * blend,
+          });
+        }
+        setPhase(Math.max(0, Math.min(7, Math.floor((-r.top / length) * 8))));
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    onScroll();
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  function select(i: number) {
+    if (!rail.current) return;
+    const top = rail.current.getBoundingClientRect().top + scrollY;
+    const length = rail.current.offsetHeight - innerHeight;
+    window.scrollTo({ top: top + ((i + 0.2) / 8) * length, behavior: reduced ? 'instant' : 'smooth' });
+  }
+
   return (
     <div className={'p-prototype r51 r52' + (environment ? ' has-environment' : '')}>
       {environment?.({ position: temperature, phase, reduced, material: materialStyle(temperature) })}
-      <a className="p-skip" href="#work">Skip to featured work</a>
+      <a className="p-skip" href="#creation">Skip to creation experience</a>
 
       {/* 01: HERO & ARRIVAL */}
       <section id="hero" className="p-arrival" aria-labelledby="p-title">
@@ -235,9 +282,7 @@ export default function Review52({ environment }: { environment?: (state: Creati
           <p className="p-arrival-note">Company Creation Studio <br />From idea to operating enterprise.</p>
           <h1 id="p-title">From idea<span>to company.</span></h1>
           <div className="p-origin-art">
-            <div className="p-origin-anchor">
-              <Artifact phase={0} assembly={1} />
-            </div>
+            <div ref={origin} className="p-origin-anchor" />
             <span className="p-origin-caption"><i />One idea. Infinite potential.</span>
           </div>
           <p className="p-arrival-bottom">
@@ -245,104 +290,59 @@ export default function Review52({ environment }: { environment?: (state: Creati
           </p>
           <div className="r51-arrival-actions">
             <a className="r51-action" href="#review-builder">Start a company <span aria-hidden="true">→</span></a>
-            <a className="r52-hero-work" href="#work">View selected work <span aria-hidden="true">↗</span></a>
-            <a className="p-enter" href="#operating">How we build <span aria-hidden="true">↓</span></a>
+            <a className="r52-hero-work" href="#built">Built by the studio <span aria-hidden="true">↗</span></a>
+            <a className="p-enter" href="#creation">How we build <span aria-hidden="true">↓</span></a>
           </div>
         </div>
       </section>
 
-      {/* 02: FEATURED WORK / BRAND FIELDS */}
-      <HomeSelectedWork />
-
-      {/* 03: HOW WE BUILD / OPERATING SYSTEM */}
-      <Operating />
-
-      {/* 04: WHAT WE CAN BUILD / CAPABILITY VISUAL EDITORIAL */}
-      <HomeCapabilities />
-
-      {/* 05: COMPANY BUILDER */}
-      <ReviewBuilder />
-
-      {/* 06: WHY DWS / THE STUDIO */}
-      <StudioSignal />
-
-      {/* 07: ENTRY POINTS / FINAL CTA */}
-      <Invitation />
-      <ReviewFooter />
-    </div>
-  );
-}
-
-const operations = [
-  { name: 'Define', title: 'Find the company inside the idea.', terms: 'Purpose / Audience / Position / Opportunity / Business model / Roadmap' },
-  { name: 'Build', title: 'Turn direction into working assets.', terms: 'Identity / Product / Packaging / Digital / Experience' },
-  { name: 'Launch', title: 'Move the system into the market.', terms: 'Content / Campaign / Channel / Retail / Digital / Audience' },
-  { name: 'Scale', title: 'Strengthen what works. Build what comes next.', terms: 'Operations / Automation / New products / New experiences / New markets' },
-];
-
-function Operating() {
-  const [active, setActive] = useState(0);
-  const track = useRef<HTMLElement>(null);
-  useEffect(() => {
-    let frame = 0;
-    const update = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        const el = track.current;
-        if (!el) return;
-        const r = el.getBoundingClientRect();
-        setActive(Math.max(0, Math.min(3, Math.floor((-r.top / (el.offsetHeight - innerHeight)) * 4))));
-      });
-    };
-    addEventListener('scroll', update, { passive: true });
-    update();
-    return () => {
-      removeEventListener('scroll', update);
-      cancelAnimationFrame(frame);
-    };
-  }, []);
-  function go(i: number) {
-    const el = track.current;
-    if (!el) return;
-    scrollTo({
-      top: el.getBoundingClientRect().top + scrollY + ((el.offsetHeight - innerHeight) * (i + 0.15)) / 4,
-      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
-    });
-  }
-  return (
-    <section ref={track} id="operating" className="r51-operating" aria-label="Four operating states">
-      <div className="r51-operating-stage" data-operation={active}>
-        <header>
-          <span>03 / HOW WE BUILD</span>
-          <span>The same company. Four operating states: Define → Build → Launch → Scale.</span>
-        </header>
-        <nav aria-label="Operating states">
-          {operations.map((o, i) => (
-            <button key={o.name} aria-current={active === i ? 'step' : undefined} onClick={() => go(i)}>
-              <small>0{i + 1}</small>
-              {o.name}
-              <span aria-hidden="true">↗</span>
-            </button>
-          ))}
-        </nav>
-        <div className="r51-operating-art">
-          <Artifact phase={7} />
-          <div className="r51-extensions" aria-hidden="true">
-            <span>Operations</span>
-            <span>New products</span>
-            <span>New markets</span>
+      {/* 02: ORIGINAL CREATION CHAMBER / SCROLL-DRIVEN DWS EXPERIENCE */}
+      <section ref={rail} className="p-evolution" id="creation" aria-label="Idea to company">
+        <div className={'p-stage ' + (temperature >= 3.5 && temperature < 8.5 ? 'is-dark' : '')} style={materialStyle(temperature)}>
+          <div className="p-stage-top">
+            <span>DYNASTY WORKS / HOW WE BUILD</span>
+            <span>Proprietary 8-Stage Company Creation System</span>
+          </div>
+          <div className="p-stage-copy" aria-live="polite">
+            <span className="p-count">0{phase + 1}<span> / 08</span></span>
+            <h2>{statements[phase]}</h2>
+            <p>{descriptions[phase]}</p>
+          </div>
+          <div ref={destination} className="p-stage-art" />
+          <nav className="p-stages" aria-label="Creation stages">
+            {stages.map((s, i) => (
+              <button key={s} aria-current={i === phase ? 'step' : undefined} onClick={() => select(i)}>
+                <span className="p-stage-progress" />
+                <small>0{i + 1}</small>
+                {s}
+              </button>
+            ))}
+          </nav>
+          <div className="p-stage-foot">
+            <span>{phase === 7 ? 'The parts become the whole.' : 'Scroll to develop the idea.'}</span>
+            <span>IDEA → COMPANY</span>
           </div>
         </div>
-        <div className="r51-operating-copy" aria-live="polite">
-          <h2>{operations[active].title}</h2>
-          <p>{operations[active].terms}</p>
-        </div>
-        <div className="r51-operating-foot">
-          <span>One architecture, increasingly complete.</span>
-          <a href="/#review-builder">Bring us the idea →</a>
-        </div>
+      </section>
+
+      {/* 03: BUILT BY THE STUDIO */}
+      <BuiltByTheStudio />
+
+      {/* 04: COMPANY BUILDER */}
+      <ReviewBuilder />
+
+      {/* 05: WHY DWS */}
+      <StudioSignal />
+
+      {/* 06: FINAL INVITATION */}
+      <Invitation />
+      <ReviewFooter />
+
+      {/* PERSISTENT PRIMITIVE */}
+      <div className="p-shared-art" style={{ ...placement, ...materialStyle(temperature) }}>
+        <Artifact phase={phase} assembly={assembly} />
       </div>
-    </section>
+    </div>
   );
 }
 

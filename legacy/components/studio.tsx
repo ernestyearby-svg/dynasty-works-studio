@@ -203,14 +203,19 @@ export function FinalCTA() {
   return (
     <section className="final-cta shell">
       <div>
-        <span className="eyebrow">HAVE AN IDEA?</span>
+        <span className="eyebrow">FROM IDEA TO COMPANY</span>
         <h2>
           Let’s build <em>it.</em>
         </h2>
       </div>
-      <Link className="button" href="/contact">
-        Start a project <span>↗</span>
-      </Link>
+      <div style={{ display: 'inline-flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
+        <Link className="button light" href="/#review-builder">
+          Start a company <span>→</span>
+        </Link>
+        <Link className="text-link" href="/contact">
+          Talk to the studio <span>↗</span>
+        </Link>
+      </div>
     </section>
   );
 }

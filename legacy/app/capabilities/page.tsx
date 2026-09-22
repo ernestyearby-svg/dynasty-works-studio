@@ -4,6 +4,9 @@ import {
   DigitalSystemsFeature,
 } from "@legacy/components/company-creation";
 import { PracticeCatalog, CommercialPaths } from "@legacy/components/service-catalog";
+import { CapabilityTerritories } from "../../../src/Review52Shell";
+import "../../../src/review52.css";
+
 export const metadata = {
   title: "Company Creation Capabilities",
   description:
@@ -18,6 +21,7 @@ export default function Capabilities() {
         title="The right capability. At the right stage."
         description="Four stages organize the work. Open a stage to discover what it involves, then explore the disciplines behind it."
       />
+      <CapabilityTerritories />
       <section className="shell v2-stage-section">
         <StageArchitecture />
         <details className="v2-deep-catalog">
