@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './studio.css';
 
 const Arrow = () => <span aria-hidden="true">→</span>;
@@ -7,6 +7,10 @@ const ExternalArrow = () => <span aria-hidden="true">↗</span>;
 export default function StudioPage() {
   const menuRef = useRef<HTMLDialogElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.title = 'Studio — Dynasty Works Studio';
+  }, []);
 
   function openMenu() {
     menuRef.current?.showModal();
@@ -31,7 +35,7 @@ export default function StudioPage() {
 
           <nav className="studio-nav" aria-label="Main Navigation">
             <a href="/work">Work</a>
-            <a href="/#creation">How we build</a>
+            <a href="/#operating">How we build</a>
             <a href="/capabilities">Capabilities</a>
             <a href="/#review-builder">Company Builder</a>
             <a href="/founder-blueprint">Founder Blueprint</a>

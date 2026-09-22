@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { founderBlueprint, blueprintDocumentSections } from '../legacy/data/founder-blueprint';
 import './founder-blueprint.css';
 
@@ -8,6 +8,10 @@ const ExternalArrow = () => <span aria-hidden="true">↗</span>;
 export default function FounderBlueprintPage() {
   const menuRef = useRef<HTMLDialogElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.title = 'Founder Blueprint — Dynasty Works Studio';
+  }, []);
 
   function openMenu() {
     menuRef.current?.showModal();
@@ -32,7 +36,7 @@ export default function FounderBlueprintPage() {
 
           <nav className="fb-nav" aria-label="Main Navigation">
             <a href="/work">Work</a>
-            <a href="/#creation">How we build</a>
+            <a href="/#operating">How we build</a>
             <a href="/capabilities">Capabilities</a>
             <a href="/#review-builder">Company Builder</a>
             <a href="/studio">Studio</a>

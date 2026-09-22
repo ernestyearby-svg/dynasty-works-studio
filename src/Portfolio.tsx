@@ -37,34 +37,40 @@ function Work(){
    <div className="project-heading">
     <div>
      <p className="kicker">01 / SELECTED WORK</p>
-     <h2><a href="/work/mymosa">MyMosa <span>/ My Drink Family</span></a></h2>
+     <h2><a href="https://mydrinkfamily.com" target="_blank" rel="noopener noreferrer">MyMosa <span>/ My Drink Family</span></a></h2>
     </div>
-    <p>Consumer / Beverage / Brand Architecture</p>
+    <p>CATEGORY PIONEER • BEVERAGE BRAND SYSTEM</p>
    </div>
-   <a className="project-entrance" href="/work/mymosa" aria-label="Explore MyMosa case study">
+   <a className="project-entrance" href="https://mydrinkfamily.com" target="_blank" rel="noopener noreferrer" aria-label="Visit MyMosa live website">
     <Image id="01-mymosa-four-flavor-hero" alt="MyMosa four-flavor packaging presentation: Classic Orange, Pineapple, Tropical and Strawberry." critical/>
    </a>
    <div className="project-bottom">
     <p>Brand Architecture · 17 House Marks · Packaging Structure · 8 Commercial Expressions</p>
-    <a className="text-action" href="/work/mymosa">Explore case study →</a>
+    <div style={{display:'flex',gap:'24px',alignItems:'center',flexWrap:'wrap'}}>
+     <a className="text-action" href="/work/mymosa">VIEW CASE STUDY →</a>
+     <a className="text-action" href="https://mydrinkfamily.com" target="_blank" rel="noopener noreferrer">VISIT LIVE WEBSITE ↗</a>
+    </div>
    </div>
   </section>
   <section className="work-project work-ikla wrap">
    <div className="project-heading">
     <div>
      <p className="kicker">02 / SELECTED WORK</p>
-     <h2><a href="/work/ikla-maison">IKLA Maison</a></h2>
+     <h2><a href="https://iklamaison.com" target="_blank" rel="noopener noreferrer">IKLA Maison</a></h2>
     </div>
-    <p>Fashion / Quiet Luxury / Living System</p>
+    <p>LUXURY FASHION • BRAND WORLD</p>
    </div>
    <div className="ikla-entrance">
-    <a className="project-entrance" href="/work/ikla-maison" aria-label="Explore IKLA Maison case study">
+    <a className="project-entrance" href="https://iklamaison.com" target="_blank" rel="noopener noreferrer" aria-label="Visit IKLA Maison live website">
      <Image id="01-ikla-creative-direction" alt="IKLA Maison quiet-luxury creative direction study."/>
     </a>
     <div>
      <p className="quiet-statement">A quieter expression.<br/>A complete design language.</p>
-     <p>Creative direction, identity, crest & monogram, typography, color, pattern, materials, apparel and packaging.</p>
-     <a className="text-action" href="/work/ikla-maison">Explore case study →</a>
+     <p>Ultra-luxury European sartorial maison and private-client universe. Timeless architectural tailoring, fine leather goods, silk foulards, and bespoke appointment salon.</p>
+     <div style={{display:'flex',gap:'24px',alignItems:'center',marginTop:'24px',flexWrap:'wrap'}}>
+      <a className="text-action" href="/work/ikla">VIEW CASE STUDY →</a>
+      <a className="text-action" href="https://iklamaison.com" target="_blank" rel="noopener noreferrer">VISIT LIVE WEBSITE ↗</a>
+     </div>
     </div>
    </div>
   </section>
@@ -92,7 +98,7 @@ function Work(){
   </section>
   <LabGate/>
   <CompanyGate/>
- </>;
+ </> ;
 }
 
 function Chapter({number,title,copy,children,id}:{number:string;title:string;copy:string;children?:ReactNode;id?:string}){
@@ -109,18 +115,28 @@ function Next({name,href}:{name:string;href:string}){
 
 function MyMosa(){
  return <article className="case-study case-mymosa">
-  <Intro label="01 / SELECTED WORK" title={<>MyMosa<span className="case-subtitle">/ My Drink Family</span></>} copy="Premium Wine Cocktails. A product family expressed through flavor, packaging and a connected brand world."><Back/></Intro>
+  <Intro label="01 / SELECTED WORK" title={<>MyMosa<span className="case-subtitle">/ My Drink Family</span></>} copy="Category pioneer. Beverage brand architecture, four-flavor packaging system, and extensible brand-house ecosystem."><Back/></Intro>
   <div className="wrap"><Visual id="01-mymosa-four-flavor-hero" alt="MyMosa four-flavor packaging system." caption="Product presentation · project visualization" critical/></div>
-  <Chapter number="01 / THE FOUNDATION" title="One family. Distinct expressions." copy="MyMosa / My Drink Family brings product, identity and consumer-facing creative into a common system. This case study follows the supplied work from its four-flavor presentation into packaging and brand expression."/>
-  <Chapter number="02 / PRODUCT SYSTEM" title="Flavor gives the family its rhythm." copy="Classic Orange, Pineapple, Tropical and Strawberry share a recognizable composition while color distinguishes each expression.">
+  <Chapter number="01 / CHALLENGE" title="Defining a Category in Canned Wine Cocktails." copy="The ready-to-drink beverage landscape was dominated by generic hard seltzers and undifferentiated spirit mixes. The challenge was to engineer a sophisticated canned mimosa brand that felt celebratory yet grounded in authentic wine pedigree, designed to scale seamlessly from an initial flagship into a multi-expression beverage house."/>
+  <Chapter number="02 / SYSTEM / APPROACH" title="Rhythm, Constant Hierarchy &amp; Color Coding." copy="Dynasty Works Studio engineered a strict label hierarchy: a central cream pedestal, elegant serif typography, and prominent wordmark remain fixed, while vivid background hues and bespoke fruit illustrations identify each flavor expression.">
    <div className="flavor-rail" tabIndex={0} role="region" aria-label="Four flavor details; scroll horizontally on mobile">
     {[['orange','Classic Orange'],['pineapple','Pineapple'],['tropical','Tropical'],['strawberry','Strawberry']].map(([id,name])=><figure key={id}><Image id={'mymosa-'+id+'-detail'} alt={'MyMosa '+name+' — unchanged source detail.'} sizes="(max-width:800px) 190px, 220px"/><figcaption>{name}</figcaption></figure>)}
    </div>
   </Chapter>
-  <Chapter number="03 / PACKAGING DEVELOPMENT" title="A structure for every expression." copy="Flavor differentiation and visual hierarchy work together across the packaging presentation. The process board brings the product family, color and application into one view."><Visual id="03-mymosa-packaging-development" alt="MyMosa packaging development board with flavor system and layout studies." caption="Packaging development visualization · not a production specification"/></Chapter>
-  <Chapter number="04 / BRAND EXPRESSION" title="From package to occasion." copy="The same visual language extends into campaign imagery: sunlight, flavor and a shared sense of occasion."><Visual id="02-mymosa-lifestyle-campaign" alt="MyMosa lifestyle campaign visualization with four flavors in a sunlit setting." caption="Lifestyle / campaign visualization"/></Chapter>
-  <Chapter number="05 / SYSTEM THINKING" title="The product is only one part." copy="Brand, packaging, product, campaign, digital and market form the wider project architecture. The supplied visual system connects the product to the way the brand is encountered."><Visual id="04-mymosa-brand-system" alt="MyMosa brand system presentation spanning packaging and campaign direction." caption="Brand-world development"/></Chapter>
-  <Next name="IKLA Maison" href="/work/ikla-maison"/>
+  <Chapter number="03 / WHAT DWS BUILT" title="From Can Master to Beverage Ecosystem." copy="Dynasty Works Studio designed and delivered the complete four-flavor and eight-flavor packaging systems, the 17-house My Drink Family organizing architecture, identity lockups, and digital flagship assets."/>
+  <Chapter number="04 / BRAND ARCHITECTURE" title="MyMosa &amp; The My Drink Family Ecosystem." copy="The flagship product was positioned as house number one within 'My Drink Family', an umbrella brand architecture developed to host an entire family of complementary beverage ventures under a unified corporate seal."><Visual id="04-mymosa-brand-system" alt="MyMosa brand system presentation spanning packaging and campaign direction." caption="Brand-world development"/></Chapter>
+  <Chapter number="05 / SELECTED PROCESS / SYSTEM PROOF" title="Label Hierarchy &amp; Flavor Development." copy="A structure for every expression: inspect the flavor system, label zone constants, and packaging differentiation across Classic Orange, Pineapple, Tropical, and Strawberry."><Visual id="03-mymosa-packaging-development" alt="MyMosa packaging development board with flavor system and layout studies." caption="Packaging development visualization · not a production specification"/></Chapter>
+  <Chapter number="06 / RESULTING BRAND EXPERIENCE" title="The Live Consumer Platform." copy="The finished brand world operates as an active commercial consumer platform and retail presentation.">
+   <div className="closing-quiet" style={{marginTop:'30px'}}>
+    <div style={{display:'flex',flexDirection:'column',gap:'20px',alignItems:'flex-start'}}>
+     <p style={{fontSize:'clamp(24px,3vw,42px)',letterSpacing:'-0.03em',lineHeight:'1.2'}}>Explore the complete, live My Drink Family web platform.</p>
+     <a href="https://mydrinkfamily.com" target="_blank" rel="noopener noreferrer" className="primary-action" style={{fontSize:'11px',letterSpacing:'.08em',padding:'16px 26px',textTransform:'uppercase'}}>
+      VISIT LIVE WEBSITE <span aria-hidden="true">↗</span>
+     </a>
+    </div>
+   </div>
+  </Chapter>
+  <Next name="IKLA Maison" href="/work/ikla"/>
  </article>;
 }
 
@@ -131,42 +147,62 @@ function Process({id,title,alt}:{id:string;title:string;alt:string}){
 
 function IKLA(){
  return <article className="case-study case-ikla">
-  <Intro label="02 / SELECTED WORK" title="IKLA Maison" copy="Quiet casual luxury. A design language shaped by material, fit, modern living and considered detail."><Back/></Intro>
-  <div className="wrap"><Visual id="01-ikla-creative-direction" alt="IKLA Maison quiet-luxury creative direction study." caption="Creative direction · current quiet-casual-luxury presentation" critical/></div>
-  <nav className="chapter-navigation wrap" aria-label="IKLA chapters">{['direction','identity','typography','color','marks','surface','materials','application','packaging','world'].map((id,i)=><a key={id} href={'#'+id}>{String(i+1).padStart(2,'0')} {id}</a>)}</nav>
-  <Chapter id="direction" number="01 / CREATIVE DIRECTION" title="Modern living. Lasting character." copy="Timeless style, elevated essentials and natural textures establish the direction. Global influence is expressed through culture, travel and a considered everyday wardrobe."/>
-  <Chapter id="identity" number="02 / IDENTITY" title="A house with a shared language." copy="The identity architecture connects the wordmark and supporting marks across the brand. Earlier heraldic studies provide process context; the current presentation favors restraint.">
+  <Intro label="02 / SELECTED WORK" title="IKLA Maison" copy="Ultra-luxury fashion and lifestyle maison. A quiet design language shaped by architectural tailoring, fine materials, modern living, and considered detail."><Back/></Intro>
+  <div className="wrap"><Visual id="01-ikla-creative-direction" alt="IKLA Maison quiet-luxury creative direction study." caption="Creative direction · authoritative quiet-luxury presentation" critical/></div>
+  <nav className="chapter-navigation wrap" aria-label="IKLA chapters">{['challenge','system','built','architecture','process','experience'].map((id,i)=><a key={id} href={'#'+id}>{String(i+1).padStart(2,'0')} {id}</a>)}</nav>
+
+  <Chapter id="challenge" number="01 / CHALLENGE" title="The Luxury Paradox." copy="Building an authentic ultra-luxury European fashion maison from first principles requires overcoming extreme market skepticism. Fast fashion and synthetic influencer brands have flooded the market; true luxury demands timeless heritage codes, structural tailoring integrity, and authentic materiality that speaks without loud logos.">
+   <div className="detail-aside"><p style={{maxWidth:'60ch',fontSize:'16px',lineHeight:'1.8',color:'var(--graphite)'}}>The challenge was to engineer an enduring luxury identity that commands quiet authority across apparel, bespoke commissions, leather goods, and spatial private-client salons from day one.</p></div>
+  </Chapter>
+
+  <Chapter id="system" number="02 / SYSTEM / APPROACH" title="Restraint, Form & Monolithic Codes." copy="Dynasty Works Studio established an uncompromising aesthetic and material grammar rooted in European architectural tailoring. Color, typography, and iconography were locked into an enduring heraldic system.">
+   <div className="detail-aside"><Image id="ikla-material-detail" alt="IKLA material study detail showing fabric and textured applications." sizes="(max-width:800px) 90vw, 480px"/><p>Maison Green, Imperial Black, Regal Gold, and Cream White establish the physical and visual baseline. Texture and finish lead before ornament.</p></div>
+  </Chapter>
+
+  <Chapter id="built" number="03 / WHAT DWS BUILT" title="The Complete Maison Architecture." copy="Dynasty Works Studio conceived, engineered, and delivered the full operational and creative stack for IKLA Maison.">
+   <div className="wrap" style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))',gap:'20px',marginBlock:'24px'}}>
+    <div style={{padding:'24px',background:'var(--paper)',border:'1px solid var(--line)'}}>
+     <strong style={{display:'block',fontSize:'11px',letterSpacing:'.08em',color:'var(--blue)',marginBottom:'8px'}}>01 / BRAND IDENTITY</strong>
+     <p style={{fontSize:'13px',lineHeight:'1.7',color:'var(--graphite)',margin:0}}>Heraldic Griffin crest, custom wordmark typography, proportion matrices, and color systems.</p>
+    </div>
+    <div style={{padding:'24px',background:'var(--paper)',border:'1px solid var(--line)'}}>
+     <strong style={{display:'block',fontSize:'11px',letterSpacing:'.08em',color:'var(--blue)',marginBottom:'8px'}}>02 / SARTORIAL SILHOUETTES</strong>
+     <p style={{fontSize:'13px',lineHeight:'1.7',color:'var(--graphite)',margin:0}}>Architectural overcoats, peaked-lapel bespoke dinner jackets, cashmere essentials, and structured footwear.</p>
+    </div>
+    <div style={{padding:'24px',background:'var(--paper)',border:'1px solid var(--line)'}}>
+     <strong style={{display:'block',fontSize:'11px',letterSpacing:'.08em',color:'var(--blue)',marginBottom:'8px'}}>03 / LEATHER & ACCESSORIES</strong>
+     <p style={{fontSize:'13px',lineHeight:'1.7',color:'var(--graphite)',margin:0}}>Rigid box-calf attaché cases with bespoke Griffin hardware, cellulose acetate eyewear, and signet horology.</p>
+    </div>
+    <div style={{padding:'24px',background:'var(--paper)',border:'1px solid var(--line)'}}>
+     <strong style={{display:'block',fontSize:'11px',letterSpacing:'.08em',color:'var(--blue)',marginBottom:'8px'}}>04 / PACKAGING & FLAGSHIP</strong>
+     <p style={{fontSize:'13px',lineHeight:'1.7',color:'var(--graphite)',margin:0}}>Rigid presentation packaging suite with grosgrain ribbons, and the private-client digital flagship platform.</p>
+    </div>
+   </div>
+  </Chapter>
+
+  <Chapter id="architecture" number="04 / BRAND ARCHITECTURE" title="A Cohesive Multi-Category World." copy="The Maison architecture organizes distinct product and lifestyle categories into a unified hierarchy without brand dilution.">
+   <div className="detail-aside"><Image id="ikla-pattern-detail" alt="Source detail of tonal IKLA monogram and herringbone textiles." sizes="(max-width:800px) 90vw, 420px"/><p>From bespoke couture tailoring to private salon commissions, ready-to-wear knitwear, and the exclusive Griffin Edition, every category shares one disciplined voice.</p></div>
+  </Chapter>
+
+  <Chapter id="process" number="05 / SELECTED PROCESS / SYSTEM PROOF" title="Materiality, Typography & Rigor." copy="Process evidence demonstrating how initial heraldic studies, typographic scales, and material selections materialized into finished maison standards.">
    <Process id="02-ikla-identity-system" title="View identity architecture study" alt="IKLA identity architecture exploration with wordmark and heraldic applications."/>
+   <Process id="04-ikla-typography-system" title="View typography hierarchy system" alt="IKLA typography study exploring hierarchy, lockups and applications."/>
+   <Process id="07-ikla-material-study" title="View tactile material and finish exploration" alt="IKLA material and hardware study."/>
+   <Process id="09-ikla-packaging-experience" title="View rigid packaging dieline and presentation suite" alt="IKLA packaging experience study with garment, boxes, cards and labels."/>
   </Chapter>
-  <Chapter id="typography" number="03 / TYPOGRAPHY" title="Hierarchy before decoration." copy="A typographic system establishes relationships between the house name, editorial statements and functional information.">
-   <Visual id="04-ikla-typography-system" alt="IKLA typography study exploring hierarchy, lockups and applications." caption="Typography system study"/>
+
+  <Chapter id="experience" number="06 / RESULTING BRAND EXPERIENCE" title="The Living Luxury Flagship." copy="The finished enterprise is an operating luxury brand world: responsive digital boutique, private concierge appointment portal, editorial lookbooks, and high-conversion client pathways.">
+   <div className="closing-quiet" style={{marginTop:'30px'}}>
+    <div style={{display:'flex',flexDirection:'column',gap:'20px',alignItems:'flex-start'}}>
+     <p style={{fontSize:'clamp(24px,3vw,42px)',letterSpacing:'-0.03em',lineHeight:'1.2'}}>Explore the complete, live IKLA Maison digital flagship and private-client experience.</p>
+     <a href="https://iklamaison.com" target="_blank" rel="noopener noreferrer" className="primary-action" style={{fontSize:'11px',letterSpacing:'.08em',padding:'16px 26px',textTransform:'uppercase'}}>
+      VISIT LIVE WEBSITE <span aria-hidden="true">↗</span>
+     </a>
+    </div>
+   </div>
   </Chapter>
-  <Chapter id="color" number="04 / COLOR" title="A palette with room to breathe." copy="Maison Green, Imperial Black, Regal Gold and Cream White form the core identity. Supporting neutrals explore a quieter expression across fabric, print and space.">
-   <Visual id="05-ikla-color-system" alt="IKLA color study with core colors and supporting neutral explorations." caption="Color system · core identity and supporting exploration"/>
-  </Chapter>
-  <Chapter id="marks" number="05 / EMBLEM & MARKS" title="Character, at the right scale." copy="The mark studies explore a family of expressions. The direction for everyday applications is smaller, tonal and integrated into material.">
-   <Process id="03-ikla-emblem-system" title="View emblem and mark exploration" alt="IKLA emblem exploration with griffin, monogram and supporting marks."/>
-  </Chapter>
-  <Chapter id="surface" number="06 / PATTERN & SURFACE" title="Refinement in repetition." copy="Micro monogram, herringbone, stripe, textile texture and botanical influence extend identity into surface. Embossing and lining offer quieter places for a mark to live.">
-   <Visual id="06-ikla-pattern-surface-system" alt="IKLA quiet-luxury pattern and surface system with tonal textile applications." caption="Pattern / surface system"/>
-   <div className="detail-aside"><Image id="ikla-pattern-detail" alt="Source detail of tonal IKLA monogram and herringbone textiles." sizes="(max-width:800px) 90vw, 420px"/><p>Pattern becomes part of the material, rather than a layer placed over it.</p></div>
-  </Chapter>
-  <Chapter id="materials" number="07 / MATERIALS" title="The detail carries the idea." copy="Fabric, leather, embroidery, hardware, woven labels and finishes provide the physical vocabulary. This is a material study demonstrating texture, scale and finish.">
-   <div className="detail-aside"><Image id="ikla-material-detail" alt="IKLA material study detail showing fabric and textured applications." sizes="(max-width:800px) 90vw, 480px"/><p>Texture, scale and finish connect the visual system to touch.</p></div>
-   <Process id="07-ikla-material-study" title="View complete material exploration" alt="IKLA material and hardware study."/>
-  </Chapter>
-  <Chapter id="application" number="08 / APPLICATION" title="Designed to be lived in." copy="The current direction emphasizes fit, texture and elevated everyday pieces. Small branding lets material and construction lead.">
-   <div className="quiet-pair"><Visual id="ikla-direction-detail" alt="IKLA quiet-luxury knitwear direction, cropped directly from the approved creative-direction master." caption="Current direction / knitwear"/><Visual id="ikla-living-detail" alt="IKLA quiet-luxury everyday styling, cropped directly from the creative-direction master." caption="Current direction / everyday styling"/></div>
-   <Process id="08-ikla-apparel-accessories" title="View apparel and accessory exploration" alt="IKLA apparel and accessories exploration."/>
-  </Chapter>
-  <Chapter id="packaging" number="09 / PACKAGING" title="The experience continues." copy="Packaging connects garment, label, paper and presentation. The supplied study shows how those touchpoints can belong to one house.">
-   <Visual id="09-ikla-packaging-experience" alt="IKLA packaging experience study with garment, boxes, cards and labels." caption="Packaging experience study"/>
-  </Chapter>
-  <Chapter id="world" number="10 / BRAND WORLD" title="A quieter way to arrive." copy="Natural light, texture and modern living frame the current direction. The brand world supports the product without overwhelming it.">
-   <div className="closing-quiet"><Image id="ikla-living-detail" alt="Quiet IKLA editorial styling in natural light." sizes="(max-width:800px) 70vw, 360px"/><p>Material.<br/>Fit.<br/>Restraint.</p></div>
-   <Process id="10-ikla-editorial-lifestyle" title="View editorial exploration" alt="IKLA lifestyle exploration, retained as process evidence."/>
-  </Chapter>
-  <Next name="Mr. Cliff’s Premium Bourbon" href="/work/mr-cliffs"/>
+
+  <Next name="MyMosa / My Drink Family" href="/work/mymosa"/>
  </article>;
 }
 
@@ -277,7 +313,7 @@ export default function Portfolio(){
  let page:ReactNode=<NotFound/>;
  if(path==='/work')page=<Work/>;
  else if(path==='/work/mymosa')page=<MyMosa/>;
- else if(path==='/work/ikla-maison')page=<IKLA/>;
+ else if(path==='/work/ikla'||path==='/work/ikla-maison')page=<IKLA/>;
  else if(path==='/work/mr-cliffs')page=<Cliffs/>;
  else if(path==='/concept-lab')page=<ConceptLab/>;
  else if(concepts.some(c=>path==='/concept-lab/'+c.slug))page=<ConceptDetail slug={path.split('/').pop()!}/>;

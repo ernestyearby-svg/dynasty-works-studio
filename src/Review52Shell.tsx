@@ -1,11 +1,11 @@
 import { useRef, useState } from 'react';
 
 const links = [
-  ['Work', '/work'],
-  ['How we build', '#creation'],
-  ['Capabilities', '/capabilities'],
-  ['Company Builder', '#review-builder'],
-  ['Studio', '/studio'],
+  ['Work', '/#work'],
+  ['How we build', '/#operating'],
+  ['Capabilities', '/#capabilities'],
+  ['Company Builder', '/#review-builder'],
+  ['Studio', '/#studio'],
 ];
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
@@ -27,7 +27,7 @@ export function ReviewHeader() {
           <a href={url} key={name}>{name}</a>
         ))}
       </nav>
-      <a className="r52-nav-action" href="#review-builder">Start a company <Arrow /></a>
+      <a className="r52-nav-action" href="/#review-builder">Start a company <Arrow /></a>
       <button
         className="r52-menu-trigger"
         ref={trigger}
@@ -58,7 +58,7 @@ export function ReviewHeader() {
             <a href={url} key={name} onClick={close}>{name}<Arrow /></a>
           ))}
         </nav>
-        <a className="r51-action" href="#review-builder" onClick={close}>Start a company <Arrow /></a>
+        <a className="r51-action" href="/#review-builder" onClick={close}>Start a company <Arrow /></a>
       </dialog>
     </header>
   );
@@ -69,230 +69,218 @@ export function HomeSelectedWork() {
     <section className="r52-home-proof" id="work" aria-labelledby="home-proof-title">
       <div className="r52-proof-head">
         <div>
-          <span className="r52-folio">01 / SELECTED WORK</span>
-          <h2 id="home-proof-title">Proven company<br /><em>creation.</em></h2>
+          <span className="r52-folio">02 / FEATURED WORK</span>
+          <h2 id="home-proof-title">Flagship company<br /><em>creation.</em></h2>
         </div>
         <div className="r52-proof-head-aside">
           <p className="r52-proof-thesis">
             Authentic enterprises engineered from concept to commercial reality.
-            Strategy, identity, physical packaging, digital platforms, and launch systems.
+            Strategy, identity, physical packaging, digital platforms, and market launch.
           </p>
-          <a href="/work" className="r52-proof-all-link">
-            Explore all case studies <Arrow />
-          </a>
         </div>
       </div>
 
-      <div className="r52-proof-grid">
-        {/* Project 01: MyMosa */}
-        <article className="r52-proof-card">
-          <a href="/work/mymosa" className="r52-proof-media" aria-label="MyMosa case study">
-            <img
-              src="/assets/portfolio/01-mymosa-four-flavor-hero-960.webp"
-              alt="MyMosa premium ready-to-drink mimosa packaging architecture"
-              width={960}
-              height={540}
-              loading="lazy"
-            />
-            <span className="r52-proof-pill">RTD BEVERAGE ENTERPRISE</span>
-          </a>
-          <div className="r52-proof-content">
-            <div className="r52-card-tags">
-              <span>Strategy</span>
-              <span>Identity</span>
-              <span>Packaging System</span>
-              <span>E-Commerce</span>
-            </div>
-            <h3>
-              <a href="/work/mymosa">MyMosa</a>
-            </h3>
-            <p className="r52-card-premise">
-              End-to-end beverage enterprise creation: brand architecture, eight can expressions,
-              bespoke 3D asset pipeline, and direct-to-consumer digital commerce.
+      <div className="r52-featured-fields">
+        {/* 01: MyMosa / My Drink Family */}
+        <article className="r52-brand-field r52-field-mymosa">
+          <div className="r52-field-content">
+            <span className="r52-field-category">CATEGORY PIONEER • BEVERAGE BRAND SYSTEM</span>
+            <h3 className="r52-field-name">MYMOSA / MY DRINK FAMILY</h3>
+            <p className="r52-field-copy">
+              Category-defining ready-to-drink wine cocktail enterprise built from first principles. Complete brand architecture, seventeen house identities, packaging systems, and national distribution launch.
             </p>
-            <a href="/work/mymosa" className="r52-card-action">
-              Explore case study <span aria-hidden="true">→</span>
-            </a>
+            <div className="r52-field-actions">
+              <a href="/work/mymosa" className="r52-action-secondary">
+                VIEW CASE STUDY →
+              </a>
+              <a
+                href="https://mydrinkfamily.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="r52-action-primary"
+                aria-label="Visit MyMosa / My Drink Family live website (opens in new tab)"
+              >
+                VISIT LIVE WEBSITE <Arrow />
+              </a>
+            </div>
           </div>
         </article>
 
-        {/* Project 02: IKLA Maison */}
-        <article className="r52-proof-card">
-          <a href="/work/ikla-maison" className="r52-proof-media" aria-label="IKLA Maison case study">
-            <img
-              src="/assets/portfolio/01-ikla-creative-direction-960.webp"
-              alt="IKLA Maison haute parfumerie bespoke vessel and unboxing architecture"
-              width={960}
-              height={540}
-              loading="lazy"
-            />
-            <span className="r52-proof-pill">LUXURY HOME FRAGRANCE</span>
-          </a>
-          <div className="r52-proof-content">
-            <div className="r52-card-tags">
-              <span>Identity</span>
-              <span>Industrial Vessel</span>
-              <span>Packaging</span>
-              <span>Digital Flagship</span>
-            </div>
-            <h3>
-              <a href="/work/ikla-maison">IKLA Maison</a>
-            </h3>
-            <p className="r52-card-premise">
-              Haute parfumerie maison brought from concept to physical presence: architectural
-              glass vessel design, unboxing ritual, high-conversion digital boutique, and editorial campaign.
+        {/* 02: IKLA Maison */}
+        <article className="r52-brand-field r52-field-ikla">
+          <div className="r52-field-content">
+            <span className="r52-field-category">LUXURY FASHION • BRAND WORLD</span>
+            <h3 className="r52-field-name">IKLA MAISON</h3>
+            <p className="r52-field-copy">
+              Ultra-luxury European sartorial maison and private-client universe. Timeless architectural tailoring, fine leather goods, silk foulards, and bespoke appointment salon.
             </p>
-            <a href="/work/ikla-maison" className="r52-card-action">
-              Explore case study <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </article>
-
-        {/* Project 03: Mr. Cliff's */}
-        <article className="r52-proof-card">
-          <a href="/work/mr-cliffs" className="r52-proof-media" aria-label="Mr. Cliff's case study">
-            <img
-              src="/assets/portfolio/mr-cliffs/window-thumbnail.webp"
-              alt="Mr. Cliff's modern heritage grooming parlor storefront branding and spatial experience"
-              width={960}
-              height={540}
-              loading="lazy"
-            />
-            <span className="r52-proof-pill">COMMERCE & SPATIAL ENVIRONMENT</span>
-          </a>
-          <div className="r52-proof-content">
-            <div className="r52-card-tags">
-              <span>Brand Heritage</span>
-              <span>Spatial Design</span>
-              <span>Storefront System</span>
-              <span>Digital Platform</span>
+            <div className="r52-field-actions">
+              <a href="/work/ikla" className="r52-action-secondary">
+                VIEW CASE STUDY →
+              </a>
+              <a
+                href="https://iklamaison.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="r52-action-primary"
+                aria-label="Visit IKLA Maison live website (opens in new tab)"
+              >
+                VISIT LIVE WEBSITE <Arrow />
+              </a>
             </div>
-            <h3>
-              <a href="/work/mr-cliffs">Mr. Cliff’s</a>
-            </h3>
-            <p className="r52-card-premise">
-              Heritage grooming parlor transformed into a scalable modern institution: physical storefront
-              atmosphere, editorial typographic identity, merchandising, and appointment platform.
-            </p>
-            <a href="/work/mr-cliffs" className="r52-card-action">
-              Explore case study <span aria-hidden="true">→</span>
-            </a>
           </div>
         </article>
       </div>
 
       <div className="r52-proof-foot">
         <div className="r52-proof-foot-meta">
-          <span>03 / AUTHENTIC FLAGSHIP CASE STUDIES</span>
+          <span>02 / AUTHORITATIVE LIVE ENTERPRISES</span>
           <span>Zero synthetic client claims</span>
-        </div>
-        <div className="r52-proof-foot-action">
-          <a href="/work" className="r51-action">
-            View all selected work <span aria-hidden="true">→</span>
-          </a>
         </div>
       </div>
     </section>
   );
 }
 
-const homeCapabilities = [
-  {
-    num: '01',
-    name: 'Brand Systems & Identity',
-    outcome: 'Strategic naming, mark design, typographic hierarchies, and brand guideline architecture.',
-    deliverable: 'Complete Identity System',
-  },
-  {
-    num: '02',
-    name: 'Packaging & Industrial Design',
-    outcome: 'Structural packaging, custom container forms, material finishes, unboxing rituals, and production specs.',
-    deliverable: 'Production-Ready Packaging',
-  },
-  {
-    num: '03',
-    name: 'Digital Platforms & E-Commerce',
-    outcome: 'High-performance headless web flagships, transactional infrastructure, and conversion design.',
-    deliverable: 'Custom Web & Commerce Flagship',
-  },
-  {
-    num: '04',
-    name: '3D Asset Systems & Virtual Worlds',
-    outcome: 'Photorealistic 3D product rendering, virtual set design, interactive WebGL, and generative asset pipelines.',
-    deliverable: 'High-Fidelity 3D Pipeline',
-  },
-  {
-    num: '05',
-    name: 'Automation & AI Operating Systems',
-    outcome: 'Enterprise workflows, autonomous agent orchestration, custom APIs, and backend intelligence.',
-    deliverable: 'Operational Automation',
-  },
-  {
-    num: '06',
-    name: 'Commercial Strategy & Positioning',
-    outcome: 'Market gap analysis, unit economics modeling, audience segmentation, and go-to-market roadmaps.',
-    deliverable: 'Venture & Market Roadmap',
-  },
-  {
-    num: '07',
-    name: 'Spatial & Environmental Design',
-    outcome: 'Storefront architecture, environmental graphics, point-of-sale systems, and physical retail staging.',
-    deliverable: 'Physical Experience System',
-  },
-  {
-    num: '08',
-    name: 'Creative Direction & Campaign Systems',
-    outcome: 'Editorial campaign imagery, cinematic video direction, brand voice manuals, and multichannel content.',
-    deliverable: 'Multi-Channel Launch Campaign',
-  },
-  {
-    num: '09',
-    name: 'Mobile & Connected Ecosystems',
-    outcome: 'Progressive web apps, native companion software, real-time client portals, and IoT digital interfaces.',
-    deliverable: 'Connected Application Suite',
-  },
-];
-
 export function HomeCapabilities() {
   return (
     <section className="r52-home-capabilities" id="capabilities" aria-labelledby="capabilities-title">
-      <div className="r52-cap-head">
-        <div>
-          <span className="r52-folio">03 / CAPABILITIES</span>
-          <h2 id="capabilities-title">Nine disciplines.<br /><em>One unified studio.</em></h2>
+      {/* Section Header */}
+      <div className="r52-cap-header">
+        <div className="r52-cap-title-block">
+          <span className="r52-folio">04 / CAPABILITIES</span>
+          <h2 id="capabilities-title">What we can<br /><em>build.</em></h2>
         </div>
-        <div className="r52-cap-head-aside">
-          <p>
-            We eliminate the friction between strategy consultants, branding agencies, industrial designers,
-            and software engineering teams. Every capability necessary to build a market-ready company lives under one roof.
+        <div className="r52-cap-header-aside">
+          <p className="r52-cap-lead">
+            We engineer complete enterprise ecosystems from raw hypothesis to operating market reality. Four foundational capability territories unify our practice.
           </p>
-          <a href="/capabilities" className="r52-proof-all-link">
-            Explore capability studies <Arrow />
+          <a href="/capabilities" className="r52-cap-primary-cta">
+            EXPLORE CAPABILITIES <Arrow />
           </a>
         </div>
       </div>
 
-      <div className="r52-cap-grid">
-        {homeCapabilities.map((c) => (
-          <div key={c.num} className="r52-cap-item">
-            <div className="r52-cap-item-top">
-              <span className="r52-cap-num">{c.num}</span>
-              <span className="r52-cap-deliverable">{c.deliverable}</span>
-            </div>
-            <h3>{c.name}</h3>
-            <p>{c.outcome}</p>
-            <a href="/capabilities" className="r52-cap-link">
-              Explore capability <Arrow />
-            </a>
+      {/* Asymmetric Editorial Visual Sequence */}
+      <div className="r52-capability-editorial">
+        {/* Moment 01: IDENTITY — Large dominant editorial frame */}
+        <article className="r52-cap-moment r52-cap-moment-dominant">
+          <div className="r52-cap-frame r52-frame-identity">
+            <picture>
+              <source
+                type="image/webp"
+                srcSet="/assets/capabilities/01-IDENTITY-METAMORPHOSIS-640.webp 640w, /assets/capabilities/01-IDENTITY-METAMORPHOSIS-1024.webp 1024w, /assets/capabilities/01-IDENTITY-METAMORPHOSIS.webp 1536w"
+                sizes="(max-width: 768px) 100vw, (max-width: 1440px) 92vw, 1340px"
+              />
+              <img
+                src="/assets/capabilities/01-IDENTITY-METAMORPHOSIS.png"
+                alt="DWS Capability Visual — Identity Metamorphosis from raw stone to crystal, textile, brass, and digital form"
+                width={1536}
+                height={1024}
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
-        ))}
-      </div>
+          <div className="r52-cap-caption r52-caption-dominant">
+            <div className="r52-cap-meta">
+              <span className="r52-cap-tag">01 / IDENTITY</span>
+              <h3 className="r52-cap-name">IDENTITY</h3>
+            </div>
+            <p className="r52-cap-statement">Systems that give ideas a recognizable world.</p>
+          </div>
+        </article>
 
-      <div className="r52-cap-foot">
-        <span>INTELLIGENCE IN RELATION / NATIVE BY DESIGN</span>
-        <a href="/capabilities/disciplines" className="r52-cap-all">
-          View relational discipline score <Arrow />
-        </a>
+        {/* Moment 02: DIGITAL — Contrasting composition / crop */}
+        <article className="r52-cap-moment r52-cap-moment-contrast">
+          <div className="r52-cap-caption r52-caption-contrast">
+            <div className="r52-cap-meta">
+              <span className="r52-cap-tag">02 / DIGITAL</span>
+              <h3 className="r52-cap-name">DIGITAL</h3>
+            </div>
+            <p className="r52-cap-statement">Products and experiences designed for how people live now.</p>
+          </div>
+          <div className="r52-cap-frame r52-frame-digital">
+            <picture>
+              <source
+                type="image/webp"
+                srcSet="/assets/capabilities/02-DIGITAL-PRODUCT-ECOSYSTEM-640.webp 640w, /assets/capabilities/02-DIGITAL-PRODUCT-ECOSYSTEM-1024.webp 1024w, /assets/capabilities/02-DIGITAL-PRODUCT-ECOSYSTEM.webp 1536w"
+                sizes="(max-width: 768px) 100vw, (max-width: 1440px) 68vw, 980px"
+              />
+              <img
+                src="/assets/capabilities/02-DIGITAL-PRODUCT-ECOSYSTEM.png"
+                alt="DWS Capability Visual — Digital Product Ecosystem spanning wearable, mobile, laptop, and global analytics command center"
+                width={1536}
+                height={1024}
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </div>
+        </article>
+
+        {/* Moment 03: INTELLIGENCE — Full-width / cinematic interruption */}
+        <article className="r52-cap-moment r52-cap-moment-cinematic">
+          <div className="r52-cap-frame r52-frame-intelligence">
+            <picture>
+              <source
+                type="image/webp"
+                srcSet="/assets/capabilities/03-INTELLIGENCE-ORCHESTRATION-640.webp 640w, /assets/capabilities/03-INTELLIGENCE-ORCHESTRATION-1024.webp 1024w, /assets/capabilities/03-INTELLIGENCE-ORCHESTRATION.webp 1536w"
+                sizes="(max-width: 768px) 100vw, 100vw"
+              />
+              <img
+                src="/assets/capabilities/03-INTELLIGENCE-ORCHESTRATION.png"
+                alt="DWS Capability Visual — Intelligence Orchestration synthesizing chaos into enterprise opportunity through autonomous AI cores"
+                width={1536}
+                height={1024}
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </div>
+          <div className="r52-cap-caption r52-caption-cinematic">
+            <div className="r52-cap-meta">
+              <span className="r52-cap-tag">03 / INTELLIGENCE</span>
+              <h3 className="r52-cap-name">INTELLIGENCE</h3>
+            </div>
+            <p className="r52-cap-statement">AI, automation and connected systems engineered into operations.</p>
+          </div>
+        </article>
+
+        {/* Moment 04: PRODUCT — Strong concluding visual */}
+        <article className="r52-cap-moment r52-cap-moment-concluding">
+          <div className="r52-cap-frame r52-frame-product">
+            <picture>
+              <source
+                type="image/webp"
+                srcSet="/assets/capabilities/04-PRODUCT-FROM-MATTER-TO-MARKET-640.webp 640w, /assets/capabilities/04-PRODUCT-FROM-MATTER-TO-MARKET-1024.webp 1024w, /assets/capabilities/04-PRODUCT-FROM-MATTER-TO-MARKET.webp 1536w"
+                sizes="(max-width: 768px) 100vw, (max-width: 1440px) 85vw, 1200px"
+              />
+              <img
+                src="/assets/capabilities/04-PRODUCT-FROM-MATTER-TO-MARKET.png"
+                alt="DWS Capability Visual — Product from Matter to Market tracing raw material to engineering, clay form, glass, and luxury packaging"
+                width={1536}
+                height={1024}
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </div>
+          <div className="r52-cap-caption r52-cap-concluding">
+            <div className="r52-cap-concluding-text">
+              <div className="r52-cap-meta">
+                <span className="r52-cap-tag">04 / PRODUCT</span>
+                <h3 className="r52-cap-name">PRODUCT</h3>
+              </div>
+              <p className="r52-cap-statement">Ideas translated into tangible, market-ready expressions.</p>
+            </div>
+            <div className="r52-cap-concluding-action">
+              <a href="/capabilities" className="r52-cap-bottom-cta">
+                EXPLORE CAPABILITIES <Arrow />
+              </a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
   );
@@ -302,7 +290,7 @@ export function StudioSignal() {
   return (
     <section className="r52-studio-signal" id="studio" aria-labelledby="studio-signal-title">
       <div className="r52-studio-inner">
-        <span className="r52-folio">05 / THE STUDIO</span>
+        <span className="r52-folio">06 / WHY DWS</span>
         <h2 id="studio-signal-title">
           Systems guided by <br /><em>human judgment.</em>
         </h2>
@@ -367,14 +355,14 @@ export function Invitation() {
   return (
     <section className="r52-invitation" id="invitation" aria-labelledby="invitation-title">
       <div className="r52-invitation-top">
-        <span className="r52-folio">07 / THE INVITATION</span>
+        <span className="r52-folio">07 / FINAL CTA</span>
         <p>The next company<br />has not been built yet.</p>
       </div>
       <h2 id="invitation-title">What are<br /><em>we building?</em></h2>
       <div className="r52-invitation-end">
         <span className="r52-seed" aria-hidden="true"><i /></span>
         <div>
-          <a className="r51-action" href="#review-builder">Start a company <span aria-hidden="true">→</span></a>
+          <a className="r51-action" href="/#review-builder">Start a company <span aria-hidden="true">→</span></a>
           <a className="r52-talk" href="/contact">Talk to the studio <Arrow /></a>
         </div>
       </div>
@@ -393,7 +381,7 @@ export function ReviewFooter() {
         {links.map(([name, url]) => (
           <a href={url} key={name}>{name}</a>
         ))}
-        <a href="#review-builder">Start a company <Arrow /></a>
+        <a href="/#review-builder">Start a company <Arrow /></a>
       </nav>
       <small>© {new Date().getFullYear()} Dynasty Works Studio. All rights reserved.</small>
     </footer>
