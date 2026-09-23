@@ -23,13 +23,14 @@ const loaders={
  home:()=>import('./CinematicHome'),
  work:()=>import('./V5WorkEntry'),
  blueprint:()=>import('./FounderBlueprintPage'),
+ medspa:()=>import('./MedSpaGrowthEnginePage'),
  studio:()=>import('./StudioPage'),
 };
 const isCompanyBuilder = path === '/company-builder';
 if (isCompanyBuilder && !window.location.hash) {
   window.location.hash = '#review-builder';
 }
-const route=path==='/visual-environment-lab'?'environment':isLab?'lab':path==='/founder-blueprint'?'blueprint':path==='/studio'?'studio':supporting?'support':path==='/work/mymosa'?'mymosa':path==='/v5-1-review'?'review51':path==='/prototype'?'prototype':path==='/'||path==='/v5-2-review'||isCompanyBuilder?'home':'work';
+const route=path==='/visual-environment-lab'?'environment':isLab?'lab':path==='/founder-blueprint'?'blueprint':path==='/growth/medspa'?'medspa':path==='/studio'?'studio':supporting?'support':path==='/work/mymosa'?'mymosa':path==='/v5-1-review'?'review51':path==='/prototype'?'prototype':path==='/'||path==='/v5-2-review'||isCompanyBuilder?'home':'work';
 const {default:Page}=await loaders[route]();
 const room=path==='/'||path==='/v5-2-review'||isCompanyBuilder?'creation':path==='/work'?'gallery':path.startsWith('/concept-lab')?'laboratory':path==='/studio'?'human':null;
 if(room){document.body.dataset.cinematicRoom=room;await import('./cinematic-rooms.css');}
