@@ -44,7 +44,7 @@ function Work(){
     <div className="work-brand-identity">
      <span className="work-brand-index">01 / SELECTED WORK</span>
      <div className="work-brand-lockup">
-      <a href="https://mydrinkfamily.com" target="_blank" rel="noopener noreferrer" id="brand-01-title" className="work-mdf-lockup-link" aria-label="My Drink Family">
+      <a href="https://mydrinkfamily.com/" target="_blank" rel="noopener noreferrer" id="brand-01-title" className="work-mdf-lockup-link" aria-label="My Drink Family">
        <img
         src="/assets/portfolio/mymosa/identity/my-drink-family-horizontal-primary-light.svg"
         alt="My Drink Family"
@@ -59,7 +59,7 @@ function Work(){
     <span className="work-brand-descriptor">CATEGORY PIONEER • BEVERAGE BRAND SYSTEM</span>
    </div>
 
-   <a className="work-visual-frame" href="https://mydrinkfamily.com" target="_blank" rel="noopener noreferrer" aria-label="Visit My Drink Family live website">
+   <a className="work-visual-frame" href="https://mydrinkfamily.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit My Drink Family live website">
     <picture className="portfolio-image">
      <source srcSet="/assets/portfolio/01-MY-DRINK-FAMILY-HERO-800.webp 800w, /assets/portfolio/01-MY-DRINK-FAMILY-HERO-1200.webp 1200w, /assets/portfolio/01-MY-DRINK-FAMILY-HERO.webp 1672w" sizes="(max-width: 800px) 100vw, 1340px"/>
      <img src="/assets/portfolio/01-MY-DRINK-FAMILY-HERO.webp" width={1672} height={941} alt="My Drink Family — Category-defining beverage brand system" loading="eager" decoding="async"/>
@@ -71,7 +71,7 @@ function Work(){
      Category-defining ready-to-drink cocktail enterprise built from first principles — complete brand architecture, 17 house identities, packaging systems, and national distribution launch.
     </p>
     <div className="work-actions-cluster">
-     <a className="work-primary-cta work-cta-mymosa" href="https://mydrinkfamily.com" target="_blank" rel="noopener noreferrer">
+     <a className="work-primary-cta work-cta-mymosa" href="https://mydrinkfamily.com/" target="_blank" rel="noopener noreferrer">
       VISIT WEBSITE <span aria-hidden="true">↗</span>
      </a>
      <a className="work-secondary-cta" href="/work/mymosa">
@@ -87,7 +87,7 @@ function Work(){
     <div className="work-brand-identity">
      <span className="work-brand-index">02 / SELECTED WORK</span>
      <div className="work-brand-lockup">
-      <a href="https://iklamaison.com" target="_blank" rel="noopener noreferrer" id="brand-02-title" className="work-ikla-lockup-link" aria-label="IKLA Maison">
+      <a href="https://iklamaison.com/" target="_blank" rel="noopener noreferrer" id="brand-02-title" className="work-ikla-lockup-link" aria-label="IKLA Maison">
        <img
         src="/assets/portfolio/ikla/identity/crest-light.webp"
         alt="IKLA Maison Crest"
@@ -112,7 +112,7 @@ function Work(){
     <span className="work-brand-descriptor">ULTRA-LUXURY SARTORIAL MAISON</span>
    </div>
 
-   <a className="work-visual-frame" href="https://iklamaison.com" target="_blank" rel="noopener noreferrer" aria-label="Visit IKLA Maison live website">
+   <a className="work-visual-frame" href="https://iklamaison.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit IKLA Maison live website">
     <picture className="portfolio-image">
      <source srcSet="/assets/portfolio/02-IKLA-MAISON-HERO-800.webp 800w, /assets/portfolio/02-IKLA-MAISON-HERO-1200.webp 1200w, /assets/portfolio/02-IKLA-MAISON-HERO.webp 1672w" sizes="(max-width: 800px) 100vw, 1340px"/>
      <img src="/assets/portfolio/02-IKLA-MAISON-HERO.webp" width={1672} height={941} alt="IKLA Maison — Ultra-luxury European sartorial maison" loading="lazy" decoding="async"/>
@@ -124,7 +124,7 @@ function Work(){
      Architectural tailoring, fine leather goods, and an exclusive private-client salon universe shaped by heraldic restraint, digital flagship experience, and bespoke Griffin luxury commissions.
     </p>
     <div className="work-actions-cluster">
-     <a className="work-primary-cta work-cta-ikla" href="https://iklamaison.com" target="_blank" rel="noopener noreferrer">
+     <a className="work-primary-cta work-cta-ikla" href="https://iklamaison.com/" target="_blank" rel="noopener noreferrer">
       VISIT WEBSITE <span aria-hidden="true">↗</span>
      </a>
      <a className="work-secondary-cta" href="/work/ikla">
@@ -227,7 +227,7 @@ function MyMosa(){
    <div className="closing-quiet" style={{marginTop:'30px'}}>
     <div style={{display:'flex',flexDirection:'column',gap:'20px',alignItems:'flex-start'}}>
      <p style={{fontSize:'clamp(24px,3vw,42px)',letterSpacing:'-0.03em',lineHeight:'1.2'}}>Explore the complete, live My Drink Family web platform.</p>
-     <a href="https://mydrinkfamily.com" target="_blank" rel="noopener noreferrer" className="primary-action" style={{fontSize:'11px',letterSpacing:'.08em',padding:'16px 26px',textTransform:'uppercase'}}>
+     <a href="https://mydrinkfamily.com/" target="_blank" rel="noopener noreferrer" className="primary-action" style={{fontSize:'11px',letterSpacing:'.08em',padding:'16px 26px',textTransform:'uppercase'}}>
       VISIT LIVE WEBSITE <span aria-hidden="true">↗</span>
      </a>
     </div>
@@ -292,7 +292,7 @@ function IKLA(){
    <div className="closing-quiet" style={{marginTop:'30px'}}>
     <div style={{display:'flex',flexDirection:'column',gap:'20px',alignItems:'flex-start'}}>
      <p style={{fontSize:'clamp(24px,3vw,42px)',letterSpacing:'-0.03em',lineHeight:'1.2'}}>Explore the complete, live IKLA Maison digital flagship and private-client experience.</p>
-     <a href="https://iklamaison.com" target="_blank" rel="noopener noreferrer" className="primary-action" style={{fontSize:'11px',letterSpacing:'.08em',padding:'16px 26px',textTransform:'uppercase'}}>
+     <a href="https://iklamaison.com/" target="_blank" rel="noopener noreferrer" className="primary-action" style={{fontSize:'11px',letterSpacing:'.08em',padding:'16px 26px',textTransform:'uppercase'}}>
       VISIT LIVE WEBSITE <span aria-hidden="true">↗</span>
      </a>
     </div>

@@ -115,7 +115,7 @@ export function BuiltByTheStudio() {
             </p>
             <div className="r52-field-actions r52-built-actions">
               <a
-                href="https://mydrinkfamily.com"
+                href="https://mydrinkfamily.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="r52-action-primary r52-built-action"
@@ -158,7 +158,7 @@ export function BuiltByTheStudio() {
             </p>
             <div className="r52-field-actions r52-built-actions">
               <a
-                href="https://iklamaison.com"
+                href="https://iklamaison.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="r52-action-primary r52-built-action"

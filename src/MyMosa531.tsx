@@ -36,7 +36,7 @@ export function CommercialExhibition(){
   <span style={{display:'block',fontSize:'11px',letterSpacing:'.12em',fontWeight:600,color:'#947132',marginBottom:'12px',textTransform:'uppercase'}}>06 / RESULTING BRAND EXPERIENCE</span>
   <h3 style={{fontSize:'clamp(22px,2.8vw,36px)',margin:'0 0 12px',fontWeight:400,lineHeight:1.2,color:'#171c1b',fontFamily:'Cinzel,serif'}}>The Operating Beverage Brand World.</h3>
    <div style={{display:'flex',gap:'16px',alignItems:'center',flexWrap:'wrap'}}>
-     <a href="https://mydrinkfamily.com" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'#171c1b',color:'#fff',padding:'15px 26px',fontSize:'11px',fontWeight:600,letterSpacing:'.1em',textTransform:'uppercase',textDecoration:'none',transition:'background .2s ease'}}>
+     <a href="https://mydrinkfamily.com/" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'#171c1b',color:'#fff',padding:'15px 26px',fontSize:'11px',fontWeight:600,letterSpacing:'.1em',textTransform:'uppercase',textDecoration:'none',transition:'background .2s ease'}}>
        VISIT LIVE WEBSITE <span aria-hidden="true">↗</span>
      </a>
      <a href="/#review-builder" style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'transparent',color:'#171c1b',padding:'14px 24px',fontSize:'11px',fontWeight:600,letterSpacing:'.1em',textTransform:'uppercase',textDecoration:'none',border:'1px solid rgba(23,28,27,0.25)',transition:'all .2s ease'}}>
