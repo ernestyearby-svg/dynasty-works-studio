@@ -1,158 +1,131 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-interface TechCategory {
+interface ConstellationNode {
+  id: string;
   title: string;
   focus: string;
-  capabilities: string[];
+  details: string[];
 }
 
-const techCategories: TechCategory[] = [
+const constellationNodes: ConstellationNode[] = [
   {
+    id: 'web',
     title: 'WEB EXPERIENCE',
-    focus: 'High-Performance Frontends',
-    capabilities: [
-      'Sub-second edge rendering and zero layout shift',
-      'Mobile-first responsive architecture (320px–1920px)',
-      'Progressive qualification inputs & accessible form design',
-      'Dynamic UTM & personalization injection',
-    ],
+    focus: 'Sub-second edge frontends with zero layout shift and progressive qualification inputs.',
+    details: ['Sub-400ms LCP delivery', 'Dynamic parameter injection', 'Accessible keyboard navigation'],
   },
   {
+    id: 'crm',
     title: 'CRM INFRASTRUCTURE',
-    focus: 'Pipeline & Contact Organization',
-    capabilities: [
-      'Automated contact deduplication and enrichment',
-      'Multi-stage pipeline tracking with audit trails',
-      'Automated SLA monitoring for sales team responsiveness',
-      'Bidirectional data synchronization with external tools',
-    ],
+    focus: 'Structured pipeline architecture with automated deduplication and audit histories.',
+    details: ['Deterministic contact enrichment', 'Sales rep SLA tracking', 'Bidirectional data sync'],
   },
   {
+    id: 'automation',
     title: 'AUTOMATION',
-    focus: 'Sub-Minute Event Execution',
-    capabilities: [
-      'Instant two-way conversational SMS workflows',
-      'Dynamic behavioral email nurture sequences',
-      'Automated multi-channel appointment confirmations',
-      'Dormant customer database reactivation protocols',
-    ],
+    focus: 'Sub-60s multi-channel follow-up workflows engaging leads while buying intent is peak.',
+    details: ['Instant conversational SMS', 'Behavioral email sequences', 'Dormant list reactivation'],
   },
   {
+    id: 'paid-media',
     title: 'PAID MEDIA',
-    focus: 'Intent-Driven Acquisition',
-    capabilities: [
-      'Meta Conversions API (CAPI) server-side tracking',
-      'Google Enhanced Conversions & intent search campaigns',
-      'Structured audience segmentation by buying stage',
-      'Iterative creative and hook performance testing',
-    ],
+    focus: 'Direct Conversion API (CAPI) integrations feeding ad algorithms with revenue data.',
+    details: ['Meta CAPI server uploads', 'Google Enhanced Conversions', 'Intent-focused campaign hierarchy'],
   },
   {
+    id: 'ai-ops',
     title: 'AI OPERATIONS',
-    focus: 'Operational Intelligence',
-    capabilities: [
-      'Automated lead qualification and intent categorization',
-      'Funnel drop-off and conversion bottleneck detection',
-      'Proactive campaign recommendation modeling',
-      'Conversational response generation tailored to business voice',
-    ],
+    focus: 'Operational intelligence detecting drop-offs and recommending high-yield adjustments.',
+    details: ['Automated intent categorization', 'Funnel drop-off detection', 'Creative split-testing models'],
   },
   {
+    id: 'analytics',
     title: 'DATA + ANALYTICS',
-    focus: 'Executive Revenue Attribution',
-    capabilities: [
-      'Deterministic first-touch to final-close ROAS analysis',
-      'Real-time cost-per-lead and cost-per-acquisition tracking',
-      'Executive KPI reporting for leadership teams',
-      'Privacy-compliant tracking architecture',
-    ],
+    focus: 'Closed-loop multi-touch attribution reporting true ROAS directly to executive leadership.',
+    details: ['First-to-last touch ROAS', 'True customer acquisition cost', 'Executive KPI dashboards'],
   },
   {
+    id: 'security',
     title: 'SECURE INTEGRATIONS',
-    focus: 'Enterprise-Grade Security',
-    capabilities: [
-      'Zero client-side secrets or exposed database tokens',
-      'Encrypted webhook endpoints and rate-limited ingestion',
-      'Client-side honeypot spam protection protocols',
-      'Strict adherence to enterprise data privacy regulations',
-    ],
+    focus: 'Enterprise security standards with zero client-side credentials or exposed tokens.',
+    details: ['Decoupled webhook adapters', 'Client-side honeypot protection', 'Encrypted data transmission'],
   },
 ];
 
 export const ModernTechGrid: React.FC = () => {
+  const [activeNodeId, setActiveNodeId] = useState<string | null>(null);
+
   return (
-    <section id="technology" className="growth-section" aria-labelledby="tech-heading">
+    <section id="infrastructure" className="growth-section-editorial growth-theme-light" aria-labelledby="infra-heading">
       <div className="growth-container">
-        <div className="growth-section-header">
+        <div>
           <span className="growth-eyebrow">ENTERPRISE FOUNDATION</span>
-          <h2 id="tech-heading" className="growth-h2">
-            Built on Modern Infrastructure.
+          <h2 id="infra-heading" className="growth-lead-title">
+            Built on modern<br />
+            <em>infrastructure.</em>
           </h2>
           <p className="growth-sub">
-            The Dynasty Growth Operating System is engineered with modern, enterprise-capable standards.
-            Fast, secure, resilient, and built to scale alongside expanding revenue.
+            A resilient, enterprise-capable foundation connecting seven operational pillars.
+            Interact with any node to reveal subsystem capabilities:
           </p>
         </div>
 
-        <div className="growth-grid-3">
-          {techCategories.map((cat, idx) => (
-            <div
-              key={idx}
-              className="growth-card"
-              style={{
-                background: 'rgba(255, 255, 255, 0.02)',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-              }}
-            >
-              <div>
-                <div
-                  style={{
-                    fontSize: '11px',
-                    fontFamily: 'monospace',
-                    fontWeight: 700,
-                    letterSpacing: '0.1em',
-                    color: 'var(--dws-champagne)',
-                    marginBottom: '8px',
-                  }}
-                >
-                  {cat.focus}
+        {/* Constellation Grid */}
+        <div className="growth-constellation-container">
+          {constellationNodes.map((node) => {
+            const isHovered = activeNodeId === node.id;
+            return (
+              <div
+                key={node.id}
+                className="growth-constellation-node"
+                onMouseEnter={() => setActiveNodeId(node.id)}
+                onMouseLeave={() => setActiveNodeId(null)}
+                tabIndex={0}
+                onFocus={() => setActiveNodeId(node.id)}
+                onBlur={() => setActiveNodeId(null)}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                  <span style={{ fontSize: '10px', fontFamily: 'monospace', letterSpacing: '0.12em', color: isHovered ? 'var(--dws-signal)' : 'var(--dws-muted)', textTransform: 'uppercase' }}>
+                    SUBSYSTEM
+                  </span>
+                  <span
+                    style={{
+                      width: '6px',
+                      height: '6px',
+                      borderRadius: '50%',
+                      background: isHovered ? 'var(--dws-signal)' : 'var(--dws-line-light)',
+                      transition: 'background 0.2s ease',
+                    }}
+                  />
                 </div>
-                <h3 className="growth-h3" style={{ fontSize: '18px', marginBottom: '16px' }}>
-                  {cat.title}
+
+                <h3 style={{ fontSize: '18px', fontWeight: 700, margin: '0 0 10px', color: 'var(--dws-ink)' }}>
+                  {node.title}
                 </h3>
 
-                <ul
+                <p style={{ fontSize: '13px', color: 'var(--dws-muted)', lineHeight: '1.5', margin: '0 0 16px' }}>
+                  {node.focus}
+                </p>
+
+                <div
                   style={{
-                    margin: 0,
-                    padding: 0,
-                    listStyle: 'none',
+                    borderTop: '1px dashed var(--dws-line-light)',
+                    paddingTop: '12px',
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '10px',
+                    gap: '6px',
                   }}
                 >
-                  {cat.capabilities.map((cap, cIdx) => (
-                    <li
-                      key={cIdx}
-                      style={{
-                        fontSize: '13px',
-                        color: 'var(--dws-text-muted)',
-                        display: 'flex',
-                        alignItems: 'baseline',
-                        gap: '8px',
-                        lineHeight: '1.5',
-                      }}
-                    >
-                      <span style={{ color: 'var(--dws-champagne)', fontSize: '8px' }}>◆</span>
-                      {cap}
-                    </li>
+                  {node.details.map((detail, dIdx) => (
+                    <span key={dIdx} style={{ fontSize: '12px', color: isHovered ? 'var(--dws-ink)' : 'var(--dws-muted)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span style={{ color: 'var(--dws-signal)', fontSize: '8px' }}>◆</span>
+                      {detail}
+                    </span>
                   ))}
-                </ul>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

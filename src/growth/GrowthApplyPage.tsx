@@ -20,21 +20,22 @@ export default function GrowthApplyPage() {
   }, []);
 
   return (
-    <div className="growth-root">
+    <div className="growth-root growth-theme-dark" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <GrowthNav currentPath="/growth/apply" isStandaloneApply={true} />
 
-      <main id="main-content" style={{ padding: '60px 0 100px' }}>
+      <main id="main-content" style={{ flex: 1, padding: 'clamp(60px, 8vh, 100px) 0' }}>
         <div className="growth-container">
-          <div style={{ maxWidth: '820px', margin: '0 auto 40px', textAlign: 'center' }}>
+          <div style={{ maxWidth: '860px', margin: '0 auto 40px', textAlign: 'center' }}>
             <span className="growth-eyebrow" style={{ justifyContent: 'center' }}>
               DIRECT SYSTEM APPLICATION
             </span>
-            <h1 className="growth-h1" style={{ fontSize: 'clamp(32px, 4.5vw, 52px)' }}>
-              Let’s Find the Leak in Your Growth System.
+            <h1 className="growth-lead-title" style={{ fontSize: 'clamp(36px, 5vw, 68px)' }}>
+              Let’s find the leak in<br />
+              <em>your growth system.</em>
             </h1>
-            <p className="growth-sub" style={{ margin: '0 auto 24px' }}>
-              Tell us how your business currently generates and manages leads. We’ll use your answers to
-              understand where stronger infrastructure may create leverage.
+            <p className="growth-sub" style={{ margin: '0 auto 28px' }}>
+              Complete this 5-step diagnostic. We will review your current customer journey, pinpoint
+              drop-offs, and construct a connected operating system.
             </p>
 
             <div
@@ -43,23 +44,22 @@ export default function GrowthApplyPage() {
                 gap: '24px',
                 flexWrap: 'wrap',
                 justifyContent: 'center',
-                fontSize: '12px',
-                color: 'var(--dws-text-muted)',
-                padding: '10px 20px',
+                fontSize: '11px',
+                fontFamily: 'monospace',
+                letterSpacing: '0.08em',
+                color: '#8b8e99',
+                padding: '10px 24px',
                 background: 'rgba(255, 255, 255, 0.02)',
-                borderRadius: '999px',
-                border: '1px solid var(--dws-surface-border)',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
               }}
             >
-              <span>🔒 100% Confidential</span>
-              <span>⚡ Operator-Grade Review</span>
-              <span>🎯 Custom Infrastructure Roadmap</span>
+              <span>● 100% CONFIDENTIAL</span>
+              <span>● OPERATOR-GRADE ARCHITECTURE</span>
+              <span>● TAILORED ROADMAP</span>
             </div>
           </div>
 
-          <div style={{ maxWidth: '820px', margin: '0 auto' }}>
-            <LeadApplicationForm isStandalone={true} onSuccessRedirect="/growth/book" />
-          </div>
+          <LeadApplicationForm isStandalone={true} onSuccessRedirect="/growth/book" />
         </div>
       </main>
 

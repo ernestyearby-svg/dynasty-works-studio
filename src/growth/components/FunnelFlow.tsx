@@ -1,349 +1,245 @@
 import React, { useState } from 'react';
 
-interface JourneyStep {
+interface FlowMilestone {
   time: string;
-  stage: string;
   name: string;
-  trigger: string;
-  systemAction: string;
-  dataOutput: string;
+  summary: string;
+  action: string;
+  telemetry: string;
   sla: string;
 }
 
-const steps: JourneyStep[] = [
+const milestones: FlowMilestone[] = [
   {
     time: 'T + 0.0s',
-    stage: '01 / ACQUISITION',
     name: 'AD CLICK',
-    trigger: 'Prospect clicks targeted Meta or Google ad with high commercial intent.',
-    systemAction: 'Dynamic URL parameters appended; user routed to edge-cached conversion environment.',
-    dataOutput: 'UTM source, medium, campaign, content, click ID preserved in memory.',
+    summary: 'Commercial intent captured via high-intent Meta or Google campaign.',
+    action: 'Dynamic URL parameters appended and routed to edge infrastructure.',
+    telemetry: 'UTM parameters, click ID, and campaign metadata locked in session memory.',
     sla: '< 150ms DNS & TLS Handshake',
   },
   {
     time: 'T + 0.4s',
-    stage: '02 / EXPERIENCE',
     name: 'LANDING PAGE',
-    trigger: 'Browser initializes conversion landing page with zero layout shift.',
-    systemAction: 'Session storage captures first-touch attribution; dynamic copy personalizes by campaign context.',
-    dataOutput: 'Device type, viewport, referrer timestamp locked.',
+    summary: 'Prospect lands on a high-trust digital surface with zero layout shift.',
+    action: 'First-touch attribution preserved; dynamic copy customized to campaign context.',
+    telemetry: 'Device type, viewport, and referrer timestamp written to session storage.',
     sla: '0.4s Core Web Vitals LCP',
   },
   {
-    time: 'T + 42s',
-    stage: '03 / ENGAGEMENT',
-    name: 'FORM SUBMISSION',
-    trigger: 'Prospect completes structured qualification audit form and agrees to communication terms.',
-    systemAction: 'Client honeypot validates authenticity; normalized JSON payload prepared for transmission.',
-    dataOutput: 'Sanitized contact details + full attribution envelope.',
+    time: 'T + 38s',
+    name: 'LEAD CREATED',
+    summary: 'Prospect submits structured diagnostic audit form.',
+    action: 'Client honeypot validates authenticity; normalized JSON payload constructed.',
+    telemetry: 'Sanitized contact details + full attribution envelope prepared.',
     sla: 'Instant Client Validation',
   },
   {
-    time: 'T + 43s',
-    stage: '04 / DATABASE',
-    name: 'CRM CONTACT CREATED',
-    trigger: 'Secure webhook ingests submission at API gateway.',
-    systemAction: 'Automated contact deduplication; existing customer check; contact profile instantiated.',
-    dataOutput: 'Unique CRM Contact ID + activity timeline initialized.',
-    sla: '< 300ms API Ingestion',
-  },
-  {
-    time: 'T + 44s',
-    stage: '05 / ATTRIBUTION',
-    name: 'LEAD SOURCE RECORDED',
-    trigger: 'Attribution engine tags contact record with original acquisition parameters.',
-    systemAction: 'Deterministic first-touch and last-touch tags applied for closed-loop ad feedback.',
-    dataOutput: 'Campaign ID, creative variant, and keyword permanently bound to contact.',
-    sla: '100% Deterministic Attribution',
+    time: 'T + 39s',
+    name: 'CRM INGESTION',
+    summary: 'Contact instantiated in CRM; duplicate check performed.',
+    action: 'Opportunity profile initialized with audit history and assigned to pipeline.',
+    telemetry: 'Unique CRM Contact ID + opportunity stage assigned in < 300ms.',
+    sla: '< 300ms API Gateway Processing',
   },
   {
     time: 'T + 58s',
-    stage: '06 / CONVERSATION',
-    name: 'IMMEDIATE FOLLOW-UP',
-    trigger: 'Automated workflow triggers immediate sub-minute response.',
-    systemAction: 'Personalized SMS delivered to prospect with calendar booking link and direct question.',
-    dataOutput: 'Outbound SMS delivery receipt + open confirmation.',
-    sla: '< 60 Seconds Response Time',
-  },
-  {
-    time: 'T + 59s',
-    stage: '07 / INTERNAL OPS',
-    name: 'SALES NOTIFICATION',
-    trigger: 'System generates internal alert for sales executive/operator.',
-    systemAction: 'Push notification & SMS sent to designated team member with lead qualification profile.',
-    dataOutput: 'Staff assigned; SLA countdown timer initiated.',
-    sla: 'Instant Multi-Channel Alert',
+    name: 'FOLLOW-UP',
+    summary: 'Automated 2-way conversational SMS delivered to prospect.',
+    action: 'Personalized greeting with calendar booking link sent while interest is peak.',
+    telemetry: 'Carrier delivery confirmation + outbound SMS event logged.',
+    sla: '< 60 Seconds Automated SLA',
   },
   {
     time: 'T + 2h',
-    stage: '08 / COMMITMENT',
-    name: 'APPOINTMENT BOOKED',
-    trigger: 'Prospect chooses dedicated time slot on integrated calendar.',
-    systemAction: 'Automated calendar invite created; multi-channel reminder sequence armed (24h, 2h, 15m).',
-    dataOutput: 'Confirmed booking + meeting briefing document attached.',
+    name: 'APPOINTMENT',
+    summary: 'Prospect selects strategy slot on integrated calendar.',
+    action: 'Calendar invitation created; 2-way reminder protocol armed (24h, 2h, 15m).',
+    telemetry: 'Confirmed appointment status synced across CRM & sales calendar.',
     sla: '94%+ Show-Rate Protocol',
   },
   {
-    time: 'T + 24h',
-    stage: '09 / SALES VELOCITY',
-    name: 'PIPELINE ADVANCEMENT',
-    trigger: 'Consultation conducted; prospect qualified for solution scope.',
-    systemAction: 'Opportunity moves to "Proposal Sent" or "Agreement Signed" stage; automated tasks spawned.',
-    dataOutput: 'Proposal view tracking & contract status updates.',
-    sla: 'Zero Pipeline Blind Spots',
-  },
-  {
     time: 'T + 48h',
-    stage: '10 / CONVERSION',
-    name: 'CUSTOMER ACQUIRED',
-    trigger: 'Client signs engagement agreement and completes initial payment.',
-    systemAction: 'Stripe / POS billing triggers automatic welcome sequence and client onboarding workflow.',
-    dataOutput: 'Closed-Won deal value + contract milestone recorded.',
-    sla: 'Seamless Client Onboarding',
+    name: 'CUSTOMER',
+    summary: 'Commercial agreement executed and initial payment completed.',
+    action: 'Stripe / POS billing triggers automatic welcome sequence and client onboarding.',
+    telemetry: 'Closed-Won deal value recorded against originating contact.',
+    sla: 'Automated Financial Handshake',
   },
   {
     time: 'T + 49h',
-    stage: '11 / CLOSED LOOP',
     name: 'REVENUE ATTRIBUTION',
-    trigger: 'Closed transaction reported back to acquisition platforms.',
-    systemAction: 'Server-side conversion upload informs Meta CAPI and Google Ads algorithms of high-value win.',
-    dataOutput: 'Verified ROAS calculation displayed in executive dashboard.',
+    summary: 'Closed transaction reported back to acquisition platforms.',
+    action: 'Server-side CAPI event feeds ad algorithms with verified revenue data.',
+    telemetry: 'Multi-touch ROAS calculated and displayed on executive dashboard.',
     sla: 'Continuous Algorithmic Optimization',
   },
 ];
 
 export const FunnelFlow: React.FC = () => {
-  const [activeStepIndex, setActiveStepIndex] = useState<number>(0);
-  const currentStep = steps[activeStepIndex];
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [showTechnicalDetails, setShowTechnicalDetails] = useState(false);
+  const current = milestones[activeIdx];
 
   return (
-    <section id="live-flow" className="growth-section" aria-labelledby="flow-heading">
+    <section id="live-flow" className="growth-section-editorial growth-theme-dark" aria-labelledby="flow-heading">
       <div className="growth-container">
-        <div className="growth-section-header">
-          <span className="growth-eyebrow">STEP-BY-STEP REVENUE TELEMETRY</span>
-          <h2 id="flow-heading" className="growth-h2">
-            See What Happens After Someone Clicks.
+        <div>
+          <span className="growth-eyebrow">REVENUE IN MOTION</span>
+          <h2 id="flow-heading" className="growth-lead-title">
+            See what happens<br />
+            <em>after someone clicks.</em>
           </h2>
           <p className="growth-sub">
-            The difference between lost ad spend and predictable revenue is what happens in the critical
-            minutes after an inquiry. Inspect the real-time operational journey below:
+            The difference between wasted media spend and compounding revenue is what happens in the minutes
+            after an inquiry. Inspect the real-time operational journey:
           </p>
         </div>
 
-        {/* Step Scrubber / Progress Pipeline */}
-        <div
-          style={{
-            background: 'var(--dws-surface)',
-            border: '1px solid var(--dws-surface-border)',
-            borderRadius: 'var(--dws-radius-lg)',
-            padding: '32px',
-          }}
-        >
-          {/* Milestone Selector */}
-          <div
-            role="tablist"
-            aria-label="Customer Journey Milestones"
-            style={{
-              display: 'flex',
-              gap: '6px',
-              overflowX: 'auto',
-              paddingBottom: '16px',
-              borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-              marginBottom: '28px',
-            }}
-          >
-            {steps.map((s, idx) => {
-              const isSelected = idx === activeStepIndex;
+        <div className="growth-flow-container">
+          {/* Milestone Track Bar */}
+          <div className="growth-flow-track" role="tablist" aria-label="Customer Journey Milestones">
+            {milestones.map((m, idx) => {
+              const isActive = idx === activeIdx;
               return (
                 <button
                   key={idx}
                   type="button"
                   role="tab"
-                  aria-selected={isSelected}
-                  onClick={() => setActiveStepIndex(idx)}
-                  style={{
-                    background: isSelected ? 'var(--dws-champagne)' : 'rgba(255, 255, 255, 0.03)',
-                    color: isSelected ? 'var(--dws-obsidian)' : 'var(--dws-bone)',
-                    border: 'none',
-                    borderRadius: 'var(--dws-radius-sm)',
-                    padding: '8px 12px',
-                    fontSize: '11px',
-                    fontWeight: 700,
-                    letterSpacing: '0.04em',
-                    cursor: 'pointer',
-                    whiteSpace: 'nowrap',
-                    transition: 'all 0.15s ease',
-                  }}
+                  aria-selected={isActive}
+                  className={`growth-flow-node-button ${isActive ? 'is-active' : ''}`}
+                  onClick={() => setActiveIdx(idx)}
                 >
-                  {s.time} · {s.name}
+                  <span
+                    className="num"
+                    style={{
+                      fontFamily: 'monospace',
+                      fontSize: '11px',
+                      color: isActive ? 'var(--dws-signal)' : '#5c606c',
+                      display: 'block',
+                      marginBottom: '4px',
+                    }}
+                  >
+                    {m.time}
+                  </span>
+                  <span
+                    style={{
+                      fontSize: '12px',
+                      fontWeight: 700,
+                      letterSpacing: '0.04em',
+                      color: isActive ? '#ffffff' : '#9ca0aa',
+                    }}
+                  >
+                    {m.name}
+                  </span>
                 </button>
               );
             })}
           </div>
 
-          {/* Active Step Showcase */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1.2fr 0.8fr',
-              gap: '32px',
-              alignItems: 'center',
-            }}
-          >
+          {/* Active Milestone Card */}
+          <div className="growth-flow-stage-card" role="tabpanel">
             <div>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  marginBottom: '10px',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'monospace',
-                    fontSize: '12px',
-                    fontWeight: 800,
-                    color: 'var(--dws-champagne)',
-                  }}
-                >
-                  {currentStep.time}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+                <span style={{ fontFamily: 'monospace', fontSize: '13px', color: 'var(--dws-signal)', fontWeight: 700 }}>
+                  {current.time}
                 </span>
-                <span
-                  style={{
-                    fontSize: '11px',
-                    fontWeight: 700,
-                    letterSpacing: '0.12em',
-                    color: 'var(--dws-text-dim)',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  {currentStep.stage}
+                <span style={{ fontSize: '11px', fontFamily: 'monospace', color: '#686b76', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+                  STAGE 0{activeIdx + 1}/08
                 </span>
               </div>
 
-              <h3 className="growth-h2" style={{ fontSize: '32px', marginBottom: '16px' }}>
-                {currentStep.name}
+              <h3 style={{ fontSize: 'clamp(28px, 3.5vw, 48px)', fontWeight: 500, letterSpacing: '-0.04em', margin: '0 0 16px', color: '#ffffff' }}>
+                {current.name}
               </h3>
 
-              <div style={{ marginBottom: '16px' }}>
-                <span
-                  style={{
-                    fontSize: '11px',
-                    fontWeight: 800,
-                    letterSpacing: '0.08em',
-                    color: 'var(--dws-champagne)',
-                    textTransform: 'uppercase',
-                    display: 'block',
-                    marginBottom: '4px',
-                  }}
-                >
-                  Trigger Event:
-                </span>
-                <p style={{ margin: 0, fontSize: '14px', color: 'var(--dws-bone)', lineHeight: '1.6' }}>
-                  {currentStep.trigger}
-                </p>
-              </div>
+              <p style={{ fontSize: '18px', color: '#b9bcc6', lineHeight: '1.6', margin: '0 0 20px', maxWidth: '44ch' }}>
+                {current.summary}
+              </p>
 
-              <div style={{ marginBottom: '16px' }}>
-                <span
-                  style={{
-                    fontSize: '11px',
-                    fontWeight: 800,
-                    letterSpacing: '0.08em',
-                    color: 'var(--dws-champagne)',
-                    textTransform: 'uppercase',
-                    display: 'block',
-                    marginBottom: '4px',
-                  }}
-                >
-                  Automated Infrastructure Action:
+              <div style={{ borderLeft: '2px solid var(--dws-signal)', paddingLeft: '16px', marginTop: '16px' }}>
+                <span style={{ fontSize: '11px', fontFamily: 'monospace', color: '#7a7e8b', textTransform: 'uppercase', display: 'block', marginBottom: '4px' }}>
+                  AUTOMATED INFRASTRUCTURE ACTION:
                 </span>
-                <p style={{ margin: 0, fontSize: '14px', color: 'var(--dws-text-muted)', lineHeight: '1.6' }}>
-                  {currentStep.systemAction}
-                </p>
+                <span style={{ fontSize: '14px', color: '#ece9e1', lineHeight: '1.5' }}>
+                  {current.action}
+                </span>
               </div>
             </div>
 
-            {/* Telemetry Box */}
+            {/* Telemetry Panel with Progressive Disclosure */}
             <div
               style={{
-                background: '#0D0D0D',
-                border: '1px solid rgba(212, 180, 131, 0.25)',
-                borderRadius: 'var(--dws-radius-md)',
-                padding: '24px',
+                background: '#090b0d',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                padding: '28px',
               }}
             >
-              <div
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                <span style={{ fontSize: '10px', fontFamily: 'monospace', letterSpacing: '0.14em', color: 'var(--dws-signal)', textTransform: 'uppercase' }}>
+                  STAGE SLA
+                </span>
+                <span style={{ fontSize: '11px', fontFamily: 'monospace', color: '#4ade80' }}>● VERIFIED</span>
+              </div>
+
+              <div style={{ fontSize: '18px', fontWeight: 600, color: '#ffffff', marginBottom: '16px' }}>
+                {current.sla}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setShowTechnicalDetails(!showTechnicalDetails)}
                 style={{
-                  fontSize: '10px',
-                  fontWeight: 800,
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: 'var(--dws-champagne)',
-                  marginBottom: '16px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
+                  background: 'none',
+                  border: 'none',
+                  padding: 0,
+                  fontSize: '11px',
+                  fontFamily: 'monospace',
+                  letterSpacing: '0.08em',
+                  color: 'var(--dws-signal)',
+                  cursor: 'pointer',
+                  textDecoration: 'underline',
+                  marginBottom: showTechnicalDetails ? '16px' : '0',
                 }}
               >
-                <span>DATA STREAM ARTIFACT</span>
-                <span style={{ color: '#4ade80' }}>VERIFIED</span>
-              </div>
+                {showTechnicalDetails ? 'Hide Protocol Telemetry ▲' : 'Inspect Protocol Telemetry ▼'}
+              </button>
 
-              <div style={{ marginBottom: '16px' }}>
-                <div style={{ fontSize: '11px', color: 'var(--dws-text-dim)', marginBottom: '4px' }}>
-                  Payload Output:
-                </div>
+              {showTechnicalDetails && (
                 <div
                   style={{
-                    fontFamily: 'monospace',
-                    fontSize: '12px',
-                    color: 'var(--dws-bone)',
-                    lineHeight: '1.5',
+                    padding: '12px',
                     background: 'rgba(255, 255, 255, 0.02)',
-                    padding: '8px 12px',
-                    borderRadius: '4px',
                     border: '1px solid rgba(255, 255, 255, 0.06)',
+                    fontSize: '12px',
+                    fontFamily: 'monospace',
+                    color: '#a0a4b0',
+                    lineHeight: '1.5',
                   }}
                 >
-                  {currentStep.dataOutput}
+                  {current.telemetry}
                 </div>
-              </div>
+              )}
 
-              <div>
-                <div style={{ fontSize: '11px', color: 'var(--dws-text-dim)', marginBottom: '4px' }}>
-                  Performance Benchmark / SLA:
-                </div>
-                <div
-                  style={{
-                    fontSize: '13px',
-                    fontWeight: 700,
-                    color: 'var(--dws-champagne-light)',
-                  }}
-                >
-                  {currentStep.sla}
-                </div>
-              </div>
-
-              {/* Navigation controls */}
-              <div style={{ display: 'flex', gap: '8px', marginTop: '20px' }}>
+              {/* Progress Scrubber Controls */}
+              <div style={{ display: 'flex', gap: '8px', marginTop: '24px' }}>
                 <button
                   type="button"
-                  className="growth-btn growth-btn-secondary"
-                  disabled={activeStepIndex === 0}
-                  onClick={() => setActiveStepIndex(Math.max(0, activeStepIndex - 1))}
-                  style={{ flex: 1, padding: '8px 12px', fontSize: '11px', opacity: activeStepIndex === 0 ? 0.3 : 1 }}
+                  disabled={activeIdx === 0}
+                  onClick={() => setActiveIdx((prev) => Math.max(0, prev - 1))}
+                  className="growth-btn growth-btn-outline-dark"
+                  style={{ flex: 1, padding: '10px 14px', minHeight: '40px', fontSize: '11px', justifyContent: 'center' }}
                 >
-                  ← PREVIOUS
+                  PREV
                 </button>
                 <button
                   type="button"
-                  className="growth-btn growth-btn-primary"
-                  disabled={activeStepIndex === steps.length - 1}
-                  onClick={() => setActiveStepIndex(Math.min(steps.length - 1, activeStepIndex + 1))}
-                  style={{ flex: 1, padding: '8px 12px', fontSize: '11px', opacity: activeStepIndex === steps.length - 1 ? 0.3 : 1 }}
+                  disabled={activeIdx === milestones.length - 1}
+                  onClick={() => setActiveIdx((prev) => Math.min(milestones.length - 1, prev + 1))}
+                  className="growth-btn growth-btn-signal"
+                  style={{ flex: 1, padding: '10px 14px', minHeight: '40px', fontSize: '11px', justifyContent: 'center' }}
                 >
-                  NEXT STAGE →
+                  NEXT
                 </button>
               </div>
             </div>

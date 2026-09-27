@@ -1,178 +1,144 @@
 import React from 'react';
 
 interface BuildModule {
-  tag: string;
+  num: string;
   title: string;
-  description: string;
-  features: string[];
+  statement: string;
+  capabilities: string[];
+  visualLabel: string;
+  visualDetail: string;
 }
 
 const modules: BuildModule[] = [
   {
-    tag: 'MODULE 01',
+    num: '01',
     title: 'CONVERSION EXPERIENCE',
-    description: 'High-performance digital surfaces designed to eliminate bounce and turn commercial intent into verified inquiries.',
-    features: [
-      'Websites',
-      'Landing Pages',
-      'High-Conversion Funnels',
-      'Progressive Qualification Forms',
-      'Conversion Rate Optimization',
+    statement: 'Sub-second web surfaces and qualification funnels engineered to eliminate friction and turn attention into verified intent.',
+    capabilities: [
+      'High-converting landing pages & websites',
+      'Progressive lead qualification forms',
+      'Dynamic Number Insertion (DNI) for inbound calls',
+      'Conversion rate optimization & speed benchmarking',
     ],
+    visualLabel: 'FRONTEND ARCHITECTURE',
+    visualDetail: 'Sub-400ms Edge Delivery · Zero Cumulative Layout Shift',
   },
   {
-    tag: 'MODULE 02',
+    num: '02',
     title: 'ACQUISITION',
-    description: 'Targeted paid media engineered around buyer intent, creative differentiation, and deterministic tracking.',
-    features: [
-      'Meta Advertising (FB & IG)',
-      'Google Advertising (Search & Intent)',
-      'Campaign Architecture Strategy',
-      'Creative & Copy Development',
-      'Conversion API (CAPI) Integration',
+    statement: 'Intent-driven Meta and Google paid media structured around unit economics, creative differentiation, and deterministic attribution.',
+    capabilities: [
+      'Meta Conversions API (CAPI) server-side integration',
+      'High-intent Google Search & demand capture campaigns',
+      'Iterative hook and creative testing protocols',
+      'Full campaign attribution and keyword telemetry',
     ],
+    visualLabel: 'DEMAND GENERATION',
+    visualDetail: 'Algorithmic Bid Optimization · Strict Commercial Intent',
   },
   {
-    tag: 'MODULE 03',
-    title: 'CRM + SALES',
-    description: 'Centralized sales infrastructure that routes every lead, eliminates duplicate contacts, and drives opportunities forward.',
-    features: [
-      'Lead Capture & Routing',
-      'Custom Pipeline Architecture',
-      'Opportunity Stage Tracking',
-      'Team Calendar Integration',
-      'Sales Task & SLA Automation',
+    num: '03',
+    title: 'CRM + SALES PIPELINE',
+    statement: 'Centralized sales infrastructure that instantiates every contact, deduplicates records, and advances opportunities through structured stages.',
+    capabilities: [
+      'Automated lead capture & routing logic',
+      'Custom opportunity pipeline architecture',
+      'Team calendar availability & slot management',
+      'Sales rep task assignment & SLA tracking',
     ],
+    visualLabel: 'PIPELINE GOVERNANCE',
+    visualDetail: 'Automated Opportunity Staging · Real-time Contact Deduplication',
   },
   {
-    tag: 'MODULE 04',
-    title: 'AUTOMATION',
-    description: 'Immediate, intelligent follow-up workflows operating 24/7 so prospects never go cold between inquiry and booking.',
-    features: [
-      'Two-Way SMS Follow-Up',
-      'Behavioral Email Sequences',
-      'Automated Lead Nurture',
-      'Appointment Reminders & Confirmations',
-      'Dormant Lead Reactivation',
-      'Instant Internal Team Notifications',
+    num: '04',
+    title: 'CONVERSATIONAL AUTOMATION',
+    statement: 'Immediate, intelligent follow-up workflows operating 24/7 so prospects are engaged within 60 seconds of submitting an inquiry.',
+    capabilities: [
+      'Sub-minute two-way SMS follow-up',
+      'Behavior-triggered email nurture sequences',
+      'Automated appointment reminders & no-show recovery',
+      'Dormant customer database reactivation campaigns',
     ],
+    visualLabel: 'RAPID RESPONSE ENGINE',
+    visualDetail: '< 60-Second Lead Engagement · Multi-Channel Follow-Up',
   },
   {
-    tag: 'MODULE 05',
-    title: 'INTELLIGENCE',
-    description: 'Closed-loop data and reporting that reveals the exact financial return on every marketing dollar spent.',
-    features: [
-      'Performance Analytics Dashboards',
-      'Deterministic Revenue Attribution',
-      'AI-Assisted Campaign Analysis',
-      'Creative & Hook Performance Testing',
-      'Executive KPI & Financial Reporting',
+    num: '05',
+    title: 'CLOSED-LOOP INTELLIGENCE',
+    statement: 'Executive reporting connecting collected revenue back to the originating ad, creative, and channel for unambiguous ROI visibility.',
+    capabilities: [
+      'Deterministic first-to-last touch ROAS attribution',
+      'True cost-per-lead and cost-per-acquisition analysis',
+      'AI-assisted bottleneck and drop-off diagnosis',
+      'Executive KPI & financial performance dashboards',
     ],
+    visualLabel: 'REVENUE REPORTING',
+    visualDetail: 'Deterministic Conversion Feedback · Continuous Funnel Optimization',
   },
 ];
 
 export const WhatWeBuild: React.FC = () => {
   return (
-    <section id="what-we-build" className="growth-section" aria-labelledby="build-heading">
+    <section id="capabilities" className="growth-section-editorial growth-theme-light" aria-labelledby="capabilities-heading">
       <div className="growth-container">
-        <div className="growth-section-header">
-          <span className="growth-eyebrow">INSTALLED INFRASTRUCTURE</span>
-          <h2 id="build-heading" className="growth-h2">
-            Infrastructure, Not Random Marketing Services.
+        <div>
+          <span className="growth-eyebrow">INSTALLED CAPABILITIES</span>
+          <h2 id="capabilities-heading" className="growth-lead-title">
+            Infrastructure,<br />
+            <em>not random marketing services.</em>
           </h2>
           <p className="growth-sub">
-            Dynasty Works Studio doesn’t sell disconnected tasks or isolated hours. We architect, install,
-            and calibrate interconnected business growth systems built for permanent operational advantage.
+            Dynasty Works Studio architects and installs interconnected growth systems built for permanent operational advantage.
           </p>
         </div>
 
-        <div className="growth-grid-3">
-          {modules.map((m, idx) => (
-            <div
-              key={idx}
-              className="growth-card"
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                background: 'rgba(20, 20, 20, 0.75)',
-              }}
-            >
-              <div>
-                <div
-                  style={{
-                    fontSize: '11px',
-                    fontFamily: 'monospace',
-                    fontWeight: 700,
-                    letterSpacing: '0.12em',
-                    color: 'var(--dws-champagne)',
-                    marginBottom: '8px',
-                  }}
-                >
-                  {m.tag}
-                </div>
-                <h3 className="growth-h3" style={{ fontSize: '20px', marginBottom: '12px' }}>
-                  {m.title}
-                </h3>
-                <p
-                  style={{
-                    fontSize: '14px',
-                    color: 'var(--dws-text-muted)',
-                    lineHeight: '1.6',
-                    marginBottom: '20px',
-                  }}
-                >
-                  {m.description}
-                </p>
-              </div>
-
+        {/* Alternating Editorial Modules */}
+        <div className="growth-build-editorial">
+          {modules.map((m, idx) => {
+            const isReversed = idx % 2 === 1;
+            return (
               <div
-                style={{
-                  borderTop: '1px solid rgba(255, 255, 255, 0.06)',
-                  paddingTop: '16px',
-                }}
+                key={m.num}
+                className={`growth-build-row ${isReversed ? 'is-reversed' : ''}`}
               >
-                <div
-                  style={{
-                    fontSize: '10px',
-                    fontWeight: 800,
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                    color: 'var(--dws-text-dim)',
-                    marginBottom: '10px',
-                  }}
-                >
-                  INSTALLED CAPABILITIES:
+                <div>
+                  <div className="growth-build-number">{m.num}</div>
+                  <h3 className="growth-build-title">{m.title}</h3>
+                  <p className="growth-build-statement">{m.statement}</p>
+
+                  <ul className="growth-build-bullets">
+                    {m.capabilities.map((cap, cIdx) => (
+                      <li key={cIdx}>{cap}</li>
+                    ))}
+                  </ul>
                 </div>
-                <ul
-                  style={{
-                    margin: 0,
-                    padding: 0,
-                    listStyle: 'none',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '8px',
-                  }}
-                >
-                  {m.features.map((feat, fIdx) => (
-                    <li
-                      key={fIdx}
-                      style={{
-                        fontSize: '13px',
-                        color: 'var(--dws-bone)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                      }}
-                    >
-                      <span style={{ color: 'var(--dws-champagne)', fontSize: '9px' }}>■</span>
-                      {feat}
-                    </li>
-                  ))}
-                </ul>
+
+                {/* Architectural Diagram Visual */}
+                <div className="growth-build-visual">
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                    <span style={{ fontSize: '10px', fontFamily: 'monospace', letterSpacing: '0.14em', color: 'var(--dws-signal)', textTransform: 'uppercase' }}>
+                      {m.visualLabel}
+                    </span>
+                    <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--dws-signal)' }} />
+                  </div>
+
+                  <div style={{ borderLeft: '2px solid var(--dws-ink)', paddingLeft: '16px', margin: '12px 0' }}>
+                    <span style={{ fontSize: '12px', fontFamily: 'monospace', color: 'var(--dws-muted)', display: 'block', marginBottom: '4px' }}>
+                      SUBSYSTEM SPECIFICATION:
+                    </span>
+                    <span style={{ fontSize: '14px', fontWeight: 700, color: 'var(--dws-ink)', lineHeight: '1.4' }}>
+                      {m.visualDetail}
+                    </span>
+                  </div>
+
+                  <div style={{ marginTop: '24px', paddingTop: '16px', borderTop: '1px dashed var(--dws-line-light)', display: 'flex', justifyContent: 'space-between', fontSize: '11px', color: 'var(--dws-muted)' }}>
+                    <span>STANDARDIZED DELIVERY</span>
+                    <span style={{ color: 'var(--dws-signal)', fontWeight: 700 }}>VERIFIED COMPONENT</span>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

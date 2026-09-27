@@ -49,81 +49,86 @@ export default function GrowthThankYouPage() {
   };
 
   return (
-    <div className="growth-root">
+    <div className="growth-root growth-theme-dark" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <GrowthNav currentPath="/growth/thank-you" isStandaloneApply={true} />
 
-      <main id="main-content" style={{ padding: '60px 0 100px' }}>
+      <main id="main-content" style={{ flex: 1, padding: 'clamp(60px, 8vh, 100px) 0' }}>
         <div className="growth-container">
-          <div style={{ maxWidth: '820px', margin: '0 auto 40px', textAlign: 'center' }}>
+          <div style={{ maxWidth: '860px', margin: '0 auto 40px', textAlign: 'center' }}>
             <span className="growth-eyebrow" style={{ justifyContent: 'center' }}>
-              APPLICATION RECEIVED · CONFIRMATION
+              APPLICATION CONFIRMED
             </span>
-            <h1 className="growth-h1" style={{ fontSize: 'clamp(32px, 4.5vw, 54px)' }}>
-              Your Growth Review Is In Motion.
+            <h1 className="growth-lead-title" style={{ fontSize: 'clamp(36px, 5vw, 68px)' }}>
+              Your growth review<br />
+              <em>is in motion.</em>
             </h1>
-            <p className="growth-sub" style={{ margin: '0 auto 32px' }}>
+            <p className="growth-sub" style={{ margin: '0 auto 36px' }}>
               We’ve received your information. The next step is mapping your current acquisition, follow-up
               and sales infrastructure so we can identify where opportunities may be getting lost.
             </p>
 
             <a
               href="/growth/book"
-              className="growth-btn growth-btn-primary"
+              className="growth-btn growth-btn-signal"
               onClick={handleCtaClick}
-              style={{ padding: '16px 36px', fontSize: '14px', letterSpacing: '0.1em' }}
+              style={{ padding: '18px 36px', fontSize: '13px' }}
             >
-              BOOK YOUR STRATEGY CALL →
+              <span>BOOK YOUR STRATEGY CALL</span>
+              <span className="arrow" aria-hidden="true">→</span>
             </a>
           </div>
 
           {/* WHAT HAPPENS NEXT */}
-          <div style={{ maxWidth: '900px', margin: '60px auto 0' }}>
-            <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <div style={{ maxWidth: '1000px', margin: '80px auto 0' }}>
+            <div style={{ textAlign: 'center', marginBottom: '40px' }}>
               <span
                 style={{
                   fontSize: '11px',
-                  fontWeight: 800,
+                  fontFamily: 'monospace',
                   letterSpacing: '0.14em',
                   textTransform: 'uppercase',
-                  color: 'var(--dws-champagne)',
+                  color: 'var(--dws-signal)',
                 }}
               >
                 THE PROCESS
               </span>
-              <h2 className="growth-h2" style={{ fontSize: '26px', marginTop: '6px' }}>
+              <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 42px)', fontWeight: 500, color: '#ffffff', margin: '8px 0 0', letterSpacing: '-0.03em' }}>
                 WHAT HAPPENS NEXT
               </h2>
             </div>
 
-            <div className="growth-grid-4">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}>
               {nextSteps.map((item) => (
                 <div
                   key={item.step}
-                  className="growth-card"
                   style={{
-                    background: 'rgba(255, 255, 255, 0.02)',
+                    background: '#111417',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    padding: '28px',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
                   }}
                 >
                   <div>
-                    <div
+                    <span
                       style={{
-                        fontFamily: 'monospace',
-                        fontSize: '18px',
-                        fontWeight: 800,
-                        color: 'var(--dws-champagne)',
+                        fontFamily: 'var(--dws-font-serif)',
+                        fontSize: '32px',
+                        fontStyle: 'italic',
+                        color: 'var(--dws-signal)',
+                        display: 'block',
                         marginBottom: '12px',
+                        lineHeight: 1,
                       }}
                     >
                       {item.step}
-                    </div>
-                    <h3 className="growth-h3" style={{ fontSize: '16px', marginBottom: '8px' }}>
+                    </span>
+                    <h3 style={{ fontSize: '16px', fontWeight: 600, color: '#ffffff', marginBottom: '8px', lineHeight: '1.4' }}>
                       {item.title}
                     </h3>
                   </div>
-                  <p style={{ fontSize: '13px', color: 'var(--dws-text-muted)', lineHeight: '1.5', margin: 0 }}>
+                  <p style={{ fontSize: '13px', color: '#8d909c', lineHeight: '1.6', margin: '12px 0 0' }}>
                     {item.description}
                   </p>
                 </div>
@@ -133,10 +138,12 @@ export default function GrowthThankYouPage() {
             <div style={{ textAlign: 'center', marginTop: '48px' }}>
               <a
                 href="/growth/book"
-                className="growth-btn growth-btn-secondary"
+                className="growth-btn growth-btn-outline-dark"
                 onClick={handleCtaClick}
+                style={{ fontSize: '11px', minHeight: '48px' }}
               >
-                SELECT A STRATEGY CALL TIME SLOT
+                <span>ADVANCE TO CALENDAR SCHEDULE</span>
+                <span className="arrow" aria-hidden="true">↗</span>
               </a>
             </div>
           </div>

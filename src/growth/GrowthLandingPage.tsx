@@ -39,15 +39,15 @@ export default function GrowthLandingPage() {
       <GrowthNav currentPath="/growth" />
 
       <main id="main-content">
-        {/* SECTION 01 — HERO */}
-        <section className="growth-hero" aria-labelledby="hero-headline">
+        {/* 01 — HERO (DARK OBSIDIAN) */}
+        <section className="growth-section-editorial growth-theme-dark" aria-labelledby="hero-headline">
           <div className="growth-container">
             <div className="growth-hero-grid">
               <div>
                 <span className="growth-eyebrow">DYNASTY GROWTH OPERATING SYSTEM</span>
-                <h1 id="hero-headline" className="growth-h1">
-                  Turn Attention Into<br />
-                  <em>Measurable Growth.</em>
+                <h1 id="hero-headline" className="growth-lead-title" style={{ fontSize: 'clamp(44px, 6vw, 92px)' }}>
+                  TURN ATTENTION INTO<br />
+                  <em>MEASURABLE GROWTH.</em>
                 </h1>
                 <p className="growth-sub">
                   Dynasty Works Studio builds the infrastructure connecting your website, advertising,
@@ -55,29 +55,30 @@ export default function GrowthLandingPage() {
                   and the close.
                 </p>
 
-                <div className="growth-hero-actions">
+                <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center', marginBottom: '36px' }}>
                   <a
-                    href="#apply"
-                    className="growth-btn growth-btn-primary"
-                    onClick={() => handleCtaClick('Hero Primary CTA', '#apply')}
+                    href="#diagnostic"
+                    className="growth-btn growth-btn-signal"
+                    onClick={() => handleCtaClick('Hero Primary CTA', '#diagnostic')}
                   >
-                    BUILD MY GROWTH SYSTEM
+                    <span>BUILD MY GROWTH SYSTEM</span>
+                    <span className="arrow" aria-hidden="true">↗</span>
                   </a>
                   <a
                     href="#system"
-                    className="growth-btn growth-btn-secondary"
+                    className="growth-btn growth-btn-outline-dark"
                     onClick={() => handleCtaClick('Hero Secondary CTA', '#system')}
                   >
-                    SEE HOW IT WORKS
+                    <span>SEE HOW IT WORKS</span>
                   </a>
                 </div>
 
-                <div className="growth-microcopy" aria-label="Core Capabilities">
-                  <span>Strategy</span> • <span>Infrastructure</span> • <span>Automation</span> • <span>Acquisition</span> • <span>Intelligence</span>
+                <div style={{ display: 'flex', gap: '16px', fontSize: '11px', fontFamily: 'monospace', letterSpacing: '0.12em', color: '#6a6e7b', textTransform: 'uppercase' }}>
+                  <span>Strategy</span> · <span>Infrastructure</span> · <span>Automation</span> · <span>Acquisition</span> · <span>Intelligence</span>
                 </div>
               </div>
 
-              {/* Hero Visual System Map */}
+              {/* Elevated Architectural Operating Diagram */}
               <div>
                 <GrowthSystemDiagram />
               </div>
@@ -85,44 +86,43 @@ export default function GrowthLandingPage() {
           </div>
         </section>
 
-        {/* SECTION 02 — THE PROBLEM */}
+        {/* 02 — THE PROBLEM (LIGHT WARM PAPER) */}
         <ProblemCards />
 
-        {/* SECTION 03 — THE SYSTEM */}
+        {/* 03 — ONE CONNECTED INFRASTRUCTURE (DARK OBSIDIAN) */}
         <SystemArchitecture />
 
-        {/* SECTION 04 — WHAT WE BUILD */}
+        {/* 04 — WHAT WE BUILD (LIGHT WARM PAPER) */}
         <WhatWeBuild />
 
-        {/* SECTION 05 — LIVE FLOW */}
+        {/* 05 — LIVE FLOW (DARK OBSIDIAN) */}
         <FunnelFlow />
 
-        {/* SECTION 06 — VERTICALS */}
+        {/* 06 — VERTICALS (LIGHT WARM PAPER) */}
         <VerticalsSection />
 
-        {/* SECTION 07 — DIFFERENCE */}
+        {/* 07 — COMPARISON (DARK OBSIDIAN) */}
         <DifferenceComparison />
 
-        {/* SECTION 08 — TECHNOLOGY */}
+        {/* 08 — MODERN INFRASTRUCTURE (LIGHT WARM PAPER) */}
         <ModernTechGrid />
 
-        {/* SECTION 09 — APPLICATION */}
-        <section id="apply" className="growth-section" aria-labelledby="application-heading">
+        {/* 09 — GROWTH REVIEW DIAGNOSTIC (DARK OBSIDIAN) */}
+        <section id="diagnostic" className="growth-section-editorial growth-theme-dark" aria-labelledby="diagnostic-heading">
           <div className="growth-container">
-            <div className="growth-section-header" style={{ maxWidth: '800px', margin: '0 auto 40px', textAlign: 'center' }}>
-              <span className="growth-eyebrow" style={{ justifyContent: 'center' }}>DIAGNOSTIC AUDIT</span>
-              <h2 id="application-heading" className="growth-h2">
-                Let’s Find the Leak in Your Growth System.
+            <div style={{ maxWidth: '860px', margin: '0 auto 36px', textAlign: 'center' }}>
+              <span className="growth-eyebrow" style={{ justifyContent: 'center' }}>DIAGNOSTIC ASSESSMENT</span>
+              <h2 id="diagnostic-heading" className="growth-lead-title" style={{ fontSize: 'clamp(36px, 4.5vw, 64px)' }}>
+                Let’s find the leak in<br />
+                <em>your growth system.</em>
               </h2>
               <p className="growth-sub" style={{ margin: '0 auto' }}>
-                Tell us how your business currently generates and manages leads. We’ll use your answers to
-                understand where stronger infrastructure may create leverage.
+                Complete this 5-step diagnostic. We will review your current customer journey, pinpoint
+                drop-offs, and construct a connected operating system.
               </p>
             </div>
 
-            <div style={{ maxWidth: '820px', margin: '0 auto' }}>
-              <LeadApplicationForm onSuccessRedirect="/growth/book" />
-            </div>
+            <LeadApplicationForm onSuccessRedirect="/growth/book" />
           </div>
         </section>
       </main>

@@ -26,28 +26,28 @@ export default function GrowthBookPage() {
   };
 
   return (
-    <div className="growth-root">
+    <div className="growth-root growth-theme-dark" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <GrowthNav currentPath="/growth/book" isStandaloneApply={true} />
 
-      <main id="main-content" style={{ padding: '60px 0 100px' }}>
+      <main id="main-content" style={{ flex: 1, padding: 'clamp(60px, 8vh, 100px) 0' }}>
         <div className="growth-container">
           <div style={{ maxWidth: '860px', margin: '0 auto 40px', textAlign: 'center' }}>
             <span className="growth-eyebrow" style={{ justifyContent: 'center' }}>
               STEP 02 OF 02 · ARCHITECTURE SESSION
             </span>
-            <h1 className="growth-h1" style={{ fontSize: 'clamp(32px, 4.5vw, 54px)' }}>
-              Let’s Map Your Growth System.
+            <h1 className="growth-lead-title" style={{ fontSize: 'clamp(36px, 5vw, 68px)' }}>
+              Let’s map your<br />
+              <em>growth system.</em>
             </h1>
-            <p className="growth-sub" style={{ margin: '0 auto 20px' }}>
-              Select a dedicated time slot for your 30-minute growth infrastructure diagnostic. We will review
-              your current marketing channels, audit conversion drop-offs, and blueprint a connected system.
+            <p className="growth-sub" style={{ margin: '0 auto 24px' }}>
+              Select a dedicated time slot for your 30-minute growth infrastructure diagnostic. We will audit
+              your existing channels, uncover conversion leaks, and blueprint an operating system.
             </p>
           </div>
 
           <div style={{ maxWidth: '920px', margin: '0 auto' }}>
-            {/* Calendar Container with Reserved GoHighLevel Embed Area */}
+            {/* Calendar Container with Designated GoHighLevel Embed Area */}
             <div
-              className="growth-card"
               style={{
                 minHeight: '480px',
                 display: 'flex',
@@ -56,8 +56,8 @@ export default function GrowthBookPage() {
                 justifyContent: 'center',
                 textAlign: 'center',
                 padding: '48px 24px',
-                border: '1px dashed rgba(212, 180, 131, 0.4)',
-                background: 'rgba(15, 15, 15, 0.8)',
+                border: '1px dashed rgba(36, 87, 255, 0.4)',
+                background: '#111417',
               }}
             >
               <div
@@ -65,13 +65,13 @@ export default function GrowthBookPage() {
                   width: '64px',
                   height: '64px',
                   borderRadius: '50%',
-                  background: 'rgba(212, 180, 131, 0.1)',
-                  border: '1px solid var(--dws-champagne)',
+                  background: 'rgba(36, 87, 255, 0.1)',
+                  border: '1px solid var(--dws-signal)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  marginBottom: '20px',
-                  color: 'var(--dws-champagne)',
+                  marginBottom: '24px',
+                  color: 'var(--dws-signal)',
                 }}
               >
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -82,77 +82,76 @@ export default function GrowthBookPage() {
                 </svg>
               </div>
 
-              {/* Exact designated development placeholder */}
+              {/* Designated Development Placeholder */}
               <div
                 style={{
                   fontFamily: 'monospace',
-                  fontSize: '14px',
+                  fontSize: '13px',
                   fontWeight: 800,
                   letterSpacing: '0.14em',
-                  color: 'var(--dws-champagne)',
+                  color: 'var(--dws-signal)',
                   textTransform: 'uppercase',
-                  marginBottom: '12px',
-                  padding: '6px 14px',
-                  background: 'rgba(212, 180, 131, 0.12)',
-                  borderRadius: 'var(--dws-radius-sm)',
-                  border: '1px solid rgba(212, 180, 131, 0.3)',
+                  marginBottom: '16px',
+                  padding: '8px 18px',
+                  background: 'rgba(36, 87, 255, 0.12)',
+                  border: '1px solid rgba(36, 87, 255, 0.3)',
                 }}
               >
                 CALENDAR INTEGRATION PLACEHOLDER
               </div>
 
-              <h2 className="growth-h3" style={{ fontSize: '20px', maxWidth: '520px', margin: '0 auto 12px' }}>
-                GoHighLevel Calendar Integration Ready
+              <h2 style={{ fontSize: '22px', fontWeight: 600, color: '#ffffff', maxWidth: '520px', margin: '0 auto 12px' }}>
+                GoHighLevel Calendar Container
               </h2>
-              <p style={{ fontSize: '14px', color: 'var(--dws-text-muted)', maxWidth: '540px', lineHeight: '1.6', margin: '0 auto 24px' }}>
-                This container is wired for the direct HighLevel or custom booking iframe.
-                No simulated appointment slots are displayed until the active calendar webhook is connected.
+              <p style={{ fontSize: '14px', color: '#8d919d', maxWidth: '520px', lineHeight: '1.6', margin: '0 auto 28px' }}>
+                This container is wired for the HighLevel or custom booking iframe.
+                No artificial appointment slots are displayed until the live calendar webhook is connected.
               </p>
 
               <button
                 type="button"
-                className="growth-btn growth-btn-secondary"
+                className="growth-btn growth-btn-outline-dark"
                 onClick={handlePlaceholderInteraction}
-                style={{ fontSize: '12px' }}
+                style={{ fontSize: '11px', padding: '12px 24px', minHeight: '44px' }}
               >
-                TEST CALENDAR DISPATCH EVENT
+                DISPATCH TELEMETRY TEST
               </button>
             </div>
 
             {/* Strategy Session Expectations */}
-            <div className="growth-grid-3" style={{ marginTop: '36px' }}>
-              <div className="growth-card" style={{ padding: '20px' }}>
-                <div style={{ fontSize: '11px', fontFamily: 'monospace', color: 'var(--dws-champagne)', marginBottom: '6px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px', marginTop: '40px' }}>
+              <div style={{ padding: '24px', background: '#111417', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                <span style={{ fontSize: '11px', fontFamily: 'monospace', color: 'var(--dws-signal)', display: 'block', marginBottom: '8px' }}>
                   SESSION OBJECTIVE 01
-                </div>
-                <h3 className="growth-h3" style={{ fontSize: '15px', marginBottom: '8px' }}>
-                  Leak Identification
+                </span>
+                <h3 style={{ fontSize: '16px', fontWeight: 600, color: '#ffffff', margin: '0 0 8px' }}>
+                  Revenue Leak Audit
                 </h3>
-                <p style={{ fontSize: '13px', color: 'var(--dws-text-muted)', margin: 0 }}>
-                  We pinpoint exactly where qualified leads are stalling or failing to convert into booked appointments.
+                <p style={{ fontSize: '13px', color: '#888b97', margin: 0, lineHeight: '1.6' }}>
+                  We inspect where qualified leads are stalling or failing to convert into booked appointments.
                 </p>
               </div>
 
-              <div className="growth-card" style={{ padding: '20px' }}>
-                <div style={{ fontSize: '11px', fontFamily: 'monospace', color: 'var(--dws-champagne)', marginBottom: '6px' }}>
+              <div style={{ padding: '24px', background: '#111417', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                <span style={{ fontSize: '11px', fontFamily: 'monospace', color: 'var(--dws-signal)', display: 'block', marginBottom: '8px' }}>
                   SESSION OBJECTIVE 02
-                </div>
-                <h3 className="growth-h3" style={{ fontSize: '15px', marginBottom: '8px' }}>
+                </span>
+                <h3 style={{ fontSize: '16px', fontWeight: 600, color: '#ffffff', margin: '0 0 8px' }}>
                   Architecture Blueprint
                 </h3>
-                <p style={{ fontSize: '13px', color: 'var(--dws-text-muted)', margin: 0 }}>
-                  We map the recommended CRM pipeline, automated follow-up triggers, and attribution models for your business.
+                <p style={{ fontSize: '13px', color: '#888b97', margin: 0, lineHeight: '1.6' }}>
+                  We map the recommended CRM pipeline, automated follow-up triggers, and attribution models.
                 </p>
               </div>
 
-              <div className="growth-card" style={{ padding: '20px' }}>
-                <div style={{ fontSize: '11px', fontFamily: 'monospace', color: 'var(--dws-champagne)', marginBottom: '6px' }}>
+              <div style={{ padding: '24px', background: '#111417', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                <span style={{ fontSize: '11px', fontFamily: 'monospace', color: 'var(--dws-signal)', display: 'block', marginBottom: '8px' }}>
                   SESSION OBJECTIVE 03
-                </div>
-                <h3 className="growth-h3" style={{ fontSize: '15px', marginBottom: '8px' }}>
+                </span>
+                <h3 style={{ fontSize: '16px', fontWeight: 600, color: '#ffffff', margin: '0 0 8px' }}>
                   Implementation Scope
                 </h3>
-                <p style={{ fontSize: '13px', color: 'var(--dws-text-muted)', margin: 0 }}>
+                <p style={{ fontSize: '13px', color: '#888b97', margin: 0, lineHeight: '1.6' }}>
                   We review deployment timelines, required software connections, and system activation milestones.
                 </p>
               </div>

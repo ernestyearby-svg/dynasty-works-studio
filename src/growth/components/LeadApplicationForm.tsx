@@ -44,10 +44,19 @@ const primaryGoals = [
   'Other',
 ];
 
+const stepLabels = [
+  { num: '01', title: 'COMPANY' },
+  { num: '02', title: 'ACQUISITION' },
+  { num: '03', title: 'SALES SYSTEM' },
+  { num: '04', title: 'GROWTH OBJECTIVE' },
+  { num: '05', title: 'CONTACT & VERIFICATION' },
+];
+
 export const LeadApplicationForm: React.FC<LeadApplicationFormProps> = ({
   onSuccessRedirect = '/growth/book',
   isStandalone = false,
 }) => {
+  const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<GrowthApplicationFormData>({
     firstName: '',
     lastName: '',
@@ -98,37 +107,50 @@ export const LeadApplicationForm: React.FC<LeadApplicationFormProps> = ({
     }
   };
 
-  const validate = (): boolean => {
+  const validateStep = (step: number): boolean => {
     const newErrors: Record<string, string> = {};
 
-    if (!formData.firstName.trim()) newErrors.firstName = 'First name is required';
-    if (!formData.lastName.trim()) newErrors.lastName = 'Last name is required';
-    if (!formData.businessName.trim()) newErrors.businessName = 'Business name is required';
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email address is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
-      newErrors.email = 'Please provide a valid email address';
+    if (step === 1) {
+      if (!formData.businessName.trim()) newErrors.businessName = 'Please enter your business name';
+      if (!formData.industry) newErrors.industry = 'Please select your industry';
+    } else if (step === 2) {
+      if (!formData.monthlyMarketingBudget)
+        newErrors.monthlyMarketingBudget = 'Please select your monthly marketing budget';
+    } else if (step === 3) {
+      // Step 3 optional fields, but validate if needed
+    } else if (step === 4) {
+      if (!formData.primaryGoal) newErrors.primaryGoal = 'Please select your primary growth goal';
+    } else if (step === 5) {
+      if (!formData.firstName.trim()) newErrors.firstName = 'First name is required';
+      if (!formData.lastName.trim()) newErrors.lastName = 'Last name is required';
+      if (!formData.email.trim()) {
+        newErrors.email = 'Email address is required';
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+        newErrors.email = 'Please provide a valid email address';
+      }
+      if (!formData.phone.trim()) newErrors.phone = 'Mobile phone is required';
+      if (!formData.consent) newErrors.consent = 'Please agree to terms to proceed';
     }
-    if (!formData.phone.trim()) newErrors.phone = 'Mobile phone number is required';
-    if (!formData.industry) newErrors.industry = 'Please select your industry';
-    if (!formData.monthlyMarketingBudget)
-      newErrors.monthlyMarketingBudget = 'Please select your marketing budget';
-    if (!formData.primaryGoal) newErrors.primaryGoal = 'Please select your primary goal';
-    if (!formData.consent)
-      newErrors.consent = 'You must accept the communication consent to proceed';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
+  };
+
+  const nextStep = () => {
+    if (validateStep(currentStep)) {
+      setCurrentStep((prev) => Math.min(5, prev + 1));
+    }
+  };
+
+  const prevStep = () => {
+    setCurrentStep((prev) => Math.max(1, prev - 1));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage(null);
 
-    if (!validate()) {
-      const firstErrorKey = Object.keys(errors)[0];
-      const element = document.getElementById(`field-${firstErrorKey}`);
-      if (element) element.focus();
+    if (!validateStep(5)) {
       return;
     }
 
@@ -138,28 +160,41 @@ export const LeadApplicationForm: React.FC<LeadApplicationFormProps> = ({
       const result = await submitGrowthApplication(formData);
 
       if (result.success) {
-        // Redirect to booking route as designated
         window.location.href = onSuccessRedirect;
       } else {
-        setErrorMessage(result.message || 'Submission failed. Please check your answers.');
+        setErrorMessage(result.message || 'Submission failed. Please check your inputs.');
       }
     } catch (err) {
-      setErrorMessage('An unexpected error occurred. Please try again.');
       console.error(err);
+      setErrorMessage('An unexpected error occurred. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="growth-form-card" id="growth-review-form">
+    <div className="growth-diagnostic-wrap" id="growth-review-diagnostic">
+      {/* 5-Step Progress Indicators */}
+      <div className="growth-diagnostic-progress-bar" role="progressbar" aria-valuenow={currentStep} aria-valuemin={1} aria-valuemax={5}>
+        {stepLabels.map((st, i) => (
+          <div
+            key={st.num}
+            className={`growth-diagnostic-step-pill ${i + 1 <= currentStep ? 'complete' : ''}`}
+            title={`Step ${st.num}: ${st.title}`}
+          />
+        ))}
+      </div>
+
+      <div className="growth-diagnostic-step-kicker">
+        STEP 0{currentStep} OF 05 · {stepLabels[currentStep - 1].title}
+      </div>
+
       {errorMessage && (
         <div
           role="alert"
           style={{
-            background: 'rgba(224, 82, 82, 0.1)',
-            border: '1px solid #e05252',
-            borderRadius: 'var(--dws-radius-sm)',
+            background: 'rgba(224, 68, 68, 0.1)',
+            border: '1px solid #e04444',
             padding: '14px 18px',
             color: '#ff8a8a',
             fontSize: '13px',
@@ -185,293 +220,342 @@ export const LeadApplicationForm: React.FC<LeadApplicationFormProps> = ({
           />
         </div>
 
-        {/* Row 1: Name */}
-        <div className="growth-grid-2">
-          <div className="growth-form-group">
-            <label className="growth-label" htmlFor="field-firstName">
-              First Name <span className="growth-label-required">*</span>
-            </label>
-            <input
-              type="text"
-              id="field-firstName"
-              name="firstName"
-              className={`growth-input ${errors.firstName ? 'error' : ''}`}
-              placeholder="e.g. Marcus"
-              value={formData.firstName}
-              onChange={handleFieldChange}
-              aria-required="true"
-              aria-invalid={!!errors.firstName}
-            />
-            {errors.firstName && <div className="growth-error-msg">{errors.firstName}</div>}
-          </div>
+        {/* STEP 01 — COMPANY */}
+        {currentStep === 1 && (
+          <div>
+            <h3 className="growth-diagnostic-question">
+              Tell us about your business.
+            </h3>
 
-          <div className="growth-form-group">
-            <label className="growth-label" htmlFor="field-lastName">
-              Last Name <span className="growth-label-required">*</span>
-            </label>
-            <input
-              type="text"
-              id="field-lastName"
-              name="lastName"
-              className={`growth-input ${errors.lastName ? 'error' : ''}`}
-              placeholder="e.g. Vance"
-              value={formData.lastName}
-              onChange={handleFieldChange}
-              aria-required="true"
-              aria-invalid={!!errors.lastName}
-            />
-            {errors.lastName && <div className="growth-error-msg">{errors.lastName}</div>}
-          </div>
-        </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div>
+                <label className="growth-eyebrow" htmlFor="field-businessName">
+                  Business Name *
+                </label>
+                <input
+                  type="text"
+                  id="field-businessName"
+                  name="businessName"
+                  className={`growth-diagnostic-input ${errors.businessName ? 'error' : ''}`}
+                  placeholder="e.g. Apex Performance Studio"
+                  value={formData.businessName}
+                  onChange={handleFieldChange}
+                  autoFocus
+                />
+                {errors.businessName && <div style={{ color: '#e04444', fontSize: '12px', marginTop: '6px' }}>{errors.businessName}</div>}
+              </div>
 
-        {/* Row 2: Business & Website */}
-        <div className="growth-grid-2">
-          <div className="growth-form-group">
-            <label className="growth-label" htmlFor="field-businessName">
-              Business Name <span className="growth-label-required">*</span>
-            </label>
-            <input
-              type="text"
-              id="field-businessName"
-              name="businessName"
-              className={`growth-input ${errors.businessName ? 'error' : ''}`}
-              placeholder="e.g. Apex Performance"
-              value={formData.businessName}
-              onChange={handleFieldChange}
-              aria-required="true"
-              aria-invalid={!!errors.businessName}
-            />
-            {errors.businessName && <div className="growth-error-msg">{errors.businessName}</div>}
-          </div>
+              <div>
+                <label className="growth-eyebrow" htmlFor="field-industry">
+                  Industry *
+                </label>
+                <select
+                  id="field-industry"
+                  name="industry"
+                  className={`growth-diagnostic-select ${errors.industry ? 'error' : ''}`}
+                  value={formData.industry}
+                  onChange={handleFieldChange}
+                >
+                  <option value="">Select your commercial vertical...</option>
+                  {industries.map((ind) => (
+                    <option key={ind} value={ind}>
+                      {ind}
+                    </option>
+                  ))}
+                </select>
+                {errors.industry && <div style={{ color: '#e04444', fontSize: '12px', marginTop: '6px' }}>{errors.industry}</div>}
+              </div>
 
-          <div className="growth-form-group">
-            <label className="growth-label" htmlFor="field-website">
-              Website
-            </label>
-            <input
-              type="url"
-              id="field-website"
-              name="website"
-              className="growth-input"
-              placeholder="https://yourcompany.com"
-              value={formData.website}
-              onChange={handleFieldChange}
-            />
+              <div>
+                <label className="growth-eyebrow" htmlFor="field-website">
+                  Website URL (Optional)
+                </label>
+                <input
+                  type="url"
+                  id="field-website"
+                  name="website"
+                  className="growth-diagnostic-input"
+                  placeholder="https://yourcompany.com"
+                  value={formData.website}
+                  onChange={handleFieldChange}
+                />
+              </div>
+            </div>
           </div>
-        </div>
+        )}
 
-        {/* Row 3: Email & Phone */}
-        <div className="growth-grid-2">
-          <div className="growth-form-group">
-            <label className="growth-label" htmlFor="field-email">
-              Email Address <span className="growth-label-required">*</span>
-            </label>
-            <input
-              type="email"
-              id="field-email"
-              name="email"
-              className={`growth-input ${errors.email ? 'error' : ''}`}
-              placeholder="marcus@apexperformance.com"
-              value={formData.email}
-              onChange={handleFieldChange}
-              aria-required="true"
-              aria-invalid={!!errors.email}
-            />
-            {errors.email && <div className="growth-error-msg">{errors.email}</div>}
+        {/* STEP 02 — ACQUISITION */}
+        {currentStep === 2 && (
+          <div>
+            <h3 className="growth-diagnostic-question">
+              How do you currently acquire customers?
+            </h3>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div>
+                <label className="growth-eyebrow" htmlFor="field-monthlyMarketingBudget">
+                  Monthly Marketing Budget *
+                </label>
+                <select
+                  id="field-monthlyMarketingBudget"
+                  name="monthlyMarketingBudget"
+                  className={`growth-diagnostic-select ${errors.monthlyMarketingBudget ? 'error' : ''}`}
+                  value={formData.monthlyMarketingBudget}
+                  onChange={handleFieldChange}
+                  autoFocus
+                >
+                  <option value="">Select your monthly advertising budget...</option>
+                  {budgetTiers.map((tier) => (
+                    <option key={tier} value={tier}>
+                      {tier}
+                    </option>
+                  ))}
+                </select>
+                {errors.monthlyMarketingBudget && (
+                  <div style={{ color: '#e04444', fontSize: '12px', marginTop: '6px' }}>{errors.monthlyMarketingBudget}</div>
+                )}
+              </div>
+
+              <div>
+                <label className="growth-eyebrow" htmlFor="field-leadGenerationMethod">
+                  Current Lead Generation Channels
+                </label>
+                <textarea
+                  id="field-leadGenerationMethod"
+                  name="leadGenerationMethod"
+                  className="growth-diagnostic-textarea"
+                  placeholder="e.g. Referrals, local Meta ads, Google Search, agency retainer..."
+                  value={formData.leadGenerationMethod}
+                  onChange={handleFieldChange}
+                  rows={3}
+                />
+              </div>
+            </div>
           </div>
+        )}
 
-          <div className="growth-form-group">
-            <label className="growth-label" htmlFor="field-phone">
-              Mobile Phone <span className="growth-label-required">*</span>
-            </label>
-            <input
-              type="tel"
-              id="field-phone"
-              name="phone"
-              className={`growth-input ${errors.phone ? 'error' : ''}`}
-              placeholder="(555) 000-0000"
-              value={formData.phone}
-              onChange={handleFieldChange}
-              aria-required="true"
-              aria-invalid={!!errors.phone}
-            />
-            {errors.phone && <div className="growth-error-msg">{errors.phone}</div>}
+        {/* STEP 03 — SALES SYSTEM */}
+        {currentStep === 3 && (
+          <div>
+            <h3 className="growth-diagnostic-question">
+              Where do opportunities stall?
+            </h3>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div>
+                <label className="growth-eyebrow" htmlFor="field-currentCrm">
+                  Current CRM / Lead Tracking Tool
+                </label>
+                <input
+                  type="text"
+                  id="field-currentCrm"
+                  name="currentCrm"
+                  className="growth-diagnostic-input"
+                  placeholder="e.g. HubSpot, GoHighLevel, None / Spreadsheets"
+                  value={formData.currentCrm}
+                  onChange={handleFieldChange}
+                  autoFocus
+                />
+              </div>
+
+              <div>
+                <label className="growth-eyebrow" htmlFor="field-biggestBottleneck">
+                  Biggest Growth Bottleneck
+                </label>
+                <textarea
+                  id="field-biggestBottleneck"
+                  name="biggestBottleneck"
+                  className="growth-diagnostic-textarea"
+                  placeholder="e.g. Qualified inquiries slipping away before booking, slow manual response times, blind ad attribution..."
+                  value={formData.biggestBottleneck}
+                  onChange={handleFieldChange}
+                  rows={3}
+                />
+              </div>
+            </div>
           </div>
-        </div>
+        )}
 
-        {/* Row 4: Industry & Budget */}
-        <div className="growth-grid-2">
-          <div className="growth-form-group">
-            <label className="growth-label" htmlFor="field-industry">
-              Industry <span className="growth-label-required">*</span>
-            </label>
-            <select
-              id="field-industry"
-              name="industry"
-              className={`growth-select ${errors.industry ? 'error' : ''}`}
-              value={formData.industry}
-              onChange={handleFieldChange}
-              aria-required="true"
-              aria-invalid={!!errors.industry}
+        {/* STEP 04 — GROWTH OBJECTIVE */}
+        {currentStep === 4 && (
+          <div>
+            <h3 className="growth-diagnostic-question">
+              What is your primary growth goal?
+            </h3>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div>
+                <label className="growth-eyebrow" htmlFor="field-primaryGoal">
+                  Primary Objective *
+                </label>
+                <select
+                  id="field-primaryGoal"
+                  name="primaryGoal"
+                  className={`growth-diagnostic-select ${errors.primaryGoal ? 'error' : ''}`}
+                  value={formData.primaryGoal}
+                  onChange={handleFieldChange}
+                  autoFocus
+                >
+                  <option value="">Select your primary strategic objective...</option>
+                  {primaryGoals.map((goal) => (
+                    <option key={goal} value={goal}>
+                      {goal}
+                    </option>
+                  ))}
+                </select>
+                {errors.primaryGoal && <div style={{ color: '#e04444', fontSize: '12px', marginTop: '6px' }}>{errors.primaryGoal}</div>}
+              </div>
+
+              <div>
+                <label className="growth-eyebrow" htmlFor="field-notes">
+                  Additional Context (Optional)
+                </label>
+                <textarea
+                  id="field-notes"
+                  name="notes"
+                  className="growth-diagnostic-textarea"
+                  placeholder="Any specific targets, timeline constraints, or existing software requirements..."
+                  value={formData.notes}
+                  onChange={handleFieldChange}
+                  rows={3}
+                />
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* STEP 05 — CONTACT & VERIFICATION */}
+        {currentStep === 5 && (
+          <div>
+            <h3 className="growth-diagnostic-question">
+              Where should we send your growth audit?
+            </h3>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
+              <div>
+                <label className="growth-eyebrow" htmlFor="field-firstName">
+                  First Name *
+                </label>
+                <input
+                  type="text"
+                  id="field-firstName"
+                  name="firstName"
+                  className={`growth-diagnostic-input ${errors.firstName ? 'error' : ''}`}
+                  placeholder="e.g. Marcus"
+                  value={formData.firstName}
+                  onChange={handleFieldChange}
+                  autoFocus
+                />
+                {errors.firstName && <div style={{ color: '#e04444', fontSize: '12px', marginTop: '6px' }}>{errors.firstName}</div>}
+              </div>
+
+              <div>
+                <label className="growth-eyebrow" htmlFor="field-lastName">
+                  Last Name *
+                </label>
+                <input
+                  type="text"
+                  id="field-lastName"
+                  name="lastName"
+                  className={`growth-diagnostic-input ${errors.lastName ? 'error' : ''}`}
+                  placeholder="e.g. Vance"
+                  value={formData.lastName}
+                  onChange={handleFieldChange}
+                />
+                {errors.lastName && <div style={{ color: '#e04444', fontSize: '12px', marginTop: '6px' }}>{errors.lastName}</div>}
+              </div>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '24px' }}>
+              <div>
+                <label className="growth-eyebrow" htmlFor="field-email">
+                  Business Email *
+                </label>
+                <input
+                  type="email"
+                  id="field-email"
+                  name="email"
+                  className={`growth-diagnostic-input ${errors.email ? 'error' : ''}`}
+                  placeholder="marcus@apexperformance.com"
+                  value={formData.email}
+                  onChange={handleFieldChange}
+                />
+                {errors.email && <div style={{ color: '#e04444', fontSize: '12px', marginTop: '6px' }}>{errors.email}</div>}
+              </div>
+
+              <div>
+                <label className="growth-eyebrow" htmlFor="field-phone">
+                  Mobile Phone *
+                </label>
+                <input
+                  type="tel"
+                  id="field-phone"
+                  name="phone"
+                  className={`growth-diagnostic-input ${errors.phone ? 'error' : ''}`}
+                  placeholder="(555) 000-0000"
+                  value={formData.phone}
+                  onChange={handleFieldChange}
+                />
+                {errors.phone && <div style={{ color: '#e04444', fontSize: '12px', marginTop: '6px' }}>{errors.phone}</div>}
+              </div>
+            </div>
+
+            {/* Consent Checkbox */}
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', margin: '20px 0' }}>
+              <input
+                type="checkbox"
+                id="field-consent"
+                name="consent"
+                checked={formData.consent}
+                onChange={handleFieldChange}
+                style={{ marginTop: '4px', accentColor: 'var(--dws-signal)', width: '16px', height: '16px' }}
+              />
+              <label htmlFor="field-consent" style={{ fontSize: '12px', color: '#8c8f9a', lineHeight: '1.5' }}>
+                I consent to receive diagnostic assessments and strategic follow-up communications from Dynasty Works Studio.
+                Review our <a href="/privacy" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--dws-signal)' }}>Privacy Policy</a> and <a href="/terms" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--dws-signal)' }}>Terms of Service</a>.
+              </label>
+            </div>
+            {errors.consent && <div style={{ color: '#e04444', fontSize: '12px', marginTop: '-12px', marginBottom: '16px' }}>{errors.consent}</div>}
+          </div>
+        )}
+
+        {/* Action Controls */}
+        <div className="growth-diagnostic-actions">
+          {currentStep > 1 ? (
+            <button
+              type="button"
+              onClick={prevStep}
+              className="growth-btn growth-btn-outline-dark"
+              style={{ minHeight: '48px', padding: '12px 20px', fontSize: '11px' }}
             >
-              <option value="">Select your industry...</option>
-              {industries.map((ind) => (
-                <option key={ind} value={ind}>
-                  {ind}
-                </option>
-              ))}
-            </select>
-            {errors.industry && <div className="growth-error-msg">{errors.industry}</div>}
-          </div>
+              ← BACK
+            </button>
+          ) : (
+            <div />
+          )}
 
-          <div className="growth-form-group">
-            <label className="growth-label" htmlFor="field-monthlyMarketingBudget">
-              Monthly Marketing Budget <span className="growth-label-required">*</span>
-            </label>
-            <select
-              id="field-monthlyMarketingBudget"
-              name="monthlyMarketingBudget"
-              className={`growth-select ${errors.monthlyMarketingBudget ? 'error' : ''}`}
-              value={formData.monthlyMarketingBudget}
-              onChange={handleFieldChange}
-              aria-required="true"
-              aria-invalid={!!errors.monthlyMarketingBudget}
+          {currentStep < 5 ? (
+            <button
+              type="button"
+              onClick={nextStep}
+              className="growth-btn growth-btn-signal"
+              style={{ minHeight: '48px', padding: '12px 28px', fontSize: '11px' }}
             >
-              <option value="">Select budget tier...</option>
-              {budgetTiers.map((tier) => (
-                <option key={tier} value={tier}>
-                  {tier}
-                </option>
-              ))}
-            </select>
-            {errors.monthlyMarketingBudget && (
-              <div className="growth-error-msg">{errors.monthlyMarketingBudget}</div>
-            )}
-          </div>
-        </div>
-
-        {/* Row 5: Primary Goal & Current CRM */}
-        <div className="growth-grid-2">
-          <div className="growth-form-group">
-            <label className="growth-label" htmlFor="field-primaryGoal">
-              Primary Goal <span className="growth-label-required">*</span>
-            </label>
-            <select
-              id="field-primaryGoal"
-              name="primaryGoal"
-              className={`growth-select ${errors.primaryGoal ? 'error' : ''}`}
-              value={formData.primaryGoal}
-              onChange={handleFieldChange}
-              aria-required="true"
-              aria-invalid={!!errors.primaryGoal}
+              <span>CONTINUE TO STEP 0{currentStep + 1}</span>
+              <span className="arrow" aria-hidden="true">→</span>
+            </button>
+          ) : (
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="growth-btn growth-btn-signal"
+              style={{ minHeight: '52px', padding: '14px 32px', fontSize: '12px' }}
             >
-              <option value="">Select primary goal...</option>
-              {primaryGoals.map((goal) => (
-                <option key={goal} value={goal}>
-                  {goal}
-                </option>
-              ))}
-            </select>
-            {errors.primaryGoal && <div className="growth-error-msg">{errors.primaryGoal}</div>}
-          </div>
-
-          <div className="growth-form-group">
-            <label className="growth-label" htmlFor="field-currentCrm">
-              Current CRM
-            </label>
-            <input
-              type="text"
-              id="field-currentCrm"
-              name="currentCrm"
-              className="growth-input"
-              placeholder="e.g. HubSpot, GoHighLevel, None / Spreadsheets"
-              value={formData.currentCrm}
-              onChange={handleFieldChange}
-            />
-          </div>
+              <span>{isSubmitting ? 'TRANSMITTING AUDIT...' : 'REQUEST MY GROWTH REVIEW'}</span>
+              <span className="arrow" aria-hidden="true">↗</span>
+            </button>
+          )}
         </div>
-
-        {/* Lead Generation Method */}
-        <div className="growth-form-group">
-          <label className="growth-label" htmlFor="field-leadGenerationMethod">
-            How Are You Currently Generating Leads?
-          </label>
-          <textarea
-            id="field-leadGenerationMethod"
-            name="leadGenerationMethod"
-            className="growth-textarea"
-            placeholder="e.g. Referrals, local Meta ads, Google search, agency retainer, or cold outreach..."
-            value={formData.leadGenerationMethod}
-            onChange={handleFieldChange}
-          />
-        </div>
-
-        {/* Biggest Growth Bottleneck */}
-        <div className="growth-form-group">
-          <label className="growth-label" htmlFor="field-biggestBottleneck">
-            Biggest Growth Bottleneck?
-          </label>
-          <textarea
-            id="field-biggestBottleneck"
-            name="biggestBottleneck"
-            className="growth-textarea"
-            placeholder="e.g. Leads slipping away before booking, slow manual follow-up, inability to track which ad produces revenue..."
-            value={formData.biggestBottleneck}
-            onChange={handleFieldChange}
-          />
-        </div>
-
-        {/* Anything Else */}
-        <div className="growth-form-group">
-          <label className="growth-label" htmlFor="field-notes">
-            Anything Else We Should Know?
-          </label>
-          <textarea
-            id="field-notes"
-            name="notes"
-            className="growth-textarea"
-            placeholder="Any specific targets, timeline constraints, or existing tool integrations..."
-            value={formData.notes}
-            onChange={handleFieldChange}
-            style={{ minHeight: '70px' }}
-          />
-        </div>
-
-        {/* Configurable Consent Area */}
-        <div className="growth-checkbox-wrap">
-          <input
-            type="checkbox"
-            id="field-consent"
-            name="consent"
-            checked={formData.consent}
-            onChange={handleFieldChange}
-            aria-required="true"
-          />
-          <label htmlFor="field-consent" className="growth-consent-text">
-            By requesting this review, you consent to receive strategic follow-up communications, SMS
-            confirmations, and diagnostic assessments from Dynasty Works Studio regarding your business
-            growth infrastructure. You may opt out at any time. Review our{' '}
-            <a href="/privacy" target="_blank" rel="noopener noreferrer">
-              Privacy Policy
-            </a>{' '}
-            and{' '}
-            <a href="/terms" target="_blank" rel="noopener noreferrer">
-              Terms of Service
-            </a>
-            .
-          </label>
-        </div>
-        {errors.consent && <div className="growth-error-msg" style={{ marginTop: '-16px', marginBottom: '20px' }}>{errors.consent}</div>}
-
-        {/* Submit Button */}
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="growth-btn growth-btn-primary"
-          style={{ width: '100%', padding: '16px 28px', fontSize: '14px', letterSpacing: '0.1em' }}
-        >
-          {isSubmitting ? 'TRANSMITTING AUDIT DATA...' : 'REQUEST MY GROWTH REVIEW'}
-        </button>
       </form>
     </div>
   );

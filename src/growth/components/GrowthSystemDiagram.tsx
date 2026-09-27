@@ -1,198 +1,150 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-interface SystemNode {
+interface SystemStage {
   id: string;
   step: string;
-  name: string;
-  subtext: string;
-  protocol: string;
+  label: string;
+  sub: string;
+  latency: string;
   status: string;
-  telemetry: string;
 }
 
-const systemNodes: SystemNode[] = [
-  {
-    id: 'ads',
-    step: '01',
-    name: 'ADS',
-    subtext: 'Meta & Google Paid Acquisition',
-    protocol: 'CAPI & Enhanced Conversions',
-    status: 'ACTIVE',
-    telemetry: 'Real-time Bidding',
-  },
-  {
-    id: 'landing-page',
-    step: '02',
-    name: 'LANDING PAGE',
-    subtext: 'High-Converting Web Experience',
-    protocol: 'Edge-Rendered · 0.4s LCP',
-    status: 'ONLINE',
-    telemetry: 'Dynamic Parameter Injection',
-  },
-  {
-    id: 'lead',
-    step: '03',
-    name: 'LEAD',
-    subtext: 'Verified Inquiry Capture',
-    protocol: 'Honeypot + Strict Schema',
-    status: 'CAPTURED',
-    telemetry: 'Instant Attribution Stamp',
-  },
-  {
-    id: 'crm',
-    step: '04',
-    name: 'CRM',
-    subtext: 'Centralized Opportunity Hub',
-    protocol: 'Two-Way Sync · Deduplication',
-    status: 'ROUTED',
-    telemetry: 'Pipeline Stage Automation',
-  },
-  {
-    id: 'follow-up',
-    step: '05',
-    name: 'AUTOMATED FOLLOW-UP',
-    subtext: 'Instant SMS & Email Sequences',
-    protocol: 'Sub-60s SLA Response',
-    status: 'TRIGGERED',
-    telemetry: 'Multi-Channel Conversational AI',
-  },
-  {
-    id: 'appointment',
-    step: '06',
-    name: 'APPOINTMENT',
-    subtext: 'Direct Calendar Booking',
-    protocol: 'Live Calendar Availability',
-    status: 'SCHEDULED',
-    telemetry: 'No-Show Recovery Workflows',
-  },
-  {
-    id: 'customer',
-    step: '07',
-    name: 'CUSTOMER',
-    subtext: 'Closed Qualified Sale',
-    protocol: 'POS / Stripe Reconciliation',
-    status: 'CONVERTED',
-    telemetry: 'High-Value Client Onboarding',
-  },
-  {
-    id: 'revenue',
-    step: '08',
-    name: 'REVENUE',
-    subtext: 'Closed-Loop Attribution',
-    protocol: 'Multi-Touch ROAS Model',
-    status: 'ATTRIBUTED',
-    telemetry: 'Executive KPI Dashboard',
-  },
+const stages: SystemStage[] = [
+  { id: 'traffic', step: '01', label: 'TRAFFIC', sub: 'Intent-Targeted Paid Media', latency: '0.1s', status: 'SYNCHRONIZED' },
+  { id: 'conversion', step: '02', label: 'CONVERSION', sub: 'Sub-Second Landing Experience', latency: '0.4s', status: 'ACTIVE' },
+  { id: 'lead', step: '03', label: 'LEAD', sub: 'Verified Multi-Touch Capture', latency: 'Real-time', status: 'AUTHENTICATED' },
+  { id: 'crm', step: '04', label: 'CRM', sub: 'Automated Pipeline Ingestion', latency: '< 300ms', status: 'ENRICHED' },
+  { id: 'follow-up', step: '05', label: 'FOLLOW-UP', sub: 'Sub-60s Automated Conversational SMS', latency: '< 60s', status: 'ENGAGED' },
+  { id: 'appointment', step: '06', label: 'APPOINTMENT', sub: 'Confirmed Calendar Reservation', latency: 'Direct', status: 'RESERVED' },
+  { id: 'customer', step: '07', label: 'CUSTOMER', sub: 'Closed Commercial Contract', latency: 'Closed-Won', status: 'ONBOARDED' },
+  { id: 'revenue', step: '08', label: 'REVENUE', sub: 'Multi-Touch Closed-Loop Attribution', latency: 'Attributed', status: 'RECORDED' },
 ];
 
 export const GrowthSystemDiagram: React.FC = () => {
-  const [activeNodeId, setActiveNodeId] = useState<string>('lead');
+  const [activeStageIndex, setActiveStageIndex] = useState(0);
 
-  const activeNode = systemNodes.find((n) => n.id === activeNodeId) || systemNodes[2];
+  // Subtle automated cycle representing the live cobalt pulse traversing the system
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveStageIndex((prev) => (prev + 1) % stages.length);
+    }, 2800);
+    return () => clearInterval(timer);
+  }, []);
+
+  const activeStage = stages[activeStageIndex];
 
   return (
-    <div className="growth-system-map" aria-label="Dynasty Growth Operating System Pipeline Map">
-      <div className="growth-map-header">
-        <div className="growth-map-title">
-          <span
-            style={{
-              width: 8,
-              height: 8,
-              borderRadius: '50%',
-              backgroundColor: '#4ade80',
-              display: 'inline-block',
-              boxShadow: '0 0 8px #4ade80',
-            }}
-            aria-hidden="true"
-          />
-          PROPRIETARY OPERATING ENGINE · V1.0
+    <div className="growth-architectural-plane" aria-label="Proprietary Operating Infrastructure Model">
+      <div className="growth-plane-header">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div className="growth-pulse-indicator" aria-hidden="true" />
+          <span style={{ fontSize: '11px', fontFamily: 'monospace', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#ece9e1' }}>
+            OPERATING INFRASTRUCTURE · ACTIVE BEAM
+          </span>
         </div>
-        <div className="growth-map-badge">PIPELINE SYNCHRONIZED</div>
+        <span style={{ fontSize: '10px', fontFamily: 'monospace', color: 'var(--dws-signal)', letterSpacing: '0.1em' }}>
+          STAGE {activeStage.step}/08
+        </span>
       </div>
 
-      {/* Nodes Pipeline */}
-      <div className="growth-flow-nodes" role="list">
-        {systemNodes.map((node, index) => {
-          const isActive = node.id === activeNodeId;
+      {/* Spatial Stage Pathway */}
+      <div className="growth-plane-nodes" role="list">
+        {stages.map((st, idx) => {
+          const isActive = idx === activeStageIndex;
           return (
-            <React.Fragment key={node.id}>
-              <div
-                role="listitem"
-                tabIndex={0}
-                className={`growth-flow-node ${isActive ? 'active' : ''}`}
-                onClick={() => setActiveNodeId(node.id)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    setActiveNodeId(node.id);
-                  }
-                }}
-                style={{ cursor: 'pointer' }}
-                aria-label={`${node.step} ${node.name}: ${node.subtext}`}
-              >
-                <div className="growth-node-left">
-                  <span className="growth-node-num">{node.step}</span>
-                  <div>
-                    <span className="growth-node-name">{node.name}</span>
-                    <span
-                      style={{
-                        display: 'block',
-                        fontSize: '11px',
-                        color: 'var(--dws-text-muted)',
-                        marginTop: '1px',
-                      }}
-                    >
-                      {node.subtext}
-                    </span>
-                  </div>
-                </div>
-                <div style={{ textAlign: 'right' }}>
+            <div
+              key={st.id}
+              role="listitem"
+              tabIndex={0}
+              onClick={() => setActiveStageIndex(idx)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setActiveStageIndex(idx);
+                }
+              }}
+              className={`growth-plane-node ${isActive ? 'active' : ''}`}
+              style={{ cursor: 'pointer' }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                <span
+                  style={{
+                    fontFamily: 'monospace',
+                    fontSize: '11px',
+                    fontWeight: 700,
+                    color: isActive ? 'var(--dws-signal)' : '#5a5d66',
+                  }}
+                >
+                  {st.step}
+                </span>
+                <div>
                   <span
                     style={{
-                      fontSize: '10px',
+                      fontSize: '13px',
                       fontWeight: 700,
-                      letterSpacing: '0.08em',
-                      color: isActive ? 'var(--dws-champagne)' : 'var(--dws-stone)',
-                      display: 'block',
+                      letterSpacing: '0.04em',
+                      color: isActive ? '#ffffff' : '#b2b5be',
                     }}
                   >
-                    {node.status}
+                    {st.label}
                   </span>
-                  <span className="growth-node-status">{node.protocol}</span>
+                  <span
+                    style={{
+                      display: 'block',
+                      fontSize: '11px',
+                      color: isActive ? '#d1d5db' : '#696c77',
+                    }}
+                  >
+                    {st.sub}
+                  </span>
                 </div>
               </div>
-              {index < systemNodes.length - 1 && (
-                <div className="growth-node-arrow" aria-hidden="true">
-                  ↓
-                </div>
-              )}
-            </React.Fragment>
+
+              <div style={{ textAlign: 'right' }}>
+                <span
+                  style={{
+                    fontSize: '10px',
+                    fontFamily: 'monospace',
+                    fontWeight: 700,
+                    letterSpacing: '0.08em',
+                    color: isActive ? 'var(--dws-signal)' : '#4f525c',
+                  }}
+                >
+                  {st.status}
+                </span>
+              </div>
+            </div>
           );
         })}
       </div>
 
-      {/* Active Node Telemetry Card */}
+      {/* Floating System Plane Output */}
       <div
         style={{
-          marginTop: '20px',
+          marginTop: '24px',
           padding: '16px 20px',
           background: 'rgba(0, 0, 0, 0.45)',
-          borderRadius: 'var(--dws-radius-sm)',
-          border: '1px solid rgba(212, 180, 131, 0.25)',
+          border: '1px solid rgba(36, 87, 255, 0.25)',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
         }}
       >
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-          <span style={{ fontSize: '11px', fontWeight: 800, letterSpacing: '0.12em', color: 'var(--dws-champagne)', textTransform: 'uppercase' }}>
-            NODE TELEMETRY · STAGE {activeNode.step}
+        <div>
+          <span style={{ fontSize: '9px', fontFamily: 'monospace', letterSpacing: '0.12em', color: 'var(--dws-signal)', textTransform: 'uppercase', display: 'block' }}>
+            SIGNAL TELEMETRY
           </span>
-          <span style={{ fontSize: '11px', color: '#4ade80', fontFamily: 'monospace' }}>● ACTIVE STREAM</span>
+          <span style={{ fontSize: '12px', fontWeight: 600, color: '#ece9e1' }}>
+            {activeStage.label} → {activeStage.sub}
+          </span>
         </div>
-        <div style={{ fontSize: '13px', color: 'var(--dws-bone)', fontWeight: 600 }}>
-          {activeNode.name} — {activeNode.subtext}
-        </div>
-        <div style={{ fontSize: '12px', color: 'var(--dws-text-muted)', marginTop: '4px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-          <span>Architecture: <strong style={{ color: 'var(--dws-champagne-light)' }}>{activeNode.protocol}</strong></span>
-          <span>Throughput: <strong style={{ color: 'var(--dws-champagne-light)' }}>{activeNode.telemetry}</strong></span>
+        <div style={{ textAlign: 'right' }}>
+          <span style={{ fontSize: '9px', fontFamily: 'monospace', color: '#888b94', display: 'block' }}>
+            SLA BENCHMARK
+          </span>
+          <span style={{ fontSize: '12px', fontFamily: 'monospace', color: 'var(--dws-signal)', fontWeight: 700 }}>
+            {activeStage.latency}
+          </span>
         </div>
       </div>
     </div>
