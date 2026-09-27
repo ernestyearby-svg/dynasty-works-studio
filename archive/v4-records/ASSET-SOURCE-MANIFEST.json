@@ -1,0 +1,412 @@
+[
+  {
+    "key": "rawIdea",
+    "source": "01-DWS-RAW-IDEA.png",
+    "sourceFolder": "C:/Users/ernes/Downloads/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK",
+    "sha256": "81b5c797ba54f0a619aec8a1b475894dd1fa714589ebd2add360de6d5a89648f",
+    "width": 1536,
+    "height": 1024,
+    "status": "Approved supplied conceptual visualization",
+    "derivatives": [
+      {
+        "filename": "rawIdea-480.avif",
+        "bytes": 19126,
+        "width": 480
+      },
+      {
+        "filename": "rawIdea-480.webp",
+        "bytes": 27044,
+        "width": 480
+      },
+      {
+        "filename": "rawIdea-960.avif",
+        "bytes": 62032,
+        "width": 960
+      },
+      {
+        "filename": "rawIdea-960.webp",
+        "bytes": 88808,
+        "width": 960
+      },
+      {
+        "filename": "rawIdea-1536.avif",
+        "bytes": 122891,
+        "width": 1536
+      },
+      {
+        "filename": "rawIdea-1536.webp",
+        "bytes": 184916,
+        "width": 1536
+      }
+    ]
+  },
+  {
+    "key": "brandFormation",
+    "source": "02-DWS-BRAND-FORMATION.png",
+    "sourceFolder": "C:/Users/ernes/Downloads/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK",
+    "sha256": "cceed6e75f5863ae96cf199f72b1a896e1d2b52bf56c9b67e78bc98c7ef052ee",
+    "width": 1536,
+    "height": 1024,
+    "status": "Approved supplied conceptual visualization",
+    "derivatives": [
+      {
+        "filename": "brandFormation-480.avif",
+        "bytes": 13981,
+        "width": 480
+      },
+      {
+        "filename": "brandFormation-480.webp",
+        "bytes": 18922,
+        "width": 480
+      },
+      {
+        "filename": "brandFormation-960.avif",
+        "bytes": 45699,
+        "width": 960
+      },
+      {
+        "filename": "brandFormation-960.webp",
+        "bytes": 62026,
+        "width": 960
+      },
+      {
+        "filename": "brandFormation-1536.avif",
+        "bytes": 96593,
+        "width": 1536
+      },
+      {
+        "filename": "brandFormation-1536.webp",
+        "bytes": 133548,
+        "width": 1536
+      }
+    ]
+  },
+  {
+    "key": "packaging",
+    "source": "03-DWS-PACKAGING.png",
+    "sourceFolder": "C:/Users/ernes/Downloads/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK",
+    "sha256": "70bfeb4ca4bba1174dff73f77b7c021ff5d33d809a231a94bb7ffb358b3aa437",
+    "width": 1536,
+    "height": 1024,
+    "status": "Approved supplied conceptual visualization",
+    "derivatives": [
+      {
+        "filename": "packaging-480.avif",
+        "bytes": 15751,
+        "width": 480
+      },
+      {
+        "filename": "packaging-480.webp",
+        "bytes": 21982,
+        "width": 480
+      },
+      {
+        "filename": "packaging-960.avif",
+        "bytes": 55824,
+        "width": 960
+      },
+      {
+        "filename": "packaging-960.webp",
+        "bytes": 74332,
+        "width": 960
+      },
+      {
+        "filename": "packaging-1536.avif",
+        "bytes": 116475,
+        "width": 1536
+      },
+      {
+        "filename": "packaging-1536.webp",
+        "bytes": 164506,
+        "width": 1536
+      }
+    ]
+  },
+  {
+    "key": "productDesign",
+    "source": "04-DWS-PRODUCT-DESIGN.png",
+    "sourceFolder": "C:/Users/ernes/Downloads/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK",
+    "sha256": "8e4263faa77b2fd541f5341fcc94fdaab55447aa919f5392db5ba6630e4510c5",
+    "width": 1536,
+    "height": 1024,
+    "status": "Approved supplied conceptual visualization",
+    "derivatives": [
+      {
+        "filename": "productDesign-480.avif",
+        "bytes": 17158,
+        "width": 480
+      },
+      {
+        "filename": "productDesign-480.webp",
+        "bytes": 24430,
+        "width": 480
+      },
+      {
+        "filename": "productDesign-960.avif",
+        "bytes": 58752,
+        "width": 960
+      },
+      {
+        "filename": "productDesign-960.webp",
+        "bytes": 84058,
+        "width": 960
+      },
+      {
+        "filename": "productDesign-1536.avif",
+        "bytes": 123515,
+        "width": 1536
+      },
+      {
+        "filename": "productDesign-1536.webp",
+        "bytes": 179878,
+        "width": 1536
+      }
+    ]
+  },
+  {
+    "key": "digitalExperience",
+    "source": "05-DWS-DIGITAL-EXPERIENCE.png",
+    "sourceFolder": "C:/Users/ernes/Downloads/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK",
+    "sha256": "b577697aa97c3932135eb054f2a0d5f097188a7c71d17591a6f3549fda7b3a6c",
+    "width": 1536,
+    "height": 1024,
+    "status": "Approved supplied conceptual visualization",
+    "derivatives": [
+      {
+        "filename": "digitalExperience-480.avif",
+        "bytes": 16437,
+        "width": 480
+      },
+      {
+        "filename": "digitalExperience-480.webp",
+        "bytes": 23178,
+        "width": 480
+      },
+      {
+        "filename": "digitalExperience-960.avif",
+        "bytes": 48055,
+        "width": 960
+      },
+      {
+        "filename": "digitalExperience-960.webp",
+        "bytes": 66178,
+        "width": 960
+      },
+      {
+        "filename": "digitalExperience-1536.avif",
+        "bytes": 89114,
+        "width": 1536
+      },
+      {
+        "filename": "digitalExperience-1536.webp",
+        "bytes": 126530,
+        "width": 1536
+      }
+    ]
+  },
+  {
+    "key": "physicalExperience",
+    "source": "06-DWS-PHYSICAL-EXPERIENCE.png",
+    "sourceFolder": "C:/Users/ernes/Downloads/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK",
+    "sha256": "7aafed60a70200176557cb6fb48ec9982f43ec3f8b659ee18d29e7df2072e7fd",
+    "width": 1536,
+    "height": 1024,
+    "status": "Approved supplied conceptual visualization",
+    "derivatives": [
+      {
+        "filename": "physicalExperience-480.avif",
+        "bytes": 16927,
+        "width": 480
+      },
+      {
+        "filename": "physicalExperience-480.webp",
+        "bytes": 23864,
+        "width": 480
+      },
+      {
+        "filename": "physicalExperience-960.avif",
+        "bytes": 53781,
+        "width": 960
+      },
+      {
+        "filename": "physicalExperience-960.webp",
+        "bytes": 73496,
+        "width": 960
+      },
+      {
+        "filename": "physicalExperience-1536.avif",
+        "bytes": 111552,
+        "width": 1536
+      },
+      {
+        "filename": "physicalExperience-1536.webp",
+        "bytes": 151028,
+        "width": 1536
+      }
+    ]
+  },
+  {
+    "key": "materialCraft",
+    "source": "07-DWS-MATERIAL-CRAFT.png",
+    "sourceFolder": "C:/Users/ernes/Downloads/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK",
+    "sha256": "55eb84b3a1dc6aad340d6fbb8806a9ded898667bdae887c302fba22e7ff96dcb",
+    "width": 1536,
+    "height": 1024,
+    "status": "Approved supplied conceptual visualization",
+    "derivatives": [
+      {
+        "filename": "materialCraft-480.avif",
+        "bytes": 21752,
+        "width": 480
+      },
+      {
+        "filename": "materialCraft-480.webp",
+        "bytes": 31724,
+        "width": 480
+      },
+      {
+        "filename": "materialCraft-960.avif",
+        "bytes": 77865,
+        "width": 960
+      },
+      {
+        "filename": "materialCraft-960.webp",
+        "bytes": 110940,
+        "width": 960
+      },
+      {
+        "filename": "materialCraft-1536.avif",
+        "bytes": 155935,
+        "width": 1536
+      },
+      {
+        "filename": "materialCraft-1536.webp",
+        "bytes": 240780,
+        "width": 1536
+      }
+    ]
+  },
+  {
+    "key": "humanCreation",
+    "source": "08-DWS-HUMAN-CREATION.png",
+    "sourceFolder": "C:/Users/ernes/Downloads/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK",
+    "sha256": "385f122ba380f147acbde9f92300fc99df2b8b57dda237fbd6da9a4ae4064b1c",
+    "width": 1536,
+    "height": 1024,
+    "status": "Approved supplied conceptual visualization",
+    "derivatives": [
+      {
+        "filename": "humanCreation-480.avif",
+        "bytes": 17196,
+        "width": 480
+      },
+      {
+        "filename": "humanCreation-480.webp",
+        "bytes": 25644,
+        "width": 480
+      },
+      {
+        "filename": "humanCreation-960.avif",
+        "bytes": 45345,
+        "width": 960
+      },
+      {
+        "filename": "humanCreation-960.webp",
+        "bytes": 63660,
+        "width": 960
+      },
+      {
+        "filename": "humanCreation-1536.avif",
+        "bytes": 79720,
+        "width": 1536
+      },
+      {
+        "filename": "humanCreation-1536.webp",
+        "bytes": 111518,
+        "width": 1536
+      }
+    ]
+  },
+  {
+    "key": "scale",
+    "source": "09-DWS-SCALE.png",
+    "sourceFolder": "C:/Users/ernes/Downloads/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK",
+    "sha256": "d763281f3d565dabce7f815532a3eea16a2f034400cc1044426530a1b0408cc6",
+    "width": 1536,
+    "height": 1024,
+    "status": "Approved supplied conceptual visualization",
+    "derivatives": [
+      {
+        "filename": "scale-480.avif",
+        "bytes": 16307,
+        "width": 480
+      },
+      {
+        "filename": "scale-480.webp",
+        "bytes": 21502,
+        "width": 480
+      },
+      {
+        "filename": "scale-960.avif",
+        "bytes": 46465,
+        "width": 960
+      },
+      {
+        "filename": "scale-960.webp",
+        "bytes": 60318,
+        "width": 960
+      },
+      {
+        "filename": "scale-1536.avif",
+        "bytes": 87690,
+        "width": 1536
+      },
+      {
+        "filename": "scale-1536.webp",
+        "bytes": 113940,
+        "width": 1536
+      }
+    ]
+  },
+  {
+    "key": "futureExperiment",
+    "source": "10-DWS-FUTURE-EXPERIMENT.png",
+    "sourceFolder": "C:/Users/ernes/Downloads/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK/DWS-V4.1-LIVING-SYSTEM-ASSET-PACK",
+    "sha256": "196a2e794a19f835b4c238079fbd5aaa1bd8731a32588ed865eaddd7b99e822b",
+    "width": 1536,
+    "height": 1024,
+    "status": "Approved supplied conceptual visualization",
+    "derivatives": [
+      {
+        "filename": "futureExperiment-480.avif",
+        "bytes": 18225,
+        "width": 480
+      },
+      {
+        "filename": "futureExperiment-480.webp",
+        "bytes": 25056,
+        "width": 480
+      },
+      {
+        "filename": "futureExperiment-960.avif",
+        "bytes": 55611,
+        "width": 960
+      },
+      {
+        "filename": "futureExperiment-960.webp",
+        "bytes": 78080,
+        "width": 960
+      },
+      {
+        "filename": "futureExperiment-1536.avif",
+        "bytes": 110819,
+        "width": 1536
+      },
+      {
+        "filename": "futureExperiment-1536.webp",
+        "bytes": 153020,
+        "width": 1536
+      }
+    ]
+  }
+]

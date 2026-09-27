@@ -1,0 +1,429 @@
+diff --git a/app/concept-lab/page.tsx b/app/concept-lab/page.tsx
+index 21cbfd9..195e027 100644
+--- a/app/concept-lab/page.tsx
++++ b/app/concept-lab/page.tsx
+@@ -1,65 +1,10 @@
+-import { PageIntro, FinalCTA } from "@/components/studio";
+ import Link from "@/components/site-link";
+-export const metadata = {
+-  title: "Concept Lab — Explorations",
+-  description:
+-    "An experimental space for identity, packaging, products, fashion and technology. Concepts are clearly separated from commissioned work.",
+-  alternates: { canonical: "/concept-lab" },
+-};
+-export default function ConceptLab() {
+-  return (
+-    <div className="v2-page v2-lab">
+-      <PageIntro
+-        eyebrow="CONCEPT LAB / EXPERIMENTAL PRACTICE"
+-        title="Room for what could be."
+-        description="A place to explore an identity, an object or a possible future. Speculative work is always identified as such."
+-      />
+-      <section className="shell v2-lab-body">
+-        <div className="v2-lab-index">
+-          {[
+-            "Spirits",
+-            "Packaging",
+-            "Identity",
+-            "Products",
+-            "Fashion",
+-            "Technology",
+-            "Future Concepts",
+-          ].map((s, i) => (
+-            <div key={s}>
+-              <span className="eyebrow">0{i + 1}</span>
+-              <h2>{s}</h2>
+-            </div>
+-          ))}
+-        </div>
+-        <aside>
+-          <p className="eyebrow">THE PRACTICE</p>
+-          <h2>Explore before you commit.</h2>
+-          <p>
+-            Test a direction through identity studies, product visualizations
+-            and packaging explorations. Define the question, develop the idea
+-            and review what is worth taking further.
+-          </p>
+-          <Link href="/work" className="text-link">
+-            VIEW SELECTED WORK →
+-          </Link>
+-          <details>
+-            <summary>How work is classified</summary>
+-            <dl>
+-              <dt>CONCEPT</dt>
+-              <dd>A speculative direction.</dd>
+-              <dt>BRAND EXPLORATION</dt>
+-              <dd>
+-                An identity study, separate from commissioned production work.
+-              </dd>
+-              <dt>PRODUCT EXPLORATION</dt>
+-              <dd>A proposed object or experience.</dd>
+-              <dt>PACKAGING EXPLORATION</dt>
+-              <dd>A packaging study, not evidence of a released product.</dd>
+-            </dl>
+-          </details>
+-        </aside>
+-      </section>
+-      <FinalCTA />
+-    </div>
+-  );
+-}
++import { FinalCTA } from "@/components/studio";
++import { MockupStudies } from "@/components/studio-upgrade";
++export const metadata={title:"Concept Lab — Photorealistic Studies",description:"Speculative identity, packaging and physical-product visualizations. Clearly labeled AI-generated concepts, separate from commissioned work.",alternates:{canonical:"/concept-lab"}};
++export default function ConceptLab(){return <div className="v2-page upgrade-lab">
++<header className="upgrade-page-intro shell"><p className="eyebrow">DYNASTY WORKS / CONCEPT LAB</p><h1>Ideas.<br /><em>Made tangible.</em></h1><div className="upgrade-intro-bottom"><p>Explore the possibilities before committing to production. Three photorealistic studies in identity, packaging and product.</p><p className="upgrade-disclosure">These are AI-generated studio concepts, not client commissions, photographs of manufactured products or verified results.</p></div></header>
++<nav className="upgrade-study-nav shell" aria-label="Visual studies"><a href="#identity">01 / Identity</a><a href="#packaging">02 / Packaging</a><a href="#product">03 / Product</a></nav>
++<MockupStudies />
++<section className="upgrade-example-link shell"><p className="eyebrow">THE NEXT STEP</p><h2>From a possibility<br /><em>to a plan.</em></h2><p>A visualization helps establish direction. A scoped engagement turns that direction into the right design, development and production work.</p><div><Link href="/start-a-business/builder" className="text-link">START YOUR COMPANY ROADMAP →</Link><Link href="/work" className="text-link">EXPLORE ACTUAL PROJECTS →</Link></div></section>
++<FinalCTA /></div>}
+diff --git a/app/how-we-build/page.tsx b/app/how-we-build/page.tsx
+index c1a334a..f46d000 100644
+--- a/app/how-we-build/page.tsx
++++ b/app/how-we-build/page.tsx
+@@ -1,37 +1,11 @@
+-import { PageIntro, FinalCTA } from "@/components/studio";
+-import {
+-  StageArchitecture,
+-  CreationNetwork,
+-} from "@/components/company-creation";
+-import { CompanySystem } from "@/components/company-system";
+-export const metadata = {
+-  title: "How We Build — Define, Build, Launch, Scale",
+-  description:
+-    "Four connected stages from idea to company: strategy, identity, product, digital infrastructure, market preparation and operational growth.",
+-  alternates: { canonical: "/how-we-build" },
+-};
+-export default function HowWeBuild() {
+-  return (
+-    <div className="v2-page">
+-      <PageIntro
+-        eyebrow="COMPANY CREATION STUDIO / THE METHOD"
+-        title="From first move to market."
+-        description="Define the direction. Build the company. Prepare the launch. Strengthen what comes next. Start at the stage your business needs."
+-      />
+-      <section className="shell v2-stage-section">
+-        <StageArchitecture expanded />
+-      </section>
+-      <section className="v2-system shell">
+-        <p className="eyebrow">A COMPANY IS A SYSTEM</p>
+-        <h2>
+-          The connections
+-          <br />
+-          <em>matter.</em>
+-        </h2>
+-        <CompanySystem />
+-      </section>
+-      <CreationNetwork />
+-      <FinalCTA />
+-    </div>
+-  );
+-}
++import Link from "@/components/site-link";
++import { FinalCTA } from "@/components/studio";
++import { CreationNetwork } from "@/components/company-creation";
++import { MethodSequence } from "@/components/studio-upgrade";
++export const metadata = { title:"How We Build — Define, Build, Launch, Scale",description:"From the first strategic decision to identity, product, digital experience and market. Four connected stages with a clear next move.",alternates:{canonical:"/how-we-build"} };
++export default function HowWeBuild(){return <div className="v2-page upgrade-method-page">
++  <header className="upgrade-page-intro shell"><p className="eyebrow">DYNASTY WORKS / HOW WE BUILD</p><h1>Good ideas need<br /><em>a way forward.</em></h1><div className="upgrade-intro-bottom"><p>Define the direction. Build the assets. Prepare the launch. Connect the operation. One studio coordinating the work between them.</p><Link href="/start-a-business/builder" className="text-link">MAP YOUR COMPANY →</Link></div></header>
++  <MethodSequence />
++  <section className="upgrade-example-link shell"><p className="eyebrow">FROM ABSTRACT TO TANGIBLE</p><h2>See the possibilities.<br /><em>Then define yours.</em></h2><p>Explore photorealistic identity, packaging and product studies in our Concept Lab. For completed project evidence, visit Selected Work.</p><div><Link href="/concept-lab" className="text-link">EXPLORE VISUAL STUDIES →</Link><Link href="/work" className="text-link">VIEW SELECTED WORK →</Link></div></section>
++  <CreationNetwork /><FinalCTA />
++</div>}
+diff --git a/app/layout.tsx b/app/layout.tsx
+index 4dd9e3c..8ddb904 100644
+--- a/app/layout.tsx
++++ b/app/layout.tsx
+@@ -10,6 +10,7 @@ import "./experience.css";
+ import "./visual-master.css";
+ import "./mymosa.css";
+ import "./company-creation.css";
++import "./studio-upgrade.css";
+ import { site } from "@/data/site";
+ export const metadata: Metadata = {
+   metadataBase: new URL(site.origin),
+@@ -93,3 +94,4 @@ export default function RootLayout({
+     </html>
+   );
+ }
++
+diff --git a/app/studio-upgrade.css b/app/studio-upgrade.css
+new file mode 100644
+index 0000000..466cddd
+--- /dev/null
++++ b/app/studio-upgrade.css
+@@ -0,0 +1,70 @@
++/* Local gold-city upgrade: editorial clarity around the existing identity. */
++.upgrade-entry { display:grid; grid-template-columns:1fr 1.05fr; gap:10vw; padding-block:130px; }
++.upgrade-entry h2 { margin:28px 0!important; }
++.upgrade-entry > div:first-child > p:last-child { font-size:18px; line-height:1.75; max-width:32ch; }
++.upgrade-paths > a { display:block; padding:32px 0; border-top:1px solid #b9b5ad; text-decoration:none; color:#1f1f1f; }
++.upgrade-paths > a:first-child { padding-top:0; border:0; }
++.upgrade-paths span { font-size:11px; letter-spacing:.08em; }
++.upgrade-paths h3 { font-family:var(--font-editorial); font-size:clamp(30px,3vw,44px); font-weight:400; line-height:1.1; margin:15px 0; }
++.upgrade-paths p { font-size:15px; line-height:1.65; }
++.upgrade-paths strong { display:flex; justify-content:space-between; gap:25px; margin-top:23px; font-size:12px; font-weight:600; }
++.upgrade-paths b { font-size:20px; font-weight:400; transition:transform .25s; }
++.upgrade-paths > a:hover b { transform:translate(3px,-3px); }
++.upgrade-page-intro { padding-top:165px; padding-bottom:100px; }
++.upgrade-page-intro h1 { font-family:var(--font-editorial); font-size:clamp(60px,8.5vw,140px); font-weight:400; line-height:1; letter-spacing:-.045em; margin:35px 0 65px; }
++.upgrade-intro-bottom { display:flex; justify-content:space-between; align-items:flex-end; gap:65px; }
++.upgrade-intro-bottom p { max-width:42ch; font-size:18px; line-height:1.7; margin:0; }
++.upgrade-intro-bottom .upgrade-disclosure { font-size:13px; max-width:40ch; line-height:1.7; margin:0; color:#55534e; }
++.upgrade-method { padding-bottom:60px; }
++.upgrade-scope-note { font-size:13px; max-width:65ch!important; line-height:1.7; margin:0 0 50px; }
++.upgrade-method-stage { display:grid; grid-template-columns:1fr 2fr; gap:7vw; padding:70px 0 90px; border-top:1px solid #b9b5ad; scroll-margin-top:100px; }
++.upgrade-stage-number { font-family:var(--font-editorial); font-size:clamp(110px,16vw,240px); line-height:1; color:#9e978b; letter-spacing:-.05em; }
++.upgrade-method-stage h2 { font-size:clamp(38px,4.4vw,68px); max-width:16ch; margin:20px 0 28px; }
++.upgrade-method-lead { font-size:18px; line-height:1.7; max-width:44ch; }
++.upgrade-output { margin:50px 0 35px; display:grid; grid-template-columns:1fr 1.5fr; gap:35px; }
++.upgrade-output h3 { font-size:14px; line-height:1.6; margin:0; font-weight:600; }
++.upgrade-output ul { list-style:none; margin:0; padding:0; }
++.upgrade-output li { font-size:14px; line-height:1.8; padding-bottom:8px; }
++.upgrade-method-stage details { border-top:1px solid #c7c2b9; padding-top:20px; }
++.upgrade-method-stage summary { display:flex; justify-content:space-between; cursor:pointer; font-size:13px; padding:10px 0; list-style:none; min-height:44px; }
++.upgrade-method-stage summary::-webkit-details-marker { display:none; }
++.upgrade-method-stage details > ul { padding-left:18px; font-size:14px; line-height:1.9; margin:25px 0; }
++.upgrade-method-stage details[open] summary span { transform:rotate(45deg); }
++.upgrade-practice-links { display:flex; flex-wrap:wrap; gap:25px; margin:20px 0; text-transform:capitalize; font-size:13px; }
++.upgrade-example-link { padding-block:100px; border-top:1px solid #c7c2b9; }
++.upgrade-example-link h2 { margin:25px 0 30px; }
++.upgrade-example-link > p:not(.eyebrow) { font-size:17px; line-height:1.8; }
++.upgrade-example-link > div { display:flex; flex-wrap:wrap; gap:20px 55px; }
++.upgrade-study-nav { display:flex; flex-wrap:wrap; gap:25px 60px; padding-bottom:35px; }
++.upgrade-study-nav a { font-size:13px; padding:12px 0; color:inherit; border-bottom:1px solid #797367; }
++.upgrade-studies { padding:0 clamp(20px,5vw,90px) 80px; }
++.upgrade-study { margin:0 0 100px; scroll-margin-top:110px; }
++.upgrade-study-image { background:#d5d2ca; overflow:hidden; }
++.upgrade-study-image img { width:100%; height:auto; display:block; aspect-ratio:3/2; object-fit:contain; }
++.upgrade-study figcaption { display:grid; grid-template-columns:1.2fr 1fr; gap:6vw; padding:35px 0 0; }
++.upgrade-study h2 { font-size:clamp(35px,4vw,66px); max-width:16ch; margin:15px 0 0; }
++.upgrade-concept-label { display:inline-block; font-size:10px; font-weight:600; letter-spacing:.07em; border-bottom:1px solid #777166; padding-bottom:7px; }
++.upgrade-study figcaption p:not(.eyebrow) { font-size:15px; line-height:1.75; margin-top:15px; }
++.upgrade-study figcaption .upgrade-study-note { font-size:12px!important; color:#55534e; }
++.upgrade-study-packaging { width:82%; margin-left:auto; }
++.upgrade-study-product { width:90%; }
++:is(.upgrade-entry,.upgrade-page-intro,.upgrade-method,.upgrade-example-link,.upgrade-study-nav) :is(a,summary):focus-visible { outline:2px solid #1f1f1f; outline-offset:6px; }
++@media(max-width:800px) {
++ .upgrade-entry { grid-template-columns:1fr; gap:55px; padding-block:75px; }
++ .upgrade-page-intro { padding-top:120px; padding-bottom:65px; }
++ .upgrade-page-intro h1 { font-size:clamp(48px,10.5vw,80px); margin:30px 0 40px; }
++ .upgrade-intro-bottom { flex-direction:column; align-items:flex-start; gap:30px; }
++ .upgrade-intro-bottom p { font-size:16px; }
++ .upgrade-method-stage { grid-template-columns:55px 1fr; gap:20px; padding:45px 0 60px; }
++ .upgrade-stage-number { font-size:58px; }
++ .upgrade-method-stage h2 { font-size:clamp(30px,6.5vw,48px); margin-top:18px; }
++ .upgrade-method-lead { font-size:16px; }
++ .upgrade-output { grid-template-columns:1fr; gap:15px; margin-top:30px; }
++ .upgrade-example-link { padding-block:70px; }
++ .upgrade-studies { padding-inline:0; padding-bottom:0; }
++ .upgrade-study { width:100%; margin-bottom:70px; }
++ .upgrade-study figcaption { grid-template-columns:1fr; gap:25px; padding:25px 24px 0; }
++ .upgrade-study h2 { max-width:19ch; font-size:40px; }
++ .upgrade-study-nav { gap:25px; }
++}
++@media(prefers-reduced-motion:reduce) { .upgrade-paths b { transition:none; } }
+diff --git a/components/creation-home.tsx b/components/creation-home.tsx
+index a06f574..eb9b47e 100644
+--- a/components/creation-home.tsx
++++ b/components/creation-home.tsx
+@@ -1,14 +1,13 @@
++import { EngagementPaths } from "@/components/studio-upgrade";
+ import Link from "@/components/site-link";
+ import { MasterEnvironment } from "@/components/master-home";
+ import { CompanySystem } from "@/components/company-system";
+ import {
+   StageArchitecture,
+-  FlagshipWork,
+   DigitalSystemsFeature,
+ } from "@/components/company-creation";
+ import { BlueprintProduct } from "@/components/experience-interactive";
+ import { BrandSymbol } from "@/components/brand-symbol";
+-import { OptimizedImage as Image } from "@/components/optimized-image";
+ import { founderBlueprint } from "@/data/founder-blueprint";
+ export function CreationHomepage() {
+   return (
+@@ -36,26 +35,10 @@ export function CreationHomepage() {
+           <p className="v2-hero-foot">ONE STUDIO. FROM FIRST MOVE TO MARKET.</p>
+         </div>
+       </section>
+-      <section className="v2-selected shell">
+-        <div className="v2-section-heading">
+-          <div>
+-            <p className="eyebrow">01 / SELECTED WORK</p>
+-            <h2>
+-              Companies take
+-              <br />
+-              <em>different forms.</em>
+-            </h2>
+-          </div>
+-          <Link href="/work" className="text-link">
+-            EXPLORE THE WORK →
+-          </Link>
+-        </div>
+-        <FlagshipWork />
+-      </section>
+       <section className="v2-system shell" id="the-system">
+         <div className="v2-section-heading">
+           <div>
+-            <p className="eyebrow">02 / THE SYSTEM</p>
++            <p className="eyebrow">01 / THE SYSTEM</p>
+             <h2>
+               A COMPANY
+               <br />
+@@ -70,7 +53,7 @@ export function CreationHomepage() {
+         <CompanySystem />
+       </section>
+       <section className="v2-stage-section shell">
+-        <p className="eyebrow">03 / HOW WE BUILD</p>
++        <p className="eyebrow">02 / HOW WE BUILD</p>
+         <h2>
+           Four stages.
+           <br />
+@@ -81,36 +64,9 @@ export function CreationHomepage() {
+           SEE HOW WE BUILD →
+         </Link>
+       </section>
+-      <section className="v2-flagship">
+-        <Image
+-          src="/assets/portfolio/mymosa/identity/my-drink-family-horizontal-primary-light.svg"
+-          width={1400}
+-          height={320}
+-          alt="Official My Drink Family horizontal identity"
+-          loading="lazy"
+-        />
+-        <div className="shell">
+-          <p className="eyebrow">
+-            04 / FLAGSHIP 01 · CATEGORY + BRAND ECOSYSTEM
+-          </p>
+-          <h2>
+-            One origin.
+-            <br />
+-            <em>A family of possibilities.</em>
+-          </h2>
+-          <p>MyMosa / My Drink Family</p>
+-          <p>
+-            Eight flagship flavors. Seventeen house identities. Explore the
+-            identity, packaging and brand architecture.
+-          </p>
+-          <Link href="/work/mymosa" className="text-link">
+-            ENTER THE MYMOSA WORLD →
+-          </Link>
+-        </div>
+-      </section>
+       <section className="v2-builder shell">
+         <div>
+-          <p className="eyebrow">05 / COMPANY BUILDER</p>
++          <p className="eyebrow">03 / COMPANY BUILDER</p>
+           <h2>
+             BRING US
+             <br />
+@@ -150,40 +106,26 @@ export function CreationHomepage() {
+           <p className="small-note">YOUR NEXT STEPS, ORGANIZED.</p>
+         </div>
+       </section>
+-      <section className="v2-capability shell">
+-        <p className="eyebrow">06 / CAPABILITIES</p>
+-        <h2>
+-          Simple on the surface.
+-          <br />
+-          <em>Deep in execution.</em>
+-        </h2>
+-        <p>
+-          Start with the stage your company needs. Open the disciplines, explore
+-          the scope and connect the right capabilities.
+-        </p>
+-        <Link href="/capabilities" className="text-link">
+-          EXPLORE THE CAPABILITIES →
+-        </Link>
+-      </section>
++      <EngagementPaths />
+       <DigitalSystemsFeature />
+       <section className="v2-lab-teaser shell">
+-        <p className="eyebrow">07 / CONCEPT LAB</p>
++        <p className="eyebrow">05 / CONCEPT LAB</p>
+         <h2>
+-          Room for
++          See what
+           <br />
+-          <em>what could be.</em>
++          <em>could take shape.</em>
+         </h2>
+         <p>
+-          Identity, packaging, products and future concepts. An experimental
++          Photorealistic identity, packaging and product studies. An experimental
+           space, clearly separated from commissioned work.
+         </p>
+         <Link href="/concept-lab" className="text-link">
+-          ENTER CONCEPT LAB →
++          EXPLORE VISUAL STUDIES →
+         </Link>
+       </section>
+       <section className="master-blueprint shell">
+         <div>
+-          <p className="eyebrow">08 / FOUNDER BLUEPRINT</p>
++          <p className="eyebrow">06 / FOUNDER BLUEPRINT</p>
+           <h2>
+             THE COMPANY.
+             <br />
+@@ -222,3 +164,5 @@ export function CreationHomepage() {
+     </div>
+   );
+ }
++
++
+diff --git a/components/studio-upgrade.tsx b/components/studio-upgrade.tsx
+new file mode 100644
+index 0000000..df73d5d
+--- /dev/null
++++ b/components/studio-upgrade.tsx
+@@ -0,0 +1,49 @@
++import Link from "@/components/site-link";
++import { creationStages } from "@/data/company-creation";
++import { founderBlueprint } from "@/data/founder-blueprint";
++import { OptimizedImage } from "@/components/optimized-image";
++
++export function EngagementPaths() {
++  return <section className="upgrade-entry shell" aria-labelledby="entry-title">
++    <div><p className="eyebrow">WHERE TO BEGIN</p><h2 id="entry-title">Your next move.<br /><em>Made clear.</em></h2><p>Start with the decision in front of you. We connect the work around it.</p></div>
++    <div className="upgrade-paths">
++      <Link href="/founder-blueprint"><span>01 / I HAVE AN IDEA</span><h3>Define what to build.</h3><p>A strategic roadmap before you commit to execution.</p><strong>Founder Blueprint · {founderBlueprint.priceLabel} <b aria-hidden="true">↗</b></strong></Link>
++      <Link href="/start-a-business/builder"><span>02 / I’M READY TO BUILD</span><h3>Connect the pieces.</h3><p>Map the brand, product, digital and market requirements.</p><strong>Start your company roadmap <b aria-hidden="true">↗</b></strong></Link>
++      <Link href="/automation"><span>03 / I’M ALREADY OPERATING</span><h3>Strengthen the system.</h3><p>Explore connected workflows and a clearer operating structure.</p><strong>Explore digital systems <b aria-hidden="true">↗</b></strong></Link>
++    </div>
++  </section>;
++}
++const stageOutcomes = [
++  { question:"What deserves to be built?", decision:"A clear direction", outputs:["Positioning and audience priorities", "A company-development roadmap", "A brief for the next stage"] },
++  { question:"How does the idea become tangible?", decision:"A connected set of assets", outputs:["Identity and design systems", "Product and packaging development", "Websites, applications and commerce"] },
++  { question:"How will it meet the market?", decision:"A coordinated first move", outputs:["Launch plan and campaign materials", "Sales and distribution preparation", "Channel and activation priorities"] },
++  { question:"What should work better next?", decision:"A more capable operation", outputs:["Workflow and integration plans", "Reporting and optimization priorities", "A roadmap for the next market or product"] },
++];
++export function MethodSequence() {
++  return <section className="upgrade-method shell" aria-label="Four connected stages">
++    <p className="upgrade-scope-note">Illustrative outputs. Your engagement is scoped around the business, its stage and what already exists.</p>
++    {creationStages.map((stage,i)=><article className="upgrade-method-stage" id={"stage-"+stage.id} key={stage.id}>
++      <span className="upgrade-stage-number" aria-hidden="true">0{i+1}</span>
++      <div><p className="eyebrow">{stage.name}</p><h2>{stageOutcomes[i].question}</h2><p className="upgrade-method-lead">{stage.description}</p>
++        <div className="upgrade-output"><h3>{stageOutcomes[i].decision}</h3><ul>{stageOutcomes[i].outputs.map(output=><li key={output}>{output}</li>)}</ul></div>
++        <details><summary>Explore the scope <span aria-hidden="true">+</span></summary><ul>{stage.items.map(item=><li key={item}>{item}</li>)}</ul><div className="upgrade-practice-links">{stage.practices.map(p=><Link key={p} href={"/capabilities/"+p}>{p} ↗</Link>)}</div>
++        {stage.id==='define'&&<p className="small-note">Licensed advice and filings are handled by qualified professionals. We coordinate the brief and specialist integration.</p>}
++        {(stage.id==='launch'||stage.id==='scale')&&<p className="small-note">Distribution preparation does not imply that Dynasty Works holds a distribution license. Integrations require confirmed scope, access and approval.</p>}
++        </details>
++      </div>
++    </article>)}
++  </section>;
++}
++const studies = [
++  {id:"identity",title:"An identity you can feel.",type:"Identity / print / material",description:"A study in paper, proportion and the translation of an identity into physical touchpoints.",alt:"AI-generated identity materials study with a black book, textured stationery and a color swatch.",note:"Material and composition study. No commissioned identity or production samples are depicted."},
++  {id:"packaging",title:"The product before the first touch.",type:"Packaging / form / finish",description:"A packaging visualization exploring the relationship between a container, its label and its outer carton.",alt:"AI-generated packaging study with an amber vessel, ceramic jar and forest-green carton.",note:"Speculative packaging. No formulation, manufacturing readiness or commercial release is implied."},
++  {id:"product",title:"A form with a purpose.",type:"Product / industrial visualization",description:"A physical-product study examining proportion, material contrast and the details of a tactile interface.",alt:"AI-generated portable audio product concept with brushed aluminum, woven grille and a rotary control.",note:"Concept visualization. Engineering, acoustic performance and manufacturing feasibility have not been validated."},
++];
++export function MockupStudies() {
++  return <section className="upgrade-studies" aria-label="Photorealistic concept studies">
++    {studies.map((study,i)=><figure key={study.id} className={"upgrade-study upgrade-study-"+study.id} id={study.id}>
++      <div className="upgrade-study-image"><OptimizedImage src={"/assets/concept-lab/"+study.id+"-1536.webp"} srcSet={"/assets/concept-lab/"+study.id+"-768.webp 768w, /assets/concept-lab/"+study.id+"-1536.webp 1536w"} sizes="(max-width: 700px) 100vw, 85vw" width={1536} height={1024} loading="lazy" alt={study.alt}/></div>
++      <figcaption><div><p className="eyebrow">0{i+1} / {study.type}</p><h2>{study.title}</h2></div><div><span className="upgrade-concept-label">AI-GENERATED CONCEPT</span><p>{study.description}</p><p className="upgrade-study-note">{study.note}</p></div></figcaption>
++    </figure>)}
++  </section>;
++}

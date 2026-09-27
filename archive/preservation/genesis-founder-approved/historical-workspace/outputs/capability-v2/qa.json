@@ -1,0 +1,16 @@
+{
+  "checks": [
+    "object assembly, section and material",
+    "forward/reverse architecture",
+    "OS layers, keyboard open, option, confirmation, Escape/focus restoration",
+    "11 widths: no document overflow",
+    "reduced motion"
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "frameSample": {
+    "environment": "headless Edge, software/browser renderer may differ from hardware",
+    "medianMs": 16.700000000000045,
+    "p95Ms": 16.799999999999955
+  }
+}

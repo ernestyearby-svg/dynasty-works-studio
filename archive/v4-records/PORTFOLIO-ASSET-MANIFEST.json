@@ -1,0 +1,1377 @@
+{
+  "sourceRoot": "C:\\Users\\ernes\\OneDrive\\Documents\\ChatGPT\\Dynasty Works Studio\\internal-assets\\portfolio-v42\\DWS-PORTFOLIO-MASTER",
+  "masters": 21,
+  "assets": [
+    {
+      "key": "01-ikla-creative-direction",
+      "source": "01-SELECTED-WORK/IKLA-MAISON/01-IKLA-CREATIVE-DIRECTION.png",
+      "sha256": "040894a69503c6b8663421e8feb2d8795ccda6ce38982220104cb8a6d781e654",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "01-ikla-creative-direction-480.avif",
+          "bytes": 25371,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "01-ikla-creative-direction-480.webp",
+          "bytes": 37378,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "01-ikla-creative-direction-960.avif",
+          "bytes": 81318,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "01-ikla-creative-direction-960.webp",
+          "bytes": 119614,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "01-ikla-creative-direction-1536.avif",
+          "bytes": 170505,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "01-ikla-creative-direction-1536.webp",
+          "bytes": 257170,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "02-ikla-identity-system",
+      "source": "01-SELECTED-WORK/IKLA-MAISON/02-IKLA-IDENTITY-SYSTEM.png",
+      "sha256": "c6392a4d6065fa9d5b8ca7f1cc7b38f7ab0985f7e1df4db164e30a79089f99de",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "02-ikla-identity-system-480.avif",
+          "bytes": 25075,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "02-ikla-identity-system-480.webp",
+          "bytes": 36890,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "02-ikla-identity-system-960.avif",
+          "bytes": 81643,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "02-ikla-identity-system-960.webp",
+          "bytes": 120838,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "02-ikla-identity-system-1536.avif",
+          "bytes": 167457,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "02-ikla-identity-system-1536.webp",
+          "bytes": 255098,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "03-ikla-emblem-system",
+      "source": "01-SELECTED-WORK/IKLA-MAISON/03-IKLA-EMBLEM-SYSTEM.png",
+      "sha256": "da166802c8981ea9eb9eda629cc0e98ce15be80937b7a192df73f1d125346a2b",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "03-ikla-emblem-system-480.avif",
+          "bytes": 30007,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "03-ikla-emblem-system-480.webp",
+          "bytes": 42676,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "03-ikla-emblem-system-960.avif",
+          "bytes": 101822,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "03-ikla-emblem-system-960.webp",
+          "bytes": 147832,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "03-ikla-emblem-system-1536.avif",
+          "bytes": 216512,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "03-ikla-emblem-system-1536.webp",
+          "bytes": 330052,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "04-ikla-typography-system",
+      "source": "01-SELECTED-WORK/IKLA-MAISON/04-IKLA-TYPOGRAPHY-SYSTEM.png",
+      "sha256": "141a1496ab0bc9fa2d81250bd3f9adb1225eb1eefe6a9b13e173b0fe2643543d",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "04-ikla-typography-system-480.avif",
+          "bytes": 19468,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "04-ikla-typography-system-480.webp",
+          "bytes": 25316,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "04-ikla-typography-system-960.avif",
+          "bytes": 59928,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "04-ikla-typography-system-960.webp",
+          "bytes": 80258,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "04-ikla-typography-system-1536.avif",
+          "bytes": 120577,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "04-ikla-typography-system-1536.webp",
+          "bytes": 169708,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "05-ikla-color-system",
+      "source": "01-SELECTED-WORK/IKLA-MAISON/05-IKLA-COLOR-SYSTEM.png",
+      "sha256": "5e266e6b9c16def9df688534f0951779d630b4ca79351ea84461d60f8955243a",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "05-ikla-color-system-480.avif",
+          "bytes": 17964,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "05-ikla-color-system-480.webp",
+          "bytes": 23260,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "05-ikla-color-system-960.avif",
+          "bytes": 55349,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "05-ikla-color-system-960.webp",
+          "bytes": 75494,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "05-ikla-color-system-1536.avif",
+          "bytes": 115288,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "05-ikla-color-system-1536.webp",
+          "bytes": 164222,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "06-ikla-pattern-surface-system",
+      "source": "01-SELECTED-WORK/IKLA-MAISON/06-IKLA-PATTERN-SURFACE-SYSTEM.png",
+      "sha256": "36a820d2adb2fa45c8a591756677f9561c3d81f6159243e916e9a74a75709c32",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "06-ikla-pattern-surface-system-480.avif",
+          "bytes": 21706,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "06-ikla-pattern-surface-system-480.webp",
+          "bytes": 32638,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "06-ikla-pattern-surface-system-960.avif",
+          "bytes": 78471,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "06-ikla-pattern-surface-system-960.webp",
+          "bytes": 114648,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "06-ikla-pattern-surface-system-1536.avif",
+          "bytes": 161957,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "06-ikla-pattern-surface-system-1536.webp",
+          "bytes": 250888,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "07-ikla-material-study",
+      "source": "01-SELECTED-WORK/IKLA-MAISON/07-IKLA-MATERIAL-STUDY.png",
+      "sha256": "dcc1b3f243f1c28e81441c3c4e382e92ed67aacaabd3e6f4a8dc1b95a4032ae8",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "07-ikla-material-study-480.avif",
+          "bytes": 31210,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "07-ikla-material-study-480.webp",
+          "bytes": 45516,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "07-ikla-material-study-960.avif",
+          "bytes": 106062,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "07-ikla-material-study-960.webp",
+          "bytes": 157224,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "07-ikla-material-study-1536.avif",
+          "bytes": 223802,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "07-ikla-material-study-1536.webp",
+          "bytes": 349972,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "08-ikla-apparel-accessories",
+      "source": "01-SELECTED-WORK/IKLA-MAISON/08-IKLA-APPAREL-ACCESSORIES.png",
+      "sha256": "b36d1e7db43c8cae8455b110c9f139648cb0538b2fbf17dcf0436eeb5783cf53",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "08-ikla-apparel-accessories-480.avif",
+          "bytes": 26903,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "08-ikla-apparel-accessories-480.webp",
+          "bytes": 39026,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "08-ikla-apparel-accessories-960.avif",
+          "bytes": 89780,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "08-ikla-apparel-accessories-960.webp",
+          "bytes": 130326,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "08-ikla-apparel-accessories-1536.avif",
+          "bytes": 185388,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "08-ikla-apparel-accessories-1536.webp",
+          "bytes": 278008,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "09-ikla-packaging-experience",
+      "source": "01-SELECTED-WORK/IKLA-MAISON/09-IKLA-PACKAGING-EXPERIENCE.png",
+      "sha256": "801c3e7d7fcdd62da4c007b97e79e778c9b0b6db3044412d633f38d1bdbd93a0",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "09-ikla-packaging-experience-480.avif",
+          "bytes": 25729,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "09-ikla-packaging-experience-480.webp",
+          "bytes": 37996,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "09-ikla-packaging-experience-960.avif",
+          "bytes": 82655,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "09-ikla-packaging-experience-960.webp",
+          "bytes": 124056,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "09-ikla-packaging-experience-1536.avif",
+          "bytes": 176965,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "09-ikla-packaging-experience-1536.webp",
+          "bytes": 266502,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "10-ikla-editorial-lifestyle",
+      "source": "01-SELECTED-WORK/IKLA-MAISON/10-IKLA-EDITORIAL-LIFESTYLE.png",
+      "sha256": "a8079ec88201b67f27082f2b7e7c24f55c26a82935eb9aa46a58c21ac9d22174",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "10-ikla-editorial-lifestyle-480.avif",
+          "bytes": 26449,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "10-ikla-editorial-lifestyle-480.webp",
+          "bytes": 36198,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "10-ikla-editorial-lifestyle-960.avif",
+          "bytes": 77470,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "10-ikla-editorial-lifestyle-960.webp",
+          "bytes": 107762,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "10-ikla-editorial-lifestyle-1536.avif",
+          "bytes": 149221,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "10-ikla-editorial-lifestyle-1536.webp",
+          "bytes": 205646,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "01-mymosa-four-flavor-hero",
+      "source": "01-SELECTED-WORK/MYMOSA/01-MYMOSA-FOUR-FLAVOR-HERO.png",
+      "sha256": "038ccf0c91a79a105b44b48d7c2ef0dcaea6f76150a2848e412bab6523db1316",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "01-mymosa-four-flavor-hero-480.avif",
+          "bytes": 24476,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "01-mymosa-four-flavor-hero-480.webp",
+          "bytes": 35404,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "01-mymosa-four-flavor-hero-960.avif",
+          "bytes": 77013,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "01-mymosa-four-flavor-hero-960.webp",
+          "bytes": 112980,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "01-mymosa-four-flavor-hero-1536.avif",
+          "bytes": 157429,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "01-mymosa-four-flavor-hero-1536.webp",
+          "bytes": 232152,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "02-mymosa-lifestyle-campaign",
+      "source": "01-SELECTED-WORK/MYMOSA/02-MYMOSA-LIFESTYLE-CAMPAIGN.png",
+      "sha256": "05578d2f7ab3ac2c3811d281d0affb98e21c425de65d03de4c865c148efb6cc8",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "02-mymosa-lifestyle-campaign-480.avif",
+          "bytes": 31963,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "02-mymosa-lifestyle-campaign-480.webp",
+          "bytes": 46888,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "02-mymosa-lifestyle-campaign-960.avif",
+          "bytes": 105468,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "02-mymosa-lifestyle-campaign-960.webp",
+          "bytes": 152734,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "02-mymosa-lifestyle-campaign-1536.avif",
+          "bytes": 207421,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "02-mymosa-lifestyle-campaign-1536.webp",
+          "bytes": 316666,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "03-mymosa-packaging-development",
+      "source": "01-SELECTED-WORK/MYMOSA/03-MYMOSA-PACKAGING-DEVELOPMENT.png",
+      "sha256": "bdd57ba15a35d7c010fd5c5800ca27e554204693a8dc782156351cda2e3e4be3",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "03-mymosa-packaging-development-480.avif",
+          "bytes": 27697,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "03-mymosa-packaging-development-480.webp",
+          "bytes": 39056,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "03-mymosa-packaging-development-960.avif",
+          "bytes": 84586,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "03-mymosa-packaging-development-960.webp",
+          "bytes": 119844,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "03-mymosa-packaging-development-1536.avif",
+          "bytes": 170722,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "03-mymosa-packaging-development-1536.webp",
+          "bytes": 245538,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "04-mymosa-brand-system",
+      "source": "01-SELECTED-WORK/MYMOSA/04-MYMOSA-BRAND-SYSTEM.png",
+      "sha256": "412732943aaf0be514ef0aa4223302c71ddc916f3d20307429a14ad3373b5983",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "04-mymosa-brand-system-480.avif",
+          "bytes": 29919,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "04-mymosa-brand-system-480.webp",
+          "bytes": 42438,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "04-mymosa-brand-system-960.avif",
+          "bytes": 90652,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "04-mymosa-brand-system-960.webp",
+          "bytes": 130538,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "04-mymosa-brand-system-1536.avif",
+          "bytes": 181419,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "04-mymosa-brand-system-1536.webp",
+          "bytes": 265838,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "01-altius-hospitality-system",
+      "source": "02-CONCEPT-LAB/ALTIUS-HOSPITALITY/01-ALTIUS-HOSPITALITY-SYSTEM.png",
+      "sha256": "7d36cfdd810b5bb021235e7da6d6bc358c2750b9412b552d289c49f7e194c4d4",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "01-altius-hospitality-system-480.avif",
+          "bytes": 23853,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "01-altius-hospitality-system-480.webp",
+          "bytes": 34980,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "01-altius-hospitality-system-960.avif",
+          "bytes": 77413,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "01-altius-hospitality-system-960.webp",
+          "bytes": 110634,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "01-altius-hospitality-system-1536.avif",
+          "bytes": 161037,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "01-altius-hospitality-system-1536.webp",
+          "bytes": 238490,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "01-aura-technology-system",
+      "source": "02-CONCEPT-LAB/AURA-TECHNOLOGY/01-AURA-TECHNOLOGY-SYSTEM.png",
+      "sha256": "d2367216d5df66b4dc7bf19f67d22902690e2781e322f5a1e3e005ef89ccf128",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "01-aura-technology-system-480.avif",
+          "bytes": 20497,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "01-aura-technology-system-480.webp",
+          "bytes": 29094,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "01-aura-technology-system-960.avif",
+          "bytes": 59281,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "01-aura-technology-system-960.webp",
+          "bytes": 82324,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "01-aura-technology-system-1536.avif",
+          "bytes": 115686,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "01-aura-technology-system-1536.webp",
+          "bytes": 167328,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "01-lumiere-fragrance-system",
+      "source": "02-CONCEPT-LAB/LUMIERE-FRAGRANCE/01-LUMIERE-FRAGRANCE-SYSTEM.png",
+      "sha256": "9f4fc8f86697623788f417f623b065607a4f8f0bbf357d57706d5403df02bbbe",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "01-lumiere-fragrance-system-480.avif",
+          "bytes": 21156,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "01-lumiere-fragrance-system-480.webp",
+          "bytes": 29940,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "01-lumiere-fragrance-system-960.avif",
+          "bytes": 64572,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "01-lumiere-fragrance-system-960.webp",
+          "bytes": 88582,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "01-lumiere-fragrance-system-1536.avif",
+          "bytes": 126126,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "01-lumiere-fragrance-system-1536.webp",
+          "bytes": 179998,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "01-nova-company-creation-system",
+      "source": "02-CONCEPT-LAB/NOVA-COMPANY-CREATION/01-NOVA-COMPANY-CREATION-SYSTEM.png",
+      "sha256": "2e0ff3d3bc9859591bdbb5129ba1df542730fee9dd81c04c1ba18bb52f2af83b",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "01-nova-company-creation-system-480.avif",
+          "bytes": 24533,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "01-nova-company-creation-system-480.webp",
+          "bytes": 35538,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "01-nova-company-creation-system-960.avif",
+          "bytes": 77128,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "01-nova-company-creation-system-960.webp",
+          "bytes": 105176,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "01-nova-company-creation-system-1536.avif",
+          "bytes": 155771,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "01-nova-company-creation-system-1536.webp",
+          "bytes": 223600,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "02-nova-digital-product-system",
+      "source": "02-CONCEPT-LAB/NOVA-COMPANY-CREATION/02-NOVA-DIGITAL-PRODUCT-SYSTEM.png",
+      "sha256": "949196662cb0465132c9cb987deab10c22dde41a77039bf3d64823e4751aa79d",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "02-nova-digital-product-system-480.avif",
+          "bytes": 26079,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "02-nova-digital-product-system-480.webp",
+          "bytes": 37258,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "02-nova-digital-product-system-960.avif",
+          "bytes": 75190,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "02-nova-digital-product-system-960.webp",
+          "bytes": 104006,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "02-nova-digital-product-system-1536.avif",
+          "bytes": 144500,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "02-nova-digital-product-system-1536.webp",
+          "bytes": 206008,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "01-solara-culinary-system",
+      "source": "02-CONCEPT-LAB/SOLARA-CULINARY/01-SOLARA-CULINARY-SYSTEM.png",
+      "sha256": "7781d92333a8033720224726dc057e8ca726be711bab07f2e48d97a181d02532",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "01-solara-culinary-system-480.avif",
+          "bytes": 25780,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "01-solara-culinary-system-480.webp",
+          "bytes": 36772,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "01-solara-culinary-system-960.avif",
+          "bytes": 83123,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "01-solara-culinary-system-960.webp",
+          "bytes": 117252,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "01-solara-culinary-system-1536.avif",
+          "bytes": 169694,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "01-solara-culinary-system-1536.webp",
+          "bytes": 243692,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "01-veritas-spirits-system",
+      "source": "02-CONCEPT-LAB/VERITAS-SPIRITS/01-VERITAS-SPIRITS-SYSTEM.png",
+      "sha256": "bc7adccb98a1f329f4f358140402c497dd7d1e782f785691fd8e5170b486f411",
+      "crop": null,
+      "derivatives": [
+        {
+          "filename": "01-veritas-spirits-system-480.avif",
+          "bytes": 25455,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "01-veritas-spirits-system-480.webp",
+          "bytes": 37348,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "01-veritas-spirits-system-960.avif",
+          "bytes": 82808,
+          "width": 960,
+          "format": "avif"
+        },
+        {
+          "filename": "01-veritas-spirits-system-960.webp",
+          "bytes": 121356,
+          "width": 960,
+          "format": "webp"
+        },
+        {
+          "filename": "01-veritas-spirits-system-1536.avif",
+          "bytes": 170552,
+          "width": 1536,
+          "format": "avif"
+        },
+        {
+          "filename": "01-veritas-spirits-system-1536.webp",
+          "bytes": 260972,
+          "width": 1536,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "ikla-direction-detail",
+      "source": "01-SELECTED-WORK/IKLA-MAISON/01-IKLA-CREATIVE-DIRECTION.png",
+      "sha256": "040894a69503c6b8663421e8feb2d8795ccda6ce38982220104cb8a6d781e654",
+      "crop": {
+        "left": 284,
+        "top": 5,
+        "width": 376,
+        "height": 455
+      },
+      "derivatives": [
+        {
+          "filename": "ikla-direction-detail-376.avif",
+          "bytes": 20170,
+          "width": 376,
+          "format": "avif"
+        },
+        {
+          "filename": "ikla-direction-detail-376.webp",
+          "bytes": 28736,
+          "width": 376,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "ikla-living-detail",
+      "source": "01-SELECTED-WORK/IKLA-MAISON/01-IKLA-CREATIVE-DIRECTION.png",
+      "sha256": "040894a69503c6b8663421e8feb2d8795ccda6ce38982220104cb8a6d781e654",
+      "crop": {
+        "left": 1060,
+        "top": 5,
+        "width": 330,
+        "height": 455
+      },
+      "derivatives": [
+        {
+          "filename": "ikla-living-detail-330.avif",
+          "bytes": 15466,
+          "width": 330,
+          "format": "avif"
+        },
+        {
+          "filename": "ikla-living-detail-330.webp",
+          "bytes": 21780,
+          "width": 330,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "ikla-pattern-detail",
+      "source": "01-SELECTED-WORK/IKLA-MAISON/06-IKLA-PATTERN-SURFACE-SYSTEM.png",
+      "sha256": "36a820d2adb2fa45c8a591756677f9561c3d81f6159243e916e9a74a75709c32",
+      "crop": {
+        "left": 246,
+        "top": 301,
+        "width": 307,
+        "height": 182
+      },
+      "derivatives": [
+        {
+          "filename": "ikla-pattern-detail-307.avif",
+          "bytes": 9942,
+          "width": 307,
+          "format": "avif"
+        },
+        {
+          "filename": "ikla-pattern-detail-307.webp",
+          "bytes": 15950,
+          "width": 307,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "ikla-material-detail",
+      "source": "01-SELECTED-WORK/IKLA-MAISON/07-IKLA-MATERIAL-STUDY.png",
+      "sha256": "dcc1b3f243f1c28e81441c3c4e382e92ed67aacaabd3e6f4a8dc1b95a4032ae8",
+      "crop": {
+        "left": 269,
+        "top": 307,
+        "width": 437,
+        "height": 353
+      },
+      "derivatives": [
+        {
+          "filename": "ikla-material-detail-437.avif",
+          "bytes": 34781,
+          "width": 437,
+          "format": "avif"
+        },
+        {
+          "filename": "ikla-material-detail-437.webp",
+          "bytes": 53628,
+          "width": 437,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "mymosa-orange-detail",
+      "source": "01-SELECTED-WORK/MYMOSA/01-MYMOSA-FOUR-FLAVOR-HERO.png",
+      "sha256": "038ccf0c91a79a105b44b48d7c2ef0dcaea6f76150a2848e412bab6523db1316",
+      "crop": {
+        "left": 325,
+        "top": 160,
+        "width": 259,
+        "height": 607
+      },
+      "derivatives": [
+        {
+          "filename": "mymosa-orange-detail-259.avif",
+          "bytes": 30430,
+          "width": 259,
+          "format": "avif"
+        },
+        {
+          "filename": "mymosa-orange-detail-259.webp",
+          "bytes": 42482,
+          "width": 259,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "mymosa-pineapple-detail",
+      "source": "01-SELECTED-WORK/MYMOSA/01-MYMOSA-FOUR-FLAVOR-HERO.png",
+      "sha256": "038ccf0c91a79a105b44b48d7c2ef0dcaea6f76150a2848e412bab6523db1316",
+      "crop": {
+        "left": 635,
+        "top": 160,
+        "width": 251,
+        "height": 607
+      },
+      "derivatives": [
+        {
+          "filename": "mymosa-pineapple-detail-251.avif",
+          "bytes": 27533,
+          "width": 251,
+          "format": "avif"
+        },
+        {
+          "filename": "mymosa-pineapple-detail-251.webp",
+          "bytes": 37230,
+          "width": 251,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "mymosa-tropical-detail",
+      "source": "01-SELECTED-WORK/MYMOSA/01-MYMOSA-FOUR-FLAVOR-HERO.png",
+      "sha256": "038ccf0c91a79a105b44b48d7c2ef0dcaea6f76150a2848e412bab6523db1316",
+      "crop": {
+        "left": 949,
+        "top": 160,
+        "width": 250,
+        "height": 607
+      },
+      "derivatives": [
+        {
+          "filename": "mymosa-tropical-detail-250.avif",
+          "bytes": 26562,
+          "width": 250,
+          "format": "avif"
+        },
+        {
+          "filename": "mymosa-tropical-detail-250.webp",
+          "bytes": 36238,
+          "width": 250,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "mymosa-strawberry-detail",
+      "source": "01-SELECTED-WORK/MYMOSA/01-MYMOSA-FOUR-FLAVOR-HERO.png",
+      "sha256": "038ccf0c91a79a105b44b48d7c2ef0dcaea6f76150a2848e412bab6523db1316",
+      "crop": {
+        "left": 1249,
+        "top": 160,
+        "width": 253,
+        "height": 607
+      },
+      "derivatives": [
+        {
+          "filename": "mymosa-strawberry-detail-253.avif",
+          "bytes": 27164,
+          "width": 253,
+          "format": "avif"
+        },
+        {
+          "filename": "mymosa-strawberry-detail-253.webp",
+          "bytes": 39584,
+          "width": 253,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "veritas-detail",
+      "source": "02-CONCEPT-LAB/VERITAS-SPIRITS/01-VERITAS-SPIRITS-SYSTEM.png",
+      "sha256": "bc7adccb98a1f329f4f358140402c497dd7d1e782f785691fd8e5170b486f411",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 666,
+        "height": 393
+      },
+      "derivatives": [
+        {
+          "filename": "veritas-detail-480.avif",
+          "bytes": 19676,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "veritas-detail-480.webp",
+          "bytes": 28336,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "veritas-detail-666.avif",
+          "bytes": 31247,
+          "width": 666,
+          "format": "avif"
+        },
+        {
+          "filename": "veritas-detail-666.webp",
+          "bytes": 45342,
+          "width": 666,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "lumiere-detail",
+      "source": "02-CONCEPT-LAB/LUMIERE-FRAGRANCE/01-LUMIERE-FRAGRANCE-SYSTEM.png",
+      "sha256": "9f4fc8f86697623788f417f623b065607a4f8f0bbf357d57706d5403df02bbbe",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 646,
+        "height": 409
+      },
+      "derivatives": [
+        {
+          "filename": "lumiere-detail-480.avif",
+          "bytes": 15668,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "lumiere-detail-480.webp",
+          "bytes": 22096,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "lumiere-detail-646.avif",
+          "bytes": 24031,
+          "width": 646,
+          "format": "avif"
+        },
+        {
+          "filename": "lumiere-detail-646.webp",
+          "bytes": 34016,
+          "width": 646,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "aura-detail",
+      "source": "02-CONCEPT-LAB/AURA-TECHNOLOGY/01-AURA-TECHNOLOGY-SYSTEM.png",
+      "sha256": "d2367216d5df66b4dc7bf19f67d22902690e2781e322f5a1e3e005ef89ccf128",
+      "crop": {
+        "left": 18,
+        "top": 424,
+        "width": 396,
+        "height": 259
+      },
+      "derivatives": [
+        {
+          "filename": "aura-detail-396.avif",
+          "bytes": 8817,
+          "width": 396,
+          "format": "avif"
+        },
+        {
+          "filename": "aura-detail-396.webp",
+          "bytes": 11420,
+          "width": 396,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "altius-detail",
+      "source": "02-CONCEPT-LAB/ALTIUS-HOSPITALITY/01-ALTIUS-HOSPITALITY-SYSTEM.png",
+      "sha256": "7d36cfdd810b5bb021235e7da6d6bc358c2750b9412b552d289c49f7e194c4d4",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 648,
+        "height": 399
+      },
+      "derivatives": [
+        {
+          "filename": "altius-detail-480.avif",
+          "bytes": 23371,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "altius-detail-480.webp",
+          "bytes": 33126,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "altius-detail-648.avif",
+          "bytes": 36567,
+          "width": 648,
+          "format": "avif"
+        },
+        {
+          "filename": "altius-detail-648.webp",
+          "bytes": 54816,
+          "width": 648,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "solara-detail",
+      "source": "02-CONCEPT-LAB/SOLARA-CULINARY/01-SOLARA-CULINARY-SYSTEM.png",
+      "sha256": "7781d92333a8033720224726dc057e8ca726be711bab07f2e48d97a181d02532",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 657,
+        "height": 373
+      },
+      "derivatives": [
+        {
+          "filename": "solara-detail-480.avif",
+          "bytes": 23838,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "solara-detail-480.webp",
+          "bytes": 33830,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "solara-detail-657.avif",
+          "bytes": 35575,
+          "width": 657,
+          "format": "avif"
+        },
+        {
+          "filename": "solara-detail-657.webp",
+          "bytes": 52580,
+          "width": 657,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "nova-detail",
+      "source": "02-CONCEPT-LAB/NOVA-COMPANY-CREATION/01-NOVA-COMPANY-CREATION-SYSTEM.png",
+      "sha256": "2e0ff3d3bc9859591bdbb5129ba1df542730fee9dd81c04c1ba18bb52f2af83b",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 623,
+        "height": 374
+      },
+      "derivatives": [
+        {
+          "filename": "nova-detail-480.avif",
+          "bytes": 16306,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "nova-detail-480.webp",
+          "bytes": 22040,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "nova-detail-623.avif",
+          "bytes": 22704,
+          "width": 623,
+          "format": "avif"
+        },
+        {
+          "filename": "nova-detail-623.webp",
+          "bytes": 31998,
+          "width": 623,
+          "format": "webp"
+        }
+      ]
+    },
+    {
+      "key": "nova-product-detail",
+      "source": "02-CONCEPT-LAB/NOVA-COMPANY-CREATION/02-NOVA-DIGITAL-PRODUCT-SYSTEM.png",
+      "sha256": "949196662cb0465132c9cb987deab10c22dde41a77039bf3d64823e4751aa79d",
+      "crop": {
+        "left": 568,
+        "top": 0,
+        "width": 565,
+        "height": 436
+      },
+      "derivatives": [
+        {
+          "filename": "nova-product-detail-480.avif",
+          "bytes": 19381,
+          "width": 480,
+          "format": "avif"
+        },
+        {
+          "filename": "nova-product-detail-480.webp",
+          "bytes": 26046,
+          "width": 480,
+          "format": "webp"
+        },
+        {
+          "filename": "nova-product-detail-565.avif",
+          "bytes": 24684,
+          "width": 565,
+          "format": "avif"
+        },
+        {
+          "filename": "nova-product-detail-565.webp",
+          "bytes": 32552,
+          "width": 565,
+          "format": "webp"
+        }
+      ]
+    }
+  ]
+}

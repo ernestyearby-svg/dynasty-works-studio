@@ -1,0 +1,12 @@
+{
+  "candidate": {
+    "id": "6aad65c14dae127045ae07c4",
+    "state": "ready",
+    "url": "https://codex-v5-8-cinematic-candidate--dynasty-works-v54-candidate.netlify.app"
+  },
+  "investor": {
+    "id": "ffba4ed6-5c88-4f24-b8d0-cb837a0c60b7",
+    "publishedDeploy": "6aac50116446a300089b50b9",
+    "commit": "0268f213206e7daedb1947770c4e41be29861573"
+  }
+}

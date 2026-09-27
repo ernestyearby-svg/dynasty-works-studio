@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Signal 1440",
+    "pixelIdentical": true
+  },
+  {
+    "name": "Direction 1440",
+    "pixelIdentical": true
+  },
+  {
+    "name": "Form 1440",
+    "pixelIdentical": true
+  },
+  {
+    "name": "Company 1440",
+    "pixelIdentical": true
+  },
+  {
+    "name": "Return L 1440",
+    "pixelIdentical": true
+  },
+  {
+    "name": "Return point 1440",
+    "pixelIdentical": true
+  },
+  {
+    "name": "Signal 390",
+    "pixelIdentical": true
+  },
+  {
+    "name": "Direction 390",
+    "pixelIdentical": true
+  },
+  {
+    "name": "Form 390",
+    "pixelIdentical": true
+  },
+  {
+    "name": "Company 390",
+    "pixelIdentical": true
+  },
+  {
+    "name": "Return L 390",
+    "pixelIdentical": true
+  },
+  {
+    "name": "Return point 390",
+    "pixelIdentical": true
+  }
+]

@@ -1,0 +1,112 @@
+{
+  "errors": [],
+  "checks": [
+    {
+      "width": 320,
+      "overflow": false,
+      "headlines": []
+    },
+    {
+      "width": 360,
+      "overflow": false,
+      "headlines": []
+    },
+    {
+      "width": 375,
+      "overflow": false,
+      "headlines": []
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "headlines": []
+    },
+    {
+      "width": 430,
+      "overflow": false,
+      "headlines": []
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "headlines": []
+    },
+    {
+      "width": 1024,
+      "overflow": false,
+      "headlines": []
+    },
+    {
+      "width": 1280,
+      "overflow": false,
+      "headlines": []
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "headlines": []
+    },
+    {
+      "width": 1920,
+      "overflow": false,
+      "headlines": []
+    },
+    {
+      "width": 2560,
+      "overflow": false,
+      "headlines": []
+    }
+  ],
+  "resultChecks": [
+    {
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "overflow": false
+    }
+  ],
+  "keyboard": "true",
+  "download": "dynasty-works-initial-roadmap.txt",
+  "images": 0,
+  "css": [
+    "V5-Do9gDSjw.css"
+  ]
+}

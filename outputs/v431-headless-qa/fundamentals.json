@@ -1,0 +1,29 @@
+{
+  "images": [
+    {
+      "ok": true,
+      "src": "rawIdea-1536.avif"
+    },
+    {
+      "ok": true,
+      "src": "humanCreation-1536.avif"
+    },
+    {
+      "ok": true,
+      "src": "futureExperiment-1536.avif"
+    }
+  ],
+  "cls": 0,
+  "focus": {
+    "text": "Build your roadmap ↗",
+    "outline": "solid"
+  },
+  "blueprint": "Need a deeper strategic engagement?\n\nFounder Blueprint · $1,500\n\nExplore the Blueprint →",
+  "mobileMenu": true,
+  "brokenAnchors": [],
+  "contrast": {
+    "builderText": 15.662024769310028,
+    "builderUtility": 9.958966412396455,
+    "whiteOnCobalt": 5.40917638358835
+  }
+}

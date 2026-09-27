@@ -1,0 +1,1418 @@
+{
+  "checks": [
+    {
+      "name": "forward 0",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 0",
+      "pass": true
+    },
+    {
+      "name": "forward 10",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 10",
+      "pass": true
+    },
+    {
+      "name": "forward 15",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 15",
+      "pass": true
+    },
+    {
+      "name": "forward 20",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 20",
+      "pass": true
+    },
+    {
+      "name": "forward 25",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 25",
+      "pass": true
+    },
+    {
+      "name": "forward 30",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 30",
+      "pass": true
+    },
+    {
+      "name": "forward 36",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 36",
+      "pass": true
+    },
+    {
+      "name": "forward 42",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 42",
+      "pass": true
+    },
+    {
+      "name": "forward 47",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 47",
+      "pass": true
+    },
+    {
+      "name": "forward 52",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 52",
+      "pass": true
+    },
+    {
+      "name": "forward 57",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 57",
+      "pass": true
+    },
+    {
+      "name": "forward 62",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 62",
+      "pass": true
+    },
+    {
+      "name": "forward 67",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 67",
+      "pass": true
+    },
+    {
+      "name": "forward 72",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 72",
+      "pass": true
+    },
+    {
+      "name": "forward 77",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 77",
+      "pass": true
+    },
+    {
+      "name": "forward 82",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 82",
+      "pass": true
+    },
+    {
+      "name": "forward 86.5",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 86.5",
+      "pass": true
+    },
+    {
+      "name": "forward 87.5",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 87.5",
+      "pass": true
+    },
+    {
+      "name": "forward 88.5",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 88.5",
+      "pass": true
+    },
+    {
+      "name": "forward 89.5",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 89.5",
+      "pass": true
+    },
+    {
+      "name": "forward 91",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 91",
+      "pass": true
+    },
+    {
+      "name": "forward 92.5",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 92.5",
+      "pass": true
+    },
+    {
+      "name": "forward 93",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 93",
+      "pass": true
+    },
+    {
+      "name": "forward 97",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 97",
+      "pass": true
+    },
+    {
+      "name": "forward 100",
+      "pass": true
+    },
+    {
+      "name": "persistent ancestor 100",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 100",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 97",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 93",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 92.5",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 91",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 89.5",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 88.5",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 87.5",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 86.5",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 82",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 77",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 72",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 67",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 62",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 57",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 52",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 47",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 42",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 36",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 30",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 25",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 20",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 15",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 10",
+      "pass": true
+    },
+    {
+      "name": "reverse exact 0",
+      "pass": true
+    },
+    {
+      "name": "original point preserved",
+      "pass": true
+    },
+    {
+      "name": "canonical L retained",
+      "pass": true
+    },
+    {
+      "name": "continuous contour bounded",
+      "pass": true
+    },
+    {
+      "name": "input causes acknowledgement",
+      "pass": true
+    },
+    {
+      "name": "input does not authorize",
+      "pass": true
+    },
+    {
+      "name": "below threshold visible",
+      "pass": true
+    },
+    {
+      "name": "above threshold visible",
+      "pass": true
+    },
+    {
+      "name": "load changes physical geometry",
+      "pass": true
+    },
+    {
+      "name": "planning no new transaction",
+      "pass": true
+    },
+    {
+      "name": "unprepared authority disabled",
+      "pass": true
+    },
+    {
+      "name": "preparation enables authority",
+      "pass": true
+    },
+    {
+      "name": "preparation never releases",
+      "pass": true
+    },
+    {
+      "name": "same market request",
+      "pass": true
+    },
+    {
+      "name": "hold no release",
+      "pass": true
+    },
+    {
+      "name": "visible focus",
+      "pass": true
+    },
+    {
+      "name": "human authorization",
+      "pass": true
+    },
+    {
+      "name": "validation first",
+      "pass": true
+    },
+    {
+      "name": "completion",
+      "pass": true
+    },
+    {
+      "name": "recovery",
+      "pass": true
+    },
+    {
+      "name": "receipt contribution",
+      "pass": true
+    },
+    {
+      "name": "reentry idempotent",
+      "pass": true
+    },
+    {
+      "name": "overflow 320/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 320/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 320/10",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 320/10",
+      "pass": true
+    },
+    {
+      "name": "overflow 320/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 320/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 320/30",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 320/30",
+      "pass": true
+    },
+    {
+      "name": "overflow 320/42",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 320/42",
+      "pass": true
+    },
+    {
+      "name": "overflow 320/52",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 320/52",
+      "pass": true
+    },
+    {
+      "name": "overflow 320/62",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 320/62",
+      "pass": true
+    },
+    {
+      "name": "overflow 320/72",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 320/72",
+      "pass": true
+    },
+    {
+      "name": "overflow 320/82",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 320/82",
+      "pass": true
+    },
+    {
+      "name": "overflow 320/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 320/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 320/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 320/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 360/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 360/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 360/10",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 360/10",
+      "pass": true
+    },
+    {
+      "name": "overflow 360/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 360/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 360/30",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 360/30",
+      "pass": true
+    },
+    {
+      "name": "overflow 360/42",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 360/42",
+      "pass": true
+    },
+    {
+      "name": "overflow 360/52",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 360/52",
+      "pass": true
+    },
+    {
+      "name": "overflow 360/62",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 360/62",
+      "pass": true
+    },
+    {
+      "name": "overflow 360/72",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 360/72",
+      "pass": true
+    },
+    {
+      "name": "overflow 360/82",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 360/82",
+      "pass": true
+    },
+    {
+      "name": "overflow 360/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 360/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 360/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 360/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 375/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 375/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 375/10",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 375/10",
+      "pass": true
+    },
+    {
+      "name": "overflow 375/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 375/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 375/30",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 375/30",
+      "pass": true
+    },
+    {
+      "name": "overflow 375/42",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 375/42",
+      "pass": true
+    },
+    {
+      "name": "overflow 375/52",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 375/52",
+      "pass": true
+    },
+    {
+      "name": "overflow 375/62",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 375/62",
+      "pass": true
+    },
+    {
+      "name": "overflow 375/72",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 375/72",
+      "pass": true
+    },
+    {
+      "name": "overflow 375/82",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 375/82",
+      "pass": true
+    },
+    {
+      "name": "overflow 375/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 375/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 375/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 375/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 390/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 390/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 390/10",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 390/10",
+      "pass": true
+    },
+    {
+      "name": "overflow 390/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 390/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 390/30",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 390/30",
+      "pass": true
+    },
+    {
+      "name": "overflow 390/42",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 390/42",
+      "pass": true
+    },
+    {
+      "name": "overflow 390/52",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 390/52",
+      "pass": true
+    },
+    {
+      "name": "overflow 390/62",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 390/62",
+      "pass": true
+    },
+    {
+      "name": "overflow 390/72",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 390/72",
+      "pass": true
+    },
+    {
+      "name": "overflow 390/82",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 390/82",
+      "pass": true
+    },
+    {
+      "name": "overflow 390/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 390/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 390/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 390/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 430/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 430/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 430/10",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 430/10",
+      "pass": true
+    },
+    {
+      "name": "overflow 430/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 430/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 430/30",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 430/30",
+      "pass": true
+    },
+    {
+      "name": "overflow 430/42",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 430/42",
+      "pass": true
+    },
+    {
+      "name": "overflow 430/52",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 430/52",
+      "pass": true
+    },
+    {
+      "name": "overflow 430/62",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 430/62",
+      "pass": true
+    },
+    {
+      "name": "overflow 430/72",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 430/72",
+      "pass": true
+    },
+    {
+      "name": "overflow 430/82",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 430/82",
+      "pass": true
+    },
+    {
+      "name": "overflow 430/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 430/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 430/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 430/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 768/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 768/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 768/10",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 768/10",
+      "pass": true
+    },
+    {
+      "name": "overflow 768/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 768/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 768/30",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 768/30",
+      "pass": true
+    },
+    {
+      "name": "overflow 768/42",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 768/42",
+      "pass": true
+    },
+    {
+      "name": "overflow 768/52",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 768/52",
+      "pass": true
+    },
+    {
+      "name": "overflow 768/62",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 768/62",
+      "pass": true
+    },
+    {
+      "name": "overflow 768/72",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 768/72",
+      "pass": true
+    },
+    {
+      "name": "overflow 768/82",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 768/82",
+      "pass": true
+    },
+    {
+      "name": "overflow 768/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 768/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 768/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 768/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 1024/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1024/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 1024/10",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1024/10",
+      "pass": true
+    },
+    {
+      "name": "overflow 1024/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1024/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 1024/30",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1024/30",
+      "pass": true
+    },
+    {
+      "name": "overflow 1024/42",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1024/42",
+      "pass": true
+    },
+    {
+      "name": "overflow 1024/52",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1024/52",
+      "pass": true
+    },
+    {
+      "name": "overflow 1024/62",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1024/62",
+      "pass": true
+    },
+    {
+      "name": "overflow 1024/72",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1024/72",
+      "pass": true
+    },
+    {
+      "name": "overflow 1024/82",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1024/82",
+      "pass": true
+    },
+    {
+      "name": "overflow 1024/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1024/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 1024/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1024/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 1280/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1280/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 1280/10",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1280/10",
+      "pass": true
+    },
+    {
+      "name": "overflow 1280/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1280/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 1280/30",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1280/30",
+      "pass": true
+    },
+    {
+      "name": "overflow 1280/42",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1280/42",
+      "pass": true
+    },
+    {
+      "name": "overflow 1280/52",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1280/52",
+      "pass": true
+    },
+    {
+      "name": "overflow 1280/62",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1280/62",
+      "pass": true
+    },
+    {
+      "name": "overflow 1280/72",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1280/72",
+      "pass": true
+    },
+    {
+      "name": "overflow 1280/82",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1280/82",
+      "pass": true
+    },
+    {
+      "name": "overflow 1280/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1280/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 1280/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1280/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 1440/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1440/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 1440/10",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1440/10",
+      "pass": true
+    },
+    {
+      "name": "overflow 1440/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1440/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 1440/30",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1440/30",
+      "pass": true
+    },
+    {
+      "name": "overflow 1440/42",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1440/42",
+      "pass": true
+    },
+    {
+      "name": "overflow 1440/52",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1440/52",
+      "pass": true
+    },
+    {
+      "name": "overflow 1440/62",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1440/62",
+      "pass": true
+    },
+    {
+      "name": "overflow 1440/72",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1440/72",
+      "pass": true
+    },
+    {
+      "name": "overflow 1440/82",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1440/82",
+      "pass": true
+    },
+    {
+      "name": "overflow 1440/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1440/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 1440/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1440/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 1920/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1920/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 1920/10",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1920/10",
+      "pass": true
+    },
+    {
+      "name": "overflow 1920/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1920/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 1920/30",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1920/30",
+      "pass": true
+    },
+    {
+      "name": "overflow 1920/42",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1920/42",
+      "pass": true
+    },
+    {
+      "name": "overflow 1920/52",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1920/52",
+      "pass": true
+    },
+    {
+      "name": "overflow 1920/62",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1920/62",
+      "pass": true
+    },
+    {
+      "name": "overflow 1920/72",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1920/72",
+      "pass": true
+    },
+    {
+      "name": "overflow 1920/82",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1920/82",
+      "pass": true
+    },
+    {
+      "name": "overflow 1920/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1920/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 1920/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 1920/100",
+      "pass": true
+    },
+    {
+      "name": "overflow 2560/0",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 2560/0",
+      "pass": true
+    },
+    {
+      "name": "overflow 2560/10",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 2560/10",
+      "pass": true
+    },
+    {
+      "name": "overflow 2560/20",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 2560/20",
+      "pass": true
+    },
+    {
+      "name": "overflow 2560/30",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 2560/30",
+      "pass": true
+    },
+    {
+      "name": "overflow 2560/42",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 2560/42",
+      "pass": true
+    },
+    {
+      "name": "overflow 2560/52",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 2560/52",
+      "pass": true
+    },
+    {
+      "name": "overflow 2560/62",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 2560/62",
+      "pass": true
+    },
+    {
+      "name": "overflow 2560/72",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 2560/72",
+      "pass": true
+    },
+    {
+      "name": "overflow 2560/82",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 2560/82",
+      "pass": true
+    },
+    {
+      "name": "overflow 2560/93",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 2560/93",
+      "pass": true
+    },
+    {
+      "name": "overflow 2560/100",
+      "pass": true
+    },
+    {
+      "name": "heading bounds 2560/100",
+      "pass": true
+    },
+    {
+      "name": "keyboard scrub",
+      "pass": true
+    },
+    {
+      "name": "semantic stage announcement",
+      "pass": true
+    },
+    {
+      "name": "no per frame announcement",
+      "pass": true
+    },
+    {
+      "name": "reduced transaction",
+      "pass": true
+    },
+    {
+      "name": "reduced no spatial transition",
+      "pass": true
+    },
+    {
+      "name": "reduced point",
+      "pass": true
+    },
+    {
+      "name": "direct refresh",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "captures": [
+    "outputs/integration-phase-i/genesis/00-signal-1440.png",
+    "outputs/integration-phase-i/genesis/01-direction-1440.png",
+    "outputs/integration-phase-i/genesis/02-identity-1440.png",
+    "outputs/integration-phase-i/genesis/03-form-1440.png",
+    "outputs/integration-phase-i/genesis/04-experience-1440.png",
+    "outputs/integration-phase-i/genesis/05-economics-1440.png",
+    "outputs/integration-phase-i/genesis/06-system-1440.png",
+    "outputs/integration-phase-i/genesis/07-market-1440.png",
+    "outputs/integration-phase-i/genesis/08-company-held-1440.png",
+    "outputs/integration-phase-i/genesis/01-to-02-1440.png",
+    "outputs/integration-phase-i/genesis/02-to-03-1440.png",
+    "outputs/integration-phase-i/genesis/03-to-04-1440.png",
+    "outputs/integration-phase-i/genesis/04-to-05-1440.png",
+    "outputs/integration-phase-i/genesis/05-to-06-1440.png",
+    "outputs/integration-phase-i/genesis/06-to-07-1440.png",
+    "outputs/integration-phase-i/genesis/07-to-08-1440.png",
+    "outputs/integration-phase-i/genesis/08-company-active-1440.png",
+    "outputs/integration-phase-i/genesis/08-company-settled-1440.png",
+    "outputs/integration-phase-i/genesis/09-return-l-1440.png",
+    "outputs/integration-phase-i/genesis/09-return-point-1440.png",
+    "outputs/integration-phase-i/genesis/00-signal-390.png",
+    "outputs/integration-phase-i/genesis/02-identity-390.png",
+    "outputs/integration-phase-i/genesis/03-form-390.png",
+    "outputs/integration-phase-i/genesis/04-experience-390.png",
+    "outputs/integration-phase-i/genesis/05-economics-390.png",
+    "outputs/integration-phase-i/genesis/06-system-390.png",
+    "outputs/integration-phase-i/genesis/07-market-390.png",
+    "outputs/integration-phase-i/genesis/08-company-settled-390.png",
+    "outputs/integration-phase-i/genesis/09-return-point-390.png",
+    "outputs/integration-phase-i/genesis/08-company-held-390.png"
+  ],
+  "maxDelta": 19.580174927113717
+}

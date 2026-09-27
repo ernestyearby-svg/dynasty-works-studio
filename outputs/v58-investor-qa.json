@@ -1,0 +1,232 @@
+[
+  {
+    "width": 1440,
+    "reverse": true,
+    "stages": [
+      {
+        "cpuSubmitMs": 0.5,
+        "drawCalls": 8,
+        "triangles": 96,
+        "geometries": 4,
+        "textures": 7,
+        "visibleParts": 5,
+        "dpr": 1,
+        "frames": 4
+      },
+      {
+        "cpuSubmitMs": 0.3999999761581421,
+        "drawCalls": 14,
+        "triangles": 168,
+        "geometries": 4,
+        "textures": 7,
+        "visibleParts": 9,
+        "dpr": 1,
+        "frames": 5
+      },
+      {
+        "cpuSubmitMs": 0.7000000476837158,
+        "drawCalls": 16,
+        "triangles": 192,
+        "geometries": 4,
+        "textures": 7,
+        "visibleParts": 10,
+        "dpr": 1,
+        "frames": 6
+      },
+      {
+        "cpuSubmitMs": 0.6000000238418579,
+        "drawCalls": 20,
+        "triangles": 240,
+        "geometries": 4,
+        "textures": 7,
+        "visibleParts": 14,
+        "dpr": 1,
+        "frames": 7
+      },
+      {
+        "cpuSubmitMs": 0.699999988079071,
+        "drawCalls": 30,
+        "triangles": 360,
+        "geometries": 4,
+        "textures": 7,
+        "visibleParts": 23,
+        "dpr": 1,
+        "frames": 8
+      },
+      {
+        "cpuSubmitMs": 0.6000000238418579,
+        "drawCalls": 44,
+        "triangles": 528,
+        "geometries": 4,
+        "textures": 7,
+        "visibleParts": 37,
+        "dpr": 1,
+        "frames": 9
+      },
+      {
+        "cpuSubmitMs": 0.5,
+        "drawCalls": 48,
+        "triangles": 576,
+        "geometries": 4,
+        "textures": 7,
+        "visibleParts": 43,
+        "dpr": 1,
+        "frames": 10
+      },
+      {
+        "cpuSubmitMs": 0.6000000238418579,
+        "drawCalls": 50,
+        "triangles": 600,
+        "geometries": 4,
+        "textures": 7,
+        "visibleParts": 43,
+        "dpr": 1,
+        "frames": 11
+      }
+    ],
+    "suspended": true,
+    "download": "dynasty-works-initial-roadmap.txt",
+    "routes": [
+      {
+        "route": "/work",
+        "overflow": false,
+        "webgl": 0,
+        "threeRequested": false
+      },
+      {
+        "route": "/concept-lab",
+        "overflow": false,
+        "webgl": 0,
+        "threeRequested": false
+      },
+      {
+        "route": "/studio",
+        "overflow": false,
+        "webgl": 0,
+        "threeRequested": false
+      },
+      {
+        "route": "/work/mymosa",
+        "overflow": false,
+        "webgl": 0,
+        "threeRequested": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "reverse": true,
+    "stages": [
+      {
+        "cpuSubmitMs": 0.800000011920929,
+        "drawCalls": 8,
+        "triangles": 96,
+        "geometries": 4,
+        "textures": 7,
+        "visibleParts": 5,
+        "dpr": 1,
+        "frames": 4
+      },
+      {
+        "cpuSubmitMs": 0.5,
+        "drawCalls": 13,
+        "triangles": 156,
+        "geometries": 4,
+        "textures": 7,
+        "visibleParts": 9,
+        "dpr": 1,
+        "frames": 5
+      },
+      {
+        "cpuSubmitMs": 0.800000011920929,
+        "drawCalls": 16,
+        "triangles": 192,
+        "geometries": 4,
+        "textures": 7,
+        "visibleParts": 10,
+        "dpr": 1,
+        "frames": 6
+      },
+      {
+        "cpuSubmitMs": 0.5,
+        "drawCalls": 20,
+        "triangles": 240,
+        "geometries": 4,
+        "textures": 7,
+        "visibleParts": 14,
+        "dpr": 1,
+        "frames": 7
+      },
+      {
+        "cpuSubmitMs": 0.699999988079071,
+        "drawCalls": 27,
+        "triangles": 324,
+        "geometries": 4,
+        "textures": 7,
+        "visibleParts": 20,
+        "dpr": 1,
+        "frames": 8
+      },
+      {
+        "cpuSubmitMs": 0.5,
+        "drawCalls": 31,
+        "triangles": 372,
+        "geometries": 4,
+        "textures": 7,
+        "visibleParts": 24,
+        "dpr": 1,
+        "frames": 9
+      },
+      {
+        "cpuSubmitMs": 0.5,
+        "drawCalls": 35,
+        "triangles": 420,
+        "geometries": 4,
+        "textures": 7,
+        "visibleParts": 30,
+        "dpr": 1,
+        "frames": 10
+      },
+      {
+        "cpuSubmitMs": 0.40000003576278687,
+        "drawCalls": 37,
+        "triangles": 444,
+        "geometries": 4,
+        "textures": 7,
+        "visibleParts": 30,
+        "dpr": 1,
+        "frames": 11
+      }
+    ],
+    "suspended": true,
+    "download": "dynasty-works-initial-roadmap.txt",
+    "routes": [
+      {
+        "route": "/work",
+        "overflow": false,
+        "webgl": 0,
+        "threeRequested": false
+      },
+      {
+        "route": "/concept-lab",
+        "overflow": false,
+        "webgl": 0,
+        "threeRequested": false
+      },
+      {
+        "route": "/studio",
+        "overflow": false,
+        "webgl": 0,
+        "threeRequested": false
+      },
+      {
+        "route": "/work/mymosa",
+        "overflow": false,
+        "webgl": 0,
+        "threeRequested": false
+      }
+    ],
+    "errors": []
+  }
+]

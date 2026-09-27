@@ -1,0 +1,342 @@
+{
+  "errors": [],
+  "results": [
+    {
+      "width": 1440,
+      "route": "/",
+      "title": "From idea\nto company.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/work",
+      "title": "Different companies.\nConnected thinking.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/work/mymosa",
+      "title": "MyMosa\n/ My Drink Family",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/concept-lab",
+      "title": "What else\ncan we build?",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/work/ikla-maison",
+      "title": "IKLA Maison",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/concept-lab/veritas",
+      "title": "Véritas",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/concept-lab/lumiere",
+      "title": "Lumière",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/concept-lab/aura",
+      "title": "Aūra",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/concept-lab/altius",
+      "title": "Altius",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/concept-lab/solara",
+      "title": "Solara",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/concept-lab/nova",
+      "title": "Nova",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/studio",
+      "title": "An idea rarely needs only one thing.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/capabilities",
+      "title": "The right capability. At the right stage.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/contact",
+      "title": "What do you\nhave in mind?",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/founder-blueprint",
+      "title": "Turn the idea into\na buildable\ncompany roadmap.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/founder-blueprint/intake",
+      "title": "Start your\nBlueprint.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/how-we-build",
+      "title": "From first move to market.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/services",
+      "title": "Built around the whole company.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/automation",
+      "title": "Build the business.\nThen build the system\nthat helps run it.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/growth-partnership",
+      "title": "Build momentum. Keep improving.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/templates",
+      "title": "Give the idea a starting point.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/start-a-business",
+      "title": "We’ll help build\nthe company\naround it.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/start-a-business/builder",
+      "title": "Bring us\nthe idea.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "route": "/not-a-page",
+      "title": "Page not found.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/",
+      "title": "From idea\nto company.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/work",
+      "title": "Different companies.\nConnected thinking.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/work/mymosa",
+      "title": "MyMosa\n/ My Drink Family",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/concept-lab",
+      "title": "What else\ncan we build?",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/work/ikla-maison",
+      "title": "IKLA Maison",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/concept-lab/veritas",
+      "title": "Véritas",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/concept-lab/lumiere",
+      "title": "Lumière",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/concept-lab/aura",
+      "title": "Aūra",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/concept-lab/altius",
+      "title": "Altius",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/concept-lab/solara",
+      "title": "Solara",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/concept-lab/nova",
+      "title": "Nova",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/studio",
+      "title": "An idea rarely needs only one thing.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/capabilities",
+      "title": "The right capability. At the right stage.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/contact",
+      "title": "What do youhave in mind?",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/founder-blueprint",
+      "title": "Turn the idea into\na buildable\ncompany roadmap.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/founder-blueprint/intake",
+      "title": "Start yourBlueprint.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/how-we-build",
+      "title": "From first move to market.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/services",
+      "title": "Built around the whole company.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/automation",
+      "title": "Build the business.\nThen build the system\nthat helps run it.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/growth-partnership",
+      "title": "Build momentum. Keep improving.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/templates",
+      "title": "Give the idea a starting point.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/start-a-business",
+      "title": "We’ll help build\nthe company\naround it.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/start-a-business/builder",
+      "title": "Bring usthe idea.",
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "width": 390,
+      "route": "/not-a-page",
+      "title": "Page not found.",
+      "overflow": false,
+      "broken": []
+    }
+  ],
+  "download": "dynasty-works-initial-roadmap.txt"
+}

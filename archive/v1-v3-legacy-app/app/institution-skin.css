@@ -1,0 +1,169 @@
+/* DWS / institutional skin. Geometry, breakpoints and application behavior
+   belong to V3. This layer changes paint and typographic expression only. */
+:root {
+  --dws-white: #ffffff;
+  --dws-paper: #f7f8fa;
+  --dws-ink: #111318;
+  --dws-gray: #e4e7ec;
+  --dws-muted: #5b616c;
+  --dws-signal: #254dff;
+  --dws-rule: #b9bec8;
+  --dws-cut: cubic-bezier(.76, 0, .24, 1);
+  --dws-duration: 180ms;
+  --bone: var(--dws-paper);
+  --obsidian: var(--dws-ink);
+  --graphite: #252932;
+  --stone: var(--dws-muted);
+  --soft-sand: #d5d9e0;
+  --warm-taupe: #949ba6;
+  --champagne: #c9ced7;
+  --bronze: #666d79;
+  --paper: var(--dws-paper);
+  --ink: var(--dws-ink);
+  --accent: var(--dws-signal);
+  --line: var(--dws-rule);
+}
+.dws-v3 {
+  --v3-paper: var(--dws-white);
+  --v3-ink: var(--dws-ink);
+  --v3-rule: var(--dws-rule);
+  accent-color: var(--dws-signal);
+}
+.dws-v3 ::selection { background: var(--dws-signal); color: white; }
+.dws-v3 :focus-visible { outline-color: var(--dws-signal); }
+.dws-v3 .nav { box-shadow: inset 0 3px var(--dws-signal); }
+.dws-v3 .nav .wordmark { color: var(--dws-ink); }
+.dws-v3 .nav .brand-symbol { color: var(--dws-signal); }
+.dws-v3 .nav-links a {
+  font-weight: 650;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 7px;
+  transition: color var(--dws-duration) var(--dws-cut);
+}
+.dws-v3 .nav-links a:hover,
+.dws-v3 .nav-links a[aria-current="page"] { color: var(--dws-signal); }
+.dws-v3 .nav .nav-cta { border-bottom: 2px solid var(--dws-signal); }
+.dws-v3 .nav .menu-toggle { border-color: var(--dws-ink); border-radius: 0; font-weight: 650; }
+.dws-v3 .nav .menu-toggle[aria-expanded="true"] { background: var(--dws-signal); color: white; border-color: var(--dws-signal); }
+.dws-v3 .eyebrow,
+.dws-v3 .v3-register { font-weight: 650; letter-spacing: .085em; }
+.dws-v3 .v3-register { position: relative; }
+.v3-declaration .v3-register > p {
+  color: var(--dws-signal);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
+}
+.v3-declaration h1 em { color: var(--dws-signal); }
+.v3-declaration h1 { text-rendering: optimizeLegibility; }
+.v3-workline { color: var(--dws-signal); border-top-width: 2px; }
+.v3-workline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -7px;
+  width: 8px;
+  height: 12px;
+  border-inline: 1px solid currentColor;
+  pointer-events: none;
+}
+.v3-workline .brand-symbol { color: var(--dws-signal); }
+.dws-v3 .text-link,
+.dws-v3 .v3-entry-link {
+  font-weight: 650;
+  border-bottom-width: 2px;
+  border-bottom-color: currentColor;
+  text-decoration: none;
+  transition: color var(--dws-duration) var(--dws-cut), box-shadow var(--dws-duration) var(--dws-cut);
+}
+.dws-v3 .text-link:hover,
+.dws-v3 .text-link:focus-visible,
+.dws-v3 .v3-entry-link:hover { box-shadow: 0 3px currentColor; }
+.v3-declaration-foot .text-link { color: var(--dws-signal); }
+.v3-discipline-list a { transition: color var(--dws-duration) var(--dws-cut); }
+.v3-discipline-list a:hover { color: var(--dws-signal); }
+.v3-discipline-list a > :first-child { color: var(--dws-signal); font-variant-numeric: tabular-nums; font-weight: 700; }
+.v3-discipline-list a > :last-child { transition-timing-function: var(--dws-cut); }
+/* Project imagery and product geometry are intentionally untouched. */
+.v3-mymosa .v3-register,
+.v3-project-caption { border-color: currentColor; }
+.v3-products figcaption { font-variant-numeric: tabular-nums; }
+.v3-products figcaption span { font-weight: 750; }
+.v3-family { background: #f0f2f5; }
+.v3-family-grid { position: relative; }
+.v3-family-grid::before,
+.v3-family-grid::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  color: #7b8290;
+}
+.v3-family-grid::before { top: 0; left: 0; border-top: 1px solid; border-left: 1px solid; }
+.v3-family-grid::after { bottom: 0; right: 0; border-bottom: 1px solid; border-right: 1px solid; }
+/* Foundry is a working editorial plate, not a rendered environment. */
+.v3-foundry { background: var(--dws-gray); color: var(--dws-ink); }
+.v3-foundry .v3-register { color: var(--dws-muted); }
+.v3-foundry .v3-register > p { color: var(--dws-ink); }
+.v3-foundry-number { color: var(--dws-signal); font-variant-numeric: lining-nums; }
+.v3-foundry-detail { border-color: var(--dws-ink); }
+.v3-foundry-controls button { color: var(--dws-muted); }
+.v3-foundry-controls button[aria-pressed="true"] {
+  color: var(--dws-signal);
+  border-color: var(--dws-signal);
+  box-shadow: 0 2px var(--dws-signal);
+  font-weight: 700;
+}
+.v3-foundry-controls button:hover { color: var(--dws-ink); }
+.v3-workline-progress { background: #9ca4b3; }
+.v3-workline-progress span { background: var(--dws-signal); transition-timing-function: var(--dws-cut); }
+.v3-foundry-detail .text-link { color: var(--dws-signal); }
+.v3-cliffs-image img { transition-timing-function: var(--dws-cut); }
+.v3-process .v2-stages summary > :first-child { color: var(--dws-signal); font-variant-numeric: tabular-nums; }
+.v3-process .v2-stages details[open] { border-color: var(--dws-signal); }
+.v3-builder-entry {
+  background-color: var(--dws-ink);
+  background-image: radial-gradient(#ffffff10 .6px, transparent .6px);
+  background-size: 5px 5px;
+  color: white;
+}
+.v3-builder-entry h2 em { text-decoration: underline; text-decoration-color: var(--dws-signal); text-decoration-thickness: 3px; text-underline-offset: .12em; }
+.v3-builder-bottom { border-color: #8c93a1; }
+.v3-builder-entry .v3-small { color: #c9ced7; }
+.v3-builder-entry .v3-small a { color: white; }
+.v3-builder-entry :focus-visible { outline-color: white; }
+.v3-studio-pair .eyebrow { color: var(--dws-signal); }
+.v3-threshold { border-top: 2px solid var(--dws-ink); }
+.v3-threshold > .eyebrow { color: var(--dws-signal); }
+.v3-threshold a > span { border-color: var(--dws-signal); }
+.v3-threshold a > span > span { color: var(--dws-signal); }
+.v3-threshold a:hover h2 em { color: var(--dws-signal); }
+/* Shared interface paint. No inputs, questions or flow are changed. */
+.dws-v3 .company-builder { background: var(--dws-paper); }
+.dws-v3 .builder-sidebar .brand-symbol { color: var(--dws-signal); }
+.dws-v3 .builder-sidebar h1 em { color: var(--dws-signal); }
+.dws-v3 .builder-step-list li[aria-current="step"] { color: var(--dws-signal); border-color: var(--dws-signal); }
+.dws-v3 .builder-progress { background: #c2c7d0; }
+.dws-v3 .builder-progress > div { background: var(--dws-signal); }
+.dws-v3 .builder-option { transition-timing-function: var(--dws-cut); }
+.dws-v3 .builder-option:hover { background: #e6ebff; color: var(--dws-ink); }
+.dws-v3 .builder-option.selected,
+.dws-v3 .builder-option.selected:hover { background: var(--dws-signal); color: white; }
+.dws-v3 .builder-option.selected :is(button,input,[role="radio"],[role="checkbox"]) { color: white; border-color: white; accent-color: white; }
+.dws-v3 .builder-main h2 { font-family: var(--font-editorial); font-weight: 400; }
+.dws-v3 .button { border-radius: 0; box-shadow: none; }
+.dws-v3 .button.dark { background: var(--dws-ink); color: white; }
+.dws-v3 .button.dark:hover { background: var(--dws-signal); color: white; }
+.dws-v3 .footer,
+.dws-v3 .final-cta { background: var(--dws-ink); color: white; }
+.dws-v3 .footer :focus-visible,
+.dws-v3 .final-cta :focus-visible { outline-color: white; }
+.dws-v3 .footer-top { border-color: #707886; }
+.dws-v3 .footer .brand-symbol { color: white; }
+@media (prefers-reduced-motion: reduce) {
+  .dws-v3 *, .dws-v3 *::before, .dws-v3 *::after { animation: none !important; transition: none !important; }
+}
+html[data-motion="reduced"] .dws-v3 *,
+html[data-motion="reduced"] .dws-v3 *::before,
+html[data-motion="reduced"] .dws-v3 *::after { animation: none !important; transition: none !important; }

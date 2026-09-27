@@ -1,0 +1,232 @@
+{
+  "checks": [
+    {
+      "name": "a overflow 320",
+      "pass": true
+    },
+    {
+      "name": "a overflow 360",
+      "pass": true
+    },
+    {
+      "name": "a overflow 375",
+      "pass": true
+    },
+    {
+      "name": "a overflow 390",
+      "pass": true
+    },
+    {
+      "name": "a overflow 430",
+      "pass": true
+    },
+    {
+      "name": "a overflow 768",
+      "pass": true
+    },
+    {
+      "name": "a overflow 1024",
+      "pass": true
+    },
+    {
+      "name": "a overflow 1280",
+      "pass": true
+    },
+    {
+      "name": "a overflow 1440",
+      "pass": true
+    },
+    {
+      "name": "a overflow 1920",
+      "pass": true
+    },
+    {
+      "name": "a overflow 2560",
+      "pass": true
+    },
+    {
+      "name": "a nine entries",
+      "pass": true
+    },
+    {
+      "name": "a destinations",
+      "pass": true
+    },
+    {
+      "name": "a focus",
+      "pass": true
+    },
+    {
+      "name": "a keyboard selection",
+      "pass": true
+    },
+    {
+      "name": "a reduced",
+      "pass": true
+    },
+    {
+      "name": "c overflow 320",
+      "pass": true
+    },
+    {
+      "name": "c overflow 360",
+      "pass": true
+    },
+    {
+      "name": "c overflow 375",
+      "pass": true
+    },
+    {
+      "name": "c overflow 390",
+      "pass": true
+    },
+    {
+      "name": "c overflow 430",
+      "pass": true
+    },
+    {
+      "name": "c overflow 768",
+      "pass": true
+    },
+    {
+      "name": "c overflow 1024",
+      "pass": true
+    },
+    {
+      "name": "c overflow 1280",
+      "pass": true
+    },
+    {
+      "name": "c overflow 1440",
+      "pass": true
+    },
+    {
+      "name": "c overflow 1920",
+      "pass": true
+    },
+    {
+      "name": "c overflow 2560",
+      "pass": true
+    },
+    {
+      "name": "c nine entries",
+      "pass": true
+    },
+    {
+      "name": "c destinations",
+      "pass": true
+    },
+    {
+      "name": "c focus",
+      "pass": true
+    },
+    {
+      "name": "c keyboard selection",
+      "pass": true
+    },
+    {
+      "name": "c reduced",
+      "pass": true
+    },
+    {
+      "name": "no heavy gateway resources",
+      "pass": true
+    },
+    {
+      "name": "neutral comparison",
+      "pass": true
+    },
+    {
+      "name": "route 3d-product",
+      "pass": true
+    },
+    {
+      "name": "route web",
+      "pass": true
+    },
+    {
+      "name": "route os",
+      "pass": true
+    },
+    {
+      "name": "route mobile",
+      "pass": true
+    },
+    {
+      "name": "route identity",
+      "pass": true
+    },
+    {
+      "name": "route packaging",
+      "pass": true
+    },
+    {
+      "name": "route capital",
+      "pass": true
+    },
+    {
+      "name": "route orchestration",
+      "pass": true
+    },
+    {
+      "name": "route space",
+      "pass": true
+    },
+    {
+      "name": "genesis route",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "resources": [
+    "http://127.0.0.1:5201/capability-gateway-proof/a",
+    "http://127.0.0.1:5201/assets/gateway-Dxl8d-Nc.js",
+    "http://127.0.0.1:5201/assets/jsx-runtime-CPv8RRzz.js",
+    "http://127.0.0.1:5201/assets/tokens-WfcvbaY-.js",
+    "http://127.0.0.1:5201/assets/gateway-CSW9jwFU.css",
+    "http://127.0.0.1:5201/fonts/manrope.woff2",
+    "http://127.0.0.1:5201/fonts/bodoni-moda.woff2",
+    "http://127.0.0.1:5201/capability-gateway-proof/a",
+    "http://127.0.0.1:5201/assets/gateway-Dxl8d-Nc.js",
+    "http://127.0.0.1:5201/assets/jsx-runtime-CPv8RRzz.js",
+    "http://127.0.0.1:5201/assets/tokens-WfcvbaY-.js",
+    "http://127.0.0.1:5201/assets/gateway-CSW9jwFU.css",
+    "http://127.0.0.1:5201/fonts/manrope.woff2",
+    "http://127.0.0.1:5201/fonts/bodoni-moda.woff2",
+    "http://127.0.0.1:5201/capability-gateway-proof/c",
+    "http://127.0.0.1:5201/assets/gateway-Dxl8d-Nc.js",
+    "http://127.0.0.1:5201/assets/jsx-runtime-CPv8RRzz.js",
+    "http://127.0.0.1:5201/assets/tokens-WfcvbaY-.js",
+    "http://127.0.0.1:5201/assets/gateway-CSW9jwFU.css",
+    "http://127.0.0.1:5201/fonts/manrope.woff2",
+    "http://127.0.0.1:5201/fonts/bodoni-moda.woff2",
+    "http://127.0.0.1:5201/capability-gateway-proof/c",
+    "http://127.0.0.1:5201/assets/gateway-Dxl8d-Nc.js",
+    "http://127.0.0.1:5201/assets/jsx-runtime-CPv8RRzz.js",
+    "http://127.0.0.1:5201/assets/tokens-WfcvbaY-.js",
+    "http://127.0.0.1:5201/assets/gateway-CSW9jwFU.css",
+    "http://127.0.0.1:5201/fonts/manrope.woff2",
+    "http://127.0.0.1:5201/fonts/bodoni-moda.woff2",
+    "http://127.0.0.1:5201/capability-gateway-proof/a",
+    "http://127.0.0.1:5201/assets/gateway-Dxl8d-Nc.js",
+    "http://127.0.0.1:5201/assets/jsx-runtime-CPv8RRzz.js",
+    "http://127.0.0.1:5201/assets/tokens-WfcvbaY-.js",
+    "http://127.0.0.1:5201/assets/gateway-CSW9jwFU.css",
+    "http://127.0.0.1:5201/fonts/manrope.woff2",
+    "http://127.0.0.1:5201/fonts/bodoni-moda.woff2",
+    "http://127.0.0.1:5201/capability-gateway-proof/c",
+    "http://127.0.0.1:5201/assets/gateway-Dxl8d-Nc.js",
+    "http://127.0.0.1:5201/assets/jsx-runtime-CPv8RRzz.js",
+    "http://127.0.0.1:5201/assets/tokens-WfcvbaY-.js",
+    "http://127.0.0.1:5201/assets/gateway-CSW9jwFU.css",
+    "http://127.0.0.1:5201/fonts/manrope.woff2",
+    "http://127.0.0.1:5201/fonts/bodoni-moda.woff2",
+    "http://127.0.0.1:5201/capability-gateway-proof/",
+    "http://127.0.0.1:5201/assets/gateway-Dxl8d-Nc.js",
+    "http://127.0.0.1:5201/assets/jsx-runtime-CPv8RRzz.js",
+    "http://127.0.0.1:5201/assets/tokens-WfcvbaY-.js",
+    "http://127.0.0.1:5201/assets/gateway-CSW9jwFU.css",
+    "http://127.0.0.1:5201/fonts/manrope.woff2",
+    "http://127.0.0.1:5201/fonts/bodoni-moda.woff2"
+  ]
+}

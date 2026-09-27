@@ -1,0 +1,185 @@
+{
+  "timestamp": "2026-09-21T03:44:23.488Z",
+  "endpoint": "http://localhost:9999/.netlify/functions/submissions",
+  "previewOrigin": "https://6ab0a2906a0a4eecefb5381e--dynasty-works-studio-review.netlify.app",
+  "total": 34,
+  "passed": 34,
+  "failed": 0,
+  "receipts": [
+    "ea5bfcc8-955a-4c6f-9e99-acd9d036ec7d",
+    "2b085a58-566d-4fab-8999-9b021f9f5831",
+    "060a8c03-19f9-4be5-b6f7-464dda40df7a"
+  ],
+  "results": [
+    {
+      "section": "CORS",
+      "name": "Authorized preview origin OPTIONS returns 204 No Content",
+      "passed": true
+    },
+    {
+      "section": "CORS",
+      "name": "OPTIONS returns matching Access-Control-Allow-Origin",
+      "passed": true
+    },
+    {
+      "section": "CORS",
+      "name": "OPTIONS returns POST in Access-Control-Allow-Methods",
+      "passed": true
+    },
+    {
+      "section": "CORS_SECURITY",
+      "name": "Unauthorized origin OPTIONS returns 403 Forbidden",
+      "passed": true
+    },
+    {
+      "section": "CORS_SECURITY",
+      "name": "Unauthorized origin POST returns 403 Forbidden",
+      "passed": true
+    },
+    {
+      "section": "PREVIEW_BUILDER",
+      "name": "Live preview builder submission returns 202",
+      "passed": true
+    },
+    {
+      "section": "PREVIEW_BUILDER",
+      "name": "Builder response returns accepted status and receiptId",
+      "passed": true
+    },
+    {
+      "section": "DB_BUILDER",
+      "name": "Inquiry persisted in dynasty_private.inquiries",
+      "passed": true
+    },
+    {
+      "section": "DB_BUILDER",
+      "name": "Child row persisted in dynasty_private.builder_submissions",
+      "passed": true
+    },
+    {
+      "section": "DB_BUILDER",
+      "name": "Deterministic roadmap recomputed and persisted",
+      "passed": true
+    },
+    {
+      "section": "DB_BUILDER",
+      "name": "Recommended package persisted in child table",
+      "passed": true
+    },
+    {
+      "section": "DB_BUILDER",
+      "name": "Lead record upserted in dynasty_private.leads",
+      "passed": true
+    },
+    {
+      "section": "PREVIEW_BLUEPRINT",
+      "name": "Live preview blueprint submission returns 202",
+      "passed": true
+    },
+    {
+      "section": "PREVIEW_BLUEPRINT",
+      "name": "Blueprint response returns accepted and receiptId",
+      "passed": true
+    },
+    {
+      "section": "DB_BLUEPRINT",
+      "name": "Inquiry persisted with type blueprint",
+      "passed": true
+    },
+    {
+      "section": "DB_BLUEPRINT",
+      "name": "Child row persisted in dynasty_private.founder_blueprint_intakes",
+      "passed": true
+    },
+    {
+      "section": "PREVIEW_GENERAL",
+      "name": "Live preview contact submission returns 202",
+      "passed": true
+    },
+    {
+      "section": "PREVIEW_GENERAL",
+      "name": "Contact response returns accepted and receiptId",
+      "passed": true
+    },
+    {
+      "section": "DB_GENERAL",
+      "name": "Inquiry persisted with type general",
+      "passed": true
+    },
+    {
+      "section": "DB_GENERAL",
+      "name": "Child row persisted in dynasty_private.general_inquiries",
+      "passed": true
+    },
+    {
+      "section": "IDEMPOTENCY",
+      "name": "Replay returns 202 Accepted",
+      "passed": true
+    },
+    {
+      "section": "IDEMPOTENCY",
+      "name": "Replay returns identical receiptId",
+      "passed": true
+    },
+    {
+      "section": "IDEMPOTENCY",
+      "name": "Replay did not create a duplicate database record",
+      "passed": true
+    },
+    {
+      "section": "IDEMPOTENCY_CONFLICT",
+      "name": "Conflicting payload with reused key returns 409 Conflict",
+      "passed": true
+    },
+    {
+      "section": "IDEMPOTENCY_CONFLICT",
+      "name": "Conflict response explains key reuse",
+      "passed": true
+    },
+    {
+      "section": "FAILURE_MATRIX",
+      "name": "Honeypot filled returns 400",
+      "passed": true
+    },
+    {
+      "section": "FAILURE_MATRIX",
+      "name": "Missing consent returns 400",
+      "passed": true
+    },
+    {
+      "section": "FAILURE_MATRIX",
+      "name": "Invalid email schema returns 422",
+      "passed": true
+    },
+    {
+      "section": "FAILURE_MATRIX",
+      "name": "Payload > 48KB returns 413",
+      "passed": true
+    },
+    {
+      "section": "FAILURE_MATRIX",
+      "name": "GET method returns 405 Method Not Allowed",
+      "passed": true
+    },
+    {
+      "section": "RATE_LIMIT",
+      "name": "Burst beyond threshold triggers 429 Rate Limited",
+      "passed": true
+    },
+    {
+      "section": "RATE_LIMIT",
+      "name": "429 response includes Retry-After header",
+      "passed": true
+    },
+    {
+      "section": "CLEANUP",
+      "name": "All synthetic preview test inquiries successfully purged from database",
+      "passed": true
+    },
+    {
+      "section": "CLEANUP",
+      "name": "All synthetic preview test leads successfully purged from database",
+      "passed": true
+    }
+  ]
+}

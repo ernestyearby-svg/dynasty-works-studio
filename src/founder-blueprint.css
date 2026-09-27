@@ -1,0 +1,916 @@
+/* DYNASTY WORKS STUDIO — FOUNDER BLUEPRINT V5.8 VISUAL SYSTEM
+   Direction 03 Palette: Deep Obsidian, Warm Mineral, Studio Cobalt, Architectural Rules.
+   Typography: Bodoni Moda (Display Serif) + Manrope (Structural Sans).
+*/
+
+.fb-page {
+  background-color: #0b0d0f;
+  color: #edeae2;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Accessibility Skip Link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 20px;
+  background: #1646ff;
+  color: #ffffff;
+  padding: 8px 16px;
+  z-index: 9999;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 2px;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* Base Wrapper & Grid */
+.fb-shell {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .fb-shell {
+    padding: 0 20px;
+  }
+}
+
+/* Typography Primitives */
+.fb-kicker {
+  display: block;
+  font-family: 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', Menlo, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8c897f;
+  margin-bottom: 14px;
+}
+
+.fb-heading-serif {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  color: #faf8f5;
+  margin: 0;
+}
+
+.fb-heading-serif em {
+  font-style: italic;
+  font-weight: 300;
+  color: #d6d0c2;
+}
+
+/* Top Navigation Chrome */
+.fb-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px 0;
+  position: sticky;
+  top: 0;
+  background: rgba(11, 13, 15, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 100;
+}
+
+.fb-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.fb-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.fb-brand span {
+  font-weight: 300;
+  color: #8c897f;
+}
+
+.fb-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.fb-nav a {
+  color: #a5a196;
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  transition: color 0.18s ease;
+}
+
+.fb-nav a:hover,
+.fb-nav a:focus-visible {
+  color: #ffffff;
+  outline: none;
+}
+
+.fb-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #1646ff;
+  color: #ffffff !important;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  border-radius: 2px;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.fb-nav-cta:hover {
+  background: #2d5bff;
+  transform: translateY(-1px);
+}
+
+.fb-nav-cta:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Mobile Nav Toggle */
+.fb-mobile-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .fb-nav {
+    display: none;
+  }
+  .fb-mobile-toggle {
+    display: block;
+  }
+}
+
+.fb-mobile-dialog {
+  background: #0b0d0f;
+  color: #edeae2;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 32px 24px;
+  width: calc(100vw - 32px);
+  max-width: 360px;
+  border-radius: 4px;
+}
+
+.fb-mobile-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+}
+
+.fb-mobile-dialog-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.fb-mobile-dialog-head button {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.fb-mobile-dialog-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.fb-mobile-dialog-nav a {
+  color: #d6d2c8;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+/* 01 Hero Section */
+.fb-hero {
+  padding: 80px 0 64px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.fb-hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.85fr;
+  gap: 56px;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .fb-hero {
+    padding: 48px 0;
+  }
+  .fb-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.fb-hero-lead h1 {
+  font-size: clamp(40px, 4.8vw, 76px);
+  margin-bottom: 24px;
+}
+
+.fb-hero-desc {
+  font-size: clamp(1.05rem, 1.3vw, 1.22rem);
+  color: #b5b0a3;
+  line-height: 1.6;
+  max-width: 640px;
+  margin-bottom: 36px;
+}
+
+/* Journey Ladder: Diagnostic -> Blueprint -> Engagement */
+.fb-journey-ladder {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  padding: 24px 28px;
+  margin-top: 32px;
+}
+
+.fb-ladder-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.fb-ladder-header span {
+  font-family: 'SF Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8c897f;
+}
+
+.fb-ladder-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 680px) {
+  .fb-ladder-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fb-ladder-step {
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+}
+
+.fb-ladder-step.is-active {
+  background: rgba(22, 70, 255, 0.08);
+  border-color: rgba(22, 70, 255, 0.4);
+}
+
+.fb-ladder-num {
+  display: block;
+  font-family: 'SF Mono', monospace;
+  font-size: 0.68rem;
+  color: #7a776e;
+  margin-bottom: 4px;
+}
+
+.fb-ladder-step.is-active .fb-ladder-num {
+  color: #6a8eff;
+}
+
+.fb-ladder-title {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.fb-ladder-role {
+  font-size: 0.74rem;
+  color: #8c897f;
+}
+
+.fb-ladder-note {
+  font-size: 0.75rem;
+  color: #8c897f;
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+
+/* Strategic Offer Card */
+.fb-offer-card {
+  background: linear-gradient(145deg, #13171b, #0f1214);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.6);
+  border-radius: 3px;
+  padding: 36px 32px;
+  position: relative;
+}
+
+.fb-offer-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.06);
+  color: #d6d0c2;
+  font-family: 'SF Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+.fb-offer-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.fb-price-amount {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-size: clamp(3.2rem, 4.5vw, 4.4rem);
+  font-weight: 400;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.fb-price-currency {
+  font-family: 'SF Mono', monospace;
+  font-size: 0.9rem;
+  color: #8c897f;
+  letter-spacing: 0.1em;
+}
+
+.fb-offer-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #faf8f5;
+  margin: 0 0 16px;
+}
+
+.fb-offer-sub {
+  font-size: 0.88rem;
+  color: #a5a196;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.fb-offer-specs {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 18px 0;
+  margin-bottom: 28px;
+  display: grid;
+  gap: 14px;
+}
+
+.fb-spec-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.82rem;
+}
+
+.fb-spec-label {
+  color: #8c897f;
+  font-family: 'SF Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.fb-spec-val {
+  color: #ffffff;
+  font-weight: 500;
+  text-align: right;
+}
+
+.fb-offer-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: #1646ff;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 16px 24px;
+  border-radius: 2px;
+  box-sizing: border-box;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.fb-offer-cta:hover {
+  background: #2d5bff;
+  transform: translateY(-1px);
+}
+
+.fb-offer-cta:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.fb-offer-note {
+  font-size: 0.74rem;
+  color: #7a776e;
+  margin-top: 14px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+/* 02 Executive Q&A Section */
+.fb-section {
+  padding: 88px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 768px) {
+  .fb-section {
+    padding: 56px 0;
+  }
+}
+
+.fb-section-header {
+  margin-bottom: 56px;
+  max-width: 800px;
+}
+
+.fb-section-header h2 {
+  font-size: clamp(32px, 3.6vw, 56px);
+  margin-bottom: 16px;
+}
+
+.fb-section-desc {
+  font-size: 1.05rem;
+  color: #b5b0a3;
+  line-height: 1.6;
+}
+
+.fb-answers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 48px;
+}
+
+@media (max-width: 840px) {
+  .fb-answers-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.fb-answer-card {
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.fb-answer-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #faf8f5;
+  margin: 8px 0 12px;
+}
+
+.fb-answer-card p {
+  font-size: 0.92rem;
+  color: #a5a196;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* 03 Deliverables Grid */
+.fb-deliverables-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 840px) {
+  .fb-deliverables-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fb-deliverable-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 30px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.fb-deliverable-card:hover {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.fb-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 14px;
+}
+
+.fb-card-num {
+  font-family: 'SF Mono', monospace;
+  font-size: 0.74rem;
+  color: #6a8eff;
+  letter-spacing: 0.1em;
+}
+
+.fb-deliverable-card h3 {
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+
+.fb-deliverable-card p {
+  font-size: 0.88rem;
+  color: #a5a196;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 04 Abstract Document Representation */
+.fb-doc-artifact {
+  background: #0e1114;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 32px 64px -24px rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+  padding: 40px;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .fb-doc-artifact {
+    padding: 24px;
+  }
+}
+
+.fb-doc-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 32px;
+}
+
+.fb-doc-meta {
+  font-family: 'SF Mono', monospace;
+  font-size: 0.72rem;
+  color: #8c897f;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.fb-doc-badge {
+  background: rgba(22, 70, 255, 0.12);
+  color: #799bff;
+  border: 1px solid rgba(22, 70, 255, 0.3);
+  font-family: 'SF Mono', monospace;
+  font-size: 0.68rem;
+  padding: 4px 10px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+.fb-doc-sections-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1024px) {
+  .fb-doc-sections-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .fb-doc-sections-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fb-doc-section-pill {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  font-size: 0.8rem;
+}
+
+.fb-doc-section-pill span:first-child {
+  color: #e2dfd7;
+  font-weight: 500;
+}
+
+.fb-doc-section-pill span:last-child {
+  font-family: 'SF Mono', monospace;
+  font-size: 0.65rem;
+  color: #7a776e;
+  text-transform: uppercase;
+}
+
+.fb-doc-section-pill.is-conditional span:last-child {
+  color: #d19a42;
+}
+
+/* 05 Process & Timeline */
+.fb-process-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+@media (max-width: 1024px) {
+  .fb-process-timeline {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .fb-process-timeline {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+.fb-process-step {
+  border-top: 2px solid #1646ff;
+  padding-top: 20px;
+}
+
+.fb-step-num {
+  font-family: 'SF Mono', monospace;
+  font-size: 0.74rem;
+  color: #6a8eff;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.fb-process-step h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+
+.fb-process-step p {
+  font-size: 0.86rem;
+  color: #a5a196;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 06 30/60/90 Horizons */
+.fb-horizons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+}
+
+@media (max-width: 840px) {
+  .fb-horizons-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.fb-horizon-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  padding: 32px;
+}
+
+.fb-horizon-tag {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.fb-horizon-days {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.fb-horizon-unit {
+  font-family: 'SF Mono', monospace;
+  font-size: 0.75rem;
+  color: #8c897f;
+  letter-spacing: 0.1em;
+}
+
+.fb-horizon-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #faf8f5;
+  margin: 0 0 12px;
+}
+
+.fb-horizon-card p {
+  font-size: 0.88rem;
+  color: #a5a196;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 07 Boundaries Section */
+.fb-boundary-box {
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 2px solid #8c897f;
+  padding: 24px 32px;
+  margin: 40px 0;
+}
+
+.fb-boundary-box p {
+  font-size: 0.9rem;
+  color: #9c988e;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* 08 Conversion CTA */
+.fb-conversion {
+  padding: 100px 0 120px;
+  background: radial-gradient(ellipse at 50% 100%, rgba(22, 70, 255, 0.08), transparent 70%);
+}
+
+.fb-conversion-inner {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.fb-conversion-inner h2 {
+  font-size: clamp(36px, 4.4vw, 68px);
+  margin-bottom: 20px;
+}
+
+.fb-conversion-price {
+  font-family: 'SF Mono', monospace;
+  font-size: 0.88rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #a5a196;
+  margin-bottom: 32px;
+}
+
+.fb-conversion-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+  .fb-conversion-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .fb-conversion-actions a {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+.fb-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #1646ff;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 16px 28px;
+  border-radius: 2px;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.fb-btn-primary:hover {
+  background: #2d5bff;
+  transform: translateY(-1px);
+}
+
+.fb-btn-primary:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.fb-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #c9c5bc;
+  text-decoration: none;
+  font-size: 0.84rem;
+  letter-spacing: 0.06em;
+  padding: 16px 20px;
+  transition: color 0.18s ease;
+}
+
+.fb-btn-secondary:hover {
+  color: #ffffff;
+}
+
+/* Footer Chrome */
+.fb-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 48px 0 64px;
+  font-size: 0.82rem;
+  color: #7a776e;
+}
+
+.fb-footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.fb-footer-nav {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.fb-footer-nav a {
+  color: #8c897f;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.fb-footer-nav a:hover {
+  color: #ffffff;
+}

@@ -1,0 +1,297 @@
+{
+  "passed": 58,
+  "failed": 0,
+  "total": 58,
+  "checks": [
+    {
+      "name": "Founder Blueprint has V3 styling retired (dws-v3 class absent)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Kicker is STRATEGIC COMPANY DEVELOPMENT",
+      "pass": true,
+      "detail": "01 / STRATEGIC COMPANY DEVELOPMENT"
+    },
+    {
+      "name": "H1 contains \"Before we build the company, we define what must be built\"",
+      "pass": true,
+      "detail": "Before we build the company,we define what must be built."
+    },
+    {
+      "name": "Founder Blueprint price is $1,500",
+      "pass": true,
+      "detail": "$1,500"
+    },
+    {
+      "name": "Currency is USD",
+      "pass": true,
+      "detail": "USD"
+    },
+    {
+      "name": "Specs contain 2–3 Weeks timeline",
+      "pass": true,
+      "detail": "Timeline2–3 Weeks Focused ScopeSession60–90 minute strategy sessionCore ArtifactReviewed 21-Section Digital BlueprintExecution PlanPrioritized 30 / 60 / 90-Day Sequence"
+    },
+    {
+      "name": "Specs contain 60–90 minute session",
+      "pass": true,
+      "detail": "Timeline2–3 Weeks Focused ScopeSession60–90 minute strategy sessionCore ArtifactReviewed 21-Section Digital BlueprintExecution PlanPrioritized 30 / 60 / 90-Day Sequence"
+    },
+    {
+      "name": "Capture 01-founder-blueprint-desktop-1440.png saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Commercial progression ladder has 3 tiers",
+      "pass": true,
+      "detail": "found: 3"
+    },
+    {
+      "name": "Active step in ladder is Founder Blueprint",
+      "pass": true,
+      "detail": "Founder Blueprint"
+    },
+    {
+      "name": "Executive Q&A has 5 answers",
+      "pass": true,
+      "detail": "found: 5"
+    },
+    {
+      "name": "10 verified deliverables rendered",
+      "pass": true,
+      "detail": "found: 10"
+    },
+    {
+      "name": "21 document system sections rendered",
+      "pass": true,
+      "detail": "found: 21"
+    },
+    {
+      "name": "Capture 02-founder-blueprint-deliverables-1440.png saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "4-phase process timeline rendered",
+      "pass": true,
+      "detail": "found: 4"
+    },
+    {
+      "name": "3 planning horizons rendered (30/60/90)",
+      "pass": true,
+      "detail": "found: 3"
+    },
+    {
+      "name": "Regulatory/professional boundary disclaimer present",
+      "pass": true,
+      "detail": "Professional Boundaries & Regulatory DisclaimerCompany formation, licensing, permits, trademarks and regulated market activity are addressed through research, coordination and roadmaps. Legal, tax and other regulated professional services must be provided by qualified outside professionals. Their fees and execution are separate from this engagement."
+    },
+    {
+      "name": "Capture 03-founder-blueprint-process-1440.png saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Offer CTA links to /founder-blueprint/intake",
+      "pass": true,
+      "detail": "/founder-blueprint/intake"
+    },
+    {
+      "name": "Studio page has V3 styling retired (dws-v3 class absent)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Studio body room dataset is \"human\"",
+      "pass": true,
+      "detail": "human"
+    },
+    {
+      "name": "Studio H1 is \"Systems guided by human judgment\"",
+      "pass": true,
+      "detail": "Systems guided byhuman judgment."
+    },
+    {
+      "name": "Studio lead states independent company creation practice",
+      "pass": true,
+      "detail": "Dynasty Works is an independent company creation practice. We unite strategic advisory, brand architecture, industrial design, computational software, and commercial distribution under one roof."
+    },
+    {
+      "name": "Philosophy heading is \"An idea rarely needs only one thing\"",
+      "pass": true,
+      "detail": "An idea rarely needsonly one thing."
+    },
+    {
+      "name": "4 human signal operational tenets rendered",
+      "pass": true,
+      "detail": "found: 4"
+    },
+    {
+      "name": "Capture 04-studio-desktop-1440.png saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "8 core disciplines rendered",
+      "pass": true,
+      "detail": "found: 8"
+    },
+    {
+      "name": "3 commercial tiers rendered",
+      "pass": true,
+      "detail": "found: 3"
+    },
+    {
+      "name": "Tier 02 Founder Blueprint priced at $1,500",
+      "pass": true,
+      "detail": "$1,500 USD"
+    },
+    {
+      "name": "4 proof routing cards rendered",
+      "pass": true,
+      "detail": "found: 4"
+    },
+    {
+      "name": "Studio routes to /work",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Studio routes to /capabilities",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Studio routes to /#review-builder",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Studio routes to /founder-blueprint",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Capture 05-founder-blueprint-mobile-390.png saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Founder Blueprint mobile 390px zero horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Capture 06-studio-mobile-390.png saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Studio mobile 390px zero horizontal overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Founder Blueprint @ 320x640 zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Studio @ 320x640 zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Founder Blueprint @ 390x844 zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Studio @ 390x844 zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Founder Blueprint @ 430x932 zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Studio @ 430x932 zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Founder Blueprint @ 768x1024 zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Studio @ 768x1024 zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Founder Blueprint @ 1024x768 zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Studio @ 1024x768 zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Founder Blueprint @ 1440x900 zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Studio @ 1440x900 zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Founder Blueprint @ 1920x1080 zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Studio @ 1920x1080 zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Founder Blueprint @ 2560x1440 zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Studio @ 2560x1440 zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Clicking Begin Blueprint Intake navigates to /founder-blueprint/intake",
+      "pass": true,
+      "detail": "http://127.0.0.1:5202/founder-blueprint/intake"
+    },
+    {
+      "name": "Clicking Selected Work card navigates to /work",
+      "pass": true,
+      "detail": "http://127.0.0.1:5202/work"
+    },
+    {
+      "name": "Clicking Founder Blueprint card navigates to /founder-blueprint",
+      "pass": true,
+      "detail": "http://127.0.0.1:5202/founder-blueprint"
+    },
+    {
+      "name": "Zero console errors during execution",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

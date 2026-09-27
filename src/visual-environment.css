@@ -1,0 +1,102 @@
+/* Isolated lab layer. No changes to foreground geometry, layout or timing. */
+.has-environment .ve-environment{position:fixed;inset:0;pointer-events:none;z-index:0;background:var(--field);overflow:hidden;contain:strict}
+.ve-environment svg{display:block;width:100%;height:100%}
+.ve-environment>.ve-construction{position:absolute;inset:0}
+.ve-environment .ve-shadow{fill:#080a0d;opacity:.18}
+.ve-environment .ve-contact{fill:#080a0d;opacity:.16}
+.ve-environment .ve-joint{stroke:#080a0d;stroke-width:1;fill:none;opacity:.55}
+.ve-environment .ve-rebate{stroke:var(--surface-top);stroke-width:.8;fill:none}
+.ve-environment .ve-channel{stroke:#080a0d;stroke-width:4;fill:none;opacity:.6}
+.ve-environment .ve-top{fill:var(--surface-top)}
+.ve-environment .ve-edge{stroke:var(--drawing);stroke-width:.6;opacity:.25;fill:none}
+.ve-environment .ve-grid{stroke:var(--drawing);stroke-width:.7;fill:none}
+.ve-environment .ve-horizon{stroke:var(--drawing);stroke-width:.6;fill:none}
+.ve-environment .ve-axis{stroke:var(--rule);stroke-width:1;fill:none}
+.ve-environment .ve-aperture{stroke:#eee8d8;stroke-width:2.5;fill:none}
+.ve-environment .ve-pathway{stroke:#2457ff;stroke-width:1.6;fill:none}
+.ve-environment .ve-interface{fill:var(--surface-top);fill-opacity:.12;stroke:var(--rule);stroke-width:.8}
+.ve-environment .ve-canopy{fill:var(--surface-top);stroke:var(--rule);stroke-width:.5}
+.has-environment .p-arrival,.has-environment .p-evolution,.has-environment .p-stage{background:transparent}
+/* The existing foreground remains above the one continuous world. */
+.has-environment .p-arrival{z-index:1}
+@media(max-width:800px){
+ .ve-environment svg{width:155%;max-width:none;margin-left:-48%}
+ .ve-environment .ve-distant,.ve-environment .ve-grid,.ve-environment .ve-bays{display:none}
+ .ve-environment .ve-louvres>g:nth-child(even){display:none}
+ .ve-environment svg{opacity:.65}
+ .ve-environment .ve-canopy{opacity:.08}
+}
+
+
+/* Rendering study: geometry, projection and stage interpolation stay locked. */
+.ve-environment .ve-volume>polygon[fill="url(#ve-stone)"]{filter:url(#ve-mineral)}
+.ve-environment .ve-shadow{opacity:.28;filter:url(#ve-penumbra)}
+.ve-environment .ve-contact{opacity:.3}
+.ve-environment .ve-aperture{stroke:#fff0d0;filter:url(#ve-aperture-bloom)}
+.ve-environment .ve-distant{filter:blur(.45px)}
+.ve-environment .ve-joint{opacity:.72}
+.ve-environment .ve-rebate{stroke:#d5cbb6;stroke-opacity:.55}
+@media(max-width:800px){
+ .ve-environment .ve-volume>polygon[fill="url(#ve-stone)"],
+ .ve-environment .ve-shadow,.ve-environment .ve-aperture,.ve-environment .ve-distant{filter:none}
+}
+
+/* V5.5B: independent atmospheric field under the locked construction model. */
+.ve-cinematic-field{position:absolute;inset:0;background:
+ radial-gradient(ellipse at 87% 27%,#e7dcc5 0%,transparent 37%),
+ linear-gradient(112deg,#d1c9bb 0%,#ccc4b6 36%,#a0998e 74%,#736f69 100%)}
+.ve-mineral-dusk{position:absolute;inset:0;opacity:var(--ve-dusk);background:
+ radial-gradient(ellipse at 89% 28%,#51483b 0%,transparent 37%),
+ radial-gradient(ellipse at 72% 80%,#353530 0%,transparent 43%),
+ linear-gradient(110deg,#151718 0%,#1d2021 52%,#0d1114 100%)}
+.ve-light-volume{position:absolute;inset:0;opacity:calc(.26 + var(--ve-built)*.2);background:
+ linear-gradient(112deg,transparent 61%,#e8cda125 68%,transparent 78%),
+ radial-gradient(ellipse at 83% 65%,#dfcaa122 0%,transparent 48%);
+ mask-image:linear-gradient(90deg,transparent 38%,#000 75%)}
+.ve-atmosphere{position:relative}
+.ve-environment .ve-floor{opacity:.4}
+.ve-environment .ve-grid,.ve-environment .ve-axis{stroke-opacity:.38}
+.ve-environment .ve-distant{filter:blur(.8px);stroke-opacity:.3}
+.ve-environment .ve-bays{filter:blur(.25px)}
+/* Three downstream environments; no content, layout or control changes. */
+.has-environment.r51 .r51-builder{background:
+ linear-gradient(105deg,transparent 64%,#716d6330 64.15%,transparent 65%),
+ radial-gradient(ellipse at 83% 22%,#e1d5ba70,transparent 44%),
+ linear-gradient(115deg,#d1cabe,#c4bdaf 70%,#aaa598);--field:#c9c2b5}
+.has-environment .r52-proof{background:
+ radial-gradient(ellipse at 85% 35%,#4a453a66,transparent 49%),
+ linear-gradient(115deg,#1b1e20,#292c2c 63%,#131719)}
+.has-environment .r52-invitation{background:
+ linear-gradient(90deg,transparent 76%,#eee1c391 76.2%,#e7dbc180 79%,transparent 79.2%),
+ radial-gradient(ellipse at 79% 80%,#f0dfbd80,transparent 42%),
+ linear-gradient(108deg,#c2bbaf,#d4cabb 68%,#a39e94)}
+@media(max-width:800px){
+ .ve-environment .ve-distant,.ve-environment .ve-bays{filter:none}
+ .ve-light-volume{opacity:.2}
+}
+
+/* Keep downstream live sections above the fixed environmental stage. */
+.has-environment .r52-invitation{position:relative;z-index:1}
+
+
+/* Company-only A/B: all live foreground remains outside the renderer. */
+.ve-ab-hidden{visibility:hidden}
+.ve-cinematic-company{position:fixed;inset:0;z-index:0;pointer-events:none;background:#191c1e;overflow:hidden}
+.ve-webgl{position:absolute;inset:0;mask-image:linear-gradient(90deg,transparent 25%,#000 69%)}
+.ve-webgl canvas{display:block}
+.ve-render-toggle{position:fixed;z-index:80;right:20px;top:55px;display:flex;gap:1px;background:#aaa79f;border:1px solid #aaa79f}
+.ve-render-toggle button{border:0;border-radius:0;background:#e4dfd4;color:#111214;padding:12px;min-height:44px;font:12px PManrope,sans-serif;cursor:pointer}
+.ve-render-toggle button[aria-pressed=true]{background:#242728;color:#f0ece3}
+.ve-render-toggle button:focus-visible{outline:3px solid #2457ff;outline-offset:3px}
+.ve-render-status{position:absolute;right:30px;top:120px;color:#eee9df}
+@media(max-width:800px){.ve-render-toggle{top:auto;bottom:8px;right:12px}.ve-render-toggle button{padding:10px;font-size:10px}.ve-webgl{width:155%;left:-48%;right:auto;mask-image:linear-gradient(90deg,transparent 20%,#000 85%)}}
+
+.ve-cinematic-company:after{content:"";position:absolute;inset:70% 0 0;pointer-events:none;background:linear-gradient(transparent,#191c1ed9)}
+
+/* V5.7 progressive enhancement: lightweight remains underneath until ready. */
+.ve-integrated{transition:opacity 360ms cubic-bezier(.22,.68,.12,1)}
+.ve-integrated:after{background:linear-gradient(transparent,var(--field,#191c1e));opacity:.65}
+.ve-world{mask-image:linear-gradient(90deg,transparent 27%,#000 80%)}
+.ve-render-toggle>span{background:#ece9e1;color:#111214;padding:10px;font:11px PManrope,sans-serif}
+@media(max-width:800px){.ve-webgl.ve-world{inset:0;width:100%;left:0;mask-image:linear-gradient(180deg,transparent 15%,#0009 40%,#000 65%,transparent 93%)}}
+@media(prefers-reduced-motion:reduce){.ve-integrated{transition:none}}

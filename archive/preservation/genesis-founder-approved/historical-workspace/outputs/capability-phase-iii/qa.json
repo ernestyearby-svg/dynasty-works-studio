@@ -1,0 +1,598 @@
+{
+  "checks": [
+    {
+      "name": "capital overflow 320/200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 320/800",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 320/1200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 320/2400",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 360/200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 360/800",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 360/1200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 360/2400",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 375/200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 375/800",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 375/1200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 375/2400",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 390/200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 390/800",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 390/1200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 390/2400",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 430/200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 430/800",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 430/1200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 430/2400",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 768/200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 768/800",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 768/1200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 768/2400",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 1024/200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 1024/800",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 1024/1200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 1024/2400",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 1280/200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 1280/800",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 1280/1200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 1280/2400",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 1440/200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 1440/800",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 1440/1200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 1440/2400",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 1920/200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 1920/800",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 1920/1200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 1920/2400",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 2560/200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 2560/800",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 2560/1200",
+      "pass": true
+    },
+    {
+      "name": "capital overflow 2560/2400",
+      "pass": true
+    },
+    {
+      "name": "capital keyboard slider",
+      "pass": true
+    },
+    {
+      "name": "capital focus",
+      "pass": true
+    },
+    {
+      "name": "Capital revenue 200",
+      "pass": true
+    },
+    {
+      "name": "Capital operating result 200",
+      "pass": true
+    },
+    {
+      "name": "Capital revenue 800",
+      "pass": true
+    },
+    {
+      "name": "Capital operating result 800",
+      "pass": true
+    },
+    {
+      "name": "Capital revenue 1200",
+      "pass": true
+    },
+    {
+      "name": "Capital operating result 1200",
+      "pass": true
+    },
+    {
+      "name": "Capital revenue 2400",
+      "pass": true
+    },
+    {
+      "name": "Capital operating result 2400",
+      "pass": true
+    },
+    {
+      "name": "Capital allocation total",
+      "pass": true
+    },
+    {
+      "name": "Runway computed",
+      "pass": true
+    },
+    {
+      "name": "Capital reduced motion",
+      "pass": true
+    },
+    {
+      "name": "orchestration overflow 320/null",
+      "pass": true
+    },
+    {
+      "name": "orchestration overflow 360/null",
+      "pass": true
+    },
+    {
+      "name": "orchestration overflow 375/null",
+      "pass": true
+    },
+    {
+      "name": "orchestration overflow 390/null",
+      "pass": true
+    },
+    {
+      "name": "orchestration overflow 430/null",
+      "pass": true
+    },
+    {
+      "name": "orchestration overflow 768/null",
+      "pass": true
+    },
+    {
+      "name": "orchestration overflow 1024/null",
+      "pass": true
+    },
+    {
+      "name": "orchestration overflow 1280/null",
+      "pass": true
+    },
+    {
+      "name": "orchestration overflow 1440/null",
+      "pass": true
+    },
+    {
+      "name": "orchestration overflow 1920/null",
+      "pass": true
+    },
+    {
+      "name": "orchestration overflow 2560/null",
+      "pass": true
+    },
+    {
+      "name": "Gate actually holds",
+      "pass": true
+    },
+    {
+      "name": "Downstream remains waiting",
+      "pass": true
+    },
+    {
+      "name": "Return re-enters gate",
+      "pass": true
+    },
+    {
+      "name": "Keyboard reject",
+      "pass": true
+    },
+    {
+      "name": "Exception isolated",
+      "pass": true
+    },
+    {
+      "name": "Publish blocked",
+      "pass": true
+    },
+    {
+      "name": "Retry completes",
+      "pass": true
+    },
+    {
+      "name": "Audit recorded",
+      "pass": true
+    },
+    {
+      "name": "Execution reduced motion",
+      "pass": true
+    },
+    {
+      "name": "space overflow 320/0",
+      "pass": true
+    },
+    {
+      "name": "space overflow 320/25",
+      "pass": true
+    },
+    {
+      "name": "space overflow 320/50",
+      "pass": true
+    },
+    {
+      "name": "space overflow 320/75",
+      "pass": true
+    },
+    {
+      "name": "space overflow 320/100",
+      "pass": true
+    },
+    {
+      "name": "space overflow 360/0",
+      "pass": true
+    },
+    {
+      "name": "space overflow 360/25",
+      "pass": true
+    },
+    {
+      "name": "space overflow 360/50",
+      "pass": true
+    },
+    {
+      "name": "space overflow 360/75",
+      "pass": true
+    },
+    {
+      "name": "space overflow 360/100",
+      "pass": true
+    },
+    {
+      "name": "space overflow 375/0",
+      "pass": true
+    },
+    {
+      "name": "space overflow 375/25",
+      "pass": true
+    },
+    {
+      "name": "space overflow 375/50",
+      "pass": true
+    },
+    {
+      "name": "space overflow 375/75",
+      "pass": true
+    },
+    {
+      "name": "space overflow 375/100",
+      "pass": true
+    },
+    {
+      "name": "space overflow 390/0",
+      "pass": true
+    },
+    {
+      "name": "space overflow 390/25",
+      "pass": true
+    },
+    {
+      "name": "space overflow 390/50",
+      "pass": true
+    },
+    {
+      "name": "space overflow 390/75",
+      "pass": true
+    },
+    {
+      "name": "space overflow 390/100",
+      "pass": true
+    },
+    {
+      "name": "space overflow 430/0",
+      "pass": true
+    },
+    {
+      "name": "space overflow 430/25",
+      "pass": true
+    },
+    {
+      "name": "space overflow 430/50",
+      "pass": true
+    },
+    {
+      "name": "space overflow 430/75",
+      "pass": true
+    },
+    {
+      "name": "space overflow 430/100",
+      "pass": true
+    },
+    {
+      "name": "space overflow 768/0",
+      "pass": true
+    },
+    {
+      "name": "space overflow 768/25",
+      "pass": true
+    },
+    {
+      "name": "space overflow 768/50",
+      "pass": true
+    },
+    {
+      "name": "space overflow 768/75",
+      "pass": true
+    },
+    {
+      "name": "space overflow 768/100",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1024/0",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1024/25",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1024/50",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1024/75",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1024/100",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1280/0",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1280/25",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1280/50",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1280/75",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1280/100",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1440/0",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1440/25",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1440/50",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1440/75",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1440/100",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1920/0",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1920/25",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1920/50",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1920/75",
+      "pass": true
+    },
+    {
+      "name": "space overflow 1920/100",
+      "pass": true
+    },
+    {
+      "name": "space overflow 2560/0",
+      "pass": true
+    },
+    {
+      "name": "space overflow 2560/25",
+      "pass": true
+    },
+    {
+      "name": "space overflow 2560/50",
+      "pass": true
+    },
+    {
+      "name": "space overflow 2560/75",
+      "pass": true
+    },
+    {
+      "name": "space overflow 2560/100",
+      "pass": true
+    },
+    {
+      "name": "space keyboard slider",
+      "pass": true
+    },
+    {
+      "name": "space focus",
+      "pass": true
+    },
+    {
+      "name": "01 Plan",
+      "pass": true
+    },
+    {
+      "name": "02 Mass",
+      "pass": true
+    },
+    {
+      "name": "03 Structure",
+      "pass": true
+    },
+    {
+      "name": "04 Circulation",
+      "pass": true
+    },
+    {
+      "name": "05 Material",
+      "pass": true
+    },
+    {
+      "name": "06 Light",
+      "pass": true
+    },
+    {
+      "name": "07 Human scale",
+      "pass": true
+    },
+    {
+      "name": "08 Occupation",
+      "pass": true
+    },
+    {
+      "name": "Architectural canvas loaded",
+      "pass": true
+    },
+    {
+      "name": "Space reduced motion control",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "perf": [
+    {
+      "route": "capital",
+      "median": 16.699999999999818,
+      "p95": 16.800000000000182
+    },
+    {
+      "route": "orchestration",
+      "median": 16.69999999999709,
+      "p95": 16.80000000000291
+    },
+    {
+      "route": "space",
+      "median": 16.699999999999818,
+      "p95": 16.800000000000182
+    }
+  ]
+}

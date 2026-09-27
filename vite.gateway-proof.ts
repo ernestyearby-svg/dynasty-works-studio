@@ -1,0 +1,9 @@
+import {defineConfig} from 'vite';
+import react from '@vitejs/plugin-react';
+import {resolve} from 'node:path';
+import {copyFileSync,mkdirSync} from 'node:fs';
+const studies=['3d-product','web','os','mobile','identity','packaging','capital','orchestration','space'];
+const output='dist/gateway-proof';
+export default defineConfig({plugins:[react(),{name:'isolated-gateway-proof',configurePreviewServer(server){server.middlewares.use((req,_res,next)=>{const path=req.url?.split('?')[0];if(path&&(/^\/capability-gateway-proof(?:\/[ac])?$/.test(path)||/^\/capability-lab(?:\/[^/]+)?$/.test(path)||path==='/genesis-full'))req.url=path+'/index.html';next();});},configureServer(server){server.middlewares.use((req,_res,next)=>{const path=req.url?.split('?')[0].replace(/\/$/,'');if(path?.startsWith('/capability-gateway-proof'))req.url='/capability-gateway-proof/index.html';else if(path==='/genesis-full')req.url='/genesis-full/index.html';else if(path==='/capability-lab'||studies.some(s=>path==='/capability-lab/'+s))req.url='/capability-lab/index.html';next();});},writeBundle(){for(const s of ['a','c']){mkdirSync(`${output}/capability-gateway-proof/${s}`,{recursive:true});copyFileSync(`${output}/capability-gateway-proof/index.html`,`${output}/capability-gateway-proof/${s}/index.html`);}for(const s of studies){mkdirSync(`${output}/capability-lab/${s}`,{recursive:true});copyFileSync(`${output}/capability-lab/index.html`,`${output}/capability-lab/${s}/index.html`);}mkdirSync(`${output}/fonts`,{recursive:true});for(const font of ['manrope','bodoni-moda'])copyFileSync(`public/fonts/${font}.woff2`,`${output}/fonts/${font}.woff2`);}}],build:{outDir:output,copyPublicDir:false,rollupOptions:{input:{gateway:resolve('capability-gateway-proof/index.html'),capability:resolve('capability-lab/index.html'),genesis:resolve('genesis-full/index.html')}}},server:{host:'127.0.0.1',port:5201,strictPort:true},preview:{host:'127.0.0.1',port:5201,strictPort:true}});
+
+

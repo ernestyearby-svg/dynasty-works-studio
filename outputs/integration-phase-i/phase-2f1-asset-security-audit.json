@@ -1,0 +1,205 @@
+{
+  "suite": "Phase 2F.1 Asset Intake Security Audit",
+  "timestamp": "2026-09-21T22:07:45.304Z",
+  "total": 35,
+  "passed": 35,
+  "failed": 0,
+  "results": [
+    {
+      "section": "Filename Sanitization",
+      "name": "Unix root traversal",
+      "passed": true,
+      "detail": "Input: \"../../../../etc/passwd\" -> Output: \"passwd\""
+    },
+    {
+      "section": "Filename Sanitization",
+      "name": "Windows root traversal",
+      "passed": true,
+      "detail": "Input: \"..\\..\\windows\\system32\\cmd.exe\" -> Output: \"cmd.exe\""
+    },
+    {
+      "section": "Filename Sanitization",
+      "name": "Relative parent traversal",
+      "passed": true,
+      "detail": "Input: \"../secret_brief.pdf\" -> Output: \"secret_brief.pdf\""
+    },
+    {
+      "section": "Filename Sanitization",
+      "name": "Subdirectory path stripping",
+      "passed": true,
+      "detail": "Input: \"dir1/dir2/confidential.docx\" -> Output: \"confidential.docx\""
+    },
+    {
+      "section": "Filename Sanitization",
+      "name": "XSS script injection",
+      "passed": true,
+      "detail": "Input: \"<script>alert(\"xss\")</script>.\" -> Output: \"script_.pdf\""
+    },
+    {
+      "section": "Filename Sanitization",
+      "name": "Command chaining injection",
+      "passed": true,
+      "detail": "Input: \"file;rm -rf /;.pdf\" -> Output: \"_.pdf\""
+    },
+    {
+      "section": "Filename Sanitization",
+      "name": "Pipe redirection injection",
+      "passed": true,
+      "detail": "Input: \"file|calc.exe.pdf\" -> Output: \"file_calc.exe.pdf\""
+    },
+    {
+      "section": "Filename Sanitization",
+      "name": "300+ character filename overflow",
+      "passed": true,
+      "detail": "Input: \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\" -> Output: \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\""
+    },
+    {
+      "section": "Filename Sanitization",
+      "name": "Null byte injection",
+      "passed": true,
+      "detail": "Input: \"Brief\u0000NullByte.pdf\" -> Output: \"Brief_NullByte.pdf\""
+    },
+    {
+      "section": "Filename Sanitization",
+      "name": "Special character normalization",
+      "passed": true,
+      "detail": "Input: \"Venture Brief 2026 (Final) #1!\" -> Output: \"Venture_Brief_2026__Final___1_\""
+    },
+    {
+      "section": "Filename Sanitization",
+      "name": "Whitespace-only fallback",
+      "passed": true,
+      "detail": "Input: \"   \" -> Output: \"unnamed_asset\""
+    },
+    {
+      "section": "Filename Sanitization",
+      "name": "Symbol-only fallback",
+      "passed": true,
+      "detail": "Input: \"$$$###@@@\" -> Output: \"_________\""
+    },
+    {
+      "section": "Storage Isolation",
+      "name": "Duplicate filenames yield unique storage paths",
+      "passed": true,
+      "detail": "00000000-0000-0000-0000-000000000001/52b00fb3-e74f-4745-b81e-98b1841062aa-deck.pdf vs 00000000-0000-0000-0000-000000000001/bc1a9a6f-6c5d-40f5-847a-1ffb3215a42c-deck.pdf"
+    },
+    {
+      "section": "Storage Isolation",
+      "name": "Storage path begins with inquiryId boundary",
+      "passed": true
+    },
+    {
+      "section": "Storage Isolation",
+      "name": "Storage path format matches {inquiryId}/{uuid}-{name}",
+      "passed": true
+    },
+    {
+      "section": "Inquiry Creation",
+      "name": "Submissions endpoint returns HTTP 202",
+      "passed": true,
+      "detail": "Status 202"
+    },
+    {
+      "section": "Inquiry Creation",
+      "name": "Valid receipt ID generated",
+      "passed": true
+    },
+    {
+      "section": "Inquiry Creation",
+      "name": "Inquiry persisted in database",
+      "passed": true
+    },
+    {
+      "section": "Asset Handler",
+      "name": "Authorize request with traversal names returns HTTP 200",
+      "passed": true
+    },
+    {
+      "section": "Asset Handler",
+      "name": "Returns uploads array with 3 items",
+      "passed": true
+    },
+    {
+      "section": "Asset Handler",
+      "name": "Storage path is sanitized for 733f246e-51ae-4379-ab00-40d96e1dfcec",
+      "passed": true,
+      "detail": "Path: 2b001f5a-dbae-47f9-a20d-3f6eeac4c181/733f246e-51ae-4379-ab00-40d96e1dfcec-shadow.pdf"
+    },
+    {
+      "section": "Asset Handler",
+      "name": "Storage path starts with inquiry directory",
+      "passed": true
+    },
+    {
+      "section": "Asset Handler",
+      "name": "Storage path is sanitized for 35f28f85-271c-4000-a8e2-7f382bb5570d",
+      "passed": true,
+      "detail": "Path: 2b001f5a-dbae-47f9-a20d-3f6eeac4c181/35f28f85-271c-4000-a8e2-7f382bb5570d-win.ini.docx"
+    },
+    {
+      "section": "Asset Handler",
+      "name": "Storage path starts with inquiry directory",
+      "passed": true
+    },
+    {
+      "section": "Asset Handler",
+      "name": "Storage path is sanitized for 7bbbf66a-c9c2-4abd-9d8d-defe7b5c2b7a",
+      "passed": true,
+      "detail": "Path: 2b001f5a-dbae-47f9-a20d-3f6eeac4c181/7bbbf66a-c9c2-4abd-9d8d-defe7b5c2b7a-_svg_onload_alert_1__.png"
+    },
+    {
+      "section": "Asset Handler",
+      "name": "Storage path starts with inquiry directory",
+      "passed": true
+    },
+    {
+      "section": "Security Policy",
+      "name": "Rejects .exe upload with HTTP 400",
+      "passed": true
+    },
+    {
+      "section": "Security Policy",
+      "name": "Rejects .sh script upload with HTTP 400",
+      "passed": true
+    },
+    {
+      "section": "Storage Privacy",
+      "name": "founder-intake-assets bucket exists",
+      "passed": true
+    },
+    {
+      "section": "Storage Privacy",
+      "name": "Bucket is strictly private (public = false)",
+      "passed": true
+    },
+    {
+      "section": "Storage Privacy",
+      "name": "File size limit is set to 25 MB (26214400 bytes)",
+      "passed": true
+    },
+    {
+      "section": "Storage Privacy",
+      "name": "Unauthenticated anonymous GET to public object URL returns error (access denied)",
+      "passed": true,
+      "detail": "Status: 400"
+    },
+    {
+      "section": "Zero Residue",
+      "name": "0 rows remaining in dynasty_private.inquiry_assets",
+      "passed": true,
+      "detail": "Count: 0"
+    },
+    {
+      "section": "Zero Residue",
+      "name": "0 rows remaining in dynasty_private.inquiries",
+      "passed": true,
+      "detail": "Count: 0"
+    },
+    {
+      "section": "Zero Residue",
+      "name": "0 rows remaining in dynasty_private.leads",
+      "passed": true,
+      "detail": "Count: 0"
+    }
+  ]
+}

@@ -1,0 +1,449 @@
+{
+  "checks": [
+    {
+      "name": "a direct production entry",
+      "pass": true
+    },
+    {
+      "name": "a held advance disabled",
+      "pass": true
+    },
+    {
+      "name": "a hold blocks release",
+      "pass": true
+    },
+    {
+      "name": "a focus visible",
+      "pass": true
+    },
+    {
+      "name": "a keyboard authorization",
+      "pass": true
+    },
+    {
+      "name": "a validation before release",
+      "pass": true
+    },
+    {
+      "name": "a one release",
+      "pass": true
+    },
+    {
+      "name": "a completion precedes receipt",
+      "pass": true
+    },
+    {
+      "name": "a receipt",
+      "pass": true
+    },
+    {
+      "name": "a recovery restores capacity",
+      "pass": true
+    },
+    {
+      "name": "a feedback next proposal",
+      "pass": true
+    },
+    {
+      "name": "a reverse retains decision",
+      "pass": true
+    },
+    {
+      "name": "a reentry idempotent",
+      "pass": true
+    },
+    {
+      "name": "a overflow 320/0",
+      "pass": true
+    },
+    {
+      "name": "a overflow 320/50",
+      "pass": true
+    },
+    {
+      "name": "a overflow 320/100",
+      "pass": true
+    },
+    {
+      "name": "a overflow 360/0",
+      "pass": true
+    },
+    {
+      "name": "a overflow 360/50",
+      "pass": true
+    },
+    {
+      "name": "a overflow 360/100",
+      "pass": true
+    },
+    {
+      "name": "a overflow 375/0",
+      "pass": true
+    },
+    {
+      "name": "a overflow 375/50",
+      "pass": true
+    },
+    {
+      "name": "a overflow 375/100",
+      "pass": true
+    },
+    {
+      "name": "a overflow 390/0",
+      "pass": true
+    },
+    {
+      "name": "a overflow 390/50",
+      "pass": true
+    },
+    {
+      "name": "a overflow 390/100",
+      "pass": true
+    },
+    {
+      "name": "a overflow 430/0",
+      "pass": true
+    },
+    {
+      "name": "a overflow 430/50",
+      "pass": true
+    },
+    {
+      "name": "a overflow 430/100",
+      "pass": true
+    },
+    {
+      "name": "a overflow 768/0",
+      "pass": true
+    },
+    {
+      "name": "a overflow 768/50",
+      "pass": true
+    },
+    {
+      "name": "a overflow 768/100",
+      "pass": true
+    },
+    {
+      "name": "a overflow 1024/0",
+      "pass": true
+    },
+    {
+      "name": "a overflow 1024/50",
+      "pass": true
+    },
+    {
+      "name": "a overflow 1024/100",
+      "pass": true
+    },
+    {
+      "name": "a overflow 1280/0",
+      "pass": true
+    },
+    {
+      "name": "a overflow 1280/50",
+      "pass": true
+    },
+    {
+      "name": "a overflow 1280/100",
+      "pass": true
+    },
+    {
+      "name": "a overflow 1440/0",
+      "pass": true
+    },
+    {
+      "name": "a overflow 1440/50",
+      "pass": true
+    },
+    {
+      "name": "a overflow 1440/100",
+      "pass": true
+    },
+    {
+      "name": "a overflow 1920/0",
+      "pass": true
+    },
+    {
+      "name": "a overflow 1920/50",
+      "pass": true
+    },
+    {
+      "name": "a overflow 1920/100",
+      "pass": true
+    },
+    {
+      "name": "a overflow 2560/0",
+      "pass": true
+    },
+    {
+      "name": "a overflow 2560/50",
+      "pass": true
+    },
+    {
+      "name": "a overflow 2560/100",
+      "pass": true
+    },
+    {
+      "name": "a keyboard inspection",
+      "pass": true
+    },
+    {
+      "name": "a reduced motion no auto",
+      "pass": true
+    },
+    {
+      "name": "a reduced spatial animation removed",
+      "pass": true
+    },
+    {
+      "name": "a reduced full transaction",
+      "pass": true
+    },
+    {
+      "name": "a finite auto settles",
+      "pass": true
+    },
+    {
+      "name": "a auto no duplicate",
+      "pass": true
+    },
+    {
+      "name": "a refresh starts explicit fresh demo",
+      "pass": true
+    },
+    {
+      "name": "b direct production entry",
+      "pass": true
+    },
+    {
+      "name": "b held advance disabled",
+      "pass": true
+    },
+    {
+      "name": "b hold blocks release",
+      "pass": true
+    },
+    {
+      "name": "b focus visible",
+      "pass": true
+    },
+    {
+      "name": "b keyboard authorization",
+      "pass": true
+    },
+    {
+      "name": "b validation before release",
+      "pass": true
+    },
+    {
+      "name": "b one release",
+      "pass": true
+    },
+    {
+      "name": "b completion precedes receipt",
+      "pass": true
+    },
+    {
+      "name": "b receipt",
+      "pass": true
+    },
+    {
+      "name": "b recovery restores capacity",
+      "pass": true
+    },
+    {
+      "name": "b feedback next proposal",
+      "pass": true
+    },
+    {
+      "name": "b reverse retains decision",
+      "pass": true
+    },
+    {
+      "name": "b reentry idempotent",
+      "pass": true
+    },
+    {
+      "name": "b overflow 320/0",
+      "pass": true
+    },
+    {
+      "name": "b overflow 320/50",
+      "pass": true
+    },
+    {
+      "name": "b overflow 320/100",
+      "pass": true
+    },
+    {
+      "name": "b overflow 360/0",
+      "pass": true
+    },
+    {
+      "name": "b overflow 360/50",
+      "pass": true
+    },
+    {
+      "name": "b overflow 360/100",
+      "pass": true
+    },
+    {
+      "name": "b overflow 375/0",
+      "pass": true
+    },
+    {
+      "name": "b overflow 375/50",
+      "pass": true
+    },
+    {
+      "name": "b overflow 375/100",
+      "pass": true
+    },
+    {
+      "name": "b overflow 390/0",
+      "pass": true
+    },
+    {
+      "name": "b overflow 390/50",
+      "pass": true
+    },
+    {
+      "name": "b overflow 390/100",
+      "pass": true
+    },
+    {
+      "name": "b overflow 430/0",
+      "pass": true
+    },
+    {
+      "name": "b overflow 430/50",
+      "pass": true
+    },
+    {
+      "name": "b overflow 430/100",
+      "pass": true
+    },
+    {
+      "name": "b overflow 768/0",
+      "pass": true
+    },
+    {
+      "name": "b overflow 768/50",
+      "pass": true
+    },
+    {
+      "name": "b overflow 768/100",
+      "pass": true
+    },
+    {
+      "name": "b overflow 1024/0",
+      "pass": true
+    },
+    {
+      "name": "b overflow 1024/50",
+      "pass": true
+    },
+    {
+      "name": "b overflow 1024/100",
+      "pass": true
+    },
+    {
+      "name": "b overflow 1280/0",
+      "pass": true
+    },
+    {
+      "name": "b overflow 1280/50",
+      "pass": true
+    },
+    {
+      "name": "b overflow 1280/100",
+      "pass": true
+    },
+    {
+      "name": "b overflow 1440/0",
+      "pass": true
+    },
+    {
+      "name": "b overflow 1440/50",
+      "pass": true
+    },
+    {
+      "name": "b overflow 1440/100",
+      "pass": true
+    },
+    {
+      "name": "b overflow 1920/0",
+      "pass": true
+    },
+    {
+      "name": "b overflow 1920/50",
+      "pass": true
+    },
+    {
+      "name": "b overflow 1920/100",
+      "pass": true
+    },
+    {
+      "name": "b overflow 2560/0",
+      "pass": true
+    },
+    {
+      "name": "b overflow 2560/50",
+      "pass": true
+    },
+    {
+      "name": "b overflow 2560/100",
+      "pass": true
+    },
+    {
+      "name": "b keyboard inspection",
+      "pass": true
+    },
+    {
+      "name": "b reduced motion no auto",
+      "pass": true
+    },
+    {
+      "name": "b reduced spatial animation removed",
+      "pass": true
+    },
+    {
+      "name": "b reduced full transaction",
+      "pass": true
+    },
+    {
+      "name": "b finite auto settles",
+      "pass": true
+    },
+    {
+      "name": "b auto no duplicate",
+      "pass": true
+    },
+    {
+      "name": "b refresh starts explicit fresh demo",
+      "pass": true
+    },
+    {
+      "name": "neutral index two links",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "captures": [
+    "outputs/genesis-company-ab/a-held-1440.png",
+    "outputs/genesis-company-ab/a-held-390.png",
+    "outputs/genesis-company-ab/a-authorized-1440.png",
+    "outputs/genesis-company-ab/a-active-1440.png",
+    "outputs/genesis-company-ab/a-settled-1440.png",
+    "outputs/genesis-company-ab/a-settled-390.png",
+    "outputs/genesis-company-ab/a-reverse-1440.png",
+    "outputs/genesis-company-ab/b-held-1440.png",
+    "outputs/genesis-company-ab/b-held-390.png",
+    "outputs/genesis-company-ab/b-authorized-1440.png",
+    "outputs/genesis-company-ab/b-active-1440.png",
+    "outputs/genesis-company-ab/b-settled-1440.png",
+    "outputs/genesis-company-ab/b-settled-390.png",
+    "outputs/genesis-company-ab/b-reverse-1440.png"
+  ]
+}

@@ -1,0 +1,415 @@
+{
+  "errors": [],
+  "widths": [
+    {
+      "width": 320,
+      "state": "02—05",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "state": "06—09",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "state": "10—13",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "state": "14—17",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "state": "packaging",
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "state": "02—05",
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "state": "06—09",
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "state": "10—13",
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "state": "14—17",
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "state": "packaging",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "state": "02—05",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "state": "06—09",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "state": "10—13",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "state": "14—17",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "state": "packaging",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "state": "02—05",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "state": "06—09",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "state": "10—13",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "state": "14—17",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "state": "packaging",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "state": "02—05",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "state": "06—09",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "state": "10—13",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "state": "14—17",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "state": "packaging",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "state": "02—05",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "state": "06—09",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "state": "10—13",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "state": "14—17",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "state": "packaging",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "state": "02—05",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "state": "06—09",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "state": "10—13",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "state": "14—17",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "state": "packaging",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "state": "02—05",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "state": "06—09",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "state": "10—13",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "state": "14—17",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "state": "packaging",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "state": "02—05",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "state": "06—09",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "state": "10—13",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "state": "14—17",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "state": "packaging",
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "state": "02—05",
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "state": "06—09",
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "state": "10—13",
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "state": "14—17",
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "state": "packaging",
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "state": "02—05",
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "state": "06—09",
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "state": "10—13",
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "state": "14—17",
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "state": "packaging",
+      "overflow": false
+    }
+  ],
+  "cropChecks": [
+    {
+      "src": "/assets/mymosa-native/details/classic-orange-brand.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/classic-orange-classification.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/classic-orange-image.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/classic-orange-flavor.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/classic-orange-information.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/pineapple-brand.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/pineapple-classification.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/pineapple-image.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/pineapple-flavor.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/pineapple-information.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/tropical-blend-brand.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/tropical-blend-classification.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/tropical-blend-image.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/tropical-blend-flavor.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/tropical-blend-information.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/strawberry-brand.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/strawberry-classification.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/strawberry-image.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/strawberry-flavor.webp",
+      "loaded": true,
+      "notUpscaled": true
+    },
+    {
+      "src": "/assets/mymosa-native/details/strawberry-information.webp",
+      "loaded": true,
+      "notUpscaled": true
+    }
+  ],
+  "keyboard": "true",
+  "comparisons": [
+    {
+      "width": 1440,
+      "act": "arrival",
+      "sameDimensions": true,
+      "differentChannels": 0,
+      "total": 3844800
+    },
+    {
+      "width": 1440,
+      "act": "system",
+      "sameDimensions": true,
+      "differentChannels": 492772,
+      "total": 5192640
+    },
+    {
+      "width": 390,
+      "act": "arrival",
+      "sameDimensions": true,
+      "differentChannels": 112384,
+      "total": 1162980
+    },
+    {
+      "width": 390,
+      "act": "system",
+      "sameDimensions": true,
+      "differentChannels": 126455,
+      "total": 1386450
+    }
+  ],
+  "sections": 4,
+  "reduced": "0s"
+}

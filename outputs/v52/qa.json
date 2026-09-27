@@ -1,0 +1,182 @@
+{
+  "errors": [],
+  "widths": [
+    {
+      "width": 320,
+      "act": "proof",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "act": "invitation",
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "act": "proof",
+      "overflow": false
+    },
+    {
+      "width": 360,
+      "act": "invitation",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "act": "proof",
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "act": "invitation",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "act": "proof",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "act": "invitation",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "act": "proof",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "act": "invitation",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "act": "proof",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "act": "invitation",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "act": "proof",
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "act": "invitation",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "act": "proof",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "act": "invitation",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "act": "proof",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "act": "invitation",
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "act": "proof",
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "act": "invitation",
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "act": "proof",
+      "overflow": false
+    },
+    {
+      "width": 2560,
+      "act": "invitation",
+      "overflow": false
+    }
+  ],
+  "compare": [
+    {
+      "width": 1440,
+      "act": "arrival",
+      "identical": false
+    },
+    {
+      "width": 1440,
+      "act": "company",
+      "identical": true
+    },
+    {
+      "width": 1440,
+      "act": "build",
+      "identical": true
+    },
+    {
+      "width": 1440,
+      "act": "builder",
+      "identical": false
+    },
+    {
+      "width": 390,
+      "act": "arrival",
+      "identical": true
+    },
+    {
+      "width": 390,
+      "act": "company",
+      "identical": true
+    },
+    {
+      "width": 390,
+      "act": "build",
+      "identical": true
+    },
+    {
+      "width": 390,
+      "act": "builder",
+      "identical": true
+    }
+  ],
+  "menuOpen": true,
+  "menuClosed": true,
+  "focusReturn": true,
+  "download": "dynasty-works-initial-roadmap.txt",
+  "blueprint": 1,
+  "images": 0,
+  "sections": 6,
+  "links": [
+    {
+      "text": "01 / REAL CASE STUDIESSelectedwork.Explore selected work ↗",
+      "href": "/work"
+    },
+    {
+      "text": "02 / INDEPENDENT CAPABILITY STUDIESConcept LabEnter Concept Lab ↗",
+      "href": "/concept-lab"
+    },
+    {
+      "text": "Start a company →",
+      "href": "#review-builder"
+    },
+    {
+      "text": "Talk to the studio ↗",
+      "href": "https://dynasty-works-studio.ernestyearby.chatgpt.site/contact"
+    }
+  ]
+}

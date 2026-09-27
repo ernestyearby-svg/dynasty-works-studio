@@ -1,0 +1,53 @@
+[build]
+  command = "npm run build"
+  publish = "dist/phase-i"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[redirects]]
+  from = "/api/submissions/assets/*"
+  to = "/.netlify/functions/assets/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/api/submissions/assets"
+  to = "/.netlify/functions/assets"
+  status = 200
+
+[[redirects]]
+  from = "/api/submissions/:kind"
+  to = "/.netlify/functions/submissions?kind=:kind"
+  status = 200
+
+[[redirects]]
+  from = "/company-builder"
+  to = "/#review-builder"
+  status = 302
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/portal/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store, no-cache, must-revalidate"
+    Referrer-Policy = "no-referrer"
+
+[[headers]]
+  for = "/api/submissions/assets/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store, no-cache, must-revalidate"
+    Referrer-Policy = "no-referrer"

@@ -1,0 +1,165 @@
+{
+  "checks": [
+    {
+      "name": "/work zero placeholders",
+      "pass": true,
+      "detail": "found 0"
+    },
+    {
+      "name": "/work projects present",
+      "pass": true,
+      "detail": "mymosa:3, ikla:3, cliffs:3"
+    },
+    {
+      "name": "/work images loaded",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work/mymosa zero placeholders",
+      "pass": true,
+      "detail": "found 0"
+    },
+    {
+      "name": "mymosa wordmark links to root /",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mymosa builder links to /#review-builder",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mymosa house seal rendered",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mymosa family seal loaded",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mymosa 8-flavor exhibition hero loaded",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "mymosa 8-flavor can stage loaded",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work/ikla-maison zero placeholders",
+      "pass": true,
+      "detail": "found 0"
+    },
+    {
+      "name": "/work/ikla-maison authentic images loaded",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work/ikla-maison links to Mr Cliffs next",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work/mr-cliffs zero placeholders",
+      "pass": true,
+      "detail": "found 0"
+    },
+    {
+      "name": "/work/mr-cliffs authentic assets loaded",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work/mr-cliffs title rendered",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work @ 320px zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work @ 390px zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work @ 768px zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work @ 1440px zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work/mymosa @ 320px zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work/mymosa @ 390px zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work/mymosa @ 768px zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work/mymosa @ 1440px zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work/ikla-maison @ 320px zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work/ikla-maison @ 390px zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work/ikla-maison @ 768px zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work/ikla-maison @ 1440px zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work/mr-cliffs @ 320px zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work/mr-cliffs @ 390px zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work/mr-cliffs @ 768px zero overflow",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "/work/mr-cliffs @ 1440px zero overflow",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "failed": []
+}

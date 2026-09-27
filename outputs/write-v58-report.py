@@ -1,0 +1,114 @@
+from pathlib import Path
+base=Path.cwd()/'outputs'
+captures=[('HOME — IDEA',1440,'home-idea'),('HOME — EXPERIENCE',1440,'home-experience'),('HOME — COMPANY',1440,'home-company'),("ARCHITECT’S ROOM / BUILDER",1440,'builder'),('GALLERY / WORK',1440,'work'),('LABORATORY / CONCEPT LAB',1440,'concept-lab'),('HUMAN ROOM / STUDIO',1440,'studio'),('THRESHOLD',1440,'threshold'),('HOME — IDEA',390,'home-idea'),('HOME — COMPANY',390,'home-company'),('BUILDER',390,'builder'),('WORK',390,'work'),('THRESHOLD',390,'threshold')]
+report='''# DWS V5.8 — Cinematic full-site candidate
+
+## Status
+Ready for founder visual review; NOT promoted. Technical limitations below remain explicit.
+
+- Branch: `codex/v5.8-cinematic-candidate` (local; no GitHub main changes)
+- Checkpoint: `445b43ad561cfb6fc61a6bc6b0a4b1a5e03c35ab`
+- Candidate: https://codex-v5-8-cinematic-candidate--dynasty-works-v54-candidate.netlify.app/
+- Netlify draft: `6aad65c14dae127045ae07c4`, verified ready.
+- Existing Netlify team authentication remains enabled. Founder must sign in on a phone to review. No authentication was removed or bypassed.
+
+## Integration
+| Experience | Implementation status |
+|---|---|
+| Creation Chamber | PASS — retained V5.7 renderer, existing eight-stage controller, immediate SVG fallback, lazy enhancement |
+| Architect’s Room | PASS — quiet mineral perimeter and readable existing instrument surface; questions, results and roadmap code unchanged |
+| Gallery | PASS — restrained graphite entrance bay and warm aperture; project content unchanged |
+| Laboratory | PASS — cooler open-bay treatment and restrained cobalt; no new scene/GPU cost |
+| Human Room | PASS — warm limestone and directional soft light; Studio content unchanged |
+| Threshold | PASS — charcoal open-corner light field; existing live CTA unchanged |
+
+These are implementation checks, not a substitute for founder art-direction approval. Other rooms use CSS material/light layers; only Creation uses WebGL.
+
+## QA
+| Check | Result / scope |
+|---|---|
+| Eight-stage forward / reverse | PASS — all eight retained scene states match in reverse at 1440 and 390 |
+| Existing foreground / business logic | PASS — Review52, shell, diagnostic, MyMosa, portfolio and experience interaction source files unchanged |
+| Lightweight fallback | PASS |
+| Unsupported WebGL | PASS — forced unavailable context leaves SVG |
+| Context loss | PASS — cinematic layer removed and SVG remains |
+| Reduced motion | PASS local — no spatial route choreography; H1 focus preserved; renderer retains reduced-motion mode |
+| Keyboard / focus / history | PASS local — Home → Work → MyMosa, back/forward, normal and reduced motion |
+| Builder / roadmap generation | PASS local and authenticated deployed candidate |
+| Roadmap download | PASS local Edge file received; deployed in-app browser confirms prepared file, but download-event wait timed out |
+| Direct routes / refresh | PASS local; authenticated deployed primary routes resolve |
+| Company Builder redirect | PASS actual Netlify → /#review-builder |
+| 404 | Deployed Page not found content verified; HTTP status not captured in signed-in browser. Local Vite fallback returns 200; Netlify configuration specifies 404 |
+| Overflow | PASS local 320,360,375,390,430,768,1024,1280,1440,1920,2560 across Home, Work, MyMosa, Concept Lab, Studio |
+| Deployed overflow | PASS at 320,360,375,390,430,768,1024,1440,1920,2560 across Home, Work, Concept Lab, Studio after rendered H1 verified |
+| Accessibility | Keyboard/focus/semantic controls preserved; visual readability reviewed. No formal screen-reader or exhaustive automated contrast certification |
+| Build | PASS |
+| TypeScript | PASS |
+| Lint | PASS |
+| Console — local Edge | PASS — zero errors in route, Builder, motion and width sweeps |
+| Console — authenticated in-app browser | FAIL — known external MutationObserver error recurred twice; no observed application failure |
+| Noindex/nofollow | PASS deployed meta verified; X-Robots-Tag also included in deployed _headers |
+
+### External console limitation
+`Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.`
+The prior V54-CONSOLE-ROOT-CAUSE-REPORT.md isolated this to in-app browser iframe instrumentation with a minimal non-DWS iframe reproduction. The Netlify toolbar supplies the iframe trigger. Current local Edge application tests are clean. No suppression or speculative DWS patch was added. Authenticated ordinary Edge was not tested; clean unauthenticated contexts stop at Netlify protection.
+
+## Performance
+Local production build on desktop hardware; mobile measurements are SIMULATED, not physical-phone results.
+
+- Initial HTML JS entries: 201,991 bytes raw / 64,988 bytes gzip (sum).
+- Home route environment + foreground: 36.19 KB raw / 10.67 KB Vite gzip, plus existing diagnostic/shared chunks.
+- Lazy 3D chunk: 536.34 KB raw / 134.54 KB Vite gzip. Existing >500 KB chunk warning remains; no warning suppression.
+- Work route: 24.84 KB raw / 7.35 KB gzip.
+- MyMosa route: 11.72 KB raw / 3.75 KB gzip.
+- Supporting routes: 224.34 KB raw / 66.12 KB gzip; existing shared legacy bundle.
+- Shared diagnostic: 43.88 KB raw / 12.60 KB gzip; shared types/catalog 56.46 / 12.91 KB.
+- Room CSS: 3.84 KB raw / 1.12 KB gzip.
+- Renderer initialization sample: 487.7 ms, local desktop; setup through first render submit, excludes network transfer.
+- Desktop frame median/p95: 16.7 / 16.8 ms.
+- Simulated-mobile median/p95: 16.7 / 16.8 ms.
+- Frame sampling uses requestAnimationFrame during a four-second scroll; not direct GPU timing.
+- Downloaded environment texture weight: 0 bytes. Procedural 128×128 data texture and six 1-pixel neutral environment faces.
+- DPR cap: desktop 1.5; <=800px 1. Mobile reduces bays, distant forms and alternate ribs.
+- Company geometry: 43 visible desktop parts / 30 mobile parts, one shared authored box geometry.
+- Renderer stops submitting beyond Creation (verified unchanged frame count), while document hidden, or when lost/disposed. It has no perpetual production animation loop.
+- Resource cleanup disconnects observer/listeners, cancels QA frame requests, disposes geometry/materials/textures/renderer and loses context on unmount. Full-document route navigation destroys old document; other tested routes contain zero canvases and do not request CompanyRenderer.
+
+| Stage | Desktop calls / triangles | Simulated mobile calls / triangles |
+|---|---:|---:|
+| Idea | 8 / 96 | 8 / 96 |
+| Strategy | 14 / 168 | 13 / 156 |
+| Identity | 16 / 192 | 16 / 192 |
+| Product | 20 / 240 | 20 / 240 |
+| Digital | 30 / 360 | 27 / 324 |
+| Experience | 44 / 528 | 31 / 372 |
+| Market | 48 / 576 | 35 / 420 |
+| Company | 50 / 600 | 37 / 444 |
+
+Counts include shadow render passes. Other rooms have zero Three.js draw calls.
+
+## Known review limitations
+- Physical-device QA NOT PERFORMED; founder phone review required.
+- Work and Concept Lab retain their pre-existing asset-pending panels. No new imagery or content was substituted.
+- Authenticated in-app console error persists externally; clean authenticated browser console remains unverified.
+- Actual deployed download receipt requires ordinary-browser confirmation; local file download passed.
+- Full route/width automation ran against the local production build. Authenticated live route/width checks used the existing signed-in in-app browser; no credentials/cookies were extracted.
+- Captures below are from the exact candidate production build served locally, without Netlify toolbar. Live candidate was additionally visually inspected.
+
+## Protection
+- Edgar URL unchanged. API confirms published deploy `6aac50116446a300089b50b9` at `0268f213206e7daedb1947770c4e41be29861573`.
+- Public production unchanged. No production publish or alias change.
+- GitHub main unchanged; no push or merge performed.
+- MyMosa paused after Act 04; source/assets untouched.
+- Baseline d5791ac preserved in history. Approved prior uncommitted V5.7 work included in candidate checkpoint.
+- No new image generation or dependencies beyond already approved V5.7 Three.js stack.
+- Reports, local paths and QA outputs are outside deployed dist.
+
+## Visual captures
+'''
+for title,width,name in captures:
+ report+=f'\n- [{width} — {title}](<{(base/f"v58-{name}-{width}.png").as_posix()}>)'
+(base/'V5.8-CANDIDATE-REPORT.md').write_text(report,encoding='utf-8')
+html='<!doctype html><meta charset="utf-8"><title>DWS V5.8 — Review captures</title><style>body{background:#222729;color:#eee9df;font:16px system-ui;margin:4vw}h1{font-weight:400}section{margin:60px 0}img{max-width:100%;height:auto;display:block}small{color:#babbb4}</style><h1>DWS V5.8 — Candidate captures</h1><p>Local production build at 445b43a. No production promotion.</p>'
+for title,width,name in captures:html+=f'<section><h2>{width} — {title}</h2><img loading="lazy" src="v58-{name}-{width}.png" alt="{title}"></section>'
+(base/'V5.8-CAPTURES.html').write_text(html,encoding='utf-8')

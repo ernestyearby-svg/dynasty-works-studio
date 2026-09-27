@@ -1,0 +1,6 @@
+from pathlib import Path
+p=Path('src/capability/main.tsx');s=p.read_text();s=s.replace("const Packaging=lazy(()=>import('./Packaging'));", "const Packaging=lazy(()=>import('./Packaging'));\nconst Capital=lazy(()=>import('./Capital'));\nconst Orchestration=lazy(()=>import('./Orchestration'));\nconst Space=lazy(()=>import('./Space'));")
+s=s.replace("'CUT / SCORE / FOLD']];", "'CUT / SCORE / FOLD'],['07','capital','CAPITAL','One assumption. Every consequence.','THESIS / MODEL / HORIZON'],['08','orchestration','ORCHESTRATION','One input. A chain of intelligence.','EXECUTE / AUTHORIZE / AUDIT'],['09','space','SPACE','Human scale changes everything.','PLAN / STRUCTURE / OCCUPATION']];")
+s=s.replace("slug==='packaging'?<Packaging/>:","slug==='packaging'?<Packaging/>:slug==='capital'?<Capital/>:slug==='orchestration'?<Orchestration/>:slug==='space'?<Space/>:")
+s=s.replace('PHASE II</p>','PHASE III</p>').replace('Six disciplines.','Nine disciplines.').replace('Six native studies. Six different disciplines.','Nine native studies. Nine different disciplines.');p.write_text(s)
+p=Path('vite.capability.ts');s=p.read_text().replace('identity|packaging)','identity|packaging|capital|orchestration|space)');p.write_text(s)

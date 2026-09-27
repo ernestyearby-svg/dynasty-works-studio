@@ -1,0 +1,88 @@
+{
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "mode": "RGBA",
+  "alpha_present": true,
+  "fully_transparent_pixels": 1158614,
+  "partially_transparent_pixels": 414250,
+  "opaque_pixels": 0,
+  "alpha_range": [
+    0,
+    254
+  ],
+  "visible_bbox_alpha16": [
+    276,
+    26,
+    779,
+    1507
+  ],
+  "icc_embedded": false,
+  "empty_bowl": {
+    "box": [
+      440,
+      160,
+      510,
+      235
+    ],
+    "mean_alpha": 8.454476190476191,
+    "range": [
+      0,
+      251
+    ]
+  },
+  "stem": {
+    "box": [
+      495,
+      1050,
+      520,
+      1200
+    ],
+    "mean_alpha": 252.90666666666667,
+    "range": [
+      252,
+      253
+    ]
+  },
+  "base": {
+    "box": [
+      450,
+      1430,
+      550,
+      1470
+    ],
+    "mean_alpha": 252.7525,
+    "range": [
+      252,
+      254
+    ]
+  },
+  "test_colors": {
+    "orange_reference_sample": [
+      252,
+      85,
+      6
+    ],
+    "gold_reference_sample": [
+      253,
+      250,
+      215
+    ]
+  },
+  "cmyk_eval": {
+    "profile": "C:\\Users\\ernes\\OneDrive\\Documents\\ChatGPT\\N8N rewire\\design-masters\\MYMOSA_355_CLASSIC_ORANGE_v003\\source\\PROVISIONAL_FOGRA39.icc",
+    "profile_hash": "da2b9b593e27cba2563cbc8596071c5c8f2395d3dbb4434538bac2bc9d58ce77",
+    "intent": "relative colorimetric, black point compensation",
+    "input_profile": "ASSUMED sRGB",
+    "mean_absolute_rgb_change_visible": 2.818161814006829,
+    "printer_approval": "UNRESOLVED",
+    "alpha": "separate original alpha companion; TIFF is color evaluation only"
+  },
+  "placement": {
+    "status": "PROVISIONAL carried from prior intake; final placement not approved",
+    "height_mm": 79.62656400384985,
+    "width_mm": 27.04399844290106,
+    "effective_dpi": 472.42274573321083
+  }
+}

@@ -1,0 +1,4 @@
+const fs=require('fs'),path=require('path');const seen=new Set,external=new Set;
+function walk(f){if(seen.has(f))return;seen.add(f);let s=fs.readFileSync(f,'utf8');for(const m of s.matchAll(/(?:from\s*|import\s*)['"]([^'"]+)['"]/g)){let i=m[1],p=i.startsWith('@/')?i.slice(2):i.startsWith('.')?path.join(path.dirname(f),i):null;if(!p){external.add(i);continue}const file=['','.tsx','.ts','.json','/index.tsx','/index.ts'].map(e=>p+e).find(x=>fs.existsSync(x)&&fs.statSync(x).isFile());if(file)walk(file);}}
+for(const p of ['app/founder-blueprint/page.tsx','app/founder-blueprint/intake/page.tsx','app/studio/page.tsx','app/capabilities/page.tsx','app/contact/page.tsx'])walk(p);
+console.log(JSON.stringify({files:[...seen],external:[...external]},null,2));fs.writeFileSync('outputs/legacy-dependencies.json',JSON.stringify([...seen]));

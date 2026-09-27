@@ -1,0 +1,147 @@
+{
+  "flavors": [
+    {
+      "name": "classic orange",
+      "slug": "classic-orange",
+      "src": "/assets/portfolio/mymosa/web/classic-orange.webp",
+      "width": 368,
+      "height": 1060
+    },
+    {
+      "name": "pineapple",
+      "slug": "pineapple",
+      "src": "/assets/portfolio/mymosa/web/pineapple.webp",
+      "width": 367,
+      "height": 1060
+    },
+    {
+      "name": "tropical blend",
+      "slug": "tropical-blend",
+      "src": "/assets/portfolio/mymosa/web/tropical-blend.webp",
+      "width": 367,
+      "height": 1060
+    },
+    {
+      "name": "strawberry",
+      "slug": "strawberry",
+      "src": "/assets/portfolio/mymosa/web/strawberry.webp",
+      "width": 367,
+      "height": 1060
+    },
+    {
+      "name": "blood orange",
+      "slug": "blood-orange",
+      "src": "/assets/portfolio/mymosa/web/blood-orange.webp",
+      "width": 368,
+      "height": 1060
+    },
+    {
+      "name": "watermelon",
+      "slug": "watermelon",
+      "src": "/assets/portfolio/mymosa/web/watermelon.webp",
+      "width": 374,
+      "height": 1117
+    },
+    {
+      "name": "mango",
+      "slug": "mango",
+      "src": "/assets/portfolio/mymosa/web/mango.webp",
+      "width": 368,
+      "height": 1060
+    },
+    {
+      "name": "peach",
+      "slug": "peach",
+      "src": "/assets/portfolio/mymosa/web/peach.webp",
+      "width": 368,
+      "height": 1060
+    }
+  ],
+  "houses": [
+    {
+      "id": "mymosa",
+      "name": "MyMosa",
+      "src": "/assets/portfolio/mymosa/identity/mymosa-primary-light.svg"
+    },
+    {
+      "id": "mytini",
+      "name": "MyTini",
+      "src": "/assets/portfolio/mymosa/identity/mytini-primary-light.svg"
+    },
+    {
+      "id": "mygarita",
+      "name": "MyGarita",
+      "src": "/assets/portfolio/mymosa/identity/mygarita-primary-light.svg"
+    },
+    {
+      "id": "myjito",
+      "name": "MyJito",
+      "src": "/assets/portfolio/mymosa/identity/myjito-primary-light.svg"
+    },
+    {
+      "id": "mytai",
+      "name": "MyTai",
+      "src": "/assets/portfolio/mymosa/identity/mytai-primary-light.svg"
+    },
+    {
+      "id": "mymose",
+      "name": "MyMosé",
+      "src": "/assets/portfolio/mymosa/identity/mymose-primary-light.svg"
+    },
+    {
+      "id": "mycolada",
+      "name": "MyColada",
+      "src": "/assets/portfolio/mymosa/identity/mycolada-primary-light.svg"
+    },
+    {
+      "id": "myscato",
+      "name": "MyScato",
+      "src": "/assets/portfolio/mymosa/identity/myscato-primary-light.svg"
+    },
+    {
+      "id": "mymaria",
+      "name": "MyMaria",
+      "src": "/assets/portfolio/mymosa/identity/mymaria-primary-light.svg"
+    },
+    {
+      "id": "mygria",
+      "name": "MyGria",
+      "src": "/assets/portfolio/mymosa/identity/mygria-primary-light.svg"
+    },
+    {
+      "id": "mymule",
+      "name": "MyMule",
+      "src": "/assets/portfolio/mymosa/identity/mymule-primary-light.svg"
+    },
+    {
+      "id": "mybellini",
+      "name": "MyBellini",
+      "src": "/assets/portfolio/mymosa/identity/mybellini-primary-light.svg"
+    },
+    {
+      "id": "mynegroni",
+      "name": "MyNegroni",
+      "src": "/assets/portfolio/mymosa/identity/mynegroni-primary-light.svg"
+    },
+    {
+      "id": "myfrench75",
+      "name": "MyFrench 75",
+      "src": "/assets/portfolio/mymosa/identity/myfrench75-primary-light.svg"
+    },
+    {
+      "id": "mydaiquiri",
+      "name": "MyDaiquiri",
+      "src": "/assets/portfolio/mymosa/identity/mydaiquiri-primary-light.svg"
+    },
+    {
+      "id": "mypolitan",
+      "name": "MyPolitan",
+      "src": "/assets/portfolio/mymosa/identity/mypolitan-primary-light.svg"
+    },
+    {
+      "id": "myhugo",
+      "name": "MyHugo",
+      "src": "/assets/portfolio/mymosa/identity/myhugo-primary-light.svg"
+    }
+  ]
+}

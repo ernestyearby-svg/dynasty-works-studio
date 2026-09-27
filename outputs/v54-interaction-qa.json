@@ -1,0 +1,59 @@
+{
+  "errors": [],
+  "results": [
+    {
+      "width": 390,
+      "reduced": "no-preference",
+      "route": "work",
+      "transition": true,
+      "done": true,
+      "focus": "H1",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "reduced": "no-preference",
+      "history": true
+    },
+    {
+      "width": 1440,
+      "reduced": "no-preference",
+      "route": "work",
+      "transition": true,
+      "done": true,
+      "focus": "H1",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "reduced": "no-preference",
+      "history": true
+    },
+    {
+      "width": 390,
+      "reduced": "reduce",
+      "route": "work",
+      "transition": false,
+      "focus": "H1",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "reduced": "reduce",
+      "history": true
+    },
+    {
+      "width": 1440,
+      "reduced": "reduce",
+      "route": "work",
+      "transition": false,
+      "focus": "H1",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "reduced": "reduce",
+      "history": true
+    }
+  ]
+}

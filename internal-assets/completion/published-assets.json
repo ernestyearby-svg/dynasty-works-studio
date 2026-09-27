@@ -1,0 +1,52 @@
+[
+  {
+    "source": "C:/Users/ernes/OneDrive/Documents/Mr-Cliffs-Aesthetic-Upgrade/asset-masters/hero-bourbon-window.png",
+    "sourceSHA256": "ae6af43477d527d00d0c05da8882cda29a534311e7d91f4645708d7bc471cd70",
+    "derivative": "public/assets/portfolio/mr-cliffs/window-hero.webp",
+    "derivativeSHA256": "b845365dd893177b29f758dfc18f1d390e8e03a5efb2a1c9b1aa0f4b3535f008",
+    "crop": null,
+    "status": "APPROVED SOURCE / PRODUCTION ARTWORK",
+    "approval": "Source ASSET_INVENTORY.md approved production imagery; current user instruction to exhibit authentic existing project assets.",
+    "usage": "Existing project artwork; not documentary or historical photography"
+  },
+  {
+    "source": "C:/Users/ernes/OneDrive/Documents/Mr-Cliffs-Aesthetic-Upgrade/asset-masters/hero-bourbon-window.png",
+    "sourceSHA256": "ae6af43477d527d00d0c05da8882cda29a534311e7d91f4645708d7bc471cd70",
+    "derivative": "public/assets/portfolio/mr-cliffs/window-thumbnail.webp",
+    "derivativeSHA256": "ad98f53a08bd495bdb8d4124adf0073168ee1d2c0d99459e9abd6eb6bd00692c",
+    "crop": null,
+    "status": "APPROVED SOURCE / PRODUCTION ARTWORK",
+    "approval": "Source ASSET_INVENTORY.md approved production imagery; current user instruction to exhibit authentic existing project assets.",
+    "usage": "Existing project artwork; not documentary or historical photography"
+  },
+  {
+    "source": "C:/Users/ernes/OneDrive/Documents/Mr-Cliffs-Aesthetic-Upgrade/screenshots/home-1440.png",
+    "sourceSHA256": "177ff1b511081e4ed0b17972f92928a2526e926d979b6968e7a2c762bcceec2b",
+    "derivative": "public/assets/portfolio/mr-cliffs/desktop-home.webp",
+    "derivativeSHA256": "b509260f920f3598e35d8943a9cdca2fa3686cf4860ced65e4018b2994add60e",
+    "crop": {
+      "left": 0,
+      "top": 0,
+      "width": 1440,
+      "height": 1000
+    },
+    "status": "APPROVED SOURCE / PRODUCTION ARTWORK",
+    "approval": "Source ASSET_INVENTORY.md approved production imagery; current user instruction to exhibit authentic existing project assets.",
+    "usage": "Actual interface capture, cropped above contact/footer"
+  },
+  {
+    "source": "C:/Users/ernes/OneDrive/Documents/Mr-Cliffs-Aesthetic-Upgrade/screenshots/home-390.png",
+    "sourceSHA256": "03bdeacaeac5a4175878b1f01b33d276263f59adc4699fead2ff0591b1fadd0b",
+    "derivative": "public/assets/portfolio/mr-cliffs/mobile-home.webp",
+    "derivativeSHA256": "5ab40517d947349bdf9c4f1c3198bd4879f3f5501c7b25dbec4556dc1197746c",
+    "crop": {
+      "left": 0,
+      "top": 0,
+      "width": 390,
+      "height": 1000
+    },
+    "status": "APPROVED SOURCE / PRODUCTION ARTWORK",
+    "approval": "Source ASSET_INVENTORY.md approved production imagery; current user instruction to exhibit authentic existing project assets.",
+    "usage": "Actual interface capture, cropped above contact/footer"
+  }
+]

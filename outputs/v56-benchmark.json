@@ -1,0 +1,52 @@
+[
+  {
+    "width": 1440,
+    "preloaded": false,
+    "stats": {
+      "initMs": "586.3000000119209",
+      "render": {
+        "cpuSubmitMs": 0.3999999761581421,
+        "drawCalls": 86,
+        "triangles": 1032,
+        "geometries": 52,
+        "textures": 7,
+        "dpr": 1,
+        "shadowSize": 1024
+      },
+      "frames": {
+        "medianMs": 16.699999999999818,
+        "p95Ms": 16.800000000000182
+      }
+    },
+    "foregroundIdentical": true,
+    "overflow": false,
+    "reducedVisible": 1,
+    "cleanupCanvasCount": 0,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "preloaded": false,
+    "stats": {
+      "initMs": "508.5",
+      "render": {
+        "cpuSubmitMs": 0.3999999761581421,
+        "drawCalls": 82,
+        "triangles": 984,
+        "geometries": 51,
+        "textures": 7,
+        "dpr": 1,
+        "shadowSize": 512
+      },
+      "frames": {
+        "medianMs": 16.699999999999818,
+        "p95Ms": 16.800000000000182
+      }
+    },
+    "foregroundIdentical": true,
+    "overflow": false,
+    "reducedVisible": 1,
+    "cleanupCanvasCount": 0,
+    "errors": []
+  }
+]
