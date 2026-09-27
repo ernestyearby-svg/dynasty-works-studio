@@ -870,6 +870,104 @@
 }
 
 /* ==========================================================================
+   Approved Production Asset Styling (10 Masters)
+   ========================================================================== */
+
+.growth-master-frame {
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.growth-theme-dark .growth-master-frame {
+  background: #111418;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.growth-theme-light .growth-master-frame {
+  background: #fcfcfa;
+  border: 1px solid var(--dws-line-light);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.06);
+}
+
+.growth-master-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.growth-hero-visual-authority {
+  position: relative;
+  width: 100%;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(36, 87, 255, 0.3);
+}
+
+.growth-editorial-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: center;
+}
+
+.growth-editorial-split.is-reversed {
+  direction: rtl;
+}
+
+.growth-editorial-split.is-reversed > * {
+  direction: ltr;
+}
+
+@media (max-width: 960px) {
+  .growth-editorial-split,
+  .growth-editorial-split.is-reversed {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    direction: ltr;
+  }
+}
+
+.growth-signature-system-card {
+  max-width: 1180px;
+  margin: 50px auto 0;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 35px 100px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.growth-asset-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-top: 1px solid;
+}
+
+.growth-theme-dark .growth-asset-caption {
+  background: #090b0e;
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #8c909c;
+}
+
+.growth-theme-light .growth-asset-caption {
+  background: var(--dws-paper);
+  border-color: var(--dws-line-light);
+  color: var(--dws-muted);
+}
+
+/* ==========================================================================
    Accessibility & Reduced Motion
    ========================================================================== */
 
