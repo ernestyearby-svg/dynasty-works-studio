@@ -6,6 +6,8 @@
 import {
   normalizeGrowthPayload,
   submitGrowthApplication,
+  buildBookingRedirectUrl,
+  getBookingProspect,
   type GrowthApplicationFormData,
 } from '../src/growth/lib/growth-integration-adapter';
 import { sanitizeAttributionUrl } from '../src/growth/lib/growth-tracking';
@@ -78,6 +80,45 @@ async function runVerification() {
   const noConsentResult = await submitGrowthApplication(noConsentForm);
   console.assert(noConsentResult.success === false, 'FAIL: should reject unconsented submission');
   console.log('✓ PASS: Consent verification strictly enforced');
+
+  // Test 6: Continuity redirect & booking prefill verification
+  // 6a: Legitimate submission generates /growth/book?first_name=...&last_name=...&email=...&phone=...
+  const redirectUrl = buildBookingRedirectUrl('/growth/book', sampleForm, false);
+  console.assert(redirectUrl.startsWith('/growth/book?'), `FAIL: redirectUrl format: ${redirectUrl}`);
+
+  const parsedSearch = redirectUrl.substring(redirectUrl.indexOf('?'));
+  const prefillData = getBookingProspect(parsedSearch);
+  console.assert(prefillData.firstName === 'Marcus', 'FAIL: prefill firstName');
+  console.assert(prefillData.lastName === 'Vance', 'FAIL: prefill lastName');
+  console.assert(prefillData.email === 'marcus@apexperformance.com', 'FAIL: prefill email');
+  console.assert(prefillData.phone === '(555) 234-5678', 'FAIL: prefill phone');
+
+  // 6b: Sensitive & internal fields MUST NOT leak into booking URL
+  const forbiddenParams = [
+    'notes',
+    'bottleneck',
+    'biggest_bottleneck',
+    'budget',
+    'monthly_marketing_budget',
+    'industry',
+    'current_crm',
+    'utm_source',
+    'utm_medium',
+    'campaign_id',
+    'creative_id',
+  ];
+  for (const forbidden of forbiddenParams) {
+    console.assert(
+      !redirectUrl.includes(`${forbidden}=`),
+      `FAIL: Forbidden field leaked into booking redirect URL: ${forbidden}`
+    );
+  }
+
+  // 6c: Honeypot submission must NOT generate continuity URL
+  const botRedirectUrl = buildBookingRedirectUrl('/growth/book', botForm, true);
+  console.assert(botRedirectUrl === '/growth/book', `FAIL: Honeypot must return clean URL. Got: ${botRedirectUrl}`);
+
+  console.log('✓ PASS: Calendar continuity URL construction and prospect prefill readiness verified');
 
   console.log('--- ALL GROWTH FUNNEL TESTS PASSED SUCCESSFULLY ---');
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
   submitGrowthApplication,
+  buildBookingRedirectUrl,
   type GrowthApplicationFormData,
 } from '../lib/growth-integration-adapter';
 import { trackGrowthEvent } from '../lib/growth-tracking';
@@ -160,7 +161,9 @@ export const LeadApplicationForm: React.FC<LeadApplicationFormProps> = ({
       const result = await submitGrowthApplication(formData);
 
       if (result.success) {
-        window.location.href = onSuccessRedirect;
+        const isHoneypot = Boolean(formData.honeypot && formData.honeypot.trim().length > 0) || !result.payload;
+        const redirectUrl = buildBookingRedirectUrl(onSuccessRedirect, formData, isHoneypot);
+        window.location.href = redirectUrl;
       } else {
         setErrorMessage(result.message || 'Submission failed. Please check your inputs.');
       }

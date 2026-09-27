@@ -211,3 +211,59 @@ export async function submitGrowthApplication(
     mock: true,
   };
 }
+
+export interface BookingProspectData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+}
+
+/**
+ * Constructs the /growth/book redirect URL carrying ONLY safe prospect identity
+ * fields for calendar pre-fill (first_name, last_name, email, phone).
+ * Strips confidential strategy, CRM, bottleneck, budget, and UTM data.
+ * Drops all continuity if honeypot is triggered.
+ */
+export function buildBookingRedirectUrl(
+  basePath: string,
+  formData: Pick<GrowthApplicationFormData, 'firstName' | 'lastName' | 'email' | 'phone' | 'honeypot'>,
+  isHoneypot = false
+): string {
+  if (isHoneypot || (formData.honeypot && formData.honeypot.trim().length > 0)) {
+    return basePath;
+  }
+
+  const params = new URLSearchParams();
+  if (formData.firstName?.trim()) params.set('first_name', formData.firstName.trim());
+  if (formData.lastName?.trim()) params.set('last_name', formData.lastName.trim());
+  if (formData.email?.trim()) params.set('email', formData.email.trim().toLowerCase());
+  if (formData.phone?.trim()) params.set('phone', formData.phone.trim());
+
+  const queryString = params.toString();
+  if (!queryString) return basePath;
+
+  const separator = basePath.includes('?') ? '&' : '?';
+  return `${basePath}${separator}${queryString}`;
+}
+
+/**
+ * Extracts prospect identity parameters from URL search params for future GoHighLevel calendar embed.
+ */
+export function getBookingProspect(searchQuery?: string): BookingProspectData {
+  let search = searchQuery;
+  if (search === undefined && typeof window !== 'undefined') {
+    search = window.location.search;
+  }
+  if (!search) {
+    return { firstName: '', lastName: '', email: '', phone: '' };
+  }
+  const params = new URLSearchParams(search);
+  return {
+    firstName: (params.get('first_name') || '').trim(),
+    lastName: (params.get('last_name') || '').trim(),
+    email: (params.get('email') || '').trim().toLowerCase(),
+    phone: (params.get('phone') || '').trim(),
+  };
+}
+

@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './growth.css';
 import { GrowthNav } from './components/GrowthNav';
 import { GrowthFooter } from './components/GrowthFooter';
 import { useGrowthSeo } from './lib/useGrowthSeo';
 import { initGrowthTracking, trackGrowthEvent } from './lib/growth-tracking';
+import { getBookingProspect, type BookingProspectData } from './lib/growth-integration-adapter';
 
 export default function GrowthBookPage() {
   useGrowthSeo({
@@ -13,10 +14,21 @@ export default function GrowthBookPage() {
     canonicalPath: '/growth/book',
   });
 
+  const [prospect, setProspect] = useState<BookingProspectData>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+  });
+
   useEffect(() => {
     initGrowthTracking();
+    const data = getBookingProspect();
+    setProspect(data);
     trackGrowthEvent('growth_booking_view', { page: '/growth/book' });
   }, []);
+
+  const hasPrefill = Boolean(prospect.email || prospect.firstName);
 
   const handlePlaceholderInteraction = () => {
     trackGrowthEvent('growth_booking_click', {
@@ -99,6 +111,28 @@ export default function GrowthBookPage() {
               >
                 CALENDAR INTEGRATION PLACEHOLDER
               </div>
+
+              {hasPrefill && (
+                <div
+                  style={{
+                    fontFamily: 'monospace',
+                    fontSize: '11px',
+                    fontWeight: 600,
+                    letterSpacing: '0.08em',
+                    color: '#00e5a3',
+                    marginBottom: '16px',
+                    padding: '6px 14px',
+                    background: 'rgba(0, 229, 163, 0.08)',
+                    border: '1px solid rgba(0, 229, 163, 0.25)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                  }}
+                >
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#00e5a3', display: 'inline-block' }} />
+                  PROSPECT IDENTITY ATTACHED · READY FOR CALENDAR PREFILL
+                </div>
+              )}
 
               <h2 style={{ fontSize: '22px', fontWeight: 600, color: '#ffffff', maxWidth: '520px', margin: '0 auto 12px' }}>
                 GoHighLevel Calendar Container
