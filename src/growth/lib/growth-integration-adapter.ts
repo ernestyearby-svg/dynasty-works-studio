@@ -267,3 +267,66 @@ export function getBookingProspect(searchQuery?: string): BookingProspectData {
   };
 }
 
+export const HIGHLEVEL_CALENDAR_ID = 'tEz9m9Ij933G8wMJhdGs';
+export const HIGHLEVEL_CALENDAR_BASE_URL = `https://api.leadconnectorhq.com/widget/booking/${HIGHLEVEL_CALENDAR_ID}`;
+export const HIGHLEVEL_SCRIPT_SRC = 'https://link.msgsndr.com/js/form_embed.js';
+
+export const FORBIDDEN_CALENDAR_PARAMS = [
+  'notes',
+  'biggest_bottleneck',
+  'monthly_marketing_budget',
+  'current_crm',
+  'industry',
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_content',
+  'utm_term',
+  'campaign_id',
+  'creative_id',
+  'referrer',
+  'landing_page',
+  'first_touch_url',
+  'submitted_at',
+] as const;
+
+/**
+ * Builds the live HighLevel calendar embed iframe URL.
+ * Safely appends ONLY permitted prospect prefill parameters:
+ * - first_name
+ * - last_name
+ * - email
+ * - phone
+ *
+ * Explicitly guards against any forbidden strategy, CRM, or attribution fields.
+ */
+export function buildCalendarEmbedUrl(
+  baseUrl: string = HIGHLEVEL_CALENDAR_BASE_URL,
+  prospect?: Partial<BookingProspectData>
+): string {
+  const url = new URL(baseUrl);
+
+  if (prospect) {
+    if (prospect.firstName && prospect.firstName.trim()) {
+      url.searchParams.set('first_name', prospect.firstName.trim());
+    }
+    if (prospect.lastName && prospect.lastName.trim()) {
+      url.searchParams.set('last_name', prospect.lastName.trim());
+    }
+    if (prospect.email && prospect.email.trim()) {
+      url.searchParams.set('email', prospect.email.trim().toLowerCase());
+    }
+    if (prospect.phone && prospect.phone.trim()) {
+      url.searchParams.set('phone', prospect.phone.trim());
+    }
+  }
+
+  // Safety assert: delete any forbidden parameters if somehow present
+  for (const forbidden of FORBIDDEN_CALENDAR_PARAMS) {
+    url.searchParams.delete(forbidden);
+  }
+
+  return url.toString();
+}
+
+

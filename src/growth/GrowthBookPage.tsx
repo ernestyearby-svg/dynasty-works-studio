@@ -4,7 +4,14 @@ import { GrowthNav } from './components/GrowthNav';
 import { GrowthFooter } from './components/GrowthFooter';
 import { useGrowthSeo } from './lib/useGrowthSeo';
 import { initGrowthTracking, trackGrowthEvent } from './lib/growth-tracking';
-import { getBookingProspect, type BookingProspectData } from './lib/growth-integration-adapter';
+import {
+  getBookingProspect,
+  buildCalendarEmbedUrl,
+  HIGHLEVEL_CALENDAR_ID,
+  HIGHLEVEL_CALENDAR_BASE_URL,
+  HIGHLEVEL_SCRIPT_SRC,
+  type BookingProspectData,
+} from './lib/growth-integration-adapter';
 
 export default function GrowthBookPage() {
   useGrowthSeo({
@@ -20,22 +27,31 @@ export default function GrowthBookPage() {
     email: '',
     phone: '',
   });
+  const [isIframeLoaded, setIsIframeLoaded] = useState(false);
 
   useEffect(() => {
     initGrowthTracking();
     const data = getBookingProspect();
     setProspect(data);
     trackGrowthEvent('growth_booking_view', { page: '/growth/book' });
+
+    // Safely load HighLevel form_embed.js singleton
+    if (typeof document !== 'undefined') {
+      const existingScript = document.querySelector(`script[src="${HIGHLEVEL_SCRIPT_SRC}"]`);
+      if (!existingScript) {
+        const script = document.createElement('script');
+        script.id = 'msgsndr-form-embed-script';
+        script.src = HIGHLEVEL_SCRIPT_SRC;
+        script.type = 'text/javascript';
+        script.async = true;
+        document.body.appendChild(script);
+      }
+    }
   }, []);
 
   const hasPrefill = Boolean(prospect.email || prospect.firstName);
-
-  const handlePlaceholderInteraction = () => {
-    trackGrowthEvent('growth_booking_click', {
-      page: '/growth/book',
-      metadata: { action: 'placeholder_click' },
-    });
-  };
+  const calendarEmbedUrl = buildCalendarEmbedUrl(HIGHLEVEL_CALENDAR_BASE_URL, prospect);
+  const iframeElementId = 'tEz9m9Ij933G8wMJhdGs_1790525045901';
 
   return (
     <div className="growth-root growth-theme-dark" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
@@ -58,98 +74,92 @@ export default function GrowthBookPage() {
           </div>
 
           <div style={{ maxWidth: '920px', margin: '0 auto' }}>
-            {/* Calendar Container with Designated GoHighLevel Embed Area */}
-            <div
-              style={{
-                minHeight: '480px',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                textAlign: 'center',
-                padding: '48px 24px',
-                border: '1px dashed rgba(36, 87, 255, 0.4)',
-                background: '#111417',
-              }}
-            >
-              <div
-                style={{
-                  width: '64px',
-                  height: '64px',
-                  borderRadius: '50%',
-                  background: 'rgba(36, 87, 255, 0.1)',
-                  border: '1px solid var(--dws-signal)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '24px',
-                  color: 'var(--dws-signal)',
-                }}
-              >
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                  <line x1="16" y1="2" x2="16" y2="6" />
-                  <line x1="8" y1="2" x2="8" y2="6" />
-                  <line x1="3" y1="10" x2="21" y2="10" />
-                </svg>
+            {/* Live HighLevel Calendar Container */}
+            <div className="growth-calendar-wrap">
+              {/* Header Status Bar */}
+              <div className="growth-calendar-header">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <span
+                    style={{
+                      width: '7px',
+                      height: '7px',
+                      borderRadius: '50%',
+                      background: 'var(--dws-signal)',
+                      boxShadow: '0 0 10px var(--dws-signal)',
+                      display: 'inline-block',
+                    }}
+                  />
+                  <span
+                    style={{
+                      fontFamily: 'monospace',
+                      fontSize: '11px',
+                      letterSpacing: '0.12em',
+                      color: '#ffffff',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    DWS STRATEGY CALL · 30-MIN ARCHITECTURE SESSION
+                  </span>
+                </div>
+
+                {hasPrefill && (
+                  <div
+                    style={{
+                      fontFamily: 'monospace',
+                      fontSize: '10px',
+                      fontWeight: 600,
+                      letterSpacing: '0.08em',
+                      color: '#00e5a3',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      padding: '4px 10px',
+                      background: 'rgba(0, 229, 163, 0.08)',
+                      border: '1px solid rgba(0, 229, 163, 0.25)',
+                      borderRadius: '2px',
+                    }}
+                  >
+                    <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#00e5a3' }} />
+                    DIAGNOSTIC DATA CONNECTED
+                  </div>
+                )}
               </div>
 
-              {/* Designated Development Placeholder */}
-              <div
-                style={{
-                  fontFamily: 'monospace',
-                  fontSize: '13px',
-                  fontWeight: 800,
-                  letterSpacing: '0.14em',
-                  color: 'var(--dws-signal)',
-                  textTransform: 'uppercase',
-                  marginBottom: '16px',
-                  padding: '8px 18px',
-                  background: 'rgba(36, 87, 255, 0.12)',
-                  border: '1px solid rgba(36, 87, 255, 0.3)',
-                }}
-              >
-                CALENDAR INTEGRATION PLACEHOLDER
-              </div>
-
-              {hasPrefill && (
-                <div
-                  style={{
-                    fontFamily: 'monospace',
-                    fontSize: '11px',
-                    fontWeight: 600,
-                    letterSpacing: '0.08em',
-                    color: '#00e5a3',
-                    marginBottom: '16px',
-                    padding: '6px 14px',
-                    background: 'rgba(0, 229, 163, 0.08)',
-                    border: '1px solid rgba(0, 229, 163, 0.25)',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                  }}
-                >
-                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#00e5a3', display: 'inline-block' }} />
-                  PROSPECT IDENTITY ATTACHED · READY FOR CALENDAR PREFILL
+              {/* Sensible Loading State while External Widget Connects */}
+              {!isIframeLoaded && (
+                <div className="growth-calendar-loading" aria-live="polite">
+                  <div className="growth-calendar-spinner" />
+                  <span
+                    style={{
+                      fontSize: '11px',
+                      fontFamily: 'monospace',
+                      letterSpacing: '0.12em',
+                      color: '#8d919d',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    INITIALIZING SCHEDULING INTERFACE...
+                  </span>
                 </div>
               )}
 
-              <h2 style={{ fontSize: '22px', fontWeight: 600, color: '#ffffff', maxWidth: '520px', margin: '0 auto 12px' }}>
-                GoHighLevel Calendar Container
-              </h2>
-              <p style={{ fontSize: '14px', color: '#8d919d', maxWidth: '520px', lineHeight: '1.6', margin: '0 auto 28px' }}>
-                This container is wired for the HighLevel or custom booking iframe.
-                No artificial appointment slots are displayed until the live calendar webhook is connected.
-              </p>
-
-              <button
-                type="button"
-                className="growth-btn growth-btn-outline-dark"
-                onClick={handlePlaceholderInteraction}
-                style={{ fontSize: '11px', padding: '12px 24px', minHeight: '44px' }}
-              >
-                DISPATCH TELEMETRY TEST
-              </button>
+              {/* Official HighLevel Responsive Iframe */}
+              <iframe
+                src={calendarEmbedUrl}
+                allow="payment"
+                style={{
+                  width: '100%',
+                  border: 'none',
+                  overflow: 'hidden',
+                  minHeight: '720px',
+                  display: 'block',
+                  background: 'transparent',
+                }}
+                scrolling="no"
+                id={iframeElementId}
+                title="Dynasty Works Studio — Growth Strategy Call Calendar"
+                onLoad={() => setIsIframeLoaded(true)}
+              />
             </div>
 
             {/* Strategy Session Expectations */}
