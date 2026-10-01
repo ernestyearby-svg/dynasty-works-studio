@@ -143,7 +143,7 @@ export async function submitGrowthApplication(
   }
 
   const payload = normalizeGrowthPayload(formData);
-  const webhookUrl = (import.meta as { env?: Record<string, string> }).env?.VITE_GROWTH_SYSTEM_WEBHOOK_URL;
+  const webhookUrl = (import.meta as { env?: Record<string, string> }).env?.VITE_GROWTH_SYSTEM_WEBHOOK_URL || '/api/growth-webhook';
 
   trackGrowthEvent('growth_form_submit', {
     metadata: {
@@ -154,7 +154,7 @@ export async function submitGrowthApplication(
   });
 
   // If a live webhook endpoint is provided (n8n, GHL, AWS Lambda, Supabase edge function)
-  if (webhookUrl && webhookUrl.startsWith('http')) {
+  if (webhookUrl && (webhookUrl.startsWith('http') || webhookUrl.startsWith('/'))) {
     try {
       const response = await fetch(webhookUrl, {
         method: 'POST',

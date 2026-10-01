@@ -144,7 +144,7 @@ const generalPayloadSchema = z.object({
   referenceUrl: safeUrl.optional().default(''),
 }).strict();
 
-export default async function handler(request: Request, context?: any): Promise<Response> {
+async function coreHandler(request: Request, context?: any): Promise<Response> {
   const startTime = Date.now();
   const origin = request.headers.get('origin');
   const respond = (status: number, body: Record<string, unknown>, extra: Record<string, string> = {}) =>
@@ -498,6 +498,9 @@ export default async function handler(request: Request, context?: any): Promise<
       event: 'submission_exception',
       kind,
       error_name: err?.name,
+      error_message: err?.message,
+      error_cause: err?.cause ? (err.cause.message || String(err.cause)) : null,
+      stack: err?.stack,
       duration_ms: Date.now() - startTime,
     }));
 
@@ -507,3 +510,51 @@ export default async function handler(request: Request, context?: any): Promise<
     });
   }
 }
+
+export default async function handler(reqOrEvent: any, context?: any): Promise<any> {
+  // If invoked in Lambda compatibility mode (event, context)
+  if (reqOrEvent && (reqOrEvent.httpMethod || !reqOrEvent.headers?.get)) {
+    const method = reqOrEvent.httpMethod || 'POST';
+    const headers = new Headers();
+    if (reqOrEvent.headers && typeof reqOrEvent.headers === 'object') {
+      for (const [k, v] of Object.entries(reqOrEvent.headers)) {
+        if (v !== undefined) headers.set(k, String(v));
+      }
+    }
+    const host = headers.get('host') || 'localhost';
+    const protocol = headers.get('x-forwarded-proto') || 'http';
+    const rawPath = reqOrEvent.path || '/';
+    const url = new URL(`${protocol}://${host}${rawPath}`);
+    if (reqOrEvent.queryStringParameters) {
+      for (const [k, v] of Object.entries(reqOrEvent.queryStringParameters)) {
+        if (v !== undefined) url.searchParams.set(k, String(v));
+      }
+    }
+    const init: RequestInit = {
+      method,
+      headers,
+    };
+    if (method !== 'GET' && method !== 'HEAD' && method !== 'OPTIONS' && reqOrEvent.body) {
+      init.body = reqOrEvent.isBase64Encoded
+        ? Buffer.from(reqOrEvent.body, 'base64')
+        : reqOrEvent.body;
+    }
+    const webReq = new Request(url.toString(), init);
+    const webRes = await coreHandler(webReq, context);
+    const resHeaders: Record<string, string> = {};
+    webRes.headers.forEach((v, k) => {
+      resHeaders[k] = v;
+    });
+    const resBody = await webRes.text();
+    return {
+      statusCode: webRes.status,
+      headers: resHeaders,
+      body: resBody,
+    };
+  }
+
+  // Standard Web Request/Response mode
+  return coreHandler(reqOrEvent, context);
+}
+
+export { handler };

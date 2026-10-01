@@ -6,6 +6,15 @@
 [build.environment]
   NODE_VERSION = "22"
 
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/growth-webhook"
+  to = "http://localhost:5681/webhook/dws-growth-review"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "/api/submissions/assets/*"
   to = "/.netlify/functions/assets/:splat"
@@ -26,10 +35,10 @@
   to = "/#review-builder"
   status = 302
 
-[[redirects]]
-  from = "/*"
-  to = "/404.html"
-  status = 404
+# [[redirects]]
+#   from = "/*"
+#   to = "/404.html"
+#   status = 404
 
 [[headers]]
   for = "/*"

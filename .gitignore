@@ -31,3 +31,5 @@ Thumbs.db
 
 # Local Netlify folder
 .netlify
+netlify/functions-dist
+deno.lock
