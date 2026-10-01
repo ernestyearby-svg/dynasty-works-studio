@@ -11,17 +11,17 @@ export const site = {
   },
   statement: "A company is a system.",
   description:
-    "Dynasty Works is a company creation studio. We connect strategy, identity, product, technology and market systems to move an idea toward an operating company.",
+    "Brand design, websites, and connected growth systems. Dynasty Works Studio brings creative direction, inquiry capture, booking, and follow-up together.",
   origin:
     window.location.origin,
 };
 export const navigation = [
-  { label: "Work", href: "/work" },
-  { label: "How We Build", href: "/#creation" },
-  { label: "Company Builder", href: "/#review-builder" },
-  { label: "Capabilities", href: "/capabilities" },
-  { label: "Studio", href: "/studio" },
-  { label: "START A COMPANY →", href: "/#review-builder" },
+  { label: "Services", href: "/#services" },
+  { label: "Growth Engine", href: "/growth" },
+  { label: "Our Work", href: "/work" },
+  { label: "About", href: "/studio" },
+  { label: "Book a Call", href: "/growth/book" },
+  { label: "BOOK A DISCOVERY CALL →", href: "/growth/book" },
 ];
 export const processSteps = [
   ["Discover", "Understand the opportunity."],

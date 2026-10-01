@@ -1,10 +1,13 @@
 import { marketNeeds } from "@legacy/data/company-builder";
 import { z } from "zod";
 export const inquiryServices = [
+  "Brand & Creative",
   "Brand Strategy",
   "Brand Identity",
   "Packaging",
   "Website",
+  "Growth Engine",
+  "Ongoing Support",
   "E-commerce",
   "App / Digital Product",
   "AI / Automation",

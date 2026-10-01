@@ -1,11 +1,11 @@
 import { useRef, useState } from 'react';
 
 const links = [
-  ['Work', '/work'],
-  ['How we build', '/#creation'],
-  ['Capabilities', '/capabilities'],
-  ['Studio', '/studio'],
-  ['Contact', '/contact'],
+  ['Services', '/#services'],
+  ['Growth Engine', '/growth'],
+  ['Our Work', '/work'],
+  ['About', '/studio'],
+  ['Book a Call', '/growth/book'],
 ];
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
@@ -21,13 +21,13 @@ export function ReviewHeader() {
   return (
     <header className="r52-header">
       <a href="/" className="p-wordmark">DYNASTY WORKS<span>STUDIO</span></a>
-      <span className="p-classification">Company creation studio</span>
+      <span className="p-classification">Brand, Web &amp; Growth Systems</span>
       <nav aria-label="Main navigation" className="r52-desktop-nav">
         {links.map(([name, url]) => (
           <a href={url} key={name}>{name}</a>
         ))}
       </nav>
-      <a className="r52-nav-action" href="/#review-builder">Start a company <Arrow /></a>
+      <a className="r52-nav-action" href="/growth/book">Book a Discovery Call <Arrow /></a>
       <button
         className="r52-menu-trigger"
         ref={trigger}
@@ -54,16 +54,246 @@ export function ReviewHeader() {
           <button onClick={close} aria-label="Close navigation">Close ×</button>
         </div>
         <nav aria-label="Mobile navigation">
-          <a href="/work" onClick={close}>Work <Arrow /></a>
-          <a href="/#creation" onClick={close}>How we build</a>
-          <a href="/capabilities" onClick={close}>Capabilities <Arrow /></a>
-          <a href="/#review-builder" onClick={close}>Company Builder</a>
-          <a href="/studio" onClick={close}>Studio</a>
-          <a href="/contact" onClick={close}>Contact</a>
+          <a href="/#services" onClick={close}>Services <Arrow /></a>
+          <a href="/growth" onClick={close}>Growth Engine <Arrow /></a>
+          <a href="/work" onClick={close}>Our Work <Arrow /></a>
+          <a href="/studio" onClick={close}>About <Arrow /></a>
+          <a href="/growth/book" onClick={close}>Book a Call <Arrow /></a>
+          <a href="/contact" onClick={close}>Start Your Project <Arrow /></a>
         </nav>
-        <a className="r51-action" href="/#review-builder" onClick={close}>Start a company <Arrow /></a>
+        <a className="r51-action" href="/growth/book" onClick={close}>Book a Discovery Call <Arrow /></a>
       </dialog>
     </header>
+  );
+}
+
+export function ServicesOverview() {
+  return (
+    <section className="r52-services-section" id="services" aria-labelledby="services-title">
+      <div className="r52-services-header">
+        <div className="r52-services-title-block">
+          <span className="r52-folio">01 / OUR SERVICES</span>
+          <h2 id="services-title">Brand, Web &amp;<br /><em>Growth Systems.</em></h2>
+        </div>
+        <div className="r52-services-header-aside">
+          <p className="r52-services-lead">
+            Dynasty Works Studio builds brands, websites, and the systems that support their growth.
+            Four clear disciplines configured to elevate your market presence and power your customer pipeline.
+          </p>
+          <a href="/growth/book" className="r52-services-head-cta">
+            Book a Discovery Call <Arrow />
+          </a>
+        </div>
+      </div>
+
+      <div className="r52-services-grid">
+        {/* Service 01: Brand & Creative */}
+        <article className="r52-service-card">
+          <div className="r52-service-meta">
+            <span className="r52-service-num">01</span>
+            <span className="r52-service-tag">IDENTITY &amp; POSITIONING</span>
+          </div>
+          <h3 className="r52-service-name">Brand &amp; Creative</h3>
+          <p className="r52-service-desc">
+            A distinctive identity, consistent messaging, and visuals that express what your business stands for.
+          </p>
+          <ul className="r52-service-features" aria-label="Brand & Creative capabilities">
+            <li>Brand architecture &amp; positioning</li>
+            <li>Visual identity systems &amp; guidelines</li>
+            <li>Voice, messaging &amp; narrative direction</li>
+            <li>Packaging, collateral &amp; brand assets</li>
+          </ul>
+          <div className="r52-service-action">
+            <a href="/contact" className="r52-service-btn">
+              Start a Brand Project <Arrow />
+            </a>
+          </div>
+        </article>
+
+        {/* Service 02: Websites & Digital Experiences */}
+        <article className="r52-service-card">
+          <div className="r52-service-meta">
+            <span className="r52-service-num">02</span>
+            <span className="r52-service-tag">DIGITAL EXPERIENCES</span>
+          </div>
+          <h3 className="r52-service-name">Websites &amp; Digital Experiences</h3>
+          <p className="r52-service-desc">
+            Thoughtfully designed websites that make your offer clear and the next step easy.
+          </p>
+          <ul className="r52-service-features" aria-label="Websites & Digital Experiences capabilities">
+            <li>Custom digital flagships &amp; landing experiences</li>
+            <li>Clear product presentation &amp; intuitive navigation</li>
+            <li>Fast, accessible, mobile-first design</li>
+            <li>Interactive product presentations</li>
+          </ul>
+          <div className="r52-service-action">
+            <a href="/work" className="r52-service-btn">
+              Explore Digital Experiences <Arrow />
+            </a>
+          </div>
+        </article>
+
+        {/* Service 03: The Dynasty Growth Engine */}
+        <article className="r52-service-card r52-service-highlight">
+          <div className="r52-service-meta">
+            <span className="r52-service-num">03</span>
+            <span className="r52-service-tag">GROWTH ARCHITECTURE</span>
+          </div>
+          <h3 className="r52-service-name">The Dynasty Growth Engine</h3>
+          <p className="r52-service-desc">
+            Connected inquiry forms, customer management, booking, and follow-up workflows configured around how your business operates.
+          </p>
+          <ul className="r52-service-features" aria-label="Growth Engine capabilities">
+            <li>Inquiry capture &amp; CRM pipeline setup</li>
+            <li>Automated SMS &amp; email follow-up</li>
+            <li>Integrated calendar booking (HighLevel)</li>
+            <li>Attribution tracking &amp; reporting</li>
+          </ul>
+          <div className="r52-service-action">
+            <a href="/growth" className="r52-service-btn r52-service-btn-accent">
+              Explore the Growth Engine <Arrow />
+            </a>
+          </div>
+        </article>
+
+        {/* Service 04: Ongoing Care & Improvement */}
+        <article className="r52-service-card">
+          <div className="r52-service-meta">
+            <span className="r52-service-num">04</span>
+            <span className="r52-service-tag">LIFECYCLE PARTNERSHIP</span>
+          </div>
+          <h3 className="r52-service-name">Ongoing Care &amp; Improvement</h3>
+          <p className="r52-service-desc">
+            Continued support for your website and connected systems as your business evolves.
+          </p>
+          <ul className="r52-service-features" aria-label="Ongoing Care capabilities">
+            <li>Website maintenance &amp; uptime care</li>
+            <li>Iterative improvements &amp; performance tuning</li>
+            <li>System workflow tuning &amp; audits</li>
+            <li>Priority creative &amp; technical advisory</li>
+          </ul>
+          <div className="r52-service-action">
+            <a href="/contact" className="r52-service-btn">
+              Discuss Ongoing Support <Arrow />
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+  );
+}
+
+export function GrowthEngineShowcase() {
+  const steps = [
+    {
+      num: '01',
+      title: 'Inquiry received',
+      desc: 'A visitor discovers your business and submits a consultation request or targeted intake questionnaire.',
+      badge: 'Inquiry Capture',
+    },
+    {
+      num: '02',
+      title: 'Lead organized',
+      desc: 'Contact details, campaign attribution (UTMs, referrer), and intent signals are instantly routed to your CRM.',
+      badge: 'CRM Routing',
+    },
+    {
+      num: '03',
+      title: 'Follow-up supported',
+      desc: 'Automated confirmations and team alerts ensure timely follow-up so conversations never stall.',
+      badge: 'Follow-up Sync',
+    },
+    {
+      num: '04',
+      title: 'Appointment booked',
+      desc: 'Integrated calendar scheduling allows qualified prospects to book directly without back-and-forth friction.',
+      badge: 'Calendar Booking',
+    },
+    {
+      num: '05',
+      title: 'Opportunity tracked',
+      desc: 'Every stage is tracked from initial discovery through scheduled appointment to revenue visibility.',
+      badge: 'Attribution & ROI',
+    },
+  ];
+
+  return (
+    <section className="r52-growth-engine-showcase" id="growth-engine" aria-labelledby="growth-engine-title">
+      <div className="r52-ge-header">
+        <div className="r52-ge-title-block">
+          <span className="r52-folio">02 / CONNECTED INFRASTRUCTURE</span>
+          <h2 id="growth-engine-title">
+            Your brand opens the door.<br />
+            <em>Your systems carry the conversation forward.</em>
+          </h2>
+        </div>
+        <div className="r52-ge-header-aside">
+          <p className="r52-ge-lead">
+            A visitor discovers your business. They ask a question, request a quote, or book a consultation. What happens next matters.
+          </p>
+          <p className="r52-ge-sublead">
+            We connect your website with tools and workflows that organize inquiries, support timely follow-up, and give your team a clearer view of every opportunity.
+          </p>
+        </div>
+      </div>
+
+      {/* Responsive 5-Step Workflow Demonstration */}
+      <div className="r52-ge-workflow">
+        <div className="r52-ge-workflow-bar">
+          <span className="r52-ge-workflow-label">Example workflow</span>
+          <span className="r52-ge-workflow-note">Configured customer journey from first touch to booked appointment</span>
+        </div>
+
+        <ol className="r52-ge-steps" aria-label="Customer workflow demonstration">
+          {steps.map((s, idx) => (
+            <li key={s.num} className="r52-ge-step">
+              <div className="r52-ge-step-top">
+                <span className="r52-ge-step-num">{s.num}</span>
+                <span className="r52-ge-step-badge">{s.badge}</span>
+              </div>
+              <h3 className="r52-ge-step-title">{s.title}</h3>
+              <p className="r52-ge-step-desc">{s.desc}</p>
+              {idx < steps.length - 1 && (
+                <span className="r52-ge-step-arrow" aria-hidden="true">→</span>
+              )}
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      {/* Industry Solutions & Actions */}
+      <div className="r52-ge-destinations">
+        <div className="r52-ge-industries">
+          <span className="r52-ge-industry-label">Configured Solutions Available:</span>
+          <div className="r52-ge-industry-links">
+            <a href="/growth/medspa" className="r52-ge-industry-pill">
+              MedSpa Growth Engine <Arrow />
+            </a>
+            <a href="/growth/fitness" className="r52-ge-industry-pill">
+              Fitness &amp; Athletic Clubs <Arrow />
+            </a>
+            <a href="/growth" className="r52-ge-industry-pill">
+              Full Growth Engine System <Arrow />
+            </a>
+          </div>
+        </div>
+
+        <div className="r52-ge-actions">
+          <a href="/growth/book" className="r51-action">
+            Book a Discovery Call <Arrow />
+          </a>
+          <a href="/growth" className="r52-hero-work">
+            Explore Growth Architecture <Arrow />
+          </a>
+        </div>
+      </div>
+
+      <div className="r52-ge-footer-note">
+        <small>
+          * The Dynasty Growth Engine is a configured service offering engineered by Dynasty Works Studio using established infrastructure platforms. Capabilities reflect verified implementations.
+        </small>
+      </div>
+    </section>
   );
 }
 
@@ -72,23 +302,26 @@ export function BuiltByTheStudio() {
     <section className="r52-home-proof r52-built-section" id="built" aria-labelledby="built-title">
       <div className="r52-proof-head">
         <div>
-          <span className="r52-folio">03 / BUILT BY THE STUDIO</span>
+          <span className="r52-folio">04 / PORTFOLIO &amp; PROOF</span>
           <h2 id="built-title">Authentic operating<br /><em>brand worlds.</em></h2>
         </div>
         <div className="r52-proof-head-aside">
           <p className="r52-proof-thesis">
-            Real enterprises conceived, engineered, and launched with founders.
+            Real enterprises and studio brand projects conceived, engineered, and launched with founders.
             Zero synthetic claims. Live commercial destinations.
           </p>
+          <a href="/work" className="r52-proof-all-link">
+            EXPLORE SELECTED WORK <Arrow />
+          </a>
         </div>
       </div>
 
       <div className="r52-featured-fields r52-built-grid">
-        {/* 01: My Drink Family */}
+        {/* 01: My Drink Family - Client Enterprise */}
         <article className="r52-brand-field r52-field-mymosa r52-built-card">
           <div className="r52-field-content">
             <div className="r52-built-brand-header">
-              <span className="r52-field-category">CATEGORY PIONEER • BEVERAGE BRAND SYSTEM</span>
+              <span className="r52-field-category">CLIENT ENTERPRISE • BEVERAGE BRAND SYSTEM</span>
               <div className="r52-built-lockup r52-mdf-lockup">
                 <img
                   src="/assets/portfolio/mymosa/identity/my-drink-family-seal-primary-light.svg"
@@ -115,7 +348,7 @@ export function BuiltByTheStudio() {
             </p>
             <div className="r52-field-actions r52-built-actions">
               <a
-                href="https://mydrinkfamily.com"
+                href="https://mydrinkfamily.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="r52-action-primary r52-built-action"
@@ -127,11 +360,11 @@ export function BuiltByTheStudio() {
           </div>
         </article>
 
-        {/* 02: IKLA Maison */}
+        {/* 02: IKLA Maison - Studio Brand Project */}
         <article className="r52-brand-field r52-field-ikla r52-built-card">
           <div className="r52-field-content">
             <div className="r52-built-brand-header">
-              <span className="r52-field-category">ULTRA-LUXURY SARTORIAL MAISON</span>
+              <span className="r52-field-category">STUDIO BRAND PROJECT • ULTRA-LUXURY SARTORIAL MAISON</span>
               <div className="r52-built-lockup r52-ikla-lockup">
                 <img
                   src="/assets/portfolio/ikla/identity/crest-light.webp"
@@ -158,7 +391,7 @@ export function BuiltByTheStudio() {
             </p>
             <div className="r52-field-actions r52-built-actions">
               <a
-                href="https://iklamaison.com"
+                href="https://iklamaison.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="r52-action-primary r52-built-action"
@@ -170,11 +403,11 @@ export function BuiltByTheStudio() {
           </div>
         </article>
 
-        {/* 03: Mr. Cliff's */}
+        {/* 03: Mr. Cliff's - Studio Showcase */}
         <article className="r52-brand-field r52-field-cliffs r52-built-card">
           <div className="r52-field-content">
             <div className="r52-built-brand-header">
-              <span className="r52-field-category">HERITAGE SPIRITS • DIGITAL FLAGSHIP</span>
+              <span className="r52-field-category">STUDIO SHOWCASE • HERITAGE SPIRITS DIGITAL FLAGSHIP</span>
               <div className="r52-built-lockup r52-cliffs-lockup">
                 <img
                   src="/assets/portfolio/mr-cliffs/mr-cliffs-emblem.webp"
@@ -201,13 +434,11 @@ export function BuiltByTheStudio() {
             </p>
             <div className="r52-field-actions r52-built-actions">
               <a
-                href="https://mr-cliffs-aesthetic-upgrade.netlify.app"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/work"
                 className="r52-action-primary r52-built-action"
-                aria-label="Visit Mr. Cliff's website (opens in new tab)"
+                aria-label="View Mr. Cliff's in portfolio"
               >
-                VISIT WEBSITE <Arrow />
+                VIEW IN PORTFOLIO <Arrow />
               </a>
             </div>
           </div>
@@ -216,8 +447,8 @@ export function BuiltByTheStudio() {
 
       <div className="r52-proof-foot">
         <div className="r52-proof-foot-meta">
-          <span>03 / AUTHORITATIVE LIVE ENTERPRISES</span>
-          <span>Zero synthetic client claims</span>
+          <span>04 / AUTHORITATIVE OPERATING PORTFOLIO</span>
+          <span>External client work and studio brand projects clearly distinguished</span>
         </div>
       </div>
     </section>
@@ -437,15 +668,15 @@ export function Invitation() {
   return (
     <section className="r52-invitation" id="invitation" aria-labelledby="invitation-title">
       <div className="r52-invitation-top">
-        <span className="r52-folio">07 / FINAL CTA</span>
-        <p>The next company<br />has not been built yet.</p>
+        <span className="r52-folio">07 / FINAL INVITATION</span>
+        <p>Whether you're starting a new business or strengthening an established one, we'll help identify what you need and connect the pieces.</p>
       </div>
-      <h2 id="invitation-title">What are<br /><em>we building?</em></h2>
+      <h2 id="invitation-title">Let's build<br /><em>your next chapter.</em></h2>
       <div className="r52-invitation-end">
         <span className="r52-seed" aria-hidden="true"><i /></span>
         <div>
-          <a className="r51-action" href="/#review-builder">Start a company <span aria-hidden="true">→</span></a>
-          <a className="r52-talk" href="/contact">Talk to the studio <Arrow /></a>
+          <a className="r51-action" href="/contact">Start Your Project <span aria-hidden="true">→</span></a>
+          <a className="r52-talk" href="/growth/book">Book a Discovery Call <Arrow /></a>
         </div>
       </div>
     </section>
@@ -457,15 +688,15 @@ export function ReviewFooter() {
     <footer className="r52-footer">
       <div className="r52-footer-identity">
         <a href="/" className="p-wordmark">DYNASTY WORKS<span>STUDIO</span></a>
-        <p>Company creation studio.<br />From idea to operating enterprise.</p>
+        <p>Brand, Web &amp; Growth Systems.<br />Dynasty Works Studio builds brands, websites, and the systems that support their growth.</p>
       </div>
       <nav aria-label="Footer navigation">
-        <a href="/work">Work</a>
-        <a href="/#creation">How we build</a>
-        <a href="/capabilities">Capabilities</a>
-        <a href="/#review-builder">Company Builder</a>
-        <a href="/studio">Studio</a>
-        <a href="/#review-builder">Start a company <Arrow /></a>
+        <a href="/#services">Services</a>
+        <a href="/growth">Growth Engine</a>
+        <a href="/work">Our Work</a>
+        <a href="/studio">About</a>
+        <a href="/growth/book">Book a Call <Arrow /></a>
+        <a href="/contact">Start Your Project</a>
       </nav>
       <nav className="r52-footer-legal" aria-label="Legal navigation">
         <a href="/privacy">Privacy</a>

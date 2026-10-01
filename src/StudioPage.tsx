@@ -234,7 +234,7 @@ export default function StudioPage() {
                   <span className="studio-kicker" style={{ margin: 0 }}>Digital</span>
                 </div>
                 <h3>Digital & Software</h3>
-                <p>Bespoke web applications, high-conversion e-commerce systems, and proprietary software interfaces.</p>
+                <p>Bespoke web applications, tailored e-commerce systems, and proprietary software interfaces.</p>
               </div>
 
               <div className="studio-discipline-card">

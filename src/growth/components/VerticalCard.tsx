@@ -50,7 +50,7 @@ export const verticals: VerticalData[] = [
     statement: 'Converting local search and social interest into first gym visits within 48 hours, followed by structured membership conversion.',
     funnelSteps: [
       'Trial / Assessment Ad',
-      'High-Conversion Offer Page',
+      'Dedicated Offer & Intake Page',
       'Trial Pass Lead Captured',
       'Sub-60s SMS Pass Delivery',
       'First Gym Visit Scheduled',

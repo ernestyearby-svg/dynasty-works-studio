@@ -3,6 +3,8 @@ import './review51.css';
 import './review52.css';
 import {
   ReviewHeader,
+  ServicesOverview,
+  GrowthEngineShowcase,
   BuiltByTheStudio,
   StudioSignal,
   Invitation,
@@ -273,30 +275,39 @@ export default function Review52({ environment }: { environment?: (state: Creati
   return (
     <div className={'p-prototype r51 r52' + (environment ? ' has-environment' : '')}>
       {environment?.({ position: temperature, phase, reduced, material: materialStyle(temperature) })}
-      <a className="p-skip" href="#creation">Skip to creation experience</a>
+      <a className="p-skip" href="#services">Skip to services and creation experience</a>
 
       {/* 01: HERO & ARRIVAL */}
       <section id="hero" className="p-arrival" aria-labelledby="p-title">
         <ReviewHeader />
         <div className="p-arrival-composition">
-          <p className="p-arrival-note">Company Creation Studio <br />From idea to operating enterprise.</p>
-          <h1 id="p-title">From idea<span>to company.</span></h1>
+          <p className="p-arrival-note">DYNASTY WORKS STUDIO <br />Brand, Web &amp; Growth Systems</p>
+          <h1 id="p-title">Build a brand<br className="r52-hero-break" /> people remember.<span>Create a business ready<br className="r52-hero-break" /> for what comes next.</span></h1>
           <div className="p-origin-art">
             <div ref={origin} className="p-origin-anchor" />
             <span className="p-origin-caption"><i />One idea. Infinite potential.</span>
           </div>
           <p className="p-arrival-bottom">
-            We partner with founders to turn ideas into complete operating companies — unifying strategy, identity, product, digital systems, and market launch.
+            We bring together brand design, websites, and connected business systems to help you make a strong first impression—and keep the conversation moving.
+            <span className="p-arrival-secondary" style={{ display: 'block', marginTop: '10px', color: '#686b65', fontSize: '11px', lineHeight: '1.6' }}>
+              From your visual identity to your next customer inquiry, Dynasty Works Studio connects the details that help your business grow.
+            </span>
           </p>
           <div className="r51-arrival-actions">
-            <a className="r51-action" href="#review-builder">Start a company <span aria-hidden="true">→</span></a>
-            <a className="r52-hero-work" href="#built">Built by the studio <span aria-hidden="true">↗</span></a>
-            <a className="p-enter" href="#creation">How we build <span aria-hidden="true">↓</span></a>
+            <a className="r51-action" href="/growth/book">Book a Discovery Call <span aria-hidden="true">→</span></a>
+            <a className="r52-hero-work" href="/work">Explore Our Work <span aria-hidden="true">↗</span></a>
+            <a className="p-enter" href="#services">Our Services <span aria-hidden="true">↓</span></a>
           </div>
         </div>
       </section>
 
-      {/* 02: ORIGINAL CREATION CHAMBER / SCROLL-DRIVEN DWS EXPERIENCE */}
+      {/* 02: SERVICES OVERVIEW */}
+      <ServicesOverview />
+
+      {/* 03: THE DYNASTY GROWTH ENGINE SHOWCASE */}
+      <GrowthEngineShowcase />
+
+      {/* 04: ORIGINAL CREATION CHAMBER / SCROLL-DRIVEN DWS EXPERIENCE */}
       <section ref={rail} className="p-evolution" id="creation" aria-label="Idea to company">
         <div className={'p-stage ' + (temperature >= 3.5 && temperature < 8.5 ? 'is-dark' : '')} style={materialStyle(temperature)}>
           <div className="p-stage-top">

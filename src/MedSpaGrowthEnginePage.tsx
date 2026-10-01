@@ -774,7 +774,7 @@ export default function MedSpaGrowthEnginePage() {
                 </div>
                 <div className="ms-infra-item">
                   <h3 className="ms-infra-name">Treatment Landing Page</h3>
-                  <p className="ms-infra-desc">High-converting, luxury landing experiences focused on single-service clarity.</p>
+                  <p className="ms-infra-desc">Thoughtfully crafted, luxury landing experiences focused on single-service clarity.</p>
                 </div>
                 <div className="ms-infra-item">
                   <h3 className="ms-infra-name">Lead Capture</h3>

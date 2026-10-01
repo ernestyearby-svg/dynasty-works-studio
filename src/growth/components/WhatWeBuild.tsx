@@ -15,10 +15,10 @@ const modules: BuildModule[] = [
     title: 'CONVERSION EXPERIENCE',
     statement: 'Sub-second web surfaces and qualification funnels engineered to eliminate friction and turn attention into verified intent.',
     capabilities: [
-      'High-converting landing pages & websites',
+      'Dedicated landing pages & custom websites',
       'Progressive lead qualification forms',
       'Dynamic Number Insertion (DNI) for inbound calls',
-      'Conversion rate optimization & speed benchmarking',
+      'Performance benchmarking & structured funnel optimization',
     ],
     visualLabel: 'FRONTEND ARCHITECTURE',
     visualDetail: 'Sub-400ms Edge Delivery · Zero Cumulative Layout Shift',

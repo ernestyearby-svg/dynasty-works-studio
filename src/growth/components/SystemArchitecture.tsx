@@ -25,8 +25,8 @@ const architectureStages: Stage[] = [
   {
     number: '02',
     name: 'CONVERT',
-    subtitle: 'High-Converting Digital Surfaces',
-    statement: 'Sub-second landing pages and progressive qualification forms designed to eliminate bounce and turn commercial interest into verified leads.',
+    subtitle: 'Purpose-Built Digital Surfaces',
+    statement: 'Sub-second landing pages and progressive qualification forms designed to minimize drop-off and route commercial interest into verified inquiries.',
     capabilities: [
       'Edge-rendered experiences with 0.4s LCP',
       'Progressive qualification inputs with validation',

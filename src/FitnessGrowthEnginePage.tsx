@@ -452,7 +452,7 @@ export default function FitnessGrowthEnginePage() {
                 A member-acquisition and follow-up system built specifically for independent gyms and boutique fitness operators.
               </p>
               <p className="fit-hero-copy" style={{ marginTop: '-1rem', fontSize: '1rem', color: 'var(--fit-text-muted)' }}>
-                From the first click to the first workout, we connect targeted campaigns, high-converting offers, immediate follow-up, trial or consultation booking, reminders and lead reactivation into one managed growth system.
+                From the first click to the first workout, we connect targeted campaigns, compelling introductory offers, immediate follow-up, trial or consultation booking, reminders and lead reactivation into one managed growth system.
               </p>
 
               <div className="fit-hero-actions">
@@ -811,8 +811,8 @@ export default function FitnessGrowthEnginePage() {
 
             <div className="fit-install-grid">
               {[
-                { title: 'Campaign Strategy', desc: 'Targeted local acquisition campaigns built around high-converting introductory offers.' },
-                { title: 'Offer Landing Page', desc: 'Conversion-engineered landing pages presenting your facility culture and membership offer.' },
+                { title: 'Campaign Strategy', desc: 'Targeted local acquisition campaigns built around compelling introductory offers.' },
+                { title: 'Offer Landing Page', desc: 'Purpose-built landing pages presenting your facility culture and membership offer.' },
                 { title: 'Lead Capture', desc: 'Validated multi-step capture forms with instant duplicate check and territory routing.' },
                 { title: 'CRM Pipeline', desc: 'Tailored HighLevel pipeline with custom stages for fitness trials, consults, and memberships.' },
                 { title: 'SMS Follow-Up', desc: 'Immediate two-way conversational SMS sequences introducing coaches and confirming intent.' },

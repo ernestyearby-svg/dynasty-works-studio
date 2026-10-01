@@ -288,7 +288,7 @@ function IKLA(){
    <Process id="09-ikla-packaging-experience" title="View rigid packaging dieline and presentation suite" alt="IKLA packaging experience study with garment, boxes, cards and labels."/>
   </Chapter>
 
-  <Chapter id="experience" number="06 / RESULTING BRAND EXPERIENCE" title="The Living Luxury Flagship." copy="The finished enterprise is an operating luxury brand world: responsive digital boutique, private concierge appointment portal, editorial lookbooks, and high-conversion client pathways.">
+  <Chapter id="experience" number="06 / RESULTING BRAND EXPERIENCE" title="The Living Luxury Flagship." copy="The finished enterprise is an operating luxury brand world: responsive digital boutique, private concierge appointment portal, editorial lookbooks, and deliberate client inquiry pathways.">
    <div className="closing-quiet" style={{marginTop:'30px'}}>
     <div style={{display:'flex',flexDirection:'column',gap:'20px',alignItems:'flex-start'}}>
      <p style={{fontSize:'clamp(24px,3vw,42px)',letterSpacing:'-0.03em',lineHeight:'1.2'}}>Explore the complete, live IKLA Maison digital flagship and private-client experience.</p>
