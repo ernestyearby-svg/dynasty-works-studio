@@ -50,6 +50,7 @@ export function InquiryForm() {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [hasFailed, setHasFailed] = useState(false);
   const [receiptId, setReceiptId] = useState("");
   const idempotencyKeyRef = useRef<string>(generateIdempotencyKey());
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -57,6 +58,7 @@ export function InquiryForm() {
     setDraft((d) => ({ ...d, [key]: value }));
     setErrors((e) => ({ ...e, [key]: "" }));
     setMessage("");
+    setHasFailed(false);
   }
   function validate() {
     const result = inquirySchema.safeParse(draft);
@@ -101,9 +103,10 @@ export function InquiryForm() {
     setStep(n);
     setErrors({});
     setMessage("");
+    setHasFailed(false);
     setTimeout(() => titleRef.current?.focus(), 20);
   }
-  function download() {
+  function download(manual = true) {
     const { honeypot: _trap, consent: _consent, ...brief } = draft;
     void _trap;
     void _consent;
@@ -113,6 +116,7 @@ export function InquiryForm() {
           {
             notice: "Local brief only. Not submitted to Dynasty Works Studio.",
             ...brief,
+            generatedAt: new Date().toISOString(),
           },
           null,
           2,
@@ -126,12 +130,15 @@ export function InquiryForm() {
     a.download = "dynasty-project-brief.json";
     a.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
-    setMessage("Brief downloaded. Nothing has been submitted.");
+    if (manual) {
+      setMessage("Brief downloaded locally. Nothing has been transmitted to the studio.");
+    }
   }
   async function submit() {
     if (!validate()) return;
     setIsSubmitting(true);
     setMessage("");
+    setHasFailed(false);
 
     const payload = {
       name: draft.name.trim(),
@@ -157,32 +164,31 @@ export function InquiryForm() {
       if (result.success) {
         setReceiptId(result.data.receiptId);
         setIsSubmitted(true);
+        setHasFailed(false);
         setMessage(
           "Inquiry securely received by studio principals. Receipt: " +
             result.data.receiptId +
             ". You can also download a local copy of your brief below.",
         );
       } else {
-        if (
-          result.error.status === "not_configured" ||
-          result.error.status === "unavailable" ||
-          result.error.status === "network_error"
-        ) {
-          download();
-          setIsSubmitted(true);
-          setMessage(
-            result.error.message +
-              " Your brief has been downloaded locally.",
-          );
-        } else {
-          setMessage(result.error.message);
-        }
+        setIsSubmitted(false);
+        setHasFailed(true);
+        setReceiptId("");
+        download(false);
+        const errDetail = result.error?.message || "Remote transmission endpoint is not enabled.";
+        setMessage(
+          "Transmission incomplete: Your inquiry was not sent to the studio (" +
+            errDetail +
+            "). A backup copy of your brief has been downloaded locally to preserve your answers. Your entries remain below so you can retry transmission or contact us directly at advisory@dynastyworksstudio.com.",
+        );
       }
     } catch {
-      download();
-      setIsSubmitted(true);
+      setIsSubmitted(false);
+      setHasFailed(true);
+      setReceiptId("");
+      download(false);
       setMessage(
-        "Unable to complete remote transmission. Your brief has been downloaded locally.",
+        "Transmission incomplete: Your inquiry was not sent to the studio due to a network connection issue. A backup copy of your brief has been downloaded locally to preserve your answers. Your entries remain below so you can retry transmission or contact us directly at advisory@dynastyworksstudio.com.",
       );
     } finally {
       setIsSubmitting(false);
@@ -478,9 +484,43 @@ export function InquiryForm() {
             </label>
           </div>
           {message && (
-            <p className="submission-message" role="status">
-              {message}
-            </p>
+            <div
+              className={`submission-message ${isSubmitted ? "submission-success" : hasFailed ? "submission-error" : ""}`}
+              role={isSubmitted ? "status" : hasFailed ? "alert" : "status"}
+              style={
+                isSubmitted
+                  ? {
+                      border: "1px solid rgba(16, 185, 129, 0.4)",
+                      background: "rgba(16, 185, 129, 0.08)",
+                      color: "#10b981",
+                      padding: "16px 20px",
+                      borderRadius: "6px",
+                      marginBottom: "20px",
+                    }
+                  : hasFailed
+                    ? {
+                        border: "1px solid rgba(239, 68, 68, 0.4)",
+                        background: "rgba(239, 68, 68, 0.08)",
+                        color: "#f87171",
+                        padding: "16px 20px",
+                        borderRadius: "6px",
+                        marginBottom: "20px",
+                      }
+                    : undefined
+              }
+            >
+              {hasFailed && (
+                <div style={{ fontWeight: 700, fontSize: "15px", marginBottom: "6px", color: "#f87171" }}>
+                  ⚠ Inquiry Not Sent
+                </div>
+              )}
+              {isSubmitted && (
+                <div style={{ fontWeight: 700, fontSize: "15px", marginBottom: "6px", color: "#10b981" }}>
+                  ✓ Inquiry Securely Received
+                </div>
+              )}
+              <div>{message}</div>
+            </div>
           )}
           <div className="form-actions" style={{ display: "flex", gap: "10px", flexWrap: "wrap", alignItems: "center" }}>
             {step > 0 ? (
@@ -501,10 +541,12 @@ export function InquiryForm() {
                     ? "Transmitting brief..."
                     : isSubmitted
                       ? "Transmit another update"
-                      : "Transmit brief to studio"}{" "}
+                      : hasFailed
+                        ? "Retry transmission to studio"
+                        : "Transmit brief to studio"}{" "}
                   <span>↗</span>
                 </button>
-                <button className="button" type="button" onClick={download}>
+                <button className="button" type="button" onClick={() => download(true)}>
                   Download brief locally ↓
                 </button>
               </>
