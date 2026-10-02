@@ -5,7 +5,6 @@ const links = [
   ['Growth Engine', '/growth'],
   ['Our Work', '/work'],
   ['About', '/studio'],
-  ['Book a Call', '/growth/book'],
 ];
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
@@ -58,7 +57,6 @@ export function ReviewHeader() {
           <a href="/growth" onClick={close}>Growth Engine <Arrow /></a>
           <a href="/work" onClick={close}>Our Work <Arrow /></a>
           <a href="/studio" onClick={close}>About <Arrow /></a>
-          <a href="/growth/book" onClick={close}>Book a Call <Arrow /></a>
           <a href="/contact" onClick={close}>Start Your Project <Arrow /></a>
         </nav>
         <a className="r51-action" href="/growth/book" onClick={close}>Book a Discovery Call <Arrow /></a>
@@ -72,7 +70,7 @@ export function ServicesOverview() {
     <section className="r52-services-section" id="services" aria-labelledby="services-title">
       <div className="r52-services-header">
         <div className="r52-services-title-block">
-          <span className="r52-folio">01 / OUR SERVICES</span>
+          <span className="r52-folio">02 / SERVICES</span>
           <h2 id="services-title">Brand, Web &amp;<br /><em>Growth Systems.</em></h2>
         </div>
         <div className="r52-services-header-aside">
@@ -221,7 +219,7 @@ export function GrowthEngineShowcase() {
     <section className="r52-growth-engine-showcase" id="growth-engine" aria-labelledby="growth-engine-title">
       <div className="r52-ge-header">
         <div className="r52-ge-title-block">
-          <span className="r52-folio">02 / CONNECTED INFRASTRUCTURE</span>
+          <span className="r52-folio">03 / CONNECTED INFRASTRUCTURE</span>
           <h2 id="growth-engine-title">
             Your brand opens the door.<br />
             <em>Your systems carry the conversation forward.</em>
@@ -302,13 +300,13 @@ export function BuiltByTheStudio() {
     <section className="r52-home-proof r52-built-section" id="built" aria-labelledby="built-title">
       <div className="r52-proof-head">
         <div>
-          <span className="r52-folio">04 / PORTFOLIO &amp; PROOF</span>
-          <h2 id="built-title">Authentic operating<br /><em>brand worlds.</em></h2>
+          <span className="r52-folio">04 / SELECTED WORK</span>
+          <h2 id="built-title">Selected<br /><em>work.</em></h2>
         </div>
         <div className="r52-proof-head-aside">
           <p className="r52-proof-thesis">
-            Real enterprises and studio brand projects conceived, engineered, and launched with founders.
-            Zero synthetic claims. Live commercial destinations.
+            Client enterprises and studio brand projects conceived, engineered, and launched with founders.
+            Built for market endurance, operational clarity, and commercial momentum.
           </p>
           <a href="/work" className="r52-proof-all-link">
             EXPLORE SELECTED WORK <Arrow />
@@ -324,7 +322,7 @@ export function BuiltByTheStudio() {
               <span className="r52-field-category">CLIENT ENTERPRISE • BEVERAGE BRAND SYSTEM</span>
               <div className="r52-built-lockup r52-mdf-lockup">
                 <img
-                  src="/assets/portfolio/mymosa/identity/my-drink-family-seal-primary-light.svg"
+                  src="/assets/portfolio/mymosa/identity/my-drink-family-seal-primary-dark.svg"
                   alt="My Drink Family Seal"
                   className="r52-built-logo r52-built-seal"
                   width={44}
@@ -333,7 +331,7 @@ export function BuiltByTheStudio() {
                   decoding="async"
                 />
                 <img
-                  src="/assets/portfolio/mymosa/identity/my-drink-family-horizontal-primary-light.svg"
+                  src="/assets/portfolio/mymosa/identity/my-drink-family-horizontal-primary-dark.svg"
                   alt="My Drink Family"
                   className="r52-built-wordmark r52-mdf-wordmark"
                   width={190}
@@ -447,8 +445,8 @@ export function BuiltByTheStudio() {
 
       <div className="r52-proof-foot">
         <div className="r52-proof-foot-meta">
-          <span>04 / AUTHORITATIVE OPERATING PORTFOLIO</span>
-          <span>External client work and studio brand projects clearly distinguished</span>
+          <span>04 / SELECTED WORK</span>
+          <span>Client work and studio projects clearly distinguished</span>
         </div>
       </div>
     </section>
@@ -603,7 +601,7 @@ export function StudioSignal() {
   return (
     <section className="r52-studio-signal" id="studio" aria-labelledby="studio-signal-title">
       <div className="r52-studio-inner">
-        <span className="r52-folio">06 / WHY DWS</span>
+        <span className="r52-folio">06 / FOUNDER PARTNERSHIP</span>
         <h2 id="studio-signal-title">
           Systems guided by <br /><em>human judgment.</em>
         </h2>
@@ -625,8 +623,8 @@ export function StudioSignal() {
             </div>
             <div className="r52-tenet">
               <span className="r52-tenet-num">03</span>
-              <h4>Human Authorization</h4>
-              <p>AI and computational systems accelerate research, iteration, and execution. Strategic decisions and production standards remain strictly subject to human judgment and approval.</p>
+              <h4>Founder-Led Decisions</h4>
+              <p>AI and computational systems accelerate research, iteration, and execution. Strategic decisions and production standards remain strictly subject to human judgment and founder leadership.</p>
             </div>
           </div>
         </div>

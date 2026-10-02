@@ -145,7 +145,6 @@ export default function GrowthBookPage() {
                       height: '7px',
                       borderRadius: '50%',
                       background: 'var(--dws-signal)',
-                      boxShadow: '0 0 10px var(--dws-signal)',
                       display: 'inline-block',
                     }}
                   />

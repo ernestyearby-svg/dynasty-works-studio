@@ -130,7 +130,7 @@ function Environment({position,phase,reduced,material}:CreationEnvironmentState)
      <path d={line([682,volume*190+1,325],[817,volume*190+1,325])+line([817,volume*190+1,325],[817,volume*190+1,452])} className="ve-edge"/>
     </g>
     <g opacity={company*.45}><path d={line([330,0,850],[330,0,2200])+line([330,0,2200],[1170,0,2200])+line([1170,0,2200],[1170,0,200])} className="ve-pathway"/></g>
-    <circle cx={projection([1170,760,850])[0]} cy={projection([1170,760,850])[1]} r="2.4" fill="#2457ff" opacity={identity}/>
+    <circle cx={projection([1170,760,850])[0]} cy={projection([1170,760,850])[1]} r="2.4" fill="#2454D8" opacity={identity}/>
    </g>
   </svg>
  </div>;

@@ -33,3 +33,4 @@ Thumbs.db
 .netlify
 netlify/functions-dist
 deno.lock
+scratch/

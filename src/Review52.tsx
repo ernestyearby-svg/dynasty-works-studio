@@ -102,14 +102,14 @@ function Artifact({ phase, assembly = 0 }: { phase: number; assembly?: number })
         <path d="M330 185V405H550V370H365V185Z" fill="#17191c" style={{ transform: phase === 0 ? 'translate(' + -assembly * 28 + 'px,' + assembly * 14 + 'px)' : 'none' }} />
         <path d="M365 185H550V335" fill="none" stroke="#8f9289" strokeWidth="1.3" style={{ transform: phase === 0 ? 'translate(' + assembly * 35 + 'px,' + -assembly * 20 + 'px)' : 'none' }} />
         <path d="M365 370L550 185" stroke="#a9aca3" strokeWidth="1" strokeDasharray="3 6" opacity={phase === 0 ? assembly : 0} />
-        <path d="M550 145V185H590" fill="none" stroke="#2457ff" strokeWidth="2" style={{ transform: phase === 0 ? 'translate(' + assembly * 35 + 'px,' + -assembly * 20 + 'px)' : 'none' }} />
-        <circle cx="550" cy="185" r="6" fill="#2457ff" style={{ transform: phase === 0 ? 'translate(' + assembly * 35 + 'px,' + -assembly * 20 + 'px)' : 'none' }} />
+        <path d="M550 145V185H590" fill="none" stroke="#2454D8" strokeWidth="2" style={{ transform: phase === 0 ? 'translate(' + assembly * 35 + 'px,' + -assembly * 20 + 'px)' : 'none' }} />
+        <circle cx="550" cy="185" r="6" fill="#2454D8" style={{ transform: phase === 0 ? 'translate(' + assembly * 35 + 'px,' + -assembly * 20 + 'px)' : 'none' }} />
       </g>
       <>
         <g className="p-evidence p-strategy" data-on={visible(1)} style={{ transform: phase === 7 ? 'translate(20px,45px) scale(.47)' : 'translate(0px,0px)' }} fill="none" stroke="#202226">
           <path d="M140 340H350V145H660V430H350V340M140 340V190H350M350 280H660" strokeWidth="1.2" />
-          <path d="M350 145L660 280L350 430Z" stroke="#2457ff" strokeWidth="2" />
-          <circle cx="140" cy="340" r="7" fill="#2457ff" stroke="none" />
+          <path d="M350 145L660 280L350 430Z" stroke="#2454D8" strokeWidth="2" />
+          <circle cx="140" cy="340" r="7" fill="#2454D8" stroke="none" />
           <circle cx="350" cy="145" r="6" fill="#f3f1eb" />
           <circle cx="660" cy="280" r="6" fill="#f3f1eb" />
           <circle cx="350" cy="430" r="6" fill="#f3f1eb" />
@@ -123,12 +123,12 @@ function Artifact({ phase, assembly = 0 }: { phase: number; assembly?: number })
         <g className="p-evidence p-identity" data-on={visible(2)} style={{ transform: phase === 7 ? 'translate(550px,25px) scale(.38)' : 'translate(0px,0px)' }}>
           <g transform="translate(180 200)">
             <path d="M0 140V0H70L140 70V140H70V70H0Z" fill="#17191c" />
-            <path d="M0 70H70V140H0Z" fill="#2457ff" />
+            <path d="M0 70H70V140H0Z" fill="#2454D8" />
           </g>
           <text x="410" y="280" className="p-type-specimen">Aa</text>
           <path d="M400 315H700" stroke="#8c8d89" />
           <rect x="410" y="350" width="88" height="48" fill="#17191c" />
-          <rect x="508" y="350" width="88" height="48" fill="#2457ff" />
+          <rect x="508" y="350" width="88" height="48" fill="#2454D8" />
           <rect x="606" y="350" width="88" height="48" fill="#d2d0c8" />
           <text x="180" y="455" className="p-svg-label">FORM / VOICE / RECOGNITION</text>
         </g>
@@ -136,7 +136,7 @@ function Artifact({ phase, assembly = 0 }: { phase: number; assembly?: number })
           <path d="M250 190L400 132L540 195L385 260Z" fill="#f8f8f4" stroke="#a7a8a1" />
           <path d="M250 190L385 260V455L250 380Z" fill="#deded7" stroke="#a7a8a1" />
           <path d="M385 260L540 195V382L385 455Z" fill="url(#product-side)" stroke="#a7a8a1" />
-          <path d="M385 295L540 230V245L385 310Z" fill="#2457ff" />
+          <path d="M385 295L540 230V245L385 310Z" fill="#2454D8" />
           <path d="M300 245L325 258V288L300 275Z" fill="#17191c" />
           <path d="M225 185V389M210 185H238M210 389H238M390 485L553 410M390 475V497M553 399V421" stroke="#9c9d97" fill="none" />
           <text x="170" y="300" className="p-svg-label" transform="rotate(-90 170 300)">PROPORTION</text>
@@ -149,11 +149,11 @@ function Artifact({ phase, assembly = 0 }: { phase: number; assembly?: number })
           <text x="198" y="252" className="p-interface-heading">A new</text>
           <text x="198" y="303" className="p-interface-heading">perspective.</text>
           <path d="M200 343H398M200 355H367" stroke="#92948d" />
-          <rect x="200" y="392" width="139" height="34" fill="#2457ff" />
+          <rect x="200" y="392" width="139" height="34" fill="#2454D8" />
           <path d="M305 409H321M316 404L321 409L316 414" fill="none" stroke="white" />
           <path d="M572 239V382H699V360H594V239Z" fill="#17191c" />
           <path d="M594 239H699V337" fill="none" stroke="#92968c" />
-          <circle cx="699" cy="239" r="5" fill="#2457ff" />
+          <circle cx="699" cy="239" r="5" fill="#2454D8" />
           <text x="165" y="499" className="p-svg-label">IDENTITY BECOMES INTERACTION</text>
         </g>
         <g className="p-evidence p-experience" data-on={visible(5)} style={{ transform: phase === 7 ? 'translate(305px,365px) scale(.33)' : 'translate(0px,0px)' }}>
@@ -164,7 +164,7 @@ function Artifact({ phase, assembly = 0 }: { phase: number; assembly?: number })
           <path d="M509 340V242L575 272V372Z" fill="#b6b8af" />
           <path d="M509 242L566 216L631 246L575 272Z" fill="#fcfcfa" />
           <path d="M575 272L631 246V344L575 372Z" fill="#d1d2ca" />
-          <path d="M445 220L745 358" stroke="#2457ff" strokeWidth="4" />
+          <path d="M445 220L745 358" stroke="#2454D8" strokeWidth="4" />
           <circle cx="426" cy="328" r="9" fill="#26282a" />
           <path d="M426 340V392M415 356H437M426 392L415 416M426 392L437 416" stroke="#26282a" strokeWidth="3" />
           <text x="175" y="550" className="p-svg-label">OBJECT / SPACE / HUMAN SCALE</text>
@@ -183,24 +183,24 @@ function Artifact({ phase, assembly = 0 }: { phase: number; assembly?: number })
             <path d="M140 145H250V153H140ZM140 170H205V210H140Z" />
             <path d="M657 270H744V279H657ZM657 290H700V320H657Z" />
           </g>
-          <path d="M402 450H500M670 415H727" stroke="#2457ff" strokeWidth="7" />
+          <path d="M402 450H500M670 415H727" stroke="#2454D8" strokeWidth="7" />
           <text x="315" y="553" className="p-svg-label">ONE IDENTITY. MANY TOUCHPOINTS.</text>
         </g>
         <g className="p-evidence p-resolution-signature" data-on={phase === 7}>
           <text x="450" y="576" textAnchor="middle" className="p-company-signature">One company.</text>
-          <circle cx="450" cy="310" r="5" fill="#2457ff" />
+          <circle cx="450" cy="310" r="5" fill="#2454D8" />
         </g>
       </>
       <g className="p-mobile-resolution" data-on={phase === 7}>
         <path d="M160 90V485H735" fill="none" stroke="#17191c" strokeWidth="16" />
         <path d="M185 90H735V460" fill="none" stroke="#9b9f94" />
-        <circle cx="735" cy="90" r="9" fill="#2457ff" />
+        <circle cx="735" cy="90" r="9" fill="#2454D8" />
         {['Strategy', 'Identity', 'Product', 'Digital', 'Experience', 'Market'].map((name, i) => (
           <g key={name}>
             <path d={'M190 ' + (130 + i * 54) + 'H700'} stroke="#c1c4b9" />
             <text x="205" y={164 + i * 54} className="p-mobile-number">{String(i + 2).padStart(2, '0')}</text>
             <text x="277" y={165 + i * 54} className="p-mobile-discipline">{name}</text>
-            <path d={'M668 ' + (150 + i * 54) + 'h16'} stroke="#2457ff" strokeWidth="3" />
+            <path d={'M668 ' + (150 + i * 54) + 'h16'} stroke="#2454D8" strokeWidth="3" />
           </g>
         ))}
         <text x="450" y="565" textAnchor="middle" className="p-company-signature">One company.</text>
@@ -296,7 +296,6 @@ export default function Review52({ environment }: { environment?: (state: Creati
           <div className="r51-arrival-actions">
             <a className="r51-action" href="/growth/book">Book a Discovery Call <span aria-hidden="true">→</span></a>
             <a className="r52-hero-work" href="/work">Explore Our Work <span aria-hidden="true">↗</span></a>
-            <a className="p-enter" href="#services">Our Services <span aria-hidden="true">↓</span></a>
           </div>
         </div>
       </section>
@@ -304,10 +303,13 @@ export default function Review52({ environment }: { environment?: (state: Creati
       {/* 02: SERVICES OVERVIEW */}
       <ServicesOverview />
 
-      {/* 03: THE DYNASTY GROWTH ENGINE SHOWCASE */}
+      {/* 03: CONNECTED GROWTH WORKFLOW */}
       <GrowthEngineShowcase />
 
-      {/* 04: ORIGINAL CREATION CHAMBER / SCROLL-DRIVEN DWS EXPERIENCE */}
+      {/* 04: SELECTED WORK */}
+      <BuiltByTheStudio />
+
+      {/* 05: DELIVERY PROCESS */}
       <section ref={rail} className="p-evolution" id="creation" aria-label="Idea to company">
         <div className={'p-stage ' + (temperature >= 3.5 && temperature < 8.5 ? 'is-dark' : '')} style={materialStyle(temperature)}>
           <div className="p-stage-top">
@@ -336,16 +338,13 @@ export default function Review52({ environment }: { environment?: (state: Creati
         </div>
       </section>
 
-      {/* 03: BUILT BY THE STUDIO */}
-      <BuiltByTheStudio />
-
-      {/* 04: COMPANY BUILDER */}
+      {/* COMPACT ROADMAP INVITATION (Consolidated access to roadmap tool) */}
       <ReviewBuilder />
 
-      {/* 05: WHY DWS */}
+      {/* 06: FOUNDER PARTNERSHIP */}
       <StudioSignal />
 
-      {/* 06: FINAL INVITATION */}
+      {/* 07: FINAL INVITATION */}
       <Invitation />
       <ReviewFooter />
 
@@ -362,9 +361,17 @@ function ReviewBuilder() {
   const [type, setType] = useState<BusinessType | null>(null);
   const [map, setMap] = useState<{ phases: string[]; complete: boolean }>({ phases: [], complete: false });
   const title = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (window.location.hash === '#review-builder' || window.location.pathname === '/company-builder') {
+      setStarted(true);
+    }
+  }, []);
+
   useEffect(() => {
     if (started && !type) title.current?.focus();
   }, [started, type]);
+
   const active = (name: string) =>
     map.phases.some((p) =>
       name === 'strategy'
@@ -382,8 +389,37 @@ function ReviewBuilder() {
         : ['Automation System', 'Growth'].includes(p)
     );
   const classes = ['strategy', 'identity', 'product', 'digital', 'experience', 'market', 'systems'].filter(active).map((s) => 'has-' + s).join(' ');
+
+  // Compact Roadmap Invitation when not started
+  if (!started) {
+    return (
+      <aside className="r52-roadmap-invite-section" id="review-builder" aria-labelledby="roadmap-invite-title">
+        <div className="r52-roadmap-invite-card">
+          <div className="r52-roadmap-invite-content">
+            <span className="r52-folio">EXECUTIVE ROADMAP TOOL</span>
+            <h3 id="roadmap-invite-title">What does your idea<br /><em>need next?</em></h3>
+            <p>
+              Generate an initial company-build roadmap tailored to your commercial model and stage of development.
+              Your answers stay in this browser—no account or consultation required.
+            </p>
+          </div>
+          <div className="r52-roadmap-invite-action">
+            <button
+              type="button"
+              className="r51-action"
+              onClick={() => setStarted(true)}
+            >
+              Start Your Roadmap <span aria-hidden="true">→</span>
+            </button>
+            <span className="r52-roadmap-invite-note">Interactive diagnostic · 2 minutes · Immediate output</span>
+          </div>
+        </div>
+      </aside>
+    );
+  }
+
   return (
-    <section id="review-builder" className={'r51-builder ' + (started ? 'is-started ' : '') + (map.complete ? 'has-result' : '')}>
+    <section id="review-builder" className={'r51-builder is-started ' + (map.complete ? 'has-result' : '')}>
       <header>
         <span>05 / COMPANY BUILDER</span>
         <h2>Build the architecture<br /><em>before building the company.</em></h2>
@@ -392,11 +428,11 @@ function ReviewBuilder() {
       <div className="r51-instrument">
         <div className="r51-instrument-status">
           <span>DYNASTY WORKS / FOUNDER DIAGNOSTIC</span>
-          <span>{map.complete ? 'OUTPUT / EXECUTIVE ROADMAP' : type ? 'INPUT / STRATEGIC PROFILE' : started ? '01 / COMPANY TYPE' : 'READY / YOUR IDEA'}</span>
+          <span>{map.complete ? 'OUTPUT / EXECUTIVE ROADMAP' : type ? 'INPUT / STRATEGIC PROFILE' : '01 / COMPANY TYPE'}</span>
         </div>
         <div className="r51-response">
-          <div className={'r51-response-art ' + classes + (started ? ' is-active' : '')}>
-            <Artifact phase={started ? 7 : 0} />
+          <div className={'r51-response-art ' + classes + ' is-active'}>
+            <Artifact phase={7} />
             {type && (
               <div className="r51-mobile-map">
                 {map.phases.map((p, i) => (
@@ -419,17 +455,7 @@ function ReviewBuilder() {
           )}
         </div>
         <div className="r51-input">
-          {!started ? (
-            <>
-              <h3>What does your<br /><em>idea need next?</em></h3>
-              <button className="r51-action" onClick={() => setStarted(true)}>
-                Start your roadmap <span aria-hidden="true">→</span>
-              </button>
-              <p className="r51-utility">
-                An initial direction, not a quote.<br />Your answers stay in this browser. Nothing is sent.
-              </p>
-            </>
-          ) : !type ? (
+          {!type ? (
             <>
               <p className="r51-step">01 / YOUR STARTING POINT</p>
               <h3 ref={title} tabIndex={-1}>What are<br />we building?</h3>
