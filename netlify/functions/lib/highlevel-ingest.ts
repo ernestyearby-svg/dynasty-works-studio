@@ -5,10 +5,12 @@
  * Guarantees:
  * 1. Normalized contact upsert with preserved fields, services, consent, and attribution.
  * 2. Strict preservation of opt-out preferences (never passes dnd: false).
- * 3. Eventual-consistency search followed by transactional opportunity creation.
- * 4. OPPORTUNITY_NO_DUPLICATE treated as success ONLY after confirming the matching existing opportunity.
- * 5. Broad error suppression strictly prohibited: 401, 403, 422, 429, 500 throw authentic errors.
- * 6. Dual-mode support: Direct HighLevel API (primary) with fallback to automation webhook if configured.
+ * 3. Supported LeadConnector V2 API endpoints with documented headers:
+ *    - Authorization: Bearer <token>
+ *    - Version: 2021-07-28
+ * 4. Eventual-consistency search followed by transactional opportunity creation.
+ * 5. OPPORTUNITY_NO_DUPLICATE treated as success ONLY after confirming matching existing opportunity.
+ * 6. Broad error suppression strictly prohibited: 401, 403, 422, 429, 500 throw authentic errors.
  * 7. Zero secret exposure in browser code, logs, or error responses.
  */
 
@@ -73,11 +75,11 @@ export interface NormalizedInquiryPayload {
 
 export interface IngestionResult {
   success: boolean;
-  deliveredVia: 'highlevel_direct' | 'automation_webhook';
+  deliveredVia: 'highlevel_direct';
   contactId?: string;
   opportunityId?: string;
   duplicatePrevented: boolean;
-  action: 'opportunity_created' | 'opportunity_reused_search' | 'opportunity_reused_confirmed' | 'forwarded';
+  action: 'opportunity_created' | 'opportunity_reused_search' | 'opportunity_reused_confirmed';
   data?: Record<string, unknown>;
 }
 
@@ -113,8 +115,6 @@ export async function ingestLead(payload: NormalizedInquiryPayload): Promise<Ing
   const pipelineId = process.env.HIGHLEVEL_PIPELINE_ID || DEFAULT_PIPELINE_ID;
   const stageId = process.env.HIGHLEVEL_STAGE_ID || DEFAULT_STAGE_ID;
 
-  // REQUIREMENT 2: Require direct HighLevel ingestion.
-  // Silent fallback to workstation n8n / DWS_AUTOMATION_WEBHOOK_URL is eliminated.
   if (!apiKey) {
     throw new HighLevelIngestionError(
       503,
@@ -125,23 +125,11 @@ export async function ingestLead(payload: NormalizedInquiryPayload): Promise<Ing
 
   const cleanApiKey = apiKey.trim().replace(/^Bearer\s+/i, '').replace(/^["']|["']$/g, '');
 
-  const isMaskedPlaceholder =
-    cleanApiKey.length > 0 &&
-    cleanApiKey.split('').every((c) => c === '*' || c === '•' || c.charCodeAt(0) === 42 || c.charCodeAt(0) === 8226);
-
-  if (isMaskedPlaceholder) {
-    throw new HighLevelIngestionError(
-      503,
-      'HIGHLEVEL_API_KEY environment variable contains masked placeholder characters (asterisks/bullets) rather than the actual credential. Please enter the real API key in Netlify Site Settings.',
-      'CONFIG_MASKED'
-    );
-  }
-
   return ingestDirectToHighLevel(payload, { apiKey: cleanApiKey, locationId, pipelineId, stageId });
 }
 
 /**
- * Direct HighLevel API Ingestion
+ * Direct HighLevel API Ingestion via LeadConnector V2
  */
 async function ingestDirectToHighLevel(
   payload: NormalizedInquiryPayload,
@@ -224,9 +212,6 @@ async function ingestDirectToHighLevel(
 
   if (!upsertRes.ok) {
     const errBody = await upsertRes.json().catch(() => ({}));
-    if (upsertRes.status === 401 && (errBody.message === 'Invalid JWT' || String(errBody.message).includes('JWT'))) {
-      return ingestViaHighLevelV1(payload, config);
-    }
     throw new HighLevelIngestionError(
       upsertRes.status,
       errBody.message || 'Contact upsert failed',
@@ -247,15 +232,15 @@ async function ingestDirectToHighLevel(
 
   let existingOpportunityId: string | null = null;
   try {
-    const searchUrl = `https://services.leadconnectorhq.com/opportunities/search?locationId=${encodeURIComponent(
+    const searchUrl = `https://services.leadconnectorhq.com/opportunities/search?location_id=${encodeURIComponent(
       locationId
-    )}&pipelineId=${encodeURIComponent(pipelineId)}&contactId=${encodeURIComponent(contactId)}`;
+    )}&pipeline_id=${encodeURIComponent(pipelineId)}&contact_id=${encodeURIComponent(contactId)}`;
 
     const searchRes = await fetch(searchUrl, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${apiKey}`,
-        Version: 'v3',
+        Version: '2021-07-28',
       },
       signal: searchController.signal,
     });
@@ -299,7 +284,7 @@ async function ingestDirectToHighLevel(
       method: 'POST',
       headers: {
         Authorization: `Bearer ${apiKey}`,
-        Version: 'v3',
+        Version: '2021-07-28',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -342,11 +327,11 @@ async function ingestDirectToHighLevel(
     if (!confirmedOppId) {
       try {
         const confirmRes = await fetch(
-          `https://services.leadconnectorhq.com/opportunities/search?locationId=${encodeURIComponent(
+          `https://services.leadconnectorhq.com/opportunities/search?location_id=${encodeURIComponent(
             locationId
-          )}&pipelineId=${encodeURIComponent(pipelineId)}&contactId=${encodeURIComponent(contactId)}`,
+          )}&pipeline_id=${encodeURIComponent(pipelineId)}&contact_id=${encodeURIComponent(contactId)}`,
           {
-            headers: { Authorization: `Bearer ${apiKey}`, Version: 'v3' },
+            headers: { Authorization: `Bearer ${apiKey}`, Version: '2021-07-28' },
           }
         );
         if (confirmRes.ok) {
@@ -382,217 +367,87 @@ async function ingestDirectToHighLevel(
 }
 
 /**
- * Direct HighLevel API V1 Ingestion (for standard API Keys)
+ * Read-Only HighLevel Credential Verification Probe
+ * Executes a GET request against LeadConnector V2 to verify credential validity
+ * without creating or modifying any CRM contacts or opportunities.
  */
-async function ingestViaHighLevelV1(
-  payload: NormalizedInquiryPayload,
-  config: { apiKey: string; locationId: string; pipelineId: string; stageId: string }
-): Promise<IngestionResult> {
-  const { apiKey, pipelineId, stageId } = config;
-  const timeoutMs = 12000;
+export async function verifyHighLevelCredentialReadOnly(): Promise<{
+  status: number;
+  ok: boolean;
+  sanitizedMessage: string;
+  endpoint: string;
+  hasCredential: boolean;
+  runtimeContext: string;
+  authScheme: string;
+}> {
+  const apiKey =
+    process.env.HIGHLEVEL_API_KEY ||
+    process.env.GHL_API_KEY ||
+    process.env.LEADCONNECTOR_API_KEY ||
+    process.env.DWS_HIGHLEVEL_API_KEY;
 
-  let firstName = (payload.first_name || '').trim();
-  let lastName = (payload.last_name || '').trim();
-  if (!firstName && payload.name) {
-    const parts = payload.name.trim().split(' ');
-    firstName = parts[0] || 'Prospect';
-    lastName = parts.slice(1).join(' ').trim();
-  }
-  const fullName = `${firstName} ${lastName}`.trim();
+  const runtimeContext = process.env.CONTEXT || 'unknown';
 
-  const servicesList: string[] = Array.isArray(payload.services)
-    ? payload.services
-    : payload.selected_services
-    ? payload.selected_services.split(',').map((s) => s.trim())
-    : [];
-  const servicesString = servicesList.join(', ');
-
-  const tags: string[] = [];
-  if (payload.is_test) {
-    tags.push('test-submission', 'automated-audit');
-  }
-  if (payload.inquiry_type === 'growth' || payload.landing_page === '/growth/apply') {
-    tags.push('growth-engine');
-  } else if (payload.inquiry_type === 'general' || payload.landing_page === '/contact') {
-    tags.push('general-inquiry');
+  if (!apiKey) {
+    return {
+      status: 503,
+      ok: false,
+      sanitizedMessage: 'CONFIG_MISSING: HIGHLEVEL_API_KEY not set in runtime environment.',
+      endpoint: 'none',
+      hasCredential: false,
+      runtimeContext,
+      authScheme: 'none',
+    };
   }
 
-  const sourceName =
-    payload.source ||
-    (payload.landing_page === '/contact' || payload.inquiry_type === 'general'
-      ? 'website-general-contact'
-      : 'DWS Growth Review');
+  const cleanApiKey = apiKey.trim().replace(/^Bearer\s+/i, '').replace(/^["']|["']$/g, '');
+  const locationId = process.env.HIGHLEVEL_LOCATION_ID || DEFAULT_LOCATION_ID;
+  const endpoint = `https://services.leadconnectorhq.com/locations/${encodeURIComponent(locationId)}`;
 
-  // Step A: Contact Upsert in V1
-  const contactUpsertBody: Record<string, unknown> = {
-    firstName,
-    lastName,
-    name: fullName,
-    email: payload.email,
-    phone: payload.phone || '',
-    companyName: payload.company_name || payload.business_name || payload.company || '',
-    website: payload.website || '',
-    source: sourceName,
-  };
-  if (tags.length > 0) {
-    contactUpsertBody.tags = tags;
-  }
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 10000);
 
-  const upsertController = new AbortController();
-  const upsertTimeout = setTimeout(() => upsertController.abort(), timeoutMs);
-
-  let upsertRes: Response;
   try {
-    upsertRes = await fetch('https://rest.gohighlevel.com/v1/contacts/', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(contactUpsertBody),
-      signal: upsertController.signal,
-    });
-  } catch (netErr: any) {
-    clearTimeout(upsertTimeout);
-    throw new HighLevelIngestionError(503, `Network failure connecting to HighLevel V1: ${netErr.message}`, 'NETWORK_ERROR');
-  }
-  clearTimeout(upsertTimeout);
-
-  if (!upsertRes.ok) {
-    const errText = await upsertRes.text();
-    let errBody: any = {};
-    try { errBody = JSON.parse(errText); } catch { errBody = { raw: errText }; }
-    throw new HighLevelIngestionError(
-      upsertRes.status,
-      errBody.message || errText || 'HighLevel V1 contact upsert failed',
-      errBody.code || 'CONTACT_UPSERT_FAILED',
-      errBody
-    );
-  }
-
-  const upsertData: any = await upsertRes.json().catch(() => ({}));
-  const contactId = upsertData.contact?.id || upsertData.id;
-  if (!contactId) {
-    throw new HighLevelIngestionError(502, 'HighLevel V1 contact upsert succeeded but no contact ID returned', 'MISSING_CONTACT_ID');
-  }
-
-  // Step B: Search Existing Opportunities in Pipeline
-  const searchController = new AbortController();
-  const searchTimeout = setTimeout(() => searchController.abort(), timeoutMs);
-
-  let existingOpportunityId: string | null = null;
-  try {
-    const searchUrl = `https://rest.gohighlevel.com/v1/pipelines/${encodeURIComponent(pipelineId)}/opportunities?contact_id=${encodeURIComponent(contactId)}`;
-    const searchRes = await fetch(searchUrl, {
+    const res = await fetch(endpoint, {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${apiKey}`,
+        Authorization: `Bearer ${cleanApiKey}`,
+        Version: '2021-07-28',
       },
-      signal: searchController.signal,
+      signal: controller.signal,
     });
-    if (searchRes.ok) {
-      const searchData: any = await searchRes.json().catch(() => ({}));
-      const opps = searchData.opportunities || [];
-      if (Array.isArray(opps) && opps.length > 0) {
-        existingOpportunityId = opps[0].id;
-      }
-    }
-  } catch (searchErr: any) {
-    console.warn('Opportunity search non-fatal error:', searchErr?.message);
-  }
-  clearTimeout(searchTimeout);
+    clearTimeout(timeout);
 
-  if (existingOpportunityId) {
+    const bodyText = await res.text();
+    let parsed: any = {};
+    try {
+      parsed = JSON.parse(bodyText);
+    } catch {
+      parsed = { raw: bodyText.slice(0, 200) };
+    }
+
     return {
-      success: true,
-      deliveredVia: 'highlevel_direct',
-      contactId,
-      opportunityId: existingOpportunityId,
-      duplicatePrevented: true,
-      action: 'opportunity_reused_search',
+      status: res.status,
+      ok: res.ok,
+      sanitizedMessage:
+        parsed.message ||
+        parsed.msg ||
+        (res.ok ? 'Credential verified successfully.' : `LeadConnector V2 returned HTTP ${res.status}`),
+      endpoint: '/locations/{locationId}',
+      hasCredential: true,
+      runtimeContext,
+      authScheme: 'Bearer (LeadConnector V2)',
+    };
+  } catch (err: any) {
+    clearTimeout(timeout);
+    return {
+      status: 500,
+      ok: false,
+      sanitizedMessage: `Network error during read-only probe: ${err.message}`,
+      endpoint: '/locations/{locationId}',
+      hasCredential: true,
+      runtimeContext,
+      authScheme: 'Bearer (LeadConnector V2)',
     };
   }
-
-  // Step C: Create Opportunity in V1
-  const isGeneral = payload.inquiry_type === 'general' || payload.landing_page === '/contact';
-  const oppName = isGeneral
-    ? `${firstName} ${lastName} - Studio Inquiry (${servicesString || 'General'})`.trim()
-    : `${firstName} ${lastName} - DWS Lead`.trim();
-
-  const oppController = new AbortController();
-  const oppTimeout = setTimeout(() => oppController.abort(), timeoutMs);
-
-  let oppRes: Response;
-  try {
-    oppRes = await fetch(`https://rest.gohighlevel.com/v1/pipelines/${encodeURIComponent(pipelineId)}/opportunities/`, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        title: oppName,
-        stageId,
-        contactId,
-        status: 'open',
-        monetaryValue: 0,
-      }),
-      signal: oppController.signal,
-    });
-  } catch (oppNetErr: any) {
-    clearTimeout(oppTimeout);
-    throw new HighLevelIngestionError(503, `Network failure creating opportunity in HighLevel V1: ${oppNetErr.message}`, 'NETWORK_ERROR');
-  }
-  clearTimeout(oppTimeout);
-
-  if (oppRes.ok) {
-    const oppData: any = await oppRes.json().catch(() => ({}));
-    return {
-      success: true,
-      deliveredVia: 'highlevel_direct',
-      contactId,
-      opportunityId: oppData.opportunity?.id || oppData.id,
-      duplicatePrevented: false,
-      action: 'opportunity_created',
-    };
-  }
-
-  const oppErrJson: any = await oppRes.json().catch(() => ({}));
-  if (oppRes.status === 400 && oppErrJson.code === 'OPPORTUNITY_NO_DUPLICATE') {
-    let confirmedOppId = oppErrJson.meta?.existingId || null;
-    if (!confirmedOppId) {
-      try {
-        const confirmRes = await fetch(
-          `https://rest.gohighlevel.com/v1/pipelines/${encodeURIComponent(pipelineId)}/opportunities?contact_id=${encodeURIComponent(contactId)}`,
-          { headers: { Authorization: `Bearer ${apiKey}` } }
-        );
-        if (confirmRes.ok) {
-          const confirmData: any = await confirmRes.json().catch(() => ({}));
-          const opps = confirmData.opportunities || [];
-          if (Array.isArray(opps) && opps.length > 0) {
-            confirmedOppId = opps[0].id;
-          }
-        }
-      } catch {}
-    }
-
-    if (confirmedOppId) {
-      return {
-        success: true,
-        deliveredVia: 'highlevel_direct',
-        contactId,
-        opportunityId: confirmedOppId,
-        duplicatePrevented: true,
-        action: 'opportunity_reused_confirmed',
-      };
-    }
-  }
-
-  throw new HighLevelIngestionError(
-    oppRes.status,
-    oppErrJson.message || 'Opportunity creation failed in HighLevel V1',
-    oppErrJson.code || 'OPPORTUNITY_CREATION_FAILED',
-    oppErrJson
-  );
 }
-
