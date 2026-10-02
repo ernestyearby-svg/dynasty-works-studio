@@ -61,12 +61,30 @@ function isOriginAllowed(origin: string | null): boolean {
   const allowed = new Set([...defaults, ...configured]);
   if (allowed.has(origin)) return true;
 
-  // Dynamically permit Netlify deploy-preview and branch-deploy URLs for the review site
-  if (/^https:\/\/[a-z0-9-]+--dynasty-works-studio-review\.netlify\.app$/.test(origin)) {
+  // Dynamically permit Netlify deploy-preview, branch-deploy, and localtunnel review URLs
+  if (
+    /^https:\/\/[a-z0-9-]+--dynasty-works-studio-review\.netlify\.app$/.test(origin) ||
+    /^https:\/\/[a-z0-9-]+\.loca\.lt$/.test(origin)
+  ) {
     return true;
   }
 
   return false;
+}
+
+function isTestEmail(email?: string): boolean {
+  if (!email) return false;
+  const lower = email.toLowerCase().trim();
+  return (
+    lower.endsWith('@example.com') ||
+    lower.endsWith('@example.org') ||
+    lower.endsWith('@example.net') ||
+    lower.includes('.test.') ||
+    lower.includes('+test') ||
+    lower.includes('verification') ||
+    lower.startsWith('test.') ||
+    lower.startsWith('test-')
+  );
 }
 
 // Common Validation Schemas
@@ -336,164 +354,170 @@ async function coreHandler(request: Request, context?: any): Promise<Response> {
   // 10. Payload SHA-256 Hash
   const payloadHash = crypto.createHash('sha256').update(JSON.stringify(recomputedDetail)).digest('hex');
 
-  // 11. Database RPC Execution
-  const supabaseUrl = process.env.SUPABASE_URL;
-  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-  if (!supabaseUrl || !supabaseKey) {
-    return respond(503, {
-      status: 'not_configured',
-      message: 'Database connection configuration is missing or incomplete.',
-    });
-  }
-
   try {
-    const rpcPayload = {
-      p_idempotency_key: idempotencyKey,
-      p_payload_hash: payloadHash,
-      p_inquiry_type: kind,
-      p_name: validatedData.name,
-      p_email: validatedData.email,
-      p_phone: validatedData.phone || null,
-      p_company: validatedData.company,
-      p_website: validatedData.website || null,
-      p_ip_hash: ipHash,
-      p_detail: recomputedDetail,
+    // 11. Lead Ingestion Automation Delivery (n8n & HighLevel Pipeline)
+    const automationWebhookUrl =
+    process.env.DWS_AUTOMATION_WEBHOOK_URL ||
+    process.env.GROWTH_SYSTEM_WEBHOOK_URL ||
+    (process.env.NETLIFY_DEV ? 'http://localhost:5681/webhook/dws-growth-review' : '');
+
+  const isTest = Boolean(
+    isTestEmail(validatedData.email) ||
+    process.env.DWS_TEST_MODE === 'true' ||
+    request.headers.get('x-dws-test') === 'true'
+  );
+
+  let automationDelivered = false;
+  let automationError = '';
+
+  if (automationWebhookUrl) {
+    const fullName = validatedData.name ? String(validatedData.name).trim() : 'Prospect';
+    const spaceIdx = fullName.indexOf(' ');
+    const firstName = spaceIdx > 0 ? fullName.slice(0, spaceIdx) : fullName;
+    const lastName = spaceIdx > 0 ? fullName.slice(spaceIdx + 1).trim() : '';
+
+    const automationPayload = {
+      inquiry_kind: kind,
+      first_name: firstName,
+      last_name: lastName,
+      name: fullName,
+      email: validatedData.email,
+      phone: validatedData.phone || '',
+      company_name: validatedData.company,
+      business_name: validatedData.company,
+      company: validatedData.company,
+      website: validatedData.website || '',
+      services: validatedData.services || [],
+      selected_services: Array.isArray(validatedData.services) ? validatedData.services.join(', ') : '',
+      description: validatedData.description || validatedData.ambitionNotes || validatedData.ideaDescription || '',
+      notes: validatedData.description || validatedData.ambitionNotes || validatedData.ideaDescription || '',
+      biggest_bottleneck: validatedData.description || validatedData.problemDescription || '',
+      primary_goal: Array.isArray(validatedData.services) ? validatedData.services.join(', ') : (validatedData.businessType || 'General Inquiry'),
+      stage: validatedData.stage || validatedData.businessStage || '',
+      budget: validatedData.budget || validatedData.budgetRange || '',
+      monthly_marketing_budget: validatedData.budget || validatedData.budgetRange || '',
+      timeframe: validatedData.timeframe || validatedData.launchTimeline || '',
+      reference_url: validatedData.referenceUrl || '',
+      physical_market: Boolean(validatedData.physicalMarket),
+      source: 'website-general-contact',
+      source_page: request.headers.get('referer') || '/contact',
+      landing_page: '/contact',
+      consent: body.consent,
+      idempotency_key: idempotencyKey,
+      is_test: isTest,
+      submitted_at: new Date().toISOString(),
     };
 
-    const rpcResponse = await fetch(`${supabaseUrl.replace(/\/$/, '')}/rest/v1/rpc/submit_inquiry`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept-Profile': 'dynasty_private',
-        'Content-Profile': 'dynasty_private',
-        apikey: supabaseKey,
-        Authorization: `Bearer ${supabaseKey}`,
-      },
-      body: JSON.stringify(rpcPayload),
-    });
+    const outboundHeaders: Record<string, string> = {
+      'Content-Type': 'application/json',
+      'bypass-tunnel-reminder': '1',
+    };
+    if (process.env.DWS_AUTOMATION_API_KEY) {
+      outboundHeaders['Authorization'] = `Bearer ${process.env.DWS_AUTOMATION_API_KEY}`;
+    }
 
-    if (!rpcResponse.ok) {
-      const errText = await rpcResponse.text();
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 12000);
 
-      // Check for custom Postgres exception codes
-      if (errText.includes('RATE_LIMITED') || rpcResponse.status === 429) {
-        return respond(429, {
-          status: 'rate_limited',
-          message: 'Submission frequency threshold reached. Please try again in a few minutes.',
-        }, { 'Retry-After': '600' });
-      }
-
-      if (errText.includes('IDEMPOTENCY_CONFLICT') || rpcResponse.status === 409) {
-        return respond(409, {
-          status: 'conflict',
-          message: 'This request key was previously used with differing information. Please submit a new brief.',
-        });
-      }
-
-      console.error(JSON.stringify({
-        event: 'db_rpc_error',
-        kind,
-        status: rpcResponse.status,
-        duration_ms: Date.now() - startTime,
-      }));
-
-      return respond(503, {
-        status: 'unavailable',
-        message: 'Secure transmission service is temporarily unavailable. Please download your brief locally.',
+      const autoRes = await fetch(automationWebhookUrl, {
+        method: 'POST',
+        headers: outboundHeaders,
+        body: JSON.stringify(automationPayload),
+        signal: controller.signal,
       });
+      clearTimeout(timeout);
+
+      if (autoRes.ok) {
+        automationDelivered = true;
+        console.info(JSON.stringify({
+          event: 'automation_ingest_success',
+          kind,
+          email: validatedData.email,
+          status: autoRes.status,
+          duration_ms: Date.now() - startTime,
+        }));
+      } else {
+        const errTxt = await autoRes.text().catch(() => '');
+        automationError = `Automation upstream error (${autoRes.status}): ${errTxt.slice(0, 100)}`;
+        console.error('Automation lead ingest error:', automationError);
+      }
+    } catch (err: any) {
+      automationError = `Automation connection failed: ${err.message}`;
+      console.error('Automation fetch error:', err);
     }
+  }
 
-    const rpcResult: any = await rpcResponse.json();
-    const row = Array.isArray(rpcResult) ? rpcResult[0] : rpcResult;
-    const receiptId = row?.receipt_id;
+  // 12. Optional Database RPC Execution (Supabase)
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  let dbReceiptId: string | null = null;
 
-    if (!receiptId) {
-      throw new Error('Database transaction did not return a confirmed receipt ID.');
+  if (supabaseUrl && supabaseKey) {
+    try {
+      const rpcPayload = {
+        p_idempotency_key: idempotencyKey,
+        p_payload_hash: payloadHash,
+        p_inquiry_type: kind,
+        p_name: validatedData.name,
+        p_email: validatedData.email,
+        p_phone: validatedData.phone || null,
+        p_company: validatedData.company,
+        p_website: validatedData.website || null,
+        p_ip_hash: ipHash,
+        p_detail: recomputedDetail,
+      };
+
+      const rpcResponse = await fetch(`${supabaseUrl.replace(/\/$/, '')}/rest/v1/rpc/submit_inquiry`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept-Profile': 'dynasty_private',
+          'Content-Profile': 'dynasty_private',
+          apikey: supabaseKey,
+          Authorization: `Bearer ${supabaseKey}`,
+        },
+        body: JSON.stringify(rpcPayload),
+      });
+
+      if (rpcResponse.ok) {
+        const rpcResult: any = await rpcResponse.json();
+        const row = Array.isArray(rpcResult) ? rpcResult[0] : rpcResult;
+        dbReceiptId = row?.receipt_id || null;
+      }
+    } catch (dbErr: any) {
+      console.warn('Supabase RPC skipped or unavailable:', dbErr?.message);
     }
+  }
 
-    // Structured PII-Redacted Logging
+  // Determine Final Delivery Outcome:
+  // If either the automation engine or the database accepted the lead, confirm receipt!
+  if (automationDelivered || dbReceiptId) {
+    const finalReceiptId = dbReceiptId || ('rec_' + idempotencyKey.replace(/-/g, '').slice(0, 12));
+
     console.info(JSON.stringify({
       event: 'submission_persisted',
       kind,
       status: 202,
-      receipt_id: receiptId,
-      replay: row?.status === 'replay',
+      receipt_id: finalReceiptId,
+      automation_delivered: automationDelivered,
+      db_delivered: Boolean(dbReceiptId),
       duration_ms: Date.now() - startTime,
     }));
 
-    // Downstream Notification Dispatch (Decoupled from persistence)
-    // Email dispatch failure MUST NEVER rollback or cancel an accepted submission
-    if (row?.status !== 'replay') {
-      const notifCtx: SubmissionNotificationContext = {
-        kind,
-        receiptId,
-        createdAt: new Date().toISOString(),
-        founderName: validatedData.name,
-        founderEmail: validatedData.email,
-        founderPhone: validatedData.phone || null,
-        companyName: validatedData.company,
-        detail: recomputedDetail,
-      };
-
-      try {
-        const notifResult = await dispatchSubmissionNotifications(notifCtx);
-        const notifStatus = notifResult.success ? 'SENT' : 'FAILED';
-
-        await fetch(`${supabaseUrl.replace(/\/$/, '')}/rest/v1/rpc/record_notification_result`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept-Profile': 'dynasty_private',
-            'Content-Profile': 'dynasty_private',
-            apikey: supabaseKey,
-            Authorization: `Bearer ${supabaseKey}`,
-          },
-          body: JSON.stringify({
-            p_receipt_id: receiptId,
-            p_status: notifStatus,
-            p_error: notifResult.error || null,
-            p_metadata: {
-              internal_provider: notifResult.internal.provider,
-              internal_msg_id: notifResult.internal.messageId || null,
-              founder_provider: notifResult.founder.provider,
-              founder_msg_id: notifResult.founder.messageId || null,
-            },
-          }),
-        });
-      } catch (notifErr: any) {
-        console.error(JSON.stringify({
-          event: 'notification_dispatch_failure',
-          receipt_id: receiptId,
-          error: notifErr?.message || String(notifErr),
-        }));
-
-        try {
-          await fetch(`${supabaseUrl.replace(/\/$/, '')}/rest/v1/rpc/record_notification_result`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept-Profile': 'dynasty_private',
-              'Content-Profile': 'dynasty_private',
-              apikey: supabaseKey,
-              Authorization: `Bearer ${supabaseKey}`,
-            },
-            body: JSON.stringify({
-              p_receipt_id: receiptId,
-              p_status: 'FAILED',
-              p_error: notifErr?.message || String(notifErr),
-            }),
-          });
-        } catch (_) {}
-      }
-    }
-
     return respond(202, {
       status: 'accepted',
-      receiptId,
+      receiptId: finalReceiptId,
       message: 'Brief securely received.',
     });
-  } catch (err: any) {
+  }
+
+  // Truthful failure response: If neither automation nor database was reached, reject cleanly
+  return respond(503, {
+    status: 'unavailable',
+    message: automationError || 'Secure transmission service is temporarily unavailable. Please download your brief locally.',
+  });
+} catch (err: any) {
     console.error(JSON.stringify({
       event: 'submission_exception',
       kind,

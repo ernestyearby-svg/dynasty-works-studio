@@ -1,24 +1,11 @@
 import { marketNeeds } from "@/data/company-builder";
 import { z } from "zod";
 export const inquiryServices = [
-  "Brand Strategy",
-  "Brand Identity",
-  "Packaging",
+  "Brand & Creative",
   "Website",
-  "E-commerce",
-  "App / Digital Product",
-  "AI / Automation",
-  "3D / Visualization",
-  "Advertising",
-  "Fashion / Merchandise",
-  "Illustration",
-  "Presentation / Collateral",
+  "Growth Engine",
+  "Ongoing Support",
   "Multiple Services",
-  "Other",
-  "Company Setup",
-  "Trademark Coordination",
-  "Licensing Research",
-  ...marketNeeds,
 ] as const;
 export const stages = [
   "Idea",

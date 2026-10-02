@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.integration-phase-i.ts",
-    "build": "vite build --config vite.integration-phase-i.ts",
+    "build:client": "vite build --config vite.integration-phase-i.ts",
+    "build:functions": "esbuild netlify/functions/assets.ts netlify/functions/growth-webhook.ts netlify/functions/retry-notifications.ts netlify/functions/submissions.ts --bundle --platform=node --target=node20 --format=esm --out-extension:.js=.mjs --outdir=netlify/functions-dist",
+    "build": "npm run build:client && npm run build:functions",
     "preview": "vite preview --config vite.integration-phase-i.ts",
     "dev:v5": "vite --host 127.0.0.1 --port 5177",
     "build:v5": "vite build && node scripts/write-portfolio-routes.cjs",
@@ -29,8 +31,10 @@
     "@types/react-dom": "19.2.3",
     "@types/three": "^0.186.0",
     "@vitejs/plugin-react": "6.0.2",
+    "esbuild": "^0.28.2",
     "eslint": "9.39.4",
     "eslint-config-next": "16.3.4",
+    "flatted": "^3.4.4",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",
     "vite": "8.0.13"
