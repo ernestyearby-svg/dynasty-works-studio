@@ -1,7 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { execSync } from 'node:child_process';
 
-let existingDeployId = '6abf5eb3527856ed98f3f12b';
+let currentBranch = '';
+try {
+  currentBranch = execSync('git rev-parse --abbrev-ref HEAD', { encoding: 'utf-8' }).trim();
+} catch {}
+
+let existingDeployId = '6abf622c2ba893fc1cd64da0';
 try {
   const current = fs.readFileSync(path.resolve('netlify/functions/lib/build-info.ts'), 'utf8');
   const m = current.match(/deployId:\s*"([a-f0-9]{24})"/i);
@@ -11,7 +17,13 @@ try {
 } catch {}
 
 const deployId = process.env.DEPLOY_ID || existingDeployId;
-const context = process.env.CONTEXT || 'deploy-preview';
+
+// Explicitly set context: staging/growth-os-launch is deploy-preview
+let context = process.env.CONTEXT || 'deploy-preview';
+if (currentBranch.startsWith('staging')) {
+  context = 'deploy-preview';
+}
+
 const commitRef = process.env.COMMIT_REF || '';
 
 const content = `// Auto-generated during build by scripts/generate-build-info.mjs
