@@ -1,5 +1,6 @@
 // Universal dual-mode Netlify function handler for growth webhook
 import { ingestLead, verifyHighLevelCredentialReadOnly } from './lib/highlevel-ingest';
+import { BUILD_INFO } from './lib/build-info';
 
 // Defensive headers for browser responses
 const DEFENSIVE_HEADERS: Record<string, string> = {
@@ -132,12 +133,15 @@ export async function handler(eventOrRequest: any, context?: any): Promise<any> 
   }
 
   if (httpMethod === 'GET') {
+    if (BUILD_INFO.context === 'production' || process.env.CONTEXT === 'production') {
+      return respond(405, { success: false, error: { message: 'Method Not Allowed' } });
+    }
     const probe = await verifyHighLevelCredentialReadOnly();
     return respond(probe.ok ? 200 : probe.status, {
       success: probe.ok,
       readOnlyProbe: true,
-      deployId: process.env.DEPLOY_ID || 'staging-preview',
-      runtimeContext: probe.runtimeContext,
+      deployId: BUILD_INFO.deployId,
+      runtimeContext: BUILD_INFO.context,
       endpoint: probe.endpoint,
       authScheme: probe.authScheme,
       status: probe.status,
@@ -156,14 +160,17 @@ export async function handler(eventOrRequest: any, context?: any): Promise<any> 
     return respond(400, { success: false, error: { message: 'Invalid JSON body' } });
   }
 
-  // Support POST with action: 'verify_credential' for environments where GET is not rewritten
+  // Support POST with action: 'verify_credential' for environments where GET is not rewritten (disabled in production)
   if (parsed.action === 'verify_credential') {
+    if (BUILD_INFO.context === 'production' || process.env.CONTEXT === 'production') {
+      return respond(405, { success: false, error: { message: 'Method Not Allowed' } });
+    }
     const probe = await verifyHighLevelCredentialReadOnly();
     return respond(probe.ok ? 200 : probe.status, {
       success: probe.ok,
       readOnlyProbe: true,
-      deployId: process.env.DEPLOY_ID || 'staging-preview',
-      runtimeContext: probe.runtimeContext,
+      deployId: BUILD_INFO.deployId,
+      runtimeContext: BUILD_INFO.context,
       endpoint: probe.endpoint,
       authScheme: probe.authScheme,
       status: probe.status,

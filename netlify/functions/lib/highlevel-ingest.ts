@@ -14,6 +14,8 @@
  * 7. Zero secret exposure in browser code, logs, or error responses.
  */
 
+import { BUILD_INFO } from './build-info';
+
 export interface NormalizedInquiryPayload {
   // Identity
   first_name: string;
@@ -187,6 +189,12 @@ async function ingestDirectToHighLevel(
   };
   if (tags.length > 0) {
     contactUpsertBody.tags = tags;
+  }
+  // Prevent test-triggered outbound messages:
+  // For verified test contacts, explicitly set dnd: true so HighLevel workflows never dispatch outbound emails or SMS.
+  // For legitimate prospects, we strictly omit dnd so existing opt-out preferences are never overwritten.
+  if (payload.is_test) {
+    contactUpsertBody.dnd = true;
   }
 
   const upsertController = new AbortController();
@@ -386,7 +394,8 @@ export async function verifyHighLevelCredentialReadOnly(): Promise<{
     process.env.LEADCONNECTOR_API_KEY ||
     process.env.DWS_HIGHLEVEL_API_KEY;
 
-  const runtimeContext = process.env.CONTEXT || 'unknown';
+  const runtimeContext = process.env.CONTEXT || BUILD_INFO.context || 'deploy-preview';
+  const deployId = process.env.DEPLOY_ID || BUILD_INFO.deployId || 'staging-preview';
 
   if (!apiKey) {
     return {
@@ -396,6 +405,7 @@ export async function verifyHighLevelCredentialReadOnly(): Promise<{
       endpoint: 'none',
       hasCredential: false,
       runtimeContext,
+      deployId,
       authScheme: 'none',
     };
   }
@@ -436,6 +446,7 @@ export async function verifyHighLevelCredentialReadOnly(): Promise<{
       endpoint: '/locations/{locationId}',
       hasCredential: true,
       runtimeContext,
+      deployId,
       authScheme: 'Bearer (LeadConnector V2)',
     };
   } catch (err: any) {
@@ -447,6 +458,7 @@ export async function verifyHighLevelCredentialReadOnly(): Promise<{
       endpoint: '/locations/{locationId}',
       hasCredential: true,
       runtimeContext,
+      deployId,
       authScheme: 'Bearer (LeadConnector V2)',
     };
   }
