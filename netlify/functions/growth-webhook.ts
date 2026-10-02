@@ -1,4 +1,5 @@
 // Universal dual-mode Netlify function handler for growth webhook
+import { ingestLead } from './lib/highlevel-ingest';
 
 // Defensive headers for browser responses
 const DEFENSIVE_HEADERS: Record<string, string> = {
@@ -156,86 +157,35 @@ export async function handler(eventOrRequest: any, context?: any): Promise<any> 
 
   const normalizedPayload = {
     ...parsed,
+    inquiry_type: 'growth',
     is_test: isTest,
     source: parsed.source || 'DWS Growth Review',
     submitted_at: parsed.submitted_at || new Date().toISOString(),
   };
 
-  // Determine target automation webhook URL
-  // Environment variable takes strict precedence for deployed environments
-  const webhookUrl =
-    process.env.DWS_AUTOMATION_WEBHOOK_URL ||
-    process.env.GROWTH_SYSTEM_WEBHOOK_URL ||
-    (process.env.NETLIFY_DEV ? 'http://localhost:5681/webhook/dws-growth-review' : '');
-
-  if (!webhookUrl) {
-    console.error('DWS Automation Webhook URL is not configured in environment variables.');
-    return respond(503, {
-      success: false,
-      error: {
-        code: 'NOT_CONFIGURED',
-        message: 'Automation webhook endpoint is not configured.',
-      },
-    });
-  }
-
-  const outboundHeaders: Record<string, string> = {
-    'Content-Type': 'application/json',
-    'bypass-tunnel-reminder': '1',
-  };
-
-  if (process.env.DWS_AUTOMATION_API_KEY) {
-    outboundHeaders['Authorization'] = `Bearer ${process.env.DWS_AUTOMATION_API_KEY}`;
-  }
-
   try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 12000);
-
-    const upstreamResponse = await fetch(webhookUrl, {
-      method: 'POST',
-      headers: outboundHeaders,
-      body: JSON.stringify(normalizedPayload),
-      signal: controller.signal,
-    });
-
-    clearTimeout(timeout);
-
-    if (!upstreamResponse.ok) {
-      const errText = await upstreamResponse.text().catch(() => '');
-      console.error(JSON.stringify({
-        event: 'automation_upstream_error',
-        status: upstreamResponse.status,
-        response: errText.slice(0, 300),
-      }));
-
-      return respond(503, {
-        success: false,
-        error: {
-          code: 'AUTOMATION_ERROR',
-          message: 'Lead ingestion automation service returned an error. Application not confirmed.',
-        },
-      });
-    }
-
-    const upstreamResult = await upstreamResponse.json().catch(() => ({}));
-
+    const result = await ingestLead(normalizedPayload);
     return respond(200, {
       success: true,
-      message: 'Growth application accepted and confirmed by CRM automation.',
-      data: upstreamResult,
+      message: result.duplicatePrevented
+        ? 'Growth application accepted and confirmed by CRM automation (duplicate opportunity prevented).'
+        : 'Growth application accepted and confirmed by CRM automation.',
+      data: result,
     });
   } catch (err: any) {
+    const statusCode = err.statusCode || 503;
     console.error(JSON.stringify({
-      event: 'automation_network_failure',
+      event: 'growth_ingest_failure',
+      status: statusCode,
+      code: err.errorCode,
       message: err.message,
     }));
 
-    return respond(503, {
+    return respond(statusCode, {
       success: false,
       error: {
-        code: 'UNAVAILABLE',
-        message: 'Secure transmission service is temporarily unavailable.',
+        code: err.errorCode || 'INGESTION_ERROR',
+        message: err.message || 'Lead ingestion service returned an error. Application not confirmed.',
       },
     });
   }

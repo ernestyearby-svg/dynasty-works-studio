@@ -8,6 +8,7 @@ import {
   dispatchSubmissionNotifications,
   type SubmissionNotificationContext,
 } from './lib/notifications';
+import { ingestLead, type NormalizedInquiryPayload } from './lib/highlevel-ingest';
 
 // Defensive Response Headers
 const DEFENSIVE_HEADERS: Record<string, string> = {
@@ -56,6 +57,8 @@ function isOriginAllowed(origin: string | null): boolean {
     'http://127.0.0.1:5202',
     'http://localhost:5173',
     'http://127.0.0.1:5173',
+    'http://localhost:8888',
+    'http://127.0.0.1:8888',
   ];
 
   const allowed = new Set([...defaults, ...configured]);
@@ -355,29 +358,24 @@ async function coreHandler(request: Request, context?: any): Promise<Response> {
   const payloadHash = crypto.createHash('sha256').update(JSON.stringify(recomputedDetail)).digest('hex');
 
   try {
-    // 11. Lead Ingestion Automation Delivery (n8n & HighLevel Pipeline)
-    const automationWebhookUrl =
-    process.env.DWS_AUTOMATION_WEBHOOK_URL ||
-    process.env.GROWTH_SYSTEM_WEBHOOK_URL ||
-    (process.env.NETLIFY_DEV ? 'http://localhost:5681/webhook/dws-growth-review' : '');
+    // 11. Lead Ingestion CRM Delivery (Direct HighLevel Ingestion with Fallback)
+    const isTest = Boolean(
+      isTestEmail(validatedData.email) ||
+      process.env.DWS_TEST_MODE === 'true' ||
+      request.headers.get('x-dws-test') === 'true'
+    );
 
-  const isTest = Boolean(
-    isTestEmail(validatedData.email) ||
-    process.env.DWS_TEST_MODE === 'true' ||
-    request.headers.get('x-dws-test') === 'true'
-  );
+    let automationDelivered = false;
+    let automationError = '';
 
-  let automationDelivered = false;
-  let automationError = '';
-
-  if (automationWebhookUrl) {
     const fullName = validatedData.name ? String(validatedData.name).trim() : 'Prospect';
     const spaceIdx = fullName.indexOf(' ');
     const firstName = spaceIdx > 0 ? fullName.slice(0, spaceIdx) : fullName;
     const lastName = spaceIdx > 0 ? fullName.slice(spaceIdx + 1).trim() : '';
 
-    const automationPayload = {
+    const automationPayload: NormalizedInquiryPayload = {
       inquiry_kind: kind,
+      inquiry_type: kind === 'builder' ? 'builder' : (kind === 'blueprint' ? 'blueprint' : 'general'),
       first_name: firstName,
       last_name: lastName,
       name: fullName,
@@ -408,45 +406,29 @@ async function coreHandler(request: Request, context?: any): Promise<Response> {
       submitted_at: new Date().toISOString(),
     };
 
-    const outboundHeaders: Record<string, string> = {
-      'Content-Type': 'application/json',
-      'bypass-tunnel-reminder': '1',
-    };
-    if (process.env.DWS_AUTOMATION_API_KEY) {
-      outboundHeaders['Authorization'] = `Bearer ${process.env.DWS_AUTOMATION_API_KEY}`;
-    }
-
     try {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 12000);
-
-      const autoRes = await fetch(automationWebhookUrl, {
-        method: 'POST',
-        headers: outboundHeaders,
-        body: JSON.stringify(automationPayload),
-        signal: controller.signal,
-      });
-      clearTimeout(timeout);
-
-      if (autoRes.ok) {
-        automationDelivered = true;
-        console.info(JSON.stringify({
-          event: 'automation_ingest_success',
-          kind,
-          email: validatedData.email,
-          status: autoRes.status,
-          duration_ms: Date.now() - startTime,
-        }));
-      } else {
-        const errTxt = await autoRes.text().catch(() => '');
-        automationError = `Automation upstream error (${autoRes.status}): ${errTxt.slice(0, 100)}`;
-        console.error('Automation lead ingest error:', automationError);
-      }
-    } catch (err: any) {
-      automationError = `Automation connection failed: ${err.message}`;
-      console.error('Automation fetch error:', err);
+      const ingestRes = await ingestLead(automationPayload);
+      automationDelivered = true;
+      console.info(JSON.stringify({
+        event: 'crm_ingest_success',
+        kind,
+        email: validatedData.email,
+        deliveredVia: ingestRes.deliveredVia,
+        duplicatePrevented: ingestRes.duplicatePrevented,
+        contactId: ingestRes.contactId,
+        opportunityId: ingestRes.opportunityId,
+        duration_ms: Date.now() - startTime,
+      }));
+    } catch (ingestErr: any) {
+      automationError = ingestErr.message || 'CRM lead ingestion failed';
+      console.error(JSON.stringify({
+        event: 'crm_ingest_error',
+        kind,
+        status: ingestErr.statusCode || 500,
+        code: ingestErr.errorCode,
+        message: ingestErr.message,
+      }));
     }
-  }
 
   // 12. Optional Database RPC Execution (Supabase)
   const supabaseUrl = process.env.SUPABASE_URL;
