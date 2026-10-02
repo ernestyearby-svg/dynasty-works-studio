@@ -113,26 +113,17 @@ export async function ingestLead(payload: NormalizedInquiryPayload): Promise<Ing
   const pipelineId = process.env.HIGHLEVEL_PIPELINE_ID || DEFAULT_PIPELINE_ID;
   const stageId = process.env.HIGHLEVEL_STAGE_ID || DEFAULT_STAGE_ID;
 
-  // If direct HighLevel API key is present, execute direct ingestion
-  if (apiKey) {
-    return ingestDirectToHighLevel(payload, { apiKey, locationId, pipelineId, stageId });
+  // REQUIREMENT 2: Require direct HighLevel ingestion.
+  // Silent fallback to workstation n8n / DWS_AUTOMATION_WEBHOOK_URL is eliminated.
+  if (!apiKey) {
+    throw new HighLevelIngestionError(
+      503,
+      'Direct HighLevel integration credential is not configured. HIGHLEVEL_API_KEY must be set in server environment variables.',
+      'CONFIG_MISSING'
+    );
   }
 
-  // Fallback to configured automation webhook if available
-  const webhookUrl =
-    process.env.DWS_AUTOMATION_WEBHOOK_URL ||
-    process.env.GROWTH_SYSTEM_WEBHOOK_URL ||
-    (process.env.NETLIFY_DEV ? 'http://localhost:5681/webhook/dws-growth-review' : '');
-
-  if (webhookUrl) {
-    return forwardToAutomationWebhook(payload, webhookUrl);
-  }
-
-  throw new HighLevelIngestionError(
-    503,
-    'Neither direct HighLevel credentials nor automation webhook URL is configured.',
-    'NOT_CONFIGURED'
-  );
+  return ingestDirectToHighLevel(payload, { apiKey, locationId, pipelineId, stageId });
 }
 
 /**
@@ -370,67 +361,5 @@ async function ingestDirectToHighLevel(
     oppErrJson.message || 'Opportunity creation failed',
     oppErrJson.code || 'OPPORTUNITY_CREATION_FAILED',
     oppErrJson
-  );
-}
-
-/**
- * Fallback Ingestion via Automation Webhook (n8n)
- */
-async function forwardToAutomationWebhook(
-  payload: NormalizedInquiryPayload,
-  webhookUrl: string
-): Promise<IngestionResult> {
-  const timeoutMs = 12000;
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), timeoutMs);
-
-  const outboundHeaders: Record<string, string> = {
-    'Content-Type': 'application/json',
-    'bypass-tunnel-reminder': '1',
-  };
-  if (process.env.DWS_AUTOMATION_API_KEY) {
-    outboundHeaders['Authorization'] = `Bearer ${process.env.DWS_AUTOMATION_API_KEY}`;
-  }
-
-  let res: Response;
-  try {
-    res = await fetch(webhookUrl, {
-      method: 'POST',
-      headers: outboundHeaders,
-      body: JSON.stringify(payload),
-      signal: controller.signal,
-    });
-  } catch (err: any) {
-    clearTimeout(timeout);
-    throw new HighLevelIngestionError(503, `Automation webhook network failure: ${err.message}`, 'NETWORK_ERROR');
-  }
-  clearTimeout(timeout);
-
-  if (res.ok) {
-    const resultJson = await res.json().catch(() => ({}));
-    return {
-      success: true,
-      deliveredVia: 'automation_webhook',
-      duplicatePrevented: false,
-      action: 'forwarded',
-      data: resultJson,
-    };
-  }
-
-  const errTxt = await res.text().catch(() => '');
-  // If webhook returned OPPORTUNITY_NO_DUPLICATE error body, extract and confirm duplicate
-  if (errTxt.includes('OPPORTUNITY_NO_DUPLICATE') || errTxt.includes('duplicate')) {
-    return {
-      success: true,
-      deliveredVia: 'automation_webhook',
-      duplicatePrevented: true,
-      action: 'opportunity_reused_confirmed',
-    };
-  }
-
-  throw new HighLevelIngestionError(
-    res.status,
-    `Automation webhook responded with ${res.status}: ${errTxt.slice(0, 200)}`,
-    'WEBHOOK_UPSTREAM_ERROR'
   );
 }
