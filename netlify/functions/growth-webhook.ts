@@ -132,16 +132,34 @@ export async function handler(eventOrRequest: any, context?: any): Promise<any> 
     return { statusCode: 204, headers: preflightHeaders, body: '' };
   }
 
+  const effectiveDeployId =
+    context?.deploy?.id ||
+    headersObj['x-nf-deploy-id'] ||
+    process.env.DEPLOY_ID ||
+    BUILD_INFO.deployId;
+
+  const effectiveContext =
+    context?.deploy?.context ||
+    process.env.CONTEXT ||
+    BUILD_INFO.context ||
+    'deploy-preview';
+
+  const isProduction =
+    effectiveContext === 'production' ||
+    process.env.CONTEXT === 'production' ||
+    BUILD_INFO.context === 'production' ||
+    process.env.NODE_ENV === 'production';
+
   if (httpMethod === 'GET') {
-    if (BUILD_INFO.context === 'production' || process.env.CONTEXT === 'production') {
+    if (isProduction) {
       return respond(405, { success: false, error: { message: 'Method Not Allowed' } });
     }
     const probe = await verifyHighLevelCredentialReadOnly();
     return respond(probe.ok ? 200 : probe.status, {
       success: probe.ok,
       readOnlyProbe: true,
-      deployId: BUILD_INFO.deployId,
-      runtimeContext: BUILD_INFO.context,
+      deployId: effectiveDeployId,
+      runtimeContext: effectiveContext,
       endpoint: probe.endpoint,
       authScheme: probe.authScheme,
       status: probe.status,
@@ -162,15 +180,15 @@ export async function handler(eventOrRequest: any, context?: any): Promise<any> 
 
   // Support POST with action: 'verify_credential' for environments where GET is not rewritten (disabled in production)
   if (parsed.action === 'verify_credential') {
-    if (BUILD_INFO.context === 'production' || process.env.CONTEXT === 'production') {
+    if (isProduction) {
       return respond(405, { success: false, error: { message: 'Method Not Allowed' } });
     }
     const probe = await verifyHighLevelCredentialReadOnly();
     return respond(probe.ok ? 200 : probe.status, {
       success: probe.ok,
       readOnlyProbe: true,
-      deployId: BUILD_INFO.deployId,
-      runtimeContext: BUILD_INFO.context,
+      deployId: effectiveDeployId,
+      runtimeContext: effectiveContext,
       endpoint: probe.endpoint,
       authScheme: probe.authScheme,
       status: probe.status,

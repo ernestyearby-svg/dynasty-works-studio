@@ -395,7 +395,7 @@ export async function verifyHighLevelCredentialReadOnly(): Promise<{
     process.env.DWS_HIGHLEVEL_API_KEY;
 
   const runtimeContext = process.env.CONTEXT || BUILD_INFO.context || 'deploy-preview';
-  const deployId = process.env.DEPLOY_ID || BUILD_INFO.deployId || 'staging-preview';
+  const deployId = process.env.DEPLOY_ID || BUILD_INFO.deployId;
 
   if (!apiKey) {
     return {
