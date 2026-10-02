@@ -473,8 +473,8 @@ async function coreHandler(request: Request, context?: any): Promise<Response> {
   }
 
   // Determine Final Delivery Outcome:
-  // If either the automation engine or the database accepted the lead, confirm receipt!
-  if (automationDelivered || dbReceiptId) {
+  // Require verified CRM automation delivery for submission acceptance.
+  if (automationDelivered) {
     const finalReceiptId = dbReceiptId || ('rec_' + idempotencyKey.replace(/-/g, '').slice(0, 12));
 
     console.info(JSON.stringify({
@@ -494,7 +494,7 @@ async function coreHandler(request: Request, context?: any): Promise<Response> {
     });
   }
 
-  // Truthful failure response: If neither automation nor database was reached, reject cleanly
+  // Truthful failure response: If CRM delivery failed, reject cleanly with honest error
   return respond(503, {
     status: 'unavailable',
     message: automationError || 'Secure transmission service is temporarily unavailable. Please download your brief locally.',

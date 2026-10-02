@@ -123,7 +123,21 @@ export async function ingestLead(payload: NormalizedInquiryPayload): Promise<Ing
     );
   }
 
-  return ingestDirectToHighLevel(payload, { apiKey, locationId, pipelineId, stageId });
+  const cleanApiKey = apiKey.trim().replace(/^Bearer\s+/i, '').replace(/^["']|["']$/g, '');
+
+  const isMaskedPlaceholder =
+    cleanApiKey.length > 0 &&
+    cleanApiKey.split('').every((c) => c === '*' || c === '•' || c.charCodeAt(0) === 42 || c.charCodeAt(0) === 8226);
+
+  if (isMaskedPlaceholder) {
+    throw new HighLevelIngestionError(
+      503,
+      'HIGHLEVEL_API_KEY environment variable contains masked placeholder characters (asterisks/bullets) rather than the actual credential. Please enter the real API key in Netlify Site Settings.',
+      'CONFIG_MASKED'
+    );
+  }
+
+  return ingestDirectToHighLevel(payload, { apiKey: cleanApiKey, locationId, pipelineId, stageId });
 }
 
 /**
@@ -210,6 +224,9 @@ async function ingestDirectToHighLevel(
 
   if (!upsertRes.ok) {
     const errBody = await upsertRes.json().catch(() => ({}));
+    if (upsertRes.status === 401 && (errBody.message === 'Invalid JWT' || String(errBody.message).includes('JWT'))) {
+      return ingestViaHighLevelV1(payload, config);
+    }
     throw new HighLevelIngestionError(
       upsertRes.status,
       errBody.message || 'Contact upsert failed',
@@ -363,3 +380,219 @@ async function ingestDirectToHighLevel(
     oppErrJson
   );
 }
+
+/**
+ * Direct HighLevel API V1 Ingestion (for standard API Keys)
+ */
+async function ingestViaHighLevelV1(
+  payload: NormalizedInquiryPayload,
+  config: { apiKey: string; locationId: string; pipelineId: string; stageId: string }
+): Promise<IngestionResult> {
+  const { apiKey, pipelineId, stageId } = config;
+  const timeoutMs = 12000;
+
+  let firstName = (payload.first_name || '').trim();
+  let lastName = (payload.last_name || '').trim();
+  if (!firstName && payload.name) {
+    const parts = payload.name.trim().split(' ');
+    firstName = parts[0] || 'Prospect';
+    lastName = parts.slice(1).join(' ').trim();
+  }
+  const fullName = `${firstName} ${lastName}`.trim();
+
+  const servicesList: string[] = Array.isArray(payload.services)
+    ? payload.services
+    : payload.selected_services
+    ? payload.selected_services.split(',').map((s) => s.trim())
+    : [];
+  const servicesString = servicesList.join(', ');
+
+  const tags: string[] = [];
+  if (payload.is_test) {
+    tags.push('test-submission', 'automated-audit');
+  }
+  if (payload.inquiry_type === 'growth' || payload.landing_page === '/growth/apply') {
+    tags.push('growth-engine');
+  } else if (payload.inquiry_type === 'general' || payload.landing_page === '/contact') {
+    tags.push('general-inquiry');
+  }
+
+  const sourceName =
+    payload.source ||
+    (payload.landing_page === '/contact' || payload.inquiry_type === 'general'
+      ? 'website-general-contact'
+      : 'DWS Growth Review');
+
+  // Step A: Contact Upsert in V1
+  const contactUpsertBody: Record<string, unknown> = {
+    firstName,
+    lastName,
+    name: fullName,
+    email: payload.email,
+    phone: payload.phone || '',
+    companyName: payload.company_name || payload.business_name || payload.company || '',
+    website: payload.website || '',
+    source: sourceName,
+  };
+  if (tags.length > 0) {
+    contactUpsertBody.tags = tags;
+  }
+
+  const upsertController = new AbortController();
+  const upsertTimeout = setTimeout(() => upsertController.abort(), timeoutMs);
+
+  let upsertRes: Response;
+  try {
+    upsertRes = await fetch('https://rest.gohighlevel.com/v1/contacts/', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(contactUpsertBody),
+      signal: upsertController.signal,
+    });
+  } catch (netErr: any) {
+    clearTimeout(upsertTimeout);
+    throw new HighLevelIngestionError(503, `Network failure connecting to HighLevel V1: ${netErr.message}`, 'NETWORK_ERROR');
+  }
+  clearTimeout(upsertTimeout);
+
+  if (!upsertRes.ok) {
+    const errText = await upsertRes.text();
+    let errBody: any = {};
+    try { errBody = JSON.parse(errText); } catch { errBody = { raw: errText }; }
+    throw new HighLevelIngestionError(
+      upsertRes.status,
+      errBody.message || errText || 'HighLevel V1 contact upsert failed',
+      errBody.code || 'CONTACT_UPSERT_FAILED',
+      errBody
+    );
+  }
+
+  const upsertData: any = await upsertRes.json().catch(() => ({}));
+  const contactId = upsertData.contact?.id || upsertData.id;
+  if (!contactId) {
+    throw new HighLevelIngestionError(502, 'HighLevel V1 contact upsert succeeded but no contact ID returned', 'MISSING_CONTACT_ID');
+  }
+
+  // Step B: Search Existing Opportunities in Pipeline
+  const searchController = new AbortController();
+  const searchTimeout = setTimeout(() => searchController.abort(), timeoutMs);
+
+  let existingOpportunityId: string | null = null;
+  try {
+    const searchUrl = `https://rest.gohighlevel.com/v1/pipelines/${encodeURIComponent(pipelineId)}/opportunities?contact_id=${encodeURIComponent(contactId)}`;
+    const searchRes = await fetch(searchUrl, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+      },
+      signal: searchController.signal,
+    });
+    if (searchRes.ok) {
+      const searchData: any = await searchRes.json().catch(() => ({}));
+      const opps = searchData.opportunities || [];
+      if (Array.isArray(opps) && opps.length > 0) {
+        existingOpportunityId = opps[0].id;
+      }
+    }
+  } catch (searchErr: any) {
+    console.warn('Opportunity search non-fatal error:', searchErr?.message);
+  }
+  clearTimeout(searchTimeout);
+
+  if (existingOpportunityId) {
+    return {
+      success: true,
+      deliveredVia: 'highlevel_direct',
+      contactId,
+      opportunityId: existingOpportunityId,
+      duplicatePrevented: true,
+      action: 'opportunity_reused_search',
+    };
+  }
+
+  // Step C: Create Opportunity in V1
+  const isGeneral = payload.inquiry_type === 'general' || payload.landing_page === '/contact';
+  const oppName = isGeneral
+    ? `${firstName} ${lastName} - Studio Inquiry (${servicesString || 'General'})`.trim()
+    : `${firstName} ${lastName} - DWS Lead`.trim();
+
+  const oppController = new AbortController();
+  const oppTimeout = setTimeout(() => oppController.abort(), timeoutMs);
+
+  let oppRes: Response;
+  try {
+    oppRes = await fetch(`https://rest.gohighlevel.com/v1/pipelines/${encodeURIComponent(pipelineId)}/opportunities/`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title: oppName,
+        stageId,
+        contactId,
+        status: 'open',
+        monetaryValue: 0,
+      }),
+      signal: oppController.signal,
+    });
+  } catch (oppNetErr: any) {
+    clearTimeout(oppTimeout);
+    throw new HighLevelIngestionError(503, `Network failure creating opportunity in HighLevel V1: ${oppNetErr.message}`, 'NETWORK_ERROR');
+  }
+  clearTimeout(oppTimeout);
+
+  if (oppRes.ok) {
+    const oppData: any = await oppRes.json().catch(() => ({}));
+    return {
+      success: true,
+      deliveredVia: 'highlevel_direct',
+      contactId,
+      opportunityId: oppData.opportunity?.id || oppData.id,
+      duplicatePrevented: false,
+      action: 'opportunity_created',
+    };
+  }
+
+  const oppErrJson: any = await oppRes.json().catch(() => ({}));
+  if (oppRes.status === 400 && oppErrJson.code === 'OPPORTUNITY_NO_DUPLICATE') {
+    let confirmedOppId = oppErrJson.meta?.existingId || null;
+    if (!confirmedOppId) {
+      try {
+        const confirmRes = await fetch(
+          `https://rest.gohighlevel.com/v1/pipelines/${encodeURIComponent(pipelineId)}/opportunities?contact_id=${encodeURIComponent(contactId)}`,
+          { headers: { Authorization: `Bearer ${apiKey}` } }
+        );
+        if (confirmRes.ok) {
+          const confirmData: any = await confirmRes.json().catch(() => ({}));
+          const opps = confirmData.opportunities || [];
+          if (Array.isArray(opps) && opps.length > 0) {
+            confirmedOppId = opps[0].id;
+          }
+        }
+      } catch {}
+    }
+
+    if (confirmedOppId) {
+      return {
+        success: true,
+        deliveredVia: 'highlevel_direct',
+        contactId,
+        opportunityId: confirmedOppId,
+        duplicatePrevented: true,
+        action: 'opportunity_reused_confirmed',
+      };
+    }
+  }
+
+  throw new HighLevelIngestionError(
+    oppRes.status,
+    oppErrJson.message || 'Opportunity creation failed in HighLevel V1',
+    oppErrJson.code || 'OPPORTUNITY_CREATION_FAILED',
+    oppErrJson
+  );
+}
+
