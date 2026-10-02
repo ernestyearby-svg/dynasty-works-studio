@@ -386,6 +386,7 @@ export async function verifyHighLevelCredentialReadOnly(): Promise<{
   endpoint: string;
   hasCredential: boolean;
   runtimeContext: string;
+  deployId?: string;
   authScheme: string;
 }> {
   const apiKey =
@@ -463,3 +464,4 @@ export async function verifyHighLevelCredentialReadOnly(): Promise<{
     };
   }
 }
+

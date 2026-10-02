@@ -1,6 +1,16 @@
-/api/growth-webhook /.netlify/functions/growth-webhook 200
-/api/submissions/assets/* /.netlify/functions/assets/:splat 200
-/api/submissions/assets /.netlify/functions/assets 200
-/api/submissions/:kind /.netlify/functions/submissions?kind=:kind 200
+/api/growth-webhook /.netlify/functions/growth-webhook 200!
+/api/submissions/assets/* /.netlify/functions/assets/:splat 200!
+/api/submissions/assets /.netlify/functions/assets 200!
+/api/submissions/:kind /.netlify/functions/submissions?kind=:kind 200!
+/growth/book /growth/book/index.html 200
+/growth/book/* /growth/book/index.html 200
+/growth/apply /growth/apply/index.html 200
+/growth/apply/* /growth/apply/index.html 200
+/growth/thank-you /growth/thank-you/index.html 200
+/growth/thank-you/* /growth/thank-you/index.html 200
+/growth /growth/index.html 200
+/growth/* /growth/index.html 200
+/contact /contact/index.html 200
+/contact/* /contact/index.html 200
 /company-builder /#review-builder 302
-# /* /404.html 404
+/* /index.html 200

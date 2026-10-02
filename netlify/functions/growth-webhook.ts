@@ -154,6 +154,7 @@ export async function handler(eventOrRequest: any, context?: any): Promise<any> 
     if (isProduction) {
       return respond(405, { success: false, error: { message: 'Method Not Allowed' } });
     }
+
     const probe = await verifyHighLevelCredentialReadOnly();
     return respond(probe.ok ? 200 : probe.status, {
       success: probe.ok,

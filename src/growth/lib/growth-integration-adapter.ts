@@ -243,8 +243,9 @@ export function buildBookingRedirectUrl(
   const queryString = params.toString();
   if (!queryString) return basePath;
 
-  const separator = basePath.includes('?') ? '&' : '?';
-  return `${basePath}${separator}${queryString}`;
+  const normalizedBasePath = basePath.endsWith('/') || basePath.includes('?') || basePath.includes('.') ? basePath : `${basePath}/`;
+  const separator = normalizedBasePath.includes('?') ? '&' : '?';
+  return `${normalizedBasePath}${separator}${queryString}`;
 }
 
 /**
@@ -320,6 +321,9 @@ export function buildCalendarEmbedUrl(
       url.searchParams.set('phone', prospect.phone.trim());
     }
   }
+
+  // Instruct HighLevel widget to emit msgsndr-booking-complete instead of forcing top navigation
+  url.searchParams.set('redirect', 'false');
 
   // Safety assert: delete any forbidden parameters if somehow present
   for (const forbidden of FORBIDDEN_CALENDAR_PARAMS) {

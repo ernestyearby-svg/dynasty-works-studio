@@ -19,15 +19,68 @@
   from = "/api/submissions/assets/*"
   to = "/.netlify/functions/assets/:splat"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/api/submissions/assets"
   to = "/.netlify/functions/assets"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/api/submissions/:kind"
   to = "/.netlify/functions/submissions?kind=:kind"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/growth/book"
+  to = "/growth/book/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/growth/book/*"
+  to = "/growth/book/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/growth/apply"
+  to = "/growth/apply/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/growth/apply/*"
+  to = "/growth/apply/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/growth/thank-you"
+  to = "/growth/thank-you/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/growth/thank-you/*"
+  to = "/growth/thank-you/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/growth"
+  to = "/growth/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/growth/*"
+  to = "/growth/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact/*"
+  to = "/contact/index.html"
   status = 200
 
 [[redirects]]
@@ -35,10 +88,10 @@
   to = "/#review-builder"
   status = 302
 
-# [[redirects]]
-#   from = "/*"
-#   to = "/404.html"
-#   status = 404
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
 [[headers]]
   for = "/*"

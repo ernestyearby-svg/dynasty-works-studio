@@ -32,6 +32,7 @@ export type GrowthEventType =
   | 'growth_form_success'
   | 'growth_booking_view'
   | 'growth_booking_click'
+  | 'growth_booking_complete'
   | 'growth_thank_you_view';
 
 export interface GrowthEventPayload {

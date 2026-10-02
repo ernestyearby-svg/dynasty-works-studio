@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './growth.css';
 import { GrowthNav } from './components/GrowthNav';
 import { GrowthFooter } from './components/GrowthFooter';
@@ -12,6 +12,12 @@ import {
   HIGHLEVEL_SCRIPT_SRC,
   type BookingProspectData,
 } from './lib/growth-integration-adapter';
+
+const TRUSTED_WIDGET_ORIGINS = [
+  'https://api.leadconnectorhq.com',
+  'https://link.msgsndr.com',
+  'https://services.leadconnectorhq.com',
+];
 
 export default function GrowthBookPage() {
   useGrowthSeo({
@@ -28,6 +34,7 @@ export default function GrowthBookPage() {
     phone: '',
   });
   const [isIframeLoaded, setIsIframeLoaded] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     initGrowthTracking();
@@ -47,6 +54,59 @@ export default function GrowthBookPage() {
         document.body.appendChild(script);
       }
     }
+
+    // Listen for HighLevel booking completion postMessage events
+    const handleMessage = (event: MessageEvent) => {
+      if (!event.data) return;
+
+      // 1. Validate trusted origin
+      if (!TRUSTED_WIDGET_ORIGINS.includes(event.origin)) {
+        return;
+      }
+
+      // 2. Validate that the message originated from the embedded calendar iframe
+      if (iframeRef.current && event.source !== iframeRef.current.contentWindow) {
+        return;
+      }
+
+      const isBookingComplete =
+        (Array.isArray(event.data) && event.data[0] === 'msgsndr-booking-complete') ||
+        (typeof event.data === 'string' && event.data.includes('msgsndr-booking-complete'));
+
+      if (isBookingComplete) {
+        // 3. Verify calendar ID if present in payload
+        if (Array.isArray(event.data) && event.data[1]?.calendarId) {
+          if (event.data[1].calendarId !== HIGHLEVEL_CALENDAR_ID) {
+            return;
+          }
+        }
+
+        trackGrowthEvent('growth_booking_complete', { page: '/growth/book' });
+        window.location.href = '/growth/thank-you/';
+      }
+    };
+    window.addEventListener('message', handleMessage);
+
+    // Fallback safeguard: intercept top navigation attempting to escape to production thank-you
+    let removeNavListener: (() => void) | undefined;
+    if (typeof window !== 'undefined' && 'navigation' in window) {
+      const handleNavigate = (e: any) => {
+        try {
+          const dest = new URL(e.destination.url);
+          if (dest.pathname.replace(/\/$/, '') === '/growth/thank-you' && dest.origin !== window.location.origin) {
+            e.preventDefault();
+            window.location.href = `${window.location.origin}/growth/thank-you/${dest.search}`;
+          }
+        } catch {}
+      };
+      (window as any).navigation.addEventListener('navigate', handleNavigate);
+      removeNavListener = () => (window as any).navigation.removeEventListener('navigate', handleNavigate);
+    }
+
+    return () => {
+      window.removeEventListener('message', handleMessage);
+      if (removeNavListener) removeNavListener();
+    };
   }, []);
 
   const hasPrefill = Boolean(prospect.email || prospect.firstName);
@@ -145,6 +205,7 @@ export default function GrowthBookPage() {
 
               {/* Official HighLevel Responsive Iframe */}
               <iframe
+                ref={iframeRef}
                 src={calendarEmbedUrl}
                 allow="payment"
                 style={{
