@@ -173,6 +173,64 @@ export function getGrowthAttribution(): GrowthAttributionData {
 }
 
 /**
+ * Strips Personally Identifiable Information (PII) before forwarding events to Google Analytics.
+ * Strictly adheres to Google Analytics terms by ensuring no names, email addresses, or phone numbers are transmitted.
+ */
+function sanitizePayloadForGA4(payload: GrowthEventPayload): Record<string, unknown> {
+  const PII_KEYS = new Set([
+    'name', 'first_name', 'last_name', 'firstname', 'lastname', 'full_name',
+    'email', 'user_email', 'customer_email',
+    'phone', 'telephone', 'mobile', 'cell', 'cellphone',
+    'address', 'ssn', 'tax_id', 'contact_name', 'business_phone'
+  ]);
+
+  const cleanMetadata: Record<string, unknown> = {};
+  if (payload.metadata && typeof payload.metadata === 'object') {
+    for (const [key, value] of Object.entries(payload.metadata)) {
+      if (!PII_KEYS.has(key.toLowerCase()) && typeof value !== 'function') {
+        cleanMetadata[key] = value;
+      }
+    }
+  }
+
+  const cleanPayload: Record<string, unknown> = {
+    event_category: 'Growth Funnel',
+    canonical_event: payload.event,
+    page: payload.page,
+    step: payload.step,
+    cta_label: payload.cta_label,
+    cta_destination: payload.cta_destination,
+    timestamp: payload.timestamp,
+    ...(Object.keys(cleanMetadata).length > 0 ? { metadata: cleanMetadata } : {}),
+  };
+
+  // Attach non-PII marketing attribution if present
+  try {
+    const rawAttribution = typeof window !== 'undefined' ? (sessionStorage.getItem(STORAGE_KEY) || localStorage.getItem(STORAGE_KEY)) : null;
+    if (rawAttribution) {
+      const parsed = JSON.parse(rawAttribution);
+      if (parsed.utm_source) cleanPayload.utm_source = parsed.utm_source;
+      if (parsed.utm_medium) cleanPayload.utm_medium = parsed.utm_medium;
+      if (parsed.utm_campaign) cleanPayload.utm_campaign = parsed.utm_campaign;
+      if (parsed.utm_content) cleanPayload.utm_content = parsed.utm_content;
+      if (parsed.utm_term) cleanPayload.utm_term = parsed.utm_term;
+      if (parsed.landing_page) cleanPayload.landing_page = parsed.landing_page;
+    }
+  } catch {
+    // ignore
+  }
+
+  // Remove undefined keys
+  for (const k of Object.keys(cleanPayload)) {
+    if (cleanPayload[k] === undefined) {
+      delete cleanPayload[k];
+    }
+  }
+
+  return cleanPayload;
+}
+
+/**
  * Dispatches a growth tracking event to the browser window and external handlers.
  */
 export function trackGrowthEvent(
@@ -195,6 +253,9 @@ export function trackGrowthEvent(
     } catch {
       // ignore
     }
+
+    // Expose on window for runtime observability and verification
+    (window as unknown as { trackGrowthEvent?: typeof trackGrowthEvent }).trackGrowthEvent = trackGrowthEvent;
 
     // 2. Google Tag Manager / dataLayer forwarding if initialized
     const win = window as unknown as {
@@ -229,21 +290,17 @@ export function trackGrowthEvent(
 
     // 4. Google Analytics gtag forwarding
     if (typeof win.gtag === 'function') {
-      if (event === 'growth_review_completed' || event === 'growth_form_success') {
-        win.gtag('event', 'generate_lead', {
-          event_category: 'Growth Funnel',
-          ...fullPayload,
-        });
-      } else if (event === 'appointment_booked' || event === 'growth_booking_complete') {
-        win.gtag('event', 'schedule', {
-          event_category: 'Growth Funnel',
-          ...fullPayload,
-        });
+      if (event === 'growth_page_view') {
+        // Standard page_view is handled natively by GA4 config. Do not send duplicate page_view.
       } else {
-        win.gtag('event', event, {
-          event_category: 'Growth Funnel',
-          ...fullPayload,
-        });
+        const ga4Data = sanitizePayloadForGA4(fullPayload);
+        if (event === 'growth_review_completed' || event === 'growth_form_success') {
+          win.gtag('event', 'generate_lead', ga4Data);
+        } else if (event === 'appointment_booked' || event === 'growth_booking_complete') {
+          win.gtag('event', 'schedule', ga4Data);
+        } else {
+          win.gtag('event', event, ga4Data);
+        }
       }
     }
   }
