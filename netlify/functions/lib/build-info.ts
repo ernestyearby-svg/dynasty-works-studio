@@ -1,7 +1,7 @@
 // Auto-generated during build by scripts/generate-build-info.mjs
 export const BUILD_INFO = {
-  deployId: "6abf740ab4651b87f9e0c781",
+  deployId: "6ac172c0543384c7d2b67c3b",
   context: "deploy-preview",
-  commitRef: "",
-  builtAt: "2026-10-03T18:28:21.549Z",
+  commitRef: "51c42495228ef5dbb33ecc7fa5b0270af32c8089",
+  builtAt: "2026-10-03T21:25:22.059Z",
 };

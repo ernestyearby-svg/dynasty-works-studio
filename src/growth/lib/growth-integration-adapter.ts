@@ -218,6 +218,12 @@ export async function submitGrowthApplication(
 
   console.info('[DWS Growth Adapter] Mock submission payload:', payload);
 
+  trackGrowthEvent('growth_review_completed', {
+    metadata: {
+      submission_mode: 'mock',
+      industry: payload.industry,
+    },
+  });
   trackGrowthEvent('growth_form_success', {
     metadata: {
       submission_mode: 'mock',

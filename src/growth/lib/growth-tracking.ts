@@ -54,6 +54,17 @@ export interface GrowthEventPayload {
   step?: string;
   metadata?: Record<string, unknown>;
   timestamp?: string;
+  event_id?: string;
+}
+
+/**
+ * Generates a unique collision-resistant event ID for Meta Conversions API (CAPI) deduplication.
+ * Format: dws_{prefix}_{timestamp}_{random}
+ */
+export function generateEventId(prefix: 'lead' | 'sched' | 'event' = 'event'): string {
+  const ts = Date.now();
+  const rand = Math.random().toString(36).substring(2, 10);
+  return `dws_${prefix}_${ts}_${rand}`;
 }
 
 const STORAGE_KEY = 'dws_growth_attribution_v1';
@@ -173,6 +184,18 @@ export function getGrowthAttribution(): GrowthAttributionData {
   return initGrowthTracking();
 }
 
+// In-memory deduplication registries to guarantee idempotency per page session
+const firedMetaEvents = new Set<string>();
+const firedGa4Conversions = new Set<string>();
+
+/**
+ * For testing environments: resets deduplication sets.
+ */
+export function _resetTrackingDedupForTesting(): void {
+  firedMetaEvents.clear();
+  firedGa4Conversions.clear();
+}
+
 /**
  * Strips Personally Identifiable Information (PII) before forwarding events to Google Analytics.
  * Strictly adheres to Google Analytics terms by ensuring no names, email addresses, or phone numbers are transmitted.
@@ -202,6 +225,7 @@ function sanitizePayloadForGA4(payload: GrowthEventPayload): Record<string, unkn
     cta_label: payload.cta_label,
     cta_destination: payload.cta_destination,
     timestamp: payload.timestamp,
+    event_id: payload.event_id,
     ...(Object.keys(cleanMetadata).length > 0 ? { metadata: cleanMetadata } : {}),
   };
 
@@ -238,11 +262,31 @@ export function trackGrowthEvent(
   event: GrowthEventType,
   payload: Omit<GrowthEventPayload, 'event'> = {}
 ): void {
+  // Preserve or generate unique event_id for conversion deduplication (Lead, Schedule)
+  const incomingEventId =
+    payload.event_id ||
+    (payload.metadata?.event_id as string) ||
+    undefined;
+
+  let eventId = incomingEventId;
+  if (!eventId) {
+    if (event === 'growth_review_completed') {
+      eventId = generateEventId('lead');
+    } else if (event === 'appointment_booked') {
+      eventId = generateEventId('sched');
+    }
+  }
+
   const fullPayload: GrowthEventPayload = {
     event,
     timestamp: new Date().toISOString(),
+    ...(eventId ? { event_id: eventId } : {}),
     ...payload,
   };
+
+  if (eventId && fullPayload.metadata) {
+    fullPayload.metadata.event_id = eventId;
+  }
 
   // 1. Dispatch custom DOM event
   if (typeof window !== 'undefined') {
@@ -272,21 +316,55 @@ export function trackGrowthEvent(
       });
     }
 
-    // 3. Meta Pixel standard / custom event forwarding
+    // 3. Meta Pixel standard conversion events
     if (typeof win.fbq === 'function') {
-      if (event === 'growth_review_view' || event === 'growth_page_view') {
-        win.fbq('track', 'PageView');
-      } else if (event === 'growth_review_completed' || event === 'growth_form_success') {
-        win.fbq('track', 'Lead', {
-          content_name: 'Dynasty Growth Operating System Review',
-        });
-      } else if (event === 'appointment_booked' || event === 'growth_booking_complete') {
-        win.fbq('track', 'Schedule', {
-          content_name: 'Dynasty Growth Architecture Session',
-        });
-      } else if (event === 'growth_booking_view' || event === 'booking_page_view' || event === 'growth_booking_click') {
-        win.fbq('trackCustom', event, fullPayload);
+      if (event === 'growth_engine_landing_view') {
+        // Fire ViewContent once per page view for /growth-engine
+        if (!firedMetaEvents.has('ViewContent')) {
+          firedMetaEvents.add('ViewContent');
+          win.fbq('track', 'ViewContent', {
+            content_name: 'Growth Engine Landing Page',
+            content_category: 'Growth Operating System',
+          });
+        }
+      } else if (event === 'growth_review_completed') {
+        // Fire Lead once upon verified submission completion with unique eventID for CAPI dedup
+        const leadDedupKey = `Lead_${eventId || 'default'}`;
+        if (!firedMetaEvents.has('Lead') && !firedMetaEvents.has(leadDedupKey)) {
+          firedMetaEvents.add('Lead');
+          firedMetaEvents.add(leadDedupKey);
+          win.fbq(
+            'track',
+            'Lead',
+            {
+              content_name: 'Growth Operating System Review',
+              content_category: 'Growth Operating System',
+            },
+            eventId ? { eventID: eventId } : undefined
+          );
+        }
+      } else if (event === 'appointment_booked') {
+        // Fire Schedule once upon confirmed booking with unique eventID for CAPI dedup
+        const schedDedupKey = `Schedule_${eventId || 'default'}`;
+        if (!firedMetaEvents.has('Schedule') && !firedMetaEvents.has(schedDedupKey)) {
+          firedMetaEvents.add('Schedule');
+          firedMetaEvents.add(schedDedupKey);
+          win.fbq(
+            'track',
+            'Schedule',
+            {
+              content_name: 'Growth Architecture Session',
+              content_category: 'Growth Operating System',
+            },
+            eventId ? { eventID: eventId } : undefined
+          );
+        }
       }
+      // Note: Standard PageView is dispatched globally on page load by the base Meta Pixel snippet.
+      // We intentionally do not duplicate PageView here.
+      // We do not fire Lead on start, validation, or failed submission.
+      // We do not fire Schedule merely on viewing /growth/book.
+      // Zero raw PII is transmitted in browser event parameters.
     }
 
     // 4. Google Analytics gtag forwarding
@@ -295,10 +373,30 @@ export function trackGrowthEvent(
         // Standard page_view is handled natively by GA4 config. Do not send duplicate page_view.
       } else {
         const ga4Data = sanitizePayloadForGA4(fullPayload);
-        if (event === 'growth_review_completed' || event === 'growth_form_success') {
-          win.gtag('event', 'generate_lead', ga4Data);
-        } else if (event === 'appointment_booked' || event === 'growth_booking_complete') {
-          win.gtag('event', 'schedule', ga4Data);
+        if (event === 'growth_review_completed') {
+          if (!firedGa4Conversions.has('generate_lead')) {
+            firedGa4Conversions.add('generate_lead');
+            win.gtag('event', 'generate_lead', ga4Data);
+          }
+        } else if (event === 'growth_form_success') {
+          if (!firedGa4Conversions.has('generate_lead')) {
+            firedGa4Conversions.add('generate_lead');
+            win.gtag('event', 'generate_lead', ga4Data);
+          } else {
+            win.gtag('event', 'growth_form_success', ga4Data);
+          }
+        } else if (event === 'appointment_booked') {
+          if (!firedGa4Conversions.has('schedule')) {
+            firedGa4Conversions.add('schedule');
+            win.gtag('event', 'schedule', ga4Data);
+          }
+        } else if (event === 'growth_booking_complete') {
+          if (!firedGa4Conversions.has('schedule')) {
+            firedGa4Conversions.add('schedule');
+            win.gtag('event', 'schedule', ga4Data);
+          } else {
+            win.gtag('event', 'growth_booking_complete', ga4Data);
+          }
         } else {
           win.gtag('event', event, ga4Data);
         }
