@@ -22,7 +22,7 @@ export default function GrowthPartnerPage() {
     trackGrowthEvent('growth_page_view', { page: '/growth-engine' });
     trackGrowthEvent('growth_engine_landing_view', {
       page: '/growth-engine',
-      metadata: { offer: 'founding_growth_partner_cohort' },
+      metadata: { offer: 'dws_growth_engine_launch_rate' },
     });
 
     // 3. Preserve query string for seamless conversion attribution passing
@@ -33,7 +33,7 @@ export default function GrowthPartnerPage() {
 
   const handleCtaClick = (locationTag: string) => {
     trackGrowthEvent('growth_cta_click', {
-      cta_label: 'REQUEST MY FREE GROWTH REVIEW',
+      cta_label: 'CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW',
       cta_destination: '/growth/apply',
       metadata: { location: locationTag },
     });
@@ -68,7 +68,7 @@ export default function GrowthPartnerPage() {
             className="dws-engine-header-cta"
             onClick={() => handleCtaClick('Header CTA')}
           >
-            <span>REQUEST MY FREE GROWTH REVIEW</span>
+            <span>CLAIM LAUNCH RATE — FREE REVIEW</span>
             <span className="dws-cta-arrow" aria-hidden="true">→</span>
           </a>
         </div>
@@ -106,7 +106,7 @@ export default function GrowthPartnerPage() {
                     className="dws-btn-primary"
                     onClick={() => handleCtaClick('Hero Primary CTA')}
                   >
-                    <span>REQUEST MY FREE GROWTH REVIEW</span>
+                    <span>CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW</span>
                     <span className="dws-btn-arrow" aria-hidden="true">→</span>
                   </a>
 
@@ -143,22 +143,18 @@ export default function GrowthPartnerPage() {
                     <line x1="102" y1="498" x2="498" y2="102" stroke="rgba(212,175,55,0.06)" strokeWidth="1" strokeDasharray="2 4" />
 
                     {/* Inbound Signal Vectors Converging into Core */}
-                    {/* Signal Vector 1: Meta */}
                     <path d="M 60 140 Q 180 200 260 270" stroke="url(#goldGrad1)" strokeWidth="1.5" strokeDasharray="4 4" className="dws-pulse-line-1" />
                     <circle cx="60" cy="140" r="4" fill="#d4af37" />
                     <text x="50" y="125" fill="#a3a8b4" fontSize="10" fontFamily="monospace" letterSpacing="0.1em">SIGNAL.01 // META</text>
 
-                    {/* Signal Vector 2: Google */}
                     <path d="M 540 120 Q 420 180 340 260" stroke="url(#goldGrad1)" strokeWidth="1.5" strokeDasharray="4 4" className="dws-pulse-line-2" />
                     <circle cx="540" cy="120" r="4" fill="#d4af37" />
                     <text x="440" y="105" fill="#a3a8b4" fontSize="10" fontFamily="monospace" letterSpacing="0.1em">SIGNAL.02 // GOOGLE</text>
 
-                    {/* Signal Vector 3: Organic / Referral */}
                     <path d="M 80 480 Q 180 420 260 330" stroke="url(#goldGrad1)" strokeWidth="1.5" strokeDasharray="4 4" className="dws-pulse-line-3" />
                     <circle cx="80" cy="480" r="4" fill="#d4af37" />
                     <text x="40" y="505" fill="#a3a8b4" fontSize="10" fontFamily="monospace" letterSpacing="0.1em">SIGNAL.03 // ORGANIC</text>
 
-                    {/* Signal Vector 4: High-Intent Direct */}
                     <path d="M 520 480 Q 420 420 340 340" stroke="url(#goldGrad1)" strokeWidth="1.5" strokeDasharray="4 4" className="dws-pulse-line-4" />
                     <circle cx="520" cy="480" r="4" fill="#d4af37" />
                     <text x="420" y="505" fill="#a3a8b4" fontSize="10" fontFamily="monospace" letterSpacing="0.1em">SIGNAL.04 // DIRECT</text>
@@ -168,7 +164,6 @@ export default function GrowthPartnerPage() {
                     <circle cx="300" cy="300" r="26" fill="rgba(212,175,55,0.12)" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
                     <circle cx="300" cy="300" r="6" fill="#f3c442" className="dws-core-dot" />
 
-                    {/* Core Coordinates & Monospace Metadata */}
                     <text x="300" y="365" textAnchor="middle" fill="#d4af37" fontSize="11" fontFamily="monospace" fontWeight="700" letterSpacing="0.16em">
                       DWS // GROWTH ENGINE CORE
                     </text>
@@ -176,7 +171,6 @@ export default function GrowthPartnerPage() {
                       OPERATIONAL PROTOCOL 01.0
                     </text>
 
-                    {/* Gradients */}
                     <defs>
                       <linearGradient id="goldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stopColor="#d4af37" stopOpacity="0.8" />
@@ -205,7 +199,7 @@ export default function GrowthPartnerPage() {
               </div>
             </div>
 
-            {/* Visual journey showing where revenue leaks without generic cards */}
+            {/* Visual journey showing where revenue leaks */}
             <div className="dws-leakage-conduit-wrapper" role="region" aria-label="Revenue Leakage Conduit">
               <div className="dws-leakage-spine">
                 {/* Milestone 1: TRAFFIC */}
@@ -517,7 +511,6 @@ export default function GrowthPartnerPage() {
             </div>
 
             <div className="dws-timeline-track" role="region" aria-label="Delivery Timeline">
-              {/* Stage 1: DIAGNOSE */}
               <div className="dws-timeline-station">
                 <div className="dws-station-axis">
                   <div className="dws-station-node" />
@@ -532,7 +525,6 @@ export default function GrowthPartnerPage() {
                 </div>
               </div>
 
-              {/* Stage 2: ARCHITECT */}
               <div className="dws-timeline-station">
                 <div className="dws-station-axis">
                   <div className="dws-station-node" />
@@ -547,7 +539,6 @@ export default function GrowthPartnerPage() {
                 </div>
               </div>
 
-              {/* Stage 3: PROVE */}
               <div className="dws-timeline-station">
                 <div className="dws-station-axis">
                   <div className="dws-station-node" />
@@ -562,7 +553,6 @@ export default function GrowthPartnerPage() {
                 </div>
               </div>
 
-              {/* Stage 4: OPERATE */}
               <div className="dws-timeline-station">
                 <div className="dws-station-axis">
                   <div className="dws-station-node active" />
@@ -622,7 +612,7 @@ export default function GrowthPartnerPage() {
         </section>
 
         {/* ==================================================================
-            SECTION 7 — FOUNDING PARTNER PROGRAM: EXECUTIVE INVITATION
+            SECTION 7 — DWS GROWTH ENGINE LAUNCH RATE: EXECUTIVE INVITATION
             ================================================================== */}
         <section className="dws-section dws-partner-section" aria-labelledby="partner-heading">
           <div className="growth-container">
@@ -630,35 +620,59 @@ export default function GrowthPartnerPage() {
               <div className="dws-plate-header">
                 <div className="dws-plate-badge">
                   <span className="dws-plate-dot" aria-hidden="true" />
-                  <span className="dws-plate-label">FOUNDING PARTNER PROGRAM</span>
+                  <span className="dws-plate-label">DWS GROWTH ENGINE — LAUNCH RATE</span>
                 </div>
-                <span className="dws-plate-allocation">COHORT ALLOCATION // FIRST 5 BUSINESSES</span>
+                <span className="dws-plate-allocation">LIMITED-TIME ENROLLMENT WINDOW</span>
               </div>
 
               <h2 id="partner-heading" className="dws-invitation-title">
-                Five businesses. One fully connected Growth Engine.
+                One fully connected Growth Engine. Launch window rate.
               </h2>
 
               <div className="dws-invitation-grid">
                 {/* Investment Side */}
                 <div className="dws-invitation-terms">
-                  <div className="dws-pricing-cluster">
-                    <div className="dws-price-tier">
-                      <span className="dws-price-num">$2,500</span>
-                      <span className="dws-price-label">Implementation</span>
+                  {/* Pricing Comparison Matrix */}
+                  <div className="dws-pricing-comparison">
+                    <div className="dws-price-block">
+                      <div className="dws-price-anchor">
+                        <span className="dws-anchor-label">STANDARD SETUP</span>
+                        <span className="dws-anchor-num">$2,500</span>
+                      </div>
+                      <div className="dws-launch-tier">
+                        <span className="dws-launch-label">LAUNCH RATE SETUP</span>
+                        <span className="dws-launch-num">$997</span>
+                      </div>
                     </div>
 
-                    <div className="dws-price-divider" aria-hidden="true">—</div>
+                    <div className="dws-price-block-sep" aria-hidden="true" />
 
-                    <div className="dws-price-tier">
-                      <span className="dws-price-num">$997 <span className="dws-price-period">/ month</span></span>
-                      <span className="dws-price-label">Operating partnership</span>
+                    <div className="dws-price-block">
+                      <div className="dws-price-anchor">
+                        <span className="dws-anchor-label">STANDARD MONTHLY MANAGEMENT</span>
+                        <span className="dws-anchor-num">$1,497 <span className="dws-anchor-sub">/ month</span></span>
+                      </div>
+                      <div className="dws-launch-tier">
+                        <span className="dws-launch-label">LAUNCH RATE</span>
+                        <span className="dws-launch-num">$997 <span className="dws-launch-sub">/ month</span></span>
+                      </div>
                     </div>
                   </div>
 
+                  <div className="dws-rate-lock-banner">
+                    <span className="dws-lock-icon" aria-hidden="true">🔒</span>
+                    <span className="dws-lock-text">
+                      Lock in the $997 monthly management rate while your account remains active and in good standing.
+                    </span>
+                  </div>
+
                   <div className="dws-invitation-notes">
-                    <p className="dws-note-text">
-                      Advertising spend, communication usage and applicable third-party services are separate.
+                    <p className="dws-urgency-note">
+                      Limited-time launch rate. Once the current enrollment window closes, standard DWS pricing applies.
+                    </p>
+                    <p className="dws-ad-budget-note">
+                      Minimum paid advertising budget: <strong>$500/month</strong>.<br />
+                      Advertising spend is paid separately and is not included in the $997 monthly management fee.
                     </p>
                     <div className="dws-contract-terms">
                       <span>● No long-term contract</span>
@@ -671,9 +685,9 @@ export default function GrowthPartnerPage() {
                     <a
                       href={applyUrl}
                       className="dws-btn-primary"
-                      onClick={() => handleCtaClick('Founding Partner Invitation CTA')}
+                      onClick={() => handleCtaClick('Launch Rate Invitation CTA')}
                     >
-                      <span>REQUEST MY FREE GROWTH REVIEW</span>
+                      <span>CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW</span>
                       <span className="dws-btn-arrow" aria-hidden="true">→</span>
                     </a>
                   </div>
@@ -719,7 +733,7 @@ export default function GrowthPartnerPage() {
                   className="dws-btn-primary dws-btn-large"
                   onClick={() => handleCtaClick('Final Close CTA')}
                 >
-                  <span>REQUEST MY FREE GROWTH REVIEW</span>
+                  <span>CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW</span>
                   <span className="dws-btn-arrow" aria-hidden="true">→</span>
                 </a>
               </div>
