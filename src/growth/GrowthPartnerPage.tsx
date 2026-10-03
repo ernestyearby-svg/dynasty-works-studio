@@ -4,6 +4,58 @@ import './growth-partner.css';
 import { useGrowthSeo } from './lib/useGrowthSeo';
 import { initGrowthTracking, trackGrowthEvent } from './lib/growth-tracking';
 
+// Factual System States that animate sequentially as part of the hero command deck
+const FACTUAL_SYSTEM_STATES = [
+  {
+    step: '01',
+    state: 'LEAD CAPTURED',
+    nodeName: 'TRAFFIC & CAPTURE',
+    summary: 'High-intent prospect completed structured Growth Review intake',
+    detail: 'Edge payload received · Attribution tokens locked · Zero latency drag',
+    badge: 'PROTOCOL 01.0 // ACTIVE',
+  },
+  {
+    step: '02',
+    state: 'CONTACT CREATED',
+    nodeName: 'CRM UNIFIED RECORD',
+    summary: 'Prospect card compiled with zero duplication in sovereign CRM',
+    detail: 'Complete profile generated · Dual-stage identity matching confirmed',
+    badge: 'PROTOCOL 02.0 // ACTIVE',
+  },
+  {
+    step: '03',
+    state: 'PIPELINE UPDATED',
+    nodeName: 'OPPORTUNITY STAGE',
+    summary: 'New opportunity created in DWS Growth Acquisition Pipeline',
+    detail: 'Stage ID validated · Expected value & conversion metadata linked',
+    badge: 'PROTOCOL 03.0 // ACTIVE',
+  },
+  {
+    step: '04',
+    state: 'AUTOMATION TRIGGERED',
+    nodeName: 'WEBHOOK ROUTING',
+    summary: 'n8n dual-route automation initiated under 250ms latency',
+    detail: 'Internal alert dispatched · Custom founder notification fired',
+    badge: 'PROTOCOL 04.0 // ACTIVE',
+  },
+  {
+    step: '05',
+    state: 'APPOINTMENT BOOKED',
+    nodeName: 'CALENDAR CADENCE',
+    summary: 'Growth strategy call scheduled on master availability calendar',
+    detail: '24-hour & 2-hour automated multi-channel reminders queued',
+    badge: 'PROTOCOL 05.0 // ACTIVE',
+  },
+  {
+    step: '06',
+    state: 'SOURCE ATTRIBUTED',
+    nodeName: 'CLOSED-LOOP ATTRIBUTION',
+    summary: 'Exact traffic channel, campaign and ad asset mapped to opportunity',
+    detail: 'Closed-loop ROI ready · Zero attribution data loss',
+    badge: 'PROTOCOL 06.0 // ACTIVE',
+  },
+];
+
 export default function GrowthPartnerPage() {
   useGrowthSeo({
     title: 'Growth Engine | Dynasty Works Studio',
@@ -13,7 +65,7 @@ export default function GrowthPartnerPage() {
   });
 
   const [applyUrl, setApplyUrl] = useState('/growth/apply');
-  const [activeTelemetryTab, setActiveTelemetryTab] = useState(0);
+  const [activeStateIndex, setActiveStateIndex] = useState(0);
   const heroRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -41,7 +93,7 @@ export default function GrowthPartnerPage() {
           }
         });
       },
-      { rootMargin: '0px 0px -60px 0px', threshold: 0.08 }
+      { rootMargin: '120px 0px 120px 0px', threshold: 0.01 }
     );
 
     const revealElements = document.querySelectorAll('.dws-reveal');
@@ -60,10 +112,10 @@ export default function GrowthPartnerPage() {
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // 6. Micro-Telemetry cycle timer in Hero
+    // 6. Progressive Factual System State Cycle Timer in Hero (every 3.2s)
     const timer = setInterval(() => {
-      setActiveTelemetryTab((prev) => (prev + 1) % 3);
-    }, 4500);
+      setActiveStateIndex((prev) => (prev + 1) % FACTUAL_SYSTEM_STATES.length);
+    }, 3200);
 
     return () => {
       observer.disconnect();
@@ -88,6 +140,8 @@ export default function GrowthPartnerPage() {
       target.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const currentState = FACTUAL_SYSTEM_STATES[activeStateIndex];
 
   return (
     <div className="growth-root dws-growth-engine-redesign">
@@ -119,11 +173,11 @@ export default function GrowthPartnerPage() {
 
       <main id="main-content">
         {/* ==================================================================
-            SECTION 1 — HERO: ENLARGED STATE-OF-THE-ART LIVING SYSTEM COMMAND DECK
+            SECTION 1 — HERO: ENLARGED ULTRA-REALISTIC LIVING SYSTEM COMMAND DECK (DARK)
             ================================================================== */}
         <section
           ref={heroRef}
-          className="dws-engine-hero"
+          className="dws-engine-hero dws-tone-dark"
           aria-labelledby="hero-title"
         >
           {/* Layered Animated Ambient Background */}
@@ -136,7 +190,7 @@ export default function GrowthPartnerPage() {
 
           <div className="growth-container">
             {/* Top Command Headline & Direct-Response Actions */}
-            <div className="dws-hero-header-block dws-reveal">
+            <div className="dws-hero-header-block">
               <div className="dws-hero-eyebrow">
                 <span className="dws-eyebrow-rule" />
                 <span className="dws-eyebrow-text">DYNASTY WORKS STUDIO</span>
@@ -193,7 +247,7 @@ export default function GrowthPartnerPage() {
             </div>
 
             {/* ENLARGED STATE-OF-THE-ART LIVING SYSTEM COMMAND DECK */}
-            <div className="dws-hero-command-deck dws-reveal">
+            <div className="dws-hero-command-deck">
               <div className="dws-command-deck-frame">
                 {/* Precision HUD Corner Brackets */}
                 <div className="dws-deck-bracket top-left" aria-hidden="true" />
@@ -208,7 +262,7 @@ export default function GrowthPartnerPage() {
                 <div className="dws-deck-hud-top">
                   <div className="dws-deck-status">
                     <span className="dws-status-beacon" />
-                    <span className="dws-status-mono">DWS SYSTEM COMMAND // 01.0 LIVE TELEMETRY</span>
+                    <span className="dws-status-mono">DWS SYSTEM COMMAND // ARCHITECTURAL CONDUIT</span>
                   </div>
                   <div className="dws-deck-stats">
                     <span className="dws-stat-pill">EDGE LATENCY: 140ms</span>
@@ -217,109 +271,105 @@ export default function GrowthPartnerPage() {
                   </div>
                 </div>
 
-                {/* Backdrop Layer: Cinema Grade Art-Directed Image */}
+                {/* Backdrop Layer: Cinema Grade Ultra-Realistic Visual */}
                 <div className="dws-deck-visual-stage">
                   <img
-                    src="/growth/visuals/hero-operators.jpg"
-                    alt="Dynasty Works Studio founders and operators analyzing connected growth telemetry"
+                    src="/growth/visuals/hero-system-nexus.jpg"
+                    alt="Dynasty Works Studio architectural growth operating system visualization with illuminated conduits"
                     className="dws-deck-photo"
                     width={1600}
-                    height={1067}
+                    height={900}
                     loading="eager"
                     fetchPriority="high"
                   />
                   <div className="dws-deck-gradient-mask" aria-hidden="true" />
 
-                  {/* Floating Living Telemetry Overlay: Widget Top Right */}
+                  {/* Floating Living Telemetry Overlay: Sequential Factual State (Top Right) */}
                   <div className="dws-floating-hud dws-hud-feed" aria-live="polite">
                     <div className="dws-hud-head">
                       <span className="dws-hud-dot" />
-                      <span className="dws-hud-title">REAL-TIME ACQUISITION TELEMETRY</span>
+                      <span className="dws-hud-title">LIVE ACQUISITION SEQUENCE</span>
+                      <span className="dws-hud-counter">{currentState.step} / 06</span>
                     </div>
                     <div className="dws-hud-feed-body">
-                      {activeTelemetryTab === 0 && (
-                        <div className="dws-feed-item fadeIn">
-                          <span className="dws-feed-tag">✦ INGESTION</span>
-                          <span className="dws-feed-text">High-intent prospect completed Growth Review</span>
-                          <span className="dws-feed-sub">0.38s Edge Capture · Routed to CRM in 180ms</span>
+                      <div className="dws-feed-item fadeIn" key={currentState.step}>
+                        <div className="dws-feed-tag-row">
+                          <span className="dws-feed-tag gold">✦ {currentState.state}</span>
+                          <span className="dws-feed-node-pill">{currentState.nodeName}</span>
                         </div>
-                      )}
-                      {activeTelemetryTab === 1 && (
-                        <div className="dws-feed-item fadeIn">
-                          <span className="dws-feed-tag alert">✦ AUTOMATION</span>
-                          <span className="dws-feed-text">Opportunity created in New Lead Stage</span>
-                          <span className="dws-feed-sub">Immediate qualification sequence dispatched</span>
-                        </div>
-                      )}
-                      {activeTelemetryTab === 2 && (
-                        <div className="dws-feed-item fadeIn">
-                          <span className="dws-feed-tag gold">✦ CALENDAR</span>
-                          <span className="dws-feed-text">Strategy Call confirmed on calendar</span>
-                          <span className="dws-feed-sub">24h &amp; 2h automated SMS reminders active</span>
-                        </div>
-                      )}
+                        <span className="dws-feed-text">{currentState.summary}</span>
+                        <span className="dws-feed-sub">{currentState.detail}</span>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Floating Living Telemetry Overlay: Widget Bottom Left */}
+                  {/* Floating Living Telemetry Overlay: Active State Breadcrumb (Bottom Left) */}
                   <div className="dws-floating-hud dws-hud-velocity">
                     <div className="dws-velocity-meta">
-                      <span className="dws-velocity-lead">RESPONSE SPEED INFLECTION</span>
-                      <span className="dws-velocity-metric">+74% CONVERSION VELOCITY</span>
+                      <span className="dws-velocity-lead">FACTUAL OPERATIONAL STATUS</span>
+                      <span className="dws-velocity-metric">{currentState.state}</span>
                     </div>
                     <div className="dws-velocity-track">
-                      <div className="dws-velocity-bar-fast" />
-                      <div className="dws-velocity-pulse-node" />
+                      <div
+                        className="dws-velocity-bar-fast"
+                        style={{ width: `${((activeStateIndex + 1) / 6) * 100}%` }}
+                      />
                     </div>
                     <div className="dws-velocity-sub">
-                      <span>DWS Automated First Response &lt; 2 mins</span>
-                      <span className="dws-velocity-vs">vs 4h Industry Delay</span>
+                      <span>Verified Acquisition Pipeline Stage</span>
+                      <span className="dws-velocity-vs">STEP {activeStateIndex + 1} OF 6</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Integrated Continuous Signal Pipeline Conduit (Traffic to Revenue) */}
+                {/* Integrated Continuous Signal Pipeline Conduit Bus (The 6 Stages) */}
                 <div className="dws-deck-conduit-bar" role="region" aria-label="Signal Pipeline Stages">
                   <div className="dws-conduit-bus-line">
-                    <div className="dws-conduit-laser-pulse" />
+                    <div
+                      className="dws-conduit-laser-pulse"
+                      style={{
+                        left: `${(activeStateIndex / 5) * 85}%`,
+                        transition: 'left 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+                      }}
+                    />
                   </div>
                   <div className="dws-conduit-nodes">
-                    <div className="dws-conduit-step">
+                    <div className={`dws-conduit-step ${activeStateIndex === 0 ? 'active-highlight' : ''}`}>
                       <span className="dws-step-code">01</span>
                       <span className="dws-step-label">TRAFFIC</span>
                       <span className="dws-step-detail">Meta · Google · Direct</span>
                     </div>
                     <div className="dws-conduit-arrow" aria-hidden="true">→</div>
 
-                    <div className="dws-conduit-step">
+                    <div className={`dws-conduit-step ${activeStateIndex === 1 ? 'active-highlight' : ''}`}>
                       <span className="dws-step-code">02</span>
                       <span className="dws-step-label">CAPTURE</span>
-                      <span className="dws-step-detail">High-Intent Edge Intake</span>
+                      <span className="dws-step-detail">Edge Lead Intake</span>
                     </div>
                     <div className="dws-conduit-arrow" aria-hidden="true">→</div>
 
-                    <div className="dws-conduit-step">
+                    <div className={`dws-conduit-step ${activeStateIndex === 2 ? 'active-highlight' : ''}`}>
                       <span className="dws-step-code">03</span>
                       <span className="dws-step-label">CRM</span>
-                      <span className="dws-step-detail">Sovereign Data Ledger</span>
+                      <span className="dws-step-detail">Sovereign Contact Ledger</span>
                     </div>
                     <div className="dws-conduit-arrow" aria-hidden="true">→</div>
 
-                    <div className="dws-conduit-step highlight">
+                    <div className={`dws-conduit-step ${activeStateIndex === 3 ? 'active-highlight' : ''}`}>
                       <span className="dws-step-code">04</span>
                       <span className="dws-step-label">AUTOMATION</span>
-                      <span className="dws-step-detail">&lt;250ms Lead Routing</span>
+                      <span className="dws-step-detail">&lt;250ms Routing Engine</span>
                     </div>
                     <div className="dws-conduit-arrow" aria-hidden="true">→</div>
 
-                    <div className="dws-conduit-step highlight">
+                    <div className={`dws-conduit-step ${activeStateIndex === 4 ? 'active-highlight' : ''}`}>
                       <span className="dws-step-code">05</span>
                       <span className="dws-step-label">BOOKING</span>
-                      <span className="dws-step-detail">Synced Availability</span>
+                      <span className="dws-step-detail">Synced Calendar Cadence</span>
                     </div>
                     <div className="dws-conduit-arrow" aria-hidden="true">→</div>
 
-                    <div className="dws-conduit-step gold">
+                    <div className={`dws-conduit-step ${activeStateIndex === 5 ? 'active-highlight gold' : ''}`}>
                       <span className="dws-step-code">06</span>
                       <span className="dws-step-label">REVENUE</span>
                       <span className="dws-step-detail">Closed-Loop Attribution</span>
@@ -332,9 +382,9 @@ export default function GrowthPartnerPage() {
         </section>
 
         {/* ==================================================================
-            SECTION 2 — THE PROBLEM: EDITORIAL LEAKAGE JOURNEY
+            SECTION 2 — THE PROBLEM: EDITORIAL LEAKAGE JOURNEY (WARM LIGHT STONE)
             ================================================================== */}
-        <section id="the-problem" className="dws-section dws-problem-section" aria-labelledby="problem-heading">
+        <section id="the-problem" className="dws-section dws-problem-section dws-tone-light-stone" aria-labelledby="problem-heading">
           <div className="growth-container">
             <div className="dws-problem-statement dws-reveal">
               <span className="dws-meta-tag">// SYSTEM DIAGNOSTIC</span>
@@ -499,9 +549,9 @@ export default function GrowthPartnerPage() {
         </section>
 
         {/* ==================================================================
-            SECTION 3 — THE DWS ENGINE: CONNECTED SYSTEM ARCHITECTURE
+            SECTION 3 — THE DWS ENGINE: CONNECTED SYSTEM ARCHITECTURE (DARK)
             ================================================================== */}
-        <section className="dws-section dws-engine-section" aria-labelledby="engine-heading">
+        <section className="dws-section dws-engine-section dws-tone-dark" aria-labelledby="engine-heading">
           <div className="growth-container">
             <div className="dws-section-header dws-reveal">
               <span className="dws-meta-tag">// SYSTEM TOPOLOGY</span>
@@ -650,9 +700,9 @@ export default function GrowthPartnerPage() {
         </section>
 
         {/* ==================================================================
-            SECTION 4 — WHAT DWS ACTUALLY BUILDS: EDITORIAL CHAPTERS
+            SECTION 4 — WHAT DWS ACTUALLY BUILDS: EDITORIAL CHAPTERS (LIGHT NEUTRAL)
             ================================================================== */}
-        <section className="dws-section dws-chapters-section" aria-labelledby="builds-heading">
+        <section className="dws-section dws-chapters-section dws-tone-light-neutral" aria-labelledby="builds-heading">
           <div className="growth-container">
             <div className="dws-section-header dws-reveal">
               <span className="dws-meta-tag">// SYSTEM DELIVERABLES</span>
@@ -744,9 +794,9 @@ export default function GrowthPartnerPage() {
         </section>
 
         {/* ==================================================================
-            SECTION 5 — DELIVERY METHOD: CINEMATIC TIMELINE
+            SECTION 5 — DELIVERY METHOD: CINEMATIC TIMELINE (DARK)
             ================================================================== */}
-        <section className="dws-section dws-method-section" aria-labelledby="method-heading">
+        <section className="dws-section dws-method-section dws-tone-dark" aria-labelledby="method-heading">
           <div className="growth-container">
             <div className="dws-section-header dws-reveal">
               <span className="dws-meta-tag">// SYSTEM PROTOCOL</span>
@@ -840,9 +890,9 @@ export default function GrowthPartnerPage() {
         </section>
 
         {/* ==================================================================
-            SECTION 6 — CREATIVE RANGE: CROSS-CATEGORY POSITIONING
+            SECTION 6 — CREATIVE RANGE: CROSS-CATEGORY POSITIONING (WARM LIGHT STONE)
             ================================================================== */}
-        <section className="dws-section dws-range-section" aria-labelledby="range-heading">
+        <section className="dws-section dws-range-section dws-tone-light-warm" aria-labelledby="range-heading">
           <div className="growth-container">
             <div className="dws-section-header dws-reveal">
               <span className="dws-meta-tag">// CROSS-INDUSTRY CAPABILITY</span>
@@ -997,9 +1047,9 @@ export default function GrowthPartnerPage() {
         </section>
 
         {/* ==================================================================
-            SECTION 7 — OWNERSHIP: RADICAL DATA SOVEREIGNTY
+            SECTION 7 — OWNERSHIP: RADICAL DATA SOVEREIGNTY (DARK)
             ================================================================== */}
-        <section className="dws-section dws-ownership-section" aria-labelledby="ownership-heading">
+        <section className="dws-section dws-ownership-section dws-tone-dark" aria-labelledby="ownership-heading">
           <div className="growth-container">
             <div className="dws-ownership-layout dws-reveal">
               <div className="dws-ownership-lead-col">
@@ -1039,9 +1089,9 @@ export default function GrowthPartnerPage() {
         </section>
 
         {/* ==================================================================
-            SECTION 8 — FOUNDING CLIENT LAUNCH RATE: LIMITED TO FIRST 5 CLIENTS
+            SECTION 8 — FOUNDING CLIENT LAUNCH RATE: LIMITED TO FIRST 5 CLIENTS (CHAMPAGNE NEUTRAL)
             ================================================================== */}
-        <section className="dws-section dws-partner-section" aria-labelledby="partner-heading">
+        <section className="dws-section dws-partner-section dws-tone-champagne" aria-labelledby="partner-heading">
           <div className="growth-container">
             <div className="dws-invitation-plate dws-reveal">
               <div className="dws-plate-header">
@@ -1164,9 +1214,9 @@ export default function GrowthPartnerPage() {
         </section>
 
         {/* ==================================================================
-            SECTION 9 — FINAL CLOSE: HIGH-IMPACT EDITORIAL RESOLUTION
+            SECTION 9 — FINAL CLOSE: HIGH-IMPACT EDITORIAL RESOLUTION (DARK)
             ================================================================== */}
-        <section className="dws-section dws-final-close-section" aria-labelledby="close-heading">
+        <section className="dws-section dws-final-close-section dws-tone-dark" aria-labelledby="close-heading">
           <div className="growth-container">
             <div className="dws-final-close-content dws-reveal">
               <span className="dws-meta-tag">// SYSTEM IMPERATIVE</span>

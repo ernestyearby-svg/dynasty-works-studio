@@ -2,6 +2,7 @@
  * Dynasty Works Studio — Growth Engine
  * Creative Direction: Luxury Strategy Firm × Growth Operating System × Command Center
  * Editorial, Cinematic, Intelligent, Operational, Modern, Restrained.
+ * Color Balance: Dark Obsidian Foundation with Alternating Warm Stone & Champagne Tonal Rhythm.
  */
 
 /* ==========================================================================
@@ -165,7 +166,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(6, 7, 9, 0.88);
+  background: rgba(6, 7, 9, 0.9);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -242,13 +243,348 @@
 }
 
 /* ==========================================================================
-   SECTION 1 — HERO: ENLARGED STATE-OF-THE-ART LIVING COMMAND DECK
+   TONAL RHYTHM ENVIRONMENT DEFINITIONS
+   Visual rhythm: Dark -> Light -> Dark -> Light -> Dark -> Light -> Dark -> Light -> Dark
+   ========================================================================== */
+
+/* Dark Sections Baseline */
+.dws-tone-dark {
+  background-color: #07080a;
+  color: #ededed;
+}
+
+/* 1. Light Stone Tone (Section 2: The Problem) */
+.dws-tone-light-stone {
+  background-color: #f6f4ee;
+  color: #1a1c22;
+  border-top: 1px solid #e6e2d8;
+  border-bottom: 1px solid #e6e2d8;
+}
+
+.dws-tone-light-stone .dws-meta-tag {
+  color: #8a6c1e;
+}
+
+.dws-tone-light-stone .dws-statement-lead,
+.dws-tone-light-stone .dws-statement-followup {
+  color: #121418;
+}
+
+.dws-tone-light-stone .dws-statement-followup em {
+  color: #9c7a20;
+}
+
+.dws-tone-light-stone .dws-leakage-spine::before {
+  background: linear-gradient(180deg, #b89635 0%, rgba(184, 150, 53, 0.35) 50%, rgba(0, 0, 0, 0.08) 100%);
+}
+
+.dws-tone-light-stone .dws-milestone-ring {
+  background: #ffffff;
+  border: 2px solid #b89635;
+  box-shadow: 0 0 10px rgba(184, 150, 53, 0.3);
+}
+
+.dws-tone-light-stone .dws-milestone-label {
+  color: #121418;
+}
+
+.dws-tone-light-stone .dws-conduit-leak {
+  background: #ffffff;
+  border-left: 3px solid #dc2626;
+  border-radius: 0 6px 6px 0;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+.dws-tone-light-stone .dws-leak-tag {
+  color: #dc2626;
+}
+
+.dws-tone-light-stone .dws-leak-name {
+  color: #121418;
+}
+
+.dws-tone-light-stone .dws-leak-desc {
+  color: #484c56;
+}
+
+.dws-tone-light-stone .dws-leak-telemetry {
+  background: #faf9f6;
+  border: 1px solid #e2ded4;
+}
+
+.dws-tone-light-stone .dws-telemetry-title {
+  color: #8a6c1e;
+}
+
+.dws-tone-light-stone .dws-metric-name {
+  color: #555964;
+}
+
+.dws-tone-light-stone .dws-telemetry-bar-wrap {
+  background: #e2ded4;
+}
+
+.dws-tone-light-stone .dws-telemetry-subnote {
+  color: #686d79;
+}
+
+.dws-tone-light-stone .dws-silo-pill {
+  background: #edeae2;
+  border: 1px solid #dcd7cb;
+  color: #2b2d35;
+}
+
+.dws-tone-light-stone .dws-silo-pill.alert {
+  background: rgba(220, 38, 38, 0.08);
+  border-color: rgba(220, 38, 38, 0.3);
+  color: #dc2626;
+}
+
+.dws-tone-light-stone .dws-split-stat .dws-stat-kicker {
+  color: #686d79;
+}
+
+.dws-tone-light-stone .dws-split-sep {
+  background: #e2ded4;
+}
+
+.dws-tone-light-stone .dws-problem-resolution {
+  border-top: 1px solid #ded9ce;
+}
+
+.dws-tone-light-stone .dws-resolution-headline {
+  color: #121418;
+}
+
+.dws-tone-light-stone .dws-resolution-sub {
+  color: #484c56;
+}
+
+/* 2. Light Neutral Tone (Section 4: What DWS Actually Builds) */
+.dws-tone-light-neutral {
+  background-color: #f5f4ef;
+  color: #1a1c22;
+  border-top: 1px solid #e5e1d6;
+  border-bottom: 1px solid #e5e1d6;
+}
+
+.dws-tone-light-neutral .dws-meta-tag {
+  color: #8a6c1e;
+}
+
+.dws-tone-light-neutral .dws-section-headline {
+  color: #121418;
+}
+
+.dws-tone-light-neutral .dws-section-headline em {
+  color: #9c7a20;
+}
+
+.dws-tone-light-neutral .dws-section-sub {
+  color: #484c56;
+}
+
+.dws-tone-light-neutral .dws-chapter-row {
+  border-bottom: 1px solid #e2ded3;
+}
+
+.dws-tone-light-neutral .dws-chapter-num {
+  color: #8a6c1e;
+}
+
+.dws-tone-light-neutral .dws-chapter-line {
+  background: #cfc9be;
+}
+
+.dws-tone-light-neutral .dws-chapter-title {
+  color: #121418;
+}
+
+.dws-tone-light-neutral .dws-chapter-lead {
+  color: #8a6c1e;
+}
+
+.dws-tone-light-neutral .dws-chapter-body {
+  color: #484c56;
+}
+
+/* 3. Light Warm Tone (Section 6: Cross-Industry Creative Range) */
+.dws-tone-light-warm {
+  background-color: #f6f4ed;
+  color: #1a1c22;
+  border-top: 1px solid #e5e0d5;
+  border-bottom: 1px solid #e5e0d5;
+}
+
+.dws-tone-light-warm .dws-meta-tag {
+  color: #8a6c1e;
+}
+
+.dws-tone-light-warm .dws-section-headline {
+  color: #121418;
+}
+
+.dws-tone-light-warm .dws-section-headline em {
+  color: #9c7a20;
+}
+
+.dws-tone-light-warm .dws-section-sub {
+  color: #484c56;
+}
+
+.dws-tone-light-warm .dws-range-card {
+  background: #ffffff;
+  border: 1px solid #e2ddd3;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.05);
+}
+
+.dws-tone-light-warm .dws-range-card:hover {
+  border-color: #b89635;
+  box-shadow: 0 16px 36px -6px rgba(184, 150, 53, 0.16);
+}
+
+.dws-tone-light-warm .dws-range-title {
+  color: #121418;
+}
+
+.dws-tone-light-warm .dws-range-desc {
+  color: #484c56;
+}
+
+.dws-tone-light-warm .dws-range-resolution {
+  border-top: 1px solid #ded8cb;
+}
+
+.dws-tone-light-warm .dws-range-statement {
+  color: #8a6c1e;
+}
+
+/* 4. Champagne Tone (Section 8: Founding Client Launch Rate / Pricing) */
+.dws-tone-champagne {
+  background-color: #f7f4ec;
+  color: #1a1c22;
+  border-top: 1px solid #e7dfd1;
+  border-bottom: 1px solid #e7dfd1;
+}
+
+.dws-tone-champagne .dws-invitation-plate {
+  background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08), transparent 70%), #ffffff;
+  border: 1px solid #decbb0;
+  box-shadow: 0 24px 60px -16px rgba(0, 0, 0, 0.08), 0 0 36px rgba(212, 175, 55, 0.08);
+}
+
+.dws-tone-champagne .dws-plate-header {
+  border-bottom: 1px solid #e8e3d8;
+}
+
+.dws-tone-champagne .dws-plate-label {
+  color: #8a6c1e;
+}
+
+.dws-tone-champagne .dws-plate-allocation {
+  color: #5f6470;
+}
+
+.dws-tone-champagne .dws-invitation-title {
+  color: #121418;
+}
+
+.dws-tone-champagne .dws-anchor-label {
+  color: #6b707d;
+}
+
+.dws-tone-champagne .dws-anchor-num.slashed {
+  color: #8a909d;
+  text-decoration-color: rgba(220, 38, 38, 0.7);
+}
+
+.dws-tone-champagne .dws-anchor-sub {
+  color: #6b707d;
+}
+
+.dws-tone-champagne .dws-launch-label {
+  color: #8a6c1e;
+}
+
+.dws-tone-champagne .dws-launch-num {
+  color: #121418;
+}
+
+.dws-tone-champagne .dws-launch-sub {
+  color: #5f6470;
+}
+
+.dws-tone-champagne .dws-price-block-sep {
+  background: #e3ded4;
+}
+
+.dws-tone-champagne .dws-rate-lock-banner {
+  background: rgba(184, 150, 53, 0.08);
+  border: 1px solid rgba(184, 150, 53, 0.3);
+}
+
+.dws-tone-champagne .dws-lock-text {
+  color: #8a6c1e;
+}
+
+.dws-tone-champagne .dws-urgency-box {
+  background: rgba(217, 119, 6, 0.06);
+  border: 1px solid rgba(217, 119, 6, 0.3);
+}
+
+.dws-tone-champagne .dws-urgency-note {
+  color: #2b2d33;
+}
+
+.dws-tone-champagne .dws-urgency-note strong {
+  color: #b45309;
+}
+
+.dws-tone-champagne .dws-ad-budget-note {
+  color: #4a4e58;
+  border-left-color: #8a6c1e;
+}
+
+.dws-tone-champagne .dws-ad-budget-note strong {
+  color: #121418;
+}
+
+.dws-tone-champagne .dws-contract-terms {
+  color: #525660;
+}
+
+.dws-tone-champagne .dws-commitment-block {
+  background: #fbfaf7;
+  border: 1px solid #e5e0d5;
+}
+
+.dws-tone-champagne .dws-commitment-tag {
+  color: #8a6c1e;
+}
+
+.dws-tone-champagne .dws-commitment-text {
+  color: #4a4e58;
+}
+
+.dws-tone-champagne .dws-scope-header {
+  color: #8a6c1e;
+}
+
+.dws-tone-champagne .dws-scope-list li {
+  color: #2b2d35;
+}
+
+.dws-tone-champagne .dws-check {
+  color: #99751e;
+}
+
+/* ==========================================================================
+   SECTION 1 — HERO: ENLARGED ULTRA-REALISTIC COMMAND DECK
    ========================================================================== */
 .dws-engine-hero {
   min-height: 100vh;
   padding: clamp(140px, 15vh, 190px) 0 clamp(80px, 9vh, 130px);
   position: relative;
-  background: #060709;
   overflow: hidden;
 }
 
@@ -307,7 +643,7 @@
 .dws-ambient-vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 50%, transparent 60%, #060709 100%);
+  background: radial-gradient(circle at 50% 50%, transparent 60%, #07080a 100%);
 }
 
 /* Hero Header Block */
@@ -533,7 +869,7 @@
   flex-wrap: wrap;
   gap: 12px;
   padding: 12px 20px;
-  background: rgba(8, 10, 16, 0.92);
+  background: rgba(8, 10, 16, 0.94);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
   z-index: 4;
@@ -589,7 +925,7 @@
 .dws-deck-visual-stage {
   position: relative;
   width: 100%;
-  height: clamp(380px, 48vw, 600px);
+  height: clamp(380px, 48vw, 620px);
   overflow: hidden;
   background: #050608;
 }
@@ -599,13 +935,13 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transform: scale(1.02);
-  animation: dwsHeroDrift 24s ease-in-out infinite alternate;
+  transform: scale(1.01);
+  animation: dwsHeroDrift 28s ease-in-out infinite alternate;
 }
 
 @keyframes dwsHeroDrift {
-  0% { transform: scale(1.02) translate(0, 0); }
-  100% { transform: scale(1.08) translate(-1%, -1%); }
+  0% { transform: scale(1.01) translate(0, 0); }
+  100% { transform: scale(1.04) translate(-0.5%, -0.5%); }
 }
 
 .dws-deck-gradient-mask {
@@ -613,18 +949,18 @@
   inset: 0;
   pointer-events: none;
   background: 
-    radial-gradient(circle at 60% 40%, rgba(6, 7, 9, 0.2) 0%, rgba(6, 7, 9, 0.85) 90%),
-    linear-gradient(180deg, rgba(8, 10, 16, 0.4) 0%, transparent 30%, rgba(8, 10, 16, 0.9) 100%);
+    radial-gradient(circle at 60% 40%, rgba(6, 7, 9, 0.1) 0%, rgba(6, 7, 9, 0.8) 95%),
+    linear-gradient(180deg, rgba(8, 10, 16, 0.3) 0%, transparent 35%, rgba(8, 10, 16, 0.92) 100%);
 }
 
 /* Floating Glassmorphic Telemetry HUDs */
 .dws-floating-hud {
   position: absolute;
-  background: rgba(9, 11, 17, 0.86);
+  background: rgba(9, 11, 17, 0.88);
   border: 1px solid rgba(212, 175, 55, 0.35);
   border-radius: 6px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
   z-index: 3;
 }
@@ -632,8 +968,8 @@
 .dws-hud-feed {
   top: 24px;
   right: 24px;
-  width: clamp(280px, 32vw, 380px);
-  padding: 14px 16px;
+  width: clamp(280px, 34vw, 420px);
+  padding: 14px 18px;
 }
 
 .dws-hud-head {
@@ -643,6 +979,14 @@
   margin-bottom: 10px;
   padding-bottom: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dws-hud-counter {
+  margin-left: auto;
+  font-family: monospace;
+  font-size: 10px;
+  color: #f3c442;
+  font-weight: 700;
 }
 
 .dws-hud-dot {
@@ -664,30 +1008,45 @@
 .dws-feed-item {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
 }
 
 .dws-feed-item.fadeIn {
-  animation: dwsFadeIn 0.4s ease-out forwards;
+  animation: dwsFadeIn 0.35s ease-out forwards;
 }
 
 @keyframes dwsFadeIn {
-  from { opacity: 0; transform: translateY(6px); }
+  from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+.dws-feed-tag-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
 }
 
 .dws-feed-tag {
   font-family: monospace;
-  font-size: 9.5px;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   color: #10b981;
 }
-.dws-feed-tag.alert { color: #f59e0b; }
 .dws-feed-tag.gold { color: #f3c442; }
 
+.dws-feed-node-pill {
+  font-family: monospace;
+  font-size: 9px;
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  color: #a4a9b6;
+}
+
 .dws-feed-text {
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 600;
   color: #ffffff;
   line-height: 1.35;
@@ -724,15 +1083,16 @@
 .dws-velocity-metric {
   font-size: 14px;
   font-weight: 700;
-  color: #10b981;
-  letter-spacing: 0.02em;
+  color: #f3c442;
+  letter-spacing: 0.04em;
+  font-family: monospace;
 }
 
 .dws-velocity-track {
   width: 100%;
-  height: 5px;
+  height: 4px;
   background: rgba(255, 255, 255, 0.08);
-  border-radius: 3px;
+  border-radius: 2px;
   position: relative;
   overflow: hidden;
   margin-bottom: 8px;
@@ -743,9 +1103,9 @@
   left: 0;
   top: 0;
   bottom: 0;
-  width: 82%;
-  background: linear-gradient(90deg, #d4af37 0%, #10b981 100%);
-  border-radius: 3px;
+  background: linear-gradient(90deg, #d4af37 0%, #f3c442 100%);
+  border-radius: 2px;
+  transition: width 0.5s ease;
 }
 
 .dws-velocity-sub {
@@ -758,7 +1118,8 @@
 }
 
 .dws-velocity-vs {
-  color: #f87171;
+  color: #10b981;
+  font-weight: 700;
 }
 
 /* Integrated Continuous Signal Pipeline Conduit Bus (The 6 Stages) */
@@ -784,16 +1145,8 @@
   position: absolute;
   top: 0;
   height: 100%;
-  width: 120px;
+  width: 140px;
   background: linear-gradient(90deg, transparent 0%, #f3c442 50%, #ffffff 80%, transparent 100%);
-  animation: dwsLaserTransit 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-@keyframes dwsLaserTransit {
-  0% { left: -120px; opacity: 0; }
-  15% { opacity: 1; }
-  85% { opacity: 1; }
-  100% { left: 100%; opacity: 0; }
 }
 
 .dws-conduit-nodes {
@@ -811,7 +1164,7 @@
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 4px;
   padding: 10px 12px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .dws-conduit-step:hover {
@@ -819,14 +1172,15 @@
   border-color: rgba(212, 175, 55, 0.35);
 }
 
-.dws-conduit-step.highlight {
-  border-color: rgba(212, 175, 55, 0.4);
-  background: rgba(212, 175, 55, 0.05);
+.dws-conduit-step.active-highlight {
+  border-color: rgba(212, 175, 55, 0.6);
+  background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12), transparent 70%), #0e1118;
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.2);
 }
 
-.dws-conduit-step.gold {
-  border-color: #d4af37;
-  background: rgba(212, 175, 55, 0.1);
+.dws-conduit-step.active-highlight.gold {
+  border-color: #f3c442;
+  background: radial-gradient(circle at 50% 0%, rgba(243, 196, 66, 0.18), transparent 70%), #11141c;
 }
 
 .dws-step-code {
@@ -860,12 +1214,6 @@
 /* ==========================================================================
    SECTION 2 — THE PROBLEM: EDITORIAL LEAKAGE JOURNEY
    ========================================================================== */
-.dws-problem-section {
-  background: #08090d;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
 .dws-problem-statement {
   margin-bottom: clamp(64px, 8vw, 110px);
 }
@@ -875,7 +1223,6 @@
   font-weight: 600;
   letter-spacing: -0.035em;
   line-height: 1.06;
-  color: #ffffff;
   margin: 0 0 16px;
 }
 
@@ -884,14 +1231,12 @@
   font-weight: 600;
   letter-spacing: -0.035em;
   line-height: 1.06;
-  color: #ffffff;
 }
 
 .dws-statement-followup em {
   font-family: var(--dws-font-serif, 'Bodoni Moda', serif);
   font-style: italic;
   font-weight: 400;
-  color: #f3c442;
 }
 
 /* Vertical Conduit Spine */
@@ -913,7 +1258,6 @@
   top: 12px;
   bottom: 24px;
   width: 2px;
-  background: linear-gradient(180deg, #d4af37 0%, rgba(212, 175, 55, 0.4) 50%, rgba(255, 255, 255, 0.08) 100%);
 }
 
 .dws-conduit-milestone {
@@ -938,9 +1282,6 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: #08090d;
-  border: 2px solid #d4af37;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
 }
 
 .dws-milestone-label {
@@ -948,22 +1289,18 @@
   font-size: clamp(16px, 1.8vw, 22px);
   font-weight: 800;
   letter-spacing: 0.12em;
-  color: #ffffff;
 }
 
 .dws-conduit-leak {
   display: flex;
   align-items: flex-start;
   gap: 14px;
-  background: rgba(239, 68, 68, 0.03);
-  border-left: 2px solid rgba(239, 68, 68, 0.6);
   padding: 16px 20px;
-  border-radius: 0 6px 6px 0;
   margin-top: 10px;
 }
 
 .dws-leak-arrow {
-  color: #f87171;
+  color: #dc2626;
   font-size: 18px;
   font-weight: 700;
   line-height: 1;
@@ -980,19 +1317,16 @@
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.14em;
-  color: #f87171;
   text-transform: uppercase;
 }
 
 .dws-leak-name {
   font-size: 16px;
   font-weight: 700;
-  color: #ffffff;
 }
 
 .dws-leak-desc {
   font-size: 14px;
-  color: #9fa4b2;
   margin: 0;
   line-height: 1.5;
 }
@@ -1000,8 +1334,6 @@
 /* Leakage UI Telemetry Micro-Compositions */
 .dws-leak-telemetry {
   margin-top: 14px;
-  background: rgba(12, 14, 20, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 4px;
   padding: 12px 14px;
   font-family: monospace;
@@ -1020,15 +1352,14 @@
   border-radius: 50%;
 }
 .dws-telemetry-indicator.alert {
-  background: #f87171;
-  box-shadow: 0 0 6px rgba(248, 113, 113, 0.6);
+  background: #dc2626;
+  box-shadow: 0 0 6px rgba(220, 38, 38, 0.6);
 }
 
 .dws-telemetry-title {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: #d4af37;
   text-transform: uppercase;
 }
 
@@ -1045,19 +1376,14 @@
   font-size: 12px;
 }
 
-.dws-metric-name {
-  color: #9fa4b2;
-}
-
 .dws-metric-val.alert {
-  color: #f87171;
+  color: #dc2626;
   font-weight: 700;
 }
 
 .dws-telemetry-bar-wrap {
   width: 100%;
   height: 4px;
-  background: rgba(255, 255, 255, 0.08);
   border-radius: 2px;
   overflow: hidden;
 }
@@ -1065,12 +1391,11 @@
 .dws-telemetry-bar.decay {
   width: 78%;
   height: 100%;
-  background: linear-gradient(90deg, #10b981 0%, #f59e0b 40%, #ef4444 100%);
+  background: linear-gradient(90deg, #10b981 0%, #f59e0b 40%, #dc2626 100%);
 }
 
 .dws-telemetry-subnote {
   font-size: 11px;
-  color: #7d8392;
   line-height: 1.4;
   margin-top: 4px;
   display: block;
@@ -1087,21 +1412,15 @@
 .dws-silo-pill {
   font-size: 10.5px;
   padding: 3px 8px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 3px;
-  color: #c2c7d4;
 }
 
 .dws-silo-pill.alert {
-  background: rgba(239, 68, 68, 0.12);
-  border-color: rgba(239, 68, 68, 0.4);
-  color: #f87171;
   font-weight: 700;
 }
 
 .dws-silo-break {
-  color: #f87171;
+  color: #dc2626;
   font-size: 12px;
 }
 
@@ -1121,24 +1440,21 @@
 
 .dws-stat-kicker {
   font-size: 10px;
-  color: #828896;
 }
 
 .dws-stat-number {
   font-size: 13.5px;
   font-weight: 700;
 }
-.dws-stat-number.alert { color: #f87171; }
-.dws-stat-number.success { color: #10b981; }
+.dws-stat-number.alert { color: #dc2626; }
+.dws-stat-number.success { color: #16a34a; }
 
 .dws-split-sep {
   width: 1px;
   height: 24px;
-  background: rgba(255, 255, 255, 0.1);
 }
 
 .dws-problem-resolution {
-  border-top: 1px solid rgba(212, 175, 55, 0.25);
   padding-top: clamp(40px, 5vw, 64px);
   text-align: center;
 }
@@ -1147,13 +1463,11 @@
   font-size: clamp(34px, 4.8vw, 64px);
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: #ffffff;
   margin: 0 0 16px;
 }
 
 .dws-resolution-sub {
   font-size: clamp(16px, 1.4vw, 20px);
-  color: #a4a9b6;
   max-width: 640px;
   margin: 0 auto;
   line-height: 1.6;
@@ -1162,11 +1476,6 @@
 /* ==========================================================================
    SECTION 3 — THE DWS ENGINE: CONNECTED SYSTEM ARCHITECTURE
    ========================================================================== */
-.dws-engine-section {
-  background: #060709;
-}
-
-/* DWS Systems Console Architecture Visual */
 .dws-console-wrapper {
   margin: clamp(48px, 6vw, 72px) 0;
   background: #090b10;
@@ -1348,11 +1657,6 @@
 /* ==========================================================================
    SECTION 4 — WHAT DWS ACTUALLY BUILDS: EDITORIAL CHAPTERS
    ========================================================================== */
-.dws-chapters-section {
-  background: #08090d;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
 .dws-chapters-flow {
   display: flex;
   flex-direction: column;
@@ -1363,7 +1667,6 @@
   grid-template-columns: 240px 1fr;
   gap: clamp(32px, 5vw, 80px);
   padding: clamp(48px, 6vw, 72px) 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   position: relative;
 }
 
@@ -1383,13 +1686,11 @@
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.16em;
-  color: #d4af37;
 }
 
 .dws-chapter-line {
   flex: 1;
   height: 1px;
-  background: rgba(212, 175, 55, 0.3);
 }
 
 .dws-chapter-content {
@@ -1402,21 +1703,18 @@
   font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1;
-  color: #ffffff;
   margin: 0 0 16px;
 }
 
 .dws-chapter-lead {
   font-size: clamp(18px, 1.8vw, 24px);
   font-weight: 600;
-  color: #f3c442;
   margin: 0 0 16px;
   line-height: 1.4;
 }
 
 .dws-chapter-body {
   font-size: clamp(15px, 1.25vw, 18px);
-  color: #9fa4b2;
   line-height: 1.65;
   max-width: 720px;
   margin: 0;
@@ -1425,12 +1723,6 @@
 /* ==========================================================================
    SECTION 5 — DELIVERY METHOD: CINEMATIC TIMELINE
    ========================================================================== */
-.dws-method-section {
-  background: #060709;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-/* Delivery Method Panoramic Sequence */
 .dws-method-panorama-container {
   margin-top: clamp(40px, 5vw, 64px);
   margin-bottom: clamp(36px, 4.5vw, 56px);
@@ -1554,11 +1846,6 @@
 /* ==========================================================================
    SECTION 6 — CREATIVE RANGE: CROSS-CATEGORY POSITIONING
    ========================================================================== */
-.dws-range-section {
-  background: #08090d;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
 .dws-range-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1569,8 +1856,6 @@
 .dws-range-card {
   display: flex;
   flex-direction: column;
-  background: #0b0d13;
-  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 6px;
   overflow: hidden;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -1578,8 +1863,6 @@
 
 .dws-range-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(212, 175, 55, 0.45);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7), 0 0 24px rgba(212, 175, 55, 0.08);
 }
 
 .dws-range-media-frame {
@@ -1610,9 +1893,9 @@
   font-size: 9.5px;
   font-weight: 700;
   letter-spacing: 0.14em;
-  color: #d4af37;
-  background: rgba(8, 10, 15, 0.85);
-  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #f3c442;
+  background: rgba(14, 16, 22, 0.88);
+  border: 1px solid rgba(212, 175, 55, 0.4);
   padding: 4px 10px;
   border-radius: 3px;
   backdrop-filter: blur(8px);
@@ -1629,14 +1912,12 @@
   font-size: clamp(18px, 1.8vw, 22px);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #ffffff;
   margin: 0 0 10px;
   line-height: 1.25;
 }
 
 .dws-range-desc {
   font-size: 14px;
-  color: #9fa4b2;
   line-height: 1.6;
   margin: 0;
 }
@@ -1644,14 +1925,12 @@
 .dws-range-resolution {
   margin-top: clamp(48px, 6vw, 80px);
   text-align: center;
-  border-top: 1px solid rgba(212, 175, 55, 0.25);
   padding-top: clamp(36px, 4.5vw, 56px);
 }
 
 .dws-range-statement {
   font-size: clamp(20px, 2.2vw, 32px);
   font-weight: 600;
-  color: #f3c442;
   letter-spacing: -0.02em;
   max-width: 800px;
   margin: 0 auto;
@@ -1660,11 +1939,6 @@
 /* ==========================================================================
    SECTION 7 — OWNERSHIP: RADICAL DATA SOVEREIGNTY
    ========================================================================== */
-.dws-ownership-section {
-  background: #08090d;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
 .dws-ownership-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1730,18 +2004,10 @@
 /* ==========================================================================
    SECTION 8 — FOUNDING CLIENT LAUNCH RATE: EXECUTIVE INVITATION
    ========================================================================== */
-.dws-partner-section {
-  background: #060709;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
 .dws-invitation-plate {
-  background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.07), transparent 70%), #0a0c11;
-  border: 1px solid rgba(212, 175, 55, 0.35);
   border-radius: 8px;
   padding: clamp(36px, 5vw, 68px);
   position: relative;
-  box-shadow: 0 32px 64px -16px rgba(0, 0, 0, 0.7);
 }
 
 .dws-plate-header {
@@ -1752,7 +2018,6 @@
   gap: 16px;
   margin-bottom: 28px;
   padding-bottom: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .dws-plate-badge {
@@ -1774,7 +2039,6 @@
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.16em;
-  color: #d4af37;
   text-transform: uppercase;
 }
 
@@ -1782,7 +2046,6 @@
   font-family: monospace;
   font-size: 11px;
   letter-spacing: 0.14em;
-  color: #f3c442;
   font-weight: 700;
 }
 
@@ -1791,7 +2054,6 @@
   font-weight: 600;
   letter-spacing: -0.035em;
   line-height: 1.1;
-  color: #ffffff;
   margin: 0 0 clamp(32px, 4vw, 56px);
 }
 
@@ -1826,7 +2088,6 @@
   font-family: monospace;
   font-size: 11px;
   letter-spacing: 0.12em;
-  color: #7d8392;
   text-transform: uppercase;
   font-weight: 600;
 }
@@ -1834,9 +2095,7 @@
 .dws-anchor-num.slashed {
   font-size: clamp(20px, 2vw, 26px);
   font-weight: 600;
-  color: #717684;
   text-decoration: line-through;
-  text-decoration-color: rgba(239, 68, 68, 0.7);
   text-decoration-thickness: 2px;
   line-height: 1.1;
 }
@@ -1844,7 +2103,6 @@
 .dws-anchor-sub {
   font-size: 13px;
   font-weight: 400;
-  color: #636774;
 }
 
 .dws-launch-tier {
@@ -1857,7 +2115,6 @@
   font-family: monospace;
   font-size: 11px;
   letter-spacing: 0.14em;
-  color: #d4af37;
   text-transform: uppercase;
   font-weight: 700;
 }
@@ -1866,26 +2123,21 @@
   font-size: clamp(36px, 4.2vw, 56px);
   font-weight: 800;
   letter-spacing: -0.04em;
-  color: #ffffff;
   line-height: 1;
 }
 
 .dws-launch-sub {
   font-size: clamp(15px, 1.6vw, 20px);
   font-weight: 500;
-  color: #a4a9b6;
   letter-spacing: normal;
 }
 
 .dws-price-block-sep {
   width: 1px;
-  background: rgba(255, 255, 255, 0.1);
   align-self: stretch;
 }
 
 .dws-rate-lock-banner {
-  background: rgba(212, 175, 55, 0.08);
-  border: 1px solid rgba(212, 175, 55, 0.28);
   border-radius: 4px;
   padding: 12px 16px;
   margin-bottom: 24px;
@@ -1902,7 +2154,6 @@
 .dws-lock-text {
   font-size: 13.5px;
   font-weight: 600;
-  color: #f3c442;
   line-height: 1.45;
 }
 
@@ -1911,8 +2162,6 @@
 }
 
 .dws-urgency-box {
-  background: rgba(245, 158, 11, 0.06);
-  border: 1px solid rgba(245, 158, 11, 0.35);
   border-radius: 4px;
   padding: 14px 16px;
   margin-bottom: 16px;
@@ -1921,27 +2170,22 @@
 .dws-urgency-note {
   font-size: 13.5px;
   font-weight: 500;
-  color: #e6ebf5;
   line-height: 1.5;
   margin: 0;
 }
 
 .dws-urgency-note strong {
-  color: #f3c442;
   font-weight: 700;
 }
 
 .dws-ad-budget-note {
   font-size: 13px;
-  color: #9da2b0;
   line-height: 1.6;
   margin: 0 0 20px;
-  border-left: 2px solid rgba(212, 175, 55, 0.5);
   padding-left: 12px;
 }
 
 .dws-ad-budget-note strong {
-  color: #ffffff;
   font-weight: 700;
 }
 
@@ -1950,14 +2194,11 @@
   flex-direction: column;
   gap: 6px;
   font-size: 13px;
-  color: #c2c7d4;
   font-family: monospace;
   margin-bottom: 20px;
 }
 
 .dws-commitment-block {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 4px;
   padding: 14px 16px;
 }
@@ -1968,13 +2209,11 @@
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.14em;
-  color: #d4af37;
   margin-bottom: 6px;
 }
 
 .dws-commitment-text {
   font-size: 13px;
-  color: #9da2b0;
   line-height: 1.5;
   margin: 0;
 }
@@ -1984,7 +2223,6 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.16em;
-  color: #d4af37;
   margin: 0 0 20px;
 }
 
@@ -1999,7 +2237,6 @@
 
 .dws-scope-list li {
   font-size: 14px;
-  color: #dcdfe6;
   display: flex;
   align-items: baseline;
   gap: 12px;
@@ -2007,7 +2244,6 @@
 }
 
 .dws-check {
-  color: #d4af37;
   font-weight: 700;
   flex-shrink: 0;
 }
