@@ -278,8 +278,8 @@ export function CompanyBuilder() {
       phone: build.phone.trim() || "",
       company: build.company.trim() || "Confidential Venture",
       website: build.website || "",
-      businessType: build.businessType,
-      businessStage: build.businessStage,
+      businessType: build.businessType || "General",
+      businessStage: build.businessStage || inferStage(build) || "Idea",
       existingAssets: build.starting,
       selectedNeeds: build.needs,
       launchTimeline: build.launch || "Exploring",
@@ -298,30 +298,17 @@ export function CompanyBuilder() {
 
       if (res.success) {
         setReceiptId(res.data.receiptId);
-        setMessage(
-          "Your strategy review brief was securely received. Receipt: " +
-            res.data.receiptId +
-            ". You can also download the roadmap summary below.",
-        );
+        setMessage("");
       } else {
-        if (
-          res.error.status === "not_configured" ||
-          res.error.status === "unavailable" ||
-          res.error.status === "network_error"
-        ) {
-          download();
-          setMessage(
-            res.error.message +
-              " Your roadmap summary has been downloaded locally.",
-          );
-        } else {
-          setMessage(res.error.message);
-        }
+        download();
+        setMessage(
+          "We couldn't transmit your intake right now. Your information remains available for local download. Please retry or contact Dynasty Works Studio.",
+        );
       }
     } catch {
       download();
       setMessage(
-        "Unable to complete remote transmission. Your roadmap summary has been downloaded locally.",
+        "We couldn't transmit your intake right now. Your information remains available for local download. Please retry or contact Dynasty Works Studio.",
       );
     } finally {
       setIsSubmitting(false);
@@ -790,14 +777,77 @@ export function CompanyBuilder() {
                 <p className="content-note">
                   A scope to discuss, not a confirmed engagement. You can transmit your brief to the studio or download a local roadmap.
                 </p>
-                {receiptId && (
-                  <div style={{ margin: "14px 0", padding: "8px 12px", background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.25)", borderRadius: "4px", color: "#10b981", fontFamily: "monospace", fontSize: "13px" }}>
-                    Receipt ID: <strong>{receiptId}</strong>
+                {receiptId ? (
+                  <div
+                    className="submission-success-banner"
+                    style={{
+                      margin: "20px 0",
+                      padding: "24px",
+                      background: "rgba(16, 185, 129, 0.08)",
+                      border: "1px solid rgba(16, 185, 129, 0.25)",
+                      borderRadius: "8px",
+                      textAlign: "left",
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontWeight: 800,
+                        fontSize: "16px",
+                        color: "#10b981",
+                        letterSpacing: "0.05em",
+                        marginBottom: "8px",
+                      }}
+                    >
+                      INTAKE RECEIVED
+                    </div>
+                    <p
+                      style={{
+                        margin: "0 0 16px 0",
+                        color: "#e5e7eb",
+                        fontSize: "14.5px",
+                        lineHeight: "1.5",
+                      }}
+                    >
+                      Your information has been securely transmitted to Dynasty Works Studio. Our team will review your submission and follow up regarding the appropriate next step.
+                    </p>
+                    <div
+                      style={{
+                        fontSize: "12px",
+                        color: "#9ca3af",
+                        marginBottom: "16px",
+                        fontFamily: "monospace",
+                      }}
+                    >
+                      Receipt ID: {receiptId}
+                    </div>
+                    <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
+                      <a
+                        href="/growth/book"
+                        className="button primary"
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          textDecoration: "none",
+                          background: "#d4af37",
+                          color: "#050506",
+                          fontWeight: 700,
+                          padding: "10px 20px",
+                          borderRadius: "6px",
+                        }}
+                      >
+                        BOOK A STRATEGY CALL →
+                      </a>
+                      <button className="button" type="button" onClick={download}>
+                        Download roadmap ↓
+                      </button>
+                    </div>
                   </div>
+                ) : (
+                  <button className="button" type="button" onClick={download}>
+                    Download roadmap ↓
+                  </button>
                 )}
-                <button className="button" type="button" onClick={download}>
-                  Download roadmap ↓
-                </button>
               </>
             )}
             <div className="honeypot" aria-hidden="true" style={{ display: "none" }}>
@@ -818,9 +868,21 @@ export function CompanyBuilder() {
               </p>
             )}
             {message && (
-              <p role="status" className="submission-message">
+              <div
+                role="alert"
+                style={{
+                  margin: "16px 0",
+                  padding: "16px 20px",
+                  background: "rgba(239, 68, 68, 0.08)",
+                  border: "1px solid rgba(239, 68, 68, 0.4)",
+                  borderRadius: "6px",
+                  color: "#f87171",
+                  fontSize: "14px",
+                  lineHeight: "1.5",
+                }}
+              >
                 {message}
-              </p>
+              </div>
             )}
             <div className="builder-actions">
               {step > 0 ? (

@@ -141,35 +141,21 @@ export function BlueprintIntakeForm() {
           state: "success",
           receiptId: res.data.receiptId,
         });
-        setMessage(
-          "Your Founder Blueprint intake was securely received. Receipt: " +
-            res.data.receiptId +
-            ". You can also download a local copy of your intake.",
-        );
+        setMessage("");
       } else {
-        if (
-          res.error.status === "not_configured" ||
-          res.error.status === "unavailable" ||
-          res.error.status === "network_error"
-        ) {
-          setSubmission({
-            state: "disabled",
-            message:
-              res.error.message +
-              " You can download a local copy of your intake below.",
-          });
-        } else {
-          setSubmission({
-            state: "error",
-            message: res.error.message,
-          });
-        }
+        download();
+        setSubmission({
+          state: "error",
+          message:
+            "We couldn't transmit your intake right now. Your information remains available for local download. Please retry or contact Dynasty Works Studio.",
+        });
       }
     } catch {
+      download();
       setSubmission({
-        state: "disabled",
+        state: "error",
         message:
-          "Unable to complete remote transmission. You can download a local copy of your intake below.",
+          "We couldn't transmit your intake right now. Your information remains available for local download. Please retry or contact Dynasty Works Studio.",
       });
     }
   }

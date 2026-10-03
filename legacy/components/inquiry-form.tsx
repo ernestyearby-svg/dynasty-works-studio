@@ -165,21 +165,14 @@ export function InquiryForm() {
         setReceiptId(result.data.receiptId);
         setIsSubmitted(true);
         setHasFailed(false);
-        setMessage(
-          "Inquiry securely received by studio principals. Receipt: " +
-            result.data.receiptId +
-            ". You can also download a local copy of your brief below.",
-        );
+        setMessage("");
       } else {
         setIsSubmitted(false);
         setHasFailed(true);
         setReceiptId("");
         download(false);
-        const errDetail = result.error?.message || "Remote transmission endpoint is not enabled.";
         setMessage(
-          "Transmission incomplete: Your inquiry was not sent to the studio (" +
-            errDetail +
-            "). A backup copy of your brief has been downloaded locally to preserve your answers. Your entries remain below so you can retry transmission or contact us directly at advisory@dynastyworksstudio.com.",
+          "We couldn't transmit your intake right now. Your information remains available for local download. Please retry or contact Dynasty Works Studio.",
         );
       }
     } catch {
@@ -188,7 +181,7 @@ export function InquiryForm() {
       setReceiptId("");
       download(false);
       setMessage(
-        "Transmission incomplete: Your inquiry was not sent to the studio due to a network connection issue. A backup copy of your brief has been downloaded locally to preserve your answers. Your entries remain below so you can retry transmission or contact us directly at advisory@dynastyworksstudio.com.",
+        "We couldn't transmit your intake right now. Your information remains available for local download. Please retry or contact Dynasty Works Studio.",
       );
     } finally {
       setIsSubmitting(false);
@@ -483,7 +476,7 @@ export function InquiryForm() {
               />
             </label>
           </div>
-          {message && (
+          {(message || isSubmitted) && (
             <div
               className={`submission-message ${isSubmitted ? "submission-success" : hasFailed ? "submission-error" : ""}`}
               role={isSubmitted ? "status" : hasFailed ? "alert" : "status"}
@@ -510,16 +503,76 @@ export function InquiryForm() {
               }
             >
               {hasFailed && (
-                <div style={{ fontWeight: 700, fontSize: "15px", marginBottom: "6px", color: "#f87171" }}>
-                  ⚠ Inquiry Not Sent
+                <div style={{ textAlign: "left" }}>
+                  <div style={{ fontWeight: 700, fontSize: "15px", marginBottom: "6px", color: "#f87171" }}>
+                    Transmission Note
+                  </div>
+                  <div style={{ fontSize: "14px", lineHeight: "1.5" }}>
+                    {message}
+                  </div>
                 </div>
               )}
               {isSubmitted && (
-                <div style={{ fontWeight: 700, fontSize: "15px", marginBottom: "6px", color: "#10b981" }}>
-                  ✓ Inquiry Securely Received
+                <div
+                  className="submission-success-banner"
+                  style={{
+                    textAlign: "left",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontWeight: 800,
+                      fontSize: "16px",
+                      color: "#10b981",
+                      letterSpacing: "0.05em",
+                      marginBottom: "8px",
+                    }}
+                  >
+                    INTAKE RECEIVED
+                  </div>
+                  <p
+                    style={{
+                      margin: "0 0 16px 0",
+                      color: "#e5e7eb",
+                      fontSize: "14.5px",
+                      lineHeight: "1.5",
+                    }}
+                  >
+                    Your information has been securely transmitted to Dynasty Works Studio. Our team will review your submission and follow up regarding the appropriate next step.
+                  </p>
+                  {receiptId && (
+                    <div
+                      style={{
+                        fontSize: "12px",
+                        color: "#9ca3af",
+                        marginBottom: "16px",
+                        fontFamily: "monospace",
+                      }}
+                    >
+                      Receipt ID: {receiptId}
+                    </div>
+                  )}
+                  <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center", marginTop: "12px" }}>
+                    <a
+                      href="/growth/book"
+                      className="button primary"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        textDecoration: "none",
+                        background: "#d4af37",
+                        color: "#050506",
+                        fontWeight: 700,
+                        padding: "10px 20px",
+                        borderRadius: "6px",
+                      }}
+                    >
+                      BOOK A STRATEGY CALL →
+                    </a>
+                  </div>
                 </div>
               )}
-              <div>{message}</div>
             </div>
           )}
           <div className="form-actions" style={{ display: "flex", gap: "10px", flexWrap: "wrap", alignItems: "center" }}>

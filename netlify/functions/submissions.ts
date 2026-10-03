@@ -8,7 +8,92 @@ import {
   dispatchSubmissionNotifications,
   type SubmissionNotificationContext,
 } from './lib/notifications';
-import { ingestLead, type NormalizedInquiryPayload } from './lib/highlevel-ingest';
+
+function formatBuilderNotes(data: any, recomputed: any): string {
+  const lines: string[] = [
+    '=== DWS COMPANY BUILDER INTAKE ===',
+    `Company: ${data.company || 'Not named yet'}`,
+    `Business Type: ${data.businessType || 'General'}`,
+    `Business Stage: ${data.businessStage || 'Exploring'}`,
+    `Launch Timeline: ${data.launchTimeline || 'Exploring'}`,
+    `Budget Range: ${data.budgetRange || 'Not provided'}`,
+    `Existing Assets: ${Array.isArray(data.existingAssets) && data.existingAssets.length ? data.existingAssets.join(', ') : 'None'}`,
+    `Selected Needs: ${Array.isArray(data.selectedNeeds) && data.selectedNeeds.length ? data.selectedNeeds.join(', ') : 'None'}`,
+    `Ambition / Referral Notes: ${data.ambitionNotes || 'None'}`,
+  ];
+  if (recomputed) {
+    lines.push('');
+    lines.push('--- GENERATED ROADMAP RECOMMENDATION ---');
+    if (recomputed.recommendedPackage) {
+      lines.push(`Recommended Package: ${recomputed.recommendedPackage}`);
+    }
+    if (Array.isArray(recomputed.recomputedPhases) && recomputed.recomputedPhases.length) {
+      lines.push(`Phases: ${recomputed.recomputedPhases.join(' -> ')}`);
+    }
+    if (Array.isArray(recomputed.recomputedServices) && recomputed.recomputedServices.length) {
+      lines.push('Recommended Services:');
+      for (const s of recomputed.recomputedServices) {
+        lines.push(`- ${s.serviceId} (${s.timing}): ${s.reason}`);
+      }
+    }
+  }
+  return lines.join('\n');
+}
+
+function formatBlueprintNotes(data: any): string {
+  const lines: string[] = [
+    '=== DWS FOUNDER BLUEPRINT INTAKE ===',
+    `Company: ${data.company || 'Not named yet'}`,
+    `Business Type: ${data.businessType || 'General'}`,
+    `Business Stage: ${data.businessStage || 'Exploring'}`,
+    `Physical Market: ${data.physicalMarket ? 'Yes' : 'No'}`,
+    `Primary Market: ${data.primaryMarket || 'General'}`,
+    `Target Launch: ${data.targetLaunch || 'Exploring'}`,
+    '',
+    `Idea Description:\n${data.ideaDescription || 'Not provided'}`,
+    '',
+    `Problem Description:\n${data.problemDescription || 'Not provided'}`,
+    '',
+    `Target Customer:\n${data.targetCustomer || 'Not provided'}`,
+    '',
+    `Existing Assets:\n${data.existingAssets || 'None'}`,
+    '',
+    `Requested Needs:\n${data.requestedNeeds || 'Not provided'}`,
+    '',
+    `Distribution Goals:\n${data.distributionGoals || 'None'}`,
+    '',
+    `Competitors:\n${data.competitors || 'None'}`,
+    '',
+    `Brand Assets:\n${data.brandAssets || 'None'}`,
+    '',
+    `Digital Assets:\n${data.digitalAssets || 'None'}`,
+    '',
+    `Company Documents:\n${data.companyDocuments || 'None'}`,
+    '',
+    `Biggest Question / Unsolved Challenge:\n${data.biggestQuestion || 'Not provided'}`,
+  ];
+  if (Array.isArray(data.references) && data.references.length) {
+    lines.push('');
+    lines.push(`References:\n${data.references.join('\n')}`);
+  }
+  return lines.join('\n');
+}
+
+function formatGeneralNotes(data: any): string {
+  return [
+    '=== DWS PROJECT BRIEF INTAKE ===',
+    `Company: ${data.company || 'Not named yet'}`,
+    `Website: ${data.website || 'Not provided'}`,
+    `Stage: ${data.stage || 'Not provided'}`,
+    `Budget: ${data.budget || 'Not provided'}`,
+    `Timeframe: ${data.timeframe || 'Not provided'}`,
+    `Physical Market: ${data.physicalMarket ? 'Yes' : 'No'}`,
+    `Reference URL: ${data.referenceUrl || 'Not provided'}`,
+    `Selected Services: ${Array.isArray(data.services) ? data.services.join(', ') : 'Not provided'}`,
+    '',
+    `Project Description:\n${data.description || 'Not provided'}`,
+  ].join('\n');
+}
 
 // Defensive Response Headers
 const DEFENSIVE_HEADERS: Record<string, string> = {
@@ -116,8 +201,8 @@ const builderPayloadSchema = z.object({
   phone: z.string().trim().max(40).optional().default(''),
   company: z.string().trim().min(1, 'Company name is required').max(150),
   website: safeUrl.optional().default(''),
-  businessType: z.string().trim().min(1).max(100),
-  businessStage: z.enum(['Idea', 'Preparing to launch', 'Operating', 'Growing']),
+  businessType: z.string().trim().min(1).max(100).default('General'),
+  businessStage: z.string().trim().max(100).optional().default('Idea'),
   existingAssets: z.array(z.string()).default([]),
   selectedNeeds: z.array(z.string()).default([]),
   launchTimeline: z.string().trim().max(200).default('Exploring'),
@@ -131,8 +216,8 @@ const blueprintPayloadSchema = z.object({
   phone: z.string().trim().max(40).optional().default(''),
   company: z.string().trim().min(1).max(150),
   website: safeUrl.optional().default(''),
-  businessType: z.enum(businessTypes as unknown as [string, ...string[]]),
-  businessStage: z.enum(businessStages as unknown as [string, ...string[]]),
+  businessType: z.string().trim().min(1).max(100).default('General'),
+  businessStage: z.string().trim().min(1).max(100).default('Idea'),
   physicalMarket: z.boolean().default(false),
   ideaDescription: z.string().trim().min(20).max(3000),
   problemDescription: z.string().trim().min(10).max(2000),
@@ -196,10 +281,10 @@ async function coreHandler(request: Request, context?: any): Promise<Response> {
   }
 
   // 4. Feature Flag Gate (Controlled Phase 2E.1 Operation)
-  if (process.env.INQUIRY_SUBMISSIONS_ENABLED !== 'true') {
+  if (process.env.INQUIRY_SUBMISSIONS_ENABLED === 'false') {
     return respond(503, {
       status: 'not_configured',
-      message: 'Secure transmission endpoint is not enabled. Local export and brief download remain available.',
+      message: "We couldn't transmit your intake right now. Your information remains available for local download. Please retry or contact Dynasty Works Studio.",
     });
   }
 
@@ -358,7 +443,7 @@ async function coreHandler(request: Request, context?: any): Promise<Response> {
   const payloadHash = crypto.createHash('sha256').update(JSON.stringify(recomputedDetail)).digest('hex');
 
   try {
-    // 11. Lead Ingestion CRM Delivery (Direct HighLevel Ingestion with Fallback)
+    // 11. Lead Ingestion CRM Delivery (Server-side Forward to Production Webhook)
     const isTest = Boolean(
       isTestEmail(validatedData.email) ||
       process.env.DWS_TEST_MODE === 'true' ||
@@ -373,60 +458,117 @@ async function coreHandler(request: Request, context?: any): Promise<Response> {
     const firstName = spaceIdx > 0 ? fullName.slice(0, spaceIdx) : fullName;
     const lastName = spaceIdx > 0 ? fullName.slice(spaceIdx + 1).trim() : '';
 
-    const automationPayload: NormalizedInquiryPayload = {
-      inquiry_kind: kind,
-      inquiry_type: kind === 'builder' ? 'builder' : (kind === 'blueprint' ? 'blueprint' : 'general'),
+    const leadSourceMap = {
+      builder: 'DWS Company Builder',
+      blueprint: 'DWS Founder Blueprint',
+      general: 'DWS Project Brief',
+    } as const;
+
+    const leadSource = leadSourceMap[kind];
+    let formattedNotes = '';
+    if (kind === 'builder') {
+      formattedNotes = formatBuilderNotes(validatedData, recomputedDetail);
+    } else if (kind === 'blueprint') {
+      formattedNotes = formatBlueprintNotes(validatedData);
+    } else {
+      formattedNotes = formatGeneralNotes(validatedData);
+    }
+
+    const referer = request.headers.get('referer') || '';
+    let utmSource = '';
+    let utmMedium = '';
+    let utmCampaign = '';
+    try {
+      if (referer) {
+        const refUrl = new URL(referer);
+        utmSource = refUrl.searchParams.get('utm_source') || '';
+        utmMedium = refUrl.searchParams.get('utm_medium') || '';
+        utmCampaign = refUrl.searchParams.get('utm_campaign') || '';
+      }
+    } catch {}
+
+    const automationPayload = {
       first_name: firstName,
       last_name: lastName,
       name: fullName,
-      email: validatedData.email,
-      phone: validatedData.phone || '',
-      company_name: validatedData.company,
       business_name: validatedData.company,
+      company_name: validatedData.company,
       company: validatedData.company,
+      lead_source: leadSource,
+      source: leadSource,
+      email: validatedData.email.toLowerCase().trim(),
+      phone: validatedData.phone || '',
       website: validatedData.website || '',
-      services: validatedData.services || [],
-      selected_services: Array.isArray(validatedData.services) ? validatedData.services.join(', ') : '',
-      description: validatedData.description || validatedData.ambitionNotes || validatedData.ideaDescription || '',
-      notes: validatedData.description || validatedData.ambitionNotes || validatedData.ideaDescription || '',
-      biggest_bottleneck: validatedData.description || validatedData.problemDescription || '',
-      primary_goal: Array.isArray(validatedData.services) ? validatedData.services.join(', ') : (validatedData.businessType || 'General Inquiry'),
-      stage: validatedData.stage || validatedData.businessStage || '',
-      budget: validatedData.budget || validatedData.budgetRange || '',
+      industry: validatedData.businessType || validatedData.primaryMarket || (Array.isArray(validatedData.services) ? validatedData.services.join(', ') : '') || '',
       monthly_marketing_budget: validatedData.budget || validatedData.budgetRange || '',
-      timeframe: validatedData.timeframe || validatedData.launchTimeline || '',
-      reference_url: validatedData.referenceUrl || '',
-      physical_market: Boolean(validatedData.physicalMarket),
-      source: 'website-general-contact',
-      source_page: request.headers.get('referer') || '/contact',
-      landing_page: '/contact',
+      primary_goal: Array.isArray(validatedData.services) ? validatedData.services.join(', ') : (validatedData.requestedNeeds || validatedData.businessType || 'General Inquiry'),
+      primary_growth_goal: Array.isArray(validatedData.services) ? validatedData.services.join(', ') : (validatedData.requestedNeeds || validatedData.businessType || 'General Inquiry'),
+      current_crm: '',
+      lead_generation_method: '',
+      biggest_bottleneck: validatedData.biggestQuestion || validatedData.problemDescription || validatedData.description || '',
+      biggest_growth_bottleneck: validatedData.biggestQuestion || validatedData.problemDescription || validatedData.description || '',
+      notes: formattedNotes,
+      growth_review_notes: formattedNotes,
+      utm_source: utmSource,
+      utm_medium: utmMedium,
+      utm_campaign: utmCampaign,
+      utm_content: '',
+      utm_term: '',
+      landing_page: referer ? new URL(referer).pathname : (kind === 'builder' ? '/start-a-business/builder' : (kind === 'blueprint' ? '/founder-blueprint' : '/contact')),
+      source_page: referer || (kind === 'builder' ? '/start-a-business/builder' : (kind === 'blueprint' ? '/founder-blueprint' : '/contact')),
+      referrer: referer,
+      first_touch_url: referer,
+      campaign_id: '',
+      creative_id: '',
       consent: body.consent,
       idempotency_key: idempotencyKey,
       is_test: isTest,
       submitted_at: new Date().toISOString(),
+      raw_data: validatedData,
     };
 
+    const webhookUrl = process.env.GROWTH_WEBHOOK_URL || 'https://automation.dynastyworksstudio.com/webhook/dws-growth-review';
+
     try {
-      const ingestRes = await ingestLead(automationPayload);
-      automationDelivered = true;
-      console.info(JSON.stringify({
-        event: 'crm_ingest_success',
-        kind,
-        email: validatedData.email,
-        deliveredVia: ingestRes.deliveredVia,
-        duplicatePrevented: ingestRes.duplicatePrevented,
-        contactId: ingestRes.contactId,
-        opportunityId: ingestRes.opportunityId,
-        duration_ms: Date.now() - startTime,
-      }));
-    } catch (ingestErr: any) {
-      automationError = ingestErr.message || 'CRM lead ingestion failed';
+      const webhookRes = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'User-Agent': 'Dynasty-Submissions-Forwarder/1.0',
+        },
+        body: JSON.stringify(automationPayload),
+      });
+
+      if (webhookRes.ok) {
+        automationDelivered = true;
+        console.info(JSON.stringify({
+          event: 'crm_webhook_success',
+          kind,
+          leadSource,
+          email: validatedData.email,
+          status: webhookRes.status,
+          duration_ms: Date.now() - startTime,
+        }));
+      } else {
+        const errText = await webhookRes.text().catch(() => '');
+        automationError = `Webhook responded with status ${webhookRes.status}`;
+        console.error(JSON.stringify({
+          event: 'crm_webhook_error',
+          kind,
+          leadSource,
+          status: webhookRes.status,
+          body: errText.slice(0, 300),
+          duration_ms: Date.now() - startTime,
+        }));
+      }
+    } catch (whErr: any) {
+      automationError = whErr?.message || 'Webhook transmission failure';
       console.error(JSON.stringify({
-        event: 'crm_ingest_error',
+        event: 'crm_webhook_exception',
         kind,
-        status: ingestErr.statusCode || 500,
-        code: ingestErr.errorCode,
-        message: ingestErr.message,
+        leadSource,
+        error: whErr?.message,
+        duration_ms: Date.now() - startTime,
       }));
     }
 
@@ -494,10 +636,10 @@ async function coreHandler(request: Request, context?: any): Promise<Response> {
     });
   }
 
-  // Truthful failure response: If CRM delivery failed, reject cleanly with honest error
+  // Graceful failure response: If CRM delivery failed, reject cleanly with honest, user-safe error
   return respond(503, {
     status: 'unavailable',
-    message: automationError || 'Secure transmission service is temporarily unavailable. Please download your brief locally.',
+    message: "We couldn't transmit your intake right now. Your information remains available for local download. Please retry or contact Dynasty Works Studio.",
   });
 } catch (err: any) {
     console.error(JSON.stringify({
@@ -512,7 +654,7 @@ async function coreHandler(request: Request, context?: any): Promise<Response> {
 
     return respond(503, {
       status: 'unavailable',
-      message: 'Unable to complete transmission. Your brief is preserved below.',
+      message: "We couldn't transmit your intake right now. Your information remains available for local download. Please retry or contact Dynasty Works Studio.",
     });
   }
 }
