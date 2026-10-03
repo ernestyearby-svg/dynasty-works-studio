@@ -64,6 +64,36 @@
   status = 200
 
 [[redirects]]
+  from = "/growth/partner"
+  to = "/growth/partner/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/growth/partner/*"
+  to = "/growth/partner/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/growth-engine"
+  to = "/growth/partner/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/growth-engine/*"
+  to = "/growth/partner/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/growth/visuals/*"
+  to = "/growth/visuals/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/visuals/*"
+  to = "/visuals/:splat"
+  status = 200
+
+[[redirects]]
   from = "/growth"
   to = "/growth/index.html"
   status = 200

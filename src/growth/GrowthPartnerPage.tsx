@@ -34,7 +34,7 @@ const FACTUAL_SYSTEM_STATES = [
     step: '04',
     state: 'AUTOMATION TRIGGERED',
     nodeName: 'WEBHOOK ROUTING',
-    summary: 'n8n dual-route automation initiated under 250ms latency',
+    summary: 'n8n dual-route automation initiated immediately upon intake',
     detail: 'Internal alert dispatched · Custom founder notification fired',
     badge: 'PROTOCOL 04.0 // ACTIVE',
   },
@@ -51,7 +51,7 @@ const FACTUAL_SYSTEM_STATES = [
     state: 'SOURCE ATTRIBUTED',
     nodeName: 'CLOSED-LOOP ATTRIBUTION',
     summary: 'Exact traffic channel, campaign and ad asset mapped to opportunity',
-    detail: 'Closed-loop ROI ready · Zero attribution data loss',
+    detail: 'Attribution continuum linked · Complete journey provenance',
     badge: 'PROTOCOL 06.0 // ACTIVE',
   },
 ];
@@ -76,7 +76,7 @@ export default function GrowthPartnerPage() {
     trackGrowthEvent('growth_page_view', { page: '/growth-engine' });
     trackGrowthEvent('growth_engine_landing_view', {
       page: '/growth-engine',
-      metadata: { offer: 'dws_founding_client_launch_rate' },
+      metadata: { offer: 'dws_launch_rate' },
     });
 
     // 3. Preserve query string for seamless conversion attribution passing
@@ -162,10 +162,10 @@ export default function GrowthPartnerPage() {
           <a
             href={applyUrl}
             className="dws-engine-header-cta"
-            onClick={() => handleCtaClick('Header CTA', 'RESERVE FOUNDING SPOT — FREE REVIEW')}
+            onClick={() => handleCtaClick('Header CTA', 'CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW')}
           >
             <span className="dws-header-pulse-dot" aria-hidden="true" />
-            <span>RESERVE FOUNDING SPOT — FREE REVIEW</span>
+            <span>CLAIM THE LAUNCH RATE — FREE REVIEW</span>
             <span className="dws-cta-arrow" aria-hidden="true">→</span>
           </a>
         </div>
@@ -196,7 +196,7 @@ export default function GrowthPartnerPage() {
                 <span className="dws-eyebrow-text">DYNASTY WORKS STUDIO</span>
                 <span className="dws-eyebrow-badge">
                   <span className="dws-pulse-beacon" />
-                  FOUNDING COHORT ACTIVE
+                  LAUNCH RATE ENROLLMENT ACTIVE
                 </span>
               </div>
 
@@ -222,17 +222,17 @@ export default function GrowthPartnerPage() {
                   onClick={() =>
                     handleCtaClick(
                       'Hero Primary CTA',
-                      'RESERVE MY FOUNDING CLIENT SPOT — FREE GROWTH REVIEW'
+                      'CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW'
                     )
                   }
                 >
-                  <span>RESERVE MY FOUNDING CLIENT SPOT — FREE GROWTH REVIEW</span>
+                  <span>CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW</span>
                   <span className="dws-btn-arrow" aria-hidden="true">→</span>
                 </a>
 
                 <div className="dws-hero-urgency-chip">
                   <span className="dws-chip-icon">✦</span>
-                  <span>LIMITED TO FIRST 5 QUALIFIED CLIENTS • STANDARD SETUP $3,500 → LAUNCH SETUP $997</span>
+                  <span>LIMITED-TIME ENROLLMENT • STANDARD SETUP $2,500 → LAUNCH SETUP $997</span>
                 </div>
 
                 <a
@@ -266,9 +266,9 @@ export default function GrowthPartnerPage() {
                     <span className="dws-status-build-tag">SYS_VER 5.8.0-PROD</span>
                   </div>
                   <div className="dws-deck-stats">
-                    <span className="dws-stat-pill"><span className="dws-stat-dot emerald" /> EDGE LATENCY: 184ms</span>
+                    <span className="dws-stat-pill"><span className="dws-stat-dot emerald" /> EDGE DISPATCH: VERIFIED</span>
                     <span className="dws-stat-pill"><span className="dws-stat-dot cyan" /> PIPELINE: SYNCHRONIZED</span>
-                    <span className="dws-stat-pill gold"><span className="dws-stat-dot gold" /> DATA SOVEREIGNTY: 100%</span>
+                    <span className="dws-stat-pill gold"><span className="dws-stat-dot gold" /> DATA SOVEREIGNTY: UNCOMPROMISED</span>
                   </div>
                 </div>
 
@@ -277,14 +277,14 @@ export default function GrowthPartnerPage() {
 
                   {/* 2a. Floating High-Contrast KPI Cards */}
                   <div className="dws-console-kpi-grid">
-                    {/* KPI 1: Show-Up Rate */}
+                    {/* KPI 1: Appointment Cadence */}
                     <div className="dws-kpi-card">
                       <div className="dws-kpi-head">
-                        <span className="dws-kpi-label">SHOW-UP RATE</span>
-                        <span className="dws-kpi-badge emerald">+41% VS BASELINE</span>
+                        <span className="dws-kpi-label">APPOINTMENT CADENCE</span>
+                        <span className="dws-kpi-badge emerald">ACTIVE</span>
                       </div>
                       <div className="dws-kpi-body">
-                        <span className="dws-kpi-val">92.4%</span>
+                        <span className="dws-kpi-val emerald" style={{ fontSize: '18px', letterSpacing: '0.04em' }}>SYNCHRONIZED</span>
                         <svg className="dws-kpi-sparkline" viewBox="0 0 100 32" aria-hidden="true">
                           <defs>
                             <linearGradient id="sparkEmerald" x1="0" y1="0" x2="0" y2="1">
@@ -297,17 +297,17 @@ export default function GrowthPartnerPage() {
                           <circle cx="100" cy="2" r="3" fill="#10b981" className="dws-spark-node" />
                         </svg>
                       </div>
-                      <span className="dws-kpi-sub">24h & 2h Multi-Channel Cadence</span>
+                      <span className="dws-kpi-sub">REMINDER SEQUENCE ACTIVE</span>
                     </div>
 
-                    {/* KPI 2: Cost Per Lead */}
+                    {/* KPI 2: Acquisition Pipeline */}
                     <div className="dws-kpi-card">
                       <div className="dws-kpi-head">
-                        <span className="dws-kpi-label">COST PER LEAD</span>
-                        <span className="dws-kpi-badge gold">OPTIMIZED</span>
+                        <span className="dws-kpi-label">ACQUISITION PIPELINE</span>
+                        <span className="dws-kpi-badge gold">CONNECTED</span>
                       </div>
                       <div className="dws-kpi-body">
-                        <span className="dws-kpi-val">$18.40</span>
+                        <span className="dws-kpi-val gold" style={{ fontSize: '18px', letterSpacing: '0.04em' }}>ATTRIBUTED</span>
                         <svg className="dws-kpi-sparkline" viewBox="0 0 100 32" aria-hidden="true">
                           <defs>
                             <linearGradient id="sparkGold" x1="0" y1="0" x2="0" y2="1">
@@ -320,35 +320,35 @@ export default function GrowthPartnerPage() {
                           <circle cx="100" cy="28" r="3" fill="#f3c442" className="dws-spark-node" />
                         </svg>
                       </div>
-                      <span className="dws-kpi-sub">Meta & Google Bid Efficiency</span>
+                      <span className="dws-kpi-sub">SOURCE ATTRIBUTED</span>
                     </div>
 
-                    {/* KPI 3: Conversion Velocity */}
+                    {/* KPI 3: Routing Latency */}
                     <div className="dws-kpi-card">
                       <div className="dws-kpi-head">
-                        <span className="dws-kpi-label">CONVERSION VELOCITY</span>
-                        <span className="dws-kpi-badge cyan">&lt;250MS TARGET</span>
+                        <span className="dws-kpi-label">ROUTING LATENCY</span>
+                        <span className="dws-kpi-badge cyan">EDGE DISPATCH</span>
                       </div>
                       <div className="dws-kpi-body">
-                        <span className="dws-kpi-val">184ms</span>
+                        <span className="dws-kpi-val cyan" style={{ fontSize: '18px', letterSpacing: '0.04em' }}>INSTANT</span>
                         <div className="dws-velocity-pulse-meter">
                           <div className="dws-meter-track">
-                            <div className="dws-meter-fill" style={{ width: '85%' }} />
+                            <div className="dws-meter-fill" style={{ width: '100%' }} />
                           </div>
-                          <span className="dws-meter-status">INSTANT ROUTE</span>
+                          <span className="dws-meter-status">AUTOMATION TRIGGERED</span>
                         </div>
                       </div>
-                      <span className="dws-kpi-sub">Webhook Ingestion → CRM & Alert</span>
+                      <span className="dws-kpi-sub">AUTOMATION TRIGGERED</span>
                     </div>
 
-                    {/* KPI 4: Revenue Attributed */}
+                    {/* KPI 4: Closed-Loop Attribution */}
                     <div className="dws-kpi-card highlight-gold">
                       <div className="dws-kpi-head">
-                        <span className="dws-kpi-label">REVENUE ATTRIBUTED</span>
-                        <span className="dws-kpi-badge gold">100% MATCH</span>
+                        <span className="dws-kpi-label">CLOSED-LOOP ATTRIBUTION</span>
+                        <span className="dws-kpi-badge gold">VERIFIED</span>
                       </div>
                       <div className="dws-kpi-body">
-                        <span className="dws-kpi-val gold">+$54,200</span>
+                        <span className="dws-kpi-val gold" style={{ fontSize: '18px', letterSpacing: '0.04em' }}>LINKED</span>
                         <svg className="dws-kpi-sparkline" viewBox="0 0 100 32" aria-hidden="true">
                           <defs>
                             <linearGradient id="sparkStairs" x1="0" y1="0" x2="0" y2="1">
@@ -361,7 +361,7 @@ export default function GrowthPartnerPage() {
                           <circle cx="100" cy="6" r="3" fill="#f3c442" className="dws-spark-node" />
                         </svg>
                       </div>
-                      <span className="dws-kpi-sub">Zero Attribution Signal Decay</span>
+                      <span className="dws-kpi-sub">ATTRIBUTION LINKED</span>
                     </div>
                   </div>
 
@@ -403,12 +403,12 @@ export default function GrowthPartnerPage() {
                       {/* 6 Responsive Pipeline Node Stations */}
                       <div className="dws-pipeline-nodes-strip">
                         {[
-                          { step: '01', label: 'TRAFFIC', sub: 'Paid & Direct', val: '1,420 Signals', tag: 'INBOUND' },
-                          { step: '02', label: 'CAPTURE', sub: 'Edge Intake', val: '142 Leads (10%)', tag: 'EDGE LP' },
-                          { step: '03', label: 'CRM', sub: 'Sovereign Ledger', val: '0 Duplicates', tag: 'HIGHLEVEL' },
-                          { step: '04', label: 'AUTOMATION', sub: '<250ms Routing', val: 'Instant SMS', tag: 'N8N ENGINE' },
-                          { step: '05', label: 'BOOKING', sub: 'Synced Calendar', val: '92.4% Show-Up', tag: 'CALENDAR' },
-                          { step: '06', label: 'REVENUE', sub: 'Closed-Loop ROI', val: '+$54.2k Attributed', tag: 'CLOSED LOOP' },
+                          { step: '01', label: 'TRAFFIC', sub: 'Inbound Ingestion', val: 'SOURCE ATTRIBUTED', tag: 'INBOUND' },
+                          { step: '02', label: 'CAPTURE', sub: 'Edge Intake', val: 'LEAD CAPTURED', tag: 'EDGE LP' },
+                          { step: '03', label: 'CRM', sub: 'Sovereign Ledger', val: 'DEDUPLICATION VERIFIED', tag: 'HIGHLEVEL' },
+                          { step: '04', label: 'AUTOMATION', sub: 'Instant Dispatch', val: 'AUTOMATION TRIGGERED', tag: 'N8N ENGINE' },
+                          { step: '05', label: 'BOOKING', sub: 'Synced Calendar', val: 'APPOINTMENT BOOKED', tag: 'CALENDAR' },
+                          { step: '06', label: 'REVENUE', sub: 'Closed-Loop Proof', val: 'ATTRIBUTION LINKED', tag: 'CLOSED LOOP' },
                         ].map((node, idx) => {
                           const isActive = activeStateIndex === idx;
                           return (
@@ -465,12 +465,12 @@ export default function GrowthPartnerPage() {
                         <div className="dws-log-row">
                           <span className="dws-log-time">10:14:03</span>
                           <span className="dws-log-badge cyan">DISPATCHED</span>
-                          <span className="dws-log-text">Sovereign CRM contact #DWS-8492 · Deduplication verified 0 duplicates</span>
+                          <span className="dws-log-text">Sovereign CRM contact record created · Deduplication verified</span>
                         </div>
                         <div className="dws-log-row">
                           <span className="dws-log-time">10:14:28</span>
                           <span className="dws-log-badge gold">BOOKED</span>
-                          <span className="dws-log-text">Strategy call confirmed for Tomorrow 2:00 PM EST · Reminders queued</span>
+                          <span className="dws-log-text">Strategy call confirmed · Automated reminder sequence active</span>
                         </div>
                       </div>
                     </div>
@@ -533,12 +533,12 @@ export default function GrowthPartnerPage() {
 
                         {/* Chart Bottom Milestone Axis */}
                         <div className="dws-chart-axis-labels">
-                          <span>01 INBOUND (100%)</span>
-                          <span>02 CAPTURE (10%)</span>
-                          <span>03 CRM (100% MATCH)</span>
-                          <span>04 AUTO (&lt;250ms)</span>
-                          <span>05 BOOKED (92% SHOW)</span>
-                          <span className="gold">06 ROI CLOSED</span>
+                          <span>01 TRAFFIC</span>
+                          <span>02 CAPTURE</span>
+                          <span>03 CRM LEDGER</span>
+                          <span>04 AUTOMATION</span>
+                          <span>05 BOOKING</span>
+                          <span className="gold">06 ATTRIBUTION</span>
                         </div>
                       </div>
                     </div>
@@ -582,7 +582,7 @@ export default function GrowthPartnerPage() {
                     <div className={`dws-conduit-step ${activeStateIndex === 3 ? 'active-highlight' : ''}`}>
                       <span className="dws-step-code">04</span>
                       <span className="dws-step-label">AUTOMATION</span>
-                      <span className="dws-step-detail">&lt;250ms Routing Engine</span>
+                      <span className="dws-step-detail">Instant Routing Engine</span>
                     </div>
                     <div className="dws-conduit-arrow" aria-hidden="true">→</div>
 
@@ -662,12 +662,12 @@ export default function GrowthPartnerPage() {
                         <div className="dws-telemetry-metrics">
                           <div className="dws-telemetry-row">
                             <span className="dws-metric-name">Average Industry Delay</span>
-                            <span className="dws-metric-val alert">04h 12m</span>
+                            <span className="dws-metric-val alert">UNROUTED LAG</span>
                           </div>
                           <div className="dws-telemetry-bar-wrap">
                             <div className="dws-telemetry-bar decay" />
                           </div>
-                          <span className="dws-telemetry-subnote">Lead conversion velocity drops 74% after first 5 minutes</span>
+                          <span className="dws-telemetry-subnote">Lead responsiveness decays rapidly without immediate automated routing</span>
                         </div>
                       </div>
                     </div>
@@ -729,16 +729,16 @@ export default function GrowthPartnerPage() {
                         </div>
                         <div className="dws-telemetry-split">
                           <div className="dws-split-stat">
-                            <span className="dws-stat-kicker">Standard Calendar Drop-off</span>
-                            <span className="dws-stat-number alert">42% No-Shows</span>
+                            <span className="dws-stat-kicker">Standard Calendar State</span>
+                            <span className="dws-stat-number alert">UNCONFIRMED</span>
                           </div>
                           <div className="dws-split-sep" />
                           <div className="dws-split-stat">
-                            <span className="dws-stat-kicker">DWS Automated Sequences</span>
-                            <span className="dws-stat-number success">91% Attendance</span>
+                            <span className="dws-stat-kicker">DWS Automated Cadence</span>
+                            <span className="dws-stat-number success">CONFIRMED</span>
                           </div>
                         </div>
-                        <span className="dws-telemetry-subnote">24h &amp; 2h multi-channel confirmations secure calendar economics</span>
+                        <span className="dws-telemetry-subnote">REMINDER SEQUENCE ACTIVE // Multi-channel confirmation protocol</span>
                       </div>
                     </div>
                   </div>
@@ -796,9 +796,9 @@ export default function GrowthPartnerPage() {
                   <span className="dws-chrome-title">DWS ENGINE OS // UNIFIED ARCHITECTURE CONDUIT</span>
                 </div>
                 <div className="dws-chrome-telemetry">
-                  <span className="dws-telemetry-chip">LATENCY: 180ms</span>
+                  <span className="dws-telemetry-chip">LATENCY: EDGE VERIFIED</span>
                   <span className="dws-telemetry-chip">PIPELINE: SYNCHRONIZED</span>
-                  <span className="dws-telemetry-chip">ATTRIBUTION: 100% MATCH</span>
+                  <span className="dws-telemetry-chip">ATTRIBUTION: LINKED</span>
                 </div>
               </div>
 
@@ -812,7 +812,7 @@ export default function GrowthPartnerPage() {
                   <h3 className="dws-node-heading">TRAFFIC</h3>
                   <div className="dws-node-details">
                     <span>Meta · Google · Direct</span>
-                    <span className="dws-node-metric">gclid / fbclid detected</span>
+                    <span className="dws-node-metric">SOURCE ATTRIBUTED</span>
                   </div>
                   <div className="dws-node-connector" aria-hidden="true">→</div>
                 </div>
@@ -826,7 +826,7 @@ export default function GrowthPartnerPage() {
                   <h3 className="dws-node-heading">LANDING PAGE</h3>
                   <div className="dws-node-details">
                     <span>Edge deployment</span>
-                    <span className="dws-node-metric">0.38s First Paint</span>
+                    <span className="dws-node-metric">Sub-Second First Paint</span>
                   </div>
                   <div className="dws-node-connector" aria-hidden="true">→</div>
                 </div>
@@ -840,7 +840,7 @@ export default function GrowthPartnerPage() {
                   <h3 className="dws-node-heading">INTAKE</h3>
                   <div className="dws-node-details">
                     <span>5-Step Growth Review</span>
-                    <span className="dws-node-metric">Full Payload Capture</span>
+                    <span className="dws-node-metric">LEAD CAPTURED</span>
                   </div>
                   <div className="dws-node-connector" aria-hidden="true">→</div>
                 </div>
@@ -854,7 +854,7 @@ export default function GrowthPartnerPage() {
                   <h3 className="dws-node-heading">CRM</h3>
                   <div className="dws-node-details">
                     <span>Unified Contact Card</span>
-                    <span className="dws-node-metric">Zero Duplication</span>
+                    <span className="dws-node-metric">DEDUPLICATION VERIFIED</span>
                   </div>
                   <div className="dws-node-connector" aria-hidden="true">→</div>
                 </div>
@@ -868,7 +868,7 @@ export default function GrowthPartnerPage() {
                   <h3 className="dws-node-heading">AUTOMATION</h3>
                   <div className="dws-node-details">
                     <span>n8n Webhook Engine</span>
-                    <span className="dws-node-metric">&lt;250ms Dual Ingestion</span>
+                    <span className="dws-node-metric">AUTOMATION TRIGGERED</span>
                   </div>
                   <div className="dws-node-connector" aria-hidden="true">→</div>
                 </div>
@@ -882,7 +882,7 @@ export default function GrowthPartnerPage() {
                   <h3 className="dws-node-heading">BOOKING</h3>
                   <div className="dws-node-details">
                     <span>Synced Availability</span>
-                    <span className="dws-node-metric">24h / 2h SMS Reminders</span>
+                    <span className="dws-node-metric">APPOINTMENT BOOKED</span>
                   </div>
                   <div className="dws-node-connector" aria-hidden="true">→</div>
                 </div>
@@ -896,7 +896,7 @@ export default function GrowthPartnerPage() {
                   <h3 className="dws-node-heading">PIPELINE</h3>
                   <div className="dws-node-details">
                     <span>Opportunity Tracking</span>
-                    <span className="dws-node-metric">New Lead → Booked</span>
+                    <span className="dws-node-metric">PIPELINE UPDATED</span>
                   </div>
                   <div className="dws-node-connector" aria-hidden="true">→</div>
                 </div>
@@ -909,8 +909,8 @@ export default function GrowthPartnerPage() {
                   </div>
                   <h3 className="dws-node-heading">ATTRIBUTION</h3>
                   <div className="dws-node-details">
-                    <span>Closed-Loop ROI</span>
-                    <span className="dws-node-metric">Spend to Revenue Match</span>
+                    <span>Closed-Loop Tracking</span>
+                    <span className="dws-node-metric">ATTRIBUTION LINKED</span>
                   </div>
                 </div>
               </div>
@@ -1081,15 +1081,15 @@ export default function GrowthPartnerPage() {
                     {/* Diagnostic Score Card */}
                     <div className="dws-diagnose-score-panel">
                       <div className="dws-score-label-row">
-                        <span className="dws-ui-mono">CURRENT EFFICIENCY</span>
-                        <span className="dws-ui-badge red">34 / 100</span>
+                        <span className="dws-ui-mono">JOURNEY DIAGNOSTIC</span>
+                        <span className="dws-ui-badge red">FRICTION DETECTED</span>
                       </div>
                       <div className="dws-score-meter-track">
-                        <div className="dws-score-meter-bar red" style={{ width: '34%' }} />
+                        <div className="dws-score-meter-bar red" style={{ width: '100%' }} />
                       </div>
                       <div className="dws-score-meta-stat">
-                        <span>LEAD RESPONSE LAG:</span>
-                        <strong className="dws-text-warn">42.5m (LEAK)</strong>
+                        <span>LEAD ROUTING STATE:</span>
+                        <strong className="dws-text-warn">UNROUTED DELAY</strong>
                       </div>
                     </div>
 
@@ -1101,21 +1101,21 @@ export default function GrowthPartnerPage() {
                           <span className="dws-diagnose-indicator red">!</span>
                           <div className="dws-diagnose-info">
                             <span className="dws-diagnose-name">Traffic Ingestion Leak</span>
-                            <span className="dws-diagnose-desc">68% drop-off on unoptimized form</span>
+                            <span className="dws-diagnose-desc">Drop-off on unoptimized intake form</span>
                           </div>
                         </div>
                         <div className="dws-diagnose-item delay">
                           <span className="dws-diagnose-indicator amber">⧗</span>
                           <div className="dws-diagnose-info">
                             <span className="dws-diagnose-name">Unrouted Follow-up</span>
-                            <span className="dws-diagnose-desc">Manual email lag kills booking rate</span>
+                            <span className="dws-diagnose-desc">Unrouted manual delay suppresses booking rate</span>
                           </div>
                         </div>
                         <div className="dws-diagnose-item silo">
                           <span className="dws-diagnose-indicator red">✕</span>
                           <div className="dws-diagnose-info">
                             <span className="dws-diagnose-name">Siloed Data</span>
-                            <span className="dws-diagnose-desc">3 spreadsheets, zero attribution</span>
+                            <span className="dws-diagnose-desc">Fragmented records, zero unified attribution</span>
                           </div>
                         </div>
                       </div>
@@ -1130,7 +1130,7 @@ export default function GrowthPartnerPage() {
                           <circle cx="74" cy="19" r="2.5" fill="#ef4444" />
                           
                           <rect x="92" y="8" width="58" height="22" rx="3" fill="rgba(239, 68, 68, 0.12)" stroke="#ef4444" strokeWidth="1" />
-                          <text x="121" y="22" textAnchor="middle" fill="#fca5a5" fontSize="7" fontFamily="monospace">LEAK 68%</text>
+                          <text x="121" y="22" textAnchor="middle" fill="#fca5a5" fontSize="7" fontFamily="monospace">LEAK DETECTED</text>
                           
                           <path d="M 150 19 L 176 19" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" />
                           
@@ -1194,7 +1194,7 @@ export default function GrowthPartnerPage() {
                         <div className="dws-blueprint-node-row">
                           <div className="dws-bp-block">
                             <span className="dws-bp-tag">SPEED</span>
-                            <span className="dws-bp-val">Instant SMS &lt;180s</span>
+                            <span className="dws-bp-val">Instant SMS Cadence</span>
                           </div>
                           <span className="dws-bp-arrow">→</span>
                           <div className="dws-bp-block highlight">
@@ -1208,11 +1208,11 @@ export default function GrowthPartnerPage() {
                       <div className="dws-blueprint-rules-box">
                         <div className="dws-bp-rule">
                           <span className="dws-bp-kw">RULE 1</span>
-                          <span className="dws-bp-stmt">Score &ge; 80 &rarr; Instant VIP Slot</span>
+                          <span className="dws-bp-stmt">High-Intent Lead &rarr; VIP Priority Routing</span>
                         </div>
                         <div className="dws-bp-rule">
                           <span className="dws-bp-kw">RULE 2</span>
-                          <span className="dws-bp-stmt">No-Book 15m &rarr; Smart Re-engage</span>
+                          <span className="dws-bp-stmt">Unscheduled Lead &rarr; Follow-up Cadence</span>
                         </div>
                       </div>
                     </div>
@@ -1233,7 +1233,7 @@ export default function GrowthPartnerPage() {
                       <span className="dws-infra-phase-badge">PHASE 03</span>
                       <span className="dws-infra-status-chip emerald">
                         <span className="dws-status-chip-dot" />
-                        STAGING // 100% QA
+                        STAGING // VERIFIED
                       </span>
                     </div>
                     <h3 className="dws-infra-card-title">PROVE</h3>
@@ -1244,7 +1244,7 @@ export default function GrowthPartnerPage() {
                     <div className="dws-staging-suite-panel">
                       <div className="dws-staging-head">
                         <span className="dws-ui-mono">STAGING VERIFICATION</span>
-                        <span className="dws-ui-badge emerald">16/16 PASS</span>
+                        <span className="dws-ui-badge emerald">VERIFICATION COMPLETE</span>
                       </div>
 
                       {/* Interactive QA Checklist */}
@@ -1253,7 +1253,7 @@ export default function GrowthPartnerPage() {
                           <span className="dws-qa-icon">✓</span>
                           <div className="dws-qa-meta">
                             <span className="dws-qa-name">Lead Ingestion Webhook</span>
-                            <span className="dws-qa-timing">142ms latency (&lt;250ms)</span>
+                            <span className="dws-qa-timing">LEAD CAPTURED // EDGE VERIFIED</span>
                           </div>
                           <span className="dws-qa-state">PASS</span>
                         </div>
@@ -1262,7 +1262,7 @@ export default function GrowthPartnerPage() {
                           <span className="dws-qa-icon">✓</span>
                           <div className="dws-qa-meta">
                             <span className="dws-qa-name">Identity Deduplication</span>
-                            <span className="dws-qa-timing">0 duplicates in stress pool</span>
+                            <span className="dws-qa-timing">DEDUPLICATION VERIFIED</span>
                           </div>
                           <span className="dws-qa-state">PASS</span>
                         </div>
@@ -1271,7 +1271,7 @@ export default function GrowthPartnerPage() {
                           <span className="dws-qa-icon">✓</span>
                           <div className="dws-qa-meta">
                             <span className="dws-qa-name">Multi-Channel Cadence</span>
-                            <span className="dws-qa-timing">SMS + Voice + Email sync</span>
+                            <span className="dws-qa-timing">REMINDER SEQUENCE ACTIVE</span>
                           </div>
                           <span className="dws-qa-state">PASS</span>
                         </div>
@@ -1280,7 +1280,7 @@ export default function GrowthPartnerPage() {
                           <span className="dws-qa-icon">✓</span>
                           <div className="dws-qa-meta">
                             <span className="dws-qa-name">Closed-Loop CAPI Sync</span>
-                            <span className="dws-qa-timing">100% Match Quality</span>
+                            <span className="dws-qa-timing">ATTRIBUTION LINKED</span>
                           </div>
                           <span className="dws-qa-state">PASS</span>
                         </div>
@@ -1326,17 +1326,17 @@ export default function GrowthPartnerPage() {
                       {/* Mini Live KPI Grid */}
                       <div className="dws-operate-kpi-row">
                         <div className="dws-operate-kpi-item">
-                          <span className="dws-kpi-sub">SHOW-UP RATE</span>
+                          <span className="dws-kpi-sub">PIPELINE STATUS</span>
                           <div className="dws-kpi-main">
-                            <strong className="dws-kpi-val emerald">92.4%</strong>
-                            <span className="dws-kpi-delta">+41%</span>
+                            <strong className="dws-kpi-val emerald">SYNCHRONIZED</strong>
+                            <span className="dws-kpi-delta">APPOINTMENT BOOKED</span>
                           </div>
                         </div>
                         <div className="dws-operate-kpi-item">
-                          <span className="dws-kpi-sub">COST PER LEAD</span>
+                          <span className="dws-kpi-sub">ROUTING ENGINE</span>
                           <div className="dws-kpi-main">
-                            <strong className="dws-kpi-val gold">$18.40</strong>
-                            <span className="dws-kpi-delta">-32%</span>
+                            <strong className="dws-kpi-val gold">AUTOMATED</strong>
+                            <span className="dws-kpi-delta">CONTACT CREATED</span>
                           </div>
                         </div>
                       </div>
@@ -1345,7 +1345,7 @@ export default function GrowthPartnerPage() {
                       <div className="dws-operate-chart-box">
                         <div className="dws-chart-meta-row">
                           <span className="dws-ui-mono">CLOSED-LOOP ATTRIBUTION</span>
-                          <span className="dws-chart-rev-val">+$54,200</span>
+                          <span className="dws-chart-rev-val gold">ATTRIBUTION LINKED</span>
                         </div>
                         <div className="dws-operate-svg-wrap">
                           <svg className="dws-operate-chart-svg" viewBox="0 0 240 50" preserveAspectRatio="none" fill="none" aria-hidden="true">
@@ -1402,13 +1402,19 @@ export default function GrowthPartnerPage() {
               <div className="dws-range-card" role="listitem">
                 <div className="dws-range-media-frame">
                   <img
-                    src="/growth/visuals/range-medspa.jpg"
+                    src="/visuals/range-medspa.jpg"
                     alt="Aesthetic medicine doctor and clinic director reviewing treatment diagnostics in a luxury travertine treatment suite"
                     className="dws-range-img"
                     width={800}
                     height={600}
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
+                    onError={(e) => {
+                      if (!e.currentTarget.dataset.fallback) {
+                        e.currentTarget.dataset.fallback = '1';
+                        e.currentTarget.src = '/growth/visuals/range-medspa.jpg';
+                      }
+                    }}
                   />
                   <div className="dws-range-tag">MEDSPA / BEAUTY</div>
                 </div>
@@ -1424,13 +1430,19 @@ export default function GrowthPartnerPage() {
               <div className="dws-range-card" role="listitem">
                 <div className="dws-range-media-frame">
                   <img
-                    src="/growth/visuals/range-fitness.jpg"
+                    src="/visuals/range-fitness.jpg"
                     alt="Black head strength coach and athlete reviewing biometric telemetry in an architectural obsidian gym"
                     className="dws-range-img"
                     width={800}
                     height={600}
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
+                    onError={(e) => {
+                      if (!e.currentTarget.dataset.fallback) {
+                        e.currentTarget.dataset.fallback = '1';
+                        e.currentTarget.src = '/growth/visuals/range-fitness.jpg';
+                      }
+                    }}
                   />
                   <div className="dws-range-tag">FITNESS / ATHLETICS</div>
                 </div>
@@ -1446,13 +1458,19 @@ export default function GrowthPartnerPage() {
               <div className="dws-range-card" role="listitem">
                 <div className="dws-range-media-frame">
                   <img
-                    src="/growth/visuals/range-automotive.jpg"
+                    src="/visuals/range-automotive.jpg"
                     alt="Master automotive artisan and engineer inspecting a supercar chassis in an architectural atelier workshop"
                     className="dws-range-img"
                     width={800}
                     height={600}
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
+                    onError={(e) => {
+                      if (!e.currentTarget.dataset.fallback) {
+                        e.currentTarget.dataset.fallback = '1';
+                        e.currentTarget.src = '/growth/visuals/range-automotive.jpg';
+                      }
+                    }}
                   />
                   <div className="dws-range-tag">AUTOMOTIVE / ATELIER</div>
                 </div>
@@ -1468,13 +1486,19 @@ export default function GrowthPartnerPage() {
               <div className="dws-range-card" role="listitem">
                 <div className="dws-range-media-frame">
                   <img
-                    src="/growth/visuals/range-architectural.jpg"
+                    src="/visuals/range-architectural.jpg"
                     alt="Black woman lead architect and Latino master builder reviewing construction blueprints in a modern luxury residence"
                     className="dws-range-img"
                     width={800}
                     height={600}
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
+                    onError={(e) => {
+                      if (!e.currentTarget.dataset.fallback) {
+                        e.currentTarget.dataset.fallback = '1';
+                        e.currentTarget.src = '/growth/visuals/range-architectural.jpg';
+                      }
+                    }}
                   />
                   <div className="dws-range-tag">HOME SERVICES / DESIGN-BUILD</div>
                 </div>
@@ -1490,13 +1514,19 @@ export default function GrowthPartnerPage() {
               <div className="dws-range-card" role="listitem">
                 <div className="dws-range-media-frame">
                   <img
-                    src="/growth/visuals/range-advisory.jpg"
+                    src="/visuals/range-advisory.jpg"
                     alt="Diverse executive leadership team collaborating around a stone table in a skyline conference boardroom"
                     className="dws-range-img"
                     width={800}
                     height={600}
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
+                    onError={(e) => {
+                      if (!e.currentTarget.dataset.fallback) {
+                        e.currentTarget.dataset.fallback = '1';
+                        e.currentTarget.src = '/growth/visuals/range-advisory.jpg';
+                      }
+                    }}
                   />
                   <div className="dws-range-tag">PROFESSIONAL SERVICES</div>
                 </div>
@@ -1512,13 +1542,19 @@ export default function GrowthPartnerPage() {
               <div className="dws-range-card" role="listitem">
                 <div className="dws-range-media-frame">
                   <img
-                    src="/growth/visuals/range-hospitality.jpg"
+                    src="/visuals/range-hospitality.jpg"
                     alt="Latina beverage director and culinary artisan inspecting bespoke bottled elixirs in an intimate marble lounge"
                     className="dws-range-img"
                     width={800}
                     height={600}
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
+                    onError={(e) => {
+                      if (!e.currentTarget.dataset.fallback) {
+                        e.currentTarget.dataset.fallback = '1';
+                        e.currentTarget.src = '/growth/visuals/range-hospitality.jpg';
+                      }
+                    }}
                   />
                   <div className="dws-range-tag">HOSPITALITY / LIFESTYLE</div>
                 </div>
@@ -1582,7 +1618,7 @@ export default function GrowthPartnerPage() {
         </section>
 
         {/* ==================================================================
-            SECTION 8 — FOUNDING CLIENT LAUNCH RATE: LIMITED TO FIRST 5 CLIENTS (CHAMPAGNE NEUTRAL)
+            SECTION 8 — LAUNCH RATE ENROLLMENT: LIMITED-TIME OFFER (CHAMPAGNE NEUTRAL)
             ================================================================== */}
         <section className="dws-section dws-partner-section dws-tone-champagne" aria-labelledby="partner-heading">
           <div className="growth-container">
@@ -1590,13 +1626,13 @@ export default function GrowthPartnerPage() {
               <div className="dws-plate-header">
                 <div className="dws-plate-badge">
                   <span className="dws-plate-dot" aria-hidden="true" />
-                  <span className="dws-plate-label">Founding Client Launch Rate</span>
+                  <span className="dws-plate-label">Launch Rate Enrollment</span>
                 </div>
-                <span className="dws-plate-allocation">LIMITED TO THE FIRST 5 QUALIFIED CLIENTS</span>
+                <span className="dws-plate-allocation">LIMITED-TIME ENROLLMENT WINDOW</span>
               </div>
 
               <h2 id="partner-heading" className="dws-invitation-title">
-                One fully connected Growth Engine. Founding client launch rate.
+                One fully connected Growth Engine. Launch rate enrollment.
               </h2>
 
               <div className="dws-invitation-grid">
@@ -1607,7 +1643,7 @@ export default function GrowthPartnerPage() {
                     <div className="dws-price-block">
                       <div className="dws-price-anchor">
                         <span className="dws-anchor-label">STANDARD SETUP</span>
-                        <span className="dws-anchor-num slashed">$3,500</span>
+                        <span className="dws-anchor-num slashed">$2,500</span>
                       </div>
                       <div className="dws-launch-tier">
                         <span className="dws-launch-label">LAUNCH RATE SETUP</span>
@@ -1644,7 +1680,7 @@ export default function GrowthPartnerPage() {
                   <div className="dws-invitation-notes">
                     <div className="dws-urgency-box">
                       <p className="dws-urgency-note">
-                        <strong>Urgency:</strong> This launch rate is reserved for the first 5 qualified clients. Once the founding spots are filled, standard pricing applies. Secure the discounted rate now and keep it active while your account remains in good standing.
+                        <strong>Urgency:</strong> Limited-time launch rate. Once the current enrollment window closes, standard DWS pricing applies. Lock in the $997 monthly management rate while your account remains active and in good standing.
                       </p>
                     </div>
 
@@ -1675,11 +1711,11 @@ export default function GrowthPartnerPage() {
                       onClick={() =>
                         handleCtaClick(
                           'Launch Rate Invitation CTA',
-                          'RESERVE MY FOUNDING CLIENT SPOT — FREE GROWTH REVIEW'
+                          'CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW'
                         )
                       }
                     >
-                      <span>RESERVE MY FOUNDING CLIENT SPOT — FREE GROWTH REVIEW</span>
+                      <span>CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW</span>
                       <span className="dws-btn-arrow" aria-hidden="true">→</span>
                     </a>
                   </div>
@@ -1727,11 +1763,11 @@ export default function GrowthPartnerPage() {
                   onClick={() =>
                     handleCtaClick(
                       'Final Close CTA',
-                      'RESERVE MY FOUNDING CLIENT SPOT — FREE GROWTH REVIEW'
+                      'CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW'
                     )
                   }
                 >
-                  <span>RESERVE MY FOUNDING CLIENT SPOT — FREE GROWTH REVIEW</span>
+                  <span>CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW</span>
                   <span className="dws-btn-arrow" aria-hidden="true">→</span>
                 </a>
               </div>
@@ -1741,7 +1777,7 @@ export default function GrowthPartnerPage() {
                 <span className="dws-sep">·</span>
                 <span>Direct Founder Consultation</span>
                 <span className="dws-sep">·</span>
-                <span>5 Founding Spots Total</span>
+                <span>Limited Enrollment Window</span>
               </div>
             </div>
           </div>
