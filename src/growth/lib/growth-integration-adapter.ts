@@ -32,20 +32,28 @@ export interface GrowthApplicationFormData {
   honeypot?: string; // Hidden spam trap field
 }
 
+export const PRODUCTION_GROWTH_WEBHOOK_URL =
+  'https://automation.dynastyworksstudio.com/webhook/dws-growth-review';
+
 export interface GrowthNormalizedPayload {
   first_name: string;
   last_name: string;
   business_name: string;
+  company_name: string;
+  lead_source: string;
   email: string;
   phone: string;
   website: string;
   industry: string;
   monthly_marketing_budget: string;
   primary_goal: string;
+  primary_growth_goal: string;
   current_crm: string;
   lead_generation_method: string;
   biggest_bottleneck: string;
+  biggest_growth_bottleneck: string;
   notes: string;
+  growth_review_notes: string;
   utm_source: string;
   utm_medium: string;
   utm_campaign: string;
@@ -78,16 +86,21 @@ export function normalizeGrowthPayload(
     first_name: data.firstName.trim(),
     last_name: data.lastName.trim(),
     business_name: data.businessName.trim(),
+    company_name: data.businessName.trim(),
+    lead_source: 'DWS Growth Review',
     email: data.email.trim().toLowerCase(),
     phone: data.phone.trim(),
     website: data.website.trim(),
     industry: data.industry.trim(),
     monthly_marketing_budget: data.monthlyMarketingBudget.trim(),
     primary_goal: data.primaryGoal.trim(),
+    primary_growth_goal: data.primaryGoal.trim(),
     current_crm: data.currentCrm.trim(),
     lead_generation_method: data.leadGenerationMethod.trim(),
     biggest_bottleneck: data.biggestBottleneck.trim(),
+    biggest_growth_bottleneck: data.biggestBottleneck.trim(),
     notes: data.notes.trim(),
+    growth_review_notes: data.notes.trim(),
     utm_source: attribution.utm_source,
     utm_medium: attribution.utm_medium,
     utm_campaign: attribution.utm_campaign,
@@ -143,7 +156,9 @@ export async function submitGrowthApplication(
   }
 
   const payload = normalizeGrowthPayload(formData);
-  const webhookUrl = (import.meta as { env?: Record<string, string> }).env?.VITE_GROWTH_SYSTEM_WEBHOOK_URL || '/api/growth-webhook';
+  const webhookUrl =
+    (import.meta as { env?: Record<string, string> }).env?.VITE_GROWTH_SYSTEM_WEBHOOK_URL ||
+    PRODUCTION_GROWTH_WEBHOOK_URL;
 
   trackGrowthEvent('growth_form_submit', {
     metadata: {
