@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --config vite.integration-phase-i.ts",
     "build:client": "vite build --config vite.integration-phase-i.ts",
-    "build:functions": "esbuild netlify/functions/assets.ts netlify/functions/growth-webhook.ts netlify/functions/retry-notifications.ts netlify/functions/submissions.ts --bundle --platform=node --target=node20 --format=esm --out-extension:.js=.mjs --outdir=netlify/functions-dist",
+    "build:functions": "esbuild netlify/functions/assets.ts netlify/functions/conversions.ts netlify/functions/growth-webhook.ts netlify/functions/retry-notifications.ts netlify/functions/submissions.ts --bundle --platform=node --target=node20 --format=esm --out-extension:.js=.mjs --outdir=netlify/functions-dist",
     "build": "node scripts/generate-build-info.mjs && npm run build:client && npm run build:functions",
     "preview": "vite preview --config vite.integration-phase-i.ts",
     "dev:v5": "vite --host 127.0.0.1 --port 5177",

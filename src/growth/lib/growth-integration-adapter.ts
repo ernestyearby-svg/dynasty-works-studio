@@ -12,7 +12,12 @@
  * 4. Includes client honeypot checks and sanitization.
  */
 
-import { getGrowthAttribution, trackGrowthEvent } from './growth-tracking';
+import {
+  getGrowthAttribution,
+  trackGrowthEvent,
+  generateEventId,
+  relayConversionToServer,
+} from './growth-tracking';
 
 export interface GrowthApplicationFormData {
   firstName: string;
@@ -156,6 +161,7 @@ export async function submitGrowthApplication(
   }
 
   const payload = normalizeGrowthPayload(formData);
+  const eventId = generateEventId('lead');
   const webhookUrl =
     (import.meta as { env?: Record<string, string> }).env?.VITE_GROWTH_SYSTEM_WEBHOOK_URL ||
     PRODUCTION_GROWTH_WEBHOOK_URL;
@@ -177,24 +183,42 @@ export async function submitGrowthApplication(
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ ...payload, event_id: eventId }),
       });
 
       if (!response.ok) {
         throw new Error(`Endpoint returned status ${response.status}`);
       }
 
+      // Fire browser event with identical event_id for CAPI deduplication
       trackGrowthEvent('growth_review_completed', {
+        event_id: eventId,
         metadata: {
           submission_mode: 'webhook',
           industry: payload.industry,
         },
       });
       trackGrowthEvent('growth_form_success', {
+        event_id: eventId,
         metadata: {
           submission_mode: 'webhook',
           industry: payload.industry,
         },
+      });
+
+      // Relay to Meta Conversions API (CAPI) server endpoint
+      relayConversionToServer({
+        event_name: 'Lead',
+        event_id: eventId,
+        email: formData.email,
+        phone: formData.phone,
+        event_source_url: typeof window !== 'undefined' ? window.location.href : undefined,
+        custom_data: {
+          content_name: 'Growth Operating System Review',
+          content_category: 'Growth Operating System',
+        },
+      }).catch((err) => {
+        console.warn('[DWS Growth Adapter] CAPI Lead relay warning:', err);
       });
 
       return {
@@ -218,17 +242,35 @@ export async function submitGrowthApplication(
 
   console.info('[DWS Growth Adapter] Mock submission payload:', payload);
 
+  // Fire browser event with identical event_id for CAPI deduplication
   trackGrowthEvent('growth_review_completed', {
+    event_id: eventId,
     metadata: {
       submission_mode: 'mock',
       industry: payload.industry,
     },
   });
   trackGrowthEvent('growth_form_success', {
+    event_id: eventId,
     metadata: {
       submission_mode: 'mock',
       industry: payload.industry,
     },
+  });
+
+  // Relay to Meta Conversions API (CAPI) server endpoint
+  relayConversionToServer({
+    event_name: 'Lead',
+    event_id: eventId,
+    email: formData.email,
+    phone: formData.phone,
+    event_source_url: typeof window !== 'undefined' ? window.location.href : undefined,
+    custom_data: {
+      content_name: 'Growth Operating System Review',
+      content_category: 'Growth Operating System',
+    },
+  }).catch((err) => {
+    console.warn('[DWS Growth Adapter] CAPI Lead relay warning:', err);
   });
 
   return {

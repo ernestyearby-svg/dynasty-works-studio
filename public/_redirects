@@ -1,3 +1,4 @@
+/api/conversions /.netlify/functions/conversions 200!
 /api/growth-webhook /.netlify/functions/growth-webhook 200!
 /api/submissions/assets/* /.netlify/functions/assets/:splat 200!
 /api/submissions/assets /.netlify/functions/assets 200!

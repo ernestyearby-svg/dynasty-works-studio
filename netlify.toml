@@ -10,6 +10,12 @@
   node_bundler = "esbuild"
 
 [[redirects]]
+  from = "/api/conversions"
+  to = "/.netlify/functions/conversions"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/api/growth-webhook"
   to = "/.netlify/functions/growth-webhook"
   status = 200

@@ -409,3 +409,115 @@ export function trackGrowthEvent(
     console.info(`[DWS Growth Event] ${event}`, fullPayload);
   }
 }
+
+/**
+ * Reads a cookie value by name from document.cookie safely.
+ */
+export function getCookie(name: string): string | null {
+  if (typeof document === 'undefined') return null;
+  const match = document.cookie.match(new RegExp('(^|;\\s*)' + name + '=([^;]*)'));
+  return match ? decodeURIComponent(match[2]) : null;
+}
+
+/**
+ * Retrieves Meta _fbp cookie if present.
+ */
+export function getMetaFbp(): string | null {
+  return getCookie('_fbp');
+}
+
+/**
+ * Retrieves Meta _fbc cookie or derives it from fbclid if available.
+ * Format: fb.1.${timestamp}.${fbclid}
+ */
+export function getMetaFbc(): string | null {
+  const cookieFbc = getCookie('_fbc');
+  if (cookieFbc) return cookieFbc;
+
+  try {
+    const attribution = getGrowthAttribution();
+    if (attribution.fbclid) {
+      return `fb.1.${Date.now()}.${attribution.fbclid}`;
+    }
+  } catch {
+    // ignore
+  }
+
+  if (typeof window !== 'undefined') {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const fbclid = params.get('fbclid');
+      if (fbclid) {
+        return `fb.1.${Date.now()}.${fbclid}`;
+      }
+    } catch {
+      // ignore
+    }
+  }
+
+  return null;
+}
+
+export interface ServerConversionRelayParams {
+  event_name: 'Lead' | 'Schedule';
+  event_id: string;
+  email?: string;
+  phone?: string;
+  event_source_url?: string;
+  custom_data?: Record<string, unknown>;
+  test_event_code?: string;
+}
+
+/**
+ * Relays conversion event to Netlify CAPI server endpoint (/api/conversions).
+ * The server securely hashes email & phone with SHA-256, extracts client IP & user agent,
+ * and transmits directly to Meta Graph API without exposing tokens or secrets to client.
+ */
+export async function relayConversionToServer(
+  params: ServerConversionRelayParams
+): Promise<boolean> {
+  if (typeof window === 'undefined') return false;
+
+  const fbp = getMetaFbp() || undefined;
+  const fbc = getMetaFbc() || undefined;
+  const sourceUrl = sanitizeAttributionUrl(params.event_source_url || window.location.href);
+
+  // Check URL search params for test_event_code if in staging/test
+  let testEventCode = params.test_event_code;
+  if (!testEventCode) {
+    try {
+      const sp = new URLSearchParams(window.location.search);
+      testEventCode = sp.get('test_event_code') || sp.get('meta_test_code') || undefined;
+    } catch {
+      // ignore
+    }
+  }
+
+  const payload = {
+    event_name: params.event_name,
+    event_id: params.event_id,
+    email: params.email?.trim() || undefined,
+    phone: params.phone?.trim() || undefined,
+    fbp,
+    fbc,
+    event_source_url: sourceUrl,
+    custom_data: params.custom_data,
+    ...(testEventCode ? { test_event_code: testEventCode } : {}),
+  };
+
+  try {
+    const response = await fetch('/api/conversions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+      keepalive: true,
+    });
+
+    return response.ok;
+  } catch (err) {
+    console.warn('[DWS Growth Tracking] Server CAPI relay failed:', err);
+    return false;
+  }
+}
