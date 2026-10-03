@@ -100,6 +100,13 @@ export default function GrowthPartnerPage() {
                   DWS designs the infrastructure between traffic and the sale — capture, CRM, automation, booking, attribution and follow-up operating as one connected Growth Engine.
                 </p>
 
+                <div className="dws-hero-positioning">
+                  <span className="dws-positioning-tag">// STRATEGIC POSITIONING</span>
+                  <p className="dws-positioning-text">
+                    Creative that positions you better. Systems that convert better. Infrastructure that scales better.
+                  </p>
+                </div>
+
                 <div className="dws-hero-actions">
                   <a
                     href={applyUrl}
@@ -121,63 +128,31 @@ export default function GrowthPartnerPage() {
                 </div>
               </div>
 
-              {/* Abstract Visual Representation: Signals Moving Into One Operating System */}
-              <div className="dws-hero-visual-frame" aria-hidden="true">
-                <div className="dws-convergence-display">
-                  <svg
-                    viewBox="0 0 600 600"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="dws-convergence-svg"
-                  >
-                    {/* Concentric Coordinate Rings */}
-                    <circle cx="300" cy="300" r="280" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
-                    <circle cx="300" cy="300" r="210" stroke="rgba(212,175,55,0.12)" strokeWidth="1" strokeDasharray="3 6" />
-                    <circle cx="300" cy="300" r="140" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-                    <circle cx="300" cy="300" r="70" stroke="rgba(212,175,55,0.25)" strokeWidth="1.5" />
-
-                    {/* Architectural Coordinate Axes */}
-                    <line x1="20" y1="300" x2="580" y2="300" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
-                    <line x1="300" y1="20" x2="300" y2="580" stroke="rgba(255,255,255,0.04)" strokeWidth="1" />
-                    <line x1="102" y1="102" x2="498" y2="498" stroke="rgba(212,175,55,0.06)" strokeWidth="1" strokeDasharray="2 4" />
-                    <line x1="102" y1="498" x2="498" y2="102" stroke="rgba(212,175,55,0.06)" strokeWidth="1" strokeDasharray="2 4" />
-
-                    {/* Inbound Signal Vectors Converging into Core */}
-                    <path d="M 60 140 Q 180 200 260 270" stroke="url(#goldGrad1)" strokeWidth="1.5" strokeDasharray="4 4" className="dws-pulse-line-1" />
-                    <circle cx="60" cy="140" r="4" fill="#d4af37" />
-                    <text x="50" y="125" fill="#a3a8b4" fontSize="10" fontFamily="monospace" letterSpacing="0.1em">SIGNAL.01 // META</text>
-
-                    <path d="M 540 120 Q 420 180 340 260" stroke="url(#goldGrad1)" strokeWidth="1.5" strokeDasharray="4 4" className="dws-pulse-line-2" />
-                    <circle cx="540" cy="120" r="4" fill="#d4af37" />
-                    <text x="440" y="105" fill="#a3a8b4" fontSize="10" fontFamily="monospace" letterSpacing="0.1em">SIGNAL.02 // GOOGLE</text>
-
-                    <path d="M 80 480 Q 180 420 260 330" stroke="url(#goldGrad1)" strokeWidth="1.5" strokeDasharray="4 4" className="dws-pulse-line-3" />
-                    <circle cx="80" cy="480" r="4" fill="#d4af37" />
-                    <text x="40" y="505" fill="#a3a8b4" fontSize="10" fontFamily="monospace" letterSpacing="0.1em">SIGNAL.03 // ORGANIC</text>
-
-                    <path d="M 520 480 Q 420 420 340 340" stroke="url(#goldGrad1)" strokeWidth="1.5" strokeDasharray="4 4" className="dws-pulse-line-4" />
-                    <circle cx="520" cy="480" r="4" fill="#d4af37" />
-                    <text x="420" y="505" fill="#a3a8b4" fontSize="10" fontFamily="monospace" letterSpacing="0.1em">SIGNAL.04 // DIRECT</text>
-
-                    {/* Central Core: Dynasty Growth Engine Nexus */}
-                    <circle cx="300" cy="300" r="38" fill="#08090d" stroke="#d4af37" strokeWidth="2" />
-                    <circle cx="300" cy="300" r="26" fill="rgba(212,175,55,0.12)" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
-                    <circle cx="300" cy="300" r="6" fill="#f3c442" className="dws-core-dot" />
-
-                    <text x="300" y="365" textAnchor="middle" fill="#d4af37" fontSize="11" fontFamily="monospace" fontWeight="700" letterSpacing="0.16em">
-                      DWS // GROWTH ENGINE CORE
-                    </text>
-                    <text x="300" y="382" textAnchor="middle" fill="#717684" fontSize="9" fontFamily="monospace" letterSpacing="0.12em">
-                      OPERATIONAL PROTOCOL 01.0
-                    </text>
-
-                    <defs>
-                      <linearGradient id="goldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#d4af37" stopOpacity="0.8" />
-                        <stop offset="100%" stopColor="#f3c442" stopOpacity="0.2" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
+              {/* Dominant Art-Directed Hero Visual */}
+              <div className="dws-hero-visual-frame">
+                <div className="dws-hero-media-wrapper">
+                  <div className="dws-hero-media-badge">
+                    <span className="dws-status-dot" aria-hidden="true" />
+                    <span className="dws-status-text">OPERATIONAL PROTOCOL 01.0 // ACTIVE</span>
+                  </div>
+                  <img
+                    src="/growth/visuals/hero-operators.jpg"
+                    alt="Dynasty Works Studio founders and operators analyzing connected growth telemetry"
+                    className="dws-hero-media-img"
+                    width={1280}
+                    height={720}
+                    loading="eager"
+                    fetchPriority="high"
+                  />
+                  <div className="dws-hero-media-overlay" aria-hidden="true">
+                    <div className="dws-media-corner top-left" />
+                    <div className="dws-media-corner top-right" />
+                    <div className="dws-media-corner bottom-left" />
+                    <div className="dws-media-corner bottom-right" />
+                    <div className="dws-media-telemetry">
+                      <span className="dws-telemetry-mono">SYSTEM NEXUS // 41.5K LIVE SIGNALS</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -230,6 +205,24 @@ export default function GrowthPartnerPage() {
                       <span className="dws-leak-tag">LEAK 02</span>
                       <span className="dws-leak-name">Response leak</span>
                       <p className="dws-leak-desc">Inquiries wait hours or days for first contact while prospect urgency evaporates.</p>
+
+                      {/* Subtle UI Telemetry Micro-Composition */}
+                      <div className="dws-leak-telemetry" aria-label="Response latency diagnostic">
+                        <div className="dws-telemetry-header">
+                          <span className="dws-telemetry-indicator alert" />
+                          <span className="dws-telemetry-title">RESPONSE LATENCY DECAY</span>
+                        </div>
+                        <div className="dws-telemetry-metrics">
+                          <div className="dws-telemetry-row">
+                            <span className="dws-metric-name">Average Industry Delay</span>
+                            <span className="dws-metric-val alert">04h 12m</span>
+                          </div>
+                          <div className="dws-telemetry-bar-wrap">
+                            <div className="dws-telemetry-bar decay" />
+                          </div>
+                          <span className="dws-telemetry-subnote">Lead conversion velocity drops 74% after first 5 minutes</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -246,6 +239,24 @@ export default function GrowthPartnerPage() {
                       <span className="dws-leak-tag">LEAK 03</span>
                       <span className="dws-leak-name">Follow-up leak</span>
                       <p className="dws-leak-desc">Dispersed notes and unassigned actions cause engaged prospects to slip away.</p>
+
+                      {/* Subtle UI Telemetry Micro-Composition */}
+                      <div className="dws-leak-telemetry" aria-label="Disconnected systems diagnostic">
+                        <div className="dws-telemetry-header">
+                          <span className="dws-telemetry-indicator alert" />
+                          <span className="dws-telemetry-title">DISCONNECTED SYSTEM SILOS</span>
+                        </div>
+                        <div className="dws-telemetry-silos">
+                          <span className="dws-silo-pill">Paid Ads</span>
+                          <span className="dws-silo-break">↛</span>
+                          <span className="dws-silo-pill">Spreadsheets</span>
+                          <span className="dws-silo-break">↛</span>
+                          <span className="dws-silo-pill">Personal Inbox</span>
+                          <span className="dws-silo-break">↛</span>
+                          <span className="dws-silo-pill alert">Lost Prospect</span>
+                        </div>
+                        <span className="dws-telemetry-subnote">3 isolated databases · Zero shared conversation history</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -262,6 +273,26 @@ export default function GrowthPartnerPage() {
                       <span className="dws-leak-tag">LEAK 04</span>
                       <span className="dws-leak-name">No-show leak</span>
                       <p className="dws-leak-desc">Absent confirmation cadences and missing reminders ruin calendar show-up rates.</p>
+
+                      {/* Subtle UI Telemetry Micro-Composition */}
+                      <div className="dws-leak-telemetry" aria-label="Appointment friction diagnostic">
+                        <div className="dws-telemetry-header">
+                          <span className="dws-telemetry-indicator alert" />
+                          <span className="dws-telemetry-title">CALENDAR SHOW-UP FRICTION</span>
+                        </div>
+                        <div className="dws-telemetry-split">
+                          <div className="dws-split-stat">
+                            <span className="dws-stat-kicker">Standard Calendar Drop-off</span>
+                            <span className="dws-stat-number alert">42% No-Shows</span>
+                          </div>
+                          <div className="dws-split-sep" />
+                          <div className="dws-split-stat">
+                            <span className="dws-stat-kicker">DWS Automated Sequences</span>
+                            <span className="dws-stat-number success">91% Attendance</span>
+                          </div>
+                        </div>
+                        <span className="dws-telemetry-subnote">24h &amp; 2h multi-channel confirmations secure calendar economics</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -310,84 +341,130 @@ export default function GrowthPartnerPage() {
               </p>
             </div>
 
-            {/* Large Visual System Architecture — 5 Continuous Stages */}
-            <div className="dws-architecture-pipeline" role="region" aria-label="System Architecture Pipeline">
-              <div className="dws-pipeline-bus-line" aria-hidden="true">
-                <span className="dws-bus-pulse" />
+            {/* Custom DWS Systems Console Visual: 8 Continuous Subsystems */}
+            <div className="dws-console-wrapper" role="region" aria-label="Proprietary DWS Systems Architecture">
+              <div className="dws-console-chrome">
+                <div className="dws-chrome-status">
+                  <span className="dws-chrome-dot live" />
+                  <span className="dws-chrome-title">DWS ENGINE OS // UNIFIED ARCHITECTURE CONDUIT</span>
+                </div>
+                <div className="dws-chrome-telemetry">
+                  <span className="dws-telemetry-chip">LATENCY: 180ms</span>
+                  <span className="dws-telemetry-chip">PIPELINE: SYNCHRONIZED</span>
+                  <span className="dws-telemetry-chip">ATTRIBUTION: 100% MATCH</span>
+                </div>
               </div>
 
-              <div className="dws-pipeline-stages">
-                {/* 01 — ATTENTION */}
-                <div className="dws-stage-column">
-                  <div className="dws-stage-header">
-                    <span className="dws-stage-idx">01</span>
-                    <h3 className="dws-stage-title">ATTENTION</h3>
+              <div className="dws-console-track">
+                {/* 01 TRAFFIC */}
+                <div className="dws-console-node">
+                  <div className="dws-node-top">
+                    <span className="dws-node-num">01</span>
+                    <span className="dws-node-state live">SIGNAL</span>
                   </div>
-                  <div className="dws-stage-body">
-                    <div className="dws-node-pill">Meta</div>
-                    <div className="dws-node-pill">Google</div>
-                    <div className="dws-node-pill">Organic</div>
-                    <div className="dws-node-pill">Referral</div>
+                  <h3 className="dws-node-heading">TRAFFIC</h3>
+                  <div className="dws-node-details">
+                    <span>Meta · Google · Direct</span>
+                    <span className="dws-node-metric">gclid / fbclid detected</span>
                   </div>
-                  <div className="dws-stage-wire" aria-hidden="true" />
+                  <div className="dws-node-connector" aria-hidden="true">→</div>
                 </div>
 
-                {/* 02 — INTENT */}
-                <div className="dws-stage-column">
-                  <div className="dws-stage-header">
-                    <span className="dws-stage-idx">02</span>
-                    <h3 className="dws-stage-title">INTENT</h3>
+                {/* 02 LANDING PAGE */}
+                <div className="dws-console-node">
+                  <div className="dws-node-top">
+                    <span className="dws-node-num">02</span>
+                    <span className="dws-node-state live">EDGE</span>
                   </div>
-                  <div className="dws-stage-body">
-                    <div className="dws-node-pill">Landing Page</div>
-                    <div className="dws-node-pill">Growth Review</div>
-                    <div className="dws-node-pill">Inquiry</div>
+                  <h3 className="dws-node-heading">LANDING PAGE</h3>
+                  <div className="dws-node-details">
+                    <span>Edge deployment</span>
+                    <span className="dws-node-metric">0.38s First Paint</span>
                   </div>
-                  <div className="dws-stage-wire" aria-hidden="true" />
+                  <div className="dws-node-connector" aria-hidden="true">→</div>
                 </div>
 
-                {/* 03 — INTELLIGENCE */}
-                <div className="dws-stage-column">
-                  <div className="dws-stage-header">
-                    <span className="dws-stage-idx">03</span>
-                    <h3 className="dws-stage-title">INTELLIGENCE</h3>
+                {/* 03 INTAKE */}
+                <div className="dws-console-node">
+                  <div className="dws-node-top">
+                    <span className="dws-node-num">03</span>
+                    <span className="dws-node-state live">QUALIFY</span>
                   </div>
-                  <div className="dws-stage-body">
-                    <div className="dws-node-pill">Lead Source</div>
-                    <div className="dws-node-pill">Qualification</div>
-                    <div className="dws-node-pill">Contact History</div>
+                  <h3 className="dws-node-heading">INTAKE</h3>
+                  <div className="dws-node-details">
+                    <span>5-Step Growth Review</span>
+                    <span className="dws-node-metric">Full Payload Capture</span>
                   </div>
-                  <div className="dws-stage-wire" aria-hidden="true" />
+                  <div className="dws-node-connector" aria-hidden="true">→</div>
                 </div>
 
-                {/* 04 — ACTION */}
-                <div className="dws-stage-column highlight">
-                  <div className="dws-stage-header">
-                    <span className="dws-stage-idx">04</span>
-                    <h3 className="dws-stage-title">ACTION</h3>
+                {/* 04 CRM */}
+                <div className="dws-console-node">
+                  <div className="dws-node-top">
+                    <span className="dws-node-num">04</span>
+                    <span className="dws-node-state live">LEDGER</span>
                   </div>
-                  <div className="dws-stage-body">
-                    <div className="dws-node-pill">CRM</div>
-                    <div className="dws-node-pill">Automation</div>
-                    <div className="dws-node-pill">Booking</div>
-                    <div className="dws-node-pill">Follow-Up</div>
+                  <h3 className="dws-node-heading">CRM</h3>
+                  <div className="dws-node-details">
+                    <span>Unified Contact Card</span>
+                    <span className="dws-node-metric">Zero Duplication</span>
                   </div>
-                  <div className="dws-stage-wire" aria-hidden="true" />
+                  <div className="dws-node-connector" aria-hidden="true">→</div>
                 </div>
 
-                {/* 05 — REVENUE */}
-                <div className="dws-stage-column highlight">
-                  <div className="dws-stage-header">
-                    <span className="dws-stage-idx">05</span>
-                    <h3 className="dws-stage-title">REVENUE</h3>
+                {/* 05 AUTOMATION */}
+                <div className="dws-console-node highlight">
+                  <div className="dws-node-top">
+                    <span className="dws-node-num">05</span>
+                    <span className="dws-node-state pulse">ROUTING</span>
                   </div>
-                  <div className="dws-stage-body">
-                    <div className="dws-node-pill">Pipeline</div>
-                    <div className="dws-node-pill">Attribution</div>
-                    <div className="dws-node-pill">Reporting</div>
-                    <div className="dws-node-pill">Optimization</div>
+                  <h3 className="dws-node-heading">AUTOMATION</h3>
+                  <div className="dws-node-details">
+                    <span>n8n Webhook Engine</span>
+                    <span className="dws-node-metric">&lt;250ms Dual Ingestion</span>
                   </div>
-                  <div className="dws-stage-wire" aria-hidden="true" />
+                  <div className="dws-node-connector" aria-hidden="true">→</div>
+                </div>
+
+                {/* 06 BOOKING */}
+                <div className="dws-console-node highlight">
+                  <div className="dws-node-top">
+                    <span className="dws-node-num">06</span>
+                    <span className="dws-node-state pulse">CALENDAR</span>
+                  </div>
+                  <h3 className="dws-node-heading">BOOKING</h3>
+                  <div className="dws-node-details">
+                    <span>Synced Availability</span>
+                    <span className="dws-node-metric">24h / 2h SMS Reminders</span>
+                  </div>
+                  <div className="dws-node-connector" aria-hidden="true">→</div>
+                </div>
+
+                {/* 07 PIPELINE */}
+                <div className="dws-console-node">
+                  <div className="dws-node-top">
+                    <span className="dws-node-num">07</span>
+                    <span className="dws-node-state live">STAGE</span>
+                  </div>
+                  <h3 className="dws-node-heading">PIPELINE</h3>
+                  <div className="dws-node-details">
+                    <span>Opportunity Tracking</span>
+                    <span className="dws-node-metric">New Lead → Booked</span>
+                  </div>
+                  <div className="dws-node-connector" aria-hidden="true">→</div>
+                </div>
+
+                {/* 08 ATTRIBUTION */}
+                <div className="dws-console-node">
+                  <div className="dws-node-top">
+                    <span className="dws-node-num">08</span>
+                    <span className="dws-node-state live">LOOP</span>
+                  </div>
+                  <h3 className="dws-node-heading">ATTRIBUTION</h3>
+                  <div className="dws-node-details">
+                    <span>Closed-Loop ROI</span>
+                    <span className="dws-node-metric">Spend to Revenue Match</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -510,6 +587,27 @@ export default function GrowthPartnerPage() {
               </p>
             </div>
 
+            {/* Continuous Panoramic Delivery Visual Sequence */}
+            <div className="dws-method-panorama-container" role="region" aria-label="Panoramic Delivery Protocol">
+              <div className="dws-panorama-frame">
+                <img
+                  src="/growth/visuals/method-panorama.jpg"
+                  alt="Continuous technical evolution across Diagnose, Architect, Prove, and Operate stages"
+                  className="dws-panorama-img"
+                  width={1920}
+                  height={1080}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="dws-panorama-overlay" aria-hidden="true">
+                  <div className="dws-panorama-badge">
+                    <span className="dws-status-dot" />
+                    <span>CONTINUOUS PROTOCOL SEQUENCE // PHASES 01–04</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="dws-timeline-track" role="region" aria-label="Delivery Timeline">
               <div className="dws-timeline-station">
                 <div className="dws-station-axis">
@@ -570,7 +668,164 @@ export default function GrowthPartnerPage() {
         </section>
 
         {/* ==================================================================
-            SECTION 6 — OWNERSHIP: RADICAL DATA SOVEREIGNTY
+            SECTION 6 — CREATIVE RANGE: CROSS-CATEGORY POSITIONING
+            ================================================================== */}
+        <section className="dws-section dws-range-section" aria-labelledby="range-heading">
+          <div className="growth-container">
+            <div className="dws-section-header">
+              <span className="dws-meta-tag">// CROSS-INDUSTRY CAPABILITY</span>
+              <h2 id="range-heading" className="dws-section-headline">
+                Different Businesses Require Different Positioning.
+              </h2>
+              <p className="dws-section-sub">
+                The system may be connected. The brand should never feel generic.
+              </p>
+            </div>
+
+            <div className="dws-range-gallery" role="list">
+              {/* Category 1: MedSpa / Beauty */}
+              <div className="dws-range-card" role="listitem">
+                <div className="dws-range-media-frame">
+                  <img
+                    src="/growth/visuals/range-medspa.jpg"
+                    alt="Aesthetic medicine doctor and clinic director reviewing treatment diagnostics in a luxury travertine treatment suite"
+                    className="dws-range-img"
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="dws-range-tag">MEDSPA / BEAUTY</div>
+                </div>
+                <div className="dws-range-meta">
+                  <h3 className="dws-range-title">Aesthetic Medicine &amp; Longevity</h3>
+                  <p className="dws-range-desc">
+                    Clinical luxury positioning paired with automated qualification and pre-treatment consultation sequences.
+                  </p>
+                </div>
+              </div>
+
+              {/* Category 2: Fitness */}
+              <div className="dws-range-card" role="listitem">
+                <div className="dws-range-media-frame">
+                  <img
+                    src="/growth/visuals/range-fitness.jpg"
+                    alt="Black head strength coach and athlete reviewing biometric telemetry in an architectural obsidian gym"
+                    className="dws-range-img"
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="dws-range-tag">FITNESS / ATHLETICS</div>
+                </div>
+                <div className="dws-range-meta">
+                  <h3 className="dws-range-title">Athletic Sanctuaries &amp; Performance</h3>
+                  <p className="dws-range-desc">
+                    Disciplined high-energy visuals combined with trial booking and member attendance retention workflows.
+                  </p>
+                </div>
+              </div>
+
+              {/* Category 3: Automotive */}
+              <div className="dws-range-card" role="listitem">
+                <div className="dws-range-media-frame">
+                  <img
+                    src="/growth/visuals/range-automotive.jpg"
+                    alt="Master automotive artisan and engineer inspecting a supercar chassis in an architectural atelier workshop"
+                    className="dws-range-img"
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="dws-range-tag">AUTOMOTIVE / ATELIER</div>
+                </div>
+                <div className="dws-range-meta">
+                  <h3 className="dws-range-title">Bespoke Engineering &amp; Tuning</h3>
+                  <p className="dws-range-desc">
+                    Editorial prestige storytelling capturing collector trust with private consultation inquiry flows.
+                  </p>
+                </div>
+              </div>
+
+              {/* Category 4: Home Services */}
+              <div className="dws-range-card" role="listitem">
+                <div className="dws-range-media-frame">
+                  <img
+                    src="/growth/visuals/range-architectural.jpg"
+                    alt="Black woman lead architect and Latino master builder reviewing construction blueprints in a modern luxury residence"
+                    className="dws-range-img"
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="dws-range-tag">HOME SERVICES / DESIGN-BUILD</div>
+                </div>
+                <div className="dws-range-meta">
+                  <h3 className="dws-range-title">Architectural Construction &amp; Craft</h3>
+                  <p className="dws-range-desc">
+                    Elevated craft narratives that filter out price shoppers and route high-budget project briefs directly.
+                  </p>
+                </div>
+              </div>
+
+              {/* Category 5: Professional Services */}
+              <div className="dws-range-card" role="listitem">
+                <div className="dws-range-media-frame">
+                  <img
+                    src="/growth/visuals/range-advisory.jpg"
+                    alt="Diverse executive leadership team collaborating around a stone table in a skyline conference boardroom"
+                    className="dws-range-img"
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="dws-range-tag">PROFESSIONAL SERVICES</div>
+                </div>
+                <div className="dws-range-meta">
+                  <h3 className="dws-range-title">Strategic Advisory &amp; Leadership</h3>
+                  <p className="dws-range-desc">
+                    Restrained executive design language with discrete partnership intake and deep credential positioning.
+                  </p>
+                </div>
+              </div>
+
+              {/* Category 6: Hospitality / Lifestyle */}
+              <div className="dws-range-card" role="listitem">
+                <div className="dws-range-media-frame">
+                  <img
+                    src="/growth/visuals/range-hospitality.jpg"
+                    alt="Latina beverage director and culinary artisan inspecting bespoke bottled elixirs in an intimate marble lounge"
+                    className="dws-range-img"
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="dws-range-tag">HOSPITALITY / LIFESTYLE</div>
+                </div>
+                <div className="dws-range-meta">
+                  <h3 className="dws-range-title">Flagship Culinary &amp; Sanctuaries</h3>
+                  <p className="dws-range-desc">
+                    Atmospheric brand experiences integrated with private reservation and VIP guest history capture.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="dws-range-resolution">
+              <p className="dws-range-statement">
+                One growth architecture. Different positioning for every market.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ==================================================================
+            SECTION 7 — OWNERSHIP: RADICAL DATA SOVEREIGNTY
             ================================================================== */}
         <section className="dws-section dws-ownership-section" aria-labelledby="ownership-heading">
           <div className="growth-container">
