@@ -70,7 +70,7 @@ export function Navbar() {
       >
         {navigation.map((n, i) => (
           <Link
-            key={n.href}
+            key={`${n.href}-${i}`}
             href={n.href}
             aria-current={
               pathname === n.href ||

@@ -184,6 +184,12 @@ export async function submitGrowthApplication(
         throw new Error(`Endpoint returned status ${response.status}`);
       }
 
+      trackGrowthEvent('growth_review_completed', {
+        metadata: {
+          submission_mode: 'webhook',
+          industry: payload.industry,
+        },
+      });
       trackGrowthEvent('growth_form_success', {
         metadata: {
           submission_mode: 'webhook',

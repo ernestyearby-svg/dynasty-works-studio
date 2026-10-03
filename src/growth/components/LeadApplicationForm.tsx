@@ -89,8 +89,13 @@ export const LeadApplicationForm: React.FC<LeadApplicationFormProps> = ({
 
     if (!hasStarted) {
       setHasStarted(true);
+      trackGrowthEvent('growth_review_started', {
+        page: isStandalone ? '/growth/apply' : '/growth',
+        step: 'company',
+      });
       trackGrowthEvent('growth_form_start', {
         page: isStandalone ? '/growth/apply' : '/growth',
+        step: 'company',
       });
     }
 

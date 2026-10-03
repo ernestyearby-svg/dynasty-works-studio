@@ -40,6 +40,7 @@ export default function GrowthBookPage() {
     initGrowthTracking();
     const data = getBookingProspect();
     setProspect(data);
+    trackGrowthEvent('booking_page_view', { page: '/growth/book' });
     trackGrowthEvent('growth_booking_view', { page: '/growth/book' });
 
     // Safely load HighLevel form_embed.js singleton
@@ -81,6 +82,7 @@ export default function GrowthBookPage() {
           }
         }
 
+        trackGrowthEvent('appointment_booked', { page: '/growth/book' });
         trackGrowthEvent('growth_booking_complete', { page: '/growth/book' });
         window.location.href = '/growth/thank-you/';
       }

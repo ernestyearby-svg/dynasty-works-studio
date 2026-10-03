@@ -16,6 +16,7 @@ export default function GrowthApplyPage() {
 
   useEffect(() => {
     initGrowthTracking();
+    trackGrowthEvent('growth_review_view', { page: '/growth/apply' });
     trackGrowthEvent('growth_page_view', { page: '/growth/apply' });
   }, []);
 
