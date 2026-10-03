@@ -232,7 +232,7 @@ export default function GrowthPartnerPage() {
 
                 <div className="dws-hero-urgency-chip">
                   <span className="dws-chip-icon">✦</span>
-                  <span>LIMITED TO FIRST 5 QUALIFIED CLIENTS • LAUNCH RATE $997</span>
+                  <span>LIMITED TO FIRST 5 QUALIFIED CLIENTS • STANDARD SETUP $3,500 → LAUNCH SETUP $997</span>
                 </div>
 
                 <a
@@ -246,8 +246,8 @@ export default function GrowthPartnerPage() {
               </div>
             </div>
 
-            {/* ENLARGED STATE-OF-THE-ART LIVING SYSTEM COMMAND DECK */}
-            <div className="dws-hero-command-deck">
+            {/* STATE-OF-THE-ART LIVING SYSTEM COMMAND DECK & REAL-TIME OPERATING DASHBOARD */}
+            <div className="dws-hero-command-deck" role="region" aria-label="Live Growth Engine Command Center">
               <div className="dws-command-deck-frame">
                 {/* Precision HUD Corner Brackets */}
                 <div className="dws-deck-bracket top-left" aria-hidden="true" />
@@ -258,71 +258,295 @@ export default function GrowthPartnerPage() {
                 {/* Subdued Scanning Beam */}
                 <div className="dws-deck-scanline" aria-hidden="true" />
 
-                {/* Top Deck HUD Header Strip */}
+                {/* 1. Top Deck HUD Header Strip */}
                 <div className="dws-deck-hud-top">
                   <div className="dws-deck-status">
                     <span className="dws-status-beacon" />
-                    <span className="dws-status-mono">DWS SYSTEM COMMAND // ARCHITECTURAL CONDUIT</span>
+                    <span className="dws-status-mono">DWS SYSTEM COMMAND // REAL-TIME CONDUIT</span>
+                    <span className="dws-status-build-tag">SYS_VER 5.8.0-PROD</span>
                   </div>
                   <div className="dws-deck-stats">
-                    <span className="dws-stat-pill">EDGE LATENCY: 140ms</span>
-                    <span className="dws-stat-pill">PIPELINE: SYNCHRONIZED</span>
-                    <span className="dws-stat-pill gold">DATA SOVEREIGNTY: 100%</span>
+                    <span className="dws-stat-pill"><span className="dws-stat-dot emerald" /> EDGE LATENCY: 184ms</span>
+                    <span className="dws-stat-pill"><span className="dws-stat-dot cyan" /> PIPELINE: SYNCHRONIZED</span>
+                    <span className="dws-stat-pill gold"><span className="dws-stat-dot gold" /> DATA SOVEREIGNTY: 100%</span>
                   </div>
                 </div>
 
-                {/* Backdrop Layer: Cinema Grade Ultra-Realistic Visual */}
-                <div className="dws-deck-visual-stage">
-                  <img
-                    src="/growth/visuals/hero-system-nexus.jpg"
-                    alt="Dynasty Works Studio architectural growth operating system visualization with illuminated conduits"
-                    className="dws-deck-photo"
-                    width={1600}
-                    height={900}
-                    loading="eager"
-                    fetchPriority="high"
-                  />
-                  <div className="dws-deck-gradient-mask" aria-hidden="true" />
+                {/* 2. Dynamic Real-Time Command Center Stage (Vector / Live Telemetry / SVG Charts) */}
+                <div className="dws-deck-console-stage">
 
-                  {/* Floating Living Telemetry Overlay: Sequential Factual State (Top Right) */}
-                  <div className="dws-floating-hud dws-hud-feed" aria-live="polite">
-                    <div className="dws-hud-head">
-                      <span className="dws-hud-dot" />
-                      <span className="dws-hud-title">LIVE ACQUISITION SEQUENCE</span>
-                      <span className="dws-hud-counter">{currentState.step} / 06</span>
+                  {/* 2a. Floating High-Contrast KPI Cards */}
+                  <div className="dws-console-kpi-grid">
+                    {/* KPI 1: Show-Up Rate */}
+                    <div className="dws-kpi-card">
+                      <div className="dws-kpi-head">
+                        <span className="dws-kpi-label">SHOW-UP RATE</span>
+                        <span className="dws-kpi-badge emerald">+41% VS BASELINE</span>
+                      </div>
+                      <div className="dws-kpi-body">
+                        <span className="dws-kpi-val">92.4%</span>
+                        <svg className="dws-kpi-sparkline" viewBox="0 0 100 32" aria-hidden="true">
+                          <defs>
+                            <linearGradient id="sparkEmerald" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="0%" stopColor="#10b981" stopOpacity="0.4" />
+                              <stop offset="100%" stopColor="#10b981" stopOpacity="0.0" />
+                            </linearGradient>
+                          </defs>
+                          <polygon points="0,30 0,22 15,20 30,24 45,16 60,14 75,8 90,6 100,2 100,30" fill="url(#sparkEmerald)" />
+                          <path d="M 0 22 L 15 20 L 30 24 L 45 16 L 60 14 L 75 8 L 90 6 L 100 2" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" />
+                          <circle cx="100" cy="2" r="3" fill="#10b981" className="dws-spark-node" />
+                        </svg>
+                      </div>
+                      <span className="dws-kpi-sub">24h & 2h Multi-Channel Cadence</span>
                     </div>
-                    <div className="dws-hud-feed-body">
-                      <div className="dws-feed-item fadeIn" key={currentState.step}>
-                        <div className="dws-feed-tag-row">
-                          <span className="dws-feed-tag gold">✦ {currentState.state}</span>
-                          <span className="dws-feed-node-pill">{currentState.nodeName}</span>
+
+                    {/* KPI 2: Cost Per Lead */}
+                    <div className="dws-kpi-card">
+                      <div className="dws-kpi-head">
+                        <span className="dws-kpi-label">COST PER LEAD</span>
+                        <span className="dws-kpi-badge gold">OPTIMIZED</span>
+                      </div>
+                      <div className="dws-kpi-body">
+                        <span className="dws-kpi-val">$18.40</span>
+                        <svg className="dws-kpi-sparkline" viewBox="0 0 100 32" aria-hidden="true">
+                          <defs>
+                            <linearGradient id="sparkGold" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="0%" stopColor="#f3c442" stopOpacity="0.4" />
+                              <stop offset="100%" stopColor="#f3c442" stopOpacity="0.0" />
+                            </linearGradient>
+                          </defs>
+                          <polygon points="0,30 0,8 15,10 30,15 45,18 60,22 75,24 90,26 100,28 100,30" fill="url(#sparkGold)" />
+                          <path d="M 0 8 L 15 10 L 30 15 L 45 18 L 60 22 L 75 24 L 90 26 L 100 28" fill="none" stroke="#f3c442" strokeWidth="2.5" strokeLinecap="round" />
+                          <circle cx="100" cy="28" r="3" fill="#f3c442" className="dws-spark-node" />
+                        </svg>
+                      </div>
+                      <span className="dws-kpi-sub">Meta & Google Bid Efficiency</span>
+                    </div>
+
+                    {/* KPI 3: Conversion Velocity */}
+                    <div className="dws-kpi-card">
+                      <div className="dws-kpi-head">
+                        <span className="dws-kpi-label">CONVERSION VELOCITY</span>
+                        <span className="dws-kpi-badge cyan">&lt;250MS TARGET</span>
+                      </div>
+                      <div className="dws-kpi-body">
+                        <span className="dws-kpi-val">184ms</span>
+                        <div className="dws-velocity-pulse-meter">
+                          <div className="dws-meter-track">
+                            <div className="dws-meter-fill" style={{ width: '85%' }} />
+                          </div>
+                          <span className="dws-meter-status">INSTANT ROUTE</span>
                         </div>
-                        <span className="dws-feed-text">{currentState.summary}</span>
-                        <span className="dws-feed-sub">{currentState.detail}</span>
+                      </div>
+                      <span className="dws-kpi-sub">Webhook Ingestion → CRM & Alert</span>
+                    </div>
+
+                    {/* KPI 4: Revenue Attributed */}
+                    <div className="dws-kpi-card highlight-gold">
+                      <div className="dws-kpi-head">
+                        <span className="dws-kpi-label">REVENUE ATTRIBUTED</span>
+                        <span className="dws-kpi-badge gold">100% MATCH</span>
+                      </div>
+                      <div className="dws-kpi-body">
+                        <span className="dws-kpi-val gold">+$54,200</span>
+                        <svg className="dws-kpi-sparkline" viewBox="0 0 100 32" aria-hidden="true">
+                          <defs>
+                            <linearGradient id="sparkStairs" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="0%" stopColor="#f3c442" stopOpacity="0.45" />
+                              <stop offset="100%" stopColor="#f3c442" stopOpacity="0.0" />
+                            </linearGradient>
+                          </defs>
+                          <polygon points="0,30 0,26 25,26 25,20 50,20 50,14 75,14 75,6 100,6 100,30" fill="url(#sparkStairs)" />
+                          <path d="M 0 26 L 25 26 L 25 20 L 50 20 L 50 14 L 75 14 L 75 6 L 100 6" fill="none" stroke="#f3c442" strokeWidth="2.5" />
+                          <circle cx="100" cy="6" r="3" fill="#f3c442" className="dws-spark-node" />
+                        </svg>
+                      </div>
+                      <span className="dws-kpi-sub">Zero Attribution Signal Decay</span>
+                    </div>
+                  </div>
+
+                  {/* 2b. Interactive Architecture Map (Traffic → Capture → CRM → Automation → Booking → Revenue) */}
+                  <div className="dws-flow-map-container" role="region" aria-label="End-to-End Pipeline Architecture">
+                    <div className="dws-flow-map-header">
+                      <div className="dws-flow-meta">
+                        <span className="dws-flow-tag">// ARCHITECTURAL FLOW CONTINUUM</span>
+                        <span className="dws-flow-title">DEMAND ROUTING & CLOSED-LOOP CONVERSION MAP</span>
+                      </div>
+                      <div className="dws-flow-status-pill">
+                        <span className="dws-status-beacon pulse" />
+                        <span>ACTIVE TELEMETRY: STAGE {currentState.step} OF 06</span>
+                      </div>
+                    </div>
+
+                    {/* SVG Animated Flow Conduits */}
+                    <div className="dws-flow-canvas-wrapper">
+                      <svg className="dws-flow-svg" viewBox="0 0 960 50" preserveAspectRatio="none" aria-hidden="true">
+                        <defs>
+                          <linearGradient id="laserBeam" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="transparent" />
+                            <stop offset="50%" stopColor="#f3c442" stopOpacity="0.9" />
+                            <stop offset="80%" stopColor="#ffffff" />
+                            <stop offset="100%" stopColor="transparent" />
+                          </linearGradient>
+                        </defs>
+                        {/* Static Conduit Spine */}
+                        <path d="M 40 25 L 920 25" stroke="rgba(255,255,255,0.12)" strokeWidth="2" strokeDasharray="4 6" />
+                        {/* Dynamic Animated Traveling Light Beam */}
+                        <path
+                          d="M 40 25 L 920 25"
+                          stroke="url(#laserBeam)"
+                          strokeWidth="3"
+                          className="dws-laser-beam-anim"
+                        />
+                      </svg>
+
+                      {/* 6 Responsive Pipeline Node Stations */}
+                      <div className="dws-pipeline-nodes-strip">
+                        {[
+                          { step: '01', label: 'TRAFFIC', sub: 'Paid & Direct', val: '1,420 Signals', tag: 'INBOUND' },
+                          { step: '02', label: 'CAPTURE', sub: 'Edge Intake', val: '142 Leads (10%)', tag: 'EDGE LP' },
+                          { step: '03', label: 'CRM', sub: 'Sovereign Ledger', val: '0 Duplicates', tag: 'HIGHLEVEL' },
+                          { step: '04', label: 'AUTOMATION', sub: '<250ms Routing', val: 'Instant SMS', tag: 'N8N ENGINE' },
+                          { step: '05', label: 'BOOKING', sub: 'Synced Calendar', val: '92.4% Show-Up', tag: 'CALENDAR' },
+                          { step: '06', label: 'REVENUE', sub: 'Closed-Loop ROI', val: '+$54.2k Attributed', tag: 'CLOSED LOOP' },
+                        ].map((node, idx) => {
+                          const isActive = activeStateIndex === idx;
+                          return (
+                            <button
+                              key={node.step}
+                              type="button"
+                              className={`dws-node-station ${isActive ? 'active' : ''}`}
+                              onClick={() => setActiveStateIndex(idx)}
+                              aria-label={`Select stage ${node.step}: ${node.label}`}
+                            >
+                              <div className="dws-station-node-icon">
+                                <span className="dws-station-num">{node.step}</span>
+                                {isActive && <span className="dws-node-ping" aria-hidden="true" />}
+                              </div>
+                              <span className="dws-station-label">{node.label}</span>
+                              <span className="dws-station-sub">{node.sub}</span>
+                              <span className="dws-station-metric">{node.val}</span>
+                              <span className="dws-station-tag">{node.tag}</span>
+                            </button>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
 
-                  {/* Floating Living Telemetry Overlay: Active State Breadcrumb (Bottom Left) */}
-                  <div className="dws-floating-hud dws-hud-velocity">
-                    <div className="dws-velocity-meta">
-                      <span className="dws-velocity-lead">FACTUAL OPERATIONAL STATUS</span>
-                      <span className="dws-velocity-metric">{currentState.state}</span>
+                  {/* 2c. Lower Split: Live Telemetry Feed & Conversion Trajectory Graph */}
+                  <div className="dws-console-lower-grid">
+                    {/* Left: Live Demand Telemetry Feed Terminal */}
+                    <div className="dws-feed-terminal-panel">
+                      <div className="dws-terminal-head">
+                        <div className="dws-terminal-title-wrap">
+                          <span className="dws-terminal-led" />
+                          <span className="dws-terminal-title">LIVE TELEMETRY LOG // EVENT DISPATCH</span>
+                        </div>
+                        <span className="dws-terminal-count">STAGE {currentState.step} / 06</span>
+                      </div>
+
+                      <div className="dws-terminal-current-event">
+                        <div className="dws-event-meta-row">
+                          <span className="dws-event-type gold">✦ {currentState.state}</span>
+                          <span className="dws-event-node">{currentState.nodeName}</span>
+                          <span className="dws-event-time">ACTIVE NOW</span>
+                        </div>
+                        <p className="dws-event-summary">{currentState.summary}</p>
+                        <p className="dws-event-detail">{currentState.detail}</p>
+                      </div>
+
+                      <div className="dws-terminal-feed-list" aria-hidden="true">
+                        <div className="dws-log-row">
+                          <span className="dws-log-time">10:14:02</span>
+                          <span className="dws-log-badge green">CAPTURED</span>
+                          <span className="dws-log-text">Aesthetic MedSpa inquiry · Paid Campaign (cpc) · gclid locked</span>
+                        </div>
+                        <div className="dws-log-row">
+                          <span className="dws-log-time">10:14:03</span>
+                          <span className="dws-log-badge cyan">DISPATCHED</span>
+                          <span className="dws-log-text">Sovereign CRM contact #DWS-8492 · Deduplication verified 0 duplicates</span>
+                        </div>
+                        <div className="dws-log-row">
+                          <span className="dws-log-time">10:14:28</span>
+                          <span className="dws-log-badge gold">BOOKED</span>
+                          <span className="dws-log-text">Strategy call confirmed for Tomorrow 2:00 PM EST · Reminders queued</span>
+                        </div>
+                      </div>
                     </div>
-                    <div className="dws-velocity-track">
-                      <div
-                        className="dws-velocity-bar-fast"
-                        style={{ width: `${((activeStateIndex + 1) / 6) * 100}%` }}
-                      />
-                    </div>
-                    <div className="dws-velocity-sub">
-                      <span>Verified Acquisition Pipeline Stage</span>
-                      <span className="dws-velocity-vs">STEP {activeStateIndex + 1} OF 6</span>
+
+                    {/* Right: Dynamic Demand & Conversion Trajectory Area Chart */}
+                    <div className="dws-chart-panel">
+                      <div className="dws-chart-head">
+                        <div className="dws-chart-title-wrap">
+                          <span className="dws-chart-led" />
+                          <span className="dws-chart-title">CLOSED-LOOP CONVERSION TRAJECTORY</span>
+                        </div>
+                        <div className="dws-terminal-count">{currentState.state}</div>
+                      </div>
+
+                      <div className="dws-chart-body">
+                        <svg className="dws-trajectory-svg" viewBox="0 0 460 140" preserveAspectRatio="none" aria-hidden="true">
+                          <defs>
+                            <linearGradient id="chartAreaGrad" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="0%" stopColor="#f3c442" stopOpacity="0.25" />
+                              <stop offset="70%" stopColor="#f3c442" stopOpacity="0.04" />
+                              <stop offset="100%" stopColor="#f3c442" stopOpacity="0" />
+                            </linearGradient>
+                            <linearGradient id="chartLineGrad" x1="0" y1="0" x2="1" y2="0">
+                              <stop offset="0%" stopColor="#10b981" />
+                              <stop offset="35%" stopColor="#38bdf8" />
+                              <stop offset="75%" stopColor="#f3c442" />
+                              <stop offset="100%" stopColor="#ffffff" />
+                            </linearGradient>
+                          </defs>
+
+                          {/* Grid Lines */}
+                          <line x1="20" y1="25" x2="440" y2="25" stroke="rgba(255,255,255,0.06)" strokeDasharray="3 3" />
+                          <line x1="20" y1="60" x2="440" y2="60" stroke="rgba(255,255,255,0.06)" strokeDasharray="3 3" />
+                          <line x1="20" y1="95" x2="440" y2="95" stroke="rgba(255,255,255,0.06)" strokeDasharray="3 3" />
+
+                          {/* Area Fill */}
+                          <path
+                            d="M 20 125 L 20 30 C 90 35, 140 55, 190 68 C 240 78, 290 85, 340 98 C 390 105, 420 110, 440 114 L 440 125 Z"
+                            fill="url(#chartAreaGrad)"
+                          />
+
+                          {/* Smooth Trajectory Spline */}
+                          <path
+                            d="M 20 30 C 90 35, 140 55, 190 68 C 240 78, 290 85, 340 98 C 390 105, 420 110, 440 114"
+                            fill="none"
+                            stroke="url(#chartLineGrad)"
+                            strokeWidth="3"
+                            strokeLinecap="round"
+                            className="dws-chart-line-draw"
+                          />
+
+                          {/* Milestone Nodes */}
+                          <circle cx="20" cy="30" r="4" fill="#10b981" className="dws-chart-node" />
+                          <circle cx="105" cy="45" r="4" fill="#10b981" className="dws-chart-node" />
+                          <circle cx="190" cy="68" r="4" fill="#38bdf8" className="dws-chart-node" />
+                          <circle cx="275" cy="82" r="4" fill="#38bdf8" className="dws-chart-node" />
+                          <circle cx="360" cy="102" r="4" fill="#f3c442" className="dws-chart-node" />
+                          <circle cx="440" cy="114" r="5" fill="#f3c442" className="dws-chart-node pulse-gold" />
+                        </svg>
+
+                        {/* Chart Bottom Milestone Axis */}
+                        <div className="dws-chart-axis-labels">
+                          <span>01 INBOUND (100%)</span>
+                          <span>02 CAPTURE (10%)</span>
+                          <span>03 CRM (100% MATCH)</span>
+                          <span>04 AUTO (&lt;250ms)</span>
+                          <span>05 BOOKED (92% SHOW)</span>
+                          <span className="gold">06 ROI CLOSED</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
+
                 </div>
 
-                {/* Integrated Continuous Signal Pipeline Conduit Bus (The 6 Stages) */}
+                {/* 3. Integrated Continuous Signal Pipeline Conduit Bus (The 6 Stages) */}
                 <div className="dws-deck-conduit-bar" role="region" aria-label="Signal Pipeline Stages">
                   <div className="dws-conduit-bus-line">
                     <div
@@ -376,6 +600,7 @@ export default function GrowthPartnerPage() {
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
@@ -809,80 +1034,348 @@ export default function GrowthPartnerPage() {
               </p>
             </div>
 
-            {/* Continuous Panoramic Delivery Visual Sequence */}
-            <div className="dws-method-panorama-container dws-reveal" role="region" aria-label="Panoramic Delivery Protocol">
-              <div className="dws-panorama-frame">
-                <img
-                  src="/growth/visuals/method-panorama.jpg"
-                  alt="Continuous technical evolution across Diagnose, Architect, Prove, and Operate stages"
-                  className="dws-panorama-img"
-                  width={1920}
-                  height={1080}
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="dws-panorama-overlay" aria-hidden="true">
-                  <div className="dws-panorama-badge">
-                    <span className="dws-status-dot" />
-                    <span>CONTINUOUS PROTOCOL SEQUENCE // PHASES 01–04</span>
+            {/* Native 4-Phase Infrastructure Interface System */}
+            <div className="dws-infra-protocol-system dws-reveal" role="region" aria-label="Four-Phase Growth Infrastructure Protocol">
+              {/* Top Continuous Bus Conduit with Animated Laser Pulse */}
+              <div className="dws-infra-bus-bar" aria-hidden="true">
+                <div className="dws-infra-bus-track">
+                  <div className="dws-infra-bus-pulse" />
+                </div>
+                <div className="dws-infra-bus-milestones">
+                  <div className="dws-infra-bus-node active">
+                    <span className="dws-bus-node-dot" />
+                    <span className="dws-bus-node-label">01 DIAGNOSE</span>
+                  </div>
+                  <div className="dws-infra-bus-node active">
+                    <span className="dws-bus-node-dot" />
+                    <span className="dws-bus-node-label">02 ARCHITECT</span>
+                  </div>
+                  <div className="dws-infra-bus-node active">
+                    <span className="dws-bus-node-dot" />
+                    <span className="dws-bus-node-label">03 PROVE</span>
+                  </div>
+                  <div className="dws-infra-bus-node live">
+                    <span className="dws-bus-node-dot" />
+                    <span className="dws-bus-node-label">04 OPERATE</span>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div className="dws-timeline-track dws-reveal" role="region" aria-label="Delivery Timeline">
-              <div className="dws-timeline-station">
-                <div className="dws-station-axis">
-                  <div className="dws-station-node" />
-                  <div className="dws-station-line" />
-                </div>
-                <div className="dws-station-content">
-                  <div className="dws-station-badge">PHASE 01</div>
-                  <h3 className="dws-station-title">DIAGNOSE</h3>
-                  <p className="dws-station-desc">
-                    Understand the current journey and locate the failure points.
-                  </p>
-                </div>
-              </div>
+              {/* The 4 Distinct Native Interface Panels */}
+              <div className="dws-infra-cards-grid">
+                {/* 1. PHASE 1 — DIAGNOSE */}
+                <div className="dws-infra-card dws-phase-diagnose">
+                  <div className="dws-infra-card-header">
+                    <div className="dws-infra-card-meta">
+                      <span className="dws-infra-phase-badge">PHASE 01</span>
+                      <span className="dws-infra-status-chip warning">
+                        <span className="dws-status-chip-dot" />
+                        AUDIT // FRICTION
+                      </span>
+                    </div>
+                    <h3 className="dws-infra-card-title">DIAGNOSE</h3>
+                  </div>
 
-              <div className="dws-timeline-station">
-                <div className="dws-station-axis">
-                  <div className="dws-station-node" />
-                  <div className="dws-station-line" />
-                </div>
-                <div className="dws-station-content">
-                  <div className="dws-station-badge">PHASE 02</div>
-                  <h3 className="dws-station-title">ARCHITECT</h3>
-                  <p className="dws-station-desc">
-                    Design the connected Growth Engine around how the business actually sells.
-                  </p>
-                </div>
-              </div>
+                  {/* Native Interface Module: Diagnostic Wireframe & Bottlenecks */}
+                  <div className="dws-infra-card-body">
+                    {/* Diagnostic Score Card */}
+                    <div className="dws-diagnose-score-panel">
+                      <div className="dws-score-label-row">
+                        <span className="dws-ui-mono">CURRENT EFFICIENCY</span>
+                        <span className="dws-ui-badge red">34 / 100</span>
+                      </div>
+                      <div className="dws-score-meter-track">
+                        <div className="dws-score-meter-bar red" style={{ width: '34%' }} />
+                      </div>
+                      <div className="dws-score-meta-stat">
+                        <span>LEAD RESPONSE LAG:</span>
+                        <strong className="dws-text-warn">42.5m (LEAK)</strong>
+                      </div>
+                    </div>
 
-              <div className="dws-timeline-station">
-                <div className="dws-station-axis">
-                  <div className="dws-station-node" />
-                  <div className="dws-station-line" />
-                </div>
-                <div className="dws-station-content">
-                  <div className="dws-station-badge">PHASE 03</div>
-                  <h3 className="dws-station-title">PROVE</h3>
-                  <p className="dws-station-desc">
-                    Build in staging and test every critical path.
-                  </p>
-                </div>
-              </div>
+                    {/* Bottleneck Wireframe & Failure Points */}
+                    <div className="dws-diagnose-wireframe">
+                      <div className="dws-ui-section-title">// FRICTION AUDIT</div>
+                      <div className="dws-diagnose-nodes-list">
+                        <div className="dws-diagnose-item leak">
+                          <span className="dws-diagnose-indicator red">!</span>
+                          <div className="dws-diagnose-info">
+                            <span className="dws-diagnose-name">Traffic Ingestion Leak</span>
+                            <span className="dws-diagnose-desc">68% drop-off on unoptimized form</span>
+                          </div>
+                        </div>
+                        <div className="dws-diagnose-item delay">
+                          <span className="dws-diagnose-indicator amber">⧗</span>
+                          <div className="dws-diagnose-info">
+                            <span className="dws-diagnose-name">Unrouted Follow-up</span>
+                            <span className="dws-diagnose-desc">Manual email lag kills booking rate</span>
+                          </div>
+                        </div>
+                        <div className="dws-diagnose-item silo">
+                          <span className="dws-diagnose-indicator red">✕</span>
+                          <div className="dws-diagnose-info">
+                            <span className="dws-diagnose-name">Siloed Data</span>
+                            <span className="dws-diagnose-desc">3 spreadsheets, zero attribution</span>
+                          </div>
+                        </div>
+                      </div>
 
-              <div className="dws-timeline-station">
-                <div className="dws-station-axis">
-                  <div className="dws-station-node active" />
+                      {/* Mini SVG Bottleneck Flow Wireframe */}
+                      <div className="dws-diagnose-flow-svg-wrap">
+                        <svg className="dws-diagnose-svg" viewBox="0 0 240 38" fill="none" aria-hidden="true">
+                          <rect x="2" y="8" width="56" height="22" rx="3" fill="#141824" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
+                          <text x="30" y="22" textAnchor="middle" fill="#9fa4b2" fontSize="7.5" fontFamily="monospace">TRAFFIC</text>
+                          
+                          <path d="M 58 19 L 90 19" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="3 3" />
+                          <circle cx="74" cy="19" r="2.5" fill="#ef4444" />
+                          
+                          <rect x="92" y="8" width="58" height="22" rx="3" fill="rgba(239, 68, 68, 0.12)" stroke="#ef4444" strokeWidth="1" />
+                          <text x="121" y="22" textAnchor="middle" fill="#fca5a5" fontSize="7" fontFamily="monospace">LEAK 68%</text>
+                          
+                          <path d="M 150 19 L 176 19" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5" />
+                          
+                          <rect x="178" y="8" width="60" height="22" rx="3" fill="#141824" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
+                          <text x="208" y="22" textAnchor="middle" fill="#ef4444" fontSize="7" fontFamily="monospace">LOST LEAD</text>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Supporting Caption */}
+                  <div className="dws-infra-card-footer">
+                    <p className="dws-infra-card-desc">
+                      Understand the current journey and locate the failure points.
+                    </p>
+                  </div>
                 </div>
-                <div className="dws-station-content">
-                  <div className="dws-station-badge">PHASE 04</div>
-                  <h3 className="dws-station-title">OPERATE</h3>
-                  <p className="dws-station-desc">
-                    Launch, monitor and improve the system against real conversion data.
-                  </p>
+
+                {/* 2. PHASE 2 — ARCHITECT */}
+                <div className="dws-infra-card dws-phase-architect">
+                  <div className="dws-infra-card-header">
+                    <div className="dws-infra-card-meta">
+                      <span className="dws-infra-phase-badge">PHASE 02</span>
+                      <span className="dws-infra-status-chip cyan">
+                        <span className="dws-status-chip-dot" />
+                        LOGIC // BLUEPRINT
+                      </span>
+                    </div>
+                    <h3 className="dws-infra-card-title">ARCHITECT</h3>
+                  </div>
+
+                  {/* Native Interface Module: Blueprint Logic & Conduit Schematic */}
+                  <div className="dws-infra-card-body">
+                    <div className="dws-blueprint-schematic-panel">
+                      <div className="dws-blueprint-head">
+                        <span className="dws-ui-mono">ENGINE ARCHITECTURE</span>
+                        <span className="dws-ui-badge cyan">TOPOLOGY 1.0</span>
+                      </div>
+
+                      {/* Schematic Visual Flow */}
+                      <div className="dws-blueprint-flow-wrap">
+                        <div className="dws-blueprint-node-row">
+                          <div className="dws-bp-block">
+                            <span className="dws-bp-tag">INPUT</span>
+                            <span className="dws-bp-val">Edge LP Intake</span>
+                          </div>
+                          <span className="dws-bp-arrow">→</span>
+                          <div className="dws-bp-block active">
+                            <span className="dws-bp-tag">DEDUP</span>
+                            <span className="dws-bp-val">Sovereign CRM</span>
+                          </div>
+                        </div>
+
+                        <div className="dws-bp-connector-mid">
+                          <svg className="dws-bp-bus-svg" viewBox="0 0 240 18" fill="none" aria-hidden="true">
+                            <path d="M 60 2 L 60 9 L 180 9 L 180 16" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="4 2" />
+                            <circle cx="120" cy="9" r="2.5" fill="#38bdf8" />
+                          </svg>
+                        </div>
+
+                        <div className="dws-blueprint-node-row">
+                          <div className="dws-bp-block">
+                            <span className="dws-bp-tag">SPEED</span>
+                            <span className="dws-bp-val">Instant SMS &lt;180s</span>
+                          </div>
+                          <span className="dws-bp-arrow">→</span>
+                          <div className="dws-bp-block highlight">
+                            <span className="dws-bp-tag">OUTPUT</span>
+                            <span className="dws-bp-val">Calendar Lock</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Logic Rules Table */}
+                      <div className="dws-blueprint-rules-box">
+                        <div className="dws-bp-rule">
+                          <span className="dws-bp-kw">RULE 1</span>
+                          <span className="dws-bp-stmt">Score &ge; 80 &rarr; Instant VIP Slot</span>
+                        </div>
+                        <div className="dws-bp-rule">
+                          <span className="dws-bp-kw">RULE 2</span>
+                          <span className="dws-bp-stmt">No-Book 15m &rarr; Smart Re-engage</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Supporting Caption */}
+                  <div className="dws-infra-card-footer">
+                    <p className="dws-infra-card-desc">
+                      Design the connected Growth Engine around how the business actually sells.
+                    </p>
+                  </div>
+                </div>
+
+                {/* 3. PHASE 3 — PROVE */}
+                <div className="dws-infra-card dws-phase-prove">
+                  <div className="dws-infra-card-header">
+                    <div className="dws-infra-card-meta">
+                      <span className="dws-infra-phase-badge">PHASE 03</span>
+                      <span className="dws-infra-status-chip emerald">
+                        <span className="dws-status-chip-dot" />
+                        STAGING // 100% QA
+                      </span>
+                    </div>
+                    <h3 className="dws-infra-card-title">PROVE</h3>
+                  </div>
+
+                  {/* Native Interface Module: QA Test Matrix & Staging Suite */}
+                  <div className="dws-infra-card-body">
+                    <div className="dws-staging-suite-panel">
+                      <div className="dws-staging-head">
+                        <span className="dws-ui-mono">STAGING VERIFICATION</span>
+                        <span className="dws-ui-badge emerald">16/16 PASS</span>
+                      </div>
+
+                      {/* Interactive QA Checklist */}
+                      <div className="dws-qa-checklist">
+                        <div className="dws-qa-item pass">
+                          <span className="dws-qa-icon">✓</span>
+                          <div className="dws-qa-meta">
+                            <span className="dws-qa-name">Lead Ingestion Webhook</span>
+                            <span className="dws-qa-timing">142ms latency (&lt;250ms)</span>
+                          </div>
+                          <span className="dws-qa-state">PASS</span>
+                        </div>
+
+                        <div className="dws-qa-item pass">
+                          <span className="dws-qa-icon">✓</span>
+                          <div className="dws-qa-meta">
+                            <span className="dws-qa-name">Identity Deduplication</span>
+                            <span className="dws-qa-timing">0 duplicates in stress pool</span>
+                          </div>
+                          <span className="dws-qa-state">PASS</span>
+                        </div>
+
+                        <div className="dws-qa-item pass">
+                          <span className="dws-qa-icon">✓</span>
+                          <div className="dws-qa-meta">
+                            <span className="dws-qa-name">Multi-Channel Cadence</span>
+                            <span className="dws-qa-timing">SMS + Voice + Email sync</span>
+                          </div>
+                          <span className="dws-qa-state">PASS</span>
+                        </div>
+
+                        <div className="dws-qa-item pass">
+                          <span className="dws-qa-icon">✓</span>
+                          <div className="dws-qa-meta">
+                            <span className="dws-qa-name">Closed-Loop CAPI Sync</span>
+                            <span className="dws-qa-timing">100% Match Quality</span>
+                          </div>
+                          <span className="dws-qa-state">PASS</span>
+                        </div>
+                      </div>
+
+                      {/* Staging Benchmark Banner */}
+                      <div className="dws-staging-cert-bar">
+                        <span className="dws-cert-dot" />
+                        <span>ZERO CODE TO PROD WITHOUT QA</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Supporting Caption */}
+                  <div className="dws-infra-card-footer">
+                    <p className="dws-infra-card-desc">
+                      Build in staging and test every critical path.
+                    </p>
+                  </div>
+                </div>
+
+                {/* 4. PHASE 4 — OPERATE */}
+                <div className="dws-infra-card dws-phase-operate">
+                  <div className="dws-infra-card-header">
+                    <div className="dws-infra-card-meta">
+                      <span className="dws-infra-phase-badge">PHASE 04</span>
+                      <span className="dws-infra-status-chip gold live-pulse">
+                        <span className="dws-status-chip-dot live" />
+                        PROD // ACTIVE
+                      </span>
+                    </div>
+                    <h3 className="dws-infra-card-title">OPERATE</h3>
+                  </div>
+
+                  {/* Native Interface Module: Real-time Telemetry & Attribution */}
+                  <div className="dws-infra-card-body">
+                    <div className="dws-operate-dashboard-panel">
+                      <div className="dws-operate-head">
+                        <span className="dws-ui-mono">LIVE PRODUCTION</span>
+                        <span className="dws-ui-badge gold">CONTINUOUS</span>
+                      </div>
+
+                      {/* Mini Live KPI Grid */}
+                      <div className="dws-operate-kpi-row">
+                        <div className="dws-operate-kpi-item">
+                          <span className="dws-kpi-sub">SHOW-UP RATE</span>
+                          <div className="dws-kpi-main">
+                            <strong className="dws-kpi-val emerald">92.4%</strong>
+                            <span className="dws-kpi-delta">+41%</span>
+                          </div>
+                        </div>
+                        <div className="dws-operate-kpi-item">
+                          <span className="dws-kpi-sub">COST PER LEAD</span>
+                          <div className="dws-kpi-main">
+                            <strong className="dws-kpi-val gold">$18.40</strong>
+                            <span className="dws-kpi-delta">-32%</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Revenue Trajectory SVG Graph */}
+                      <div className="dws-operate-chart-box">
+                        <div className="dws-chart-meta-row">
+                          <span className="dws-ui-mono">CLOSED-LOOP ATTRIBUTION</span>
+                          <span className="dws-chart-rev-val">+$54,200</span>
+                        </div>
+                        <div className="dws-operate-svg-wrap">
+                          <svg className="dws-operate-chart-svg" viewBox="0 0 240 50" preserveAspectRatio="none" fill="none" aria-hidden="true">
+                            <defs>
+                              <linearGradient id="operateRevGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor="#f3c442" stopOpacity="0.3" />
+                                <stop offset="100%" stopColor="#f3c442" stopOpacity="0.0" />
+                              </linearGradient>
+                            </defs>
+                            <path d="M 0 46 Q 60 42 100 30 T 180 14 T 240 4 L 240 50 L 0 50 Z" fill="url(#operateRevGrad)" />
+                            <path d="M 0 46 Q 60 42 100 30 T 180 14 T 240 4" stroke="#f3c442" strokeWidth="2" strokeLinecap="round" />
+                            <circle cx="240" cy="4" r="3" fill="#f3c442" />
+                          </svg>
+                        </div>
+                        <div className="dws-operate-chart-legend">
+                          <span>W1: INTAKE</span>
+                          <span>W2: STAGING</span>
+                          <span>W3: SCALE</span>
+                          <span className="gold">LIVE PROD</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Supporting Caption */}
+                  <div className="dws-infra-card-footer">
+                    <p className="dws-infra-card-desc">
+                      Launch, monitor and improve the system against real conversion data.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1099,7 +1592,7 @@ export default function GrowthPartnerPage() {
                   <span className="dws-plate-dot" aria-hidden="true" />
                   <span className="dws-plate-label">Founding Client Launch Rate</span>
                 </div>
-                <span className="dws-plate-allocation">LIMITED TO THE FIRST 5 CLIENTS</span>
+                <span className="dws-plate-allocation">LIMITED TO THE FIRST 5 QUALIFIED CLIENTS</span>
               </div>
 
               <h2 id="partner-heading" className="dws-invitation-title">
@@ -1114,7 +1607,7 @@ export default function GrowthPartnerPage() {
                     <div className="dws-price-block">
                       <div className="dws-price-anchor">
                         <span className="dws-anchor-label">STANDARD SETUP</span>
-                        <span className="dws-anchor-num slashed">$2,500</span>
+                        <span className="dws-anchor-num slashed">$3,500</span>
                       </div>
                       <div className="dws-launch-tier">
                         <span className="dws-launch-label">LAUNCH RATE SETUP</span>
@@ -1182,11 +1675,11 @@ export default function GrowthPartnerPage() {
                       onClick={() =>
                         handleCtaClick(
                           'Launch Rate Invitation CTA',
-                          'CLAIM LAUNCH RATE — START WITH MY FREE GROWTH REVIEW'
+                          'RESERVE MY FOUNDING CLIENT SPOT — FREE GROWTH REVIEW'
                         )
                       }
                     >
-                      <span>CLAIM LAUNCH RATE — START WITH MY FREE GROWTH REVIEW</span>
+                      <span>RESERVE MY FOUNDING CLIENT SPOT — FREE GROWTH REVIEW</span>
                       <span className="dws-btn-arrow" aria-hidden="true">→</span>
                     </a>
                   </div>

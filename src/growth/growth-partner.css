@@ -921,205 +921,658 @@
   border-color: rgba(212, 175, 55, 0.25);
 }
 
-/* Visual Stage & Photographic Base */
-.dws-deck-visual-stage {
+/* ==========================================================================
+   STATE-OF-THE-ART REAL-TIME COMMAND CENTER & DYNAMIC SYSTEM MAP
+   ========================================================================== */
+.dws-deck-console-stage {
   position: relative;
   width: 100%;
-  height: clamp(380px, 48vw, 620px);
+  background: #080a11;
+  background-image: 
+    linear-gradient(rgba(212, 175, 55, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  padding: 24px;
+  box-sizing: border-box;
   overflow: hidden;
-  background: #050608;
 }
 
-.dws-deck-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transform: scale(1.01);
-  animation: dwsHeroDrift 28s ease-in-out infinite alternate;
+/* 2a. Floating High-Contrast KPI Cards Grid */
+.dws-console-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
 }
 
-@keyframes dwsHeroDrift {
-  0% { transform: scale(1.01) translate(0, 0); }
-  100% { transform: scale(1.04) translate(-0.5%, -0.5%); }
-}
-
-.dws-deck-gradient-mask {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: 
-    radial-gradient(circle at 60% 40%, rgba(6, 7, 9, 0.1) 0%, rgba(6, 7, 9, 0.8) 95%),
-    linear-gradient(180deg, rgba(8, 10, 16, 0.3) 0%, transparent 35%, rgba(8, 10, 16, 0.92) 100%);
-}
-
-/* Floating Glassmorphic Telemetry HUDs */
-.dws-floating-hud {
-  position: absolute;
-  background: rgba(9, 11, 17, 0.88);
-  border: 1px solid rgba(212, 175, 55, 0.35);
+.dws-kpi-card {
+  background: rgba(16, 20, 30, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
-  z-index: 3;
-}
-
-.dws-hud-feed {
-  top: 24px;
-  right: 24px;
-  width: clamp(280px, 34vw, 420px);
-  padding: 14px 18px;
-}
-
-.dws-hud-head {
+  padding: 14px 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
+  flex-direction: column;
+}
+
+.dws-kpi-card:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 16px rgba(212, 175, 55, 0.1);
+}
+
+.dws-kpi-card.highlight-gold {
+  border-color: rgba(212, 175, 55, 0.35);
+  background: rgba(20, 24, 38, 0.92);
+}
+
+.dws-kpi-head {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 8px;
-  margin-bottom: 10px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 6px;
 }
 
-.dws-hud-counter {
-  margin-left: auto;
+.dws-kpi-label {
   font-family: monospace;
   font-size: 10px;
-  color: #f3c442;
+  color: #9da3b4;
+  letter-spacing: 0.1em;
   font-weight: 700;
 }
 
-.dws-hud-dot {
+.dws-kpi-badge {
+  font-family: monospace;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.06em;
+}
+
+.dws-kpi-badge.emerald {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.dws-kpi-badge.gold {
+  background: rgba(243, 196, 66, 0.15);
+  color: #f3c442;
+  border: 1px solid rgba(243, 196, 66, 0.3);
+}
+
+.dws-kpi-badge.cyan {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.dws-kpi-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0 6px;
+}
+
+.dws-kpi-val {
+  font-family: monospace;
+  font-size: clamp(20px, 1.8vw, 26px);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.dws-kpi-val.gold {
+  color: #f3c442;
+  text-shadow: 0 0 12px rgba(243, 196, 66, 0.25);
+}
+
+.dws-kpi-sparkline {
+  width: 90px;
+  height: 28px;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.dws-spark-node {
+  animation: dwsPulseNode 2s infinite ease-in-out;
+}
+
+@keyframes dwsPulseNode {
+  0%, 100% { r: 3; opacity: 1; }
+  50% { r: 4.5; opacity: 0.7; }
+}
+
+.dws-kpi-sub {
+  font-family: monospace;
+  font-size: 10px;
+  color: #727a8e;
+  line-height: 1.3;
+  margin-top: auto;
+}
+
+.dws-velocity-pulse-meter {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 90px;
+}
+
+.dws-meter-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.dws-meter-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #10b981);
+  border-radius: 2px;
+  animation: dwsPulseWidth 2.4s infinite alternate ease-in-out;
+}
+
+@keyframes dwsPulseWidth {
+  0% { width: 75%; }
+  100% { width: 92%; }
+}
+
+.dws-meter-status {
+  font-family: monospace;
+  font-size: 8.5px;
+  color: #38bdf8;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* 2b. Interactive Architecture Map */
+.dws-flow-map-container {
+  background: rgba(14, 18, 28, 0.92);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 6px;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.dws-flow-map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 10px;
+}
+
+.dws-flow-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dws-flow-tag {
+  font-family: monospace;
+  font-size: 9.5px;
+  color: #8a6c1e;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+}
+
+.dws-flow-title {
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.08em;
+}
+
+.dws-flow-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: #f3c442;
+  background: rgba(212, 175, 55, 0.08);
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.dws-flow-canvas-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.dws-flow-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dws-laser-beam-anim {
+  animation: dwsLaserFlow 3.5s linear infinite;
+}
+
+@keyframes dwsLaserFlow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.dws-pipeline-nodes-strip {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.dws-node-station {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: rgba(18, 23, 36, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 12px 6px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: inherit;
+  color: inherit;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.dws-node-station:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  transform: translateY(-3px);
+  background: rgba(24, 30, 48, 0.95);
+}
+
+.dws-node-station.active {
+  border-color: #f3c442;
+  background: rgba(28, 35, 54, 0.98);
+  box-shadow: 0 0 20px rgba(243, 196, 66, 0.25), inset 0 0 10px rgba(243, 196, 66, 0.08);
+  transform: translateY(-4px);
+}
+
+.dws-station-node-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0c0f17;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 6px;
+  transition: all 0.2s ease;
+}
+
+.dws-node-station.active .dws-station-node-icon {
+  border-color: #f3c442;
+  background: #161c2a;
+}
+
+.dws-station-num {
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 800;
+  color: #a2a8b8;
+}
+
+.dws-node-station.active .dws-station-num {
+  color: #f3c442;
+}
+
+.dws-node-ping {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid #f3c442;
+  animation: dwsStationPing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes dwsStationPing {
+  0% { transform: scale(0.9); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.dws-station-label {
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+}
+
+.dws-node-station.active .dws-station-label {
+  color: #f3c442;
+}
+
+.dws-station-sub {
+  font-family: monospace;
+  font-size: 9px;
+  color: #727a8e;
+  margin-bottom: 4px;
+}
+
+.dws-station-metric {
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.dws-node-station.active .dws-station-metric {
+  color: #10b981;
+}
+
+.dws-station-tag {
+  font-family: monospace;
+  font-size: 8px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #8e95a5;
+}
+
+/* 2c. Lower Split: Live Telemetry Feed & Conversion Trajectory */
+.dws-console-lower-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.dws-feed-terminal-panel,
+.dws-chart-panel {
+  background: rgba(14, 18, 28, 0.92);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 6px;
+  padding: 16px 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.dws-terminal-head,
+.dws-chart-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 8px;
+}
+
+.dws-terminal-title-wrap,
+.dws-chart-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dws-terminal-led,
+.dws-chart-led {
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: #10b981;
-  box-shadow: 0 0 6px #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: dwsLedBlink 2s infinite;
 }
 
-.dws-hud-title {
+@keyframes dwsLedBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.dws-terminal-title,
+.dws-chart-title {
   font-family: monospace;
-  font-size: 10px;
+  font-size: 10.5px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   color: #d4af37;
 }
 
-.dws-feed-item {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+.dws-chart-tag {
+  font-family: monospace;
+  font-size: 9px;
+  color: #8a6c1e;
+  margin-right: 4px;
 }
 
-.dws-feed-item.fadeIn {
-  animation: dwsFadeIn 0.35s ease-out forwards;
-}
-
-@keyframes dwsFadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.dws-feed-tag-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-}
-
-.dws-feed-tag {
+.dws-terminal-count {
   font-family: monospace;
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  color: #10b981;
+  color: #f3c442;
 }
-.dws-feed-tag.gold { color: #f3c442; }
 
-.dws-feed-node-pill {
+.dws-terminal-current-event {
+  background: rgba(22, 28, 44, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 4px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+
+.dws-event-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.dws-event-type {
+  font-family: monospace;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.dws-event-type.gold { color: #f3c442; }
+
+.dws-event-node {
   font-family: monospace;
   font-size: 9px;
+  background: rgba(255, 255, 255, 0.08);
   padding: 2px 6px;
-  background: rgba(255, 255, 255, 0.06);
   border-radius: 2px;
   color: #a4a9b6;
 }
 
-.dws-feed-text {
-  font-size: 13.5px;
+.dws-event-time {
+  margin-left: auto;
+  font-family: monospace;
+  font-size: 9px;
+  color: #10b981;
+  font-weight: 700;
+}
+
+.dws-event-summary {
+  font-size: 13px;
   font-weight: 600;
   color: #ffffff;
   line-height: 1.35;
+  margin: 0 0 4px;
 }
 
-.dws-feed-sub {
+.dws-event-detail {
   font-family: monospace;
-  font-size: 10.5px;
+  font-size: 10px;
   color: #8c92a0;
   line-height: 1.3;
+  margin: 0;
 }
 
-.dws-hud-velocity {
-  bottom: 24px;
-  left: 24px;
-  width: clamp(260px, 30vw, 360px);
-  padding: 14px 16px;
-}
-
-.dws-velocity-meta {
+.dws-terminal-feed-list {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  margin-bottom: 10px;
+  gap: 6px;
 }
 
-.dws-velocity-lead {
+.dws-log-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-family: monospace;
   font-size: 9.5px;
   color: #8c92a0;
-  letter-spacing: 0.1em;
+  padding: 4px 6px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 3px;
 }
 
-.dws-velocity-metric {
-  font-size: 14px;
+.dws-log-time {
+  color: #5d6373;
+}
+
+.dws-log-badge {
   font-weight: 700;
-  color: #f3c442;
-  letter-spacing: 0.04em;
-  font-family: monospace;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-size: 8.5px;
 }
 
-.dws-velocity-track {
-  width: 100%;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 2px;
-  position: relative;
+.dws-log-badge.green { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+.dws-log-badge.cyan { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+.dws-log-badge.gold { background: rgba(243, 196, 66, 0.15); color: #f3c442; }
+
+.dws-log-text {
+  white-space: nowrap;
   overflow: hidden;
-  margin-bottom: 8px;
+  text-overflow: ellipsis;
+  color: #b0b5c4;
 }
 
-.dws-velocity-bar-fast {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, #d4af37 0%, #f3c442 100%);
-  border-radius: 2px;
-  transition: width 0.5s ease;
+/* Right Chart Body */
+.dws-chart-body {
+  position: relative;
+  width: 100%;
 }
 
-.dws-velocity-sub {
+.dws-trajectory-svg {
+  width: 100%;
+  height: 130px;
+  display: block;
+}
+
+.dws-chart-line-draw {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 0;
+  animation: dwsDrawCurve 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes dwsDrawCurve {
+  from { stroke-dashoffset: 600; }
+  to { stroke-dashoffset: 0; }
+}
+
+.dws-chart-node {
+  transition: r 0.2s ease;
+}
+
+.dws-chart-node.pulse-gold {
+  animation: dwsPulseGoldNode 2s infinite ease-in-out;
+}
+
+@keyframes dwsPulseGoldNode {
+  0%, 100% { r: 5; opacity: 1; }
+  50% { r: 7.5; opacity: 0.7; }
+}
+
+.dws-chart-axis-labels {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: monospace;
-  font-size: 10px;
-  color: #c2c7d4;
+  font-size: 8.5px;
+  color: #727a8e;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 6px;
+  margin-top: 4px;
 }
 
-.dws-velocity-vs {
-  color: #10b981;
+.dws-chart-axis-labels span.gold {
+  color: #f3c442;
   font-weight: 700;
+}
+
+/* Status build tag */
+.dws-status-build-tag {
+  font-family: monospace;
+  font-size: 9px;
+  padding: 1px 6px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #727a8e;
+  margin-left: 6px;
+}
+
+.dws-stat-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.dws-stat-dot.emerald { background: #10b981; box-shadow: 0 0 6px #10b981; }
+.dws-stat-dot.cyan { background: #38bdf8; box-shadow: 0 0 6px #38bdf8; }
+.dws-stat-dot.gold { background: #f3c442; box-shadow: 0 0 6px #f3c442; }
+
+/* Responsive adjustments for Command Center */
+@media (max-width: 1024px) {
+  .dws-console-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .dws-pipeline-nodes-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .dws-console-lower-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .dws-deck-console-stage {
+    padding: 14px;
+  }
+  .dws-console-kpi-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .dws-pipeline-nodes-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .dws-chart-axis-labels {
+    font-size: 7.5px;
+  }
 }
 
 /* Integrated Continuous Signal Pipeline Conduit Bus (The 6 Stages) */
@@ -1721,125 +2174,706 @@
 }
 
 /* ==========================================================================
-   SECTION 5 — DELIVERY METHOD: CINEMATIC TIMELINE
+   SECTION 5 — DELIVERY METHOD: NATIVE 4-PHASE INFRASTRUCTURE ARCHITECTURE
    ========================================================================== */
-.dws-method-panorama-container {
+.dws-infra-protocol-system {
   margin-top: clamp(40px, 5vw, 64px);
-  margin-bottom: clamp(36px, 4.5vw, 56px);
-}
-
-.dws-panorama-frame {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  box-shadow: 0 24px 64px -16px rgba(0, 0, 0, 0.8), 0 0 40px rgba(212, 175, 55, 0.06);
-  background: #050608;
-}
-
-.dws-panorama-img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  display: block;
-}
-
-.dws-panorama-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: linear-gradient(180deg, rgba(5, 6, 8, 0.02) 0%, rgba(5, 6, 8, 0.35) 100%);
-}
-
-.dws-panorama-badge {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(8, 10, 15, 0.88);
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  padding: 6px 14px;
-  border-radius: 4px;
-  font-family: monospace;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: #d4af37;
-  backdrop-filter: blur(8px);
-}
-
-.dws-timeline-track {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(20px, 3vw, 40px);
-  position: relative;
-  margin-top: clamp(24px, 3vw, 40px);
-}
-
-.dws-timeline-station {
-  display: flex;
-  flex-direction: column;
   position: relative;
 }
 
-.dws-station-axis {
-  display: flex;
-  align-items: center;
+/* Master Illuminated Top Bus Bar */
+.dws-infra-bus-bar {
   margin-bottom: 24px;
   position: relative;
 }
 
-.dws-station-node {
+.dws-infra-bus-track {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+  border-radius: 1px;
+}
+
+.dws-infra-bus-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #d4af37, #ffffff, #d4af37, transparent);
+  box-shadow: 0 0 10px #d4af37;
+  animation: dwsInfraLaser 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes dwsInfraLaser {
+  0% { transform: translateX(-150px); }
+  100% { transform: translateX(calc(1200px + 150px)); }
+}
+
+.dws-infra-bus-milestones {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.dws-infra-bus-node {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dws-bus-node-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1e2433;
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
+}
+
+.dws-infra-bus-node.active .dws-bus-node-dot {
+  background: #d4af37;
+  border-color: #f3c442;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+}
+
+.dws-infra-bus-node.live .dws-bus-node-dot {
+  background: #10b981;
+  border-color: #34d399;
+  box-shadow: 0 0 10px #10b981;
+  animation: dwsPulseLive 2s infinite ease-in-out;
+}
+
+@keyframes dwsPulseLive {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+.dws-bus-node-label {
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #8c93a4;
+}
+
+.dws-infra-bus-node.active .dws-bus-node-label {
+  color: #d4af37;
+}
+
+.dws-infra-bus-node.live .dws-bus-node-label {
+  color: #10b981;
+}
+
+/* 4-Cards Grid */
+.dws-infra-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.dws-infra-card {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #111422 0%, #0a0d16 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 18px 16px 16px;
+  position: relative;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.dws-infra-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 24px rgba(212, 175, 55, 0.08);
+}
+
+/* Card Header */
+.dws-infra-card-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.dws-infra-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.dws-infra-phase-badge {
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #d4af37;
+}
+
+.dws-infra-status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: monospace;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.dws-infra-status-chip.warning {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.dws-infra-status-chip.cyan {
+  background: rgba(56, 189, 248, 0.12);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.dws-infra-status-chip.emerald {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.dws-infra-status-chip.gold {
+  background: rgba(243, 196, 66, 0.12);
+  color: #f3c442;
+  border: 1px solid rgba(243, 196, 66, 0.3);
+}
+
+.dws-status-chip-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.dws-status-chip-dot.live {
+  animation: dwsPulseLive 1.5s infinite;
+}
+
+.dws-infra-card-title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Card Body Interface */
+.dws-infra-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Common UI Elements */
+.dws-ui-mono {
+  font-family: monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #8c93a4;
+}
+
+.dws-ui-badge {
+  font-family: monospace;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 2px;
+}
+
+.dws-ui-badge.red {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.dws-ui-badge.cyan {
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+}
+
+.dws-ui-badge.emerald {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.dws-ui-badge.gold {
+  background: rgba(243, 196, 66, 0.2);
+  color: #f3c442;
+}
+
+.dws-ui-section-title {
+  font-family: monospace;
+  font-size: 8.5px;
+  font-weight: 700;
+  color: #d4af37;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+/* Phase 1 Diagnose Specifics */
+.dws-diagnose-score-panel {
+  background: rgba(18, 22, 34, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.dws-score-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.dws-score-meter-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.dws-score-meter-bar.red {
+  height: 100%;
+  background: #ef4444;
+  box-shadow: 0 0 6px #ef4444;
+}
+
+.dws-score-meta-stat {
+  display: flex;
+  justify-content: space-between;
+  font-family: monospace;
+  font-size: 9px;
+  color: #8c93a4;
+}
+
+.dws-text-warn {
+  color: #ef4444;
+}
+
+.dws-diagnose-wireframe {
+  background: rgba(18, 22, 34, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dws-diagnose-nodes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.dws-diagnose-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  padding: 4px 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.dws-diagnose-indicator {
+  font-family: monospace;
+  font-size: 9px;
+  font-weight: 800;
   width: 14px;
   height: 14px;
-  border-radius: 50%;
-  background: #060709;
-  border: 2px solid #d4af37;
-  z-index: 2;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
-.dws-station-node.active {
-  background: #d4af37;
-  box-shadow: 0 0 12px #d4af37;
+.dws-diagnose-indicator.red {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
 }
 
-.dws-station-line {
-  flex: 1;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.1);
-  margin-left: 12px;
+.dws-diagnose-indicator.amber {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
 }
 
-.dws-timeline-station:last-child .dws-station-line {
-  display: none;
+.dws-diagnose-info {
+  display: flex;
+  flex-direction: column;
 }
 
-.dws-station-badge {
-  font-family: monospace;
+.dws-diagnose-name {
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.16em;
-  color: #d4af37;
-  margin-bottom: 8px;
-}
-
-.dws-station-title {
-  font-size: clamp(20px, 2.2vw, 28px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
   color: #ffffff;
-  margin: 0 0 12px;
 }
 
-.dws-station-desc {
-  font-size: 15px;
-  color: #9fa4b2;
-  line-height: 1.6;
+.dws-diagnose-desc {
+  font-size: 9.5px;
+  color: #8c93a4;
+  line-height: 1.25;
+}
+
+.dws-diagnose-flow-svg-wrap {
+  margin-top: 4px;
+  background: rgba(10, 13, 20, 0.8);
+  border-radius: 3px;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.dws-diagnose-svg {
+  width: 100%;
+  height: 32px;
+  display: block;
+}
+
+/* Phase 2 Architect Specifics */
+.dws-blueprint-schematic-panel {
+  background: rgba(18, 22, 34, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 4px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dws-blueprint-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dws-blueprint-flow-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: rgba(10, 13, 20, 0.8);
+  border: 1px dashed rgba(56, 189, 248, 0.3);
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.dws-blueprint-node-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.dws-bp-block {
+  flex: 1;
+  background: #141825;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  padding: 4px 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dws-bp-block.active {
+  border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.dws-bp-block.highlight {
+  border-color: rgba(212, 175, 55, 0.5);
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.dws-bp-tag {
+  font-family: monospace;
+  font-size: 7.5px;
+  color: #727a8e;
+  font-weight: 700;
+}
+
+.dws-bp-val {
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dws-bp-arrow {
+  color: #38bdf8;
+  font-family: monospace;
+  font-size: 11px;
+}
+
+.dws-bp-connector-mid {
+  display: flex;
+  justify-content: center;
+}
+
+.dws-bp-bus-svg {
+  width: 100%;
+  height: 16px;
+  display: block;
+}
+
+.dws-blueprint-rules-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: rgba(10, 13, 20, 0.6);
+  border-radius: 3px;
+  padding: 6px;
+}
+
+.dws-bp-rule {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: monospace;
+  font-size: 8.5px;
+}
+
+.dws-bp-kw {
+  color: #38bdf8;
+  font-weight: 800;
+}
+
+.dws-bp-stmt {
+  color: #b0b5c4;
+}
+
+/* Phase 3 Prove Specifics */
+.dws-staging-suite-panel {
+  background: rgba(18, 22, 34, 0.7);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 4px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dws-staging-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dws-qa-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.dws-qa-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 6px;
+  background: rgba(16, 185, 129, 0.04);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-radius: 3px;
+}
+
+.dws-qa-icon {
+  color: #10b981;
+  font-weight: 900;
+  font-size: 10px;
+}
+
+.dws-qa-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.dws-qa-name {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dws-qa-timing {
+  font-family: monospace;
+  font-size: 8px;
+  color: #8c93a4;
+}
+
+.dws-qa-state {
+  font-family: monospace;
+  font-size: 8.5px;
+  font-weight: 800;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
+.dws-staging-cert-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: monospace;
+  font-size: 8px;
+  font-weight: 700;
+  color: #10b981;
+  background: rgba(10, 13, 20, 0.7);
+  padding: 5px 8px;
+  border-radius: 3px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.dws-cert-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+}
+
+/* Phase 4 Operate Specifics */
+.dws-operate-dashboard-panel {
+  background: rgba(18, 22, 34, 0.7);
+  border: 1px solid rgba(243, 196, 66, 0.25);
+  border-radius: 4px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dws-operate-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dws-operate-kpi-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.dws-operate-kpi-item {
+  background: rgba(10, 13, 20, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dws-kpi-sub {
+  font-family: monospace;
+  font-size: 7.5px;
+  font-weight: 700;
+  color: #727a8e;
+  letter-spacing: 0.08em;
+}
+
+.dws-kpi-main {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.dws-kpi-val {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.dws-kpi-val.emerald { color: #10b981; }
+.dws-kpi-val.gold { color: #f3c442; }
+
+.dws-kpi-delta {
+  font-family: monospace;
+  font-size: 8px;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.dws-operate-chart-box {
+  background: rgba(10, 13, 20, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dws-chart-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dws-chart-rev-val {
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 800;
+  color: #f3c442;
+}
+
+.dws-operate-svg-wrap {
+  width: 100%;
+  height: 40px;
+}
+
+.dws-operate-chart-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.dws-operate-chart-legend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: monospace;
+  font-size: 7.5px;
+  color: #727a8e;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: 3px;
+}
+
+.dws-operate-chart-legend span.gold {
+  color: #f3c442;
+  font-weight: 700;
+}
+
+/* Card Footer Caption */
+.dws-infra-card-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+.dws-infra-card-desc {
+  font-size: 13px;
+  color: #a4a9b8;
+  line-height: 1.5;
   margin: 0;
 }
 
@@ -2364,6 +3398,14 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
+  .dws-infra-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .dws-infra-bus-milestones {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
   .dws-timeline-track {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
@@ -2411,6 +3453,13 @@
   .dws-range-gallery {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+  .dws-infra-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .dws-infra-bus-milestones {
+    display: none;
   }
   .dws-chapter-row {
     grid-template-columns: 1fr;
