@@ -25,6 +25,29 @@
 }
 
 /* ==========================================================================
+   SCROLL REVEAL & TASTEFUL MOTION ATOMS
+   ========================================================================== */
+.dws-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.dws-reveal.dws-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dws-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
    SHARED EDITORIAL & TECHNICAL ATOMS
    ========================================================================== */
 .dws-meta-tag {
@@ -64,6 +87,26 @@
   transform: translateY(-2px);
   box-shadow: 0 12px 32px -6px rgba(212, 175, 55, 0.55);
   color: #000000;
+}
+
+.dws-btn-glow {
+  position: relative;
+}
+
+.dws-btn-glow::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 6px;
+  background: radial-gradient(circle, rgba(243, 196, 66, 0.4) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.dws-btn-glow:hover::after {
+  opacity: 1;
 }
 
 .dws-btn-large {
@@ -122,10 +165,10 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(6, 7, 9, 0.85);
+  background: rgba(6, 7, 9, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding: 18px 0;
   transition: background 0.3s ease;
 }
@@ -161,10 +204,10 @@
 .dws-engine-header-cta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: transparent;
-  color: #d4af37;
-  border: 1px solid rgba(212, 175, 55, 0.4);
+  gap: 10px;
+  background: rgba(212, 175, 55, 0.08);
+  color: #f3c442;
+  border: 1px solid rgba(212, 175, 55, 0.45);
   font-family: var(--dws-font-sans, 'Manrope', sans-serif);
   font-size: 11px;
   font-weight: 700;
@@ -177,9 +220,17 @@
 }
 
 .dws-engine-header-cta:hover {
-  background: rgba(212, 175, 55, 0.12);
-  border-color: #d4af37;
+  background: rgba(212, 175, 55, 0.2);
+  border-color: #f3c442;
   color: #ffffff;
+}
+
+.dws-header-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
 }
 
 .dws-cta-arrow {
@@ -191,15 +242,14 @@
 }
 
 /* ==========================================================================
-   SECTION 1 — HERO: CINEMATIC COMMAND CENTER
+   SECTION 1 — HERO: ENLARGED STATE-OF-THE-ART LIVING COMMAND DECK
    ========================================================================== */
 .dws-engine-hero {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: clamp(140px, 16vh, 200px) 0 clamp(80px, 10vh, 140px);
+  padding: clamp(140px, 15vh, 190px) 0 clamp(80px, 9vh, 130px);
   position: relative;
   background: #060709;
+  overflow: hidden;
 }
 
 .dws-hero-ambient {
@@ -209,35 +259,62 @@
   overflow: hidden;
 }
 
-.dws-ambient-glow {
+.dws-ambient-glow.primary {
   position: absolute;
-  top: 15%;
-  right: 10%;
-  width: clamp(350px, 45vw, 650px);
-  height: clamp(350px, 45vw, 650px);
+  top: 10%;
+  right: 15%;
+  width: clamp(400px, 50vw, 750px);
+  height: clamp(400px, 50vw, 750px);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.01) 50%, transparent 70%);
-  filter: blur(60px);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.09) 0%, rgba(212, 175, 55, 0.02) 50%, transparent 70%);
+  filter: blur(80px);
+  animation: dwsAmbientPulse 8s ease-in-out infinite alternate;
 }
 
-.dws-ambient-grid {
+.dws-ambient-glow.secondary {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  width: clamp(350px, 40vw, 600px);
+  height: clamp(350px, 40vw, 600px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.04) 0%, transparent 70%);
+  filter: blur(90px);
+}
+
+@keyframes dwsAmbientPulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  100% { transform: scale(1.05); opacity: 1; }
+}
+
+.dws-ambient-grid.dynamic-grid {
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(circle at 60% 40%, black 20%, transparent 75%);
-  -webkit-mask-image: radial-gradient(circle at 60% 40%, black 20%, transparent 75%);
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
+  animation: dwsGridDrift 30s linear infinite;
+  mask-image: radial-gradient(circle at 50% 40%, black 25%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at 50% 40%, black 25%, transparent 80%);
 }
 
-.dws-hero-layout {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  align-items: center;
-  gap: clamp(40px, 6vw, 90px);
-  position: relative;
-  z-index: 2;
+@keyframes dwsGridDrift {
+  0% { background-position: 0 0; }
+  100% { background-position: 64px 64px; }
+}
+
+.dws-ambient-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, transparent 60%, #060709 100%);
+}
+
+/* Hero Header Block */
+.dws-hero-header-block {
+  max-width: 980px;
+  margin: 0 auto clamp(40px, 5vw, 64px);
+  text-align: left;
 }
 
 .dws-hero-eyebrow {
@@ -245,6 +322,7 @@
   align-items: center;
   gap: 14px;
   margin-bottom: 24px;
+  flex-wrap: wrap;
 }
 
 .dws-eyebrow-rule {
@@ -262,8 +340,37 @@
   color: #d4af37;
 }
 
+.dws-eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #f3c442;
+}
+
+.dws-pulse-beacon {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: dwsPulseBeacon 2s infinite ease-in-out;
+}
+
+@keyframes dwsPulseBeacon {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.7; }
+}
+
 .dws-hero-headline {
-  font-size: clamp(42px, 5.8vw, 84px);
+  font-size: clamp(44px, 6.2vw, 88px);
   font-weight: 600;
   letter-spacing: -0.04em;
   line-height: 1.04;
@@ -282,7 +389,7 @@
   font-size: clamp(17px, 1.45vw, 21px);
   color: #a4a9b6;
   line-height: 1.6;
-  max-width: 620px;
+  max-width: 760px;
   margin: 0 0 28px;
 }
 
@@ -313,18 +420,37 @@
 .dws-hero-actions {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
   flex-wrap: wrap;
+}
+
+.dws-hero-urgency-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(8, 10, 16, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #f3c442;
+}
+
+.dws-chip-icon {
+  color: #d4af37;
 }
 
 .dws-hero-explore-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
+  font-size: 12px;
   font-family: monospace;
   letter-spacing: 0.1em;
-  color: #a4a9b6;
+  color: #8c92a0;
   text-decoration: none;
   text-transform: uppercase;
   transition: color 0.2s ease;
@@ -343,41 +469,83 @@
   transform: translateY(3px);
 }
 
-/* Dominant Art-Directed Hero Visual */
-.dws-hero-visual-frame {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ==========================================================================
+   ENLARGED LIVING SYSTEM COMMAND DECK (HERO VISUAL MOMENT)
+   ========================================================================== */
+.dws-hero-command-deck {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
   position: relative;
+  z-index: 5;
+  transform: translateY(calc(var(--scroll-y, 0px) * 0.05));
+  transition: transform 0.1s linear;
 }
 
-.dws-hero-media-wrapper {
+.dws-command-deck-frame {
   position: relative;
-  width: 100%;
-  max-width: 580px;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
   border: 1px solid rgba(212, 175, 55, 0.35);
-  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.8), 0 0 40px rgba(212, 175, 55, 0.08);
-  background: #090b10;
+  background: #080a10;
+  box-shadow: 0 32px 80px -20px rgba(0, 0, 0, 0.9), 0 0 48px rgba(212, 175, 55, 0.08);
 }
 
-.dws-hero-media-badge {
+/* Precision HUD Corner Brackets */
+.dws-deck-bracket {
   position: absolute;
-  top: 14px;
-  left: 14px;
-  z-index: 3;
+  width: 14px;
+  height: 14px;
+  border-color: #d4af37;
+  border-style: solid;
+  z-index: 6;
+  pointer-events: none;
+}
+.dws-deck-bracket.top-left { top: 8px; left: 8px; border-width: 2px 0 0 2px; }
+.dws-deck-bracket.top-right { top: 8px; right: 8px; border-width: 2px 2px 0 0; }
+.dws-deck-bracket.bottom-left { bottom: 8px; left: 8px; border-width: 0 0 2px 2px; }
+.dws-deck-bracket.bottom-right { bottom: 8px; right: 8px; border-width: 0 2px 2px 0; }
+
+/* Subdued Scanning Beam */
+.dws-deck-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.8) 50%, transparent 100%);
+  z-index: 5;
+  pointer-events: none;
+  animation: dwsDeckScan 8s linear infinite;
+}
+
+@keyframes dwsDeckScan {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 0.7; }
+  90% { opacity: 0.7; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Top Deck HUD Header Strip */
+.dws-deck-hud-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px 20px;
+  background: rgba(8, 10, 16, 0.92);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 4;
+}
+
+.dws-deck-status {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(8, 10, 15, 0.85);
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  padding: 6px 12px;
-  border-radius: 4px;
-  backdrop-filter: blur(8px);
 }
 
-.dws-status-dot {
+.dws-status-beacon {
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -385,63 +553,308 @@
   box-shadow: 0 0 8px #10b981;
 }
 
-.dws-status-text {
+.dws-status-mono {
   font-family: monospace;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
   color: #d4af37;
 }
 
-.dws-hero-media-img {
+.dws-deck-stats {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.dws-stat-pill {
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: #9fa4b2;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 3px 8px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dws-stat-pill.gold {
+  color: #f3c442;
+  background: rgba(212, 175, 55, 0.08);
+  border-color: rgba(212, 175, 55, 0.25);
+}
+
+/* Visual Stage & Photographic Base */
+.dws-deck-visual-stage {
+  position: relative;
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
+  height: clamp(380px, 48vw, 600px);
+  overflow: hidden;
+  background: #050608;
+}
+
+.dws-deck-photo {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.dws-hero-media-wrapper:hover .dws-hero-media-img {
   transform: scale(1.02);
+  animation: dwsHeroDrift 24s ease-in-out infinite alternate;
 }
 
-.dws-hero-media-overlay {
+@keyframes dwsHeroDrift {
+  0% { transform: scale(1.02) translate(0, 0); }
+  100% { transform: scale(1.08) translate(-1%, -1%); }
+}
+
+.dws-deck-gradient-mask {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(180deg, rgba(8, 9, 13, 0.05) 0%, rgba(8, 9, 13, 0.35) 100%);
+  background: 
+    radial-gradient(circle at 60% 40%, rgba(6, 7, 9, 0.2) 0%, rgba(6, 7, 9, 0.85) 90%),
+    linear-gradient(180deg, rgba(8, 10, 16, 0.4) 0%, transparent 30%, rgba(8, 10, 16, 0.9) 100%);
 }
 
-.dws-media-corner {
+/* Floating Glassmorphic Telemetry HUDs */
+.dws-floating-hud {
   position: absolute;
-  width: 10px;
-  height: 10px;
-  border-color: #d4af37;
-  border-style: solid;
-}
-.dws-media-corner.top-left { top: 8px; left: 8px; border-width: 2px 0 0 2px; }
-.dws-media-corner.top-right { top: 8px; right: 8px; border-width: 2px 2px 0 0; }
-.dws-media-corner.bottom-left { bottom: 8px; left: 8px; border-width: 0 0 2px 2px; }
-.dws-media-corner.bottom-right { bottom: 8px; right: 8px; border-width: 0 2px 2px 0; }
-
-.dws-media-telemetry {
-  position: absolute;
-  bottom: 12px;
-  right: 14px;
-  background: rgba(8, 10, 15, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 4px 10px;
-  border-radius: 3px;
-  backdrop-filter: blur(8px);
+  background: rgba(9, 11, 17, 0.86);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 6px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+  z-index: 3;
 }
 
-.dws-telemetry-mono {
+.dws-hud-feed {
+  top: 24px;
+  right: 24px;
+  width: clamp(280px, 32vw, 380px);
+  padding: 14px 16px;
+}
+
+.dws-hud-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dws-hud-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+}
+
+.dws-hud-title {
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #d4af37;
+}
+
+.dws-feed-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dws-feed-item.fadeIn {
+  animation: dwsFadeIn 0.4s ease-out forwards;
+}
+
+@keyframes dwsFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dws-feed-tag {
   font-family: monospace;
   font-size: 9.5px;
-  letter-spacing: 0.12em;
-  color: #a4a9b6;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #10b981;
+}
+.dws-feed-tag.alert { color: #f59e0b; }
+.dws-feed-tag.gold { color: #f3c442; }
+
+.dws-feed-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.35;
+}
+
+.dws-feed-sub {
+  font-family: monospace;
+  font-size: 10.5px;
+  color: #8c92a0;
+  line-height: 1.3;
+}
+
+.dws-hud-velocity {
+  bottom: 24px;
+  left: 24px;
+  width: clamp(260px, 30vw, 360px);
+  padding: 14px 16px;
+}
+
+.dws-velocity-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 10px;
+}
+
+.dws-velocity-lead {
+  font-family: monospace;
+  font-size: 9.5px;
+  color: #8c92a0;
+  letter-spacing: 0.1em;
+}
+
+.dws-velocity-metric {
+  font-size: 14px;
+  font-weight: 700;
+  color: #10b981;
+  letter-spacing: 0.02em;
+}
+
+.dws-velocity-track {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.dws-velocity-bar-fast {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 82%;
+  background: linear-gradient(90deg, #d4af37 0%, #10b981 100%);
+  border-radius: 3px;
+}
+
+.dws-velocity-sub {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: monospace;
+  font-size: 10px;
+  color: #c2c7d4;
+}
+
+.dws-velocity-vs {
+  color: #f87171;
+}
+
+/* Integrated Continuous Signal Pipeline Conduit Bus (The 6 Stages) */
+.dws-deck-conduit-bar {
+  background: #090b10;
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  position: relative;
+  z-index: 4;
+  padding: 16px 20px;
+}
+
+.dws-conduit-bus-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.dws-conduit-laser-pulse {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 120px;
+  background: linear-gradient(90deg, transparent 0%, #f3c442 50%, #ffffff 80%, transparent 100%);
+  animation: dwsLaserTransit 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes dwsLaserTransit {
+  0% { left: -120px; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+.dws-conduit-nodes {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.dws-conduit-step {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  padding: 10px 12px;
+  transition: all 0.2s ease;
+}
+
+.dws-conduit-step:hover {
+  background: rgba(212, 175, 55, 0.06);
+  border-color: rgba(212, 175, 55, 0.35);
+}
+
+.dws-conduit-step.highlight {
+  border-color: rgba(212, 175, 55, 0.4);
+  background: rgba(212, 175, 55, 0.05);
+}
+
+.dws-conduit-step.gold {
+  border-color: #d4af37;
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.dws-step-code {
+  font-family: monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #d4af37;
+  letter-spacing: 0.1em;
+}
+
+.dws-step-label {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+}
+
+.dws-step-detail {
+  font-family: monospace;
+  font-size: 9.5px;
+  color: #8c92a0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dws-conduit-arrow {
+  display: none;
 }
 
 /* ==========================================================================
@@ -1245,7 +1658,7 @@
 }
 
 /* ==========================================================================
-   SECTION 6 — OWNERSHIP: RADICAL DATA SOVEREIGNTY
+   SECTION 7 — OWNERSHIP: RADICAL DATA SOVEREIGNTY
    ========================================================================== */
 .dws-ownership-section {
   background: #08090d;
@@ -1315,7 +1728,7 @@
 }
 
 /* ==========================================================================
-   SECTION 7 — FOUNDING PARTNER PROGRAM: EXECUTIVE INVITATION
+   SECTION 8 — FOUNDING CLIENT LAUNCH RATE: EXECUTIVE INVITATION
    ========================================================================== */
 .dws-partner-section {
   background: #060709;
@@ -1369,7 +1782,8 @@
   font-family: monospace;
   font-size: 11px;
   letter-spacing: 0.14em;
-  color: #8c919e;
+  color: #f3c442;
+  font-weight: 700;
 }
 
 .dws-invitation-title {
@@ -1417,12 +1831,12 @@
   font-weight: 600;
 }
 
-.dws-anchor-num {
-  font-size: clamp(18px, 1.8vw, 24px);
+.dws-anchor-num.slashed {
+  font-size: clamp(20px, 2vw, 26px);
   font-weight: 600;
   color: #717684;
   text-decoration: line-through;
-  text-decoration-color: rgba(212, 175, 55, 0.55);
+  text-decoration-color: rgba(239, 68, 68, 0.7);
   text-decoration-thickness: 2px;
   line-height: 1.1;
 }
@@ -1449,7 +1863,7 @@
 }
 
 .dws-launch-num {
-  font-size: clamp(34px, 4vw, 54px);
+  font-size: clamp(36px, 4.2vw, 56px);
   font-weight: 800;
   letter-spacing: -0.04em;
   color: #ffffff;
@@ -1496,12 +1910,25 @@
   margin-bottom: 32px;
 }
 
+.dws-urgency-box {
+  background: rgba(245, 158, 11, 0.06);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: 4px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
 .dws-urgency-note {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13.5px;
+  font-weight: 500;
   color: #e6ebf5;
   line-height: 1.5;
-  margin: 0 0 14px;
+  margin: 0;
+}
+
+.dws-urgency-note strong {
+  color: #f3c442;
+  font-weight: 700;
 }
 
 .dws-ad-budget-note {
@@ -1525,6 +1952,31 @@
   font-size: 13px;
   color: #c2c7d4;
   font-family: monospace;
+  margin-bottom: 20px;
+}
+
+.dws-commitment-block {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 14px 16px;
+}
+
+.dws-commitment-tag {
+  display: block;
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #d4af37;
+  margin-bottom: 6px;
+}
+
+.dws-commitment-text {
+  font-size: 13px;
+  color: #9da2b0;
+  line-height: 1.5;
+  margin: 0;
 }
 
 .dws-scope-header {
@@ -1561,7 +2013,7 @@
 }
 
 /* ==========================================================================
-   SECTION 8 — FINAL CLOSE: HIGH-IMPACT EDITORIAL RESOLUTION
+   SECTION 9 — FINAL CLOSE: HIGH-IMPACT EDITORIAL RESOLUTION
    ========================================================================== */
 .dws-final-close-section {
   min-height: 85vh;
@@ -1593,7 +2045,7 @@
   letter-spacing: -0.035em;
   line-height: 1.1;
   color: #ffffff;
-  margin: 0 0 52px;
+  margin: 0 0 48px;
 }
 
 .dws-close-followup em {
@@ -1601,6 +2053,22 @@
   font-style: italic;
   font-weight: 400;
   color: #f3c442;
+}
+
+.dws-close-reassurance {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: monospace;
+  font-size: 12px;
+  color: #8c92a0;
+  flex-wrap: wrap;
+}
+
+.dws-sep {
+  color: #d4af37;
 }
 
 /* ==========================================================================
@@ -1646,13 +2114,12 @@
    RESPONSIVE ARCHITECTURE BREAKPOINTS
    ========================================================================== */
 @media (max-width: 1024px) {
-  .dws-hero-layout {
-    grid-template-columns: 1fr;
-    gap: 48px;
+  .dws-conduit-nodes {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
   }
-  .dws-hero-visual-frame {
-    max-width: 580px;
-    margin: 0 auto;
+  .dws-conduit-bus-line {
+    display: none;
   }
   .dws-console-track {
     grid-template-columns: repeat(4, 1fr);
@@ -1682,8 +2149,25 @@
     display: none;
   }
   .dws-engine-header-cta {
-    padding: 8px 14px;
+    padding: 8px 12px;
     font-size: 10px;
+    gap: 6px;
+  }
+  .dws-floating-hud {
+    position: static;
+    width: 100%;
+    margin-top: 12px;
+  }
+  .dws-deck-visual-stage {
+    height: auto;
+    min-height: 280px;
+  }
+  .dws-deck-photo {
+    height: 280px;
+  }
+  .dws-conduit-nodes {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
   .dws-console-track {
     grid-template-columns: 1fr;
@@ -1748,5 +2232,9 @@
     align-items: flex-start;
     gap: 16px;
     width: 100%;
+  }
+  .dws-hero-urgency-chip {
+    width: 100%;
+    justify-content: center;
   }
 }

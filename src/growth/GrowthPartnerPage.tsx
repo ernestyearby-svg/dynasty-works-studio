@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './growth.css';
 import './growth-partner.css';
 import { useGrowthSeo } from './lib/useGrowthSeo';
@@ -13,6 +13,8 @@ export default function GrowthPartnerPage() {
   });
 
   const [applyUrl, setApplyUrl] = useState('/growth/apply');
+  const [activeTelemetryTab, setActiveTelemetryTab] = useState(0);
+  const heroRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     // 1. Initialize attribution persistence engine (captures UTMs, fbclid, gclid, referrers)
@@ -22,18 +24,58 @@ export default function GrowthPartnerPage() {
     trackGrowthEvent('growth_page_view', { page: '/growth-engine' });
     trackGrowthEvent('growth_engine_landing_view', {
       page: '/growth-engine',
-      metadata: { offer: 'dws_growth_engine_launch_rate' },
+      metadata: { offer: 'dws_founding_client_launch_rate' },
     });
 
     // 3. Preserve query string for seamless conversion attribution passing
     if (typeof window !== 'undefined' && window.location.search) {
       setApplyUrl(`/growth/apply${window.location.search}`);
     }
+
+    // 4. Scroll Reveal via IntersectionObserver
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('dws-in-view');
+          }
+        });
+      },
+      { rootMargin: '0px 0px -60px 0px', threshold: 0.08 }
+    );
+
+    const revealElements = document.querySelectorAll('.dws-reveal');
+    revealElements.forEach((el) => observer.observe(el));
+
+    // 5. Parallax & Dynamic Hero Scroll Transformation
+    let rafId: number;
+    const handleScroll = () => {
+      rafId = requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        if (heroRef.current && scrollY < 1400) {
+          heroRef.current.style.setProperty('--scroll-y', `${scrollY}px`);
+          heroRef.current.style.setProperty('--scroll-ratio', `${Math.min(scrollY / 900, 1)}`);
+        }
+      });
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // 6. Micro-Telemetry cycle timer in Hero
+    const timer = setInterval(() => {
+      setActiveTelemetryTab((prev) => (prev + 1) % 3);
+    }, 4500);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+      cancelAnimationFrame(rafId);
+      clearInterval(timer);
+    };
   }, []);
 
-  const handleCtaClick = (locationTag: string) => {
+  const handleCtaClick = (locationTag: string, ctaText: string) => {
     trackGrowthEvent('growth_cta_click', {
-      cta_label: 'CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW',
+      cta_label: ctaText,
       cta_destination: '/growth/apply',
       metadata: { location: locationTag },
     });
@@ -66,9 +108,10 @@ export default function GrowthPartnerPage() {
           <a
             href={applyUrl}
             className="dws-engine-header-cta"
-            onClick={() => handleCtaClick('Header CTA')}
+            onClick={() => handleCtaClick('Header CTA', 'RESERVE FOUNDING SPOT — FREE REVIEW')}
           >
-            <span>CLAIM LAUNCH RATE — FREE REVIEW</span>
+            <span className="dws-header-pulse-dot" aria-hidden="true" />
+            <span>RESERVE FOUNDING SPOT — FREE REVIEW</span>
             <span className="dws-cta-arrow" aria-hidden="true">→</span>
           </a>
         </div>
@@ -76,81 +119,210 @@ export default function GrowthPartnerPage() {
 
       <main id="main-content">
         {/* ==================================================================
-            SECTION 1 — HERO: CINEMATIC COMMAND CENTER & SIGNAL CONVERGENCE
+            SECTION 1 — HERO: ENLARGED STATE-OF-THE-ART LIVING SYSTEM COMMAND DECK
             ================================================================== */}
-        <section className="dws-engine-hero" aria-labelledby="hero-title">
+        <section
+          ref={heroRef}
+          className="dws-engine-hero"
+          aria-labelledby="hero-title"
+        >
+          {/* Layered Animated Ambient Background */}
           <div className="dws-hero-ambient" aria-hidden="true">
-            <div className="dws-ambient-glow" />
-            <div className="dws-ambient-grid" />
+            <div className="dws-ambient-glow primary" />
+            <div className="dws-ambient-glow secondary" />
+            <div className="dws-ambient-grid dynamic-grid" />
+            <div className="dws-ambient-vignette" />
           </div>
 
           <div className="growth-container">
-            <div className="dws-hero-layout">
-              <div className="dws-hero-copy">
-                <div className="dws-hero-eyebrow">
-                  <span className="dws-eyebrow-rule" />
-                  <span className="dws-eyebrow-text">DYNASTY WORKS STUDIO</span>
-                </div>
-
-                <h1 id="hero-title" className="dws-hero-headline">
-                  Turn Attention Into A System That <em>Produces Revenue.</em>
-                </h1>
-
-                <p className="dws-hero-description">
-                  DWS designs the infrastructure between traffic and the sale — capture, CRM, automation, booking, attribution and follow-up operating as one connected Growth Engine.
-                </p>
-
-                <div className="dws-hero-positioning">
-                  <span className="dws-positioning-tag">// STRATEGIC POSITIONING</span>
-                  <p className="dws-positioning-text">
-                    Creative that positions you better. Systems that convert better. Infrastructure that scales better.
-                  </p>
-                </div>
-
-                <div className="dws-hero-actions">
-                  <a
-                    href={applyUrl}
-                    className="dws-btn-primary"
-                    onClick={() => handleCtaClick('Hero Primary CTA')}
-                  >
-                    <span>CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW</span>
-                    <span className="dws-btn-arrow" aria-hidden="true">→</span>
-                  </a>
-
-                  <a
-                    href="#the-problem"
-                    className="dws-hero-explore-link"
-                    onClick={handleScrollToExplore}
-                  >
-                    <span>Explore the engine</span>
-                    <span className="dws-explore-arrow" aria-hidden="true">↓</span>
-                  </a>
-                </div>
+            {/* Top Command Headline & Direct-Response Actions */}
+            <div className="dws-hero-header-block dws-reveal">
+              <div className="dws-hero-eyebrow">
+                <span className="dws-eyebrow-rule" />
+                <span className="dws-eyebrow-text">DYNASTY WORKS STUDIO</span>
+                <span className="dws-eyebrow-badge">
+                  <span className="dws-pulse-beacon" />
+                  FOUNDING COHORT ACTIVE
+                </span>
               </div>
 
-              {/* Dominant Art-Directed Hero Visual */}
-              <div className="dws-hero-visual-frame">
-                <div className="dws-hero-media-wrapper">
-                  <div className="dws-hero-media-badge">
-                    <span className="dws-status-dot" aria-hidden="true" />
-                    <span className="dws-status-text">OPERATIONAL PROTOCOL 01.0 // ACTIVE</span>
+              <h1 id="hero-title" className="dws-hero-headline">
+                Turn Attention Into A System That <em>Produces Revenue.</em>
+              </h1>
+
+              <p className="dws-hero-description">
+                DWS designs the infrastructure between traffic and the sale — capture, CRM, automation, booking, attribution and follow-up operating as one connected Growth Engine.
+              </p>
+
+              <div className="dws-hero-positioning">
+                <span className="dws-positioning-tag">// STRATEGIC POSITIONING</span>
+                <p className="dws-positioning-text">
+                  Creative that positions you better. Systems that convert better. Infrastructure that scales better.
+                </p>
+              </div>
+
+              <div className="dws-hero-actions">
+                <a
+                  href={applyUrl}
+                  className="dws-btn-primary dws-btn-glow"
+                  onClick={() =>
+                    handleCtaClick(
+                      'Hero Primary CTA',
+                      'RESERVE MY FOUNDING CLIENT SPOT — FREE GROWTH REVIEW'
+                    )
+                  }
+                >
+                  <span>RESERVE MY FOUNDING CLIENT SPOT — FREE GROWTH REVIEW</span>
+                  <span className="dws-btn-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <div className="dws-hero-urgency-chip">
+                  <span className="dws-chip-icon">✦</span>
+                  <span>LIMITED TO FIRST 5 QUALIFIED CLIENTS • LAUNCH RATE $997</span>
+                </div>
+
+                <a
+                  href="#the-problem"
+                  className="dws-hero-explore-link"
+                  onClick={handleScrollToExplore}
+                >
+                  <span>Explore the architecture</span>
+                  <span className="dws-explore-arrow" aria-hidden="true">↓</span>
+                </a>
+              </div>
+            </div>
+
+            {/* ENLARGED STATE-OF-THE-ART LIVING SYSTEM COMMAND DECK */}
+            <div className="dws-hero-command-deck dws-reveal">
+              <div className="dws-command-deck-frame">
+                {/* Precision HUD Corner Brackets */}
+                <div className="dws-deck-bracket top-left" aria-hidden="true" />
+                <div className="dws-deck-bracket top-right" aria-hidden="true" />
+                <div className="dws-deck-bracket bottom-left" aria-hidden="true" />
+                <div className="dws-deck-bracket bottom-right" aria-hidden="true" />
+
+                {/* Subdued Scanning Beam */}
+                <div className="dws-deck-scanline" aria-hidden="true" />
+
+                {/* Top Deck HUD Header Strip */}
+                <div className="dws-deck-hud-top">
+                  <div className="dws-deck-status">
+                    <span className="dws-status-beacon" />
+                    <span className="dws-status-mono">DWS SYSTEM COMMAND // 01.0 LIVE TELEMETRY</span>
                   </div>
+                  <div className="dws-deck-stats">
+                    <span className="dws-stat-pill">EDGE LATENCY: 140ms</span>
+                    <span className="dws-stat-pill">PIPELINE: SYNCHRONIZED</span>
+                    <span className="dws-stat-pill gold">DATA SOVEREIGNTY: 100%</span>
+                  </div>
+                </div>
+
+                {/* Backdrop Layer: Cinema Grade Art-Directed Image */}
+                <div className="dws-deck-visual-stage">
                   <img
                     src="/growth/visuals/hero-operators.jpg"
                     alt="Dynasty Works Studio founders and operators analyzing connected growth telemetry"
-                    className="dws-hero-media-img"
-                    width={1280}
-                    height={720}
+                    className="dws-deck-photo"
+                    width={1600}
+                    height={1067}
                     loading="eager"
                     fetchPriority="high"
                   />
-                  <div className="dws-hero-media-overlay" aria-hidden="true">
-                    <div className="dws-media-corner top-left" />
-                    <div className="dws-media-corner top-right" />
-                    <div className="dws-media-corner bottom-left" />
-                    <div className="dws-media-corner bottom-right" />
-                    <div className="dws-media-telemetry">
-                      <span className="dws-telemetry-mono">SYSTEM NEXUS // 41.5K LIVE SIGNALS</span>
+                  <div className="dws-deck-gradient-mask" aria-hidden="true" />
+
+                  {/* Floating Living Telemetry Overlay: Widget Top Right */}
+                  <div className="dws-floating-hud dws-hud-feed" aria-live="polite">
+                    <div className="dws-hud-head">
+                      <span className="dws-hud-dot" />
+                      <span className="dws-hud-title">REAL-TIME ACQUISITION TELEMETRY</span>
+                    </div>
+                    <div className="dws-hud-feed-body">
+                      {activeTelemetryTab === 0 && (
+                        <div className="dws-feed-item fadeIn">
+                          <span className="dws-feed-tag">✦ INGESTION</span>
+                          <span className="dws-feed-text">High-intent prospect completed Growth Review</span>
+                          <span className="dws-feed-sub">0.38s Edge Capture · Routed to CRM in 180ms</span>
+                        </div>
+                      )}
+                      {activeTelemetryTab === 1 && (
+                        <div className="dws-feed-item fadeIn">
+                          <span className="dws-feed-tag alert">✦ AUTOMATION</span>
+                          <span className="dws-feed-text">Opportunity created in New Lead Stage</span>
+                          <span className="dws-feed-sub">Immediate qualification sequence dispatched</span>
+                        </div>
+                      )}
+                      {activeTelemetryTab === 2 && (
+                        <div className="dws-feed-item fadeIn">
+                          <span className="dws-feed-tag gold">✦ CALENDAR</span>
+                          <span className="dws-feed-text">Strategy Call confirmed on calendar</span>
+                          <span className="dws-feed-sub">24h &amp; 2h automated SMS reminders active</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Floating Living Telemetry Overlay: Widget Bottom Left */}
+                  <div className="dws-floating-hud dws-hud-velocity">
+                    <div className="dws-velocity-meta">
+                      <span className="dws-velocity-lead">RESPONSE SPEED INFLECTION</span>
+                      <span className="dws-velocity-metric">+74% CONVERSION VELOCITY</span>
+                    </div>
+                    <div className="dws-velocity-track">
+                      <div className="dws-velocity-bar-fast" />
+                      <div className="dws-velocity-pulse-node" />
+                    </div>
+                    <div className="dws-velocity-sub">
+                      <span>DWS Automated First Response &lt; 2 mins</span>
+                      <span className="dws-velocity-vs">vs 4h Industry Delay</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Integrated Continuous Signal Pipeline Conduit (Traffic to Revenue) */}
+                <div className="dws-deck-conduit-bar" role="region" aria-label="Signal Pipeline Stages">
+                  <div className="dws-conduit-bus-line">
+                    <div className="dws-conduit-laser-pulse" />
+                  </div>
+                  <div className="dws-conduit-nodes">
+                    <div className="dws-conduit-step">
+                      <span className="dws-step-code">01</span>
+                      <span className="dws-step-label">TRAFFIC</span>
+                      <span className="dws-step-detail">Meta · Google · Direct</span>
+                    </div>
+                    <div className="dws-conduit-arrow" aria-hidden="true">→</div>
+
+                    <div className="dws-conduit-step">
+                      <span className="dws-step-code">02</span>
+                      <span className="dws-step-label">CAPTURE</span>
+                      <span className="dws-step-detail">High-Intent Edge Intake</span>
+                    </div>
+                    <div className="dws-conduit-arrow" aria-hidden="true">→</div>
+
+                    <div className="dws-conduit-step">
+                      <span className="dws-step-code">03</span>
+                      <span className="dws-step-label">CRM</span>
+                      <span className="dws-step-detail">Sovereign Data Ledger</span>
+                    </div>
+                    <div className="dws-conduit-arrow" aria-hidden="true">→</div>
+
+                    <div className="dws-conduit-step highlight">
+                      <span className="dws-step-code">04</span>
+                      <span className="dws-step-label">AUTOMATION</span>
+                      <span className="dws-step-detail">&lt;250ms Lead Routing</span>
+                    </div>
+                    <div className="dws-conduit-arrow" aria-hidden="true">→</div>
+
+                    <div className="dws-conduit-step highlight">
+                      <span className="dws-step-code">05</span>
+                      <span className="dws-step-label">BOOKING</span>
+                      <span className="dws-step-detail">Synced Availability</span>
+                    </div>
+                    <div className="dws-conduit-arrow" aria-hidden="true">→</div>
+
+                    <div className="dws-conduit-step gold">
+                      <span className="dws-step-code">06</span>
+                      <span className="dws-step-label">REVENUE</span>
+                      <span className="dws-step-detail">Closed-Loop Attribution</span>
                     </div>
                   </div>
                 </div>
@@ -164,7 +336,7 @@ export default function GrowthPartnerPage() {
             ================================================================== */}
         <section id="the-problem" className="dws-section dws-problem-section" aria-labelledby="problem-heading">
           <div className="growth-container">
-            <div className="dws-problem-statement">
+            <div className="dws-problem-statement dws-reveal">
               <span className="dws-meta-tag">// SYSTEM DIAGNOSTIC</span>
               <h2 id="problem-heading" className="dws-statement-lead">
                 Most businesses do not have a traffic problem.
@@ -175,7 +347,7 @@ export default function GrowthPartnerPage() {
             </div>
 
             {/* Visual journey showing where revenue leaks */}
-            <div className="dws-leakage-conduit-wrapper" role="region" aria-label="Revenue Leakage Conduit">
+            <div className="dws-leakage-conduit-wrapper dws-reveal" role="region" aria-label="Revenue Leakage Conduit">
               <div className="dws-leakage-spine">
                 {/* Milestone 1: TRAFFIC */}
                 <div className="dws-conduit-milestone">
@@ -331,7 +503,7 @@ export default function GrowthPartnerPage() {
             ================================================================== */}
         <section className="dws-section dws-engine-section" aria-labelledby="engine-heading">
           <div className="growth-container">
-            <div className="dws-section-header">
+            <div className="dws-section-header dws-reveal">
               <span className="dws-meta-tag">// SYSTEM TOPOLOGY</span>
               <h2 id="engine-heading" className="dws-section-headline">
                 One connected operating system.
@@ -342,7 +514,7 @@ export default function GrowthPartnerPage() {
             </div>
 
             {/* Custom DWS Systems Console Visual: 8 Continuous Subsystems */}
-            <div className="dws-console-wrapper" role="region" aria-label="Proprietary DWS Systems Architecture">
+            <div className="dws-console-wrapper dws-reveal" role="region" aria-label="Proprietary DWS Systems Architecture">
               <div className="dws-console-chrome">
                 <div className="dws-chrome-status">
                   <span className="dws-chrome-dot live" />
@@ -469,7 +641,7 @@ export default function GrowthPartnerPage() {
               </div>
             </div>
 
-            <div className="dws-engine-statement">
+            <div className="dws-engine-statement dws-reveal">
               <p className="dws-statement-quote">
                 “Every signal enters one system. Every lead has a history. Every opportunity has a next action.”
               </p>
@@ -482,7 +654,7 @@ export default function GrowthPartnerPage() {
             ================================================================== */}
         <section className="dws-section dws-chapters-section" aria-labelledby="builds-heading">
           <div className="growth-container">
-            <div className="dws-section-header">
+            <div className="dws-section-header dws-reveal">
               <span className="dws-meta-tag">// SYSTEM DELIVERABLES</span>
               <h2 id="builds-heading" className="dws-section-headline">
                 What DWS Actually Builds.
@@ -492,7 +664,7 @@ export default function GrowthPartnerPage() {
               </p>
             </div>
 
-            <div className="dws-chapters-flow">
+            <div className="dws-chapters-flow dws-reveal">
               {/* Chapter 01: CAPTURE */}
               <article className="dws-chapter-row">
                 <div className="dws-chapter-meta">
@@ -576,7 +748,7 @@ export default function GrowthPartnerPage() {
             ================================================================== */}
         <section className="dws-section dws-method-section" aria-labelledby="method-heading">
           <div className="growth-container">
-            <div className="dws-section-header">
+            <div className="dws-section-header dws-reveal">
               <span className="dws-meta-tag">// SYSTEM PROTOCOL</span>
               <h2 id="method-heading" className="dws-section-headline">
                 Built Like Infrastructure.<br />
@@ -588,7 +760,7 @@ export default function GrowthPartnerPage() {
             </div>
 
             {/* Continuous Panoramic Delivery Visual Sequence */}
-            <div className="dws-method-panorama-container" role="region" aria-label="Panoramic Delivery Protocol">
+            <div className="dws-method-panorama-container dws-reveal" role="region" aria-label="Panoramic Delivery Protocol">
               <div className="dws-panorama-frame">
                 <img
                   src="/growth/visuals/method-panorama.jpg"
@@ -608,7 +780,7 @@ export default function GrowthPartnerPage() {
               </div>
             </div>
 
-            <div className="dws-timeline-track" role="region" aria-label="Delivery Timeline">
+            <div className="dws-timeline-track dws-reveal" role="region" aria-label="Delivery Timeline">
               <div className="dws-timeline-station">
                 <div className="dws-station-axis">
                   <div className="dws-station-node" />
@@ -672,7 +844,7 @@ export default function GrowthPartnerPage() {
             ================================================================== */}
         <section className="dws-section dws-range-section" aria-labelledby="range-heading">
           <div className="growth-container">
-            <div className="dws-section-header">
+            <div className="dws-section-header dws-reveal">
               <span className="dws-meta-tag">// CROSS-INDUSTRY CAPABILITY</span>
               <h2 id="range-heading" className="dws-section-headline">
                 Different Businesses Require Different Positioning.
@@ -682,7 +854,7 @@ export default function GrowthPartnerPage() {
               </p>
             </div>
 
-            <div className="dws-range-gallery" role="list">
+            <div className="dws-range-gallery dws-reveal" role="list">
               {/* Category 1: MedSpa / Beauty */}
               <div className="dws-range-card" role="listitem">
                 <div className="dws-range-media-frame">
@@ -816,7 +988,7 @@ export default function GrowthPartnerPage() {
               </div>
             </div>
 
-            <div className="dws-range-resolution">
+            <div className="dws-range-resolution dws-reveal">
               <p className="dws-range-statement">
                 One growth architecture. Different positioning for every market.
               </p>
@@ -829,7 +1001,7 @@ export default function GrowthPartnerPage() {
             ================================================================== */}
         <section className="dws-section dws-ownership-section" aria-labelledby="ownership-heading">
           <div className="growth-container">
-            <div className="dws-ownership-layout">
+            <div className="dws-ownership-layout dws-reveal">
               <div className="dws-ownership-lead-col">
                 <span className="dws-meta-tag">// DATA SOVEREIGNTY</span>
                 <h2 id="ownership-heading" className="dws-ownership-headline">
@@ -867,32 +1039,32 @@ export default function GrowthPartnerPage() {
         </section>
 
         {/* ==================================================================
-            SECTION 7 — DWS GROWTH ENGINE LAUNCH RATE: EXECUTIVE INVITATION
+            SECTION 8 — FOUNDING CLIENT LAUNCH RATE: LIMITED TO FIRST 5 CLIENTS
             ================================================================== */}
         <section className="dws-section dws-partner-section" aria-labelledby="partner-heading">
           <div className="growth-container">
-            <div className="dws-invitation-plate">
+            <div className="dws-invitation-plate dws-reveal">
               <div className="dws-plate-header">
                 <div className="dws-plate-badge">
                   <span className="dws-plate-dot" aria-hidden="true" />
-                  <span className="dws-plate-label">DWS GROWTH ENGINE — LAUNCH RATE</span>
+                  <span className="dws-plate-label">Founding Client Launch Rate</span>
                 </div>
-                <span className="dws-plate-allocation">LIMITED-TIME ENROLLMENT WINDOW</span>
+                <span className="dws-plate-allocation">LIMITED TO THE FIRST 5 CLIENTS</span>
               </div>
 
               <h2 id="partner-heading" className="dws-invitation-title">
-                One fully connected Growth Engine. Launch window rate.
+                One fully connected Growth Engine. Founding client launch rate.
               </h2>
 
               <div className="dws-invitation-grid">
                 {/* Investment Side */}
                 <div className="dws-invitation-terms">
-                  {/* Pricing Comparison Matrix */}
+                  {/* Pricing Comparison Matrix with slashed standard pricing */}
                   <div className="dws-pricing-comparison">
                     <div className="dws-price-block">
                       <div className="dws-price-anchor">
                         <span className="dws-anchor-label">STANDARD SETUP</span>
-                        <span className="dws-anchor-num">$2,500</span>
+                        <span className="dws-anchor-num slashed">$2,500</span>
                       </div>
                       <div className="dws-launch-tier">
                         <span className="dws-launch-label">LAUNCH RATE SETUP</span>
@@ -905,15 +1077,20 @@ export default function GrowthPartnerPage() {
                     <div className="dws-price-block">
                       <div className="dws-price-anchor">
                         <span className="dws-anchor-label">STANDARD MONTHLY MANAGEMENT</span>
-                        <span className="dws-anchor-num">$1,497 <span className="dws-anchor-sub">/ month</span></span>
+                        <span className="dws-anchor-num slashed">
+                          $1,497 <span className="dws-anchor-sub">/ month</span>
+                        </span>
                       </div>
                       <div className="dws-launch-tier">
                         <span className="dws-launch-label">LAUNCH RATE</span>
-                        <span className="dws-launch-num">$997 <span className="dws-launch-sub">/ month</span></span>
+                        <span className="dws-launch-num">
+                          $997 <span className="dws-launch-sub">/ month</span>
+                        </span>
                       </div>
                     </div>
                   </div>
 
+                  {/* Rate Lock & Urgency Directives */}
                   <div className="dws-rate-lock-banner">
                     <span className="dws-lock-icon" aria-hidden="true">🔒</span>
                     <span className="dws-lock-text">
@@ -922,27 +1099,44 @@ export default function GrowthPartnerPage() {
                   </div>
 
                   <div className="dws-invitation-notes">
-                    <p className="dws-urgency-note">
-                      Limited-time launch rate. Once the current enrollment window closes, standard DWS pricing applies.
-                    </p>
+                    <div className="dws-urgency-box">
+                      <p className="dws-urgency-note">
+                        <strong>Urgency:</strong> This launch rate is reserved for the first 5 qualified clients. Once the founding spots are filled, standard pricing applies. Secure the discounted rate now and keep it active while your account remains in good standing.
+                      </p>
+                    </div>
+
                     <p className="dws-ad-budget-note">
                       Minimum paid advertising budget: <strong>$500/month</strong>.<br />
                       Advertising spend is paid separately and is not included in the $997 monthly management fee.
                     </p>
+
                     <div className="dws-contract-terms">
                       <span>● No long-term contract</span>
                       <span>● 30-day cancellation</span>
-                      <span>● Direct studio engineering</span>
+                      <span>● Ad spend billed separately</span>
+                      <span>● Platform / usage fees billed separately if applicable</span>
+                    </div>
+
+                    <div className="dws-commitment-block">
+                      <span className="dws-commitment-tag">INFRASTRUCTURE LAUNCH COMMITMENT</span>
+                      <p className="dws-commitment-text">
+                        If DWS does not launch the agreed Growth Engine within 14 business days after receiving all required client assets, access, approvals and information, the client's next management month is credited.
+                      </p>
                     </div>
                   </div>
 
                   <div className="dws-invitation-action">
                     <a
                       href={applyUrl}
-                      className="dws-btn-primary"
-                      onClick={() => handleCtaClick('Launch Rate Invitation CTA')}
+                      className="dws-btn-primary dws-btn-glow"
+                      onClick={() =>
+                        handleCtaClick(
+                          'Launch Rate Invitation CTA',
+                          'CLAIM LAUNCH RATE — START WITH MY FREE GROWTH REVIEW'
+                        )
+                      }
                     >
-                      <span>CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW</span>
+                      <span>CLAIM LAUNCH RATE — START WITH MY FREE GROWTH REVIEW</span>
                       <span className="dws-btn-arrow" aria-hidden="true">→</span>
                     </a>
                   </div>
@@ -961,6 +1155,7 @@ export default function GrowthPartnerPage() {
                     <li><span className="dws-check" aria-hidden="true">✓</span> analytics and attribution</li>
                     <li><span className="dws-check" aria-hidden="true">✓</span> monthly system review</li>
                     <li><span className="dws-check" aria-hidden="true">✓</span> ongoing monitoring and optimization</li>
+                    <li><span className="dws-check" aria-hidden="true">✓</span> DWS direct system support</li>
                   </ul>
                 </div>
               </div>
@@ -969,11 +1164,11 @@ export default function GrowthPartnerPage() {
         </section>
 
         {/* ==================================================================
-            SECTION 8 — FINAL CLOSE: HIGH-IMPACT EDITORIAL RESOLUTION
+            SECTION 9 — FINAL CLOSE: HIGH-IMPACT EDITORIAL RESOLUTION
             ================================================================== */}
         <section className="dws-section dws-final-close-section" aria-labelledby="close-heading">
           <div className="growth-container">
-            <div className="dws-final-close-content">
+            <div className="dws-final-close-content dws-reveal">
               <span className="dws-meta-tag">// SYSTEM IMPERATIVE</span>
               <h2 id="close-heading" className="dws-close-statement">
                 Buying more traffic will not fix a broken journey.
@@ -985,12 +1180,25 @@ export default function GrowthPartnerPage() {
               <div className="dws-close-action">
                 <a
                   href={applyUrl}
-                  className="dws-btn-primary dws-btn-large"
-                  onClick={() => handleCtaClick('Final Close CTA')}
+                  className="dws-btn-primary dws-btn-large dws-btn-glow"
+                  onClick={() =>
+                    handleCtaClick(
+                      'Final Close CTA',
+                      'RESERVE MY FOUNDING CLIENT SPOT — FREE GROWTH REVIEW'
+                    )
+                  }
                 >
-                  <span>CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW</span>
+                  <span>RESERVE MY FOUNDING CLIENT SPOT — FREE GROWTH REVIEW</span>
                   <span className="dws-btn-arrow" aria-hidden="true">→</span>
                 </a>
+              </div>
+
+              <div className="dws-close-reassurance">
+                <span>Zero Obligation Diagnostic</span>
+                <span className="dws-sep">·</span>
+                <span>Direct Founder Consultation</span>
+                <span className="dws-sep">·</span>
+                <span>5 Founding Spots Total</span>
               </div>
             </div>
           </div>
