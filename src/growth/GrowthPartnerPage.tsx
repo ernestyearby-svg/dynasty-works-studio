@@ -6,10 +6,10 @@ import { initGrowthTracking, trackGrowthEvent } from './lib/growth-tracking';
 
 export default function GrowthPartnerPage() {
   useGrowthSeo({
-    title: 'Founding Growth Partner | Dynasty Works Studio',
+    title: 'Growth Engine | Dynasty Works Studio',
     description:
-      'Turnkey client-acquisition infrastructure designed, deployed, and managed by Dynasty Works Studio. Exclusive founding partner offer for the first 5 businesses.',
-    canonicalPath: '/growth/partner',
+      'Turnkey client-acquisition infrastructure engineered, deployed, and managed by Dynasty Works Studio. Exclusive founding partner offer for the first 5 businesses.',
+    canonicalPath: '/growth-engine',
   });
 
   const [applyUrl, setApplyUrl] = useState('/growth/apply');
@@ -19,9 +19,9 @@ export default function GrowthPartnerPage() {
     initGrowthTracking();
 
     // 2. Fire canonical landing and campaign tracking events
-    trackGrowthEvent('growth_page_view', { page: '/growth/partner' });
+    trackGrowthEvent('growth_page_view', { page: '/growth-engine' });
     trackGrowthEvent('growth_engine_landing_view', {
-      page: '/growth/partner',
+      page: '/growth-engine',
       metadata: { offer: 'founding_growth_partner_cohort' },
     });
 
@@ -52,7 +52,7 @@ export default function GrowthPartnerPage() {
             aria-label="Dynasty Works Studio Homepage"
           >
             <span className="growth-partner-brand-name">DYNASTY WORKS STUDIO</span>
-            <span className="growth-partner-brand-sub">// FOUNDING PARTNER ALLOCATION</span>
+            <span className="growth-partner-brand-sub">// GROWTH ENGINE</span>
           </a>
 
           <a
@@ -95,20 +95,22 @@ export default function GrowthPartnerPage() {
 
                 <div className="growth-partner-price-row">
                   <div className="growth-partner-price-item">
-                    <span className="growth-partner-amount">$997</span>
-                    <span className="growth-partner-period">One-time activation</span>
+                    <span className="growth-partner-amount">$2,500</span>
+                    <span className="growth-partner-period">Implementation</span>
                   </div>
 
                   <span className="growth-partner-price-divider" aria-hidden="true">—</span>
 
                   <div className="growth-partner-price-item">
-                    <span className="growth-partner-amount">$997</span>
-                    <span className="growth-partner-period">Per month Growth Engine management</span>
+                    <span className="growth-partner-amount">
+                      $997 <span className="growth-partner-amount-sub">/ month</span>
+                    </span>
+                    <span className="growth-partner-period">Growth Engine management</span>
                   </div>
                 </div>
 
                 <div className="growth-partner-ad-budget-note">
-                  Paid advertising budget separate. Recommended minimum: <strong>$500 / month</strong>
+                  Advertising spend, communication usage and applicable third-party software charges are separate.
                 </div>
 
                 <div>
@@ -133,7 +135,189 @@ export default function GrowthPartnerPage() {
         </section>
 
         {/* ==================================================================
-            02 — WHAT'S INCLUDED (11 CORE SYSTEMS) + RISK-REVERSAL BLOCK
+            02 — LIVE SYSTEM STATUS STRIP
+            ================================================================== */}
+        <section className="growth-partner-status-strip" aria-label="Live System Status">
+          <div className="growth-container">
+            <div className="growth-status-strip-inner">
+              <div className="growth-status-header-tag">
+                <span className="growth-status-pulse-dot" aria-hidden="true"></span>
+                <span className="growth-status-pulse-text">OPERATIONAL SYSTEM ARCHITECTURE</span>
+              </div>
+
+              <div className="growth-status-grid">
+                <div className="growth-status-pill">
+                  <span className="growth-status-dot" aria-hidden="true"></span>
+                  <span className="growth-status-name">LANDING PAGE</span>
+                  <span className="growth-status-dash">—</span>
+                  <span className="growth-status-state">LIVE</span>
+                </div>
+
+                <div className="growth-status-pill">
+                  <span className="growth-status-dot" aria-hidden="true"></span>
+                  <span className="growth-status-name">CRM PIPELINE</span>
+                  <span className="growth-status-dash">—</span>
+                  <span className="growth-status-state">CONNECTED</span>
+                </div>
+
+                <div className="growth-status-pill">
+                  <span className="growth-status-dot" aria-hidden="true"></span>
+                  <span className="growth-status-name">LEAD ROUTING</span>
+                  <span className="growth-status-dash">—</span>
+                  <span className="growth-status-state">AUTOMATED</span>
+                </div>
+
+                <div className="growth-status-pill">
+                  <span className="growth-status-dot" aria-hidden="true"></span>
+                  <span className="growth-status-name">FOLLOW-UP</span>
+                  <span className="growth-status-dash">—</span>
+                  <span className="growth-status-state">ACTIVE</span>
+                </div>
+
+                <div className="growth-status-pill">
+                  <span className="growth-status-dot" aria-hidden="true"></span>
+                  <span className="growth-status-name">BOOKING</span>
+                  <span className="growth-status-dash">—</span>
+                  <span className="growth-status-state">CONNECTED</span>
+                </div>
+
+                <div className="growth-status-pill">
+                  <span className="growth-status-dot" aria-hidden="true"></span>
+                  <span className="growth-status-name">ATTRIBUTION</span>
+                  <span className="growth-status-dash">—</span>
+                  <span className="growth-status-state">TRACKED</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ==================================================================
+            03 — WHERE REVENUE LEAKS
+            ================================================================== */}
+        <section className="growth-partner-leaks-section" aria-labelledby="leaks-heading">
+          <div className="growth-container">
+            <div className="growth-partner-section-header">
+              <span className="growth-partner-section-eyebrow">CONVERSION VULNERABILITIES</span>
+              <h2 id="leaks-heading" className="growth-partner-section-title">
+                Where Revenue Leaks
+              </h2>
+              <p className="growth-partner-section-desc">
+                Most businesses do not have a traffic generation problem. They have structural friction between the initial click and the confirmed customer.
+              </p>
+            </div>
+
+            <div className="growth-partner-leaks-grid">
+              <div className="growth-partner-leak-card">
+                <div className="growth-partner-leak-num">01</div>
+                <p className="growth-partner-leak-text">Traffic arrives but follow-up is too slow.</p>
+              </div>
+
+              <div className="growth-partner-leak-card">
+                <div className="growth-partner-leak-num">02</div>
+                <p className="growth-partner-leak-text">Leads live across disconnected systems.</p>
+              </div>
+
+              <div className="growth-partner-leak-card">
+                <div className="growth-partner-leak-num">03</div>
+                <p className="growth-partner-leak-text">Nobody clearly owns the next action.</p>
+              </div>
+
+              <div className="growth-partner-leak-card">
+                <div className="growth-partner-leak-num">04</div>
+                <p className="growth-partner-leak-text">Prospects disappear before booking.</p>
+              </div>
+
+              <div className="growth-partner-leak-card">
+                <div className="growth-partner-leak-num">05</div>
+                <p className="growth-partner-leak-text">No-shows destroy appointment economics.</p>
+              </div>
+
+              <div className="growth-partner-leak-card">
+                <div className="growth-partner-leak-num">06</div>
+                <p className="growth-partner-leak-text">Reporting can't connect spend to revenue.</p>
+              </div>
+            </div>
+
+            <div className="growth-partner-leak-closing-wrap">
+              <div className="growth-partner-leak-closing">
+                DWS connects the gaps.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ==================================================================
+            04 — EVERYTHING A LEAD TOUCHES (CONNECTED-SYSTEM VISUALIZATION)
+            ================================================================== */}
+        <section className="growth-partner-touches-section" aria-labelledby="touches-heading">
+          <div className="growth-container">
+            <div className="growth-partner-section-header">
+              <span className="growth-partner-section-eyebrow">UNIFIED PIPELINE INFRASTRUCTURE</span>
+              <h2 id="touches-heading" className="growth-partner-section-title">
+                Everything A Lead Touches
+              </h2>
+              <p className="growth-partner-section-desc">
+                From first impression to closed revenue, every touchpoint operates within a single connected architecture.
+              </p>
+            </div>
+
+            <div className="growth-partner-chain-wrapper" role="region" aria-label="System Workflow Chain">
+              <div className="growth-partner-chain">
+                <div className="growth-chain-node">
+                  <span className="growth-chain-title">META</span>
+                </div>
+                <span className="growth-chain-arrow" aria-hidden="true">→</span>
+
+                <div className="growth-chain-node">
+                  <span className="growth-chain-title">GOOGLE</span>
+                </div>
+                <span className="growth-chain-arrow" aria-hidden="true">→</span>
+
+                <div className="growth-chain-node">
+                  <span className="growth-chain-title">LANDING PAGE</span>
+                </div>
+                <span className="growth-chain-arrow" aria-hidden="true">→</span>
+
+                <div className="growth-chain-node">
+                  <span className="growth-chain-title">FORM</span>
+                </div>
+                <span className="growth-chain-arrow" aria-hidden="true">→</span>
+
+                <div className="growth-chain-node highlight">
+                  <span className="growth-chain-title">CRM</span>
+                </div>
+                <span className="growth-chain-arrow" aria-hidden="true">→</span>
+
+                <div className="growth-chain-node">
+                  <span className="growth-chain-title">FOLLOW-UP</span>
+                </div>
+                <span className="growth-chain-arrow" aria-hidden="true">→</span>
+
+                <div className="growth-chain-node">
+                  <span className="growth-chain-title">CALENDAR</span>
+                </div>
+                <span className="growth-chain-arrow" aria-hidden="true">→</span>
+
+                <div className="growth-chain-node highlight">
+                  <span className="growth-chain-title">PIPELINE</span>
+                </div>
+                <span className="growth-chain-arrow" aria-hidden="true">→</span>
+
+                <div className="growth-chain-node">
+                  <span className="growth-chain-title">REPORTING</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="growth-partner-touches-statement">
+              One contact. One history. One accountable next step.
+            </div>
+          </div>
+        </section>
+
+        {/* ==================================================================
+            05 — WHAT'S INCLUDED (11 CORE SYSTEMS) + RISK-REVERSAL BLOCK
             ================================================================== */}
         <section className="growth-partner-included-section" aria-labelledby="included-heading">
           <div className="growth-container">
@@ -257,7 +441,113 @@ export default function GrowthPartnerPage() {
         </section>
 
         {/* ==================================================================
-            03 — WHO THIS IS FOR
+            06 — DWS DELIVERY METHOD
+            ================================================================== */}
+        <section className="growth-partner-method-section" aria-labelledby="method-heading">
+          <div className="growth-container">
+            <div className="growth-partner-section-header">
+              <span className="growth-partner-section-eyebrow">EXECUTION DISCIPLINE</span>
+              <h2 id="method-heading" className="growth-partner-section-title">
+                From Diagnosis To A Working Growth Engine
+              </h2>
+              <p className="growth-partner-section-desc">
+                A structured, four-phase delivery framework ensuring absolute technical precision before any public traffic is launched.
+              </p>
+            </div>
+
+            <div className="growth-partner-method-grid">
+              <div className="growth-partner-method-card">
+                <div className="growth-partner-method-step">01 — Diagnose</div>
+                <h3 className="growth-partner-method-title">System Analysis</h3>
+                <p className="growth-partner-method-desc">
+                  Map the funnel, sales process and leakage points.
+                </p>
+              </div>
+
+              <div className="growth-partner-method-card">
+                <div className="growth-partner-method-step">02 — Build</div>
+                <h3 className="growth-partner-method-title">Architecture Deployment</h3>
+                <p className="growth-partner-method-desc">
+                  Create the Growth Engine in staging.
+                </p>
+              </div>
+
+              <div className="growth-partner-method-card">
+                <div className="growth-partner-method-step">03 — Prove</div>
+                <h3 className="growth-partner-method-title">Rigorous Verification</h3>
+                <p className="growth-partner-method-desc">
+                  Test every conversion path before launch.
+                </p>
+              </div>
+
+              <div className="growth-partner-method-card">
+                <div className="growth-partner-method-step">04 — Operate</div>
+                <h3 className="growth-partner-method-title">Continuous Management</h3>
+                <p className="growth-partner-method-desc">
+                  Monitor, optimize and improve the system monthly.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ==================================================================
+            07 — OWNERSHIP / TRUST SECTION
+            ================================================================== */}
+        <section className="growth-partner-ownership-section" aria-labelledby="ownership-heading">
+          <div className="growth-container">
+            <div className="growth-partner-ownership-box">
+              <div className="growth-partner-section-header" style={{ marginBottom: '32px' }}>
+                <span className="growth-partner-section-eyebrow">DATA SOVEREIGNTY & ASSET SECURITY</span>
+                <h2 id="ownership-heading" className="growth-partner-section-title">
+                  Built For Your Business. Not Held Hostage.
+                </h2>
+                <p className="growth-partner-section-desc">
+                  You maintain 100% ownership and administrative access to all platforms, accounts, customer records, and marketing assets.
+                </p>
+              </div>
+
+              <div className="growth-partner-ownership-grid">
+                <div className="growth-partner-ownership-item">
+                  <span className="growth-partner-ownership-check" aria-hidden="true">✓</span>
+                  <span className="growth-partner-ownership-text">Your leads.</span>
+                </div>
+
+                <div className="growth-partner-ownership-item">
+                  <span className="growth-partner-ownership-check" aria-hidden="true">✓</span>
+                  <span className="growth-partner-ownership-text">Your data.</span>
+                </div>
+
+                <div className="growth-partner-ownership-item">
+                  <span className="growth-partner-ownership-check" aria-hidden="true">✓</span>
+                  <span className="growth-partner-ownership-text">Your ad accounts.</span>
+                </div>
+
+                <div className="growth-partner-ownership-item">
+                  <span className="growth-partner-ownership-check" aria-hidden="true">✓</span>
+                  <span className="growth-partner-ownership-text">Your analytics.</span>
+                </div>
+
+                <div className="growth-partner-ownership-item">
+                  <span className="growth-partner-ownership-check" aria-hidden="true">✓</span>
+                  <span className="growth-partner-ownership-text">Your pipeline.</span>
+                </div>
+
+                <div className="growth-partner-ownership-item">
+                  <span className="growth-partner-ownership-check" aria-hidden="true">✓</span>
+                  <span className="growth-partner-ownership-text">Your customer history.</span>
+                </div>
+              </div>
+
+              <div className="growth-partner-ownership-closing">
+                DWS builds and operates the infrastructure. The business remains yours.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ==================================================================
+            08 — WHO THIS IS FOR
             ================================================================== */}
         <section className="growth-partner-who-section" aria-labelledby="who-heading">
           <div className="growth-container">
@@ -314,13 +604,13 @@ export default function GrowthPartnerPage() {
             </div>
 
             <div className="growth-partner-non-exclusive-banner">
-              <strong>Broad Service Applicability:</strong> While these initial examples represent proven client models, DWS builds growth infrastructure for any business that sells a real, high-value service with capacity to service new demand.
+              <strong>Broad Service Applicability:</strong> These represent typical implementation models; the infrastructure applies to any business relying on qualified booked appointments.
             </div>
           </div>
         </section>
 
         {/* ==================================================================
-            04 — QUALIFICATION SECTION & INVERSE QUALIFICATION
+            09 — QUALIFICATION SECTION & INVERSE QUALIFICATION
             ================================================================== */}
         <section className="growth-partner-qualification-section" aria-labelledby="qual-heading">
           <div className="growth-container">
@@ -392,7 +682,7 @@ export default function GrowthPartnerPage() {
         </section>
 
         {/* ==================================================================
-            05 — FINAL DOMINANT CTA
+            10 — FINAL DOMINANT CTA
             ================================================================== */}
         <section className="growth-partner-final-cta-section" aria-labelledby="final-cta-heading">
           <div className="growth-container">
