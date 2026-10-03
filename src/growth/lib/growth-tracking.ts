@@ -36,6 +36,7 @@ export type GrowthEventType =
   | 'appointment_booked'
   // Preserved Funnel & Interaction Events
   | 'growth_page_view'
+  | 'growth_engine_landing_view'
   | 'growth_cta_click'
   | 'growth_form_start'
   | 'growth_form_submit'

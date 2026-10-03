@@ -8,6 +8,10 @@
 /growth/apply/* /growth/apply/index.html 200
 /growth/thank-you /growth/thank-you/index.html 200
 /growth/thank-you/* /growth/thank-you/index.html 200
+/growth/partner /growth/partner/index.html 200
+/growth/partner/* /growth/partner/index.html 200
+/growth-engine /growth/partner/index.html 200
+/growth-engine/* /growth/partner/index.html 200
 /growth /growth/index.html 200
 /growth/* /growth/index.html 200
 /contact /contact/index.html 200

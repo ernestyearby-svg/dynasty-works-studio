@@ -27,6 +27,7 @@ const loaders={
  growthApply:()=>import('./growth/GrowthApplyPage'),
  growthBook:()=>import('./growth/GrowthBookPage'),
  growthThankYou:()=>import('./growth/GrowthThankYouPage'),
+ growthPartner:()=>import('./growth/GrowthPartnerPage'),
  medspa:()=>import('./MedSpaGrowthEnginePage'),
  fitness:()=>import('./FitnessGrowthEnginePage'),
  studio:()=>import('./StudioPage'),
@@ -35,7 +36,7 @@ const isCompanyBuilder = path === '/company-builder';
 if (isCompanyBuilder && !window.location.hash) {
   window.location.hash = '#review-builder';
 }
-const route=path==='/visual-environment-lab'?'environment':isLab?'lab':path==='/founder-blueprint'?'blueprint':path==='/growth'?'growth':path==='/growth/apply'?'growthApply':path==='/growth/book'?'growthBook':path==='/growth/thank-you'?'growthThankYou':path==='/growth/medspa'?'medspa':path==='/growth/fitness'?'fitness':path==='/studio'?'studio':supporting?'support':path==='/work/mymosa'?'mymosa':path==='/v5-1-review'?'review51':path==='/prototype'?'prototype':path==='/'||path==='/v5-2-review'||isCompanyBuilder?'home':'work';
+const route=path==='/visual-environment-lab'?'environment':isLab?'lab':path==='/founder-blueprint'?'blueprint':path==='/growth'?'growth':path==='/growth/partner'||path==='/growth-engine'?'growthPartner':path==='/growth/apply'?'growthApply':path==='/growth/book'?'growthBook':path==='/growth/thank-you'?'growthThankYou':path==='/growth/medspa'?'medspa':path==='/growth/fitness'?'fitness':path==='/studio'?'studio':supporting?'support':path==='/work/mymosa'?'mymosa':path==='/v5-1-review'?'review51':path==='/prototype'?'prototype':path==='/'||path==='/v5-2-review'||isCompanyBuilder?'home':'work';
 const {default:Page}=await loaders[route]();
 const room=path==='/'||path==='/v5-2-review'||isCompanyBuilder?'creation':path==='/work'?'gallery':path.startsWith('/concept-lab')?'laboratory':path==='/studio'?'human':null;
 if(room){document.body.dataset.cinematicRoom=room;await import('./cinematic-rooms.css');}
