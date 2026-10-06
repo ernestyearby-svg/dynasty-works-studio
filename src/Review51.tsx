@@ -146,7 +146,7 @@ function ReviewBuilder(){
  {!started?<><h3>What does your<br/><em>idea need next?</em></h3><button className="r51-action" onClick={()=>setStarted(true)}>Start your roadmap <span aria-hidden="true">→</span></button><p className="r51-utility">An initial direction, not a quote.<br/>Your answers stay in this browser. Nothing is sent.</p></>:!type?<><p className="r51-step">01 / YOUR STARTING POINT</p><h3 ref={title} tabIndex={-1}>What are<br/>we building?</h3><div className="r51-business-types" aria-label="Choose a business type">{businessTypes.map(t=><button key={t} onClick={()=>setType(t)}>{t}<span aria-hidden="true">↗</span></button>)}</div></>:<ReviewDiagnostic businessType={type} onRestart={()=>{setType(null);setMap({phases:[],complete:false})}} onMapChange={setMap}/>}
  </div>
  </div>
- {map.complete&&<div className="r51-blueprint"><span>GO DEEPER</span><a href="/founder-blueprint">Founder Blueprint <span aria-hidden="true">↗</span></a><p>A deeper strategic engagement.<br/><strong>$1,500</strong></p></div>}
+ {map.complete&&<div className="r51-blueprint r51-growth-engine-callout"><span>RECOMMENDED NEXT MOVE</span><a href="/growth-engine">DWS Growth Engine <span aria-hidden="true">↗</span></a><p>Website + Landing Page · <strong>$0 Upfront Build Fee</strong><br/>Core subscription from $499/month · No long-term contract</p></div>}
  </section>
 }
 

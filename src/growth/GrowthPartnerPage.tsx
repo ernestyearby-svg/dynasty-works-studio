@@ -56,17 +56,70 @@ const FACTUAL_SYSTEM_STATES = [
   },
 ];
 
+// 10 Detailed FAQ items for Growth Engine Commercial Clarity
+const FAQ_ITEMS = [
+  {
+    q: 'Is the website really included?',
+    a: 'Yes. When you activate your DWS Growth Engine subscription for $499/month, we engineer and launch your professional business website plus a dedicated lead-generation landing page with $0 upfront build fee. They are included assets delivered as part of your active Growth Engine subscription. No long-term contract is required.',
+  },
+  {
+    q: 'What does the $499/month cover?',
+    a: 'The $499/month covers your complete DWS Growth Engine operating system: your professional website, lead-generation landing page, unified CRM, direct lead capture, automated SMS & email follow-up workflows, visual sales pipeline, integrated calendar booking, automated review generation, lead tracking, and ongoing performance reporting.',
+  },
+  {
+    q: 'Is advertising included in the $499?',
+    a: 'No. The $499/month is the Dynasty Works Studio subscription for your growth infrastructure and operating software. Client advertising budgets are separate and funded by you according to your chosen growth level.',
+  },
+  {
+    q: 'Where does my advertising budget go?',
+    a: 'Your advertising budget is paid directly to the advertising platforms (such as Meta and Google). Dynasty Works Studio does not keep your advertising budget or mark up media spend.',
+  },
+  {
+    q: 'Can I start with $250 in advertising?',
+    a: 'Yes. Our Starter level is specifically designed for businesses ready to begin generating traffic, testing audiences, and collecting baseline campaign data with a manageable $250/month advertising budget.',
+  },
+  {
+    q: 'Can I increase my advertising budget later?',
+    a: 'Absolutely. You can start with Starter ($250/mo ad spend), scale to Growth ($500/mo ad spend), or accelerate to $1,000+/mo whenever your capacity and conversion data warrant it. Your core DWS Growth Engine subscription remains $499/month.',
+  },
+  {
+    q: 'Do you guarantee a specific number of leads?',
+    a: 'No. We do not make false lead guarantees or unrealistic promises. Advertising performance and lead volume vary based on your local market, commercial offer, budget, competition, audience targeting, and campaign dynamics. What we build and operate is the high-converting infrastructure designed to capture, follow up, book, and track every real opportunity.',
+  },
+  {
+    q: 'What happens to leads after they submit a form?',
+    a: 'Within seconds, the lead is recorded in your unified CRM, deduplicated, and attributed to the traffic source. Immediate automated confirmations (SMS/email) are triggered, team alerts are dispatched, and the prospect is prompted to book directly onto your integrated calendar.',
+  },
+  {
+    q: 'How does the CRM work?',
+    a: 'Your CRM acts as a single source of truth for all prospect interactions. It tracks leads across visual pipeline stages—from initial capture and conversation to scheduled appointment and won deal—providing full attribution and pipeline visibility.',
+  },
+  {
+    q: 'Do I need an existing website?',
+    a: 'No. We build your new professional business website and dedicated lead-generation landing page from scratch as part of your Growth Engine launch. If you already have a domain, we connect it seamlessly.',
+  },
+];
+
 export default function GrowthPartnerPage() {
   useGrowthSeo({
-    title: 'Growth Engine | Dynasty Works Studio',
+    title: 'DWS Growth Engine | $499/Month | Professional Website + Landing Page with $0 Upfront Build Fee',
     description:
-      'Turn attention into a system that produces revenue. DWS designs the infrastructure between traffic and the sale — capture, CRM, automation, booking, attribution and follow-up.',
+      'Activate the DWS Growth Engine for $499/month. We build your professional business website and lead-generation landing page with $0 upfront build fee. CRM, automation, booking, pipeline and tracking included. No long-term contract.',
     canonicalPath: '/growth-engine',
   });
 
   const [applyUrl, setApplyUrl] = useState('/growth/apply');
   const [activeStateIndex, setActiveStateIndex] = useState(0);
   const heroRef = useRef<HTMLElement | null>(null);
+
+  const getTierUrl = (tier: 'starter' | 'growth' | 'accelerate') => {
+    if (typeof window !== 'undefined') {
+      const sp = new URLSearchParams(window.location.search);
+      sp.set('tier', tier);
+      return `/growth/apply?${sp.toString()}`;
+    }
+    return `/growth/apply?tier=${tier}`;
+  };
 
   useEffect(() => {
     // 1. Initialize attribution persistence engine (captures UTMs, fbclid, gclid, referrers)
@@ -76,7 +129,7 @@ export default function GrowthPartnerPage() {
     trackGrowthEvent('growth_page_view', { page: '/growth-engine' });
     trackGrowthEvent('growth_engine_landing_view', {
       page: '/growth-engine',
-      metadata: { offer: 'dws_launch_rate' },
+      metadata: { offer: 'dws_growth_engine_499' },
     });
 
     // 3. Preserve query string for seamless conversion attribution passing
@@ -162,10 +215,10 @@ export default function GrowthPartnerPage() {
           <a
             href={applyUrl}
             className="dws-engine-header-cta"
-            onClick={() => handleCtaClick('Header CTA', 'CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW')}
+            onClick={() => handleCtaClick('Header CTA', 'BUILD MY GROWTH ENGINE — $499/MO')}
           >
             <span className="dws-header-pulse-dot" aria-hidden="true" />
-            <span>CLAIM THE LAUNCH RATE — FREE REVIEW</span>
+            <span>BUILD MY GROWTH ENGINE — $499/MO</span>
             <span className="dws-cta-arrow" aria-hidden="true">→</span>
           </a>
         </div>
@@ -196,7 +249,7 @@ export default function GrowthPartnerPage() {
                 <span className="dws-eyebrow-text">DYNASTY WORKS STUDIO</span>
                 <span className="dws-eyebrow-badge">
                   <span className="dws-pulse-beacon" />
-                  LAUNCH RATE ENROLLMENT ACTIVE
+                  DWS GROWTH ENGINE · $499/MONTH
                 </span>
               </div>
 
@@ -205,13 +258,17 @@ export default function GrowthPartnerPage() {
               </h1>
 
               <p className="dws-hero-description">
-                DWS designs the infrastructure between traffic and the sale — capture, CRM, automation, booking, attribution and follow-up operating as one connected Growth Engine.
+                Stop paying thousands upfront for a website that just sits there. Activate the Dynasty Works Studio Growth Engine for $499/month, and we'll build your professional business website plus a dedicated lead-generation landing page with $0 upfront build fee. Behind the website is the system designed to capture inquiries, respond quickly, nurture prospects, book appointments, track opportunities, generate reviews, and show what's happening to every lead.
               </p>
 
               <div className="dws-hero-positioning">
-                <span className="dws-positioning-tag">// STRATEGIC POSITIONING</span>
+                <span className="dws-positioning-tag">// CORE POSITIONING</span>
                 <p className="dws-positioning-text">
-                  Creative that positions you better. Systems that convert better. Infrastructure that scales better.
+                  THE WEBSITE ISN'T THE PRODUCT. IT'S THE FRONT DOOR. Behind it is your Growth Engine.
+                  <br />
+                  <span style={{ fontSize: '11px', fontFamily: 'monospace', letterSpacing: '0.08em', color: '#c5a049', display: 'inline-block', marginTop: '6px' }}>
+                    ONE WEBSITE. ONE LANDING PAGE. ONE CRM. ONE GROWTH SYSTEM.
+                  </span>
                 </p>
               </div>
 
@@ -222,17 +279,17 @@ export default function GrowthPartnerPage() {
                   onClick={() =>
                     handleCtaClick(
                       'Hero Primary CTA',
-                      'CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW'
+                      'BUILD MY GROWTH ENGINE'
                     )
                   }
                 >
-                  <span>CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW</span>
+                  <span>BUILD MY GROWTH ENGINE</span>
                   <span className="dws-btn-arrow" aria-hidden="true">→</span>
                 </a>
 
                 <div className="dws-hero-urgency-chip">
                   <span className="dws-chip-icon">✦</span>
-                  <span>LIMITED-TIME ENROLLMENT • STANDARD SETUP $2,500 → LAUNCH SETUP $997</span>
+                  <span>$499/MONTH • NO LONG-TERM CONTRACT • $0 UPFRONT BUILD FEE</span>
                 </div>
 
                 <a
@@ -614,10 +671,10 @@ export default function GrowthPartnerPage() {
             <div className="dws-problem-statement dws-reveal">
               <span className="dws-meta-tag">// SYSTEM DIAGNOSTIC</span>
               <h2 id="problem-heading" className="dws-statement-lead">
-                Most businesses do not have a traffic problem.
+                Your website shouldn't just exist.
               </h2>
               <div className="dws-statement-followup">
-                They have a <em>systems problem.</em>
+                It should connect to the system that follows up with <em>every opportunity.</em>
               </div>
             </div>
 
@@ -1618,124 +1675,211 @@ export default function GrowthPartnerPage() {
         </section>
 
         {/* ==================================================================
-            SECTION 8 — LAUNCH RATE ENROLLMENT: LIMITED-TIME OFFER (CHAMPAGNE NEUTRAL)
+            SECTION 8 — CHOOSE YOUR GROWTH LEVEL: NEW MASTER OFFER & MEDIA FUEL (CHAMPAGNE NEUTRAL)
             ================================================================== */}
-        <section className="dws-section dws-partner-section dws-tone-champagne" aria-labelledby="partner-heading">
+        <section id="pricing" className="dws-section dws-partner-section dws-tone-champagne" aria-labelledby="pricing-heading">
           <div className="growth-container">
             <div className="dws-invitation-plate dws-reveal">
               <div className="dws-plate-header">
                 <div className="dws-plate-badge">
                   <span className="dws-plate-dot" aria-hidden="true" />
-                  <span className="dws-plate-label">Launch Rate Enrollment</span>
+                  <span className="dws-plate-label">Commercial Architecture</span>
                 </div>
-                <span className="dws-plate-allocation">LIMITED-TIME ENROLLMENT WINDOW</span>
+                <span className="dws-plate-allocation">NO LONG-TERM CONTRACT REQUIRED</span>
               </div>
 
-              <h2 id="partner-heading" className="dws-invitation-title">
-                One fully connected Growth Engine. Launch rate enrollment.
-              </h2>
+              <div className="dws-pricing-intro-block">
+                <span className="dws-meta-tag">// SYSTEM & MEDIA COMMITMENT</span>
+                <h2 id="pricing-heading" className="dws-invitation-title">
+                  Choose Your Growth Level.
+                </h2>
+                <p className="dws-invitation-lead">
+                  The $499/month Growth Engine is your operating system. Choose the advertising fuel that matches your stage of growth.
+                  Advertising budgets are separate from the $499 DWS subscription and are paid directly to advertising platforms.
+                  DWS does not keep your advertising budget.
+                </p>
+                <div className="dws-pricing-mantra">
+                  <span>ONE WEBSITE</span> · <span>ONE LANDING PAGE</span> · <span>ONE CRM</span> · <span>ONE GROWTH SYSTEM</span>
+                </div>
+              </div>
 
-              <div className="dws-invitation-grid">
-                {/* Investment Side */}
-                <div className="dws-invitation-terms">
-                  {/* Pricing Comparison Matrix with slashed standard pricing */}
-                  <div className="dws-pricing-comparison">
-                    <div className="dws-price-block">
-                      <div className="dws-price-anchor">
-                        <span className="dws-anchor-label">STANDARD SETUP</span>
-                        <span className="dws-anchor-num slashed">$2,500</span>
-                      </div>
-                      <div className="dws-launch-tier">
-                        <span className="dws-launch-label">LAUNCH RATE SETUP</span>
-                        <span className="dws-launch-num">$997</span>
-                      </div>
+              {/* NEW MASTER CENTERPIECE OFFER: DWS GROWTH ENGINE $499/MO */}
+              <div className="dws-master-centerpiece">
+                <div className="dws-centerpiece-inner">
+                  <div className="dws-centerpiece-top">
+                    <div>
+                      <span className="dws-centerpiece-brand">DYNASTY WORKS STUDIO</span>
+                      <h3 className="dws-centerpiece-title">DWS GROWTH ENGINE</h3>
                     </div>
-
-                    <div className="dws-price-block-sep" aria-hidden="true" />
-
-                    <div className="dws-price-block">
-                      <div className="dws-price-anchor">
-                        <span className="dws-anchor-label">STANDARD MONTHLY MANAGEMENT</span>
-                        <span className="dws-anchor-num slashed">
-                          $1,497 <span className="dws-anchor-sub">/ month</span>
-                        </span>
-                      </div>
-                      <div className="dws-launch-tier">
-                        <span className="dws-launch-label">LAUNCH RATE</span>
-                        <span className="dws-launch-num">
-                          $997 <span className="dws-launch-sub">/ month</span>
-                        </span>
-                      </div>
+                    <div className="dws-centerpiece-price-badge">
+                      <span className="dws-centerpiece-price">$499</span>
+                      <span className="dws-centerpiece-freq">/ month</span>
                     </div>
                   </div>
 
-                  {/* Rate Lock & Urgency Directives */}
-                  <div className="dws-rate-lock-banner">
-                    <span className="dws-lock-icon" aria-hidden="true">🔒</span>
-                    <span className="dws-lock-text">
-                      Lock in the $997 monthly management rate while your account remains active and in good standing.
-                    </span>
-                  </div>
-
-                  <div className="dws-invitation-notes">
-                    <div className="dws-urgency-box">
-                      <p className="dws-urgency-note">
-                        <strong>Urgency:</strong> Limited-time launch rate. Once the current enrollment window closes, standard DWS pricing applies. Lock in the $997 monthly management rate while your account remains active and in good standing.
-                      </p>
-                    </div>
-
-                    <p className="dws-ad-budget-note">
-                      Minimum paid advertising budget: <strong>$500/month</strong>.<br />
-                      Advertising spend is paid separately and is not included in the $997 monthly management fee.
+                  <div className="dws-centerpiece-core-hook">
+                    <p className="dws-centerpiece-bold-claim">
+                      Activate the DWS Growth Engine and get your professional website + lead-generation landing page with <strong>$0 upfront build fee</strong>.
                     </p>
-
-                    <div className="dws-contract-terms">
-                      <span>● No long-term contract</span>
-                      <span>● 30-day cancellation</span>
-                      <span>● Ad spend billed separately</span>
-                      <span>● Platform / usage fees billed separately if applicable</span>
-                    </div>
-
-                    <div className="dws-commitment-block">
-                      <span className="dws-commitment-tag">INFRASTRUCTURE LAUNCH COMMITMENT</span>
-                      <p className="dws-commitment-text">
-                        If DWS does not launch the agreed Growth Engine within 14 business days after receiving all required client assets, access, approvals and information, the client's next management month is credited.
-                      </p>
+                    <p className="dws-centerpiece-sub-claim">
+                      Stop paying thousands upfront for a website that just sits there. The website isn't the product—it's the front door.
+                      Behind it is the operating system designed to capture inquiries, respond quickly, nurture prospects, book appointments,
+                      track opportunities, generate reviews, and show what's happening to every lead.
+                    </p>
+                    <div className="dws-no-contract-banner">
+                      <span className="dws-lock-icon" aria-hidden="true">✦</span>
+                      <span className="dws-lock-text">
+                        NO LONG-TERM CONTRACT REQUIRED. Stay because the system works—not because you're locked in.
+                      </span>
                     </div>
                   </div>
 
-                  <div className="dws-invitation-action">
+                  <div className="dws-included-capabilities">
+                    <span className="dws-capabilities-heading">WHAT THE $499 GROWTH ENGINE INCLUDES:</span>
+                    <ul className="dws-capabilities-grid">
+                      <li><span className="dws-check" aria-hidden="true">✓</span> Professional Business Website ($0 upfront build fee)</li>
+                      <li><span className="dws-check" aria-hidden="true">✓</span> Lead-Generation Landing Page ($0 upfront build fee)</li>
+                      <li><span className="dws-check" aria-hidden="true">✓</span> Unified GoHighLevel CRM</li>
+                      <li><span className="dws-check" aria-hidden="true">✓</span> High-Intent Direct Lead Capture</li>
+                      <li><span className="dws-check" aria-hidden="true">✓</span> Automated SMS &amp; Email Follow-Up Sequences</li>
+                      <li><span className="dws-check" aria-hidden="true">✓</span> Visual Stage-Tracked Sales Pipeline</li>
+                      <li><span className="dws-check" aria-hidden="true">✓</span> Direct Calendar Appointment Booking</li>
+                      <li><span className="dws-check" aria-hidden="true">✓</span> Automated Customer Review Generation</li>
+                      <li><span className="dws-check" aria-hidden="true">✓</span> Multi-Touch Attribution &amp; Lead Tracking</li>
+                      <li><span className="dws-check" aria-hidden="true">✓</span> Live Executive Performance Reporting</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* THREE ADVERTISING FUEL LEVELS */}
+              <div className="dws-growth-levels-wrapper">
+                <div className="dws-fuel-section-header">
+                  <span className="dws-fuel-badge">ADVERTISING MEDIA FUEL</span>
+                  <h3 className="dws-fuel-title">Fuel Your Growth Engine</h3>
+                  <p className="dws-fuel-desc">
+                    One constant operating engine ($499/mo) + three client-funded media levels.
+                    Media spend is billed directly by Google/Meta. DWS does not keep your advertising budget.
+                  </p>
+                </div>
+
+                <div className="dws-levels-grid">
+                  {/* LEVEL 01 — STARTER */}
+                  <div className="dws-level-card">
+                    <div className="dws-level-header">
+                      <span className="dws-level-tag">LEVEL 01</span>
+                      <h4 className="dws-level-name">STARTER</h4>
+                    </div>
+                    <div className="dws-level-math">
+                      <div className="dws-math-row">
+                        <span className="dws-math-label">Client Ad Budget</span>
+                        <strong className="dws-math-val">$250/mo</strong>
+                      </div>
+                      <div className="dws-math-row">
+                        <span className="dws-math-label">DWS Growth Engine</span>
+                        <strong className="dws-math-val">+ $499/mo</strong>
+                      </div>
+                      <div className="dws-math-total">
+                        <span className="dws-total-label">Total Monthly Commitment</span>
+                        <strong className="dws-total-val">$749/mo</strong>
+                      </div>
+                    </div>
+                    <p className="dws-level-positioning">
+                      A controlled entry point for businesses ready to begin generating traffic, testing audiences, and collecting campaign data.
+                    </p>
                     <a
-                      href={applyUrl}
-                      className="dws-btn-primary dws-btn-glow"
-                      onClick={() =>
-                        handleCtaClick(
-                          'Launch Rate Invitation CTA',
-                          'CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW'
-                        )
-                      }
+                      href={getTierUrl('starter')}
+                      className="dws-level-btn"
+                      onClick={() => handleCtaClick('Starter Tier CTA', 'START WITH STARTER')}
                     >
-                      <span>CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW</span>
+                      <span>START WITH STARTER</span>
+                      <span className="dws-btn-arrow" aria-hidden="true">→</span>
+                    </a>
+                  </div>
+
+                  {/* LEVEL 02 — GROWTH (RECOMMENDED) */}
+                  <div className="dws-level-card is-recommended">
+                    <div className="dws-recommended-badge">RECOMMENDED</div>
+                    <div className="dws-level-header">
+                      <span className="dws-level-tag">LEVEL 02</span>
+                      <h4 className="dws-level-name">GROWTH</h4>
+                    </div>
+                    <div className="dws-level-math">
+                      <div className="dws-math-row">
+                        <span className="dws-math-label">Client Ad Budget</span>
+                        <strong className="dws-math-val">$500/mo</strong>
+                      </div>
+                      <div className="dws-math-row">
+                        <span className="dws-math-label">DWS Growth Engine</span>
+                        <strong className="dws-math-val">+ $499/mo</strong>
+                      </div>
+                      <div className="dws-math-total is-accent">
+                        <span className="dws-total-label">Total Monthly Commitment</span>
+                        <strong className="dws-total-val">$999/mo</strong>
+                      </div>
+                    </div>
+                    <p className="dws-level-positioning">
+                      More advertising capacity for businesses ready to reach more prospects, generate more opportunities, and optimize campaigns with stronger data.
+                    </p>
+                    <a
+                      href={getTierUrl('growth')}
+                      className="dws-level-btn dws-btn-primary"
+                      onClick={() => handleCtaClick('Growth Tier CTA', 'CHOOSE GROWTH')}
+                    >
+                      <span>CHOOSE GROWTH</span>
+                      <span className="dws-btn-arrow" aria-hidden="true">→</span>
+                    </a>
+                  </div>
+
+                  {/* LEVEL 03 — ACCELERATE */}
+                  <div className="dws-level-card">
+                    <div className="dws-level-header">
+                      <span className="dws-level-tag">LEVEL 03</span>
+                      <h4 className="dws-level-name">ACCELERATE</h4>
+                    </div>
+                    <div className="dws-level-math">
+                      <div className="dws-math-row">
+                        <span className="dws-math-label">Client Ad Budget</span>
+                        <strong className="dws-math-val">$1,000+/mo</strong>
+                      </div>
+                      <div className="dws-math-row">
+                        <span className="dws-math-label">DWS Growth Engine</span>
+                        <strong className="dws-math-val">+ $499/mo</strong>
+                      </div>
+                      <div className="dws-math-total">
+                        <span className="dws-total-label">Total Monthly Commitment</span>
+                        <strong className="dws-total-val">$1,499+/mo</strong>
+                      </div>
+                    </div>
+                    <p className="dws-level-positioning">
+                      For businesses ready to pursue significantly more reach, testing capacity, and lead-generation volume across multi-channel campaigns.
+                    </p>
+                    <a
+                      href={getTierUrl('accelerate')}
+                      className="dws-level-btn"
+                      onClick={() => handleCtaClick('Accelerate Tier CTA', 'ACCELERATE MY GROWTH')}
+                    >
+                      <span>ACCELERATE MY GROWTH</span>
                       <span className="dws-btn-arrow" aria-hidden="true">→</span>
                     </a>
                   </div>
                 </div>
+              </div>
 
-                {/* Included Systems Scope */}
-                <div className="dws-invitation-scope">
-                  <h3 className="dws-scope-header">SYSTEM ARCHITECTURE INCLUDED:</h3>
-                  <ul className="dws-scope-list">
-                    <li><span className="dws-check" aria-hidden="true">✓</span> landing page or website implementation within agreed scope</li>
-                    <li><span className="dws-check" aria-hidden="true">✓</span> CRM and pipeline</li>
-                    <li><span className="dws-check" aria-hidden="true">✓</span> lead capture and routing</li>
-                    <li><span className="dws-check" aria-hidden="true">✓</span> automated follow-up</li>
-                    <li><span className="dws-check" aria-hidden="true">✓</span> booking system</li>
-                    <li><span className="dws-check" aria-hidden="true">✓</span> appointment reminders</li>
-                    <li><span className="dws-check" aria-hidden="true">✓</span> analytics and attribution</li>
-                    <li><span className="dws-check" aria-hidden="true">✓</span> monthly system review</li>
-                    <li><span className="dws-check" aria-hidden="true">✓</span> ongoing monitoring and optimization</li>
-                    <li><span className="dws-check" aria-hidden="true">✓</span> DWS direct system support</li>
-                  </ul>
+              {/* MANDATORY LEGAL & TRANSPARENCY DISCLOSURES */}
+              <div className="dws-disclosures-box">
+                <p className="dws-disclosure-item">
+                  <strong>Media Budget Disclosure:</strong> Advertising budgets are separate from the $499 DWS Growth Engine subscription and are paid directly to the advertising platforms. DWS does not keep your advertising budget. Total monthly investment figures ($749, $999, $1,499+) represent combined DWS subscription plus client-funded ad spend.
+                </p>
+                <p className="dws-disclosure-item">
+                  <strong>Offer Qualifier:</strong> Professional website and lead-generation landing page build included while the DWS Growth Engine subscription is active. Advertising spend is separate and paid directly to third-party advertising platforms. Advertising performance and lead volume vary by market, offer, budget, competition, targeting, and campaign performance. No long-term contract required.
+                </p>
+                <div className="dws-contract-terms">
+                  <span>● No long-term contract required</span>
+                  <span>● $0 upfront website build fee</span>
+                  <span>● $0 upfront landing-page build fee</span>
+                  <span>● Ad spend billed directly by advertising platforms</span>
+                  <span>● 100% data sovereignty &amp; direct account ownership</span>
                 </div>
               </div>
             </div>
@@ -1743,18 +1887,52 @@ export default function GrowthPartnerPage() {
         </section>
 
         {/* ==================================================================
-            SECTION 9 — FINAL CLOSE: HIGH-IMPACT EDITORIAL RESOLUTION (DARK)
+            SECTION 9 — FREQUENTLY ASKED QUESTIONS (DARK OBSIDIAN)
+            ================================================================== */}
+        <section id="faq" className="dws-section dws-faq-section dws-tone-dark" aria-labelledby="faq-heading">
+          <div className="growth-container">
+            <div className="dws-section-header dws-reveal">
+              <span className="dws-meta-tag">// SYSTEM TRANSPARENCY &amp; COMMERCIAL CLARITY</span>
+              <h2 id="faq-heading" className="dws-section-headline">
+                Frequently Asked Questions.
+              </h2>
+              <p className="dws-section-sub">
+                Clear answers regarding the DWS Growth Engine offer, advertising budgets, included deliverables, and operational workflows.
+              </p>
+            </div>
+
+            <div className="dws-faq-accordion dws-reveal">
+              {FAQ_ITEMS.map((item, idx) => (
+                <details key={idx} className="dws-faq-item">
+                  <summary className="dws-faq-question">
+                    <span>{item.q}</span>
+                    <span className="dws-faq-icon" aria-hidden="true">+</span>
+                  </summary>
+                  <div className="dws-faq-answer">
+                    <p>{item.a}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ==================================================================
+            SECTION 10 — FINAL CLOSE: HIGH-IMPACT EDITORIAL RESOLUTION (DARK)
             ================================================================== */}
         <section className="dws-section dws-final-close-section dws-tone-dark" aria-labelledby="close-heading">
           <div className="growth-container">
             <div className="dws-final-close-content dws-reveal">
               <span className="dws-meta-tag">// SYSTEM IMPERATIVE</span>
               <h2 id="close-heading" className="dws-close-statement">
-                Buying more traffic will not fix a broken journey.
+                STOP LETTING LEADS FALL THROUGH THE CRACKS.
               </h2>
               <div className="dws-close-followup">
-                Build the system first. <em>Then scale it.</em>
+                Build the system behind your growth. <em>$499/month.</em>
               </div>
+              <p style={{ margin: '14px auto 24px', maxWidth: '640px', color: '#c3c7d2', fontSize: '15px', lineHeight: '1.6' }}>
+                Professional Website + Lead-Generation Landing Page included with <strong>$0 upfront build fee</strong> while your DWS Growth Engine subscription is active. No long-term contract required.
+              </p>
 
               <div className="dws-close-action">
                 <a
@@ -1763,21 +1941,23 @@ export default function GrowthPartnerPage() {
                   onClick={() =>
                     handleCtaClick(
                       'Final Close CTA',
-                      'CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW'
+                      'ACTIVATE MY GROWTH ENGINE'
                     )
                   }
                 >
-                  <span>CLAIM THE LAUNCH RATE — START WITH MY FREE GROWTH REVIEW</span>
+                  <span>ACTIVATE MY GROWTH ENGINE</span>
                   <span className="dws-btn-arrow" aria-hidden="true">→</span>
                 </a>
               </div>
 
               <div className="dws-close-reassurance">
-                <span>Zero Obligation Diagnostic</span>
+                <span>$499/Month Subscription</span>
                 <span className="dws-sep">·</span>
-                <span>Direct Founder Consultation</span>
+                <span>$0 Upfront Build Fee</span>
                 <span className="dws-sep">·</span>
-                <span>Limited Enrollment Window</span>
+                <span>No Long-Term Contract</span>
+                <span className="dws-sep">·</span>
+                <span>Direct Data Sovereignty</span>
               </div>
             </div>
           </div>

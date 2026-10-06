@@ -3043,11 +3043,19 @@
 }
 
 /* ==========================================================================
-   SECTION 8 — FOUNDING CLIENT LAUNCH RATE: EXECUTIVE INVITATION
+   SECTION 8 — CHOOSE YOUR GROWTH LEVEL: MASTER OFFER & ADVERTISING FUEL
    ========================================================================== */
+.dws-partner-section {
+  scroll-margin-top: 80px;
+}
+
+.dws-faq-section {
+  scroll-margin-top: 80px;
+}
+
 .dws-invitation-plate {
   border-radius: 8px;
-  padding: clamp(36px, 5vw, 68px);
+  padding: clamp(32px, 5vw, 64px);
   position: relative;
 }
 
@@ -3090,203 +3098,520 @@
   font-weight: 700;
 }
 
+.dws-pricing-intro-block {
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+
 .dws-invitation-title {
-  font-size: clamp(32px, 4.4vw, 60px);
-  font-weight: 600;
+  font-size: clamp(32px, 4.4vw, 56px);
+  font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1.1;
-  margin: 0 0 clamp(32px, 4vw, 56px);
+  margin: 10px 0 16px;
 }
 
-.dws-invitation-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(36px, 5vw, 72px);
-  align-items: start;
+.dws-invitation-lead {
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.65;
+  color: #4f5562;
+  max-width: 820px;
+  margin: 0 0 20px;
 }
 
-.dws-pricing-comparison {
-  display: flex;
-  align-items: stretch;
-  gap: clamp(20px, 3vw, 36px);
-  margin-bottom: 24px;
-}
-
-.dws-price-block {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 1;
-}
-
-.dws-price-anchor {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.dws-anchor-label {
+.dws-pricing-mantra {
+  display: inline-flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
   font-family: monospace;
   font-size: 11px;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-weight: 600;
+  color: #8a6c1e;
+  background: rgba(184, 150, 53, 0.08);
+  border: 1px solid rgba(184, 150, 53, 0.28);
+  padding: 8px 16px;
+  border-radius: 4px;
 }
 
-.dws-anchor-num.slashed {
-  font-size: clamp(20px, 2vw, 26px);
-  font-weight: 600;
-  text-decoration: line-through;
-  text-decoration-thickness: 2px;
-  line-height: 1.1;
+/* Master Centerpiece Card ($499/mo) */
+.dws-master-centerpiece {
+  background: #0d0f14;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 8px;
+  padding: clamp(28px, 4vw, 44px);
+  margin-bottom: 48px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2), 0 0 32px rgba(212, 175, 55, 0.06);
+  position: relative;
+  overflow: hidden;
 }
 
-.dws-anchor-sub {
-  font-size: 13px;
-  font-weight: 400;
+.dws-master-centerpiece::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, #f3c442, transparent);
 }
 
-.dws-launch-tier {
+.dws-centerpiece-inner {
   display: flex;
   flex-direction: column;
-  gap: 4px;
 }
 
-.dws-launch-label {
+.dws-centerpiece-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dws-centerpiece-brand {
   font-family: monospace;
   font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
   font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #d4af37;
+  text-transform: uppercase;
+  display: block;
 }
 
-.dws-launch-num {
-  font-size: clamp(36px, 4.2vw, 56px);
+.dws-centerpiece-title {
+  font-size: clamp(26px, 3.4vw, 38px);
   font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 6px 0 0;
+}
+
+.dws-centerpiece-price-badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.38);
+  padding: 8px 20px;
+  border-radius: 6px;
+}
+
+.dws-centerpiece-price {
+  font-size: clamp(34px, 4vw, 50px);
+  font-weight: 800;
+  color: #f3c442;
+  font-family: monospace;
   letter-spacing: -0.04em;
   line-height: 1;
 }
 
-.dws-launch-sub {
-  font-size: clamp(15px, 1.6vw, 20px);
-  font-weight: 500;
-  letter-spacing: normal;
+.dws-centerpiece-freq {
+  font-size: 14px;
+  color: #cbd0dc;
+  font-weight: 600;
 }
 
-.dws-price-block-sep {
-  width: 1px;
-  align-self: stretch;
+.dws-centerpiece-core-hook {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.dws-rate-lock-banner {
-  border-radius: 4px;
-  padding: 12px 16px;
-  margin-bottom: 24px;
-  display: flex;
+.dws-centerpiece-bold-claim {
+  font-size: clamp(17px, 2vw, 21px);
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.dws-centerpiece-bold-claim strong {
+  color: #f3c442;
+  font-weight: 800;
+}
+
+.dws-centerpiece-sub-claim {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #a4abb8;
+  margin: 0 0 20px;
+}
+
+.dws-no-contract-banner {
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  padding: 8px 16px;
+  border-radius: 4px;
 }
 
 .dws-lock-icon {
-  font-size: 16px;
+  font-size: 14px;
+  color: #10b981;
   flex-shrink: 0;
 }
 
 .dws-lock-text {
-  font-size: 13.5px;
-  font-weight: 600;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #34d399;
+}
+
+.dws-included-capabilities {
+  padding-top: 24px;
+}
+
+.dws-capabilities-heading {
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #d4af37;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 18px;
+}
+
+.dws-capabilities-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 28px;
+}
+
+.dws-capabilities-grid li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 14px;
+  color: #e2e5eb;
   line-height: 1.45;
 }
 
-.dws-invitation-notes {
-  margin-bottom: 32px;
+.dws-check {
+  color: #10b981;
+  font-weight: 800;
+  font-size: 14px;
+  flex-shrink: 0;
 }
 
-.dws-urgency-box {
-  border-radius: 4px;
-  padding: 14px 16px;
-  margin-bottom: 16px;
+/* Three Advertising Fuel Levels */
+.dws-growth-levels-wrapper {
+  margin-top: 52px;
 }
 
-.dws-urgency-note {
-  font-size: 13.5px;
-  font-weight: 500;
-  line-height: 1.5;
+.dws-fuel-section-header {
+  margin-bottom: 30px;
+}
+
+.dws-fuel-badge {
+  font-family: monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #8a6c1e;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.dws-fuel-title {
+  font-size: clamp(24px, 3.2vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #121418;
+  margin: 0 0 10px;
+}
+
+.dws-fuel-desc {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #555b68;
+  max-width: 780px;
   margin: 0;
 }
 
-.dws-urgency-note strong {
-  font-weight: 700;
+.dws-levels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  align-items: stretch;
+  margin-top: 24px;
 }
 
-.dws-ad-budget-note {
-  font-size: 13px;
-  line-height: 1.6;
-  margin: 0 0 20px;
-  padding-left: 12px;
-}
-
-.dws-ad-budget-note strong {
-  font-weight: 700;
-}
-
-.dws-contract-terms {
+.dws-level-card {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  font-size: 13px;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1px solid #dcd7cb;
+  border-radius: 6px;
+  padding: 28px 24px;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dws-level-card:hover {
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+}
+
+.dws-level-card.is-recommended {
+  border: 2px solid #8c7335;
+  background: #fdfcf9;
+  box-shadow: 0 16px 42px rgba(140, 115, 53, 0.14);
+  transform: translateY(-4px);
+}
+
+.dws-recommended-badge {
+  position: absolute;
+  top: -13px;
+  left: 24px;
+  background: #8c7335;
+  color: #ffffff;
   font-family: monospace;
-  margin-bottom: 20px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  padding: 3px 12px;
+  border-radius: 3px;
 }
 
-.dws-commitment-block {
-  border-radius: 4px;
-  padding: 14px 16px;
+.dws-level-header {
+  margin-bottom: 16px;
 }
 
-.dws-commitment-tag {
-  display: block;
+.dws-level-tag {
   font-family: monospace;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.14em;
-  margin-bottom: 6px;
+  color: #7a7f8b;
+  display: block;
 }
 
-.dws-commitment-text {
-  font-size: 13px;
-  line-height: 1.5;
-  margin: 0;
+.dws-level-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: #121418;
+  letter-spacing: -0.02em;
+  margin: 4px 0 0;
 }
 
-.dws-scope-header {
+.dws-level-math {
+  background: #f8f6f0;
+  border: 1px solid #e3decb;
+  border-radius: 4px;
+  padding: 14px 16px;
+  margin: 16px 0 18px;
+}
+
+.dws-math-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: #505664;
+  margin-bottom: 8px;
+}
+
+.dws-math-label {
+  font-weight: 500;
+}
+
+.dws-math-val {
   font-family: monospace;
+  font-weight: 700;
+  color: #121418;
+}
+
+.dws-math-total {
+  border-top: 1px dashed #cfc9b8;
+  padding-top: 10px;
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.dws-total-label {
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.16em;
-  margin: 0 0 20px;
+  color: #343740;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.dws-scope-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.dws-total-val {
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: 800;
+  color: #121418;
+}
+
+.dws-math-total.is-accent .dws-total-val {
+  color: #8c7335;
+  font-size: 22px;
+}
+
+.dws-level-positioning {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #545965;
+  margin: 0 0 24px;
+  flex: 1;
+}
+
+.dws-level-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 20px;
+  border-radius: 4px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid #161a12;
+  color: #161a12;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.dws-level-btn:hover {
+  background: #161a12;
+  color: #ffffff;
+}
+
+.dws-level-btn.dws-btn-primary {
+  background: #8c7335;
+  border-color: #8c7335;
+  color: #ffffff;
+}
+
+.dws-level-btn.dws-btn-primary:hover {
+  background: #6f5924;
+  border-color: #6f5924;
+}
+
+/* Mandatory Legal & Disclosures */
+.dws-disclosures-box {
+  margin-top: 40px;
+  background: #f4efe4;
+  border: 1px solid #ddd7c7;
+  border-radius: 6px;
+  padding: 22px 26px;
+}
+
+.dws-disclosure-item {
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: #4e5360;
+  margin: 0 0 12px;
+}
+
+.dws-disclosure-item:last-of-type {
+  margin-bottom: 0;
+}
+
+.dws-disclosure-item strong {
+  color: #121418;
+}
+
+.dws-contract-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #ded7c6;
+  font-family: monospace;
+  font-size: 11.5px;
+  color: #434854;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   SECTION 9 — FREQUENTLY ASKED QUESTIONS (DARK OBSIDIAN)
+   ========================================================================== */
+.dws-faq-section {
+  background: #080a0e;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: clamp(60px, 8vw, 110px) 0;
+}
+
+.dws-faq-accordion {
+  max-width: 920px;
+  margin: 44px auto 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
-.dws-scope-list li {
-  font-size: 14px;
+.dws-faq-item {
+  background: rgba(18, 22, 31, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.dws-faq-item[open] {
+  border-color: rgba(212, 175, 55, 0.45);
+  background: rgba(18, 22, 31, 0.95);
+}
+
+.dws-faq-question {
+  padding: 20px 24px;
   display: flex;
-  align-items: baseline;
-  gap: 12px;
-  line-height: 1.5;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  list-style: none;
+  user-select: none;
+  gap: 16px;
 }
 
-.dws-check {
-  font-weight: 700;
+.dws-faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.dws-faq-icon {
+  font-size: 22px;
+  font-weight: 400;
+  color: #d4af37;
+  transition: transform 0.2s ease;
   flex-shrink: 0;
+  line-height: 1;
+}
+
+.dws-faq-item[open] .dws-faq-icon {
+  transform: rotate(45deg);
+}
+
+.dws-faq-answer {
+  padding: 0 24px 22px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #b2b8c6;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: 4px;
+  padding-top: 16px;
+}
+
+.dws-faq-answer p {
+  margin: 0;
 }
 
 /* ==========================================================================
@@ -3420,9 +3745,12 @@
   .dws-timeline-station:nth-child(2) .dws-station-line {
     display: none;
   }
-  .dws-invitation-grid {
+  .dws-levels-grid {
     grid-template-columns: 1fr;
-    gap: 44px;
+    gap: 24px;
+  }
+  .dws-level-card.is-recommended {
+    transform: none;
   }
 }
 
@@ -3486,13 +3814,17 @@
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  .dws-pricing-comparison {
-    flex-direction: column;
-    gap: 20px;
+  .dws-capabilities-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
-  .dws-price-block-sep {
-    width: 100%;
-    height: 1px;
+  .dws-centerpiece-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .dws-contract-terms {
+    flex-direction: column;
+    gap: 8px;
   }
   .dws-engine-footer-inner {
     flex-direction: column;

@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 
 const links = [
   ['Services', '/#services'],
-  ['Growth Engine', '/growth'],
+  ['Growth Engine', '/growth-engine'],
   ['Our Work', '/work'],
   ['About', '/studio'],
 ];
@@ -54,7 +54,7 @@ export function ReviewHeader() {
         </div>
         <nav aria-label="Mobile navigation">
           <a href="/#services" onClick={close}>Services <Arrow /></a>
-          <a href="/growth" onClick={close}>Growth Engine <Arrow /></a>
+          <a href="/growth-engine" onClick={close}>Growth Engine ($499/mo) <Arrow /></a>
           <a href="/work" onClick={close}>Our Work <Arrow /></a>
           <a href="/studio" onClick={close}>About <Arrow /></a>
           <a href="/contact" onClick={close}>Start Your Project <Arrow /></a>
@@ -135,21 +135,22 @@ export function ServicesOverview() {
         <article className="r52-service-card r52-service-highlight">
           <div className="r52-service-meta">
             <span className="r52-service-num">03</span>
-            <span className="r52-service-tag">GROWTH ARCHITECTURE</span>
+            <span className="r52-service-tag">GROWTH ARCHITECTURE · $499/MO</span>
           </div>
           <h3 className="r52-service-name">The Dynasty Growth Engine</h3>
           <p className="r52-service-desc">
-            Connected inquiry forms, customer management, booking, and follow-up workflows configured around how your business operates.
+            Professional business website, dedicated landing page, unified CRM, and automated follow-up with $0 upfront build fee.
           </p>
           <ul className="r52-service-features" aria-label="Growth Engine capabilities">
+            <li>Website + Landing Page ($0 upfront build fee)</li>
             <li>Inquiry capture &amp; CRM pipeline setup</li>
             <li>Automated SMS &amp; email follow-up</li>
             <li>Integrated calendar booking (HighLevel)</li>
             <li>Attribution tracking &amp; reporting</li>
           </ul>
           <div className="r52-service-action">
-            <a href="/growth" className="r52-service-btn r52-service-btn-accent">
-              Explore the Growth Engine <Arrow />
+            <a href="/growth-engine" className="r52-service-btn r52-service-btn-accent">
+              Explore Growth Engine ($499/mo) <Arrow />
             </a>
           </div>
         </article>
@@ -270,8 +271,8 @@ export function GrowthEngineShowcase() {
             <a href="/growth/fitness" className="r52-ge-industry-pill">
               Fitness &amp; Athletic Clubs <Arrow />
             </a>
-            <a href="/growth" className="r52-ge-industry-pill">
-              Full Growth Engine System <Arrow />
+            <a href="/growth-engine" className="r52-ge-industry-pill">
+              Full Growth Engine System ($499/mo) <Arrow />
             </a>
           </div>
         </div>
@@ -280,7 +281,7 @@ export function GrowthEngineShowcase() {
           <a href="/growth/book" className="r51-action">
             Book a Discovery Call <Arrow />
           </a>
-          <a href="/growth" className="r52-hero-work">
+          <a href="/growth-engine" className="r52-hero-work">
             Explore Growth Architecture <Arrow />
           </a>
         </div>
@@ -690,7 +691,7 @@ export function ReviewFooter() {
       </div>
       <nav aria-label="Footer navigation">
         <a href="/#services">Services</a>
-        <a href="/growth">Growth Engine</a>
+        <a href="/growth-engine">Growth Engine</a>
         <a href="/work">Our Work</a>
         <a href="/studio">About</a>
         <a href="/growth/book">Book a Call <Arrow /></a>

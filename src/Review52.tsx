@@ -281,21 +281,26 @@ export default function Review52({ environment }: { environment?: (state: Creati
       <section id="hero" className="p-arrival" aria-labelledby="p-title">
         <ReviewHeader />
         <div className="p-arrival-composition">
-          <p className="p-arrival-note">DYNASTY WORKS STUDIO <br />Brand, Web &amp; Growth Systems</p>
-          <h1 id="p-title">Build a brand<br className="r52-hero-break" /> people remember.<span>Create a business ready<br className="r52-hero-break" /> for what comes next.</span></h1>
+          <p className="p-arrival-note">DYNASTY WORKS STUDIO <br />Growth Operating System</p>
+          <h1 id="p-title">Growth infrastructure<br className="r52-hero-break" /> for businesses<span>ready to scale.</span></h1>
           <div className="p-origin-art">
             <div ref={origin} className="p-origin-anchor" />
-            <span className="p-origin-caption"><i />One idea. Infinite potential.</span>
+            <span className="p-origin-caption"><i />One idea. Connected system.</span>
           </div>
-          <p className="p-arrival-bottom">
-            We bring together brand design, websites, and connected business systems to help you make a strong first impression—and keep the conversation moving.
-            <span className="p-arrival-secondary" style={{ display: 'block', marginTop: '10px', color: '#686b65', fontSize: '11px', lineHeight: '1.6' }}>
-              From your visual identity to your next customer inquiry, Dynasty Works Studio connects the details that help your business grow.
+          <div className="p-arrival-bottom">
+            <p className="p-arrival-supporting" style={{ fontSize: '11px', fontFamily: 'monospace', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#1640d0', fontWeight: 700, margin: '0 0 8px' }}>
+              Website · Landing Page · CRM · Automation · Pipeline · Tracking
+            </p>
+            <p className="p-arrival-hook" style={{ margin: '0 0 8px', color: '#2b2e2a', fontSize: '13.5px', lineHeight: '1.6' }}>
+              <strong>Professional Website + Lead-Generation Landing Page</strong> with <strong>$0 Upfront Build Fee</strong> with an active Growth Engine subscription. No long-term contract required.
+            </p>
+            <span className="p-arrival-price-tag" style={{ display: 'inline-block', fontFamily: 'monospace', fontSize: '11.5px', fontWeight: 800, color: '#8c7335', letterSpacing: '0.08em' }}>
+              GROWTH ENGINE FROM $499/MONTH
             </span>
-          </p>
+          </div>
           <div className="r51-arrival-actions">
-            <a className="r51-action" href="/growth/book">Book a Discovery Call <span aria-hidden="true">→</span></a>
-            <a className="r52-hero-work" href="/work">Explore Our Work <span aria-hidden="true">↗</span></a>
+            <a className="r51-action" href="/growth-engine">Activate Your Growth Engine <span aria-hidden="true">→</span></a>
+            <a className="r52-hero-work" href="/growth-engine#the-problem">See How It Works <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>
@@ -474,10 +479,10 @@ function ReviewBuilder() {
         </div>
       </div>
       {map.complete && (
-        <div className="r51-blueprint">
-          <span>GO DEEPER</span>
-          <a href="/founder-blueprint">Founder Blueprint <span aria-hidden="true">↗</span></a>
-          <p>A deeper strategic engagement.<br /><strong>$1,500</strong></p>
+        <div className="r51-blueprint r51-growth-engine-callout">
+          <span>RECOMMENDED NEXT MOVE</span>
+          <a href="/growth-engine">DWS Growth Engine <span aria-hidden="true">↗</span></a>
+          <p>Website + Landing Page · <strong>$0 Upfront Build Fee</strong><br />Core subscription from $499/month · No long-term contract</p>
         </div>
       )}
     </section>

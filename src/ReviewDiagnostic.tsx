@@ -710,52 +710,171 @@ export default function ReviewDiagnostic({
             are established through direct studio review. Non-binding advisory roadmap.
           </div>
 
-          {/* RECOMMENDED NEXT DECISION — COMMERCIAL ENGAGEMENT LADDER */}
-          <div className="dws-commercial-ladder">
-            <div className="dws-ladder-title">RECOMMENDED NEXT DECISION · COMMERCIAL ENGAGEMENT LADDER</div>
-            <div className="dws-ladder-grid">
-              <div className="dws-ladder-step">
-                <div>
-                  <span className="dws-ladder-num">TIER 01 / INITIAL ROADMAP</span>
-                  <div className="dws-ladder-name">Company Builder</div>
-                  <div className="dws-ladder-price">Free / Completed Above</div>
-                  <p className="dws-ladder-desc">
-                    Deterministic strategic assessment mapping initial scope, sequence, and service
-                    dependencies.
-                  </p>
+          {/* POST-ROADMAP COMMERCIAL SECTION — NEW MASTER OFFER: DWS GROWTH ENGINE ($499/MO) + 3 GROWTH LEVELS */}
+          <div className="dws-commercial-ladder dws-growth-engine-commercial-section" id="commercial-offer">
+            <div className="dws-ladder-transition-banner">
+              <span className="dws-ladder-kicker">ROADMAP TO EXECUTION</span>
+              <h3 className="dws-ladder-transition-headline">
+                Now that you've seen the system, choose how aggressively you want to fuel it.
+              </h3>
+              <p className="dws-ladder-transition-sub">
+                The website isn't the product. It's the front door. Behind it is the system that captures leads,
+                follows up, books opportunities, and tracks your sales pipeline.
+              </p>
+              <div className="dws-ladder-mantra">
+                <span>ONE WEBSITE</span> · <span>ONE LANDING PAGE</span> · <span>ONE CRM</span> · <span>ONE GROWTH SYSTEM</span>
+              </div>
+            </div>
+
+            {/* NEW CENTERPIECE MASTER OFFER */}
+            <div className="dws-centerpiece-card">
+              <div className="dws-centerpiece-header">
+                <div className="dws-centerpiece-badge">
+                  <span className="dws-centerpiece-pulse" aria-hidden="true" />
+                  <span>CORE OPERATING SYSTEM · SUBSCRIPTION</span>
                 </div>
+                <span className="dws-no-contract-pill">NO LONG-TERM CONTRACT REQUIRED</span>
               </div>
 
-              <div className="dws-ladder-step is-highlighted">
-                <span className="dws-ladder-badge">RECOMMENDED NEXT STEP</span>
-                <div>
-                  <span className="dws-ladder-num">TIER 02 / STRATEGIC ADVISORY</span>
-                  <div className="dws-ladder-name">Founder Blueprint</div>
-                  <div className="dws-ladder-price">$1,500 Strategic Scoping</div>
-                  <p className="dws-ladder-desc">
-                    A high-conviction 2–3 week strategic engagement clarifying brand architecture,
-                    technical requirements, and exact execution specs.
+              <div className="dws-centerpiece-body">
+                <div className="dws-centerpiece-primary">
+                  <span className="dws-centerpiece-kicker">DYNASTY WORKS STUDIO</span>
+                  <h4 className="dws-centerpiece-name">DWS GROWTH ENGINE</h4>
+                  <div className="dws-centerpiece-price-row">
+                    <span className="dws-centerpiece-price">$499</span>
+                    <span className="dws-centerpiece-period">/ month</span>
+                  </div>
+                  <p className="dws-centerpiece-hook">
+                    <strong>$0 Upfront Website Build Fee</strong> + <strong>$0 Upfront Landing-Page Build Fee</strong>
+                    <br />
+                    Included while your DWS Growth Engine subscription is active. Stay because the system works—not because you're locked in.
                   </p>
                 </div>
-                <a href="/founder-blueprint" className="dws-ladder-cta-primary">
-                  Explore Founder Blueprint <span aria-hidden="true">→</span>
+
+                <div className="dws-centerpiece-features">
+                  <span className="dws-features-label">WHAT THE $499 GROWTH ENGINE INCLUDES:</span>
+                  <div className="dws-features-grid">
+                    <span><i aria-hidden="true">✓</i> Professional Business Website</span>
+                    <span><i aria-hidden="true">✓</i> Lead-Gen Landing Page</span>
+                    <span><i aria-hidden="true">✓</i> GoHighLevel / Unified CRM</span>
+                    <span><i aria-hidden="true">✓</i> Direct Lead Capture</span>
+                    <span><i aria-hidden="true">✓</i> Automated Follow-Up</span>
+                    <span><i aria-hidden="true">✓</i> Visual Sales Pipeline</span>
+                    <span><i aria-hidden="true">✓</i> Appointment Booking</span>
+                    <span><i aria-hidden="true">✓</i> Automated Review Generation</span>
+                    <span><i aria-hidden="true">✓</i> Attribution &amp; Lead Tracking</span>
+                    <span><i aria-hidden="true">✓</i> Live Performance Reporting</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* THREE ACQUISITION FUEL LEVELS */}
+            <div className="dws-fuel-header">
+              <span className="dws-fuel-kicker">CHOOSE YOUR GROWTH LEVEL · ADVERTISING FUEL</span>
+              <h4>One Growth Engine. Three Advertising Levels.</h4>
+              <p>
+                The $499/mo Growth Engine is the operating product. The advertising budget is the media fuel.
+                Advertising budgets are separate from the $499 DWS subscription and are paid directly to advertising platforms.
+                DWS does not keep your advertising budget.
+              </p>
+            </div>
+
+            <div className="dws-ladder-grid dws-fuel-grid">
+              {/* LEVEL 01 — STARTER */}
+              <div className="dws-ladder-step dws-fuel-step">
+                <div className="dws-fuel-step-top">
+                  <span className="dws-ladder-num">LEVEL 01 // ENTRY POINT</span>
+                  <div className="dws-ladder-name">STARTER</div>
+                  <div className="dws-fuel-math">
+                    <div className="dws-fuel-line">
+                      <span className="dws-fuel-line-label">Client Ad Budget</span>
+                      <strong className="dws-fuel-line-val">$250 / mo</strong>
+                    </div>
+                    <div className="dws-fuel-line">
+                      <span className="dws-fuel-line-label">DWS Growth Engine</span>
+                      <strong className="dws-fuel-line-val">+ $499 / mo</strong>
+                    </div>
+                    <div className="dws-fuel-total">
+                      <span>Total Commitment:</span>
+                      <strong>$749/mo</strong>
+                    </div>
+                  </div>
+                  <p className="dws-ladder-desc">
+                    A controlled entry point for businesses ready to begin generating traffic, testing audiences, and collecting campaign data.
+                  </p>
+                </div>
+                <a href="/growth/apply?tier=starter" className="dws-ladder-action">
+                  Start with Starter <span aria-hidden="true">→</span>
                 </a>
               </div>
 
-              <div className="dws-ladder-step">
-                <div>
-                  <span className="dws-ladder-num">TIER 03 / VENTURE CREATION</span>
-                  <div className="dws-ladder-name">Full Company Build</div>
-                  <div className="dws-ladder-price">Custom Scope</div>
+              {/* LEVEL 02 — GROWTH (RECOMMENDED) */}
+              <div className="dws-ladder-step dws-fuel-step is-highlighted">
+                <span className="dws-ladder-badge">RECOMMENDED</span>
+                <div className="dws-fuel-step-top">
+                  <span className="dws-ladder-num">LEVEL 02 // ACCELERATED MOMENTUM</span>
+                  <div className="dws-ladder-name">GROWTH</div>
+                  <div className="dws-fuel-math">
+                    <div className="dws-fuel-line">
+                      <span className="dws-fuel-line-label">Client Ad Budget</span>
+                      <strong className="dws-fuel-line-val">$500 / mo</strong>
+                    </div>
+                    <div className="dws-fuel-line">
+                      <span className="dws-fuel-line-label">DWS Growth Engine</span>
+                      <strong className="dws-fuel-line-val">+ $499 / mo</strong>
+                    </div>
+                    <div className="dws-fuel-total is-highlight">
+                      <span>Total Commitment:</span>
+                      <strong>$999/mo</strong>
+                    </div>
+                  </div>
                   <p className="dws-ladder-desc">
-                    End-to-end execution across Strategy, Identity, Product, Packaging, Digital,
-                    Automation, and Market launch.
+                    More advertising capacity for businesses ready to reach more prospects, generate more opportunities, and optimize campaigns with stronger data.
                   </p>
                 </div>
-                <a href="/contact" className="dws-ladder-action">
-                  Talk to the Studio <span aria-hidden="true">↗</span>
+                <a href="/growth/apply?tier=growth" className="dws-ladder-cta-primary">
+                  Choose Growth <span aria-hidden="true">→</span>
                 </a>
               </div>
+
+              {/* LEVEL 03 — ACCELERATE */}
+              <div className="dws-ladder-step dws-fuel-step">
+                <div className="dws-fuel-step-top">
+                  <span className="dws-ladder-num">LEVEL 03 // HIGH VOLUME</span>
+                  <div className="dws-ladder-name">ACCELERATE</div>
+                  <div className="dws-fuel-math">
+                    <div className="dws-fuel-line">
+                      <span className="dws-fuel-line-label">Client Ad Budget</span>
+                      <strong className="dws-fuel-line-val">$1,000+ / mo</strong>
+                    </div>
+                    <div className="dws-fuel-line">
+                      <span className="dws-fuel-line-label">DWS Growth Engine</span>
+                      <strong className="dws-fuel-line-val">+ $499 / mo</strong>
+                    </div>
+                    <div className="dws-fuel-total">
+                      <span>Total Commitment:</span>
+                      <strong>$1,499+/mo</strong>
+                    </div>
+                  </div>
+                  <p className="dws-ladder-desc">
+                    For businesses ready to pursue significantly more reach, testing capacity, and lead-generation volume across channels.
+                  </p>
+                </div>
+                <a href="/growth/apply?tier=accelerate" className="dws-ladder-action">
+                  Accelerate My Growth <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Transparent Disclosures & Offer Qualifier */}
+            <div className="dws-commercial-disclosures">
+              <p className="dws-disclosure-text">
+                <strong>Media Budget Disclosure:</strong> Advertising budgets are separate from the $499 DWS Growth Engine subscription and are paid directly to the advertising platforms. DWS does not keep your advertising budget. Total monthly investment figures ($749, $999, $1,499+) represent combined DWS subscription plus client-funded ad spend.
+              </p>
+              <p className="dws-disclosure-text">
+                <strong>Offer Qualifier:</strong> Professional website and landing-page build included while the DWS Growth Engine subscription is active. Advertising spend is separate and paid directly to third-party advertising platforms. Advertising performance and lead volume vary by market, offer, budget, competition, targeting, and campaign performance. No long-term contract required.
+              </p>
             </div>
           </div>
 
