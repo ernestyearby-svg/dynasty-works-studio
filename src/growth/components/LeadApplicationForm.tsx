@@ -80,7 +80,7 @@ export const LeadApplicationForm: React.FC<LeadApplicationFormProps> = ({
     tierKey: string;
     title: string;
     adBudget: string;
-    totalCommitment: string;
+    totalInvestment: string;
   } | null>(null);
 
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -97,42 +97,42 @@ export const LeadApplicationForm: React.FC<LeadApplicationFormProps> = ({
           tierKey: 'starter',
           title: 'Starter',
           adBudget: '$250/mo Client Ad Budget',
-          totalCommitment: '$749/mo Total Commitment ($499 DWS + $250 Media)',
+          totalInvestment: '$749/mo Total Monthly Investment ($499 DWS + $250 Media)',
         });
         setFormData((prev) => ({
           ...prev,
           monthlyMarketingBudget: prev.monthlyMarketingBudget || 'Under $1,000',
           notes: prev.notes
             ? prev.notes
-            : 'Target Growth Level: Starter ($250/mo Ad Budget + $499/mo DWS = $749/mo Total)',
+            : 'Target Growth Level: Starter ($250/mo Ad Budget + $499/mo DWS = $749/mo Total Monthly Investment)',
         }));
       } else if (tier === 'growth') {
         setSelectedTierInfo({
           tierKey: 'growth',
-          title: 'Growth (Recommended)',
+          title: 'Growth — Recommended',
           adBudget: '$500/mo Client Ad Budget',
-          totalCommitment: '$999/mo Total Commitment ($499 DWS + $500 Media)',
+          totalInvestment: '$999/mo Total Monthly Investment ($499 DWS + $500 Media)',
         });
         setFormData((prev) => ({
           ...prev,
           monthlyMarketingBudget: prev.monthlyMarketingBudget || 'Under $1,000',
           notes: prev.notes
             ? prev.notes
-            : 'Target Growth Level: Growth [Recommended] ($500/mo Ad Budget + $499/mo DWS = $999/mo Total)',
+            : 'Target Growth Level: Growth [Recommended] ($500/mo Ad Budget + $499/mo DWS = $999/mo Total Monthly Investment)',
         }));
       } else if (tier === 'accelerate') {
         setSelectedTierInfo({
           tierKey: 'accelerate',
           title: 'Accelerate',
           adBudget: '$1,000+/mo Client Ad Budget',
-          totalCommitment: '$1,499+/mo Total Commitment ($499 DWS + $1,000+ Media)',
+          totalInvestment: '$1,499+/mo Total Monthly Investment ($499 DWS + $1,000+ Media)',
         });
         setFormData((prev) => ({
           ...prev,
           monthlyMarketingBudget: prev.monthlyMarketingBudget || '$1,000–$2,500',
           notes: prev.notes
             ? prev.notes
-            : 'Target Growth Level: Accelerate ($1,000+/mo Ad Budget + $499/mo DWS = $1,499+/mo Total)',
+            : 'Target Growth Level: Accelerate ($1,000+/mo Ad Budget + $499/mo DWS = $1,499+/mo Total Monthly Investment)',
         }));
       }
     }
@@ -270,7 +270,7 @@ export const LeadApplicationForm: React.FC<LeadApplicationFormProps> = ({
           }}
         >
           <span style={{ color: '#10b981', fontSize: '10px' }}>●</span>
-          <span>SELECTED COMMITMENT: <strong>{selectedTierInfo.title.toUpperCase()}</strong> ({selectedTierInfo.totalCommitment})</span>
+          <span>SELECTED GROWTH LEVEL: <strong>{selectedTierInfo.title.toUpperCase()}</strong> ({selectedTierInfo.totalInvestment})</span>
         </div>
       )}
 

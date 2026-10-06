@@ -1735,25 +1735,83 @@ export default function GrowthPartnerPage() {
                   </div>
 
                   <div className="dws-included-capabilities">
-                    <span className="dws-capabilities-heading">WHAT THE $499 GROWTH ENGINE INCLUDES:</span>
-                    <ul className="dws-capabilities-grid">
-                      <li><span className="dws-check" aria-hidden="true">✓</span> Professional Business Website ($0 upfront build fee)</li>
-                      <li><span className="dws-check" aria-hidden="true">✓</span> Lead-Generation Landing Page ($0 upfront build fee)</li>
-                      <li><span className="dws-check" aria-hidden="true">✓</span> Unified GoHighLevel CRM</li>
-                      <li><span className="dws-check" aria-hidden="true">✓</span> High-Intent Direct Lead Capture</li>
-                      <li><span className="dws-check" aria-hidden="true">✓</span> Automated SMS &amp; Email Follow-Up Sequences</li>
-                      <li><span className="dws-check" aria-hidden="true">✓</span> Visual Stage-Tracked Sales Pipeline</li>
-                      <li><span className="dws-check" aria-hidden="true">✓</span> Direct Calendar Appointment Booking</li>
-                      <li><span className="dws-check" aria-hidden="true">✓</span> Automated Customer Review Generation</li>
-                      <li><span className="dws-check" aria-hidden="true">✓</span> Multi-Touch Attribution &amp; Lead Tracking</li>
-                      <li><span className="dws-check" aria-hidden="true">✓</span> Live Executive Performance Reporting</li>
-                    </ul>
+                    <span className="dws-capabilities-heading">WHAT YOUR GROWTH ENGINE INCLUDES:</span>
+                    <div className="dws-capabilities-grouped">
+                      <div className="dws-cap-group">
+                        <div className="dws-cap-group-title">
+                          <span className="dws-check" aria-hidden="true">✓</span>
+                          <strong>WEBSITE + LANDING PAGE</strong>
+                        </div>
+                        <p className="dws-cap-group-sub">Professional business website &amp; dedicated lead-generation landing page ($0 upfront build fee)</p>
+                      </div>
+
+                      <div className="dws-cap-group">
+                        <div className="dws-cap-group-title">
+                          <span className="dws-check" aria-hidden="true">✓</span>
+                          <strong>CRM + LEAD CAPTURE</strong>
+                        </div>
+                        <p className="dws-cap-group-sub">Unified GoHighLevel CRM infrastructure with direct high-intent inquiry capture</p>
+                      </div>
+
+                      <div className="dws-cap-group">
+                        <div className="dws-cap-group-title">
+                          <span className="dws-check" aria-hidden="true">✓</span>
+                          <strong>AUTOMATED FOLLOW-UP</strong>
+                        </div>
+                        <p className="dws-cap-group-sub">Instant multi-channel SMS &amp; email follow-up sequences to engage prospects</p>
+                      </div>
+
+                      <div className="dws-cap-group">
+                        <div className="dws-cap-group-title">
+                          <span className="dws-check" aria-hidden="true">✓</span>
+                          <strong>PIPELINE + APPOINTMENT BOOKING</strong>
+                        </div>
+                        <p className="dws-cap-group-sub">Visual stage-tracked sales pipeline with direct calendar appointment booking</p>
+                      </div>
+
+                      <div className="dws-cap-group">
+                        <div className="dws-cap-group-title">
+                          <span className="dws-check" aria-hidden="true">✓</span>
+                          <strong>REVIEWS + REPUTATION</strong>
+                        </div>
+                        <p className="dws-cap-group-sub">Automated post-service customer feedback and 5-star review generation workflows</p>
+                      </div>
+
+                      <div className="dws-cap-group">
+                        <div className="dws-cap-group-title">
+                          <span className="dws-check" aria-hidden="true">✓</span>
+                          <strong>TRACKING + PERFORMANCE REPORTING</strong>
+                        </div>
+                        <p className="dws-cap-group-sub">Multi-touch attribution tracking with live executive performance reporting</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="dws-centerpiece-cta-row">
+                    <a
+                      href={getTierUrl('growth')}
+                      className="dws-centerpiece-primary-btn"
+                      onClick={() => handleCtaClick('Centerpiece Offer CTA', 'BUILD MY GROWTH ENGINE — $499/MO')}
+                    >
+                      <span>BUILD MY GROWTH ENGINE — $499/MO</span>
+                      <span className="dws-btn-arrow" aria-hidden="true">→</span>
+                    </a>
+                    <a
+                      href="#fuel-levels"
+                      className="dws-centerpiece-secondary-btn"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        document.getElementById('fuel-levels')?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                    >
+                      SEE MY GROWTH OPTIONS
+                    </a>
                   </div>
                 </div>
               </div>
 
               {/* THREE ADVERTISING FUEL LEVELS */}
-              <div className="dws-growth-levels-wrapper">
+              <div className="dws-growth-levels-wrapper" id="fuel-levels">
                 <div className="dws-fuel-section-header">
                   <span className="dws-fuel-badge">ADVERTISING MEDIA FUEL</span>
                   <h3 className="dws-fuel-title">Fuel Your Growth Engine</h3>
@@ -1780,7 +1838,7 @@ export default function GrowthPartnerPage() {
                         <strong className="dws-math-val">+ $499/mo</strong>
                       </div>
                       <div className="dws-math-total">
-                        <span className="dws-total-label">Total Monthly Commitment</span>
+                        <span className="dws-total-label">Total Monthly Investment</span>
                         <strong className="dws-total-val">$749/mo</strong>
                       </div>
                     </div>
@@ -1814,7 +1872,7 @@ export default function GrowthPartnerPage() {
                         <strong className="dws-math-val">+ $499/mo</strong>
                       </div>
                       <div className="dws-math-total is-accent">
-                        <span className="dws-total-label">Total Monthly Commitment</span>
+                        <span className="dws-total-label">Total Monthly Investment</span>
                         <strong className="dws-total-val">$999/mo</strong>
                       </div>
                     </div>
@@ -1847,7 +1905,7 @@ export default function GrowthPartnerPage() {
                         <strong className="dws-math-val">+ $499/mo</strong>
                       </div>
                       <div className="dws-math-total">
-                        <span className="dws-total-label">Total Monthly Commitment</span>
+                        <span className="dws-total-label">Total Monthly Investment</span>
                         <strong className="dws-total-val">$1,499+/mo</strong>
                       </div>
                     </div>

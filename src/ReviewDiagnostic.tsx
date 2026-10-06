@@ -752,18 +752,50 @@ export default function ReviewDiagnostic({
                 </div>
 
                 <div className="dws-centerpiece-features">
-                  <span className="dws-features-label">WHAT THE $499 GROWTH ENGINE INCLUDES:</span>
-                  <div className="dws-features-grid">
-                    <span><i aria-hidden="true">✓</i> Professional Business Website</span>
-                    <span><i aria-hidden="true">✓</i> Lead-Gen Landing Page</span>
-                    <span><i aria-hidden="true">✓</i> GoHighLevel / Unified CRM</span>
-                    <span><i aria-hidden="true">✓</i> Direct Lead Capture</span>
-                    <span><i aria-hidden="true">✓</i> Automated Follow-Up</span>
-                    <span><i aria-hidden="true">✓</i> Visual Sales Pipeline</span>
-                    <span><i aria-hidden="true">✓</i> Appointment Booking</span>
-                    <span><i aria-hidden="true">✓</i> Automated Review Generation</span>
-                    <span><i aria-hidden="true">✓</i> Attribution &amp; Lead Tracking</span>
-                    <span><i aria-hidden="true">✓</i> Live Performance Reporting</span>
+                  <span className="dws-features-label">WHAT YOUR GROWTH ENGINE INCLUDES:</span>
+                  <div className="dws-features-grouped">
+                    <div className="dws-feat-item">
+                      <span className="dws-feat-check" aria-hidden="true">✓</span>
+                      <div className="dws-feat-text">
+                        <strong>WEBSITE + LANDING PAGE</strong>
+                        <span>Professional business website &amp; dedicated lead-gen landing page</span>
+                      </div>
+                    </div>
+                    <div className="dws-feat-item">
+                      <span className="dws-feat-check" aria-hidden="true">✓</span>
+                      <div className="dws-feat-text">
+                        <strong>CRM + LEAD CAPTURE</strong>
+                        <span>Unified GoHighLevel CRM with high-intent inquiry capture</span>
+                      </div>
+                    </div>
+                    <div className="dws-feat-item">
+                      <span className="dws-feat-check" aria-hidden="true">✓</span>
+                      <div className="dws-feat-text">
+                        <strong>AUTOMATED FOLLOW-UP</strong>
+                        <span>Instant SMS &amp; email multi-channel follow-up sequences</span>
+                      </div>
+                    </div>
+                    <div className="dws-feat-item">
+                      <span className="dws-feat-check" aria-hidden="true">✓</span>
+                      <div className="dws-feat-text">
+                        <strong>PIPELINE + APPOINTMENT BOOKING</strong>
+                        <span>Visual stage-tracked pipeline with direct calendar booking</span>
+                      </div>
+                    </div>
+                    <div className="dws-feat-item">
+                      <span className="dws-feat-check" aria-hidden="true">✓</span>
+                      <div className="dws-feat-text">
+                        <strong>REVIEWS + REPUTATION</strong>
+                        <span>Automated 5-star customer review &amp; reputation generation</span>
+                      </div>
+                    </div>
+                    <div className="dws-feat-item">
+                      <span className="dws-feat-check" aria-hidden="true">✓</span>
+                      <div className="dws-feat-text">
+                        <strong>TRACKING + PERFORMANCE REPORTING</strong>
+                        <span>Multi-touch attribution tracking &amp; live performance reporting</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -796,7 +828,7 @@ export default function ReviewDiagnostic({
                       <strong className="dws-fuel-line-val">+ $499 / mo</strong>
                     </div>
                     <div className="dws-fuel-total">
-                      <span>Total Commitment:</span>
+                      <span>Total Monthly Investment:</span>
                       <strong>$749/mo</strong>
                     </div>
                   </div>
@@ -825,7 +857,7 @@ export default function ReviewDiagnostic({
                       <strong className="dws-fuel-line-val">+ $499 / mo</strong>
                     </div>
                     <div className="dws-fuel-total is-highlight">
-                      <span>Total Commitment:</span>
+                      <span>Total Monthly Investment:</span>
                       <strong>$999/mo</strong>
                     </div>
                   </div>
@@ -853,7 +885,7 @@ export default function ReviewDiagnostic({
                       <strong className="dws-fuel-line-val">+ $499 / mo</strong>
                     </div>
                     <div className="dws-fuel-total">
-                      <span>Total Commitment:</span>
+                      <span>Total Monthly Investment:</span>
                       <strong>$1,499+/mo</strong>
                     </div>
                   </div>
